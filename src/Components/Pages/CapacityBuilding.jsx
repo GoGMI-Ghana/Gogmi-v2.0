@@ -201,7 +201,7 @@ const CapacityBuilding = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
               >
-                <span>Explore Our Trainings</span>
+                <span>Explore Our Learning Management System</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
