@@ -605,7 +605,7 @@ const Home = () => {
           excerpt: 'The International Maritime Security Working Group (IMSWG), formed by the Gulf of Guinea Maritime Institute, is the Institute\'s flagship forum focused on stimulating dialogue and policy innovation.',
           date: 'March 17, 2026',
           image: '/imswgq1.jpeg',
-          link: 'https://gogmi-v-20-main.vercel.app/imswg'
+          link: '/imswg'
         },
         {
           category: 'News & Blogs',
