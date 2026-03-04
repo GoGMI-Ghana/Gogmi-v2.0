@@ -295,6 +295,81 @@ const IMSWGSignUp = () => {
                   )}
                 </div>
 
+                {/* Area of Expertise */}
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
+                    Area of Expertise <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="areaOfExpertise"
+                    value={formData.areaOfExpertise}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${
+                      errors.areaOfExpertise ? 'border-red-300' : 'border-slate-200'
+                    }`}
+                  >
+                    <option value="">Select your area of expertise</option>
+                    <option value="Maritime Security">Maritime Security</option>
+                    <option value="Ocean Governance">Ocean Governance</option>
+                    <option value="Blue Economy">Blue Economy</option>
+                    <option value="International Relations">International Relations</option>
+                    <option value="Maritime Law">Maritime Law</option>
+                    <option value="Naval Operations">Naval Operations</option>
+                    <option value="Port & Shipping">Port & Shipping</option>
+                    <option value="Fisheries Management">Fisheries Management</option>
+                    <option value="Environmental Policy">Environmental Policy</option>
+                    <option value="Trade & Economics">Trade & Economics</option>
+                    <option value="Policy Research">Policy Research</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  {errors.areaOfExpertise && (
+                    <p className="text-red-600 text-sm mt-1 font-semibold">{errors.areaOfExpertise}</p>
+                  )}
+                </div>
+
+                {/* Area of Interest (Optional) */}
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
+                    Area of Interest <span className="text-slate-400">(Optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="areaOfInterest"
+                    value={formData.areaOfInterest}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
+                    placeholder="e.g., Piracy prevention, Blue carbon credits"
+                  />
+                </div>
+
+                {/* Bio */}
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
+                    A Brief Bio of You <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="bio"
+                    value={formData.bio}
+                    onChange={handleChange}
+                    rows="6"
+                    className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent resize-none ${
+                      errors.bio ? 'border-red-300' : 'border-slate-200'
+                    }`}
+                    placeholder="Tell us about your background, experience, and interest in maritime security... (minimum 50 characters)"
+                  ></textarea>
+                  <div className="flex justify-between items-center mt-2">
+                    {errors.bio ? (
+                      <p className="text-red-600 text-sm font-semibold">{errors.bio}</p>
+                    ) : (
+                      <p className="text-slate-400 text-sm">
+                        {formData.bio.length} / 50 minimum characters
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Submit Button */}
             <div className="pt-6 border-t border-slate-200">
               <button
