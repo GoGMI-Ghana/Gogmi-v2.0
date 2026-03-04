@@ -275,7 +275,7 @@ const IMSWGSignUp = () => {
               </h3>
               
               <div className="space-y-6">
-                {/* Position */}
+                {/* Position - Only field remaining */}
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     Current Professional/Position or Title Held <span className="text-red-500">*</span>
@@ -294,8 +294,16 @@ const IMSWGSignUp = () => {
                     <p className="text-red-600 text-sm mt-1 font-semibold">{errors.position}</p>
                   )}
                 </div>
+              </div>
+            </div>
 
-                {/* Area of Expertise */}
+            {/* Area of Expertise */}
+            <div>
+              <h3 className="text-xl font-bold mb-6" style={{ color: '#1e293b' }}>
+                Area of Expertise
+              </h3>
+              
+              <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     Area of Expertise <span className="text-red-500">*</span>
