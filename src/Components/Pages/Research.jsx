@@ -183,7 +183,7 @@ const Research = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
               >
-                <span>Explore Our Research</span>
+                <span>Explore Our Gulf Spectrum Journal</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
              
