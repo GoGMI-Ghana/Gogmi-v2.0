@@ -212,7 +212,7 @@ const IMSWG = () => {
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white"
                 style={{ letterSpacing: '-0.01em', fontFamily: '"SF Pro Display", sans-serif' }}>
-              IMSWG 2026 - Coming Soon
+              IMSWG 2026 - Quarter 1
             </h2>
             <div className="w-20 h-1 bg-cyan-400 rounded-full mx-auto mb-6"></div>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto"
@@ -249,7 +249,7 @@ const IMSWG = () => {
                 <div className="space-y-3 text-slate-300">
                   <p className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
-                    <span className="font-semibold text-white">Date:</span> Coming Soon
+                    <span className="font-semibold text-white">Date:</span> 17th March, 2026
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
@@ -257,7 +257,7 @@ const IMSWG = () => {
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
-                    <span className="font-semibold text-white">Status:</span> Registration Opening Soon
+                    <span className="font-semibold text-white">Status:</span> Registration Opened
                   </p>
                 </div>
               </div>
