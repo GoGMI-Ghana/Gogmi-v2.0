@@ -209,7 +209,7 @@ const Navbar = () => {
           {!isAuthenticated ? (
             <>
               <button
-                onClick={() => handleNavClick("")}
+                onClick={() => handleNavClick("/login")}
                 className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
                   scrolled
                     ? "text-[#1F2933] hover:bg-[#8E3400]/10"
@@ -220,7 +220,7 @@ const Navbar = () => {
                 GoGMI Blue Business Directory
               </button>
               <button
-                onClick={() => handleNavClick("/#")}
+                onClick={() => handleNavClick("/membership")}
                 className="bg-[#8E3400] text-white px-6 py-2.5 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 whitespace-nowrap"
                 style={{ fontWeight: 600 }}
               >
