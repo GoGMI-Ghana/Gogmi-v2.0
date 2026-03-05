@@ -621,7 +621,7 @@ const Home = () => {
           excerpt: 'This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.',
           date: 'May 5 – 28, 2026',
           image: '/maritime.gov.jpeg',
-          link: '/CapacityBuilding'
+          link: '/services/CapacityBuilding'
         }
       ].map((news, idx) => (
         <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
