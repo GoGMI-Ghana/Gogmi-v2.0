@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, AlertCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const IMSWGSignUp = () => {
+const IMSWGforum = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -68,8 +68,8 @@ const IMSWGSignUp = () => {
     setErrors({});
     
     try {
-      const apiUrl = 'https://aquamarine-kingfisher-700098.hostingersite.com/api';
-      const response = await fetch(`${apiUrl}/imswg-signup.php`, {
+      const apiUrl = 'https://gogmi.org.gh/api';
+      const response = await fetch(`${apiUrl}/imswg-forum.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -314,4 +314,4 @@ const IMSWGSignUp = () => {
   );
 };
 
-export default IMSWGSignUp;
+export default IMSWGforum;
