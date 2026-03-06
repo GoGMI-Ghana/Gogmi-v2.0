@@ -28,7 +28,7 @@ import Management from './Components/Pages/Management';
 import AdvisoryBoard from './Components/Pages/AdvisoryBoard';
 import Login from './Components/Pages/Login';
 import IMSWGSignUp from './Components/Pages/IMSWGSignUp';
-import MaritimeGovernanceCourse from './Components/Pages/maritimemovernancemourse';
+import MaritimeGovernanceCourse from './Components/Pages/maritimegovernancecourse';
 import MarineCasualtyCourse from './Components/Pages/MarineCasualtyCourse';
 import GulfSpectrumPodcast from './Components/Pages/GulfSpectrumPodcast';
 import BlueWorldInitiative from './Components/Pages/BlueWorldInitiative';
