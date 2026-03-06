@@ -29,7 +29,8 @@ try {
         throw new Exception('Invalid data');
     }
     
-    $required = ['fullName', 'email', 'position', 'bio', 'country', 'areaOfExpertise'];
+    // Updated required fields to match the image form
+    $required = ['fullName', 'email', 'position', 'country'];
     foreach ($required as $field) {
         if (empty($data[$field])) {
             throw new Exception("$field is required");
@@ -43,26 +44,23 @@ try {
     $fullName = htmlspecialchars(trim($data['fullName']));
     $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
     $whatsappNumber = htmlspecialchars(trim($data['whatsappNumber'] ?? ''));
-    $position = htmlspecialchars(trim($data['position']));
-    $bio = htmlspecialchars(trim($data['bio']));
     $country = htmlspecialchars(trim($data['country']));
-    $areaOfInterest = htmlspecialchars(trim($data['areaOfInterest'] ?? ''));
-    $areaOfExpertise = htmlspecialchars(trim($data['areaOfExpertise']));
+    $position = htmlspecialchars(trim($data['position']));
+    $institution = htmlspecialchars(trim($data['institution'] ?? '')); // Optional field
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
+    // Updated table structure to match the image form
     $createTable = "
         CREATE TABLE IF NOT EXISTS imswg_applications (
             id INT AUTO_INCREMENT PRIMARY KEY,
             full_name VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL,
             whatsapp_number VARCHAR(50),
-            position VARCHAR(255) NOT NULL,
-            bio TEXT NOT NULL,
             country VARCHAR(100) NOT NULL,
-            area_of_interest VARCHAR(255),
-            area_of_expertise VARCHAR(255) NOT NULL,
+            position VARCHAR(255) NOT NULL,
+            institution VARCHAR(255),
             application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending'
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -75,30 +73,29 @@ try {
         throw new Exception('Email already registered');
     }
     
+    // Updated insert query to match new table structure
     $stmt = $pdo->prepare("
         INSERT INTO imswg_applications 
-        (full_name, email, whatsapp_number, position, bio, country, area_of_interest, area_of_expertise) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        (full_name, email, whatsapp_number, country, position, institution) 
+        VALUES (?, ?, ?, ?, ?, ?)
     ");
     
     $stmt->execute([
-        $fullName, $email, $whatsappNumber, $position, $bio, $country, $areaOfInterest, $areaOfExpertise
+        $fullName, $email, $whatsappNumber, $country, $position, $institution
     ]);
     
     $applicationId = $pdo->lastInsertId();
     
-    // Send email
+    // Updated email content to match the form
     $to = 'info@gogmi.org.gh';
     $subject = 'New IMSWG Application - ' . $fullName;
-    $emailBody = "<h2>New IMSWG Application</h2>
-                  <p><strong>Name:</strong> $fullName</p>
-                  <p><strong>Email:</strong> $email</p>
-                  <p><strong>WhatsApp:</strong> $whatsappNumber</p>
-                  <p><strong>Position:</strong> $position</p>
-                  <p><strong>Country:</strong> $country</p>
-                  <p><strong>Expertise:</strong> $areaOfExpertise</p>
-                  <p><strong>Interest:</strong> $areaOfInterest</p>
-                  <p><strong>Bio:</strong> $bio</p>";
+    $emailBody = "<h2>New IMSWG Application - Quarter 1 Forum 2026</h2>
+                  <p><strong>Full Name:</strong> $fullName</p>
+                  <p><strong>Email Address:</strong> $email</p>
+                  <p><strong>WhatsApp Number:</strong> $whatsappNumber</p>
+                  <p><strong>Country of Residence:</strong> $country</p>
+                  <p><strong>Current Professional Position/Title:</strong> $position</p>
+                  <p><strong>Institution/Organisation:</strong> $institution</p>";
     
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8\r\n";
@@ -106,7 +103,7 @@ try {
     
     mail($to, $subject, $emailBody, $headers);
     
-    echo json_encode(['success' => true, 'message' => 'Application submitted', 'data' => ['applicationId' => $applicationId]]);
+    echo json_encode(['success' => true, 'message' => 'Application submitted successfully', 'data' => ['applicationId' => $applicationId]]);
     
 } catch (Exception $e) {
     http_response_code(400);
