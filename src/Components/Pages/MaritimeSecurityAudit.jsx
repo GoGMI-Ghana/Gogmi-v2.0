@@ -515,38 +515,6 @@ const MaritimeSecurityAudit = () => {
         </div>
       </section>
 
-      {/* Final Download CTA */}
-      
-      {/* CTA Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden"
-               style={{ background: 'linear-gradient(135deg, #132552 0%, #1A5490 100%)' }}>
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6"
-              style={{ letterSpacing: '-0.02em', fontFamily: '"SF Pro Display", sans-serif' }}>
-            Stay Updated on This Research
-          </h2>
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Georgia, serif' }}>
-            Subscribe to receive updates on our findings, publications, and upcoming dissemination workshops
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg transition-all shadow-xl hover:scale-105"
-                    style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700, fontFamily: 'system-ui, sans-serif' }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}>
-              <BookOpen className="w-5 h-5" />
-              <span>Subscribe for Updates</span>
-            </button>
-            <button className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg transition-all backdrop-blur-md"
-                    style={{ border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', backgroundColor: 'rgba(255, 255, 255, 0.1)', fontWeight: 700, fontFamily: 'system-ui, sans-serif' }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'}>
-              <Users className="w-5 h-5" />
-              <span>Contact Research Team</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
