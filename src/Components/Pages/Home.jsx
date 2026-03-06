@@ -740,7 +740,7 @@ const Home = () => {
   </div>
 </section>
 
-      {/* EVENTS BANNER SLIDESHOW - REPLACES "READY TO PARTNER WITH US?" SECTION */}
+      {/* EVENTS BANNER SLIDESHOW*/}
       <section className="py-20 md:py-28 relative overflow-hidden" 
                style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
         {/* Subtle decorative elements */}
@@ -778,13 +778,13 @@ const Home = () => {
                 msOverflowStyle: 'none'
               }}
             >
-              {/* Duplicate the banners array to create seamless loop effect */}
+              {/* banners array*/}
               {[...eventBanners, ...eventBanners].map((banner, index) => (
                 <Link
                   key={`${banner.id}-${index}`}
                   to={banner.link}
                   className="flex-shrink-0 w-[calc(50%-12px)] md:w-[calc(50%-12px)] group"
-                  onClick={() => setIsPaused(false)} // Resume scrolling after click
+                  onClick={() => setIsPaused(false)} 
                 >
                   <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
                     <img 
@@ -814,21 +814,7 @@ const Home = () => {
           
           {/* Pause/Play indicator (subtle) */}
           <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
-            {isPaused ? '⏸️ Paused - Hover to resume' : '▶️ Auto-scrolling - Hover to pause'}
-          </div>
-          
-          {/* View All Events Link */}
-          <div className="mt-10">
-            <Link
-              to="/events"
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:shadow-xl group"
-              style={{ backgroundColor: '#8E3400', color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-            >
-              <span>View All Events</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            {isPaused ? ''}
           </div>
         </div>
       </section>
