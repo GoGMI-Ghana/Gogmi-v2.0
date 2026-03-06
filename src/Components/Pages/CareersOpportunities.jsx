@@ -110,19 +110,20 @@ const Careers = () => {
             Be part of a team transforming The Future of the Gulf of Guinea Maritime Domain
           </p>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12">
-            {[
-              { number: '20+', label: 'Team Members' },
-              { number: '5', label: 'Nationalities' },
-              { number: '0', label: 'Open Positions' },
-           
-            ].map((stat, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-[#8E3400] mb-1" style={{ fontWeight: 900 }}>{stat.number}</div>
-                <p className="text-white/80 text-sm" style={{ fontWeight: 400 }}>{stat.label}</p>
-              </div>
-            ))}
+          {/* Quick Stats - FIXED: Added flex justify-center to center the grid */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl w-full mx-auto mt-12">
+              {[
+                { number: '20+', label: 'Team Members' },
+                { number: '5', label: 'Nationalities' },
+                { number: '0', label: 'Open Positions' },
+              ].map((stat, idx) => (
+                <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold text-[#8E3400] mb-1" style={{ fontWeight: 900 }}>{stat.number}</div>
+                  <p className="text-white/80 text-sm" style={{ fontWeight: 400 }}>{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
