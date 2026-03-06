@@ -445,24 +445,6 @@ const BlueWorldInitiative = () => {
           </div>
         </div>
       </section>
-
-      {/* Call to Action */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Stay Curious and Engaged
-          </h2>
-          <p className="text-lg leading-relaxed mb-8 font-semibold" style={{ color: '#4B5563' }}>
-            We hope this initiative has provided you with useful information about the ocean and the different careers that are available in the ocean-related industry. Remember to stay curious and engaged, and take advantage of the opportunity to connect with professionals in the field and learn more about the ocean and its importance.
-          </p>
-          <p className="text-xl font-bold mb-8" style={{ color: '#8E3400' }}>
-            Good luck in your future endeavours!
-          </p>
-          <p className="text-base font-semibold" style={{ color: '#4B5563' }}>
-            Want to find out more? Do some online research or reach out to any member of the GoGMI team. We would be happy to talk to you!
-          </p>
-        </div>
-      </section>
     </div>
   );
 };
