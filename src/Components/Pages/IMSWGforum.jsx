@@ -8,11 +8,9 @@ const IMSWGforum = () => {
     fullName: '',
     email: '',
     whatsappNumber: '',
-    position: '',
-    bio: '',
     country: '',
-    areaOfInterest: '',
-    areaOfExpertise: ''
+    position: '',
+    institution: '' // New optional field
   });
 
   const [errors, setErrors] = useState({});
@@ -28,14 +26,8 @@ const IMSWGforum = () => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
-    if (!formData.position.trim()) newErrors.position = 'Position is required';
-    if (!formData.bio.trim()) {
-      newErrors.bio = 'Bio is required';
-    } else if (formData.bio.trim().length < 50) {
-      newErrors.bio = 'Bio must be at least 50 characters';
-    }
-    if (!formData.country.trim()) newErrors.country = 'Country is required';
-    if (!formData.areaOfExpertise.trim()) newErrors.areaOfExpertise = 'Area of expertise is required';
+    if (!formData.country.trim()) newErrors.country = 'Country of residence is required';
+    if (!formData.position.trim()) newErrors.position = 'Position/Title is required';
     
     return newErrors;
   };
@@ -92,11 +84,9 @@ const IMSWGforum = () => {
         fullName: '',
         email: '',
         whatsappNumber: '',
-        position: '',
-        bio: '',
         country: '',
-        areaOfInterest: '',
-        areaOfExpertise: ''
+        position: '',
+        institution: ''
       });
 
       setTimeout(() => {
@@ -154,7 +144,7 @@ const IMSWGforum = () => {
             <span className="font-semibold">Back to IMSWG</span>
           </button>
           <h1 className="text-4xl font-bold mb-2" style={{ color: '#1e293b' }}>
-            Join IMSWG
+            IMSWG 2026 - Quarter 1 Forum
           </h1>
           <p className="text-lg" style={{ color: '#64748b' }}>
             International Maritime Security Working Group
@@ -165,10 +155,10 @@ const IMSWGforum = () => {
       {/* Form */}
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
-          {/* Introduction */}
+          {/* Introduction - Updated to match image */}
           <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
-            <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
-              IMSWG 2026 - Quarter 1 Forum
+            <p className="text-base leading-relaxed font-medium" style={{ color: '#475569' }}>
+              Please fill out the form below to apply for membership in the International Maritime Security Working Group.
             </p>
           </div>
 
@@ -181,15 +171,15 @@ const IMSWGforum = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Personal Information */}
+            {/* Personal Information - Matches image exactly */}
             <div>
-              <h3 className="text-xl font-bold mb-6" style={{ color: '#1e293b' }}>
+              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>
                 Personal Information
               </h3>
               
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Full Name */}
-                <div>
+                <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     Full Name <span className="text-red-500">*</span>
                   </label>
@@ -208,8 +198,8 @@ const IMSWGforum = () => {
                   )}
                 </div>
 
-                {/* Email */}
-                <div>
+                {/* Email Address */}
+                <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     Email Address <span className="text-red-500">*</span>
                   </label>
@@ -228,8 +218,8 @@ const IMSWGforum = () => {
                   )}
                 </div>
 
-                {/* WhatsApp */}
-                <div>
+                {/* WhatsApp Number */}
+                <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     WhatsApp Number
                   </label>
@@ -243,8 +233,8 @@ const IMSWGforum = () => {
                   />
                 </div>
 
-                {/* Country */}
-                <div>
+                {/* Country of Residence */}
+                <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     Country of Residence <span className="text-red-500">*</span>
                   </label>
@@ -265,14 +255,14 @@ const IMSWGforum = () => {
               </div>
             </div>
 
-            {/* Professional Information */}
+            {/* Professional Information - Matches image exactly */}
             <div>
-              <h3 className="text-xl font-bold mb-6" style={{ color: '#1e293b' }}>
+              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>
                 Professional Information
               </h3>
               
               <div className="space-y-6">
-                {/* Position - Only field remaining */}
+                {/* Current Professional Position/Title */}
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     Current Professional/Position or Title Held <span className="text-red-500">*</span>
@@ -291,10 +281,25 @@ const IMSWGforum = () => {
                     <p className="text-red-600 text-sm mt-1 font-semibold">{errors.position}</p>
                   )}
                 </div>
+
+                {/* Institution/Organisation - New optional field */}
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
+                    Institution/Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="institution"
+                    value={formData.institution}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
+                    placeholder="e.g., Maritime Authority, Security Firm, etc."
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button - Matches image exactly */}
             <div className="pt-6 border-t border-slate-200">
               <button
                 type="submit"
@@ -303,7 +308,7 @@ const IMSWGforum = () => {
               >
                 {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
               </button>
-              <p className="text-sm text-center mt-4" style={{ color: '#64748b' }}>
+              <p className="text-sm text-center mt-4 italic" style={{ color: '#64748b' }}>
                 By submitting this form, you agree to be contacted regarding IMSWG activities
               </p>
             </div>
