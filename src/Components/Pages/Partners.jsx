@@ -405,27 +405,6 @@ const Partners = () => {
           <p className="text-xl mb-10 leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
             Join our network of leading organizations driving maritime excellence in the Gulf of Guinea.
           </p>
-          
-          <div className="bg-[#F5F7FA] rounded-xl p-6 border border-gray-200 inline-block mb-8">
-            <p className="mb-2" style={{ color: '#132552', fontWeight: 600 }}>Contact Partnerships Team</p>
-            <a href="mailto:partnerships@gogmi.org.gh" 
-               className="text-lg hover:underline" 
-               style={{ color: '#8E3400', fontWeight: 600 }}>
-              info@gogmi.org.gh
-            </a>
-          </div>
-
-          <div>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl text-lg transition-all shadow-lg hover:scale-105"
-              style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-            >
-              Partnership Opportunities
-            </Link>
-          </div>
         </div>
       </section>
     </div>
