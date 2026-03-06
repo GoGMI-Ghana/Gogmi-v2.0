@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -16,7 +16,77 @@ const Home = () => {
   // YouTube Video ID
   const youtubeVideoId = 'XgzCbENPQn0';
 
-  
+  // Event banners for autoscroll slideshow
+  const eventBanners = [
+    {
+      id: 1,
+      image: '/event-banner-1.jpg', // Replace with actual event banner paths
+      alt: 'Maritime Security Conference 2026',
+      link: '/events/maritime-security-conference-2026'
+    },
+    {
+      id: 2,
+      image: '/event-banner-2.jpg',
+      alt: 'Blue Economy Summit',
+      link: '/events/blue-economy-summit'
+    },
+    {
+      id: 3,
+      image: '/event-banner-3.jpg',
+      alt: 'Gulf of Guinea Maritime Week',
+      link: '/events/maritime-week'
+    },
+    {
+      id: 4,
+      image: '/event-banner-4.jpg',
+      alt: 'Youth in Maritime Workshop',
+      link: '/events/youth-workshop'
+    },
+    {
+      id: 5,
+      image: '/event-banner-5.jpg',
+      alt: 'International Maritime Symposium',
+      link: '/events/symposium'
+    },
+    {
+      id: 6,
+      image: '/event-banner-6.jpg',
+      alt: 'Coastal States Forum',
+      link: '/events/coastal-forum'
+    }
+  ];
+
+  // Slideshow ref and state
+  const scrollContainerRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Autoscroll functionality
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer || isPaused) return;
+
+    const scrollStep = 1; // Pixels per frame
+    const scrollInterval = 20; // Milliseconds per frame
+
+    const autoScroll = setInterval(() => {
+      if (scrollContainer && !isPaused) {
+        // Check if we've reached the end
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          // Reset to beginning for seamless loop
+          scrollContainer.scrollLeft = 0;
+        } else {
+          scrollContainer.scrollLeft += scrollStep;
+        }
+      }
+    }, scrollInterval);
+
+    return () => clearInterval(autoScroll);
+  }, [isPaused]);
+
+  // Pause on hover
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
+
   const festiveOverlays = [
     {
       enabled: false,                          // Turn on/off
@@ -183,6 +253,14 @@ const Home = () => {
         opacity: 0 !important;
         visibility: hidden !important;
       }
+      /* Hide scrollbar for slideshow */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     `;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
@@ -285,21 +363,6 @@ const Home = () => {
             Pioneering sustainable maritime initiatives that drive economic growth
             and environmental stewardship across the Gulf of Guinea
           </p>
-
-          {/* <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <a
-              href="http://ourjourney.gogmi.org.gh/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-xl font-bold transition-all shadow-2xl hover:scale-105"
-              style={{ backgroundColor: '#8E3400', color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-            >
-              <span>Discover Our Journey</span>
-              <ArrowRight className="w-5 h-5" />
-            </a>
-          </div> */}
         </div>
       </header>
 
@@ -677,9 +740,8 @@ const Home = () => {
   </div>
 </section>
 
-
-      {/* CTA */}
-      <section className="py-20 md:py-32 relative overflow-hidden" 
+      {/* EVENTS BANNER SLIDESHOW - REPLACES "READY TO PARTNER WITH US?" SECTION */}
+      <section className="py-20 md:py-28 relative overflow-hidden" 
                style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
         {/* Subtle decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
@@ -687,33 +749,85 @@ const Home = () => {
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
              style={{ backgroundColor: '#132552' }}></div>
              
-        <div className="container mx-auto max-w-5xl px-6 text-center relative z-10">
+        <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
+          <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4" 
+                style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
+            Upcoming & Past Events
+          </span>
           <h2 className="text-5xl md:text-6xl font-black mb-6"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-            Ready to Partner With Us?
+            Featured Events
           </h2>
           <p className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            Join us in shaping the future of the Gulf of Guinea maritime sector
+            Discover our conferences, workshops, and maritime gatherings
           </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+          
+          {/* Horizontal Continuous Autoscroll Slideshow - 2 images at a time */}
+          <div 
+            className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-6 overflow-x-auto no-scrollbar py-4 px-2"
+              style={{ 
+                scrollBehavior: 'auto',
+                cursor: 'grab',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none'
+              }}
+            >
+              {/* Duplicate the banners array to create seamless loop effect */}
+              {[...eventBanners, ...eventBanners].map((banner, index) => (
+                <Link
+                  key={`${banner.id}-${index}`}
+                  to={banner.link}
+                  className="flex-shrink-0 w-[calc(50%-12px)] md:w-[calc(50%-12px)] group"
+                  onClick={() => setIsPaused(false)} // Resume scrolling after click
+                >
+                  <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                    <img 
+                      src={banner.image} 
+                      alt={banner.alt}
+                      className="w-full h-auto object-cover aspect-[16/9]"
+                      onError={(e) => {
+                        // Fallback if image doesn't load
+                        e.target.src = 'https://via.placeholder.com/800x450?text=Event+Banner';
+                      }}
+                    />
+                    {/* Overlay with gradient on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center">
+                      <span className="text-white font-bold text-lg mb-4 px-4 py-2 bg-black/50 rounded-full backdrop-blur-sm">
+                        View Event Details
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            
+            {/* Gradient fade on edges for visual effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none"></div>
+          </div>
+          
+          {/* Pause/Play indicator (subtle) */}
+          <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
+            {isPaused ? '⏸️ Paused - Hover to resume' : '▶️ Auto-scrolling - Hover to pause'}
+          </div>
+          
+          {/* View All Events Link */}
+          <div className="mt-10">
             <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl hover:scale-105 hover:shadow-2xl group"
+              to="/events"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:shadow-xl group"
               style={{ backgroundColor: '#8E3400', color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
             >
-              <span>Get Started</span>
+              <span>View All Events</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/about"
-              className="inline-flex items-center justify-center gap-2 px-12 py-5 rounded-2xl font-bold text-lg transition-all hover:shadow-lg"
-              style={{ border: '2px solid #132552', color: '#132552', backgroundColor: 'transparent', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#132552'; e.currentTarget.style.color = 'white'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#132552'; }}
-            >
-              <span>Learn More</span>
             </Link>
           </div>
         </div>
