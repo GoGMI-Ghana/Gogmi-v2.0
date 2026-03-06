@@ -796,9 +796,23 @@ const Home = () => {
             <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none"></div>
           </div>
           
-          {/* Pause/Play indicator (subtle) */}
+          {/* Fixed Pause/Play indicator */}
           <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
-            {isPaused ? ':'}
+            {isPaused ? 'Hover to resume' : 'Hover to pause'}
+          </div>
+
+          {/* View All Events Link - Added missing link */}
+          <div className="mt-10">
+            <Link
+              to="/events"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all hover:shadow-xl group"
+              style={{ backgroundColor: '#8E3400', color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
+            >
+              <span>View All Events</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
