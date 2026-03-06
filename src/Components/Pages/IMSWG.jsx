@@ -264,7 +264,7 @@ const IMSWG = () => {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button 
-                  onClick={() => navigate('/imswg-signup')}
+                  onClick={() => navigate('/imswg-forum')}
                   className="flex-1 px-8 py-4 bg-cyan-400 hover:bg-cyan-500 text-slate-900 rounded-xl font-bold transition-all hover:scale-105 shadow-lg cursor-pointer"
                 >
                   Register Interest
