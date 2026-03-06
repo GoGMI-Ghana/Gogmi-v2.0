@@ -78,7 +78,7 @@ const Contact = () => {
     try {
       // ✅ FIXED: Using the correct Hostinger domain
       // Change this to 'https://gogmi.org.gh/api/contact-handler.php' once DNS is configured
-      const response = await fetch('https://aquamarine-kingfisher-700098.hostingersite.com/api/contact-handler.php', {
+      const response = await fetch('https://gogmi.org.gh/api/contact-handler.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -177,8 +177,8 @@ const Contact = () => {
               {
                 icon: <MapPin className="w-8 h-8" />,
                 title: 'Visit Us',
-                info: 'GL-108-0038, No. 4 Obodai link street, , ',
-                subinfo: 'Tse Addo La Dade Kotopon, Accra',
+                info: 'GL-108-0038, No. 4 Obodai link street',
+                subinfo: 'Tse Addo La Dade Kotopon,Gr Accra',
                 color: 'from-[#1A336C] to-[#132552]'
               }
             ].map((item, idx) => (
