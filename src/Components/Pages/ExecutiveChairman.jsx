@@ -238,30 +238,6 @@ const ExecutiveChairman = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black mb-4"
-              style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Join Our Mission
-          </h2>
-          <p className="text-lg mb-8 leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-            Partner with us to transform the future of maritime in the Gulf of Guinea
-          </p>
-          <button 
-            onClick={() => navigate('/contact')}
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:scale-105"
-            style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}>
-            <span>Get In Touch</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </section>
     </div>
   );
 };
