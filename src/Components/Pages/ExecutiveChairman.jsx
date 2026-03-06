@@ -181,7 +181,7 @@ const ExecutiveChairman = () => {
               <div className="relative bg-white rounded-1g overflow-hidden shadow-md border border-gray-100 mb-4">
                 <div className="aspect-[5/4]">
                   <img 
-                    src="/lt.amponsah.jpg" 
+                    src="/lt.amponsah.jpeg" 
                     alt="Board Member"
                     className="w-full h-full object-cover object-center"
                     style={{ objectPosition: 'center 20%' }}
