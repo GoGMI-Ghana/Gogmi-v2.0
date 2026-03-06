@@ -342,42 +342,6 @@ const Advocacy = () => {
         </div>
       </section>
 
-
-      {/* CTA */}
-      <section className="py-20 md:py-32 relative overflow-hidden"
-               style={{ background: 'linear-gradient(135deg, #132552 0%, #1A336C 100%)' }}>
-        <div className="container mx-auto max-w-5xl px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl mb-6 text-white"
-              style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Ready to Make an Impact?
-          </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto leading-relaxed" style={{ fontWeight: 400, color: 'rgba(255, 255, 255, 0.9)' }}>
-            Partner with us to shape maritime policy and drive sustainable development across the Gulf of Guinea .
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-12 py-5 rounded-2xl text-lg transition-all shadow-xl hover:scale-105"
-              style={{ fontWeight: 700, backgroundColor: '#8E3400', color: 'white' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-            >
-              <span>Get in Touch</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to="/resources"
-              className="inline-flex items-center justify-center gap-2 px-12 py-5 rounded-2xl text-lg transition-all"
-              style={{ fontWeight: 700, border: '2px solid rgba(255, 255, 255, 0.5)', color: 'white', backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'}
-            >
-              <span>Explore Resources</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
