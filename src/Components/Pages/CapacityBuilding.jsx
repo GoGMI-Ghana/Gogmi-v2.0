@@ -610,36 +610,6 @@ const CapacityBuilding = () => {
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-16" style={{ backgroundColor: '#132552' }}>
-        <div className="container mx-auto max-w-5xl px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-            Ready to Advance Your Maritime Career?
-          </h2>
-          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals who have transformed their careers through our programs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://lms.gogmi.org.gh/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl transition-all hover:scale-105 font-bold shadow-2xl"
-              style={{ backgroundColor: '#8E3400', color: 'white' }}
-            >
-              Browse All Programs
-              <ArrowRight className="w-5 h-5" />
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl transition-all hover:scale-105 border-2 border-white/30 text-white font-bold hover:bg-white/10"
-            >
-              Contact Admissions
-            </a>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
