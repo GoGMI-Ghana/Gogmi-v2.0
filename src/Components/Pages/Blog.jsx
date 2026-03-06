@@ -30,27 +30,6 @@ const Blog = () => {
   }, [location]);
 
   const articles = [
-    // ===== EVENTS =====
-    //{
-    //  id: 3,
-    // title: 'INTERNATIONAL MARITIME SECURITY WORKING GROUP',
-    //  excerpt: "The International Maritime Security Working Group (IMSWG), formed by the Gulf of Guinea Maritime Institute, is the Institute's flagship forum focused on stimulating dialogue and policy innovation.",
-    //  category: 'Events',
-    //  date: 'December 9, 2025',
-    //  image: '/IMSWG LOGO WHITE BG.jpg',
-    //  isIMSWG: true,
-    //  link: '/imswg'
-    //},
-    //{
-    // id: 7,
-    //  title: 'Annual Maritime Security Conference 2024',
-    //  excerpt: 'Join us for the largest gathering of maritime professionals in West Africa, featuring keynote speakers and panel discussions.',
-    //  category: 'Events',
-    //  author: 'Events Team',
-    //  date: 'October 10, 2024',
-    //  readTime: '5 min read',
-    //  image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&fit=crop',
-    // },
 
     // ===== NEWS =====
     {
@@ -171,7 +150,7 @@ const Blog = () => {
     },
   ];
 
-  const categories = ['Events', 'News', 'Blogs', 'Technical note'];
+  const categories = ['News', 'Blogs', 'Technical note'];
 
   const filteredArticles = articles.filter(article => {
     const matchesCategory = article.category === selectedCategory;
