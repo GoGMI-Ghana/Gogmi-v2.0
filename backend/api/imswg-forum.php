@@ -1,14 +1,18 @@
 <?php
+// Better CORS handling
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Accept, Origin');
+header('Access-Control-Max-Age: 86400');
 header('Content-Type: application/json');
 
+// Handle OPTIONS preflight request
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
+// Only allow POST for actual submissions
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Method not allowed']);
@@ -149,7 +153,7 @@ try {
     $headers .= "Reply-To: info@gogmi.org.gh\r\n";
     
     // Send to admin
-    mail($adminEmail, $subject, $emailBody, $headers);
+    @mail($adminEmail, $subject, $emailBody, $headers);
     
     // Send confirmation email to applicant
     $confirmSubject = 'IMSWG Forum 2026 - Application Received';
@@ -204,7 +208,7 @@ try {
     ";
     
     // Send to applicant
-    mail($email, $confirmSubject, $confirmBody, $headers);
+    @mail($email, $confirmSubject, $confirmBody, $headers);
     
     // Return success response
     echo json_encode([
