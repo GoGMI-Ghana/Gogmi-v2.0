@@ -201,8 +201,7 @@ const IMSWG = () => {
         </div>
       </section>
 
-
-{/* IMSWG 2026 - Upcoming Event */}
+      {/* IMSWG 2026 - Upcoming Event */}
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -269,7 +268,6 @@ const IMSWG = () => {
                 >
                   Register Interest
                 </button>
-               
               </div>
 
               <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4">
@@ -308,7 +306,7 @@ const IMSWG = () => {
                 Join the IMSWG network and participate in future forums to shape maritime policy
               </p>
               <button 
-                onClick={() => navigate('/imswg-signup')}
+                onClick={() => navigate('/imswg-forum')}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 bg-slate-900 hover:bg-slate-800 text-white cursor-pointer"
               >
                 <span>Express Your Interest</span>
@@ -365,7 +363,7 @@ const IMSWG = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => navigate('/imswg-signup')}
+              onClick={() => navigate('/imswg-forum')}
               className="px-10 py-4 rounded-xl font-semibold transition-all hover:scale-105 bg-white text-slate-900 shadow-xl cursor-pointer"
             >
               Register for Next Forum
