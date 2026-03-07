@@ -723,7 +723,7 @@ const Home = () => {
   </div>
 </section>
 
-     {/* EVENTS BANNER SLIDESHOW - FIXED */}
+     {/* EVENTS BANNER SLIDESHOW */}
 <section className="py-20 md:py-28 relative overflow-hidden" 
          style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
   {/* Subtle decorative elements */}
