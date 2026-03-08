@@ -222,7 +222,7 @@ const IMSWGforum = () => {
                 {/* WhatsApp Number */}
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
-                    WhatsApp Number
+                    Country Code Plus WhatsApp Number
                   </label>
                   <input
                     type="tel"
