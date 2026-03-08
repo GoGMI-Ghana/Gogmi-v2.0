@@ -179,30 +179,34 @@ try {
             <div class='content'>
                 <p>Dear <strong>$fullName</strong>,</p>
                 
-                <p>Thank you for your application to participate in the <strong>IMSWG Forum 2026 - Quarter 1</strong>.</p>
+                <p>Thank you for registering for our upcoming IMSWG 2026 quarter one event. 
+                We truly appreciate your interest and look forward to your participation. 
+
+                Please find below the Zoom access details for the session: 
                 
-                <div class='highlight'>
-                    <p style='margin: 0;'><strong>Application Reference Number:</strong></p>
-                    <h3 style='margin: 10px 0; color: #8E3400;'>$referenceNumber</h3>
-                </div>
+                Zoom Link: https://us06web.zoom.us/j/84572591303?pwd=7ATCAWHuyrJ8PcafGxeNwACAdtmRHa.1 
                 
-                <p>Your application has been successfully received and is currently under review by our team.</p>
+                Meeting ID: 845 7259 1303 
                 
-                <p><strong>What happens next?</strong></p>
-                <ul>
-                    <li>Our team will review your application</li>
-                    <li>You will receive an email notification regarding your application status</li>
-                    <li>If approved, you will receive further details about the forum</li>
-                </ul>
+                Passcode: 714090 
+                
+                Date: March 17, 2026 
+                Time: 2PM GMT 
+                
+                Kindly ensure you join a few minutes early to allow for a smooth start. If you have any questions ahead of the event, please feel free to reach out. 
+                
+                We look forward to an engaging and productive session with you. 
+                
+                Warm regards,    GoGMI Team. <strong>IMSWG Forum 2026 - Quarter 1</strong>.</p>
+               
+                
+             
                 
                 <p>If you have any questions, please contact us at <a href='mailto:info@gogmi.org.gh' style='color: #8E3400;'>info@gogmi.org.gh</a></p>
                 
-                <p>We look forward to your participation!</p>
+               
                 
-                <p style='margin-top: 30px;'>
-                    Best regards,<br>
-                    <strong>Gulf of Guinea Maritime Institute (GoGMI)</strong>
-                </p>
+               
             </div>
             <div class='footer'>
                 <p>© " . date('Y') . " Gulf of Guinea Maritime Institute. All rights reserved.</p>
