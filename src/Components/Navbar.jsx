@@ -356,6 +356,13 @@ const Navbar = () => {
             {!isAuthenticated ? (
               <>
                 <button
+                  onClick={() => handleNavClick("#")}
+                  className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
+                  style={{ fontWeight: 600 }}
+                >
+                  GoGMI Blue Business Directory
+                </button>
+                <button
                   onClick={() => handleNavClick("/login")}
                   className="block w-full text-center bg-white border-2 border-[#132552] text-[#132552] px-6 py-3 rounded-lg hover:bg-gray-50 transition-all"
                   style={{ fontWeight: 600 }}
