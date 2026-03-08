@@ -60,7 +60,7 @@ const IMSWGforum = () => {
     setErrors({});
     
     try {
-      const apiUrl = 'https://api.gogmi.org.gh/api';
+      const apiUrl = 'https://api.gogmi.org.gh/imswg-forum.php';
       const response = await fetch(`${apiUrl}/imswg-forum.php`, {
         method: 'POST',
         headers: {
