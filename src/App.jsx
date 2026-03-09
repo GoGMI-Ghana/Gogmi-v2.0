@@ -32,7 +32,7 @@ import MaritimeGovernanceCourse from './Components/Pages/MaritimeGovernanceCours
 import MarineCasualtyCourse from './Components/Pages/MarineCasualtyCourse';
 import GulfSpectrumPodcast from './Components/Pages/GulfSpectrumPodcast';
 import BlueWorldInitiative from './Components/Pages/BlueWorldInitiative';
-
+import IMSWGEvents from './Components/Pages/IMSWGEvents';
 
 function App() {
   return (
@@ -68,6 +68,7 @@ function App() {
               <Route path="/marine-casualty-course" element={<MarineCasualtyCourse />} />
               <Route path="/gulf-spectrum-podcast" element={<GulfSpectrumPodcast />} />
              <Route path="/blue-world-initiative" element={<BlueWorldInitiative />} />
+              <Route path="/imswg-events" element={<IMSWGEvents />} />
             
               
               {/* Simple login for returning members */}
