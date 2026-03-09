@@ -11,8 +11,10 @@ const Membership = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    dateOfBirth: '',
     phone: '',
     organization: '',
+    organizationEmail: '',
     position: '',
     country: '',
     membershipType: '',
@@ -45,11 +47,15 @@ const Membership = () => {
     });
   };
 
+  const isIndividualPlan = (planId) => {
+    return ['student', 'associate', 'professional'].includes(planId);
+  };
+
   const openMembershipModal = (plan) => {
     setSelectedPlan(plan);
     setFormData({
       ...formData,
-      membershipType: plan.id.includes('student') || plan.id.includes('associate') || plan.id.includes('professional') || plan.id.includes('fellow') ? 'individual' : 'institutional',
+      membershipType: isIndividualPlan(plan.id) ? 'individual' : 'institutional',
       plan: plan.name,
       password: '',
       confirmPassword: ''
@@ -63,8 +69,10 @@ const Membership = () => {
     setFormData({
       fullName: '',
       email: '',
+      dateOfBirth: '',
       phone: '',
       organization: '',
+      organizationEmail: '',
       position: '',
       country: '',
       membershipType: '',
@@ -94,9 +102,11 @@ const Membership = () => {
       const applicationData = {
         fullName: formData.fullName,
         email: formData.email,
+        dateOfBirth: formData.dateOfBirth,
         phone: formData.phone,
         country: formData.country,
         organization: formData.organization || '',
+        organizationEmail: formData.organizationEmail || '',
         position: formData.position || '',
         password: formData.password,
         planId: selectedPlan.id,
@@ -356,13 +366,7 @@ const Membership = () => {
       price: 'By Invitation Only',
       period: '',
       description: 'For organisations with long-term strategic alignment with GoGMI mission.',
-      features: [
-        'Recognition as a GoGMI Strategic Partner',
-        'Co-creation and implementation of flagship initiatives',
-        'Engagement in strategic planning and policy influence',
-        'Priority collaboration on regional and international programmes',
-        'Corporate branding and visibility at GoGMI website, social media, events and publications'
-      ]
+      features: []
     }
   ];
 
@@ -423,9 +427,43 @@ const Membership = () => {
                   />
                 </div>
 
+                {/* Date of Birth - only for individual plans (student, associate, professional) */}
+                {isIndividualPlan(selectedPlan.id) && (
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      Date of Birth <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      name="dateOfBirth"
+                      value={formData.dateOfBirth}
+                      onChange={handleFormChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                    />
+                  </div>
+                )}
+
+                {/* Position/Title - for institutional plans, comes right after email */}
+                {formData.membershipType === 'institutional' && (
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      Position/Title
+                    </label>
+                    <input
+                      type="text"
+                      name="position"
+                      value={formData.position}
+                      onChange={handleFormChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                      placeholder="Your current position"
+                    />
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                    Phone Number <span className="text-red-500">*</span>
+                    Country Code Plus WhatsApp Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -439,57 +477,69 @@ const Membership = () => {
                 </div>
 
                 {formData.membershipType === 'institutional' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                        Organization Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="organization"
+                        value={formData.organization}
+                        onChange={handleFormChange}
+                        required={formData.membershipType === 'institutional'}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                        placeholder="Enter organization name"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                        Organization Email Address <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="organizationEmail"
+                        value={formData.organizationEmail}
+                        onChange={handleFormChange}
+                        required={formData.membershipType === 'institutional'}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                        placeholder="org@example.com"
+                      />
+                    </div>
+                  </>
+                )}
+
+                {/* Position/Title - for individual plans */}
+                {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                      Organization Name <span className="text-red-500">*</span>
+                      Position/Title
                     </label>
                     <input
                       type="text"
-                      name="organization"
-                      value={formData.organization}
+                      name="position"
+                      value={formData.position}
                       onChange={handleFormChange}
-                      required={formData.membershipType === 'institutional'}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                      placeholder="Enter organization name"
+                      placeholder="Your current position"
                     />
                   </div>
                 )}
 
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                    Position/Title
+                    Country <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
-                    name="position"
-                    value={formData.position}
-                    onChange={handleFormChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                    placeholder="Your current position"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                    Country <span className="text-red-500">*</span>
-                  </label>
-                  <select
                     name="country"
                     value={formData.country}
                     onChange={handleFormChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                  >
-                    <option value="">Select Country</option>
-                    <option value="Ghana">Ghana</option>
-                    <option value="Nigeria">Nigeria</option>
-                    <option value="Senegal">Senegal</option>
-                    <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-                    <option value="Cameroon">Cameroon</option>
-                    <option value="Togo">Togo</option>
-                    <option value="Benin">Benin</option>
-                    <option value="Other">Other</option>
-                  </select>
+                    placeholder="e.g., Ghana"
+                  />
                 </div>
 
                 <div className="border-t pt-4 mt-4">
@@ -544,23 +594,6 @@ const Membership = () => {
                       </button>
                     </div>
                   </div>
-                </div>
-
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                  <h4 className="font-bold mb-3" style={{ color: '#132552' }}>Membership Benefits:</h4>
-                  <ul className="space-y-2">
-                    {selectedPlan.features.slice(0, 4).map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
-                        <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8E3400' }} />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                    {selectedPlan.features.length > 4 && (
-                      <li className="text-sm italic" style={{ color: '#8E3400' }}>
-                        + {selectedPlan.features.length - 4} more benefits...
-                      </li>
-                    )}
-                  </ul>
                 </div>
               </div>
 
@@ -808,30 +841,35 @@ const Membership = () => {
                     {plan.description}
                   </p>
 
-                  <div className="mb-3">
-                    <p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>Benefits</p>
-                  </div>
+                  {/* Hide benefits and apply button for strategic partner */}
+                  {plan.id !== 'strategic' && (
+                    <>
+                      <div className="mb-3">
+                        <p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>Benefits</p>
+                      </div>
 
-                  <ul className="space-y-2 mb-6">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8E3400' }} />
-                        <span className="text-sm leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                      <ul className="space-y-2 mb-6">
+                        {plan.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8E3400' }} />
+                            <span className="text-sm leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
 
-                  <button
-                    onClick={() => openMembershipModal(plan)}
-                    className="w-full py-2.5 rounded-lg font-bold transition-all text-sm"
-                    style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-                  >
-                    Apply Now
-                  </button>
+                      <button
+                        onClick={() => openMembershipModal(plan)}
+                        className="w-full py-2.5 rounded-lg font-bold transition-all text-sm"
+                        style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
+                      >
+                        Apply Now
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             ))}

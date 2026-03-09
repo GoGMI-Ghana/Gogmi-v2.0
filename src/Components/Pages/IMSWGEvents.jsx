@@ -31,11 +31,7 @@ const IMSWGEvents = () => {
       color: "#0891b2",
       description: "Examining the changing spectrum of maritime security threats including piracy, armed robbery at sea, IUU fishing, trafficking, and marine pollution that continue to undermine sustainable development.",
       points: [
-        "Current state of piracy and armed robbery at sea",
-        "Illegal, unreported and unregulated (IUU) fishing trends",
-        "Maritime trafficking and transnational organised crime",
-        "Marine pollution and environmental security threats",
-        "Emerging cyber threats to maritime infrastructure"
+
       ]
     },
     {
@@ -45,11 +41,7 @@ const IMSWGEvents = () => {
       color: "#132552",
       description: "Analysing how maritime insecurity affects economic investment, governance structures, and coastal community livelihoods across the Gulf of Guinea region.",
       points: [
-        "Effects on foreign direct investment in maritime sectors",
-        "Impact on offshore energy infrastructure and operations",
-        "Disruption to coastal fishing communities and food security",
-        "Insurance costs and shipping route diversions",
-        "Economic losses from maritime crime and governance gaps"
+       
       ]
     },
     {
@@ -59,11 +51,7 @@ const IMSWGEvents = () => {
       color: "#0891b2",
       description: "Assessing the effectiveness of existing regional governance mechanisms, including the Yaoundé Architecture and the Gulf of Guinea Commission.",
       points: [
-        "Structural coordination gaps within the Yaoundé Architecture",
-        "Role of the Gulf of Guinea Commission (GGC)",
-        "Inter-agency cooperation and information sharing",
-        "National vs regional maritime governance frameworks",
-        "Alignment of maritime security with blue economy strategies"
+       
       ]
     },
     {
@@ -73,11 +61,7 @@ const IMSWGEvents = () => {
       color: "#132552",
       description: "Exploring the role of regional organisations in strengthening integrated maritime governance and fostering cooperation between states.",
       points: [
-        "2050 Africa Integrated Maritime Strategy (2050 AIM Strategy)",
-        "African Union Blue Economy Strategy implementation",
-        "Regional cooperation frameworks and joint operations",
-        "Capacity building across maritime institutions",
-        "Cross-border maritime law enforcement coordination"
+       
       ]
     },
     {
@@ -87,11 +71,7 @@ const IMSWGEvents = () => {
       color: "#0891b2",
       description: "Identifying policy and operational pathways for strengthening coordination between maritime security initiatives and sustainable blue economy development strategies.",
       points: [
-        "Strategic framework for integrated maritime governance",
-        "Security-development nexus in ocean governance",
-        "Sustainable fisheries management and marine protection",
-        "Offshore energy security and economic diversification",
-        "Technology and innovation for maritime domain awareness"
+       
       ]
     }
   ];
