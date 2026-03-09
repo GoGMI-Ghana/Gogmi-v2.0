@@ -36,7 +36,7 @@ const CapacityBuilding = () => {
       tagline: 'A Focus on Africa',
       fullTitle: 'MARITIME GOVERNANCE COURSE',
       description: 'Comprehensive 4-week virtual course equipping professionals with expertise to develop and implement maritime security strategies across the African continent.',
-      duration: '4 weeks',
+      duration: '2 weeks',
       format: 'Virtual (Zoom)',
       modules: '8 modules',
       level: 'Professional',

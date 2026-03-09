@@ -672,44 +672,6 @@ const MaritimeGovernanceCourse = () => {
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-20" style={{ backgroundColor: '#132552' }}>
-        <div className="container mx-auto max-w-5xl px-6 text-center">
-          <div className="mb-8">
-            <Calendar className="w-12 h-12 mx-auto mb-4 text-white" />
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Advance Your Maritime Governance Expertise
-            </h2>
-            <p className="text-xl text-white/90 mb-2">
-              Next Intake: TBA 2026
-            </p>
-            <p className="text-lg text-white/80">
-              Virtual training over 2 weeks | Limited spaces available
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl"
-                    style={{ backgroundColor: '#8E3400', color: 'white' }}>
-              <span>Apply Now</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 border-2 border-white/30 text-white hover:bg-white/10">
-              <Download className="w-5 h-5" />
-              <span>Download Brochure</span>
-            </button>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-white/80 mb-4">For inquiries:</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-white">
-              <span>📧 info@gogmi.org.gh</span>
-              <span className="hidden sm:block">|</span>
-              <span>📱 WhatsApp: +233504953400</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </div>
   );
