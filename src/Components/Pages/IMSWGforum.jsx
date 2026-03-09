@@ -60,8 +60,8 @@ const IMSWGforum = () => {
     setErrors({});
     
     try {
-      const apiUrl = 'https://api.gogmi.org.gh';
-      const response = await fetch(`${apiUrl}/api/imswg-forum.php`, {
+      const apiUrl = 'https://api.gogmi.org.gh/api';
+      const response = await fetch(`${apiUrl}/imswg-forum.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,13 +69,9 @@ const IMSWGforum = () => {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const result = await response.json();
 
-      if (!result.success) {
+      if (!response.ok || !result.success) {
         throw new Error(result.message || 'Failed to submit application');
       }
 
@@ -91,7 +87,7 @@ const IMSWGforum = () => {
 
       setTimeout(() => {
         navigate('/imswg');
-      }, 3000);
+      }, 5000);
       
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -105,20 +101,22 @@ const IMSWGforum = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6" style={{ paddingTop: '100px' }}>
         <div className="max-w-lg w-full bg-white rounded-2xl shadow-xl p-10 text-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-12 h-12 text-green-600" />
           </div>
           <h2 className="text-3xl font-bold mb-4" style={{ color: '#1e293b' }}>
-            Application Submitted!
+            Application Submitted
           </h2>
-          <p className="text-lg mb-6" style={{ color: '#64748b' }}>
-            Thank you for registering for our upcoming IMSWG 2026 quarter one event. We truly appreciate your interest and look forward to your participation. 
-         </p>
-          <p className="text-base mb-8" style={{ color: '#64748b' }}>
+          <p className="text-base mb-4" style={{ color: '#475569' }}>
+            Thank you for registering for our upcoming IMSWG 2026 quarter one event. We truly appreciate your interest and look forward to your participation.
+          </p>
+          <p className="text-base mb-6" style={{ color: '#475569' }}>
             Kindly check your email for other information and link to the event.
-            GoGMI
+          </p>
+          <p className="text-sm font-semibold mb-8" style={{ color: '#1e293b' }}>
+            GoGMI.
           </p>
           <button
             onClick={() => navigate('/imswg')}
@@ -133,29 +131,31 @@ const IMSWGforum = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-6 py-6">
-          <button
-            onClick={() => navigate('/imswg')}
-            className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors mb-4"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-semibold">Back to IMSWG</span>
-          </button>
-          <h1 className="text-4xl font-bold mb-2" style={{ color: '#1e293b' }}>
-            IMSWG 2026 - Quarter 1 Forum
-          </h1>
-          <p className="text-lg" style={{ color: '#64748b' }}>
-            International Maritime Security Working Group
-          </p>
-        </div>
+    <div className="min-h-screen bg-slate-50" style={{ paddingTop: '100px' }}>
+      {/* Back Button */}
+      <div className="max-w-4xl mx-auto px-6 pt-6 pb-2">
+        <button
+          onClick={() => navigate('/imswg')}
+          className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors"
+        >
+          <ArrowLeft className="w-5 h-5" />
+          <span className="font-semibold">Back to IMSWG</span>
+        </button>
       </div>
 
       {/* Form */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-6 py-6">
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
+          {/* Title inside the form */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#1e293b' }}>
+              IMSWG 2026 - Quarter 1 Forum
+            </h1>
+            <p className="text-lg" style={{ color: '#64748b' }}>
+              International Maritime Security Working Group
+            </p>
+          </div>
+
           {/* Introduction */}
           <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
             <p className="text-base leading-relaxed font-medium" style={{ color: '#475569' }}>
