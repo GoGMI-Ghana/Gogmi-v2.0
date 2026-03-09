@@ -84,10 +84,6 @@ const IMSWGforum = () => {
         position: '',
         institution: ''
       });
-
-      setTimeout(() => {
-        navigate('/imswg');
-      }, 5000);
       
     } catch (error) {
       console.error('Error submitting form:', error);
