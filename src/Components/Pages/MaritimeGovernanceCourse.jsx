@@ -438,7 +438,7 @@ const MaritimeGovernanceCourse = () => {
                     <Calendar className="w-5 h-5" style={{ color: '#8E3400' }} />
                     <h3 className="font-bold text-sm" style={{ color: '#132552' }}>Dates</h3>
                   </div>
-                  <p className="text-base" style={{ color: '#4B5563' }}>May 5 – 28, 2026</p>
+                  <p className="text-base" style={{ color: '#4B5563' }}>May 5 – 15, 2026</p>
                   <p className="text-sm mt-1" style={{ color: '#6B7280' }}>2 weeks, 8 modules</p>
                 </div>
 
@@ -474,7 +474,7 @@ const MaritimeGovernanceCourse = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="w-5 h-5" style={{ color: '#8E3400' }} />
-                    <h3 className="font-bold text-sm" style={{ color: '#132552' }}>Fee,500 USD</h3>
+                    <h3 className="font-bold text-sm" style={{ color: '#132552' }}>Fees:500 USD</h3>
                   </div>
                   <p className="text-sm" style={{ color: '#6B7280' }}>Contact us for pricing information</p>
                 </div>
