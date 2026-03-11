@@ -69,17 +69,8 @@ const Advocacy = () => {
       description: `The Blue Career and Business Expo is a yearly programme designed to create dynamic opportunity-exchange platforms that enable young people to engage with maritime industry leaders and actively contribute to building a robust blue economy in Africa. The three-month initiative commence with a two-day Business Expo Conference, specifically targeted at youth (with full gender inclusivity). The conference will feature in-depth panel discussions, networking sessions, and an exhibition of maritime businesses, serving as a strategic gathering point for Ghana's maritime industry leaders, relevant ministries, maritime enterprises, and young people followed by a three (3) month mentorship program co-managed by GoGMI to support career development among participants. Through the mentorship program, students who enroll will be paired with experienced maritime professionals, helping them map out clear career pathways and gain practical insights into the maritime sector`,
       impact: '500+ jobs created',
       image: '/bluecareer.webp',
-      link: '/bluecareerexpo'  // Link to Blue Career Expo page - you can add links like this to any achievement
+      link: '/bluecareerexpo'
     },
-    // {
-    //   year: '2023',
-    //   title: 'Gulf of Guinea Maritime Collaboration Forum and Shared Awareness and De-confliction (GoG-MCF/SHADE)',
-    //   description: `The Gulf of Guinea Maritime Collaboration Forum and Shared Awareness and De-confliction (GoG-MCF/SHADE) seeks to create a viable platform for navies, industry partners and other relevant stakeholders from across the Gulf of Guinea and beyond to harmonise counter-piracy efforts and communication in the region under the existing information sharing architecture provided by both the Yaoundé Code of Conduct (YCOC) and the Best Management Practices to Deter Piracy and Enhance Maritime Security off the Coast of West Africa (BMP-WA)`,
-    //   impact: '2,000+ professionals certified',
-    //   image: '/shade.png',
-    //   link: '/shade'  // ✅ ADDED LINK TO SHADE PAGE
-    // },
-
     {
       year: '2023',
       title: 'Blue World Initiative',
@@ -87,14 +78,6 @@ const Advocacy = () => {
       image: '/GoGMI_PNG.png',
       link: '/blue-world-initiative'
     },
-
-//  {
-//       year: '2025',
-//       title: '10th Anniversary Consultative Meeting on the Yaoundé Code of Conduct – "Impact of the Yaoundé Code of Conduct on ECOWAS Maritime Domain: 10 Years After Its Adoption"',
-//       description: 'As part of a youth ocean career study, the Blue Career Fair engaged students, educators, and maritime professionals to explore opportunities in the blue economy, with presentations, panels, and exhibitions from the Ghana Navy, Ghana Maritime Authority, and Regional Maritime University.',
-//       image: '/shade.png'
-//     }
-
   ];
 
   const campaigns = [
@@ -110,44 +93,35 @@ const Advocacy = () => {
     },
     {
       status: 'active',
-      title: 'Blue Career and Business Expo',
-      category: 'Youth Development',
-      description: "The Blue Career and Business Expo is a yearly event that connects young people with maritime industry leaders to support Africa's blue economy.",
-      supporters: 1890,
-      deadline: 'Annual Event',
-      logo: '/bluecareer.webp'
+      title: 'National Maritime Safety and Security (NaMSSec) Forum',
+      category: 'Maritime Safety',
+      description: 'A high level stakeholder forum organized to discuss and advise on policies and identify policy gaps for necessary interventions.',
+      supporters: 3200,
+      deadline: 'Ongoing',
+      logo: '/shade.png',
+      link: '/contact'
     },
- 
     {
-      status: 'active',
-      title: 'Blue World Initiative',
-      category: 'Youth Development',
-      description: 'BWI is an ocean literacy program equipping Basic and Second Cycle students to become informed and engaged ocean stewards.',
-      supporters: 1250,
-      deadline: 'March 2025',
-      logo: '/safe-seas-logo.png'
-    },
-       {
       status: 'completed',
       title: 'Blue Career and Business Expo',
       category: 'Youth Development',
-      description: 'The Blue Career and Business Expo is a yearly event that connects young people with maritime industry leaders to support Africa's blue economy.',
+      description: "The Blue Career and Business Expo is a yearly programme designed to create dynamic opportunity-exchange platforms that enable young people to engage with maritime industry leaders and actively contribute to building a robust blue economy in Africa.",
       supporters: 3200,
-      link: '/bluecareerexpo',
-      logo: '/bluecareer.webp'
+      deadline: 'Annual Event',
+      logo: '/bluecareer.webp',
+      link: '/bluecareerexpo'
     },
-       {
-      status: 'active',
-      title: 'National Maritime Safety and Security (NaMSSec) Forum ',
-      category: 'Maritime Safety',
-      description: 'A high level stakeholder forum organized to discuss and advise on policies and identify policy gaps for necessary interventions',
-      supporters: 3200,
-      deadline: 'Ongoing',
-      logo: '/shade.png'
+    {
+      status: 'completed',
+      title: 'Blue World Initiative',
+      category: 'Youth Development',
+      description: 'BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards. Our ocean covers over 70% of our planet and plays an essential role in regulating climate, providing food and resources, and supporting incredible biodiversity.',
+      supporters: 1250,
+      deadline: '2023',
+      logo: '/GoGMI_PNG.png',
+      link: '/blue-world-initiative'
     }
   ];
-
-  
 
   return (
     <div className="w-full overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
@@ -165,8 +139,6 @@ const Advocacy = () => {
 
         <div className="container mx-auto max-w-6xl px-6 relative z-10">
           <div className="max-w-4xl">
-           
-
             <h1 className="text-5xl sm:text-6xl md:text-7xl leading-tight mb-8"
                 style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
              Advocacy
@@ -188,14 +160,10 @@ const Advocacy = () => {
                 <span>Partner With Us</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
-            
             </div>
           </div>
         </div>
       </section>
-
-
-
 
       {/* ACTIVE CAMPAIGNS */}
       <section id="campaigns" className="py-20 md:py-32 bg-white">
@@ -206,7 +174,6 @@ const Advocacy = () => {
                 style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
               Active Campaigns
             </h2>
-      
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -231,7 +198,11 @@ const Advocacy = () => {
 
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-3 py-1.5 rounded-full text-xs uppercase"
-                        style={{ fontWeight: 700, backgroundColor: '#10B981', color: 'white' }}>
+                        style={{ 
+                          fontWeight: 700, 
+                          backgroundColor: campaign.status === 'active' ? '#10B981' : '#6B7280', 
+                          color: 'white' 
+                        }}>
                     {campaign.status}
                   </span>
                   <span className="text-sm" style={{ fontWeight: 600, color: '#4B5563' }}>
@@ -264,7 +235,7 @@ const Advocacy = () => {
                 </div>
 
                 <Link
-                  to={campaign.link || `/campaigns/${campaign.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={campaign.link}
                   className="block w-full px-5 py-2.5 rounded-xl text-center text-sm transition-all hover:scale-105"
                   style={{ fontWeight: 700, backgroundColor: '#132552', color: 'white' }}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1A336C'}
@@ -278,7 +249,6 @@ const Advocacy = () => {
         </div>
       </section>
 
-  
       {/* ACHIEVEMENTS */}
       <section className="py-20 md:py-32" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="container mx-auto max-w-7xl px-6">
@@ -288,7 +258,6 @@ const Advocacy = () => {
                 style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
               Our Advocacy Wins
             </h2>
-           
           </div>
 
           <div className="space-y-6">
@@ -298,7 +267,6 @@ const Advocacy = () => {
                 className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
                 <div className="grid md:grid-cols-5 gap-0">
-                  {/* Image/Logo section - centered and contained */}
                   <div className="md:col-span-2 relative h-64 md:h-72 bg-white flex items-center justify-center p-8">
                     <img
                       src={achievement.image}
@@ -331,13 +299,8 @@ const Advocacy = () => {
                       {achievement.description}
                     </p>
 
-                    {/* Learn More Link - connects to actual pages 
-                        HOW TO ADD LINKS: Simply add a 'link' property to the achievement object
-                        Example: link: '/imswg' or link: '/bluecareerexpo'
-                        If no link is provided, it will use a default URL
-                    */}
                     <Link
-                      to={achievement.link || `/projects/${achievement.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      to={achievement.link}
                       className="inline-flex items-center gap-2 transition-all hover:gap-4 text-base"
                       style={{ fontWeight: 600, color: '#8E3400' }}
                     >
@@ -357,3 +320,4 @@ const Advocacy = () => {
 };
 
 export default Advocacy;
+    
