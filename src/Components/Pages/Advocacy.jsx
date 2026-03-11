@@ -117,15 +117,7 @@ const Advocacy = () => {
       deadline: 'Annual Event',
       logo: '/bluecareer.webp'
     },
-    // {
-    //   status: 'active',
-    //   title: 'National Maritime Safety and Security (NaMSSec) Forum ',
-    //   category: 'Maritime Safety',
-    //   description: 'A high level stakeholder forum organized to discuss and advise on policies and identify policy gaps for necessary interventions',
-    //   supporters: 3200,
-    //   deadline: 'Ongoing',
-    //   logo: '/shade.png'
-    // },
+ 
     {
       status: 'active',
       title: 'Blue World Initiative',
@@ -135,6 +127,24 @@ const Advocacy = () => {
       deadline: 'March 2025',
       logo: '/safe-seas-logo.png'
     },
+       {
+      status: 'active',
+      title: 'National Maritime Safety and Security (NaMSSec) Forum ',
+      category: 'Maritime Safety',
+      description: 'A high level stakeholder forum organized to discuss and advise on policies and identify policy gaps for necessary interventions',
+      supporters: 3200,
+      deadline: 'Ongoing',
+      logo: '/shade.png'
+    },
+       {
+      status: 'active',
+      title: 'National Maritime Safety and Security (NaMSSec) Forum ',
+      category: 'Maritime Safety',
+      description: 'A high level stakeholder forum organized to discuss and advise on policies and identify policy gaps for necessary interventions',
+      supporters: 3200,
+      deadline: 'Ongoing',
+      logo: '/shade.png'
+    }
   ];
 
   
