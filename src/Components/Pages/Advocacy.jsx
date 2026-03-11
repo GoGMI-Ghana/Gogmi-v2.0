@@ -56,7 +56,7 @@ const Advocacy = () => {
 
 
 
-  const campaigns = [
+const campaigns = [
     {
       status: 'active',
       title: 'International Maritime Security Working Group',
@@ -76,6 +76,16 @@ const Advocacy = () => {
       deadline: 'Ongoing',
       logo: '/shade.png',
       link: '/contact'
+    },
+    {
+      status: 'active',
+      title: 'Blue World Initiative',
+      category: 'Youth Development',
+      description: 'BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards.',
+      supporters: 1250,
+      deadline: 'Ongoing',
+      logo: '/GoGMI_PNG.png',
+      link: '/blue-world-initiative'
     },
     {
       status: 'completed',
@@ -98,7 +108,6 @@ const Advocacy = () => {
       link: '/blue-world-initiative'
     }
   ];
-
   return (
     <div className="w-full overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
       
