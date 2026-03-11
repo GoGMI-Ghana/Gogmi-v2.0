@@ -90,6 +90,17 @@ const MaritimeGovernanceCourse = () => {
     }
   };
 
+  const handleBrochureDownload = () => {
+    const brochureUrl = '/resources/pdfs/Maritime-Governance-Course-Brochure.pdf';
+    const link = document.createElement('a');
+    link.href = brochureUrl;
+    link.download = 'Maritime-Governance-Course-Brochure.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'format', label: 'Program Format' },
@@ -400,6 +411,14 @@ const MaritimeGovernanceCourse = () => {
             >
               <span>Apply Now</span>
             </button>
+            <button 
+              onClick={handleBrochureDownload}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base font-bold transition-all hover:scale-105 shadow-xl border-2 border-white/30 hover:bg-white/10"
+              style={{ color: 'white' }}
+            >
+              <Download className="w-5 h-5" />
+              <span>Download Brochure</span>
+            </button>
           </div>
         </div>
       </section>
@@ -486,6 +505,14 @@ const MaritimeGovernanceCourse = () => {
                     style={{ backgroundColor: '#8E3400', color: 'white' }}
                   >
                     Apply Now
+                  </button>
+                  <button 
+                    onClick={handleBrochureDownload}
+                    className="w-full py-3.5 rounded-lg font-bold transition-all hover:shadow-lg flex items-center justify-center gap-2 border-2"
+                    style={{ borderColor: '#132552', color: '#132552' }}
+                  >
+                    <Download className="w-5 h-5" />
+                    <span>Download Brochure</span>
                   </button>
                 </div>
 
