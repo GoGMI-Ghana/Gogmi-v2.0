@@ -23,62 +23,7 @@ import {
 const Advocacy = () => {
   const [activeTab, setActiveTab] = useState('all');
 
-  const policyAreas = [
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: 'Maritime Security',
-      description: 'Advocating for enhanced regional cooperation and capacity building to combat piracy and maritime crime.',
-      color: '#132552',
-      initiatives: ['Regional Information Sharing', 'Naval Cooperation Frameworks', 'Port Security Standards']
-    },
-    {
-      icon: <Waves className="w-8 h-8" />,
-      title: 'Blue Economy',
-      description: 'Promoting sustainable utilization of ocean resources for economic growth and marine conservation.',
-      color: '#8E3400',
-      initiatives: ['Sustainable Fisheries', 'Marine Tourism', 'Ocean Conservation']
-    },
-    {
-      icon: <Scale className="w-8 h-8" />,
-      title: 'Maritime Governance',
-      description: 'Strengthening legal frameworks and institutional capacity for effective maritime management.',
-      color: '#1A336C',
-      initiatives: ['Legal Harmonization', 'Institutional Development', 'Compliance Monitoring']
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: 'Capacity Building',
-      description: 'Developing human resource capabilities across maritime institutions and communities.',
-      color: '#8E3400',
-      initiatives: ['Professional Training', 'Youth Programs', 'Technical Assistance']
-    }
-  ];
 
-  const achievements = [
-    {
-      year: '2010-2025',
-      title: 'International Maritime Security Working Group',
-      description: `The International Maritime Security Working Group (IMSWG), formed by the Gulf of Guinea Maritime Institute, is the Institute's flagship forum focused on stimulating dialogue and policy innovation aimed at addressing maritime security and safety concerns in the Gulf of Guinea (GoG) region. The IMSWG forum is notable as a knowledge exchange and research network on regional issues while keeping an eye on the pulse of international perspectives.`,
-      impact: '40% reduction in maritime incidents',
-      image: '/IMSWG LOGO WHITE BG.jpg',
-      link: '/imswg'
-    },
-    {
-      year: '2023',
-      title: 'Blue Career and Business Expo',
-      description: `The Blue Career and Business Expo is a yearly programme designed to create dynamic opportunity-exchange platforms that enable young people to engage with maritime industry leaders and actively contribute to building a robust blue economy in Africa. The three-month initiative commence with a two-day Business Expo Conference, specifically targeted at youth (with full gender inclusivity). The conference will feature in-depth panel discussions, networking sessions, and an exhibition of maritime businesses, serving as a strategic gathering point for Ghana's maritime industry leaders, relevant ministries, maritime enterprises, and young people followed by a three (3) month mentorship program co-managed by GoGMI to support career development among participants. Through the mentorship program, students who enroll will be paired with experienced maritime professionals, helping them map out clear career pathways and gain practical insights into the maritime sector`,
-      impact: '500+ jobs created',
-      image: '/bluecareer.webp',
-      link: '/bluecareerexpo'
-    },
-    {
-      year: '2023',
-      title: 'Blue World Initiative',
-      description: "BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards. Our ocean covers over 70% of our planet and plays an essential role in regulating climate, providing food and resources, and supporting incredible biodiversity.",
-      image: '/GoGMI_PNG.png',
-      link: '/blue-world-initiative'
-    },
-  ];
 
   const campaigns = [
     {
