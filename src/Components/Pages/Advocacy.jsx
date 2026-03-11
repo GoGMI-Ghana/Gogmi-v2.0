@@ -157,7 +157,7 @@ const campaigns = [
             <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>Get Involved</span>
             <h2 className="text-5xl md:text-6xl mt-4 mb-6"
                 style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              Active Campaigns
+              Our Campaigns
             </h2>
           </div>
 
