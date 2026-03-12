@@ -427,7 +427,7 @@ const Membership = () => {
                   />
                 </div>
 
-                {/* Date of Birth - only for individual plans (student, associate, professional) */}
+                {/* Date of Birth - only for individual plans */}
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
@@ -440,6 +440,23 @@ const Membership = () => {
                       onChange={handleFormChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                    />
+                  </div>
+                )}
+
+                {/* Organisation/Institution Name - only for individual plans (not fellow) */}
+                {isIndividualPlan(selectedPlan.id) && (
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      Organisation/Institution Name <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="organization"
+                      value={formData.organization}
+                      onChange={handleFormChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                      placeholder="e.g., University of Ghana, Maritime Authority"
                     />
                   </div>
                 )}
@@ -841,7 +858,6 @@ const Membership = () => {
                     {plan.description}
                   </p>
 
-                  {/* Hide benefits and apply button for strategic partner */}
                   {plan.id !== 'strategic' && (
                     <>
                       <div className="mb-3">
