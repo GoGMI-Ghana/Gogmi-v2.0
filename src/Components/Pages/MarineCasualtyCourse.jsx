@@ -512,7 +512,7 @@ const MarineCasualtyCourse = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-3" style={{ color: '#8E3400' }}>Mode of Delivery</h3>
                   <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>
-                    <strong>In-person:</strong> 
+                    <strong>In-person</strong> 
                   
                   </p>
                 </div>
