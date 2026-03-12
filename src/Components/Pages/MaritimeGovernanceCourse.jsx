@@ -12,9 +12,7 @@ const MaritimeGovernanceCourse = () => {
   const [memberCodeError, setMemberCodeError] = useState('');
   const [memberCodeValid, setMemberCodeValid] = useState(false);
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+ 
   const [nonMemberForm, setNonMemberForm] = useState({
     fullName: '',
     email: '',
@@ -60,7 +58,7 @@ const MaritimeGovernanceCourse = () => {
     setMemberCode('');
     setMemberCodeError('');
     setMemberCodeValid(false);
-    setNonMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '', password: '', confirmPassword: '' });
+    setNonMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '',  '',  '' });
     setMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' });
     document.body.style.overflow = 'unset';
   };
