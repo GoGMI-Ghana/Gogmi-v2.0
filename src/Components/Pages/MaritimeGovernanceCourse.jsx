@@ -12,7 +12,9 @@ const MaritimeGovernanceCourse = () => {
   const [memberCodeError, setMemberCodeError] = useState('');
   const [memberCodeValid, setMemberCodeValid] = useState(false);
 
- 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [nonMemberForm, setNonMemberForm] = useState({
     fullName: '',
     email: '',
@@ -20,7 +22,8 @@ const MaritimeGovernanceCourse = () => {
     position: '',
     institution: '',
     country: '',
-   
+    password: '',
+    confirmPassword: ''
   });
 
   const [memberForm, setMemberForm] = useState({
@@ -58,7 +61,7 @@ const MaritimeGovernanceCourse = () => {
     setMemberCode('');
     setMemberCodeError('');
     setMemberCodeValid(false);
-    setNonMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '',  '',  '' });
+    setNonMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '', password: '', confirmPassword: '' });
     setMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' });
     document.body.style.overflow = 'unset';
   };
@@ -83,7 +86,35 @@ const MaritimeGovernanceCourse = () => {
     setMemberForm({ ...memberForm, [e.target.name]: e.target.value });
   };
 
- 
+  const handleNonMemberSubmit = async (e) => {
+    e.preventDefault();
+    if (nonMemberForm.password.length < 8) {
+      alert('Password must be at least 8 characters');
+      return;
+    }
+    if (nonMemberForm.password !== nonMemberForm.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/maritime-governance-interest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...nonMemberForm, type: 'non-member', price: NON_MEMBER_PRICE })
+      });
+      if (response.ok) {
+        alert('Application submitted successfully! We will contact you shortly.');
+        closeApply();
+      } else {
+        alert('There was an error. Please try again or contact info@gogmi.org.gh');
+      }
+    } catch {
+      alert('There was an error. Please try again or contact info@gogmi.org.gh');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const handleMemberSubmit = async (e) => {
     e.preventDefault();
@@ -383,14 +414,12 @@ const MaritimeGovernanceCourse = () => {
                     <input type="text" name="country" value={nonMemberForm.country} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Ghana" />
                   </div>
 
-                  {/* Password Section */}
-                 
-            
+                </div>
 
                 <div className="flex gap-3 mt-8">
-                  <button type="button" onClick={() => setApplyStep('choose')} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
-                  <button type="submit" disabled={isSubmitting} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#8E3400' }}>
-                    {isSubmitting ? 'Submitting...' : `Submit — $${NON_MEMBER_PRICE}`}
+                  <button type="button" onClick={closeApply} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Cancel</button>
+                  <button type="submit" disabled={isSubmitting} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#16A34A' }}>
+                    {isSubmitting ? 'Submitting...' : `Pay USD ${NON_MEMBER_PRICE}`}
                   </button>
                 </div>
               </form>
