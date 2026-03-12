@@ -406,8 +406,8 @@ const MaritimeGovernanceCourse = () => {
                     <input type="text" name="position" value={nonMemberForm.position} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Maritime Analyst" />
                   </div>
                   <div>
-                    <label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation Name <span className="text-red-500">*</span></label>
-                    <input type="text" name="institution" value={nonMemberForm.institution} onChange={handleNonMemberChange}  style={{ borderColor: '#E5E7EB' }} placeholder="e.g. Maritime Authority of Ghana" />
+                   <label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation Name <span className="text-slate-400 text-xs font-normal">(Optional)</span></label>
+                  <input type="text" name="institution" value={nonMemberForm.institution} onChange={handleNonMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="e.g. Maritime Authority of Ghana" />
                   </div>
                   <div>
                     <label className={labelClass} style={{ color: '#132552' }}>Country <span className="text-red-500">*</span></label>
