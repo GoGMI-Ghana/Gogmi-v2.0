@@ -666,7 +666,7 @@ const Home = () => {
           title: 'Maritime Governance Course : A Focus on Africa',
           excerpt: 'This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.',
           date: 'May 5 – 28, 2026',
-          image: '/maritimegov.jpeg',
+          image: '/maritimegovvv.jpeg',
           link: '/services/CapacityBuilding'
         }
       ].map((news, idx) => (
