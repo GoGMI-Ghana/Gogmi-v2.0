@@ -39,8 +39,8 @@ const MarineCasualtyCourse = () => {
     fullName: '', email: '', phone: '', position: '', institution: '', country: ''
   });
 
-  const MEMBER_PRICE = 350;
-  const NON_MEMBER_PRICE = 450;
+  const MEMBER_PRICE = 400;
+  const NON_MEMBER_PRICE = 500;
   const DISCOUNT = NON_MEMBER_PRICE - MEMBER_PRICE;
   const DISCOUNT_PERCENT = Math.round((DISCOUNT / NON_MEMBER_PRICE) * 100);
 
