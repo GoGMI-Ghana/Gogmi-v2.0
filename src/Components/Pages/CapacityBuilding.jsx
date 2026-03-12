@@ -116,15 +116,16 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'Blue Career & Business Expo',
+      title: 'Maritime Governance Course :
+A Focus on Africa',
       description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
-      duration: '2 days',
-      format: 'In-Person',
+      duration: '10 days',
+      format: 'Virtual',
       level: 'All Levels',
-      image: '/bluecareer.webp',
+      image: '/maritimegovvvv.jpeg',
       features: ['Panel Discussions', 'Network Sessions', 'Career Fair'],
       impact: 'Launched Ghana\'s Blue Business Directory',
-      nextIntake: 'November 2025'
+      nextIntake: 'May 5 – 15, 2026'
     },
     {
       category: 'Hybrid',
