@@ -77,7 +77,7 @@ const CapacityBuilding = () => {
     {
       category: 'Hybrid',
       status: 'Active',
-      title: 'Blue Mentorship Programme',
+      title: 'MARINE CASUALTY',
       description: 'An African maritime accelerator designed to encourage youth to engage in sustainable blue economy careers.',
       duration: '12 months',
       format: 'Hybrid',
@@ -90,7 +90,7 @@ const CapacityBuilding = () => {
     {
       category: 'Virtual',
       status: 'Active',
-      title: 'ECOP',
+      title: 'MARITIME GOVERNANCE',
       description: 'The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa’s blue economy and expose participants to various career and business opportunities in the blue industry.',
       duration: '4 weeks',
       format: 'Online',
@@ -103,7 +103,7 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'Blue Career & Business Expo',
+      title: 'JOURNALIST TRAINING',
       description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
       duration: '2 days',
       format: 'In-Person',
@@ -116,7 +116,7 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'Maritime Governance Course :A Focus on Africa',
+      title: 'MASSDI',
       description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
       duration: '10 days',
       format: 'Virtual',
@@ -129,7 +129,7 @@ const CapacityBuilding = () => {
     {
       category: 'Hybrid',
       status: 'Active',
-      title: 'Blue Mentorship Programme',
+      title: 'ECOP',
       description: 'An African maritime accelerator designed to encourage youth to engage in sustainable blue economy careers.',
       duration: '12 months',
       format: 'Hybrid',
@@ -142,7 +142,7 @@ const CapacityBuilding = () => {
      {
       category: 'Virtual',
       status: 'Active',
-      title: 'ECOP',
+      title: 'WYTEC',
       description: 'The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa’s blue economy and expose participants to various career and business opportunities in the blue industry.',
       duration: '4 weeks',
       format: 'Online',
@@ -151,19 +151,6 @@ const CapacityBuilding = () => {
       features: ['4 Training Modules', 'Zoom Workshops', 'Certificate'],
       impact: 'Supported by IOC-UNESCO & NORAD',
       nextIntake: 'Quarterly'
-    },
-     {
-      category: 'Onsite',
-      status: 'Completed',
-      title: 'Blue Career & Business Expo',
-      description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
-      duration: '2 days',
-      format: 'In-Person',
-      level: 'All Levels',
-      image: '/bluecareer.webp',
-      features: ['Panel Discussions', 'Network Sessions', 'Career Fair'],
-      impact: 'Launched Ghana\'s Blue Business Directory',
-      nextIntake: 'November 2025'
     }
     
   ];
