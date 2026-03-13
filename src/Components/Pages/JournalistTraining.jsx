@@ -248,7 +248,7 @@ const JournalistTraining = () => {
                   <MapPin className="w-4 h-4" style={{ color: '#8E3400' }} />
                   Location
                 </h3>
-                <p className="text-sm font-semibold" style={{ color: '#132552' }}>Accra, Ghana</p>
+                <p className="text-sm font-semibold" style={{ color: '#132552' }}>Coconut Grove Regency Hotel</p>
                 <p className="text-xs mt-1" style={{ color: '#6B7280' }}>Virtual attendance available for international participants</p>
               </div>
 
