@@ -261,7 +261,7 @@ const JournalistTraining = () => {
                 {/* Flyer image — replace src with actual flyer path */}
                 <div className="relative group">
                   <img
-                    src="public/journalist.training.webp"
+                    src="/journalist.training.webp"
                     alt="Journalist Training 2025 Flyer"
                     className="w-full object-cover"
                     style={{ maxHeight: '420px', objectPosition: 'top' }}
