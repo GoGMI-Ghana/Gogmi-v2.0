@@ -34,7 +34,7 @@ import GulfSpectrumPodcast from './Components/Pages/GulfSpectrumPodcast';
 import BlueWorldInitiative from './Components/Pages/BlueWorldInitiative';
 import IMSWGEvents from './Components/Pages/IMSWGEvents';
 import IMSWGsignup from './Components/Pages/IMSWGsignup';
-import JournalistTraining './Components/Pages/JournalistTraining';
+import JournalistTraining from './Components/Pages/JournalistTraining';
 
 function App() {
   return (
