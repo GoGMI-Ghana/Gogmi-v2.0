@@ -78,7 +78,7 @@ const CapacityBuilding = () => {
       category: 'Hybrid',
       status: 'Active',
       title: 'MARINE CASUALTY INVESTIGATION & SAFETY MANAGEMENT',
-      description: "Maritime and Inland Waterways (IWW) transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods in coastal and riverine communities.",
+      description: "Maritime and Inland Waterways (IWW) transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods in coastal and riverine communities.Common causes include overloading, poor vessel maintenance, incompetent or unlicensed operators, absence of life-saving appliances, bad weather, weak enforcement of regulations, inadequate navigational aids, and human factors such as fatigue and drunkenness.These incidents highlight critical gaps: inadequate compliance monitoring, poor vessel maintenance, lack of standardized investigations to produce data for trend analysis and accident prevention. National Maritime Administrations need better training to enhance safety of life at sea and protection of the marine environment",
       duration: '5 days',
       format: 'In Person',
       level: 'All Levels',
