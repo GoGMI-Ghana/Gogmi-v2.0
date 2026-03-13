@@ -180,7 +180,7 @@ const Membership = () => {
 
     const paystackKey = 'pk_live_c4b85f73c7df60cde1d9fa5f72d2bc9afaec4d74';
     
-    const amountGHS = amountUSD * 15;
+    const amountGHS = amountUSD * 11;
     
     try {
       const handler = window.PaystackPop.setup({
