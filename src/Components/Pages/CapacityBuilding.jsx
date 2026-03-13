@@ -95,7 +95,7 @@ const CapacityBuilding = () => {
       duration: '2 weeks',
       format: 'Virtual/Online',
       level: 'Beginner-Intermediate',
-      image: '/ecop.png',
+      image: '/maritmegovvvv.jpeg',
       features: ['8 Training Modules', 'Zoom Workshops', 'Certificate'],
       nextIntake: 'Quarterly',
       link: '/maritime-governance-course'
@@ -108,7 +108,7 @@ const CapacityBuilding = () => {
       duration: '3 days',
       format: 'Hybrid',
       level: 'All Levels',
-      image: '/bluecareer.webp',
+      image: '/journalist.training.webp',
       features: ['Hands-on training in open-source intelligence', 'data journalism', ' multimedia storytelling'],
       nextIntake: '7-9 October 2025',
       link: '/journalist-training'
