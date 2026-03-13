@@ -173,7 +173,7 @@ const IMSWGsignup = () => {
           </p>
           <button
             onClick={() => navigate('/imswg')}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 pt-12 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Back to IMSWG</span>
