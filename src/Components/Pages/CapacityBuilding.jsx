@@ -78,7 +78,7 @@ const CapacityBuilding = () => {
       category: 'Hybrid',
       status: 'Active',
       title: 'MARINE CASUALTY INVESTIGATION & SAFETY MANAGEMENT',
-      description: 'Maritime and Inland Waterways (IWW) transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods in coastal and riverine communities.',
+      description: "Maritime and Inland Waterways (IWW) transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods in coastal and riverine communities.",
       duration: '5 days',
       format: 'In Person',
       level: 'All Levels',
