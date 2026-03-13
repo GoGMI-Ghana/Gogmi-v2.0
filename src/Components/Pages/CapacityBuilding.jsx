@@ -103,15 +103,15 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'JOURNALIST TRAINING',
-      description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
-      duration: '2 days',
-      format: 'In-Person',
+      title: '2025 Training for Journalist and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
+      description: 'To better raise awareness on maritime security issues and challenges, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) are launching a call for participation for a training course on: “Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
+      duration: '3 days',
+      format: 'Hybrid',
       level: 'All Levels',
       image: '/bluecareer.webp',
-      features: ['Panel Discussions', 'Network Sessions', 'Career Fair'],
-      impact: 'Launched Ghana\'s Blue Business Directory',
-      nextIntake: 'November 2025'
+      features: ['Hands-on training in open-source intelligence', 'data journalism', ' multimedia storytelling'],
+      // impact: 'Launched Ghana\'s Blue Business Directory',
+      nextIntake: '7-9 October 2025'
     },
     {
       category: 'Onsite',
