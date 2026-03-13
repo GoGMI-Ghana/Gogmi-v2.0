@@ -198,7 +198,7 @@ const IMSWGsignup = () => {
             <span className="font-semibold">Back to IMSWG</span>
           </button>
           <h1 className="text-4xl font-bold mb-2" style={{ color: '#1e293b' }}>
-            Explore Your Interest
+            Sign Up to our IMSWG Group
           </h1>
           <p className="text-lg" style={{ color: '#64748b' }}>
             International Maritime Security Working Group
