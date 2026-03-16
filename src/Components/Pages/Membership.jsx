@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 // Secret Key (backend)   : sk_test_bce21efa76426f8ca318e5973e81f490994ede8b
 // Switch to live keys (pk_live_ / sk_live_) before going to production
 // ───────────────────────────────────────────────────────────────────────────
-const PAYSTACK_PUBLIC_KEY = 'pk_test_bce21efa76426f8ca318e5973e81f490994ede8b';
+const PAYSTACK_PUBLIC_KEY = 'pk_test_bcc51111bf5578e46e157a62180b11db89302000';
 
 const Membership = () => {
   const navigate = useNavigate();
