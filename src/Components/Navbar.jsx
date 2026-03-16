@@ -111,6 +111,7 @@ const Navbar = () => {
       style={{ fontFamily: "'Inter', 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
     >
       <div className="w-full flex items-center justify-between px-12">
+        {/* Logo */}
         <button
           onClick={() => handleNavClick("/")}
           className="flex items-center space-x-3 group flex-shrink-0"
@@ -141,6 +142,7 @@ const Navbar = () => {
           </div>
         </button>
 
+        {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center flex-1 justify-center">
           <div className="flex items-center gap-6">
             {navItems.map((item) =>
@@ -205,6 +207,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Desktop Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
           {!isAuthenticated ? (
             <>
@@ -219,6 +222,7 @@ const Navbar = () => {
               >
                 GoGMI Blue Business Directory
               </button>
+              {/* ── Desktop: Member Login = brown, no Join Now ── */}
               <button
                 onClick={() => handleNavClick("/login")}
                 className="bg-[#8E3400] text-white px-6 py-2.5 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 whitespace-nowrap"
@@ -284,7 +288,7 @@ const Navbar = () => {
                   
                   <button
                     onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-red-600 hover:text-white transition-colors flex items-center gap-2"
+                    className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-red-600 hover:text-white transition-colors"
                     style={{ fontWeight: 400 }}
                   >
                     <LogOut className="w-4 h-4" />
@@ -296,6 +300,7 @@ const Navbar = () => {
           )}
         </div>
 
+        {/* Mobile Hamburger */}
         <button
           className={`lg:hidden transition-colors p-2 ${
             scrolled ? "text-[#132552]" : "text-[#F5F7FA]"
@@ -307,6 +312,7 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* ── Mobile Menu ─────────────────────────────────────────────────────── */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#F5F7FA]/98 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
           <div className="px-6 py-4 space-y-2">
@@ -362,20 +368,16 @@ const Navbar = () => {
                 >
                   GoGMI Blue Business Directory
                 </button>
+
+                {/* ── Mobile: Member Login = brown (matches desktop) ── */}
                 <button
                   onClick={() => handleNavClick("/login")}
-                  className="block w-full text-center bg-white border-2 border-[#132552] text-[#132552] px-6 py-3 rounded-lg hover:bg-gray-50 transition-all"
+                  className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg"
                   style={{ fontWeight: 600 }}
                 >
                   Member Login
                 </button>
-                <button
-                  onClick={() => handleNavClick("/membership")}
-                  className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg"
-                  style={{ fontWeight: 600 }}
-                >
-                  Join Now
-                </button>
+                {/* Join Now removed from mobile to match desktop */}
               </>
             ) : (
               <>
@@ -416,7 +418,7 @@ const Navbar = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left py-3 px-4 text-red-600 hover:bg-red-50 rounded-lg transition-all flex items-center gap-2"
+                  className="flex items-center gap-2 w-full text-left py-3 px-4 text-red-600 hover:bg-red-50 rounded-lg transition-all"
                   style={{ fontWeight: 600 }}
                 >
                   <LogOut className="w-4 h-4" />
