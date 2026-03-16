@@ -194,6 +194,9 @@ const Membership = () => {
     const amountGHS = amountUSD * 11;
     
     try {
+      // TEMPORARY TEST - remove before going live
+        activateMembership('TEST-REF-' + Date.now());
+        return;
       const handler = window.PaystackPop.setup({
         key: paystackKey,
         email: formData.email,
