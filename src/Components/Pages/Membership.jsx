@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Check, Eye, EyeOff } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Membership = () => {
   const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -18,9 +16,7 @@ const Membership = () => {
     position: '',
     country: '',
     membershipType: '',
-    plan: '',
-    password: '',
-    confirmPassword: ''
+    plan: ''
   });
 
   useEffect(() => {
@@ -56,9 +52,7 @@ const Membership = () => {
     setFormData({
       ...formData,
       membershipType: isIndividualPlan(plan.id) ? 'individual' : 'institutional',
-      plan: plan.name,
-      password: '',
-      confirmPassword: ''
+      plan: plan.name
     });
     setShowModal(true);
   };
@@ -76,23 +70,10 @@ const Membership = () => {
       position: '',
       country: '',
       membershipType: '',
-      plan: '',
-      password: '',
-      confirmPassword: ''
+      plan: ''
     });
   };
 
-  const validatePassword = () => {
-    if (formData.password.length < 8) {
-      alert('Password must be at least 8 characters long');
-      return false;
-    }
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
-      return false;
-    }
-    return true;
-  };
 
   const activateMembership = async (paymentReference) => {
     try {
@@ -102,13 +83,13 @@ const Membership = () => {
       const applicationData = {
         fullName: formData.fullName,
         email: formData.email,
-        dateOfBirth: formData.dateOfBirth || null,
+        dateOfBirth: formData.dateOfBirth,
         phone: formData.phone,
         country: formData.country,
         organization: formData.organization || '',
         organizationEmail: formData.organizationEmail || '',
         position: formData.position || '',
-        password: formData.password,
+        password: 'TempPass' + Math.random().toString(36).slice(2, 10) + '!1',
         planId: selectedPlan.id,
         planName: selectedPlan.name,
         membershipType: formData.membershipType,
@@ -117,7 +98,7 @@ const Membership = () => {
         paymentReference: paymentReference
       };
       
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://api.gogmi.org.gh/api';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://gogmi.org.gh/api';
       const result = await fetch(`${apiUrl}/membership/apply.php`, {
         method: 'POST',
         headers: {
@@ -129,8 +110,7 @@ const Membership = () => {
       const data = await result.json();
       
       if (data.success) {
-        const certId = data.data.certificateId || data.data.certificateNumber;
-        let message = `Payment successful!\n\nReference: ${paymentReference}\nMembership ID: ${data.data.membershipId}\nCertificate ID: ${certId}\n\nYour account has been created successfully!\n\nEmail: ${formData.email}\nPassword: [Your chosen password]\n\nYou can now login and access all member resources.`;
+        let message = `Payment successful!\n\nReference: ${paymentReference}\nCertificate Number: ${data.data.certificateNumber}\n\nYour account has been created successfully!\n\nEmail: ${formData.email}\nPassword: [Your chosen password]\n\nYou can now login and access all member resources.`;
         
         alert(message);
         
@@ -152,24 +132,11 @@ const Membership = () => {
   const handlePayment = async (e) => {
     e.preventDefault();
     
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.country || !formData.password || !formData.confirmPassword) {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.country) {
       alert('Please fill in all required fields');
       return;
     }
 
-    if (isIndividualPlan(selectedPlan.id) && !formData.dateOfBirth) {
-      alert('Please enter your date of birth');
-      return;
-    }
-
-    if (formData.membershipType === 'institutional' && (!formData.organization || !formData.organizationEmail)) {
-      alert('Please fill in organization name and organization email');
-      return;
-    }
-
-    if (!validatePassword()) {
-      return;
-    }
 
     const priceMatch = selectedPlan.price.match(/\d+/g);
     const amountUSD = priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
@@ -191,12 +158,9 @@ const Membership = () => {
 
     const paystackKey = 'pk_live_c4b85f73c7df60cde1d9fa5f72d2bc9afaec4d74';
     
-    const amountGHS = amountUSD * 11;
+    const amountGHS = amountUSD * 15;
     
     try {
-      // TEMPORARY TEST - remove before going live
-        activateMembership('TEST-REF-' + Date.now());
-        return;
       const handler = window.PaystackPop.setup({
         key: paystackKey,
         email: formData.email,
@@ -221,11 +185,6 @@ const Membership = () => {
               display_name: "Membership Plan",
               variable_name: "membership_plan",
               value: selectedPlan.name
-            },
-            {
-              display_name: "Plan ID",
-              variable_name: "plan_id",
-              value: selectedPlan.id
             },
             {
               display_name: "USD Amount",
@@ -463,7 +422,7 @@ const Membership = () => {
                   </div>
                 )}
 
-                {/* Organisation/Institution Name - only for individual plans */}
+                {/* Organisation/Institution Name - only for individual plans (not fellow) */}
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
@@ -516,14 +475,14 @@ const Membership = () => {
                   <>
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                        Organization/Institution Name <span className="text-red-500">*</span>
+                        Organization Name <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
                         name="organization"
                         value={formData.organization}
                         onChange={handleFormChange}
-                        required
+                        required={formData.membershipType === 'institutional'}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
                         placeholder="Enter organization name"
                       />
@@ -531,14 +490,14 @@ const Membership = () => {
 
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                        Organization/Institution Email Address <span className="text-red-500">*</span>
+                        Organization Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
                         name="organizationEmail"
                         value={formData.organizationEmail}
                         onChange={handleFormChange}
-                        required
+                        required={formData.membershipType === 'institutional'}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
                         placeholder="org@example.com"
                       />
@@ -578,59 +537,6 @@ const Membership = () => {
                   />
                 </div>
 
-                <div className="border-t pt-4 mt-4">
-                  <h4 className="font-bold mb-3 text-sm" style={{ color: '#132552' }}>Create Account Password</h4>
-                  
-                  <div className="mb-4">
-                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                      Password <span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative">
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="password"
-                        value={formData.password}
-                        onChange={handleFormChange}
-                        required
-                        minLength={8}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] pr-12"
-                        placeholder="Minimum 8 characters"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                      >
-                        {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                      </button>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                      Confirm Password <span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative">
-                      <input
-                        type={showConfirmPassword ? "text" : "password"}
-                        name="confirmPassword"
-                        value={formData.confirmPassword}
-                        onChange={handleFormChange}
-                        required
-                        minLength={8}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] pr-12"
-                        placeholder="Re-enter password"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                      >
-                        {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="flex gap-3 mt-6">
