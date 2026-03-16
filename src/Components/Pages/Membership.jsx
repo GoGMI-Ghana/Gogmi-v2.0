@@ -102,7 +102,7 @@ const Membership = () => {
       const applicationData = {
         fullName: formData.fullName,
         email: formData.email,
-        dateOfBirth: formData.dateOfBirth,
+        dateOfBirth: formData.dateOfBirth || null,
         phone: formData.phone,
         country: formData.country,
         organization: formData.organization || '',
@@ -117,7 +117,7 @@ const Membership = () => {
         paymentReference: paymentReference
       };
       
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://gogmi.org.gh/api';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://api.gogmi.org.gh/api';
       const result = await fetch(`${apiUrl}/membership/apply.php`, {
         method: 'POST',
         headers: {
@@ -129,7 +129,8 @@ const Membership = () => {
       const data = await result.json();
       
       if (data.success) {
-        let message = `Payment successful!\n\nReference: ${paymentReference}\nCertificate Number: ${data.data.certificateNumber}\n\nYour account has been created successfully!\n\nEmail: ${formData.email}\nPassword: [Your chosen password]\n\nYou can now login and access all member resources.`;
+        const certId = data.data.certificateId || data.data.certificateNumber;
+        let message = `Payment successful!\n\nReference: ${paymentReference}\nMembership ID: ${data.data.membershipId}\nCertificate ID: ${certId}\n\nYour account has been created successfully!\n\nEmail: ${formData.email}\nPassword: [Your chosen password]\n\nYou can now login and access all member resources.`;
         
         alert(message);
         
@@ -153,6 +154,16 @@ const Membership = () => {
     
     if (!formData.fullName || !formData.email || !formData.phone || !formData.country || !formData.password || !formData.confirmPassword) {
       alert('Please fill in all required fields');
+      return;
+    }
+
+    if (isIndividualPlan(selectedPlan.id) && !formData.dateOfBirth) {
+      alert('Please enter your date of birth');
+      return;
+    }
+
+    if (formData.membershipType === 'institutional' && (!formData.organization || !formData.organizationEmail)) {
+      alert('Please fill in organization name and organization email');
       return;
     }
 
@@ -207,6 +218,11 @@ const Membership = () => {
               display_name: "Membership Plan",
               variable_name: "membership_plan",
               value: selectedPlan.name
+            },
+            {
+              display_name: "Plan ID",
+              variable_name: "plan_id",
+              value: selectedPlan.id
             },
             {
               display_name: "USD Amount",
@@ -444,7 +460,7 @@ const Membership = () => {
                   </div>
                 )}
 
-                {/* Organisation/Institution Name - only for individual plans (not fellow) */}
+                {/* Organisation/Institution Name - only for individual plans */}
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
@@ -504,7 +520,7 @@ const Membership = () => {
                         name="organization"
                         value={formData.organization}
                         onChange={handleFormChange}
-                        required={formData.membershipType === 'institutional'}
+                        required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
                         placeholder="Enter organization name"
                       />
@@ -519,7 +535,7 @@ const Membership = () => {
                         name="organizationEmail"
                         value={formData.organizationEmail}
                         onChange={handleFormChange}
-                        required={formData.membershipType === 'institutional'}
+                        required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
                         placeholder="org@example.com"
                       />
