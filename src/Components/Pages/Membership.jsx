@@ -156,7 +156,7 @@ const Membership = () => {
       return;
     }
 
-    const paystackKey = 'pk_test_bce21efa76426f8ca318e5973e81f490994ede8b';
+    const paystackKey = 'pk_test_bcc51111bf5578e46e157a62180b11db89302000';
     
     const amountGHS = amountUSD * 15;
     
