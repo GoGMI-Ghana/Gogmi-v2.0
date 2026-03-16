@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+// ── Paystack Test Keys ──────────────────────────────────────────────────────
+// Public Key (frontend)  : pk_test_bce21efa76426f8ca318e5973e81f490994ede8b
+// Secret Key (backend)   : sk_test_bce21efa76426f8ca318e5973e81f490994ede8b
+// Switch to live keys (pk_live_ / sk_live_) before going to production
+// ───────────────────────────────────────────────────────────────────────────
+const PAYSTACK_PUBLIC_KEY = 'pk_test_bce21efa76426f8ca318e5973e81f490994ede8b';
+
 const Membership = () => {
   const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -58,6 +66,7 @@ const Membership = () => {
   };
 
   const closeMembershipModal = () => {
+    if (isProcessing) return; // prevent closing while a payment is in flight
     setShowModal(false);
     setSelectedPlan(null);
     setFormData({
@@ -74,158 +83,162 @@ const Membership = () => {
     });
   };
 
-
+  // ── Step 2: Activate membership on the backend AFTER Paystack confirms ──
   const activateMembership = async (paymentReference) => {
     try {
-      const priceMatch = selectedPlan.price.match(/\d+/g);
-      const amount = priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
+      const priceMatch = selectedPlan.price.match(/[\d,]+/g);
+      const amount = priceMatch
+        ? parseFloat(priceMatch.join('').replace(',', ''))
+        : 0;
 
       const applicationData = {
-        fullName: formData.fullName,
-        email: formData.email,
-        dateOfBirth: formData.dateOfBirth,
-        phone: formData.phone,
-        country: formData.country,
-        organization: formData.organization || '',
+        fullName:          formData.fullName,
+        email:             formData.email,
+        dateOfBirth:       formData.dateOfBirth,
+        phone:             formData.phone,
+        country:           formData.country,
+        organization:      formData.organization      || '',
         organizationEmail: formData.organizationEmail || '',
-        position: formData.position || '',
-        password: 'TempPass' + Math.random().toString(36).slice(2, 10) + '!1',
-        planId: selectedPlan.id,
-        planName: selectedPlan.name,
-        membershipType: formData.membershipType,
-        amount: amount,
-        currency: 'USD',
-        paymentReference: paymentReference
+        position:          formData.position          || '',
+        planId:            selectedPlan.id,
+        planName:          selectedPlan.name,
+        membershipType:    formData.membershipType,
+        amount,
+        currency:          'USD',
+        paymentReference
       };
-      
+
       const apiUrl = import.meta.env.VITE_API_URL || 'https://gogmi.org.gh/api';
+
       const result = await fetch(`${apiUrl}/membership/apply.php`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(applicationData)
       });
-      
+
       const data = await result.json();
-      
+
       if (data.success) {
-        let message = `Payment successful!\n\nReference: ${paymentReference}\nCertificate Number: ${data.data.certificateNumber}\n\nYour account has been created successfully!\n\nEmail: ${formData.email}\nPassword: [Your chosen password]\n\nYou can now login and access all member resources.`;
-        
-        alert(message);
-        
+        alert(
+          `Payment successful!\n\n` +
+          `Reference: ${paymentReference}\n` +
+          `Certificate Number: ${data.data.certificateNumber}\n\n` +
+          `Your account has been created successfully!\n\n` +
+          `Email: ${formData.email}\n\n` +
+          `Please use the Forgot Password link on the login page to set your password and access your member dashboard.`
+        );
+
         closeMembershipModal();
-        
+
         setTimeout(() => {
           window.location.href = '/login';
         }, 1000);
       } else {
-        alert('Payment successful but membership activation failed. Please contact support at info@gogmi.org.gh with reference: ' + paymentReference + '\n\nError: ' + data.message);
+        alert(
+          `Payment successful but membership activation failed.\n\n` +
+          `Please contact support at info@gogmi.org.gh\n` +
+          `Reference: ${paymentReference}\n\n` +
+          `Error: ${data.message}`
+        );
       }
-      
     } catch (error) {
       console.error('Activation error:', error);
-      alert('Payment successful but there was an error activating your membership. Please contact support at info@gogmi.org.gh with reference: ' + paymentReference);
+      alert(
+        `Payment successful but there was an error activating your membership.\n\n` +
+        `Please contact support at info@gogmi.org.gh\n` +
+        `Reference: ${paymentReference}`
+      );
+    } finally {
+      setIsProcessing(false);
     }
   };
 
+  // ── Step 1: Validate form, then open Paystack popup ─────────────────────
   const handlePayment = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.fullName || !formData.email || !formData.phone || !formData.country) {
       alert('Please fill in all required fields');
       return;
     }
 
+    // By-invitation plans — skip payment
+    if (!selectedPlan.price || selectedPlan.price === 'By Invitation Only') {
+      alert('Thank you for your interest! Our team will contact you at info@gogmi.org.gh regarding this membership tier.');
+      closeMembershipModal();
+      return;
+    }
 
-    const priceMatch = selectedPlan.price.match(/\d+/g);
-    const amountUSD = priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
+    // Parse USD amount from price string e.g. "USD 2,000"
+    const priceMatch = selectedPlan.price.match(/[\d,]+/g);
+    const amountUSD  = priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
 
-    if (amountUSD === 0 || selectedPlan.price === 'By Invitation Only') {
+    if (amountUSD === 0) {
       alert('Thank you for your interest! Our team will contact you at info@gogmi.org.gh regarding this membership tier.');
       closeMembershipModal();
       return;
     }
 
     if (typeof window.PaystackPop === 'undefined') {
-      alert('Payment system is loading. Please wait a moment and try again.');
-      const script = document.createElement('script');
-      script.src = 'https://js.paystack.co/v1/inline.js';
-      script.async = true;
-      document.body.appendChild(script);
+      alert('Payment system is still loading. Please wait a moment and try again.');
       return;
     }
 
-    const paystackKey = 'pk_test_bcc51111bf5578e46e157a62180b11db89302000';
-    
-    const amountGHS = amountUSD * 15;
-    
+    // Paystack requires amount in the smallest currency unit (pesewas for GHS)
+    // Conversion: 1 USD ≈ 15 GHS (update this rate or fetch it dynamically as needed)
+    const USD_TO_GHS   = 15;
+    const amountGHS    = amountUSD * USD_TO_GHS;
+    const amountKobo   = Math.round(amountGHS * 100); // pesewas
+
+    const reference = 'GOGMI-' + Date.now() + '-' + Math.floor(Math.random() * 1e6);
+
+    setIsProcessing(true);
+
     try {
       const handler = window.PaystackPop.setup({
-        key: paystackKey,
-        email: formData.email,
-        amount: amountGHS * 100,
+        key:      PAYSTACK_PUBLIC_KEY,          // ← corrected test public key
+        email:    formData.email,
+        amount:   amountKobo,
         currency: 'GHS',
-        ref: 'GOGMI-' + Math.floor((Math.random() * 1000000000) + 1),
+        ref:      reference,
         channels: ['card', 'mobile_money', 'bank', 'ussd', 'qr', 'bank_transfer'],
-        
+
         metadata: {
           custom_fields: [
-            {
-              display_name: "Full Name",
-              variable_name: "full_name",
-              value: formData.fullName
-            },
-            {
-              display_name: "Phone",
-              variable_name: "phone",
-              value: formData.phone
-            },
-            {
-              display_name: "Membership Plan",
-              variable_name: "membership_plan",
-              value: selectedPlan.name
-            },
-            {
-              display_name: "USD Amount",
-              variable_name: "usd_amount",
-              value: `$${amountUSD}`
-            },
-            {
-              display_name: "Organization",
-              variable_name: "organization",
-              value: formData.organization || 'N/A'
-            },
-            {
-              display_name: "Country",
-              variable_name: "country",
-              value: formData.country
-            },
-            {
-              display_name: "Position",
-              variable_name: "position",
-              value: formData.position || 'N/A'
-            }
+            { display_name: 'Full Name',       variable_name: 'full_name',       value: formData.fullName },
+            { display_name: 'Phone',           variable_name: 'phone',           value: formData.phone },
+            { display_name: 'Membership Plan', variable_name: 'membership_plan', value: selectedPlan.name },
+            { display_name: 'USD Amount',      variable_name: 'usd_amount',      value: `$${amountUSD}` },
+            { display_name: 'Organization',    variable_name: 'organization',    value: formData.organization || 'N/A' },
+            { display_name: 'Country',         variable_name: 'country',         value: formData.country },
+            { display_name: 'Position',        variable_name: 'position',        value: formData.position || 'N/A' }
           ]
         },
-        
-        callback: function(response) {
-          console.log('Payment successful!');
-          console.log('Reference:', response.reference);
+
+        // ── Payment confirmed by Paystack ──────────────────────────────────
+        // The backend (apply.php) will independently verify this reference
+        // against the Paystack API using the secret key before activating.
+        callback: (response) => {
+          console.log('Paystack callback — reference:', response.reference);
           activateMembership(response.reference);
         },
-        
-        onClose: function() {
-          console.log('Payment popup closed');
+
+        onClose: () => {
+          console.log('Paystack popup closed by user');
+          setIsProcessing(false);
+          // Only alert if the user deliberately closed without paying
           alert('Payment cancelled. The payment window was closed.');
         }
       });
-      
+
       handler.openIframe();
-      
     } catch (error) {
-      console.error('Paystack Error:', error);
-      alert('Payment initialization failed. Please check your internet connection and try again.\n\nError: ' + error.message);
+      console.error('Paystack setup error:', error);
+      setIsProcessing(false);
+      alert(
+        'Payment initialisation failed. Please check your internet connection and try again.\n\n' +
+        'Error: ' + error.message
+      );
     }
   };
 
@@ -365,7 +378,8 @@ const Membership = () => {
                 </div>
                 <button
                   onClick={closeMembershipModal}
-                  className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-all"
+                  disabled={isProcessing}
+                  className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-all disabled:opacity-40"
                   style={{ color: '#4B5563' }}
                 >
                   ✕
@@ -405,7 +419,7 @@ const Membership = () => {
                   />
                 </div>
 
-                {/* Date of Birth - only for individual plans */}
+                {/* Date of Birth — individual plans only */}
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
@@ -422,7 +436,7 @@ const Membership = () => {
                   </div>
                 )}
 
-                {/* Organisation/Institution Name - only for individual plans (not fellow) */}
+                {/* Organisation — individual plans only (optional) */}
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
@@ -439,7 +453,7 @@ const Membership = () => {
                   </div>
                 )}
 
-                {/* Position/Title - for institutional plans, comes right after email */}
+                {/* Position — institutional plans (appears after email) */}
                 {formData.membershipType === 'institutional' && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
@@ -471,6 +485,7 @@ const Membership = () => {
                   />
                 </div>
 
+                {/* Org name & org email — institutional plans only */}
                 {formData.membershipType === 'institutional' && (
                   <>
                     <div>
@@ -482,7 +497,7 @@ const Membership = () => {
                         name="organization"
                         value={formData.organization}
                         onChange={handleFormChange}
-                        required={formData.membershipType === 'institutional'}
+                        required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
                         placeholder="Enter organization name"
                       />
@@ -497,7 +512,7 @@ const Membership = () => {
                         name="organizationEmail"
                         value={formData.organizationEmail}
                         onChange={handleFormChange}
-                        required={formData.membershipType === 'institutional'}
+                        required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
                         placeholder="org@example.com"
                       />
@@ -505,7 +520,7 @@ const Membership = () => {
                   </>
                 )}
 
-                {/* Position/Title - for individual plans */}
+                {/* Position — individual plans (appears after org fields) */}
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
@@ -536,26 +551,31 @@ const Membership = () => {
                     placeholder="e.g., Ghana"
                   />
                 </div>
-
               </div>
 
               <div className="flex gap-3 mt-6">
                 <button
                   type="button"
                   onClick={closeMembershipModal}
-                  className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all"
+                  disabled={isProcessing}
+                  className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40"
                   style={{ borderColor: '#132552', color: '#132552', fontWeight: 700 }}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all"
-                  style={{ backgroundColor: '#8E3400', fontWeight: 700 }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
+                  disabled={isProcessing}
+                  className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-60"
+                  style={{ backgroundColor: isProcessing ? '#6B2700' : '#8E3400', fontWeight: 700 }}
+                  onMouseEnter={(e) => { if (!isProcessing) e.currentTarget.style.backgroundColor = '#6B2700'; }}
+                  onMouseLeave={(e) => { if (!isProcessing) e.currentTarget.style.backgroundColor = '#8E3400'; }}
                 >
-                  {selectedPlan.price === 'By Invitation Only' ? 'Submit Application' : `Pay ${selectedPlan.price}`}
+                  {isProcessing
+                    ? 'Processing…'
+                    : selectedPlan.price === 'By Invitation Only'
+                      ? 'Submit Application'
+                      : `Pay ${selectedPlan.price}`}
                 </button>
               </div>
             </form>
@@ -565,8 +585,8 @@ const Membership = () => {
 
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: '#132552' }}>
         <div className="absolute inset-0">
-          <img 
-            src="/memb2.png" 
+          <img
+            src="/memb2.png"
             alt="Membership"
             className="w-full h-full object-cover opacity-20"
           />
@@ -580,7 +600,7 @@ const Membership = () => {
             <p className="text-xl text-white/90 leading-relaxed mb-8 font-semibold">
               Join our maritime community to access exclusive research, engage with thought leaders, and expand your network across the Gulf of Guinea maritime sector.
             </p>
-            <button 
+            <button
               onClick={() => window.scrollTo({ top: document.getElementById('plans')?.offsetTop || 0, behavior: 'smooth' })}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
               style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
@@ -614,7 +634,7 @@ const Membership = () => {
               </div>
             </div>
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/memb1.png"
                 alt="Maritime Professionals"
                 className="w-full h-full object-cover"
@@ -686,18 +706,18 @@ const Membership = () => {
                     MOST POPULAR
                   </div>
                 )}
-                
+
                 <div className="p-6">
                   <h3 className="text-lg font-bold mb-1" style={{ color: '#132552', fontWeight: 700 }}>
                     {plan.name}
                   </h3>
-                  
+
                   {plan.subtitle && (
                     <p className="text-sm font-semibold mb-2" style={{ color: '#8E3400' }}>
                       {plan.subtitle}
                     </p>
                   )}
-                  
+
                   <div className="mb-3">
                     <div className="flex items-baseline gap-1">
                       <span className="text-2xl font-black" style={{ color: '#132552', fontWeight: 900 }}>
@@ -767,7 +787,7 @@ const Membership = () => {
                   <h3 className="text-lg font-bold mb-2" style={{ color: '#132552', fontWeight: 700 }}>
                     {plan.name}
                   </h3>
-                  
+
                   <div className="mb-3">
                     <div className="flex items-baseline gap-1">
                       <span className="text-2xl font-black" style={{ color: '#132552', fontWeight: 900 }}>
@@ -829,26 +849,10 @@ const Membership = () => {
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              {
-                step: '1',
-                title: 'Choose Your Plan',
-                description: 'Select the membership tier that best fits your needs and professional goals.'
-              },
-              {
-                step: '2',
-                title: 'Complete Application',
-                description: 'Fill out the online application form with your details.'
-              },
-              {
-                step: '3',
-                title: 'Payment',
-                description: 'Complete payment securely via Paystack. Your account is automatically created.'
-              },
-              {
-                step: '4',
-                title: 'Welcome Aboard',
-                description: 'Receive your credentials and gain immediate access to all benefits.'
-              }
+              { step: '1', title: 'Choose Your Plan',      description: 'Select the membership tier that best fits your needs and professional goals.' },
+              { step: '2', title: 'Complete Application',  description: 'Fill out the online application form with your details.' },
+              { step: '3', title: 'Payment',               description: 'Complete payment securely via Paystack. Your account is automatically created.' },
+              { step: '4', title: 'Welcome Aboard',        description: 'Receive your credentials and gain immediate access to all benefits.' }
             ].map((process, idx) => (
               <div key={idx} className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl font-black mb-4 text-white" style={{ backgroundColor: '#132552', fontWeight: 900 }}>
@@ -870,7 +874,7 @@ const Membership = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/memb3.png"
                 alt="Membership Brochure"
                 className="w-full h-full object-cover"
@@ -883,7 +887,7 @@ const Membership = () => {
               <p className="text-lg mb-8 leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
                 Get detailed information about all membership categories, benefits, and application procedures.
               </p>
-              <button 
+              <button
                 onClick={handleBrochureDownload}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
                 style={{ backgroundColor: '#132552', color: 'white', fontWeight: 700 }}
@@ -902,3 +906,4 @@ const Membership = () => {
 };
 
 export default Membership;
+         
