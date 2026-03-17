@@ -209,30 +209,27 @@ const Navbar = () => {
 
         {/* Desktop Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+          {/* Blue Business Directory - always visible */}
+          <button
+            onClick={() => handleNavClick("#")}
+            className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
+              scrolled
+                ? "text-[#1F2933] hover:bg-[#8E3400]/10"
+                : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
+            }`}
+            style={{ fontWeight: 600 }}
+          >
+            GoGMI Blue Business Directory
+          </button>
+
           {!isAuthenticated ? (
-            <>
-      <button
-      onClick={() => handleNavClick("#")}
-      className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
-        scrolled
-          ? "text-[#1F2933] hover:bg-[#8E3400]/10"
-          : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
-      }`}
-      style={{ fontWeight: 600 }}
-    >
-      GoGMI Blue Business Directory
-    </button>
-  {!isAuthenticated ? (
-  <>
-              {/* ── Desktop: Member Login = brown, no Join Now ── */}
-              <button
-                onClick={() => handleNavClick("/login")}
-                className="bg-[#8E3400] text-white px-6 py-2.5 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 whitespace-nowrap"
-                style={{ fontWeight: 600 }}
-              >
-                Member Login
-              </button>
-            </>
+            <button
+              onClick={() => handleNavClick("/login")}
+              className="bg-[#8E3400] text-white px-6 py-2.5 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 whitespace-nowrap"
+              style={{ fontWeight: 600 }}
+            >
+              Member Login
+            </button>
           ) : (
             <div className="relative">
               <button
@@ -245,7 +242,7 @@ const Navbar = () => {
                 style={{ fontWeight: 600 }}
               >
                 <User className="w-4 h-4" />
-                <span className="max-w-[150px] truncate">{user?.full_name}</span>
+                <span className="max-w-[150px] truncate">{user?.full_name?.split(' ')[0]}</span>
                 {isMember && (
                   <span className="ml-1 px-2 py-0.5 text-xs bg-[#8E3400] text-white rounded-full">
                     Member
@@ -269,16 +266,6 @@ const Navbar = () => {
                       </p>
                     )}
                   </div>
-                  
-                  {!isMember && (
-                    <button
-                      onClick={() => handleNavClick('/membership')}
-                      className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors"
-                      style={{ fontWeight: 400 }}
-                    >
-                      Become a Member
-                    </button>
-                  )}
                   
                   <button
                     onClick={() => handleNavClick('/resources')}
@@ -314,7 +301,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* ── Mobile Menu ─────────────────────────────────────────────────────── */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#F5F7FA]/98 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
           <div className="px-6 py-4 space-y-2">
@@ -361,26 +348,23 @@ const Navbar = () => {
               )
             )}
 
-            {!isAuthenticated ? (
-              <>
-                <button
-                  onClick={() => handleNavClick("#")}
-                  className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
-                  style={{ fontWeight: 600 }}
-                >
-                  GoGMI Blue Business Directory
-                </button>
+            {/* Blue Business Directory - always visible on mobile */}
+            <button
+              onClick={() => handleNavClick("#")}
+              className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
+              style={{ fontWeight: 600 }}
+            >
+              GoGMI Blue Business Directory
+            </button>
 
-                {/* ── Mobile: Member Login = brown (matches desktop) ── */}
-                <button
-                  onClick={() => handleNavClick("/login")}
-                  className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg"
-                  style={{ fontWeight: 600 }}
-                >
-                  Member Login
-                </button>
-                {/* Join Now removed from mobile to match desktop */}
-              </>
+            {!isAuthenticated ? (
+              <button
+                onClick={() => handleNavClick("/login")}
+                className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg"
+                style={{ fontWeight: 600 }}
+              >
+                Member Login
+              </button>
             ) : (
               <>
                 <div className="bg-[#132552] rounded-lg p-4 mt-4">
@@ -399,16 +383,6 @@ const Navbar = () => {
                     </span>
                   )}
                 </div>
-
-                {!isMember && (
-                  <button
-                    onClick={() => handleNavClick('/membership')}
-                    className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all"
-                    style={{ fontWeight: 600 }}
-                  >
-                    Become a Member
-                  </button>
-                )}
 
                 <button
                   onClick={() => handleNavClick('/resources')}
