@@ -1,135 +1,82 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { authAPI, membershipAPI } from '../services/api';
 
-const AuthContext = createContext();
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
-  return context;
-};
+const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [membership, setMembership] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  // Load saved session on mount
   useEffect(() => {
-    checkAuth();
+    const savedUser = localStorage.getItem('gogmi_user');
+    const savedMembership = localStorage.getItem('gogmi_membership');
+    
+    if (savedUser) {
+      try {
+        setUser(JSON.parse(savedUser));
+        if (savedMembership) {
+          setMembership(JSON.parse(savedMembership));
+        }
+      } catch {
+        localStorage.removeItem('gogmi_user');
+        localStorage.removeItem('gogmi_membership');
+      }
+    }
+    setLoading(false);
   }, []);
 
-  const checkAuth = async () => {
-    const token = localStorage.getItem('gogmi_token');
-    
-    if (!token) {
-      setLoading(false);
-      return;
-    }
-
+  const login = async ({ membershipId }) => {
     try {
-      const response = await authAPI.getMe();
-      
-      if (response.success) {
-        setUser(response.data.user);
-        setMembership(response.data.membership);
-        setIsAuthenticated(true);
-        
-        localStorage.setItem('gogmi_user', JSON.stringify(response.data.user));
-        if (response.data.membership) {
-          localStorage.setItem('gogmi_membership', JSON.stringify(response.data.membership));
-        }
+      const apiUrl = 'https://api.gogmi.org.gh/api';
+      const response = await fetch(`${apiUrl}/auth/login.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ membershipId })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setUser(data.data.user);
+        setMembership(data.data.membership);
+        localStorage.setItem('gogmi_user', JSON.stringify(data.data.user));
+        localStorage.setItem('gogmi_membership', JSON.stringify(data.data.membership));
+        return { success: true };
+      } else {
+        return { success: false, error: data.message || 'Login failed' };
       }
     } catch (error) {
-      console.error('Auth check failed:', error);
-      logout();
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const login = async (credentials) => {
-    try {
-      const response = await authAPI.login(credentials);
-      
-      if (response.success) {
-        const { token, user, membership } = response.data;
-        
-        localStorage.setItem('gogmi_token', token);
-        localStorage.setItem('gogmi_user', JSON.stringify(user));
-        
-        if (membership) {
-          localStorage.setItem('gogmi_membership', JSON.stringify(membership));
-          setMembership(membership);
-        }
-        
-        setUser(user);
-        setIsAuthenticated(true);
-        
-        return { success: true, user };
-      }
-    } catch (error) {
-      return { success: false, error: error.message };
-    }
-  };
-
-  const register = async (userData) => {
-    try {
-      const response = await authAPI.register(userData);
-      
-      if (response.success) {
-        const { token, user } = response.data;
-        
-        localStorage.setItem('gogmi_token', token);
-        localStorage.setItem('gogmi_user', JSON.stringify(user));
-        
-        setUser(user);
-        setIsAuthenticated(true);
-        
-        return { success: true, user };
-      }
-    } catch (error) {
-      return { success: false, error: error.message };
+      console.error('Login error:', error);
+      return { success: false, error: 'Unable to connect to server. Please try again.' };
     }
   };
 
   const logout = () => {
-    authAPI.logout();
     setUser(null);
     setMembership(null);
-    setIsAuthenticated(false);
+    localStorage.removeItem('gogmi_user');
+    localStorage.removeItem('gogmi_membership');
   };
 
-  const updateMembership = async () => {
-    try {
-      const response = await membershipAPI.getStatus();
-      
-      if (response.success && response.data.activeMembership) {
-        setMembership(response.data.activeMembership);
-        localStorage.setItem('gogmi_membership', JSON.stringify(response.data.activeMembership));
-      }
-    } catch (error) {
-      console.error('Failed to update membership:', error);
-    }
-  };
+  const isAuthenticated = !!user;
+  const isMember = !!membership && membership.status === 'active';
 
-  const value = {
-    user,
-    membership,
-    loading,
-    isAuthenticated,
-    login,
-    register,
-    logout,
-    updateMembership,
-    isMember: membership !== null
-  };
+  if (loading) return null;
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={{ user, membership, isAuthenticated, isMember, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+
+export default AuthContext;
