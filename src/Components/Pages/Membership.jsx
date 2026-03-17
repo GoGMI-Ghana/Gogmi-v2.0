@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 // Secret Key (backend)   : sk_test_bce21efa76426f8ca318e5973e81f490994ede8b
 // Switch to live keys (pk_live_ / sk_live_) before going to production
 // ───────────────────────────────────────────────────────────────────────────
-const PAYSTACK_PUBLIC_KEY = 'pk_test_bcc51111bf5578e46e157a62180b11db89302000';
+const PAYSTACK_PUBLIC_KEY = 'pk_live_5deb38ad873d2e40332a00250c2fbd6199b5de30';
 
 const Membership = () => {
   const navigate = useNavigate();
@@ -117,15 +117,24 @@ const Membership = () => {
 
       const data = await result.json();
 
-      if (data.success) {
-        alert(
-          `Payment successful!\n\n` +
-          `Reference: ${paymentReference}\n` +
-          `Certificate Number: ${data.data.certificateNumber}\n\n` +
-          `Your account has been created successfully!\n\n` +
-          `Email: ${formData.email}\n\n` +
-          `Please use the Forgot Password link on the login page to set your password and access your member dashboard.`
-        );
+    if (data.success) {
+    const certId = data.data.certificateId || data.data.certificateNumber;
+    alert(
+      `Welcome to GoGMI!\n\n` +
+      `Your membership has been activated successfully.\n\n` +
+      `Membership ID: ${data.data.membershipId}\n` +
+      `Certificate ID: ${certId}\n\n` +
+      `Use your Membership ID to login at any time.\n` +
+      `A confirmation email with your details has been sent to ${formData.email}.\n\n` +
+      `Reference: ${paymentReference}`
+    );
+
+    closeMembershipModal();
+
+    setTimeout(() => {
+      window.location.href = '/login';
+    }, 1000);
+}
 
         closeMembershipModal();
 
