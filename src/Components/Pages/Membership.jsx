@@ -187,7 +187,7 @@ const Membership = () => {
       return;
     }
 
-    const USD_TO_GHS   = 15;
+    const USD_TO_GHS   = 10.88;
     const amountGHS    = amountUSD * USD_TO_GHS;
     const amountKobo   = Math.round(amountGHS * 100);
 
