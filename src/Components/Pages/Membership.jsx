@@ -107,8 +107,7 @@ const Membership = () => {
         currency:          'USD',
         paymentReference
       };
-
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://gogmi.org.gh/api';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://api.gogmi.org.gh/api';
 
       const result = await fetch(`${apiUrl}/membership/apply.php`, {
         method: 'POST',
