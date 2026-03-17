@@ -1,412 +1,812 @@
-import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from '../context/AuthContext';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(null);
-  const [closeTimeout, setCloseTimeout] = useState(null);
-  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
-  const location = useLocation();
+const PAYSTACK_PUBLIC_KEY = 'pk_live_5deb38ad873d2e40332a00250c2fbd6199b5de30';
+
+const Membership = () => {
   const navigate = useNavigate();
-  const [currentPath, setCurrentPath] = useState("/");
-  
-  const { isAuthenticated, user, isMember, logout } = useAuth();
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    dateOfBirth: '',
+    phone: '',
+    organization: '',
+    organizationEmail: '',
+    position: '',
+    country: '',
+    membershipType: '',
+    plan: ''
+  });
 
   useEffect(() => {
-    setCurrentPath(location.pathname || "/");
-  }, [location]);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (!document.getElementById('paystack-script')) {
+      const script = document.createElement('script');
+      script.id = 'paystack-script';
+      script.src = 'https://js.paystack.co/v1/inline.js';
+      script.async = true;
+      script.onload = () => {
+        console.log('Paystack script loaded successfully');
+      };
+      script.onerror = () => {
+        console.error('Failed to load Paystack script');
+        alert('Failed to load payment system. Please check your internet connection.');
+      };
+      document.body.appendChild(script);
+    }
   }, []);
 
-  const navItems = [
-    { name: "Home", path: "/" },
-    { 
-      name: "About Us", 
-      path: "/about",
-      dropdown: [
-        {name: "Who We Are", path: "/about"},
-        {name: "Partners", path: "/partners"},
-        {name: "Careers", path: "/CareersOpportunities"}
-      ]
-    },
-    { 
-      name: "Areas of Work", 
-      path: "/services",
-      dropdown: [
-        { name: "Advocacy", path: "/services/advocacy" },
-        { name: "Research", path: "/services/research" },
-        { name: "Capacity Building", path: "/services/CapacityBuilding" },
-        { name: "Secretariat Services", path: "/secretariat" },
-      ],
-    },
-    { 
-      name: "Our Team", 
-      path: "/ExecutiveChairman",
-      dropdown: [
-        { name: "Board Of Directors", path: "/ExecutiveChairman" },
-        { name: "Advisory Board", path: "/AdvisoryBoard" },
-        { name: "Management", path: "/Management" }
+  const handleFormChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const isIndividualPlan = (planId) => {
+    return ['student', 'associate', 'professional'].includes(planId);
+  };
+
+  const openMembershipModal = (plan) => {
+    setSelectedPlan(plan);
+    setFormData({
+      ...formData,
+      membershipType: isIndividualPlan(plan.id) ? 'individual' : 'institutional',
+      plan: plan.name
+    });
+    setShowModal(true);
+  };
+
+  const closeMembershipModal = () => {
+    if (isProcessing) return;
+    setShowModal(false);
+    setSelectedPlan(null);
+    setFormData({
+      fullName: '',
+      email: '',
+      dateOfBirth: '',
+      phone: '',
+      organization: '',
+      organizationEmail: '',
+      position: '',
+      country: '',
+      membershipType: '',
+      plan: ''
+    });
+  };
+
+  const activateMembership = async (paymentReference) => {
+    try {
+      const priceMatch = selectedPlan.price.match(/[\d,]+/g);
+      const amount = priceMatch
+        ? parseFloat(priceMatch.join('').replace(',', ''))
+        : 0;
+
+      const applicationData = {
+        fullName:          formData.fullName,
+        email:             formData.email,
+        dateOfBirth:       formData.dateOfBirth || null,
+        phone:             formData.phone,
+        country:           formData.country,
+        organization:      formData.organization      || '',
+        organizationEmail: formData.organizationEmail || '',
+        position:          formData.position          || '',
+        planId:            selectedPlan.id,
+        planName:          selectedPlan.name,
+        membershipType:    formData.membershipType,
+        amount,
+        currency:          'USD',
+        paymentReference
+      };
+
+      const apiUrl = 'https://api.gogmi.org.gh/api';
+
+      const result = await fetch(`${apiUrl}/membership/apply.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(applicationData)
+      });
+
+      const data = await result.json();
+
+      if (data.success) {
+        const certId = data.data.certificateId || data.data.certificateNumber;
+        alert(
+          'Welcome to GoGMI!\n\n' +
+          'Your membership has been activated successfully.\n\n' +
+          'Membership ID: ' + data.data.membershipId + '\n' +
+          'Certificate ID: ' + certId + '\n\n' +
+          'Use your Membership ID to login at any time.\n' +
+          'A confirmation email with your details has been sent to ' + formData.email + '.\n\n' +
+          'Reference: ' + paymentReference
+        );
+
+        closeMembershipModal();
+
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 1000);
+      } else {
+        alert(
+          'Payment successful but membership activation failed.\n\n' +
+          'Please contact support at info@gogmi.org.gh\n' +
+          'Reference: ' + paymentReference + '\n\n' +
+          'Error: ' + data.message
+        );
+      }
+    } catch (error) {
+      console.error('Activation error:', error);
+      alert(
+        'Payment successful but there was an error activating your membership.\n\n' +
+        'Please contact support at info@gogmi.org.gh\n' +
+        'Reference: ' + paymentReference
+      );
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.country) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    if (isIndividualPlan(selectedPlan.id) && !formData.dateOfBirth) {
+      alert('Please enter your date of birth');
+      return;
+    }
+
+    if (formData.membershipType === 'institutional' && (!formData.organization || !formData.organizationEmail)) {
+      alert('Please fill in organization name and organization email');
+      return;
+    }
+
+    if (!selectedPlan.price || selectedPlan.price === 'By Invitation Only') {
+      alert('Thank you for your interest! Our team will contact you at info@gogmi.org.gh regarding this membership tier.');
+      closeMembershipModal();
+      return;
+    }
+
+    const priceMatch = selectedPlan.price.match(/[\d,]+/g);
+    const amountUSD  = priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
+
+    if (amountUSD === 0) {
+      alert('Thank you for your interest! Our team will contact you at info@gogmi.org.gh regarding this membership tier.');
+      closeMembershipModal();
+      return;
+    }
+
+    if (typeof window.PaystackPop === 'undefined') {
+      alert('Payment system is still loading. Please wait a moment and try again.');
+      return;
+    }
+
+    const USD_TO_GHS   = 15;
+    const amountGHS    = amountUSD * USD_TO_GHS;
+    const amountKobo   = Math.round(amountGHS * 100);
+
+    const reference = 'GOGMI-' + Date.now() + '-' + Math.floor(Math.random() * 1e6);
+
+    setIsProcessing(true);
+
+    try {
+      const handler = window.PaystackPop.setup({
+        key:      PAYSTACK_PUBLIC_KEY,
+        email:    formData.email,
+        amount:   amountKobo,
+        currency: 'GHS',
+        ref:      reference,
+        channels: ['card', 'mobile_money', 'bank', 'ussd', 'qr', 'bank_transfer'],
+
+        metadata: {
+          custom_fields: [
+            { display_name: 'Full Name',       variable_name: 'full_name',       value: formData.fullName },
+            { display_name: 'Phone',           variable_name: 'phone',           value: formData.phone },
+            { display_name: 'Membership Plan', variable_name: 'membership_plan', value: selectedPlan.name },
+            { display_name: 'Plan ID',         variable_name: 'plan_id',         value: selectedPlan.id },
+            { display_name: 'USD Amount',      variable_name: 'usd_amount',      value: '$' + amountUSD },
+            { display_name: 'Organization',    variable_name: 'organization',    value: formData.organization || 'N/A' },
+            { display_name: 'Country',         variable_name: 'country',         value: formData.country },
+            { display_name: 'Position',        variable_name: 'position',        value: formData.position || 'N/A' }
+          ]
+        },
+
+        callback: (response) => {
+          console.log('Paystack callback — reference:', response.reference);
+          activateMembership(response.reference);
+        },
+
+        onClose: () => {
+          console.log('Paystack popup closed by user');
+          setIsProcessing(false);
+          alert('Payment cancelled. The payment window was closed.');
+        }
+      });
+
+      handler.openIframe();
+    } catch (error) {
+      console.error('Paystack setup error:', error);
+      setIsProcessing(false);
+      alert(
+        'Payment initialisation failed. Please check your internet connection and try again.\n\n' +
+        'Error: ' + error.message
+      );
+    }
+  };
+
+  const handleBrochureDownload = () => {
+    const brochureUrl = '/resources/pdfs/GoGMI-Membership-2026.pdf';
+    const link = document.createElement('a');
+    link.href = brochureUrl;
+    link.download = 'GoGMI-Membership-2026.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const individualPlans = [
+    {
+      id: 'student',
+      name: 'Student Membership',
+      price: 'USD 20',
+      period: '/year',
+      description: 'Designed for undergraduate students with an interest in maritime, ocean, environmental, and security studies.',
+      features: [
+        'Official Certificate of Membership',
+        'Access to GoGMI research reports and publications',
+        'Invitations to student-focused webinars and seminars',
+        'Discounted fees for GoGMI trainings and workshops',
+        'Structured mentorship opportunities with professionals and researchers',
+        'Career development support (research skills, writing clinics, CV guidance)',
+        'Access to student networking platforms and discussion groups',
+        'Opportunities to volunteer or intern on GoGMI projects'
       ]
     },
     {
-      name: "Resources", 
-      path: "/resources",
-      dropdown: [
-        { name: "Library", path: "/resources" },
-        { name: "News & Blogs", path: "/blog" },
-        { name: "Membership", path: "/Membership" },
-        { name: "Gulf Spectrum Podcast", path: "/gulf-spectrum-podcast" },
-      ],
+      id: 'associate',
+      name: 'Associate Membership',
+      price: 'USD 100',
+      period: '/year',
+      popular: true,
+      subtitle: '2-7 Years Experience',
+      description: 'For early-career professionals (1–5 years of experience) seeking skills development, visibility, and networking.',
+      features: [
+        'Official Certificate of Membership',
+        'Invitations to GoGMI conferences, seminars, and policy dialogues',
+        'Discounted access to professional training and workshops',
+        'Access to research reports, briefs, and policy publications',
+        'Career development programmes and capacity-building sessions',
+        'Opportunities to contribute to GoGMI blogs, research outputs, and junior committees',
+        'Networking with regional and international maritime professionals',
+        'Early access to GoGMI fellowships and project calls'
+      ]
     },
-    { name: "Contact", path: "/contact" },
+    {
+      id: 'professional',
+      name: 'Professional Membership',
+      price: 'USD 200',
+      period: '/year',
+      subtitle: '7 Years upwards Experience',
+      description: 'For mid-level professionals seeking influence, policy engagement, and regional visibility.',
+      features: [
+        'Official Certificate of Membership',
+        'Priority invitations to policy dialogues and expert roundtables',
+        'Access to GoGMI research outputs and policy briefs',
+        'Discounted access to advanced trainings and conferences',
+        'Opportunity to moderate sessions or speak at GoGMI events',
+        'Opportunity to mentor young graduates interested in Maritime affairs',
+        'Professional profile listing on the GoGMI website',
+        'Executive networking with regional experts and institutions'
+      ]
+    },
+    {
+      id: 'fellow',
+      name: 'Fellow Membership',
+      price: 'By Invitation Only',
+      period: '',
+      subtitle: 'Senior Experts',
+      description: 'For senior professionals and experts contributing to maritime research, policy, and governance.',
+      features: []
+    }
   ];
 
-  const isActive = (path) => currentPath === path;
-
-  const handleDropdownEnter = (itemName) => {
-    if (closeTimeout) {
-      clearTimeout(closeTimeout);
-      setCloseTimeout(null);
+  const institutionalPlans = [
+    {
+      id: 'institution',
+      name: 'Institutional Membership',
+      price: 'USD 2,000',
+      period: '/year',
+      description: 'For universities, research centres, and think tanks.',
+      features: [
+        'Official Institutional Membership Certificate',
+        'Access to GoGMI membership benefits for nominated staff and students',
+        'Joint research, training, and capacity-building programmes',
+        'Co-branded research outputs and policy publications',
+        'Opportunities for joint grant proposals and funded projects',
+        'Priority consideration for institutional partnerships and programmes',
+        'Institutional visibility on GoGMI platforms'
+      ]
+    },
+    {
+      id: 'corporate',
+      name: 'Corporate Membership',
+      price: 'USD 4,000',
+      period: '/year',
+      description: 'For private sector organisations operating in maritime, logistics, energy, security, and related sectors.',
+      features: [
+        'Official Corporate Membership Certificate',
+        'Corporate branding and visibility at GoGMI website, social media, events and publications',
+        'Invitations to high-level advisory events and stakeholder dialogues',
+        'Access to customised briefings on maritime and ocean governance issues',
+        'Networking with local, regional and international partners',
+        'Opportunities to align corporate social responsibility (CSR) initiatives with GoGMI programmes'
+      ]
+    },
+    {
+      id: 'strategic',
+      name: 'Strategic Partner',
+      price: 'By Invitation Only',
+      period: '',
+      description: 'For organisations with long-term strategic alignment with GoGMI mission.',
+      features: []
     }
-    setDropdownOpen(itemName);
-  };
-
-  const handleDropdownLeave = () => {
-    const timeout = setTimeout(() => {
-      setDropdownOpen(null);
-    }, 300);
-    setCloseTimeout(timeout);
-  };
-
-  const handleNavClick = (path) => {
-    if (path && path !== currentPath) {
-      navigate(path);
-    }
-    setMobileMenuOpen(false);
-    setDropdownOpen(null);
-    setUserDropdownOpen(false);
-  };
-
-  const handleLogout = () => {
-    logout();
-    setUserDropdownOpen(false);
-    setMobileMenuOpen(false);
-    navigate('/');
-  };
+  ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#F5F7FA]/95 backdrop-blur-lg shadow-lg py-3"
-          : "bg-[#132552]/90 backdrop-blur-md py-5"
-      }`}
-      style={{ fontFamily: "'Inter', 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
-    >
-      <div className="w-full flex items-center justify-between px-12">
-        {/* Logo */}
-        <button
-          onClick={() => handleNavClick("/")}
-          className="flex items-center space-x-3 group flex-shrink-0"
-          aria-label="Go to home"
-        >
-          <img 
-            src="/GoGMI_PNG.png"
-            alt="GoGMI Logo" 
-            className="h-14 w-14 md:h-16 md:w-16 object-contain transform group-hover:scale-105 transition-transform"
-          />
-          <div>
-            <div
-              className={`text-xl md:text-2xl tracking-tight whitespace-nowrap ${
-                scrolled ? "text-[#132552]" : "text-[#F5F7FA]"
-              }`}
-              style={{ fontWeight: 700 }}
-            >
-              GoGMI
-            </div>
-            <div
-              className={`text-xs whitespace-nowrap ${
-                scrolled ? "text-[#1F2933]" : "text-[#F5F7FA]/80"
-              }`}
-              style={{ fontWeight: 600 }}
-            >
-              Gulf Of Guinea Maritime Institute
-            </div>
-          </div>
-        </button>
-
-        {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center flex-1 justify-center">
-          <div className="flex items-center gap-6">
-            {navItems.map((item) =>
-              item.dropdown ? (
-                <div
-                  key={item.path}
-                  className="relative"
-                  onMouseEnter={() => handleDropdownEnter(item.name)}
-                  onMouseLeave={handleDropdownLeave}
-                >
-                  <button
-                    type="button"
-                    className={`px-4 py-2 cursor-pointer rounded-lg transition-all flex items-center gap-1 hover:-translate-y-0.5 whitespace-nowrap ${
-                      isActive(item.path) || currentPath.startsWith(item.path)
-                        ? scrolled
-                          ? "bg-[#132552] text-[#F5F7FA]"
-                          : "bg-[#F5F7FA]/30 text-[#F5F7FA]"
-                        : scrolled
-                        ? "text-[#1F2933] hover:bg-[#8E3400]/10 hover:text-[#132552]"
-                        : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
-                    }`}
-                    style={{ fontWeight: 600 }}
-                  >
-                    <span>{item.name}</span>
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-
-                  {dropdownOpen === item.name && (
-                    <div className="absolute top-full left-0 mt-2 w-64 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
-                      {item.dropdown.map((subItem) => (
-                        <button
-                          key={subItem.path}
-                          onClick={() => handleNavClick(subItem.path)}
-                          className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors whitespace-nowrap"
-                          style={{ fontWeight: 400 }}
-                        >
-                          {subItem.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <button
-                  key={item.path}
-                  onClick={() => handleNavClick(item.path)}
-                  className={`px-4 py-2 rounded-lg cursor-pointer transition-all hover:-translate-y-0.5 whitespace-nowrap ${
-                    isActive(item.path)
-                      ? scrolled
-                        ? "bg-[#132552] text-[#F5F7FA]"
-                        : "bg-[#F5F7FA]/30 text-[#F5F7FA]"
-                      : scrolled
-                      ? "text-[#1F2933] hover:bg-[#8E3400]/10 hover:text-[#132552]"
-                      : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
-                  }`}
-                  style={{ fontWeight: 600 }}
-                >
-                  {item.name}
-                </button>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Desktop Right Buttons */}
-        <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-          {/* Blue Business Directory - always visible */}
-          <button
-            onClick={() => handleNavClick("#")}
-            className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
-              scrolled
-                ? "text-[#1F2933] hover:bg-[#8E3400]/10"
-                : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
-            }`}
-            style={{ fontWeight: 600 }}
-          >
-            GoGMI Blue Business Directory
-          </button>
-
-          {!isAuthenticated ? (
-            <button
-              onClick={() => handleNavClick("/login")}
-              className="bg-[#8E3400] text-white px-6 py-2.5 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 whitespace-nowrap"
-              style={{ fontWeight: 600 }}
-            >
-              Member Login
-            </button>
-          ) : (
-            <div className="relative">
-              <button
-                onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
-                  scrolled
-                    ? "bg-[#132552] text-[#F5F7FA]"
-                    : "bg-[#F5F7FA]/30 text-[#F5F7FA]"
-                }`}
-                style={{ fontWeight: 600 }}
-              >
-                <User className="w-4 h-4" />
-                <span className="max-w-[150px] truncate">{user?.full_name?.split(' ')[0]}</span>
-                {isMember && (
-                  <span className="ml-1 px-2 py-0.5 text-xs bg-[#8E3400] text-white rounded-full">
-                    Member
-                  </span>
-                )}
-                <ChevronDown className={`w-4 h-4 transition-transform ${userDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {userDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-56 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
-                  <div className="px-4 py-3 border-b border-[#F5F7FA]/10">
-                    <p className="text-sm text-[#F5F7FA] font-semibold truncate" style={{ fontWeight: 600 }}>
-                      {user?.full_name}
-                    </p>
-                    <p className="text-xs text-[#F5F7FA]/70 truncate" style={{ fontWeight: 400 }}>
-                      {user?.email}
-                    </p>
-                    {isMember && (
-                      <p className="text-xs text-[#8E3400] mt-1" style={{ fontWeight: 600 }}>
-                        Active Member
-                      </p>
-                    )}
-                  </div>
-                  
-                  <button
-                    onClick={() => handleNavClick('/resources')}
-                    className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors"
-                    style={{ fontWeight: 400 }}
-                  >
-                    My Resources
-                  </button>
-                  
-                  <button
-                    onClick={handleLogout}
-                    className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-red-600 hover:text-white transition-colors"
-                    style={{ fontWeight: 400 }}
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Logout
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Mobile Hamburger */}
-        <button
-          className={`lg:hidden transition-colors p-2 ${
-            scrolled ? "text-[#132552]" : "text-[#F5F7FA]"
-          }`}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#F5F7FA]/98 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
-          <div className="px-6 py-4 space-y-2">
-            {navItems.map((item) =>
-              item.dropdown ? (
-                <div key={item.path}>
-                  <button
-                    type="button"
-                    onClick={() => setDropdownOpen(dropdownOpen === item.name ? null : item.name)}
-                    className="flex items-center justify-between w-full text-left py-3 px-4 text-[#1F2933] rounded-lg hover:bg-[#8E3400]/10"
-                    style={{ fontWeight: 600 }}
-                  >
-                    {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen === item.name ? 'rotate-180' : ''}`} />
-                  </button>
-                  {dropdownOpen === item.name && (
-                    <div className="pl-4 space-y-1 mt-2 bg-[#132552] rounded-lg p-2">
-                      {item.dropdown.map((subItem) => (
-                        <button
-                          key={subItem.path}
-                          onClick={() => handleNavClick(subItem.path)}
-                          className="block w-full text-left py-2.5 px-4 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white text-sm rounded-lg transition-colors"
-                          style={{ fontWeight: 400 }}
-                        >
-                          {subItem.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <button
-                  key={item.path}
-                  onClick={() => handleNavClick(item.path)}
-                  className={`block w-full text-left py-3 px-4 rounded-lg transition-all ${
-                    isActive(item.path)
-                      ? "bg-[#132552] text-[#F5F7FA]"
-                      : "text-[#1F2933] hover:bg-[#8E3400]/10"
-                  }`}
-                  style={{ fontWeight: 600 }}
-                >
-                  {item.name}
-                </button>
-              )
-            )}
-
-            {/* Blue Business Directory - always visible on mobile */}
-            <button
-              onClick={() => handleNavClick("#")}
-              className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
-              style={{ fontWeight: 600 }}
-            >
-              GoGMI Blue Business Directory
-            </button>
-
-            {!isAuthenticated ? (
-              <button
-                onClick={() => handleNavClick("/login")}
-                className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg"
-                style={{ fontWeight: 600 }}
-              >
-                Member Login
-              </button>
-            ) : (
-              <>
-                <div className="bg-[#132552] rounded-lg p-4 mt-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <User className="w-5 h-5 text-[#F5F7FA]" />
-                    <p className="text-sm text-[#F5F7FA] font-semibold truncate" style={{ fontWeight: 600 }}>
-                      {user?.full_name}
-                    </p>
-                  </div>
-                  <p className="text-xs text-[#F5F7FA]/70 truncate mb-2" style={{ fontWeight: 400 }}>
-                    {user?.email}
+    <div className="w-full">
+      {showModal && selectedPlan && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 animate-fade-in">
+          <div className="bg-white rounded-2xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="p-6 border-b border-gray-200 sticky top-0 bg-white rounded-t-2xl z-10">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h3 className="text-2xl font-bold" style={{ color: '#132552', fontWeight: 700 }}>
+                    {selectedPlan.name}
+                  </h3>
+                  <p className="text-lg mt-1" style={{ color: '#8E3400', fontWeight: 600 }}>
+                    {selectedPlan.price}{selectedPlan.period}
                   </p>
-                  {isMember && (
-                    <span className="inline-block px-3 py-1 text-xs bg-[#8E3400] text-white rounded-full">
-                      Active Member
-                    </span>
-                  )}
+                </div>
+                <button
+                  onClick={closeMembershipModal}
+                  disabled={isProcessing}
+                  className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-all disabled:opacity-40"
+                  style={{ color: '#4B5563' }}
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <form onSubmit={handlePayment} className="p-6">
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                    placeholder="Enter your full name"
+                  />
                 </div>
 
-                <button
-                  onClick={() => handleNavClick('/resources')}
-                  className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
-                  style={{ fontWeight: 600 }}
-                >
-                  My Resources
-                </button>
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
 
+                {isIndividualPlan(selectedPlan.id) && (
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      Date of Birth <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      name="dateOfBirth"
+                      value={formData.dateOfBirth}
+                      onChange={handleFormChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                    />
+                  </div>
+                )}
+
+                {isIndividualPlan(selectedPlan.id) && (
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      Organisation/Institution Name <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="organization"
+                      value={formData.organization}
+                      onChange={handleFormChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                      placeholder="e.g., University of Ghana, Maritime Authority"
+                    />
+                  </div>
+                )}
+
+                {formData.membershipType === 'institutional' && (
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      Position/Title
+                    </label>
+                    <input
+                      type="text"
+                      name="position"
+                      value={formData.position}
+                      onChange={handleFormChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                      placeholder="Your current position"
+                    />
+                  </div>
+                )}
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                    Country Code Plus WhatsApp Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                    placeholder="+233 XX XXX XXXX"
+                  />
+                </div>
+
+                {formData.membershipType === 'institutional' && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                        Organization Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="organization"
+                        value={formData.organization}
+                        onChange={handleFormChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                        placeholder="Enter organization name"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                        Organization Email Address <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="organizationEmail"
+                        value={formData.organizationEmail}
+                        onChange={handleFormChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                        placeholder="org@example.com"
+                      />
+                    </div>
+                  </>
+                )}
+
+                {isIndividualPlan(selectedPlan.id) && (
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      Position/Title
+                    </label>
+                    <input
+                      type="text"
+                      name="position"
+                      value={formData.position}
+                      onChange={handleFormChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                      placeholder="Your current position"
+                    />
+                  </div>
+                )}
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                    Country <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
+                    placeholder="e.g., Ghana"
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-3 mt-6">
                 <button
-                  onClick={handleLogout}
-                  className="flex items-center gap-2 w-full text-left py-3 px-4 text-red-600 hover:bg-red-50 rounded-lg transition-all"
-                  style={{ fontWeight: 600 }}
+                  type="button"
+                  onClick={closeMembershipModal}
+                  disabled={isProcessing}
+                  className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40"
+                  style={{ borderColor: '#132552', color: '#132552', fontWeight: 700 }}
                 >
-                  <LogOut className="w-4 h-4" />
-                  Logout
+                  Cancel
                 </button>
-              </>
-            )}
+                <button
+                  type="submit"
+                  disabled={isProcessing}
+                  className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-60"
+                  style={{ backgroundColor: isProcessing ? '#6B2700' : '#8E3400', fontWeight: 700 }}
+                  onMouseEnter={(e) => { if (!isProcessing) e.currentTarget.style.backgroundColor = '#6B2700'; }}
+                  onMouseLeave={(e) => { if (!isProcessing) e.currentTarget.style.backgroundColor = '#8E3400'; }}
+                >
+                  {isProcessing
+                    ? 'Processing…'
+                    : selectedPlan.price === 'By Invitation Only'
+                      ? 'Submit Application'
+                      : 'Pay ' + selectedPlan.price}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
-    </nav>
+
+      <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: '#132552' }}>
+        <div className="absolute inset-0">
+          <img
+            src="/memb2.png"
+            alt="Membership"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl md:text-6xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
+              Fast track your professional journey with GoGMI Membership
+            </h1>
+            <p className="text-xl text-white/90 leading-relaxed mb-8 font-semibold">
+              Join our maritime community to access exclusive research, engage with thought leaders, and expand your network across the Gulf of Guinea maritime sector.
+            </p>
+            <button
+              onClick={() => window.scrollTo({ top: document.getElementById('plans')?.offsetTop || 0, behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
+              style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
+            >
+              <span>Apply Now</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
+                Why Join GoGMI?
+              </h2>
+              <div className="space-y-4 text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
+                <p>GoGMI membership provides access to a vibrant community of maritime professionals, researchers, policymakers, and industry leaders across the Gulf of Guinea region.</p>
+                <p>As a member, you become part of the Gulf of Guinea premier maritime think tank, dedicated to advancing maritime security, sustainable blue economy development, and regional cooperation.</p>
+                <p>Members gain exclusive access to cutting-edge research, policy briefs, training programs, and networking opportunities that connect you with experts across the Gulf of Guinea.</p>
+              </div>
+            </div>
+            <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
+              <img src="/memb1.png" alt="Maritime Professionals" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
+              Membership Benefits
+            </h2>
+            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-md">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>Knowledge & Research</h3>
+              <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Access comprehensive maritime research, publications, and policy briefs from across the Gulf of Guinea region.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-md">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>Professional Network</h3>
+              <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Connect with maritime professionals, researchers, and policymakers across the Gulf of Guinea.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-md">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>Capacity Building</h3>
+              <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Participate in training programs, workshops, and skill development sessions led by industry experts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="plans" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Individual Memberships</h2>
+            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {individualPlans.map((plan) => (
+              <div
+                key={plan.id}
+                className={'bg-white rounded-xl border ' + (plan.popular ? 'border-[#8E3400] shadow-xl' : 'border-gray-200 shadow-md') + ' hover:shadow-lg transition-all duration-300'}
+              >
+                {plan.popular && (
+                  <div className="px-4 py-2 text-sm font-bold text-center rounded-t-lg text-white" style={{ backgroundColor: '#8E3400', fontWeight: 700 }}>MOST POPULAR</div>
+                )}
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-1" style={{ color: '#132552', fontWeight: 700 }}>{plan.name}</h3>
+                  {plan.subtitle && (<p className="text-sm font-semibold mb-2" style={{ color: '#8E3400' }}>{plan.subtitle}</p>)}
+                  <div className="mb-3">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-black" style={{ color: '#132552', fontWeight: 900 }}>{plan.price}</span>
+                      <span className="font-semibold" style={{ color: '#4B5563' }}>{plan.period}</span>
+                    </div>
+                  </div>
+                  <p className="text-xs leading-relaxed font-semibold mb-4" style={{ color: '#4B5563' }}>{plan.description}</p>
+                  {plan.id !== 'fellow' && (
+                    <>
+                      <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>Benefits</p></div>
+                      <ul className="space-y-2 mb-6">
+                        {plan.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8E3400' }} />
+                            <span className="text-xs leading-relaxed font-semibold" style={{ color: '#4B5563' }}>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <button
+                        onClick={() => openMembershipModal(plan)}
+                        className="w-full py-2.5 rounded-lg font-bold transition-all text-sm"
+                        style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
+                      >
+                        Apply Now
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Institutional Memberships</h2>
+            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {institutionalPlans.map((plan) => (
+              <div key={plan.id} className="bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2" style={{ color: '#132552', fontWeight: 700 }}>{plan.name}</h3>
+                  <div className="mb-3">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-black" style={{ color: '#132552', fontWeight: 900 }}>{plan.price}</span>
+                      <span className="font-semibold" style={{ color: '#4B5563' }}>{plan.period}</span>
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed font-semibold mb-4" style={{ color: '#4B5563' }}>{plan.description}</p>
+                  {plan.id !== 'strategic' && (
+                    <>
+                      <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>Benefits</p></div>
+                      <ul className="space-y-2 mb-6">
+                        {plan.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8E3400' }} />
+                            <span className="text-sm leading-relaxed font-semibold" style={{ color: '#4B5563' }}>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <button
+                        onClick={() => openMembershipModal(plan)}
+                        className="w-full py-2.5 rounded-lg font-bold transition-all text-sm"
+                        style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
+                      >
+                        Apply Now
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>How to Apply</h2>
+            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { step: '1', title: 'Choose Your Plan', description: 'Select the membership tier that best fits your needs and professional goals.' },
+              { step: '2', title: 'Complete Application', description: 'Fill out the online application form with your details.' },
+              { step: '3', title: 'Payment', description: 'Complete payment securely via Paystack. Your account is automatically created.' },
+              { step: '4', title: 'Welcome Aboard', description: 'Receive your Membership ID via email and use it to login anytime.' }
+            ].map((process, idx) => (
+              <div key={idx} className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl font-black mb-4 text-white" style={{ backgroundColor: '#132552', fontWeight: 900 }}>
+                  {process.step}
+                </div>
+                <h3 className="text-lg font-bold mb-3" style={{ color: '#132552', fontWeight: 700 }}>{process.title}</h3>
+                <p className="text-sm leading-relaxed font-semibold" style={{ color: '#4B5563' }}>{process.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
+              <img src="/memb3.png" alt="Membership Brochure" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Download Membership Brochure</h2>
+              <p className="text-lg mb-8 leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Get detailed information about all membership categories, benefits, and application procedures.</p>
+              <button
+                onClick={handleBrochureDownload}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
+                style={{ backgroundColor: '#132552', color: 'white', fontWeight: 700 }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0F1C3F'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#132552'}
+              >
+                <span>Download Brochure</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default Navbar;
+export default Membership;
