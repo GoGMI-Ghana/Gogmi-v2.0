@@ -411,7 +411,7 @@ const MarineCasualtyCourse = () => {
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><Clock className="w-5 h-5" /><span className="font-semibold">5 Days</span></div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><Globe className="w-5 h-5" /><span className="font-semibold">Hybrid</span></div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><Globe className="w-5 h-5" /><span className="font-semibold">In person</span></div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><BookOpen className="w-5 h-5" /><span className="font-semibold">6 Modules</span></div>
             </div>
             <div className="flex flex-wrap gap-4 mb-8">
