@@ -64,7 +64,7 @@ const CapacityBuilding = () => {
       level: 'Executive',
       faculty: ['Maritime Safety Experts', 'IMO Certified Investigators', 'Regional Specialists'],
       nextIntake: 'JUNE 15-19 2026',
-      image: '/maricourse.jpeg', 
+      image: '/marinecasualtylatest.jpeg', 
       bgColor: '#8E3400',
       accentColor: '#FF6B35',
       buttonColor: '#132552',
