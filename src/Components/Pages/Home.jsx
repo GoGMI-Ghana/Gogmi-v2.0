@@ -74,7 +74,7 @@ const Home = () => {
     {
       enabled: true,                          // Turn on/off
       scheduledDate: '2025-12-13',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
-      image: '/maritmegovvvv.jpeg',           // Image path (upload to /public folder)
+      image: '/eidflyer.jpeg',           // Image path (upload to /public folder)
       displayDuration: 30,                     // How long to show (seconds)
       name: 'December 2025',                  // Internal reference name
       testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
