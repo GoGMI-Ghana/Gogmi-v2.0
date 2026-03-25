@@ -123,8 +123,8 @@ const IMSWGsignup = () => {
         areaOfExpertise: formData.position
       };
 
-      const apiUrl = 'https://api.gogmi.org.gh/api/imswg-signup.php';
-      const response = await fetch(`${apiUrl}/imswg-signup.php`, {
+      // ✅ FIXED: Removed duplicate /imswg-signup.php from the URL
+      const response = await fetch('https://api.gogmi.org.gh/api/imswg-signup.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
