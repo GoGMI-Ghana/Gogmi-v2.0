@@ -123,7 +123,8 @@ const IMSWGsignup = () => {
         areaOfExpertise: formData.position
       };
 
-      const response = await fetch('https://api.gogmi.org.gh/api/imswg-signup.php', {
+      const apiUrl = 'https://api.gogmi.org.gh/api/imswg-signup.php';
+      const response = await fetch(`${apiUrl}/imswg-signup.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
