@@ -123,7 +123,6 @@ const IMSWGsignup = () => {
         areaOfExpertise: formData.position
       };
 
-      // ✅ FIXED: Removed duplicate /imswg-signup.php from the URL
       const response = await fetch('https://api.gogmi.org.gh/api/imswg-signup.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -143,9 +142,8 @@ const IMSWGsignup = () => {
       });
       setProfilePreview(null);
 
-      setTimeout(() => {
-        navigate('/imswg');
-      }, 4000);
+      // ✅ FIXED: No auto-redirect. User stays on success screen until
+      // they click "Back to IMSWG" themselves.
 
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -157,6 +155,7 @@ const IMSWGsignup = () => {
     }
   };
 
+  // ── Success Screen ─────────────────────────────────────────────────────────
   if (submitted) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
@@ -187,6 +186,7 @@ const IMSWGsignup = () => {
     );
   }
 
+  // ── Form ───────────────────────────────────────────────────────────────────
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="bg-white border-b border-slate-200">
