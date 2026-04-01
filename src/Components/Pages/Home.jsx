@@ -19,21 +19,17 @@ const Home = () => {
   const eventBanners = [
     {
       id: 1,
-      image: '/membernew.jpeg', 
+      image: '/member.gogmi.jpeg', 
       alt: 'Maritime Membership'
     },
+
     {
       id: 2,
-      image: '/imswgq1.jpeg',
-      alt: 'IMSWG Quarter 1'
-    },
-    {
-      id: 3,
-      image: '/maritimegovvvv.jpeg',
+      image: '/maritime.governance.jpeg',
       alt: 'Maritime gov Course'
     },
     {
-      id: 4,
+      id: 3,
       image: '/maricourse.jpeg',
       alt: 'Maritime Course'
     }
