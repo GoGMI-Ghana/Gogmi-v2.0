@@ -32,6 +32,11 @@ const Home = () => {
       id: 3,
       image: '/maricourse.jpeg',
       alt: 'Maritime Course'
+    },
+        {
+      id: 4,
+      image: '/partnerbanner.jpeg',
+      alt: 'Partner Banner'
     }
   ];
 
