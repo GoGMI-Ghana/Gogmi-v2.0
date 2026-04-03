@@ -74,15 +74,15 @@ const Home = () => {
   const festiveOverlays = [
     {
       enabled: true,                          // Turn on/off
-      scheduledDate: '2025-12-13',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
-      image: '/maritmegovvvv.jpeg',           // Image path (upload to /public folder)
+      scheduledDate: '2026-04-03',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
+      image: '/goodfri.jpeg',           // Image path (upload to /public folder)
       displayDuration: 30,                     // How long to show (seconds)
-      name: 'December 2025',                  // Internal reference name
+      name: 'Good friday',                  // Internal reference name
       testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
     },
     {
       enabled: false,
-      scheduledDate: '2025-01-01',
+      scheduledDate: '2026-04-04',
       image: '/newyear-2025.jpg',
       displayDuration: 5,
       name: 'New Year 2025'
