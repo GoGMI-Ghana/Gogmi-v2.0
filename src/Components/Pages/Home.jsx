@@ -81,11 +81,11 @@ const Home = () => {
       testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
     },
     {
-      enabled: false,
-      scheduledDate: '2026-04-04',
-      image: '/newyear-2025.jpg',
+      enabled: true,
+      scheduledDate: '2026-04-05',
+      image: '/easter.jpeg',
       displayDuration: 5,
-      name: 'New Year 2025'
+      name: 'Easter 2026'
     },
     {
       enabled: false,                         // Example: disabled overlay
