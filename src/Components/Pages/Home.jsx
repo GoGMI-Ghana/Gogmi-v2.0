@@ -74,16 +74,16 @@ const Home = () => {
   const festiveOverlays = [
     {
       enabled: true,                          // Turn on/off
-      scheduledDate: '2026-04-04',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
-      image: '/govcourse.jpeg',           // Image path (upload to /public folder)
+      scheduledDate: '2026-04-05',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
+      image: '/easter.jpeg',           // Image path (upload to /public folder)
       displayDuration: 30,                     // How long to show (seconds)
-      name: 'Gov Course',                  // Internal reference name
+      name: 'Easter Sunday',                  // Internal reference name
       testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
     },
     {
-      enabled: true,
+      enabled: false,
       scheduledDate: '2026-04-05',
-      image: '/easter.jpeg',
+      image: '/govcourse.jpeg',
       displayDuration: 5,
       name: 'Easter 2026'
     },
