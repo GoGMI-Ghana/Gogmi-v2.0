@@ -593,16 +593,28 @@ const Membership = () => {
             <p className="text-xl text-white/90 leading-relaxed mb-8 font-semibold">
               Join our maritime community to access exclusive research, engage with thought leaders, and expand your network across the Gulf of Guinea maritime sector.
             </p>
-            <button
-              onClick={() => window.scrollTo({ top: document.getElementById('plans')?.offsetTop || 0, behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
-              style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-            >
-              <span>Apply Now</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <div className="flex flex-wrap gap-4">
+              <button
+                onClick={() => window.scrollTo({ top: document.getElementById('plans')?.offsetTop || 0, behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
+                style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
+              >
+                <span>Apply Now</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => navigate('/membership-list')}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
+                style={{ backgroundColor: 'transparent', color: 'white', fontWeight: 700, border: '2px solid white' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'white'; e.currentTarget.style.color = '#132552'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'white'; }}
+              >
+                <span>View Our Membership List</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
