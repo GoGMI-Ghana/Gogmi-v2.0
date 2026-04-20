@@ -209,9 +209,9 @@ const Navbar = () => {
 
         {/* Desktop Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-          {/* Blue Business Directory - always visible */}
+          {/* Blue Business Directory */}
           <button
-            onClick={() => handleNavClick("#")}
+            onClick={() => handleNavClick("/blue-business-directory")}
             className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
               scrolled
                 ? "text-[#1F2933] hover:bg-[#8E3400]/10"
@@ -348,9 +348,9 @@ const Navbar = () => {
               )
             )}
 
-            {/* Blue Business Directory - always visible on mobile */}
+            {/* Blue Business Directory - mobile */}
             <button
-              onClick={() => handleNavClick("#")}
+              onClick={() => handleNavClick("/blue-business-directory")}
               className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
               style={{ fontWeight: 600 }}
             >
