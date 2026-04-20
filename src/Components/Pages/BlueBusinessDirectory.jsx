@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Phone, Mail, Globe, ExternalLink } from 'lucide-react';
+import { Search, MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All' },
@@ -138,48 +138,49 @@ const BlueBusinessDirectory = () => {
   const regular = filtered.filter(l => !l.featured);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F8F7F4' }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
-        .dir-serif { font-family: 'Libre Baskerville', Georgia, serif; }
-        .dir-sans  { font-family: 'DM Sans', system-ui, sans-serif; }
-        .listing-row:hover { background-color: #F0EEE8; }
-        .cat-pill:hover { background-color: #132552; color: white; }
-      `}</style>
+    <div className="min-h-screen" style={{ backgroundColor: '#F5F7FA' }}>
 
       {/* Header */}
       <div style={{ backgroundColor: '#132552', borderBottom: '4px solid #8E3400' }} className="pt-28 pb-12 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="dir-sans text-xs font-semibold tracking-[0.25em] uppercase mb-3" style={{ color: '#8EC5FC' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#93C5FD', textTransform: 'uppercase', marginBottom: '10px' }}>
             Gulf of Guinea Maritime Institute
           </p>
-          <h1 className="dir-serif text-4xl md:text-5xl font-bold text-white mb-3" style={{ letterSpacing: '-0.01em' }}>
+          <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
             Blue Business Directory
           </h1>
-          <p className="dir-sans text-base mb-8" style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 300 }}>
-            The Gulf of Guinea's register of maritime trade & professional services
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 400, color: 'rgba(255,255,255,0.65)', marginBottom: '32px' }}>
+            The Gulf of Guinea's register of maritime trade &amp; professional services
           </p>
 
           {/* Search */}
-          <div className="relative max-w-xl">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: 'rgba(255,255,255,0.4)' }} />
+          <div style={{ position: 'relative', maxWidth: '520px' }}>
+            <Search style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', width: '16px', height: '16px', color: 'rgba(255,255,255,0.35)' }} />
             <input
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search by name, service or country…"
-              className="dir-sans w-full pl-11 pr-10 py-3.5 text-sm text-white focus:outline-none"
               style={{
-                backgroundColor: 'rgba(255,255,255,0.08)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                borderRadius: '4px',
-                fontWeight: 300,
+                width: '100%',
+                paddingLeft: '42px',
+                paddingRight: search ? '36px' : '16px',
+                paddingTop: '13px',
+                paddingBottom: '13px',
+                backgroundColor: 'rgba(255,255,255,0.09)',
+                border: '1px solid rgba(255,255,255,0.18)',
+                borderRadius: '6px',
+                color: 'white',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '14px',
+                fontWeight: 400,
+                outline: 'none',
               }}
             />
             {search && (
               <button
                 onClick={() => setSearch('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 text-lg leading-none"
+                style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)', fontSize: '20px', lineHeight: 1, background: 'none', border: 'none', cursor: 'pointer' }}
               >×</button>
             )}
           </div>
@@ -187,40 +188,52 @@ const BlueBusinessDirectory = () => {
       </div>
 
       {/* Category filter */}
-      <div style={{ backgroundColor: '#EFEDE6', borderBottom: '1px solid #DDD8CC' }}>
+      <div style={{ backgroundColor: '#EBEDF0', borderBottom: '1px solid #D1D5DB' }}>
         <div className="max-w-5xl mx-auto px-6">
-          <div className="flex items-center gap-1 overflow-x-auto py-3" style={{ scrollbarWidth: 'none' }}>
-            {CATEGORIES.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className="dir-sans cat-pill flex-shrink-0 px-4 py-1.5 rounded-sm text-xs font-medium transition-all"
-                style={{
-                  backgroundColor: activeCategory === cat.id ? '#132552' : 'transparent',
-                  color: activeCategory === cat.id ? 'white' : '#4A4035',
-                  border: activeCategory === cat.id ? '1px solid #132552' : '1px solid #C8C0B0',
-                  fontWeight: activeCategory === cat.id ? 500 : 400,
-                  cursor: 'pointer',
-                }}
-              >
-                {cat.label}
-              </button>
-            ))}
+          <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', padding: '12px 0', scrollbarWidth: 'none' }}>
+            {CATEGORIES.map(cat => {
+              const isActive = activeCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  style={{
+                    flexShrink: 0,
+                    padding: '6px 16px',
+                    borderRadius: '4px',
+                    border: isActive ? '1px solid #132552' : '1px solid #C4C9D4',
+                    backgroundColor: isActive ? '#132552' : 'white',
+                    color: isActive ? 'white' : '#374151',
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '13px',
+                    fontWeight: isActive ? 600 : 400,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {cat.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* Main */}
+      {/* Main content */}
       <div className="max-w-5xl mx-auto px-6 py-10">
-        <div className="flex items-center justify-between mb-8">
-          <p className="dir-sans text-xs" style={{ color: '#8A7F70' }}>
-            {filtered.length} {filtered.length === 1 ? 'listing' : 'listings'}
-            {activeCategory !== 'all' && <> · {CATEGORIES.find(c => c.id === activeCategory)?.label}</>}
+
+        {/* Meta row */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 400, color: '#6B7280' }}>
+            <strong style={{ color: '#111827', fontWeight: 600 }}>{filtered.length}</strong>{' '}
+            {filtered.length === 1 ? 'listing' : 'listings'}
+            {activeCategory !== 'all' && (
+              <> · {CATEGORIES.find(c => c.id === activeCategory)?.label}</>
+            )}
           </p>
           <a
             href="mailto:info@gogmi.org.gh?subject=Blue Business Directory — List My Business"
-            className="dir-sans text-xs font-medium hover:underline"
-            style={{ color: '#8E3400' }}
+            style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8E3400', textDecoration: 'none' }}
           >
             List your business →
           </a>
@@ -228,13 +241,13 @@ const BlueBusinessDirectory = () => {
 
         {/* Featured */}
         {featured.length > 0 && (
-          <div className="mb-10">
-            <p className="dir-sans text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#8A7F70' }}>
+          <div style={{ marginBottom: '36px' }}>
+            <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '12px' }}>
               Featured
             </p>
-            <div className="divide-y" style={{ borderTop: '1px solid #DDD8CC', borderBottom: '1px solid #DDD8CC' }}>
-              {featured.map(listing => (
-                <ListingRow key={listing.id} listing={listing} featured />
+            <div style={{ border: '1px solid #D1D5DB', borderRadius: '8px', overflow: 'hidden' }}>
+              {featured.map((listing, i) => (
+                <ListingRow key={listing.id} listing={listing} featured isLast={i === featured.length - 1} />
               ))}
             </div>
           </div>
@@ -244,102 +257,103 @@ const BlueBusinessDirectory = () => {
         {regular.length > 0 && (
           <div>
             {featured.length > 0 && (
-              <p className="dir-sans text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#8A7F70' }}>
+              <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '12px' }}>
                 All Listings
               </p>
             )}
-            <div className="divide-y" style={{ borderTop: '1px solid #DDD8CC', borderBottom: '1px solid #DDD8CC' }}>
-              {regular.map(listing => (
-                <ListingRow key={listing.id} listing={listing} />
+            <div style={{ border: '1px solid #D1D5DB', borderRadius: '8px', overflow: 'hidden' }}>
+              {regular.map((listing, i) => (
+                <ListingRow key={listing.id} listing={listing} isLast={i === regular.length - 1} />
               ))}
             </div>
           </div>
         )}
 
         {filtered.length === 0 && (
-          <div className="text-center py-24 border-t border-b" style={{ borderColor: '#DDD8CC' }}>
-            <p className="dir-serif text-xl mb-2" style={{ color: '#132552' }}>No listings found</p>
-            <p className="dir-sans text-sm" style={{ color: '#8A7F70', fontWeight: 300 }}>
+          <div style={{ textAlign: 'center', padding: '80px 0', border: '1px solid #D1D5DB', borderRadius: '8px' }}>
+            <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '20px', fontWeight: 700, color: '#132552', marginBottom: '8px' }}>
+              No listings found
+            </p>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#6B7280' }}>
               Try adjusting your search or category filter
             </p>
           </div>
         )}
 
-        {/* Footer note */}
-        <p className="dir-sans text-xs text-center mt-12" style={{ color: '#B0A898' }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#9CA3AF', textAlign: 'center', marginTop: '48px' }}>
           To add or update a listing, contact{' '}
-          <a href="mailto:info@gogmi.org.gh" className="hover:underline" style={{ color: '#8E3400' }}>
-            info@gogmi.org.gh
-          </a>
+          <a href="mailto:info@gogmi.org.gh" style={{ color: '#8E3400' }}>info@gogmi.org.gh</a>
         </p>
       </div>
     </div>
   );
 };
 
-const ListingRow = ({ listing, featured }) => {
+const ListingRow = ({ listing, featured, isLast }) => {
   const catLabel = CATEGORIES.find(c => c.id === listing.category)?.label;
 
   return (
-    <div
-      className="listing-row py-6 transition-colors cursor-default"
-      style={{ backgroundColor: featured ? '#FDF9F0' : 'transparent' }}
+    <div style={{
+      padding: '24px 28px',
+      backgroundColor: featured ? '#FFFBEB' : 'white',
+      borderBottom: isLast ? 'none' : '1px solid #E5E7EB',
+      transition: 'background-color 0.15s',
+    }}
+      onMouseEnter={e => e.currentTarget.style.backgroundColor = featured ? '#FEF3C7' : '#F9FAFB'}
+      onMouseLeave={e => e.currentTarget.style.backgroundColor = featured ? '#FFFBEB' : 'white'}
     >
-      <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-        <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-baseline gap-3 mb-1.5">
-            <h3 className="dir-serif text-lg font-bold" style={{ color: '#132552' }}>
-              {listing.name}
-            </h3>
-            {featured && (
-              <span className="dir-sans text-xs font-medium px-2 py-0.5" style={{ backgroundColor: '#8E3400', color: 'white', borderRadius: '2px' }}>
-                Featured
-              </span>
-            )}
-          </div>
+      {/* Top row: name + badge */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+        <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: '17px', fontWeight: 700, color: '#111827', margin: 0 }}>
+          {listing.name}
+        </h3>
+        {featured && (
+          <span style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '11px',
+            fontWeight: 600,
+            backgroundColor: '#8E3400',
+            color: 'white',
+            padding: '2px 8px',
+            borderRadius: '3px',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+          }}>
+            Featured
+          </span>
+        )}
+      </div>
 
-          <div className="flex flex-wrap items-center gap-4 mb-3">
-            <span className="dir-sans text-xs" style={{ color: '#8A7F70' }}>
-              {listing.city}, {listing.country}
-            </span>
-            <span className="dir-sans text-xs" style={{ color: '#8A7F70', borderLeft: '1px solid #C8C0B0', paddingLeft: '1rem' }}>
-              {catLabel}
-            </span>
-          </div>
+      {/* Location + category */}
+      <div style={{ display: 'flex', gap: '16px', marginBottom: '12px', flexWrap: 'wrap' }}>
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#4B5563', display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <MapPin style={{ width: '12px', height: '12px', color: '#9CA3AF' }} />
+          {listing.city}, {listing.country}
+        </span>
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#4B5563', paddingLeft: '16px', borderLeft: '1px solid #D1D5DB' }}>
+          {catLabel}
+        </span>
+      </div>
 
-          <p className="dir-sans text-sm leading-relaxed mb-4" style={{ color: '#3D3328', fontWeight: 300, maxWidth: '600px' }}>
-            {listing.description}
-          </p>
+      {/* Description */}
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#374151', lineHeight: 1.65, marginBottom: '16px', maxWidth: '620px' }}>
+        {listing.description}
+      </p>
 
-          <div className="flex flex-wrap gap-6">
-            <a
-              href={`tel:${listing.phone}`}
-              className="dir-sans text-xs flex items-center gap-1.5 hover:underline"
-              style={{ color: '#4A4035' }}
-            >
-              <Phone className="w-3 h-3 flex-shrink-0" style={{ color: '#8A7F70' }} />
-              {listing.phone}
-            </a>
-            <a
-              href={`mailto:${listing.email}`}
-              className="dir-sans text-xs flex items-center gap-1.5 hover:underline"
-              style={{ color: '#4A4035' }}
-            >
-              <Mail className="w-3 h-3 flex-shrink-0" style={{ color: '#8A7F70' }} />
-              {listing.email}
-            </a>
-            <a
-              href={`https://${listing.website}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="dir-sans text-xs flex items-center gap-1.5 hover:underline"
-              style={{ color: '#8E3400' }}
-            >
-              <ExternalLink className="w-3 h-3 flex-shrink-0" />
-              {listing.website}
-            </a>
-          </div>
-        </div>
+      {/* Contact row */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+        <a href={`tel:${listing.phone}`} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
+          <Phone style={{ width: '13px', height: '13px', color: '#6B7280' }} />
+          {listing.phone}
+        </a>
+        <a href={`mailto:${listing.email}`} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
+          <Mail style={{ width: '13px', height: '13px', color: '#6B7280' }} />
+          {listing.email}
+        </a>
+        <a href={`https://${listing.website}`} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8E3400', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
+          <ExternalLink style={{ width: '13px', height: '13px' }} />
+          {listing.website}
+        </a>
       </div>
     </div>
   );
