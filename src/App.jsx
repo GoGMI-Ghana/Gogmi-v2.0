@@ -36,6 +36,7 @@ import IMSWGEvents from './Components/Pages/IMSWGEvents';
 import IMSWGsignup from './Components/Pages/IMSWGsignup';
 import JournalistTraining from './Components/Pages/JournalistTraining';
 import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
   return (
