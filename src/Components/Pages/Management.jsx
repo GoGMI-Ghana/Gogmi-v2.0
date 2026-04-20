@@ -133,7 +133,7 @@ const Management = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { name: 'Ellise Grant Boamah', title: 'National Service Personel' },
-              { name: 'Mavis Akortsu', title: 'Office Assistant' },
+              { name: 'Jonas Aryeh', title: 'Corporate Affairs' },
               { name: 'Juliet Afrah Obeng ', title: 'United Nation Hamilton Shirley Amerasinghe Memorial Fellow' }
             ].map((member, idx) => (
               <div key={idx} className="group">
