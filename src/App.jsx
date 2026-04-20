@@ -35,6 +35,7 @@ import BlueWorldInitiative from './Components/Pages/BlueWorldInitiative';
 import IMSWGEvents from './Components/Pages/IMSWGEvents';
 import IMSWGsignup from './Components/Pages/IMSWGsignup';
 import JournalistTraining from './Components/Pages/JournalistTraining';
+import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
 
 function App() {
   return (
@@ -73,6 +74,7 @@ function App() {
               <Route path="/imswg-events" element={<IMSWGEvents />} />
               <Route path="/imswg-signup" element={<IMSWGsignup />} />
                <Route path="/journalist-training" element={<JournalistTraining />} />
+              <Route path="/blue-business-directory" element={<BlueBusinessDirectory />} />
             
               
               {/* Simple login for returning members */}
