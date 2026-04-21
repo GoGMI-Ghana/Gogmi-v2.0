@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     date: 'April 21, 2026',
     logo: '/AtlanticCenter.webp',
     excerpt: 'GoGMI is arising to one of the key African-led Think Tanks in the broad geography of the Gulf of Guinea. What distinguishes GoGMI apart is not only the quality of its training and research, but also its commitment to inclusive, African-led solutions.',
-    downloadUrl: '/Testimonial_from_AC_GoGMI.pdf',
+    downloadUrl: 'public/resources/pdfs/TestimonialAtlantic.pdf',
     featured: true,
   },
   {
