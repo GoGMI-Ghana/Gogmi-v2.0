@@ -19,7 +19,7 @@ const TESTIMONIALS = [
     country: 'Lisbon, Portugal',
     date: 'April 21, 2026',
     logo: '/AtlanticCenter.webp',
-    excerpt: 'GoGMI is arising to one of the key African-led Think Tanks in the broad geography of the Gulf of Guinea. What distinguishes GoGMI apart is not only the quality of its training and research, but also its commitment to inclusive, African-led solutions.',
+    excerpt: 'The Atlantic Centre is proud of our partnership with GoGMI. Since our foundation that we have been trailing a path towards increased cooperation, knowledge sharing and mutual growth between both institutions. We are proud to attest, as partners, the recent development of GoGMI. Since its establishment, GoGMI has been a pivotal institution in the Gulf of Guinea, researching and training civil society, governments and military on grey zone topics within the overarching area of Maritime Security.',
     downloadUrl: '/resources/pdfs/TestimonialAtlantic.pdf',
     featured: true,
   },
@@ -33,8 +33,7 @@ const TESTIMONIALS = [
     country: 'France',
     date: '2025',
     logo: null,
-    excerpt: 'Dear GOGMI colleagues,
-    On behalf of EnMAR, I wanted to take the time to congratulate you and thank you for the great training activity you've organised this week. I have heard many positive feedbacks from participants and from my colleagues on site.This activity illustrates the success of the EnMAR-GOGMI partnership. Together, we are contributing to a more secure maritime domain.',
+    excerpt: `Dear GOGMI colleagues, On behalf of EnMAR, I wanted to take the time to congratulate you and thank you for the great training activity you've organised this week. I have heard many positive feedbacks from participants and from my colleagues on site. This activity illustrates the success of the EnMAR-GOGMI partnership. Together, we are contributing to a more secure maritime domain.`,
     downloadUrl: null,
     featured: true,
    }
