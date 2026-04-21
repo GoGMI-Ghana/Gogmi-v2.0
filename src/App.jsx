@@ -36,7 +36,9 @@ import IMSWGEvents from './Components/Pages/IMSWGEvents';
 import IMSWGsignup from './Components/Pages/IMSWGsignup';
 import JournalistTraining from './Components/Pages/JournalistTraining';
 import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/react';
+import Testimonials from './Components/Pages/Testimonials';
+
 
 function App() {
   return (
@@ -76,6 +78,7 @@ function App() {
               <Route path="/imswg-signup" element={<IMSWGsignup />} />
                <Route path="/journalist-training" element={<JournalistTraining />} />
               <Route path="/blue-business-directory" element={<BlueBusinessDirectory />} />
+              <Route path="/testimonials" element={<Testimonials />} />
             
               
               {/* Simple login for returning members */}
