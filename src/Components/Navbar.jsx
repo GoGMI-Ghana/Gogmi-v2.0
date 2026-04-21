@@ -34,6 +34,7 @@ const Navbar = () => {
         {name: "Who We Are", path: "/about"},
         {name: "Partners", path: "/partners"},
         {name: "Careers", path: "/CareersOpportunities"}
+         {name: "Testimonials", path: "/testimonials"}
       ]
     },
     { 
