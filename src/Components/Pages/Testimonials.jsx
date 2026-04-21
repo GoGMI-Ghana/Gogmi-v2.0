@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     date: 'April 21, 2026',
     logo: '/AtlanticCenter.webp',
     excerpt: 'GoGMI is arising to one of the key African-led Think Tanks in the broad geography of the Gulf of Guinea. What distinguishes GoGMI apart is not only the quality of its training and research, but also its commitment to inclusive, African-led solutions.',
-    downloadUrl: 'public/resources/pdfs/TestimonialAtlantic.pdf',
+    downloadUrl: '/resources/pdfs/TestimonialAtlantic.pdf',
     featured: true,
   },
   {
@@ -310,8 +310,9 @@ const TestimonialCard = ({ t, onPlay }) => {
             {t.signatory && <> · Signed by {t.signatory}</>}
           </p>
           <a
-            href={t.downloadUrl}
-            download
+          href={t.downloadUrl}
+          target="_blank"
+          rel="noopener noreferrer"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600,
