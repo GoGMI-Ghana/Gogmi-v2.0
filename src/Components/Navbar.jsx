@@ -31,10 +31,10 @@ const Navbar = () => {
       name: "About Us", 
       path: "/about",
       dropdown: [
-        {name: "Who We Are", path: "/about"},
-        {name: "Partners", path: "/partners"},
-        {name: "Careers", path: "/CareersOpportunities"}
-         {name: "Testimonials", path: "/Testimonials"}
+        { name: "Who We Are", path: "/about" },
+        { name: "Partners", path: "/partners" },
+        { name: "Careers", path: "/CareersOpportunities" },
+        { name: "Testimonials", path: "/Testimonials" }
       ]
     },
     { 
@@ -210,7 +210,6 @@ const Navbar = () => {
 
         {/* Desktop Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-          {/* Blue Business Directory */}
           <button
             onClick={() => handleNavClick("/blue-business-directory")}
             className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
@@ -349,7 +348,6 @@ const Navbar = () => {
               )
             )}
 
-            {/* Blue Business Directory - mobile */}
             <button
               onClick={() => handleNavClick("/blue-business-directory")}
               className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
