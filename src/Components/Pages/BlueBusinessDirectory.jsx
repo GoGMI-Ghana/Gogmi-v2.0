@@ -140,6 +140,27 @@ const BlueBusinessDirectory = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5F7FA' }}>
 
+      <style>{`
+        .cat-scrollbar {
+          overflow-x: auto;
+          padding-bottom: 8px;
+        }
+        .cat-scrollbar::-webkit-scrollbar {
+          height: 4px;
+        }
+        .cat-scrollbar::-webkit-scrollbar-track {
+          background: #D1D5DB;
+          border-radius: 2px;
+        }
+        .cat-scrollbar::-webkit-scrollbar-thumb {
+          background: #132552;
+          border-radius: 2px;
+        }
+        .cat-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #8E3400;
+        }
+      `}</style>
+
       {/* Header */}
       <div style={{ backgroundColor: '#132552', borderBottom: '4px solid #8E3400' }} className="pt-28 pb-12 px-6">
         <div className="max-w-5xl mx-auto">
@@ -190,7 +211,7 @@ const BlueBusinessDirectory = () => {
       {/* Category filter */}
       <div style={{ backgroundColor: '#EBEDF0', borderBottom: '1px solid #D1D5DB' }}>
         <div className="max-w-5xl mx-auto px-6">
-          <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', padding: '12px 0', scrollbarWidth: 'none' }}>
+          <div className="cat-scrollbar" style={{ display: 'flex', gap: '6px', paddingTop: '12px' }}>
             {CATEGORIES.map(cat => {
               const isActive = activeCategory === cat.id;
               return (
@@ -302,7 +323,6 @@ const ListingRow = ({ listing, featured, isLast }) => {
       onMouseEnter={e => e.currentTarget.style.backgroundColor = featured ? '#FEF3C7' : '#F9FAFB'}
       onMouseLeave={e => e.currentTarget.style.backgroundColor = featured ? '#FFFBEB' : 'white'}
     >
-      {/* Top row: name + badge */}
       <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
         <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: '17px', fontWeight: 700, color: '#111827', margin: 0 }}>
           {listing.name}
@@ -324,7 +344,6 @@ const ListingRow = ({ listing, featured, isLast }) => {
         )}
       </div>
 
-      {/* Location + category */}
       <div style={{ display: 'flex', gap: '16px', marginBottom: '12px', flexWrap: 'wrap' }}>
         <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#4B5563', display: 'flex', alignItems: 'center', gap: '4px' }}>
           <MapPin style={{ width: '12px', height: '12px', color: '#9CA3AF' }} />
@@ -335,12 +354,10 @@ const ListingRow = ({ listing, featured, isLast }) => {
         </span>
       </div>
 
-      {/* Description */}
       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#374151', lineHeight: 1.65, marginBottom: '16px', maxWidth: '620px' }}>
         {listing.description}
       </p>
 
-      {/* Contact row */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
         <a href={`tel:${listing.phone}`} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
           <Phone style={{ width: '13px', height: '13px', color: '#6B7280' }} />
