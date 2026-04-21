@@ -38,7 +38,7 @@ const TESTIMONIALS = [
       This activity illustrates the success of the EnMAR-GOGMI partnership. Together, we are contributing to a more secure maritime domain.',
     downloadUrl: null,
     featured: true,
-   },
+   }
   // {
   //   id: 3,
   //   type: 'individual',
