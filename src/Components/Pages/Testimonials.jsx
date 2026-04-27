@@ -46,7 +46,7 @@ const TESTIMONIALS = [
     signatory: 'Dr. Douglas Wallace',
     country: 'Halifax, Canada',
     date: 'April 2026',
-    logo: null,
+    logo: '/DOTCANLogo.png',
     excerpt: 'GoGMI is highly deserving of its nomination and the award. For DOTCAN, GoGMI has been much more than a collaborator — they are our oldest and most trusted partners since our inception, and they\'ve helped guide our own organisation\'s development and programs. They have an unwavering commitment to Africa\'s maritime future.',
     videoUrl: 'YOUR_VIDEO_URL_HERE',
     thumbnail: null,
