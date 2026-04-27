@@ -32,7 +32,7 @@ const TESTIMONIALS = [
     signatory: 'Marie Gibra',
     country: 'France',
     date: '2025',
-    logo: null,
+    logo: '/Enmar.png',
     excerpt: `Dear GOGMI colleagues, On behalf of EnMAR, I wanted to take the time to congratulate you and thank you for the great training activity you've organised this week. I have heard many positive feedbacks from participants and from my colleagues on site. This activity illustrates the success of the EnMAR-GOGMI partnership. Together, we are contributing to a more secure maritime domain.`,
     downloadUrl: null,
     featured: true,
