@@ -36,9 +36,25 @@ const TESTIMONIALS = [
     excerpt: `Dear GOGMI colleagues, On behalf of EnMAR, I wanted to take the time to congratulate you and thank you for the great training activity you've organised this week. I have heard many positive feedbacks from participants and from my colleagues on site. This activity illustrates the success of the EnMAR-GOGMI partnership. Together, we are contributing to a more secure maritime domain.`,
     downloadUrl: null,
     featured: true,
-   }
+  },
+  {
+    id: 3,
+    type: 'organization',
+    format: 'video',
+    name: 'DOTCAN Institute',
+    role: 'Canada Research Chair in Ocean Science and Technology, Dalhousie University',
+    signatory: 'Dr. Douglas Wallace',
+    country: 'Halifax, Canada',
+    date: 'April 2026',
+    logo: null,
+    excerpt: 'GoGMI is highly deserving of its nomination and the award. For DOTCAN, GoGMI has been much more than a collaborator — they are our oldest and most trusted partners since our inception, and they\'ve helped guide our own organisation\'s development and programs. They have an unwavering commitment to Africa\'s maritime future.',
+    videoUrl: 'YOUR_VIDEO_URL_HERE',
+    thumbnail: null,
+    downloadUrl: null,
+    featured: true,
+  },
   // {
-  //   id: 3,
+  //   id: 4,
   //   type: 'individual',
   //   format: 'quote',
   //   name: 'Rear Admiral (Rtd.) Issah Adam Issifu',
@@ -51,7 +67,7 @@ const TESTIMONIALS = [
   //   featured: false,
   // },
   // {
-  //   id: 4,
+  //   id: 5,
   //   type: 'individual',
   //   format: 'quote',
   //   name: 'Fatoumata Diallo',
@@ -64,7 +80,7 @@ const TESTIMONIALS = [
   //   featured: false,
   // },
   // {
-  //   id: 5,
+  //   id: 6,
   //   type: 'video',
   //   format: 'video',
   //   name: 'Prof. Kweku Ainuson',
@@ -221,7 +237,6 @@ const TestimonialCard = ({ t, onPlay }) => {
 
   return (
     <div style={{
-      backgroundColor: 'white',
       border: t.featured ? '1px solid #FDE68A' : '1px solid #E5E7EB',
       borderRadius: '8px',
       padding: '28px',
@@ -255,6 +270,11 @@ const TestimonialCard = ({ t, onPlay }) => {
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#6B7280', margin: 0 }}>
               {t.role} · {t.country}
             </p>
+            {t.signatory && (
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#9CA3AF', margin: 0, marginTop: '2px' }}>
+                {t.signatory}
+              </p>
+            )}
           </div>
         </div>
 
@@ -276,30 +296,37 @@ const TestimonialCard = ({ t, onPlay }) => {
         </div>
       </div>
 
-      {/* Video thumbnail */}
-      {isVideo && (
-        <div
-          onClick={() => onPlay(t.videoUrl)}
-          style={{ position: 'relative', borderRadius: '6px', overflow: 'hidden', marginBottom: '16px', cursor: 'pointer', aspectRatio: '16/9', backgroundColor: '#132552', maxWidth: '480px' }}
-        >
-          {t.thumbnail && <img src={t.thumbnail} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.65 }} />}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ width: '48px', height: '48px', backgroundColor: '#8E3400', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 16px rgba(0,0,0,0.35)' }}>
-              <Play style={{ width: '18px', height: '18px', color: 'white', marginLeft: '3px' }} />
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Quote icon for non-video */}
       {!isVideo && (
         <Quote style={{ width: '20px', height: '20px', color: '#D1D5DB', marginBottom: '10px' }} />
       )}
 
       {/* Excerpt */}
-      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#374151', lineHeight: 1.75, marginBottom: isLetter && t.downloadUrl ? '16px' : '0' }}>
+      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#374151', lineHeight: 1.75, marginBottom: '16px' }}>
         "{t.excerpt}"
       </p>
+
+      {/* Video watch button */}
+      {isVideo && (
+        <div style={{ marginTop: '4px' }}>
+          <button
+            onClick={() => onPlay(t.videoUrl)}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600,
+              backgroundColor: '#132552', color: 'white',
+              padding: '9px 18px', borderRadius: '5px',
+              border: 'none', cursor: 'pointer',
+              transition: 'background-color 0.15s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#8E3400'}
+            onMouseLeave={e => e.currentTarget.style.backgroundColor = '#132552'}
+          >
+            <Play style={{ width: '13px', height: '13px' }} />
+            Watch Video
+          </button>
+        </div>
+      )}
 
       {/* Letter download */}
       {isLetter && t.downloadUrl && (
@@ -310,9 +337,9 @@ const TestimonialCard = ({ t, onPlay }) => {
             {t.signatory && <> · Signed by {t.signatory}</>}
           </p>
           <a
-          href={t.downloadUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+            href={t.downloadUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600,
