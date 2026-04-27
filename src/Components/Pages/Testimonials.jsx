@@ -48,7 +48,7 @@ const TESTIMONIALS = [
     date: 'April 2026',
     logo: '/DOTCANLOGO.png',
     excerpt: 'GoGMI is highly deserving of its nomination and the award. For DOTCAN, GoGMI has been much more than a collaborator — they are our oldest and most trusted partners since our inception, and they\'ve helped guide our own organisation\'s development and programs. They have an unwavering commitment to Africa\'s maritime future.',
-    videoUrl: 'YOUR_VIDEO_URL_HERE',
+    videoUrl: 'https://drive.google.com/file/d/1Uh_biTMvKIwyUyxhmMWz0tf7KDvsN_QJ/preview',
     thumbnail: null,
     downloadUrl: null,
     featured: true,
