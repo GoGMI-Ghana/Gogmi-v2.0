@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Calendar, MapPin, Users, BookOpen, CheckCircle, X, Tag, Shield, User } from 'lucide-react';
+import { Download, Calendar, MapPin, BookOpen, CheckCircle, X, Tag, Shield, User } from 'lucide-react';
 
 const PAYSTACK_PUBLIC_KEY = 'pk_live_5deb38ad873d2e40332a00250c2fbd6199b5de30';
 const USD_TO_GHS = 10.88;
@@ -14,7 +14,7 @@ const MaritimeGovernanceCourse = () => {
   const [memberData, setMemberData] = useState(null);
   const [isVerifying, setIsVerifying] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [nonMemberForm, setNonMemberForm] = useState({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' });
+  const [nonMemberForm, setNonMemberForm] = useState({ fullName: '', email: '', phone: '', position: '', institution: '', country: '', membershipType: '' });
   const [memberForm, setMemberForm] = useState({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' });
 
   const MEMBER_PRICE = 350;
@@ -26,7 +26,7 @@ const MaritimeGovernanceCourse = () => {
   useEffect(() => { if (!document.getElementById('paystack-script')) { const s = document.createElement('script'); s.id = 'paystack-script'; s.src = 'https://js.paystack.co/v1/inline.js'; s.async = true; document.body.appendChild(s); } }, []);
 
   const openApply = () => { setApplyStep('choose'); setMemberCode(''); setMemberCodeError(''); setMemberData(null); document.body.style.overflow = 'hidden'; };
-  const closeApply = () => { if (isProcessing) return; setApplyStep(null); setMemberCode(''); setMemberCodeError(''); setMemberData(null); setNonMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' }); setMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' }); document.body.style.overflow = 'unset'; };
+  const closeApply = () => { if (isProcessing) return; setApplyStep(null); setMemberCode(''); setMemberCodeError(''); setMemberData(null); setNonMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '', membershipType: '' }); setMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' }); document.body.style.overflow = 'unset'; };
 
   const verifyMemberCode = async () => {
     if (!memberCode.trim()) { setMemberCodeError('Please enter your Membership ID'); return; }
@@ -62,7 +62,16 @@ const MaritimeGovernanceCourse = () => {
 
   const activateRegistration = async (paymentReference, applicantType, formPayload) => {
     try {
-      const res = await fetch(API_URL + '/courses/maritime-governance.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'register', ...formPayload, applicantType, paymentReference, membershipId: applicantType === 'member' ? memberCode.trim() : undefined }) });
+      const body = {
+        action: 'register',
+        ...formPayload,
+        applicantType,
+        paymentReference,
+      };
+      if (applicantType === 'member') {
+        body.membershipId = memberCode.trim();
+      }
+      const res = await fetch(API_URL + '/courses/maritime-governance.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
       const data = await res.json();
       if (data.success) {
         let msg = 'Registration Successful!\n\nYou are now registered for the Maritime Governance Course.\nReference: ' + paymentReference + '\n';
@@ -75,7 +84,12 @@ const MaritimeGovernanceCourse = () => {
   };
 
   const handleMemberSubmit = (e) => { e.preventDefault(); if (!memberForm.fullName || !memberForm.email || !memberForm.phone || !memberForm.country || !memberForm.position) { alert('Please fill all required fields'); return; } processPayment(memberForm.email, MEMBER_PRICE, 'member', memberForm); };
-  const handleNonMemberSubmit = (e) => { e.preventDefault(); if (!nonMemberForm.fullName || !nonMemberForm.email || !nonMemberForm.phone || !nonMemberForm.country || !nonMemberForm.position) { alert('Please fill all required fields'); return; } processPayment(nonMemberForm.email, NON_MEMBER_PRICE, 'non-member', nonMemberForm); };
+  const handleNonMemberSubmit = (e) => {
+    e.preventDefault();
+    if (!nonMemberForm.fullName || !nonMemberForm.email || !nonMemberForm.phone || !nonMemberForm.country || !nonMemberForm.position) { alert('Please fill all required fields'); return; }
+    if (!nonMemberForm.membershipType) { alert('Please select a membership type'); return; }
+    processPayment(nonMemberForm.email, NON_MEMBER_PRICE, 'non-member', nonMemberForm);
+  };
 
   const handleBrochureDownload = () => { const l = document.createElement('a'); l.href = '/resources/pdfs/Maritime-Governance-Course-Brochure.pdf'; l.download = 'Maritime-Governance-Course-Brochure.pdf'; l.target = '_blank'; document.body.appendChild(l); l.click(); document.body.removeChild(l); };
 
@@ -116,7 +130,7 @@ const MaritimeGovernanceCourse = () => {
                     <h4 className="text-xl font-black mb-2" style={{ color: '#132552' }}>Apply as a Non-Member</h4>
                     <div className="flex items-center gap-2 mb-3"><span className="text-2xl font-black" style={{ color: '#132552' }}>${NON_MEMBER_PRICE}</span></div>
                     <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: '#FEF3C7', color: '#92400E' }}>Standard Rate</div>
-                    <p className="text-xs" style={{ color: '#6B7280' }}>You will automatically become a GoGMI member after registration.</p>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>You will receive a free GoGMI membership with your registration.</p>
                   </button>
                 </div>
                 <p className="text-center text-sm" style={{ color: '#9CA3AF' }}>Not yet a member? <a href="/membership" className="font-bold hover:underline" style={{ color: '#8E3400' }}>Join GoGMI</a> to unlock member pricing.</p>
@@ -159,7 +173,7 @@ const MaritimeGovernanceCourse = () => {
 
             {applyStep === 'nonmember' && (
               <form onSubmit={handleNonMemberSubmit} className="p-8">
-                <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#FFF7ED', border: '1px solid #FED7AA' }}><div><p className="text-sm font-bold" style={{ color: '#92400E' }}>Standard Rate</p><p className="text-xs" style={{ color: '#4B5563' }}>You will automatically become a GoGMI member</p></div><div className="text-right"><p className="text-2xl font-black" style={{ color: '#132552' }}>${NON_MEMBER_PRICE}</p></div></div>
+                <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#FFF7ED', border: '1px solid #FED7AA' }}><div><p className="text-sm font-bold" style={{ color: '#92400E' }}>Standard Rate</p><p className="text-xs" style={{ color: '#4B5563' }}>You will receive a free GoGMI membership</p></div><div className="text-right"><p className="text-2xl font-black" style={{ color: '#132552' }}>${NON_MEMBER_PRICE}</p></div></div>
                 <div className="space-y-4">
                   <div><label className={labelClass} style={{ color: '#132552' }}>Full Name <span className="text-red-500">*</span></label><input type="text" name="fullName" value={nonMemberForm.fullName} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="John Doe" /></div>
                   <div><label className={labelClass} style={{ color: '#132552' }}>Email Address <span className="text-red-500">*</span></label><input type="email" name="email" value={nonMemberForm.email} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="john@example.com" /></div>
@@ -167,6 +181,16 @@ const MaritimeGovernanceCourse = () => {
                   <div><label className={labelClass} style={{ color: '#132552' }}>Position/Title <span className="text-red-500">*</span></label><input type="text" name="position" value={nonMemberForm.position} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
                   <div><label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span></label><input type="text" name="institution" value={nonMemberForm.institution} onChange={handleNonMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
                   <div><label className={labelClass} style={{ color: '#132552' }}>Country <span className="text-red-500">*</span></label><input type="text" name="country" value={nonMemberForm.country} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Ghana" /></div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Select Membership Type <span className="text-red-500">*</span></label>
+                    <select name="membershipType" value={nonMemberForm.membershipType} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }}>
+                      <option value="">-- Select your membership type --</option>
+                      <option value="student">Student Membership</option>
+                      <option value="associate">Associate Membership</option>
+                      <option value="professional">Professional Membership</option>
+                    </select>
+                    <p className="text-xs mt-2" style={{ color: '#9CA3AF' }}>You will receive a free GoGMI membership of the selected type with your course registration.</p>
+                  </div>
                 </div>
                 <div className="flex gap-3 mt-8">
                   <button type="button" onClick={() => setApplyStep('choose')} disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
