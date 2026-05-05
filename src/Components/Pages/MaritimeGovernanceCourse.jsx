@@ -14,7 +14,7 @@ const MaritimeGovernanceCourse = () => {
   const [memberData, setMemberData] = useState(null);
   const [isVerifying, setIsVerifying] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [nonMemberForm, setNonMemberForm] = useState({ fullName: '', email: '', phone: '', position: '', institution: '', country: '', membershipType: '' });
+  const [nonMemberForm, setNonMemberForm] = useState({ fullName: '', email: '', phone: '', position: '', institution: '', country: '', membershipType: '', dateOfBirth: '' });
   const [memberForm, setMemberForm] = useState({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' });
 
   const MEMBER_PRICE = 350;
@@ -88,6 +88,7 @@ const MaritimeGovernanceCourse = () => {
     e.preventDefault();
     if (!nonMemberForm.fullName || !nonMemberForm.email || !nonMemberForm.phone || !nonMemberForm.country || !nonMemberForm.position) { alert('Please fill all required fields'); return; }
     if (!nonMemberForm.membershipType) { alert('Please select a membership type'); return; }
+    if (!nonMemberForm.dateOfBirth) { alert('Please enter your date of birth'); return; }
     processPayment(nonMemberForm.email, NON_MEMBER_PRICE, 'non-member', nonMemberForm);
   };
 
@@ -177,6 +178,7 @@ const MaritimeGovernanceCourse = () => {
                 <div className="space-y-4">
                   <div><label className={labelClass} style={{ color: '#132552' }}>Full Name <span className="text-red-500">*</span></label><input type="text" name="fullName" value={nonMemberForm.fullName} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="John Doe" /></div>
                   <div><label className={labelClass} style={{ color: '#132552' }}>Email Address <span className="text-red-500">*</span></label><input type="email" name="email" value={nonMemberForm.email} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="john@example.com" /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>Date of Birth <span className="text-red-500">*</span></label><input type="date" name="dateOfBirth" value={nonMemberForm.dateOfBirth} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
                   <div><label className={labelClass} style={{ color: '#132552' }}>Country Code Plus WhatsApp Number <span className="text-red-500">*</span></label><input type="tel" name="phone" value={nonMemberForm.phone} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="+233 XX XXX XXXX" /></div>
                   <div><label className={labelClass} style={{ color: '#132552' }}>Position/Title <span className="text-red-500">*</span></label><input type="text" name="position" value={nonMemberForm.position} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
                   <div><label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span></label><input type="text" name="institution" value={nonMemberForm.institution} onChange={handleNonMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
