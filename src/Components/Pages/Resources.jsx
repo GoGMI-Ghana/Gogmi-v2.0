@@ -365,7 +365,7 @@ const Resources = () => {
     {
       id: 18,
       title: 'IMSWG 2026 Q1 Edition',
-      description: 'A discussion on how to optimise maritime security for sustainable blue economy development',
+      description: 'The 2026 Quarter one edition had a presentation from Commander Duodu speaking on Optimizing maritime security for sustainable blue economy developmen',
       fullDescription: 'This video provides a comprehensive introduction to maritime security in the Gulf of Guinea, covering key challenges, regional initiatives, and collaborative efforts to ensure safe and secure maritime operations.',
       type: 'Videos',
       category: 'Educational',
