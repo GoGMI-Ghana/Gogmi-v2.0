@@ -364,67 +364,19 @@ const Resources = () => {
     // ===== VIDEOS =====
     {
       id: 18,
-      title: 'Introduction to Gulf of Guinea Maritime Security',
-      description: 'Comprehensive overview of maritime security challenges and solutions in the Gulf of Guinea region.',
+      title: 'IMSWG 2026 Q1 Edition',
+      description: 'A discussion on how to optimise maritime security for sustainable blue economy development',
       fullDescription: 'This video provides a comprehensive introduction to maritime security in the Gulf of Guinea, covering key challenges, regional initiatives, and collaborative efforts to ensure safe and secure maritime operations.',
       type: 'Videos',
       category: 'Educational',
       duration: '15:30',
-      date: 'November 2024',
+      date: 'March 2026',
       views: 2340,
-      thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&fit=crop',
+      thumbnail: '/IMSWG2026flyer.jpg',
       fileType: 'VIDEO',
-      videoUrl: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1',
-      keyTopics: [
-        'Overview of Gulf of Guinea Maritime Domain',
-        'Key Security Challenges',
-        'Regional Cooperation Frameworks',
-        'Success Stories and Best Practices',
-        'Future Outlook and Opportunities'
-      ]
-    },
-    {
-      id: 19,
-      title: 'Blue Economy Opportunities in West Africa',
-      description: 'Exploring sustainable blue economy development and career opportunities in the West African maritime sector.',
-      fullDescription: 'Discover the vast potential of the blue economy in West Africa. This video explores sustainable development opportunities, emerging careers, and how youth can participate in building a prosperous maritime future.',
-      type: 'Videos',
-      category: 'Blue Economy',
-      duration: '22:45',
-      date: 'October 2024',
-      views: 3120,
-      thumbnail: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&fit=crop',
-      fileType: 'VIDEO',
-      videoUrl: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2',
-      keyTopics: [
-        'Blue Economy Fundamentals',
-        'Career Pathways in Maritime Sectors',
-        'Sustainable Fisheries and Aquaculture',
-        'Marine Tourism Development',
-        'Youth Engagement and Opportunities'
-      ]
-    },
-    {
-      id: 20,
-      title: 'Yaoundé Code of Conduct Explained',
-      description: 'Detailed explanation of the Yaoundé Code of Conduct and its implementation across West and Central Africa.',
-      fullDescription: 'An in-depth look at the Yaoundé Code of Conduct, the cornerstone of maritime security cooperation in West and Central Africa. Learn about its structure, implementation, and impact on regional security.',
-      type: 'Videos',
-      category: 'Security',
-      duration: '18:20',
-      date: 'September 2024',
-      views: 1890,
-      thumbnail: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&fit=crop',
-      fileType: 'VIDEO',
-      videoUrl: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3',
-      keyTopics: [
-        'History and Development of Yaoundé Code',
-        'Operational Structure and Coordination',
-        'Regional Implementation Success Stories',
-        'Challenges and Lessons Learned',
-        'Future Directions and Enhancements'
-      ]
+      videoUrl: 'https://youtu.be/Hy8-4KvAKfE',
     }
+   
   ];
 
   const types = ['Strategic Documents', 'Academic Papers', 'Internal Reports', 'Videos'];
