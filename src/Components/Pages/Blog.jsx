@@ -115,27 +115,27 @@ const Blog = () => {
     //   image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&fit=crop',
     // },
 
-    // ===== TECHNICAL NOTES =====
-    {
-      id: 6,
-      title: 'Sustainable Fisheries: Community Impact Stories',
-      excerpt: 'Hear from fishing communities in Ghana and Senegal about how sustainable practices are transforming their livelihoods.',
-      category: 'Technical note',
-      author: 'Communications Team',
-      date: 'October 15, 2024',
-      readTime: '7 min read',
-      image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&fit=crop',
-    },
-    {
-      id: 9,
-      title: 'Blue Economy Project: 6-Month Progress Report',
-      excerpt: 'Our blue economy initiative has created over 200 jobs and trained 500+ individuals in sustainable maritime practices.',
-      category: 'Technical note',
-      author: 'Project Team',
-      date: 'September 15, 2024',
-      readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&fit=crop',
-    },
+    // // ===== TECHNICAL NOTES =====
+    // {
+    //   id: 6,
+    //   title: 'Sustainable Fisheries: Community Impact Stories',
+    //   excerpt: 'Hear from fishing communities in Ghana and Senegal about how sustainable practices are transforming their livelihoods.',
+    //   category: 'Technical note',
+    //   author: 'Communications Team',
+    //   date: 'October 15, 2024',
+    //   readTime: '7 min read',
+    //   image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&fit=crop',
+    // },
+    // {
+    //   id: 9,
+    //   title: 'Blue Economy Project: 6-Month Progress Report',
+    //   excerpt: 'Our blue economy initiative has created over 200 jobs and trained 500+ individuals in sustainable maritime practices.',
+    //   category: 'Technical note',
+    //   author: 'Project Team',
+    //   date: 'September 15, 2024',
+    //   readTime: '8 min read',
+    //   image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&fit=crop',
+    // },
   ];
 
   const categories = ['News', 'Blogs', 'Technical note'];
