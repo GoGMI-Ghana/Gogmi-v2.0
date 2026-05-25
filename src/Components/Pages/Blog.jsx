@@ -93,19 +93,7 @@ const Blog = () => {
       downloadUrl: '/resources/pdfs/World-Ocean-Day-Collective-Action-Starts-with-You.pdf',
       pages: 3
     },
-    {
-      id: 104,
-      title: 'IWD2022 – GENDER EQUALITY TODAY FOR A SUSTAINABLE TOMORROW',
-      excerpt: 'Women are vital to safeguarding marine ecosystems, yet they often face structural barriers in the blue economy.',
-      category: 'Blogs',
-      date: 'April 2022',
-      author: 'Gender Equality Team',
-      readTime: '5 min read',
-      image: '/int.women.jpg',
-      fileType: 'PDF',
-      downloadUrl: '/resources/Gender-Equality.pdf',
-      pages: 1
-    },
+   
     // {
     //   id: 5,
     //   title: 'Digital Transformation of Port Operations Showing Results',
