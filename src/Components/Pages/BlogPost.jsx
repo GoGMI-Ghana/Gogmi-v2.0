@@ -16,7 +16,7 @@ const BlogPost = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`${API_URL}/blog/hubspot-blog.php?action=post&slug=${encodeURIComponent(slug)}`);
+        const res = await fetch(`${API_URL}/courses/hubspot-blog.php?action=post&slug=${encodeURIComponent(slug)}`);
         const data = await res.json();
         if (data.success) {
           setPost(data.data);
