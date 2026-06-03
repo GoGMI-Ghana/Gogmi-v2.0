@@ -9,6 +9,7 @@ import AboutUs from './Components/Pages/AboutUs';
 import Services from './Components/Pages/Services';
 import Contact from './Components/Pages/Contact';
 import Blog from './Components/Pages/Blog';
+import BlogPost from './Components/Pages/BlogPost';
 import Resources from './Components/Pages/Resources';
 import NotFound from './Components/Pages/NotFound';
 import Careers from './Components/Pages/CareersOpportunities';
@@ -38,7 +39,7 @@ import JournalistTraining from './Components/Pages/JournalistTraining';
 import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
 import { Analytics } from '@vercel/analytics/react';
 import Testimonials from './Components/Pages/Testimonials';
-import BlogPost from './Components/Pages/BlogPost';
+
 
 
 
@@ -58,6 +59,7 @@ function App() {
               <Route path="/services/capacitybuilding" element={<CapacityBuilding />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/membership" element={<Membership />} />
               <Route path="/mediagallery" element={<MediaGallery />} />
@@ -82,7 +84,7 @@ function App() {
               <Route path="/blue-business-directory" element={<BlueBusinessDirectory />} />
               <Route path="/testimonials" element={<Testimonials />} />
   
-              <Route path="/blog/:slug" element={<BlogPost />} />
+             
 
             
               
