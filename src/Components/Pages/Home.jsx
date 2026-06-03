@@ -519,7 +519,7 @@ const Home = () => {
                   {[
                     'Senegal', 'Guinea-Bissau', 'Guinea', 'Sierra Leone', 'Liberia', 
                     'Côte d\'Ivoire', 'Ghana', 'Togo', 'Benin', 'Nigeria', 
-                    'Cameroon', 'Equatorial Guinea', 'Gabon', 'Congo', 
+                    'Cameroon', 'Equatorial Guinea', 'Gabon', 'Congo','Gambia', 
                     'DR Congo', 'Angola','Cape Verde','São Tomé and Príncipe '
                   ].map((country, idx) => (
                     <div 
@@ -538,7 +538,7 @@ const Home = () => {
                 <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all" 
                      style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 100%)' }}>
                   <div className="text-3xl font-black mb-2" 
-                       style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>18</div>
+                       style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>19</div>
                   <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>Coastal Countries</p>
                 </div>
                 <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all" 
