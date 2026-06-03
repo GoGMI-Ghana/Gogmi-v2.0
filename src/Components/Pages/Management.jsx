@@ -98,7 +98,7 @@ const Management = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { name: 'Lawrence Dogli', title: 'Programmes Manager' },
+              
               { name: 'Rhodalyn Owusu', title: 'Finance & Admin Officer' },
               { name: 'Enoch Dzane Nikoi', title: 'Communications Specialist' },
               { name: 'Caleb Acquah-Harrison', title: 'Research Analyst' } 
