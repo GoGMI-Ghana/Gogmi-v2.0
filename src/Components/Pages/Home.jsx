@@ -652,7 +652,7 @@ const Home = () => {
           excerpt: "Maritime and Inland Waterways transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods. This executive training course builds the capacity of Maritime Administrations and related agencies to efficiently conduct investigations of marine casualties and incidents, in accordance with SOLAS regulation XI-1/6 and the IMO Casualty Investigation Code.",
           date: 'June 29, 2026 - July 3rd 2026',
           image: '/casualty.jpeg',
-          link: '/marine-casualty'
+          link: '/marine-casualty-course'
         },
         {
           category: 'News & Blogs',
