@@ -18,7 +18,7 @@ const Blog = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_URL}/blog/hubspot-blog.php?action=list&limit=${LIMIT}&offset=${newOffset}`);
+     const res = await fetch(`${API_URL}/courses/hubspot-blog.php?action=list&limit=${LIMIT}&offset=${newOffset}`);
       const data = await res.json();
       if (data.success) {
         if (newOffset === 0) {
