@@ -38,6 +38,8 @@ import JournalistTraining from './Components/Pages/JournalistTraining';
 import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
 import { Analytics } from '@vercel/analytics/react';
 import Testimonials from './Components/Pages/Testimonials';
+import BlogPost from './Components/Pages/BlogPost';
+
 
 
 function App() {
@@ -79,6 +81,9 @@ function App() {
                <Route path="/journalist-training" element={<JournalistTraining />} />
               <Route path="/blue-business-directory" element={<BlueBusinessDirectory />} />
               <Route path="/testimonials" element={<Testimonials />} />
+  
+              <Route path="/blog/:slug" element={<BlogPost />} />
+
             
               
               {/* Simple login for returning members */}
