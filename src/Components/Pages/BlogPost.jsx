@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, User, ArrowLeft, Share2, Loader2 } from 'lucide-react';
+import { useParams, useLocation } from 'react-router-dom';
+
+
 
 const API_URL = 'https://api.gogmi.org.gh/api';
 
 const BlogPost = () => {
-  const { slug } = useParams();
+  const location = useLocation();
+  const slug = location.pathname.replace('/blog/', '');
+
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
