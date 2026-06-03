@@ -59,7 +59,7 @@ function App() {
               <Route path="/services/capacitybuilding" element={<CapacityBuilding />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/blog/*" element={<BlogPost />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/membership" element={<Membership />} />
               <Route path="/mediagallery" element={<MediaGallery />} />
