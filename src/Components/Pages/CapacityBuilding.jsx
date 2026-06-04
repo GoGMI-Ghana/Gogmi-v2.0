@@ -40,7 +40,7 @@ const CapacityBuilding = () => {
       format: 'Virtual',
       modules: '8 modules',
       level: 'Professional',
-      faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
+      // faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
       nextIntake: 'Septemeber 7 - 18, 2026',
       image: '/margov-coh2.jpeg',
       bgColor: '#132552',
@@ -406,7 +406,7 @@ const CapacityBuilding = () => {
                               </p>
                             </div>
                           </div>
-
+{/* 
                           {/* Distinguished Faculty */}
                           <div className="mb-8">
                             <h4 className="text-sm font-bold uppercase tracking-wide mb-3"
@@ -422,7 +422,7 @@ const CapacityBuilding = () => {
                                 </div>
                               ))}
                             </div>
-                          </div>
+                          </div> */}
 
                           {/* Action Buttons */}
                           <div className="flex flex-col sm:flex-row gap-3 mb-6">
