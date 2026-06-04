@@ -39,7 +39,7 @@ import JournalistTraining from './Components/Pages/JournalistTraining';
 import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
 import { Analytics } from '@vercel/analytics/react';
 import Testimonials from './Components/Pages/Testimonials';
-
+import ScrollToTopOnNavigate from './Components/ScrollToTopOnNavigate';
 
 
 
@@ -49,6 +49,7 @@ function App() {
       <Router>
         <div className="min-h-screen flex flex-col">
           <Navbar />
+          <ScrollToTopOnNavigate />
           <main className="">
             <Routes>
               <Route path="/" element={<Home />} />
