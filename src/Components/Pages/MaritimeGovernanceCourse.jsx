@@ -110,7 +110,7 @@ const MaritimeGovernanceCourse = () => {
             <div className="sticky top-0 bg-white border-b p-6 flex items-center justify-between z-10" style={{ borderColor: '#E5E7EB' }}>
               <div>
                 <h3 className="text-2xl font-black" style={{ color: '#132552' }}>{applyStep === 'choose' ? 'Apply for Course' : applyStep === 'verify' ? 'Verify Membership' : applyStep === 'member' ? 'Member Application' : 'Non-Member Application'}</h3>
-                <p className="text-sm mt-1" style={{ color: '#6B7280' }}>Maritime Governance Course — A Focus on Africa</p>
+                <p className="text-sm mt-1" style={{ color: '#6B7280' }}>Maritime Governance Course For Practitioners — A Focus on Africa</p>
               </div>
               <button onClick={closeApply} disabled={isProcessing} className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-40"><X className="w-6 h-6" style={{ color: '#6B7280' }} /></button>
             </div>
@@ -208,7 +208,7 @@ const MaritimeGovernanceCourse = () => {
         <div className="absolute inset-0"><img src="/conf2.jpg" alt="Maritime Security Strategy Course" className="w-full h-full object-cover" /><div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #132552 0%, rgba(19, 37, 82, 0.95) 50%, rgba(142, 52, 0, 0.85) 100%)' }}></div></div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <div className="inline-block px-4 py-2 rounded-full mb-6 border-2" style={{ borderColor: '#8E3400', backgroundColor: 'rgba(142, 52, 0, 0.2)' }}><span className="text-white text-sm font-bold tracking-wider">PROFESSIONAL DEVELOPMENT</span></div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight">Maritime Governance Course</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight">Maritime Governance Course For Practitioners</h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 font-semibold">A Focus on Africa</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={openApply} className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-base font-bold transition-all hover:scale-105 shadow-xl" style={{ backgroundColor: '#8E3400', color: 'white' }}>Apply Now</button>
@@ -226,10 +226,10 @@ const MaritimeGovernanceCourse = () => {
           <div className="lg:col-span-4">
             <div className={isSticky ? 'lg:sticky lg:top-24' : ''}>
               <div className="bg-white rounded-xl border-2 p-8 space-y-6" style={{ borderColor: '#E5E7EB' }}>
-                <div><div className="flex items-center gap-2 mb-2"><Calendar className="w-5 h-5" style={{ color: '#8E3400' }} /><h3 className="font-bold text-sm" style={{ color: '#132552' }}>Dates</h3></div><p className="text-base" style={{ color: '#4B5563' }}>May 5 – 15, 2026</p><p className="text-sm mt-1" style={{ color: '#6B7280' }}>2 weeks, 8 modules</p></div>
+                <div><div className="flex items-center gap-2 mb-2"><Calendar className="w-5 h-5" style={{ color: '#8E3400' }} /><h3 className="font-bold text-sm" style={{ color: '#132552' }}>Dates</h3></div><p className="text-base" style={{ color: '#4B5563' }}>September 7 – 18, 2026</p><p className="text-sm mt-1" style={{ color: '#6B7280' }}>2 weeks, 8 modules</p></div>
                 <div><div className="flex items-center gap-2 mb-2"><CheckCircle className="w-5 h-5" style={{ color: '#8E3400' }} /><h3 className="font-bold text-sm" style={{ color: '#132552' }}>Status</h3></div><p className="text-base font-semibold" style={{ color: '#16A34A' }}>Accepting Applications</p></div>
                 <div><div className="flex items-center gap-2 mb-2"><BookOpen className="w-5 h-5" style={{ color: '#8E3400' }} /><h3 className="font-bold text-sm" style={{ color: '#132552' }}>Format</h3></div><p className="text-base" style={{ color: '#4B5563' }}>Virtual/Online (Live Sessions)</p></div>
-                <div><div className="flex items-center gap-2 mb-2"><MapPin className="w-5 h-5" style={{ color: '#8E3400' }} /><h3 className="font-bold text-sm" style={{ color: '#132552' }}>Location</h3></div><p className="text-base" style={{ color: '#4B5563' }}>Online (Zoom)</p></div>
+                <div><div className="flex items-center gap-2 mb-2"><MapPin className="w-5 h-5" style={{ color: '#8E3400' }} /><h3 className="font-bold text-sm" style={{ color: '#132552' }}>Location</h3></div><p className="text-base" style={{ color: '#4B5563' }}>Online </p></div>
                 <div>
                   <div className="flex items-center gap-2 mb-3"><Tag className="w-5 h-5" style={{ color: '#8E3400' }} /><h3 className="font-bold text-sm" style={{ color: '#132552' }}>Course Fees</h3></div>
                   <div className="space-y-2">
