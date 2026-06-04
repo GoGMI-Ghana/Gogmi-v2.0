@@ -648,7 +648,7 @@ const Home = () => {
       {[
         {
           category: 'Events',
-          title: 'International Maritime Security Working Group',
+          title: 'Marine Casualty Investigation & Safety Management',
           excerpt: "Maritime and Inland Waterways transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods. This executive training course builds the capacity of Maritime Administrations and related agencies to efficiently conduct investigations of marine casualties and incidents, in accordance with SOLAS regulation XI-1/6 and the IMO Casualty Investigation Code.",
           date: 'June 29, 2026 - July 3rd 2026',
           image: '/casualty.jpeg',
@@ -664,10 +664,10 @@ const Home = () => {
         },
         {
           category: 'Training',
-          title: 'Maritime Governance Course : A Focus on Africa',
+          title: 'Maritime Governance Course For Practitioners : A Focus on Africa',
           excerpt: 'This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.',
-          date: 'May 5 – 14, 2026',
-          image: '/maritmegovvvv.jpeg',
+          date: 'September 7 – 18, 2026',
+          image: '/margov-coh2.jpeg',
           link: '/services/CapacityBuilding'
         }
       ].map((news, idx) => (
