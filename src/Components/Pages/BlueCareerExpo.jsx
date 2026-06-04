@@ -27,11 +27,11 @@ const BlueCareerExpo = () => {
   ];
 
   const vvips = [
-    { name: 'H.E. Kwii Crocus', title: 'Special Guest' },
-    { name: 'Hon. Elijah Mohammed', title: 'Youth Employment Agency Executive Director' },
-    { name: 'Rear Admiral Isaac Tawiah', title: 'Chief of Defense Staff' },
-    { name: 'Hon. Kathleen Quartey-Quaittey', title: 'Guest Speaker' },
-    { name: 'Dr. Juri Stibu', title: 'Guest Lecturer' }
+    { name: 'Her Excellency Kati Csaba ', title: 'High Commissioner of Canada to Ghana' },
+    { name: 'Rear Admiral Issah Yakubu ', title: 'Chief of Naval Staff, Ghana Navy' },
+    { name: 'Hon. Kathleen Quartey Ayensu ', title: 'Special Rapporteur for Piracy and Maritime Security for the AU Commission' },
+    { name: 'Dr. Kofi Mbiah', title: 'Guest Speaker' },
+    
   ];
 
   return (
