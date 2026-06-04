@@ -391,31 +391,31 @@ const Partners = () => {
         </div>
       </section>
 
-      {/* Become a Partner CTA */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
-                style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}>
-            Join Our Network
-          </span>
-          <h2 className="text-4xl font-black mb-6"
-              style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Become a Partner
-          </h2>
-          <p className="text-xl mb-10 leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-            <Link
-  to="/contact"
-  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl transition-all shadow-lg hover:scale-105"
-  style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
->
-  <span>Partner With Us</span>
-  <ExternalLink className="w-5 h-5" />
-</Link>
-            Join our network of leading organizations driving maritime excellence in the Gulf of Guinea.
-          </p>
-        </div>
-      </section>
-    </div>
+      
+     {/* Become a Partner CTA */}
+<section className="py-20 bg-white">
+  <div className="max-w-4xl mx-auto px-6 text-center">
+    <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}>
+      Join Our Network
+    </span>
+    <h2 className="text-4xl font-black mb-6"
+        style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
+      Become a Partner
+    </h2>
+    <p className="text-xl mb-10 leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
+      Join our network of leading organizations driving maritime excellence in the Gulf of Guinea.
+    </p>
+    <Link
+      to="/contact"
+      className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl transition-all shadow-lg hover:scale-105"
+      style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
+    >
+      <span>Partner With Us</span>
+      <ExternalLink className="w-5 h-5" />
+    </Link>
+  </div>
+</section>    </div>
   );
 };
 
