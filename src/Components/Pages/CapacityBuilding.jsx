@@ -40,7 +40,6 @@ const CapacityBuilding = () => {
       format: 'Virtual',
       modules: '8 modules',
       level: 'Professional',
-      // faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
       nextIntake: 'Septemeber 7 - 18, 2026',
       image: '/margov-coh2.jpeg',
       bgColor: '#132552',
@@ -187,7 +186,7 @@ const CapacityBuilding = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
-    }, 15000); // 15 seconds
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [featuredCourses.length]);
@@ -204,7 +203,6 @@ const CapacityBuilding = () => {
     setCurrentSlide(index);
   };
 
-  // Handle navigation with fallback
   const handleCourseNavigation = (course) => {
     if (course.id === 'maritime-governance') {
       navigate('/maritime-governance-course');
@@ -406,9 +404,9 @@ const CapacityBuilding = () => {
                               </p>
                             </div>
                           </div>
-{/* 
-                          {/* Distinguished Faculty */}
-                          <div className="mb-8">
+
+                          {/* Distinguished Faculty - commented out until faculty data is available */}
+                          {/* <div className="mb-8">
                             <h4 className="text-sm font-bold uppercase tracking-wide mb-3"
                                 style={{ color: '#6B7280' }}>
                               Distinguished Faculty
