@@ -34,6 +34,15 @@ const BlueCareerExpo = () => {
     
   ];
 
+  const handleDownloadReport = () => {
+    const link = document.createElement('a');
+    link.href = '/resources/pdfs/BCBE.pdf';
+    link.download = 'BCBE_Report.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
       
@@ -165,6 +174,7 @@ const BlueCareerExpo = () => {
                 professionals and students engaged with maritime industry leaders to explore opportunities in the blue economy.
               </p>
               <button 
+                onClick={handleDownloadReport}
                 className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold transition-all hover:scale-105 shadow-md"
                 style={{ backgroundColor: '#132552', color: 'white', fontWeight: 700 }}
               >
@@ -312,10 +322,6 @@ const BlueCareerExpo = () => {
         </div>
       </section>
 
-      
-
-      {/* CTA Section */}
-     
     </div>
   );
 };
