@@ -180,6 +180,7 @@ const Footer = () => {
           <p style={{ fontWeight: 400 }}>© 2025 GoGMI. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Privacy Policy</Link>
+  
             <Link to="/terms" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Terms of Service</Link>
             <Link to="/sitemap" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Sitemap</Link>
           </div>
