@@ -40,7 +40,7 @@ const CapacityBuilding = () => {
       format: 'Virtual',
       modules: '8 modules',
       level: 'Professional',
-      // faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
+      faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
       nextIntake: 'Septemeber 7 - 18, 2026',
       image: '/margov-coh2.jpeg',
       bgColor: '#132552',
