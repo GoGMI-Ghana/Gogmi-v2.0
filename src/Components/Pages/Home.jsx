@@ -25,12 +25,12 @@ const Home = () => {
 
     {
       id: 2,
-      image: '/maritime.governance.jpeg',
+      image: '/margov-coh2.jpeg',
       alt: 'Maritime gov Course'
     },
     {
       id: 3,
-      image: '/maricourse.jpeg',
+      image: '/MarineCa.jpeg',
       alt: 'Maritime Course'
     },
         {
