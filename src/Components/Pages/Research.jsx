@@ -16,7 +16,7 @@ const Research = () => {
       image: "/Marsof operators fastrope on A Dutch naval vessel.jpg",
       // lead: "Dr. Julliet",
       team: "GoGMI Research Team",
-      // partners: ["IDEC", "UN"],
+      partners: ["", ""],
       impact: "Framework for harmonizing 15+ security initiatives"
     },
     {
@@ -25,7 +25,7 @@ const Research = () => {
       image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&fit=crop",
       // lead: "Dr. Ama Osei",
       team: 3,
-      // partners: ["World Bank", "UNDP", "AfDB"],
+      partners: ["World Bank", "UNDP", "AfDB"],
       impact: "€200M in new investments catalyzed"
     }
   
