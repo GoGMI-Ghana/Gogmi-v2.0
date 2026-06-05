@@ -27,16 +27,8 @@ const Research = () => {
       team: 8,
       partners: ["World Bank", "UNDP", "AfDB"],
       impact: "€200M in new investments catalyzed"
-    },
-    {
-      question: "CAN REGIONAL DATA SHARING PREVENT 90% OF ILLEGAL FISHING?",
-      description: "Building the first integrated maritime information system connecting 16 West African nations in real-time.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&fit=crop",
-      // lead: "Prof. Ibrahim Diallo",
-      team: 15,
-      partners: ["FAO", "ECOWAS", "NOAA"],
-      impact: "2M+ data points tracked daily"
     }
+  
   ];
 
   const liveData = [
