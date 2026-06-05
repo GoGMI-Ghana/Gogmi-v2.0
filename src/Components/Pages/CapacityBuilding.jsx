@@ -156,17 +156,17 @@ const CapacityBuilding = () => {
 
   const successStories = [
     {
-      name: 'Ama Mensah',
-      role: 'Marine Tourism Entrepreneur',
-      program: 'Blue Mentorship Programme 2022',
+      name: 'Thomas Lartey',
+      role: 'Maritime Safety and Risk Management',
+      program: 'WYTEC Blue Project',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&fit=crop',
       quote: 'The Blue Mentorship Programme connected me with industry leaders who helped me launch my sustainable coastal tourism business.',
       impact: '€50K revenue, 15 jobs created'
     },
     {
-      name: 'Kwesi Boateng',
-      role: 'Maritime Security Analyst',
-      program: 'Maritime Security Training 2023',
+      name: 'Clement Kwara',
+      role: 'Marine and Geoscience Graduate',
+      program: 'WYTEC Blue Project',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&fit=crop',
       quote: 'The advanced training equipped me with practical skills in threat assessment and regional coordination.',
       impact: 'Leading regional security projects'
