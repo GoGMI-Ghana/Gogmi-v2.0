@@ -48,7 +48,7 @@ const Resources = () => {
     // ===== STRATEGIC DOCUMENTS =====
     {
       id: 5,
-      title: "Africa's Integrated Maritime Strategy (2050 AIM Strategy)",
+      title: "AFRICA'S INTEGRATED MARITIME STRATEGY (2050 AIM STRATEGY)",
       description: "African Union's comprehensive framework for transforming maritime sectors into drivers of sustainable growth and regional integration.",
       fullDescription: "Africa's Integrated Maritime Strategy (2050 AIM Strategy) is the African Union's comprehensive long-term framework for transforming the continent's maritime sector into a driver of sustainable economic growth and regional integration. Developed through extensive consultation with African experts, member states, and international partners, this strategy provides a coordinated roadmap for protecting and harnessing Africa's vast maritime resources while addressing security threats, enhancing regional cooperation, and building the capacity needed to unlock the blue economy's full potential across the continent.",
       type: 'Strategic Documents',
@@ -70,7 +70,7 @@ const Resources = () => {
     },
     {
       id: 6,
-      title: 'ECOWAS Integrated Maritime Strategy (EIMS)',
+      title: 'ECOWAS INTEGRATED MARITIME STRATEGY (EIMS)',
       description: "The ECOWAS Integrated Maritime Strategy (2014) is a comprehensive regional framework addressing maritime security, governance, environmental protection, and economic development across West Africa's 2,868 nautical mile coastline.",
       fullDescription: "The ECOWAS Integrated Maritime Strategy (EIMS), adopted in August 2014, is a comprehensive policy framework designed to address maritime challenges and unlock economic opportunities across West Africa's maritime domain. The strategy covers 11 coastal ECOWAS member states with a combined 2,868 nautical mile coastline on the Atlantic Ocean, plus three landlocked countries connected through inland waterways. It establishes a vision for a prosperous, safe and peaceful maritime domain for all its peoples that will allow environmentally sustainable development and wealth creation based on efficient management and good governance.",
       type: 'Strategic Documents',
@@ -138,7 +138,7 @@ const Resources = () => {
     // ===== ACADEMIC PAPERS =====
     {
       id: 2,
-      title: "Africa's Blue Economy: A Policy Handbook",
+      title: "AFRICA'S BLUE ECONOMY: A POLICY HANDBOOk",
       description: "Africa's Blue world is made of vast lakes and rivers and an extensive ocean resource base. Thirty-eight of the fifty-four African States are coastal States.",
       fullDescription: 'This comprehensive policy handbook serves as a strategic guide for African nations to harness the economic potential of their ocean and coastal resources. It provides actionable frameworks for policymakers, government officials, and stakeholders to develop sustainable blue economy initiatives that balance economic growth with environmental conservation and social inclusion across the continent.',
       type: 'Academic Papers',
@@ -160,7 +160,7 @@ const Resources = () => {
     },
     {
       id: 7,
-      title: 'Deep Seabed Mining: A Note on Some Potentials and Risks',
+      title: 'DEEP SEABED MINING: A NOTE ON SOME POTENTIALS AND RISKS',
       description: "Examining the environmental and economic implications of deep-sea mining in the context of sustainable ocean management.",
       fullDescription: "Deep-sea mining is increasingly promoted as a solution to rising demand for minerals used in clean energy technologies. However, the document highlights that mining the ocean floor poses serious and potentially irreversible threats to fragile marine ecosystems. It emphasizes that disturbances from extraction could last for centuries and impact species we have barely begun to understand. The note urges prioritizing ocean protection amid the climate emergency and stresses the growing global movement to place environmental safeguarding above mining interests.",
       type: 'Academic Papers',
@@ -253,7 +253,7 @@ const Resources = () => {
     },
     {
       id: 14,
-      title: 'G7++FoGG Plenary, Abidjan',
+      title: 'G7++FoGG PLENARY, ABIDJAN',
       description: "Detailed event report on the 2022 G7++ Friends of the Gulf of Guinea Plenary highlighting key discussions on maritime security and regional cooperation.",
       fullDescription: "This report captures the major presentations, discussions, and conclusions from the G7++FoGG Plenary held in Abidjan from 1–2 December 2022. As a multilateral platform supporting the Yaoundé Code of Conduct, the plenary brought together over 150 delegates, including government officials, naval leaders, civil society groups, private sector actors, and international partners.",
       type: 'Internal Reports',
@@ -322,7 +322,7 @@ const Resources = () => {
     },
     {
       id: 17,
-      title: 'Understanding and Addressing the Drivers Behind the Nexus of Blue Crime',
+      title: 'UNDERSTANDING AND ADDRESSING THE DRIVERS BEHIND THE NEXUS OF BLUE CRIME',
       description: "Analysis of the interconnected nature of maritime crimes including drug trafficking, piracy, and terrorism across the Atlantic.",
       fullDescription: "This policy brief examines the complex drivers behind the nexus of blue crime, drugs, piracy, and terror prevalent across the Atlantic. It analyzes the root causes, interconnections, and strategic approaches needed to address these transnational maritime security threats comprehensively.",
       type: 'Internal Reports',
@@ -345,7 +345,7 @@ const Resources = () => {
     },
     {
       id: 22,
-      title: 'IMSWG 2020-2024 Consolidated Report',
+      title: 'IMSWG 2020-2024 CONSOLIDATED REPORT',
       description: "Five-year consolidated report from all IMSWG forums 2020-2024.",
       fullDescription: "Comprehensive report consolidating insights from all IMSWG forums between 2020 and 2024.",
       type: 'Internal Reports',
@@ -364,7 +364,7 @@ const Resources = () => {
     // ===== VIDEOS =====
     {
       id: 18,
-      title: 'IMSWG 2026 Q1 Edition',
+      title: 'IMSWG 2026 Q1 EDITION',
       description: 'The 2026 Quarter one edition had a presentation from Commander Duodu speaking on Optimizing maritime security for sustainable blue economy developmen',
       fullDescription: 'This video provides a comprehensive introduction to maritime security in the Gulf of Guinea, covering key challenges, regional initiatives, and collaborative efforts to ensure safe and secure maritime operations.',
       type: 'Videos',
