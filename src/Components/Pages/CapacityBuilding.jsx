@@ -102,7 +102,7 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: '2025 Training for Journalist and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
+      title: '2025 TRAINING FOR JOURNALIST AND MEDIA PRACTIONERS ON MARITIME SECURITY, SAFETY AND BLUE ECONOMY IN THE GULF OF GUINEA',
       description: 'To better raise awareness on maritime security issues and challenges, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) are launching a call for participation for a training course on: "Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
       duration: '3 days',
       format: 'Hybrid',
@@ -115,7 +115,7 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'MaSSDI Training Course',
+      title: 'MaSSDI TRAINING COURSE',
       description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
       duration: '2 months',
       format: 'Virtual/Online',
