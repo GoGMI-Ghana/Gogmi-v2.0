@@ -16,7 +16,7 @@ const Research = () => {
       image: "/Marsof operators fastrope on A Dutch naval vessel.jpg",
       // lead: "Dr. Julliet",
       team: "GoGMI Research Team",
-      partners: ["IDEC", "UN"],
+      // partners: ["IDEC", "UN"],
       impact: "Framework for harmonizing 15+ security initiatives"
     },
     {
@@ -24,8 +24,8 @@ const Research = () => {
       description: "Mapping untapped blue economy opportunities across fisheries, tourism, renewable energy, and marine biotechnology.",
       image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&fit=crop",
       // lead: "Dr. Ama Osei",
-      team: 8,
-      partners: ["World Bank", "UNDP", "AfDB"],
+      team: 3,
+      // partners: ["World Bank", "UNDP", "AfDB"],
       impact: "€200M in new investments catalyzed"
     }
   
