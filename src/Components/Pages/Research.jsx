@@ -25,7 +25,7 @@ const Research = () => {
       image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&fit=crop",
       // lead: "Dr. Ama Osei",
       team: 3,
-      partners: ["World Bank", "UNDP", "AfDB"],
+      partners: [""],
       impact: "€200M in new investments catalyzed"
     }
   
