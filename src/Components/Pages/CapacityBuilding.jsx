@@ -23,6 +23,7 @@ const CapacityBuilding = () => {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentStory, setCurrentStory] = useState(0);
 
   // Featured Courses for Auto-Slider - FIXED LINK
   const featuredCourses = [
