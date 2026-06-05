@@ -14,8 +14,8 @@ const Research = () => {
       question: "MARITIME SECURITY INTERVENTIONS AUDIT",
       description: "Comprehensive audit mapping maritime security interventions across the Gulf of Guinea, analyzing their evolution, effectiveness, and the complex interplay of regional and international actors in addressing maritime threats",
       image: "/Marsof operators fastrope on A Dutch naval vessel.jpg",
-      lead: "Dr. Julliet",
-      team: 12,
+      // lead: "Dr. Julliet",
+      team: "GoGMI Research Team",
       partners: ["IDEC", "UN"],
       impact: "Framework for harmonizing 15+ security initiatives"
     },
@@ -23,7 +23,7 @@ const Research = () => {
       question: "GOG MARITIME GOVERNANCE INDEX",
       description: "Mapping untapped blue economy opportunities across fisheries, tourism, renewable energy, and marine biotechnology.",
       image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&fit=crop",
-      lead: "Dr. Ama Osei",
+      // lead: "Dr. Ama Osei",
       team: 8,
       partners: ["World Bank", "UNDP", "AfDB"],
       impact: "€200M in new investments catalyzed"
@@ -32,7 +32,7 @@ const Research = () => {
       question: "CAN REGIONAL DATA SHARING PREVENT 90% OF ILLEGAL FISHING?",
       description: "Building the first integrated maritime information system connecting 16 West African nations in real-time.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&fit=crop",
-      lead: "Prof. Ibrahim Diallo",
+      // lead: "Prof. Ibrahim Diallo",
       team: 15,
       partners: ["FAO", "ECOWAS", "NOAA"],
       impact: "2M+ data points tracked daily"
@@ -40,9 +40,9 @@ const Research = () => {
   ];
 
   const liveData = [
-    { label: "Active Research Projects", value: "36" },
-    { label: "Data Points Collected",    value: "2.4M" },
-    { label: "Partner Institutions",     value: "89" },
+    { label: "Active Research Projects", value: "3" },
+    { label: "Data Points Collected",    value: "2000" },
+    { label: "Partner Institutions",     value: "12" },
   ];
 
   return (
