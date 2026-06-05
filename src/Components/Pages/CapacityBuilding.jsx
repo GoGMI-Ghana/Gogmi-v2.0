@@ -174,7 +174,7 @@ const CapacityBuilding = () => {
 
   const impactMetrics = [
     { label: 'Training Programs', value: '5+', icon: <BookOpen className="w-6 h-6" /> },
-    { label: 'Professionals Certified', value: '100+', icon: <Award className="w-6 h-6" /> },
+    { label: 'Professionals Trained', value: '100+', icon: <Award className="w-6 h-6" /> },
     { label: 'Partner Organizations', value: '15+', icon: <Building2 className="w-6 h-6" /> }
   ];
 
