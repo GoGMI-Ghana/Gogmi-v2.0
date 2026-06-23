@@ -148,7 +148,7 @@ const WYTEC = () => {
         <div className="container mx-auto max-w-3xl px-6">
           <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
             <img
-              src="/background.jpg"
+              src="/Background.jpg"
               alt="WYTEC Blue 2024 Flyer"
               className="w-full h-auto object-contain"
             />
