@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Microscope } from 'lucide-react';
-import { useTransform, motion, useScroll } from 'framer-motion';
 
 const FONT = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
@@ -10,87 +9,17 @@ const researchThemes = [
     question: "MARITIME SECURITY INTERVENTIONS AUDIT",
     description: "Comprehensive audit mapping maritime security interventions across the Gulf of Guinea, analyzing their evolution, effectiveness, and the complex interplay of regional and international actors in addressing maritime threats.",
     image: "/Marsof operators fastrope on A Dutch naval vessel.jpg",
-    color: '#132552',
     link: '/research/maritime-security-audit',
   },
   {
     question: "GOG MARITIME GOVERNANCE INDEX",
     description: "Mapping untapped blue economy opportunities across fisheries, tourism, renewable energy, and marine biotechnology.",
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&fit=crop",
-    color: '#1a336e',
     link: '/research/project-2',
   },
 ];
 
-/* ── Individual stacking card ── */
-const Card = ({ i, title, description, image, color, link, progress, range, targetScale }) => {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'start start'],
-  });
-
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
-  const scale = useTransform(progress, range, [1, targetScale]);
-
-  return (
-    <div
-      ref={container}
-      className="h-screen flex items-center justify-center sticky top-0"
-    >
-      <motion.div
-        style={{
-          backgroundColor: color,
-          scale,
-          top: `${i * 25}px`,
-        }}
-        className="flex relative h-[420px] w-[75%] rounded-2xl overflow-hidden origin-top shadow-2xl"
-      >
-        {/* Text side */}
-        <div className="w-[40%] flex flex-col justify-center p-8">
-          <span
-            className="text-xs uppercase tracking-widest mb-3 block"
-            style={{ fontWeight: 700, color: '#8E3400' }}
-          >
-            Research Theme {i + 1}
-          </span>
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">{title}</h2>
-          <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.8)' }}>
-            {description}
-          </p>
-          <Link
-            to={link}
-            className="inline-flex items-center gap-2 text-sm font-semibold"
-            style={{ color: '#8E3400' }}
-          >
-            <span className="underline underline-offset-2">Learn More</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        {/* Image side */}
-        <div className="relative w-[60%] h-full overflow-hidden">
-          <motion.div className="w-full h-full" style={{ scale: imageScale }}>
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-
-/* ── Page ── */
 const Research = () => {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start start', 'end end'],
-  });
-
   const liveData = [
     { label: "Active Research Projects", value: "3" },
     { label: "Data Points Collected",    value: "2000" },
@@ -181,44 +110,79 @@ const Research = () => {
         </div>
       </section>
 
-      {/* ═══ STACKING CARDS ═══ */}
-      <section className="bg-slate-950 pb-20">
-        <div className="text-center pt-10 pb-6 px-6">
-          <span
-            className="text-xs uppercase tracking-widest"
-            style={{ fontWeight: 600, color: '#8E3400', letterSpacing: '0.1em' }}
-          >
-            Research Themes
-          </span>
-          <h2
-            className="text-4xl md:text-5xl mt-3 mb-4 text-white"
-            style={{ fontWeight: 800, letterSpacing: '-0.01em' }}
-          >
-            Our Research Focus
-          </h2>
-          <p className="text-base max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            Ambitious research tackling pressing challenges in Gulf of Guinea maritime security
-          </p>
-        </div>
+      {/* ═══ RESEARCH THEMES ═══ */}
+      <section id="themes" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <span
+              className="text-xs uppercase tracking-widest"
+              style={{ fontWeight: 600, color: '#8E3400', letterSpacing: '0.1em' }}
+            >
+              Research Themes
+            </span>
+            <h2
+              className="text-4xl md:text-5xl mt-3 mb-4"
+              style={{ fontWeight: 800, color: '#132552', letterSpacing: '-0.01em' }}
+            >
+              Our Research Focus
+            </h2>
+            <p className="text-base max-w-2xl mx-auto" style={{ fontWeight: 400, color: '#4B5563' }}>
+              Ambitious research tackling pressing challenges in Gulf of Guinea maritime security
+            </p>
+          </div>
 
-        <div ref={container}>
-          {researchThemes.map((theme, i) => {
-            const targetScale = 1 - (researchThemes.length - i) * 0.05;
-            return (
-              <Card
-                key={i}
-                i={i}
-                title={theme.question}
-                description={theme.description}
-                image={theme.image}
-                color={theme.color}
-                link={theme.link}
-                progress={scrollYProgress}
-                range={[i * (1 / researchThemes.length), 1]}
-                targetScale={targetScale}
-              />
-            );
-          })}
+          <div className="space-y-5">
+            {researchThemes.map((theme, idx) => (
+              <Link
+                key={idx}
+                to={theme.link}
+                className="group rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-white block"
+              >
+                <div className="grid md:grid-cols-5 gap-0">
+                  {/* Image */}
+                  <div className="md:col-span-2 relative h-64 md:h-72 overflow-hidden">
+                    <img
+                      src={theme.image}
+                      alt={theme.question}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center">
+                    <span
+                      className="text-xs uppercase tracking-wide mb-2 block"
+                      style={{ fontWeight: 600, color: '#8E3400' }}
+                    >
+                      Research Theme {idx + 1}
+                    </span>
+
+                    <h3
+                      className="text-xl md:text-2xl mb-3 leading-tight group-hover:text-[#8E3400] transition-colors"
+                      style={{ fontWeight: 700, color: '#132552' }}
+                    >
+                      {theme.question}
+                    </h3>
+
+                    <p
+                      className="text-sm leading-relaxed mb-5"
+                      style={{ fontWeight: 400, color: '#4B5563' }}
+                    >
+                      {theme.description}
+                    </p>
+
+                    <div
+                      className="inline-flex items-center gap-2 text-sm group-hover:gap-3 transition-all"
+                      style={{ fontWeight: 600, color: '#8E3400' }}
+                    >
+                      <span>Learn More About This Research</span>
+                      <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
