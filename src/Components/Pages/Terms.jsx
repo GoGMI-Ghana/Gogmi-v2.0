@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, ArrowLeft, Mail, ChevronRight } from 'lucide-react';
+import { FileText, ArrowLeft, Mail } from 'lucide-react';
 
 const sections = [
   {
@@ -108,95 +108,70 @@ const Terms = () => {
 
       {/* ═══ CONTENT ═══ */}
       <section className="py-16">
-        <div className="container mx-auto max-w-4xl px-6">
-          <div className="grid md:grid-cols-4 gap-10">
-
-            {/* Sidebar nav */}
-            <aside className="hidden md:block">
-              <div className="sticky top-24 bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                <p className="text-xs uppercase tracking-widest font-bold mb-4" style={{ color: '#8E3400' }}>Contents</p>
-                <ul className="space-y-1">
-                  {sections.map((s) => (
-                    <li key={s.id}>
-                      <a
-                        href={`#${s.id}`}
-                        className="flex items-center gap-1 text-xs py-1 rounded transition-colors hover:text-[#8E3400]"
-                        style={{ color: '#4B5563' }}
-                      >
-                        <ChevronRight className="w-3 h-3 flex-shrink-0" />
-                        {s.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-
-            {/* Main content */}
-            <div className="md:col-span-3 space-y-8">
-              {sections.map((section, idx) => (
-                <div
-                  key={section.id}
-                  id={section.id}
-                  className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 scroll-mt-24"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span
-                      className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black flex-shrink-0"
-                      style={{ backgroundColor: '#132552', color: 'white' }}
-                    >
-                      {idx + 1}
-                    </span>
-                    <h2 className="text-lg font-bold" style={{ color: '#132552' }}>{section.title}</h2>
-                  </div>
-
-                  {section.content && (
-                    <p className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{section.content}</p>
-                  )}
-
-                  {section.intro && (
-                    <p className="text-sm leading-relaxed mb-3" style={{ color: '#4B5563' }}>{section.intro}</p>
-                  )}
-
-                  {section.bullets && (
-                    <ul className="space-y-3">
-                      {section.bullets.map((b, i) => (
-                        <li key={i} className="flex gap-2 text-sm" style={{ color: '#4B5563' }}>
-                          <span className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8E3400' }} />
-                          <span><strong style={{ color: '#132552' }}>{b.label}:</strong> {b.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {section.list && (
-                    <ul className="space-y-2">
-                      {section.list.map((item, i) => (
-                        <li key={i} className="flex gap-2 text-sm" style={{ color: '#4B5563' }}>
-                          <span className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8E3400' }} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="space-y-6">
+            {sections.map((section, idx) => (
+              <div
+                key={section.id}
+                id={section.id}
+                className="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 scroll-mt-24"
+              >
+                <div className="flex items-center gap-4 mb-5">
+                  <span
+                    className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black flex-shrink-0"
+                    style={{ backgroundColor: '#132552', color: 'white' }}
+                  >
+                    {idx + 1}
+                  </span>
+                  <h2 className="text-xl font-bold" style={{ color: '#132552' }}>{section.title}</h2>
                 </div>
-              ))}
 
-              {/* Contact card */}
-              <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: '#132552' }}>
-                <h3 className="text-lg font-bold text-white mb-2">Questions about these terms?</h3>
-                <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.75)' }}>
-                  We're happy to clarify anything. Reach out to us directly.
-                </p>
-                <a
-                  href="mailto:info@gogmi.org.gh"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all hover:scale-105"
-                  style={{ backgroundColor: '#8E3400', color: 'white' }}
-                >
-                  <Mail className="w-4 h-4" />
-                  info@gogmi.org.gh
-                </a>
+                {section.content && (
+                  <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>{section.content}</p>
+                )}
+
+                {section.intro && (
+                  <p className="text-base leading-relaxed mb-4" style={{ color: '#4B5563' }}>{section.intro}</p>
+                )}
+
+                {section.bullets && (
+                  <ul className="space-y-4">
+                    {section.bullets.map((b, i) => (
+                      <li key={i} className="flex gap-3 text-base" style={{ color: '#4B5563' }}>
+                        <span className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8E3400' }} />
+                        <span><strong style={{ color: '#132552' }}>{b.label}:</strong> {b.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {section.list && (
+                  <ul className="space-y-3">
+                    {section.list.map((item, i) => (
+                      <li key={i} className="flex gap-3 text-base" style={{ color: '#4B5563' }}>
+                        <span className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8E3400' }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
+            ))}
+
+            {/* Contact card */}
+            <div className="rounded-2xl p-8 md:p-10" style={{ backgroundColor: '#132552' }}>
+              <h3 className="text-2xl font-bold text-white mb-3">Questions about these terms?</h3>
+              <p className="text-base mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
+                We're happy to clarify anything. Reach out to us directly.
+              </p>
+              <a
+                href="mailto:info@gogmi.org.gh"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-base font-semibold transition-all hover:scale-105"
+                style={{ backgroundColor: '#8E3400', color: 'white' }}
+              >
+                <Mail className="w-5 h-5" />
+                info@gogmi.org.gh
+              </a>
             </div>
           </div>
         </div>
