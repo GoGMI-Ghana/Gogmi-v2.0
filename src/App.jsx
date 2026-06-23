@@ -42,6 +42,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Testimonials from './Components/Pages/Testimonials';
 import ScrollToTopOnNavigate from './Components/ScrollToTopOnNavigate';
 import Privacy from './Components/Pages/Privacy';
+import Terms from './Components/Pages/Terms';
 
 
 
@@ -89,6 +90,7 @@ function App() {
               <Route path="/blue-business-directory" element={<BlueBusinessDirectory />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
   
              
 
