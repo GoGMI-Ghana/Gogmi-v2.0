@@ -9,36 +9,42 @@ const partners = [
     description:
       'DOTCAN is a grassroots initiative stimulated by the Sustainable Blue Economy Conference held in Nairobi, Kenya in November 2018. The initiative builds on commitments made by Canada at that conference and will be a concrete implementation of Canada\'s Ocean Strategy, based on principles of sustainable development, integrated management and the precautionary approach.',
     country: 'Canada',
+    logo: '/DOTCANLOGO.png',
   },
   {
     name: 'Gulf of Guinea Maritime Institute (GoGMI)',
     description:
       'Established in Ghana, GoGMI is a local non-profit research organization constituting a think-tank for maritime strategic thinkers, practitioners and allies to interact, share ideas and research into strategic maritime affairs affecting the Gulf of Guinea Region.',
     country: 'Ghana',
+    logo: '/GoGMI_PNG.png',
   },
   {
     name: 'Biosfera 1',
     description:
       'Based in Mindelo, São Vicente Island, Biosfera 1 is a local non-governmental organization whose mission is to promote the conservation of species of fauna and flora, the rehabilitation of marine and coastal ecosystems, as well as environmental awareness and education.',
     country: 'Cabo Verde',
+    logo: '/biosfera.jpg',
   },
   {
     name: 'Sustainable Ocean Applied Research (SOAR)',
     description:
       'In Nova Scotia, Canada, SOAR is a local not-for-profit organization providing services and infrastructure to assist researchers and technology developers with access to the coastal ocean, advancing research needed for sustainable industry development.',
     country: 'Canada',
+    logo: '/soar.jpg',
   },
   {
     name: 'Initiative For Africa (IFA)',
     description:
       'IFA engages change agents, entrepreneurs, decision-makers and citizens to create bridges of opportunity on the African continent. Through coaching, inspiration, networking and pre-incubation programs, IFA has already impacted more than 2,500 young Africans.',
     country: 'Pan-Africa',
+    logo: '/ifa.jpg',
   },
   {
     name: "Canada's Ocean Supercluster",
     description:
       "Canada's Ocean Supercluster (OSP) inspires, initiates and invests to make Canada the best place in the world to start and grow an ocean tech business. As a co-funded, pan-Atlantic collaboration, the OSP complements existing industry accelerators and incubators across Canada's world-class innovation ecosystem.",
     country: 'Canada',
+    logo: '/osp.jpg',
   },
 ];
 
@@ -193,6 +199,9 @@ const WYTEC = () => {
               </p>
             </div>
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
+              <div className="bg-white rounded-xl p-3 inline-block mb-4">
+                <img src="/canadalogo.jpg" alt="Fisheries and Oceans Canada" className="h-10 object-contain" />
+              </div>
               <h3 className="text-lg font-bold text-white mb-3">DFO Funding Support</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
                 WYTEC Blue will strengthen and connect the emerging capacity of a small island developing state (Cabo Verde) and partner institutions in West African nations with Canadian multi-sectoral expertise in ocean technology, maritime security and business development. This project is partially supported by a financial contribution from Fisheries and Oceans Canada (DFO).
@@ -253,14 +262,25 @@ const WYTEC = () => {
           <div className="grid md:grid-cols-2 gap-5">
             {partners.map((partner, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <h3 className="text-base font-bold" style={{ color: '#132552' }}>{partner.name}</h3>
-                  <span
-                    className="text-xs font-semibold px-2 py-1 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: 'rgba(19,37,82,0.08)', color: '#132552' }}
-                  >
-                    {partner.country}
-                  </span>
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="w-20 h-14 flex-shrink-0 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden p-2">
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-sm font-bold leading-tight" style={{ color: '#132552' }}>{partner.name}</h3>
+                      <span
+                        className="text-xs font-semibold px-2 py-1 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: 'rgba(19,37,82,0.08)', color: '#132552' }}
+                      >
+                        {partner.country}
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <p className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{partner.description}</p>
               </div>
