@@ -34,13 +34,21 @@ const BlueCareerExpo = () => {
     
   ];
 
-  const handleDownloadReport = () => {
-    const link = document.createElement('a');
-    link.href = '/resources/pdfs/BCBE.pdf';
-    link.download = 'BCBE_Report.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownloadReport = async () => {
+    try {
+      const response = await fetch('/resources/pdfs/BCBE.pdf');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'BCBE_Report.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch {
+      window.open('/resources/pdfs/BCBE.pdf', '_blank');
+    }
   };
 
   return (
