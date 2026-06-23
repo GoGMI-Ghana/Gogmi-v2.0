@@ -42,46 +42,41 @@ const Card = ({ i, title, description, image, color, link, progress, range, targ
         style={{
           backgroundColor: color,
           scale,
-          top: `calc(-5vh + ${i * 25}px)`,
+          top: `${i * 25}px`,
         }}
-        className="flex flex-col relative -top-[25%] h-[450px] w-[70%] rounded-2xl lg:p-10 sm:p-6 p-4 origin-top shadow-2xl"
+        className="flex relative h-[420px] w-[75%] rounded-2xl overflow-hidden origin-top shadow-2xl"
       >
-        {/* Theme label */}
-        <span
-          className="text-xs uppercase tracking-widest mb-2 block"
-          style={{ fontWeight: 700, color: '#8E3400' }}
-        >
-          Research Theme {i + 1}
-        </span>
+        {/* Text side */}
+        <div className="w-[40%] flex flex-col justify-center p-8">
+          <span
+            className="text-xs uppercase tracking-widest mb-3 block"
+            style={{ fontWeight: 700, color: '#8E3400' }}
+          >
+            Research Theme {i + 1}
+          </span>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">{title}</h2>
+          <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            {description}
+          </p>
+          <Link
+            to={link}
+            className="inline-flex items-center gap-2 text-sm font-semibold"
+            style={{ color: '#8E3400' }}
+          >
+            <span className="underline underline-offset-2">Learn More</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
 
-        <h2 className="text-xl md:text-2xl font-bold text-white text-center mb-0">{title}</h2>
-
-        <div className="flex h-full mt-5 gap-8">
-          {/* Text side */}
-          <div className="w-[40%] relative top-[5%]">
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
-              {description}
-            </p>
-            <Link
-              to={link}
-              className="inline-flex items-center gap-2 pt-4 text-sm font-semibold"
-              style={{ color: '#8E3400' }}
-            >
-              <span className="underline underline-offset-2">Learn More</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Image side */}
-          <div className="relative w-[60%] h-full rounded-xl overflow-hidden">
-            <motion.div className="w-full h-full" style={{ scale: imageScale }}>
-              <img
-                src={image}
-                alt={title}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </div>
+        {/* Image side */}
+        <div className="relative w-[60%] h-full overflow-hidden">
+          <motion.div className="w-full h-full" style={{ scale: imageScale }}>
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
         </div>
       </motion.div>
     </div>
@@ -188,7 +183,7 @@ const Research = () => {
 
       {/* ═══ STACKING CARDS ═══ */}
       <section className="bg-slate-950 pb-20">
-        <div className="text-center py-16 px-6">
+        <div className="text-center pt-10 pb-6 px-6">
           <span
             className="text-xs uppercase tracking-widest"
             style={{ fontWeight: 600, color: '#8E3400', letterSpacing: '0.1em' }}
