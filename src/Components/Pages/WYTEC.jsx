@@ -181,11 +181,11 @@ const WYTEC = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden shadow-xl h-80 md:h-full min-h-72 bg-gray-100">
+            <div className="rounded-2xl overflow-hidden shadow-xl bg-gray-100">
               <img
                 src="/wytec2.jpg"
                 alt="WYTEC Blue Training"
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>
