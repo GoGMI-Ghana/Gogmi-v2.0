@@ -33,6 +33,7 @@ import MaritimeGovernanceCourse from './Components/Pages/MaritimeGovernanceCours
 import MarineCasualtyCourse from './Components/Pages/MarineCasualtyCourse';
 import GulfSpectrumPodcast from './Components/Pages/GulfSpectrumPodcast';
 import BlueWorldInitiative from './Components/Pages/BlueWorldInitiative';
+import WYTEC from './Components/Pages/WYTEC';
 import IMSWGEvents from './Components/Pages/IMSWGEvents';
 import IMSWGsignup from './Components/Pages/IMSWGsignup';
 import JournalistTraining from './Components/Pages/JournalistTraining';
@@ -81,6 +82,7 @@ function App() {
               <Route path="/marine-casualty-course" element={<MarineCasualtyCourse />} />
               <Route path="/gulf-spectrum-podcast" element={<GulfSpectrumPodcast />} />
              <Route path="/blue-world-initiative" element={<BlueWorldInitiative />} />
+              <Route path="/wytec" element={<WYTEC />} />
               <Route path="/imswg-events" element={<IMSWGEvents />} />
               <Route path="/imswg-signup" element={<IMSWGsignup />} />
                <Route path="/journalist-training" element={<JournalistTraining />} />
