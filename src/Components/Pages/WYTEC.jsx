@@ -92,9 +92,7 @@ const WYTEC = () => {
       <section className="relative text-white py-24 md:py-36 overflow-hidden" style={{ backgroundColor: '#132552' }}>
         <div className="absolute inset-0">
           <img
-            src="/bluecareer.webp"
-            alt="WYTEC Blue"
-            className="w-full h-full object-cover opacity-15"
+            src="/wytec1.jpg"
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(19,37,82,0.95) 0%, rgba(26,51,108,0.9) 100%)' }} />
         </div>
@@ -172,7 +170,7 @@ const WYTEC = () => {
 
             <div className="rounded-2xl overflow-hidden shadow-xl h-80 md:h-full min-h-72 bg-gray-100">
               <img
-                src="/bluecareer.webp"
+                src="/wytec2.jpg"
                 alt="WYTEC Blue Training"
                 className="w-full h-full object-cover"
               />
@@ -290,6 +288,25 @@ const WYTEC = () => {
       </section>
 
       {/* ═══ SUSTAINABILITY INITIATIVE ═══ */}
+      {/* ═══ PHOTO GALLERY ═══ */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#132552' }}>
+        <div className="container mx-auto max-w-5xl px-6">
+          <div className="text-center mb-10">
+            <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>In Pictures</span>
+            <h2 className="text-3xl md:text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+              Programme Highlights
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {['/wytec1.jpg', '/wytec2.jpg', '/wytec3.jpg'].map((src, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden shadow-lg aspect-video">
+                <img src={src} alt={`WYTEC Blue 2024 highlight ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto max-w-5xl px-6">
           <div className="text-center mb-10">
