@@ -153,110 +153,86 @@ const Research = () => {
         </div>
       </section>
 
-      {/* ═══ RESEARCH THEMES ═══ */}
-      <section id="themes" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-12">
-            <span
-              className="text-xs uppercase tracking-widest"
-              style={{ fontWeight: 600, color: '#8E3400', letterSpacing: '0.1em' }}
-            >
-              Research Themes
-            </span>
-            <h2
-              className="text-4xl md:text-5xl mt-3 mb-4"
-              style={{ fontWeight: 800, color: '#132552', letterSpacing: '-0.01em' }}
-            >
-              Our Research Focus
-            </h2>
-            <p className="text-base max-w-2xl mx-auto" style={{ fontWeight: 400, color: '#4B5563' }}>
-              Ambitious research tackling pressing challenges in Gulf of Guinea maritime security
-            </p>
-          </div>
-
-          <div className="space-y-5">
-            {researchThemes.map((theme, idx) => (
-              <Link
-                key={idx}
-                to={idx === 0 ? '/research/maritime-security-audit' : `/research/project-${idx + 1}`}
-                className="group rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-white block"
-              >
-                <div className="grid md:grid-cols-5 gap-0">
-                  {/* Image */}
-                  <div className="md:col-span-2 relative h-64 md:h-72 overflow-hidden">
-                    <img
-                      src={theme.image}
-                      alt={theme.question}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="md:col-span-3 p-5 md:p-6 flex flex-col">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span
-                        className="text-xs uppercase tracking-wide"
-                        style={{ fontWeight: 600, color: '#8E3400' }}
-                      >
-                        Research Theme {idx + 1}
-                      </span>
-                    </div>
-
-                    <h3
-                      className="text-xl md:text-2xl mb-3 leading-tight group-hover:text-[#8E3400] transition-colors"
-                      style={{ fontWeight: 700, color: '#132552' }}
-                    >
-                      {theme.question}
-                    </h3>
-
-                    <p
-                      className="text-sm leading-relaxed mb-3 line-clamp-2"
-                      style={{ fontWeight: 400, color: '#4B5563' }}
-                    >
-                      {theme.description}
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-2.5 mb-3">
-                      <div className="p-2.5 rounded-lg" style={{ backgroundColor: '#F9FAFB' }}>
-                        <p className="text-xs mb-0.5" style={{ fontWeight: 500, color: '#6B7280' }}>Lead</p>
-                        <p className="text-sm" style={{ fontWeight: 600, color: '#132552' }}>{theme.lead}</p>
-                      </div>
-                      <div className="p-2.5 rounded-lg" style={{ backgroundColor: '#F9FAFB' }}>
-                        <p className="text-xs mb-0.5" style={{ fontWeight: 500, color: '#6B7280' }}>Team</p>
-                        <p className="text-sm" style={{ fontWeight: 600, color: '#132552' }}>{theme.team} Researchers</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="flex items-center justify-between pt-3 mt-auto"
-                      style={{ borderTop: '1px solid #E5E7EB' }}
-                    >
-                      <div className="flex gap-1.5 flex-wrap">
-                        {theme.partners.map((partner, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-0.5 rounded-full text-xs"
-                            style={{ fontWeight: 600, backgroundColor: '#132552', color: 'white' }}
-                          >
-                            {partner}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div
-                        className="flex items-center gap-2 text-sm group-hover:gap-3 transition-all ml-auto"
-                        style={{ fontWeight: 600, color: '#8E3400' }}
-                      >
-                        <span>Learn More About This Research</span>
-                        <ArrowRight className="w-4 h-4 flex-shrink-0" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+      {/* ═══ RESEARCH THEMES — stacking cards ═══ */}
+      <section id="themes" className="bg-white">
+        <div className="text-center py-16 md:py-20 px-6">
+          <span
+            className="text-xs uppercase tracking-widest"
+            style={{ fontWeight: 600, color: '#8E3400', letterSpacing: '0.1em' }}
+          >
+            Research Themes
+          </span>
+          <h2
+            className="text-4xl md:text-5xl mt-3 mb-4"
+            style={{ fontWeight: 800, color: '#132552', letterSpacing: '-0.01em' }}
+          >
+            Our Research Focus
+          </h2>
+          <p className="text-base max-w-2xl mx-auto" style={{ fontWeight: 400, color: '#4B5563' }}>
+            Ambitious research tackling pressing challenges in Gulf of Guinea maritime security
+          </p>
         </div>
+
+        {researchThemes.map((theme, idx) => (
+          <div key={idx} className="sticky top-0 h-screen flex items-center justify-center"
+            style={{ zIndex: idx + 1 }}
+          >
+            <Link
+              to={idx === 0 ? '/research/maritime-security-audit' : `/research/project-${idx + 1}`}
+              className="group w-[90%] max-w-4xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
+              style={{
+                backgroundColor: idx % 2 === 0 ? '#132552' : '#1a3370',
+                boxShadow: '0 -4px 24px 4px rgba(0,0,0,0.25), 0 8px 32px rgba(0,0,0,0.3)',
+                marginTop: `${idx * 20}px`,
+              }}
+            >
+              {/* Image */}
+              <div className="md:w-1/2 h-56 md:h-auto overflow-hidden relative">
+                <img
+                  src={theme.image}
+                  alt={theme.question}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 60%, rgba(19,37,82,0.4))' }} />
+              </div>
+
+              {/* Content */}
+              <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+                <span
+                  className="text-xs uppercase tracking-widest mb-3 block"
+                  style={{ fontWeight: 700, color: '#8E3400' }}
+                >
+                  Research Theme {idx + 1}
+                </span>
+
+                <h3
+                  className="text-2xl md:text-3xl mb-4 leading-tight"
+                  style={{ fontWeight: 800, color: '#ffffff' }}
+                >
+                  {theme.question}
+                </h3>
+
+                <p
+                  className="text-sm md:text-base leading-relaxed mb-6"
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                >
+                  {theme.description}
+                </p>
+
+                <div
+                  className="inline-flex items-center gap-2 text-sm group-hover:gap-4 transition-all"
+                  style={{ fontWeight: 600, color: '#8E3400' }}
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
+
+        {/* spacer so last card can fully scroll into view */}
+        <div style={{ height: `${researchThemes.length * 20 + 40}px` }} />
       </section>
 
     </div>
