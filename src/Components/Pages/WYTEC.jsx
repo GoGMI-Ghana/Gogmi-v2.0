@@ -143,6 +143,19 @@ const WYTEC = () => {
         </div>
       </section>
 
+      {/* ═══ FLYER BANNER ═══ */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto max-w-3xl px-6">
+          <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+            <img
+              src="/background.jpg"
+              alt="WYTEC Blue 2024 Flyer"
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ═══ PROJECT DESCRIPTION ═══ */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto max-w-5xl px-6">
