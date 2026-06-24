@@ -8,7 +8,7 @@ const programmeII = {
   title: 'ECOP Training Programme II',
   theme: 'Youth in Africa\'s Blue Economy: Developing Sustainable Careers and Businesses',
   dates: '08 – 18 November 2022',
-  funders: ['UNESCO', 'Norad (Norwegian Agency for Development Cooperation)'],
+  funders: ['UNESCO', 'Norad'],
   modules: [
     {
       number: 1,
@@ -69,7 +69,7 @@ const VideoCard = ({ videoId, title, number, label }) => {
   const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col">
       <div className="relative aspect-video bg-gray-900">
         {playing ? (
           <iframe
@@ -85,21 +85,21 @@ const VideoCard = ({ videoId, title, number, label }) => {
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <button
                 onClick={() => setPlaying(true)}
-                className="w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+                className="w-16 h-16 rounded-full flex items-center justify-center transition-transform hover:scale-110 shadow-xl"
                 style={{ backgroundColor: '#8E3400' }}
                 aria-label={`Play ${title}`}
               >
-                <Play className="w-6 h-6 text-white ml-1" fill="white" />
+                <Play className="w-7 h-7 text-white ml-1" fill="white" />
               </button>
             </div>
           </>
         )}
       </div>
-      <div className="p-5">
-        <span className="text-xs uppercase tracking-widest font-bold block mb-1" style={{ color: '#8E3400' }}>
+      <div className="p-6 flex flex-col flex-1">
+        <span className="text-xs uppercase tracking-widest font-bold block mb-2" style={{ color: '#8E3400' }}>
           {label} {number}
         </span>
-        <h4 className="text-base font-bold leading-snug" style={{ color: '#132552' }}>{title}</h4>
+        <h4 className="text-lg font-bold leading-snug" style={{ color: '#132552' }}>{title}</h4>
       </div>
     </div>
   );
@@ -114,35 +114,35 @@ const ProgrammeSection = ({ programme, label, defaultOpen = false }) => {
     <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 md:p-8 text-left transition-colors"
+        className="w-full flex items-center justify-between p-8 md:p-10 text-left transition-colors"
         style={{ backgroundColor: open ? '#132552' : 'white' }}
       >
-        <div>
-          <span className="text-xs uppercase tracking-widest font-bold block mb-1" style={{ color: open ? 'rgba(255,255,255,0.6)' : '#8E3400' }}>
+        <div className="flex-1">
+          <span className="text-xs uppercase tracking-widest font-bold block mb-2" style={{ color: open ? 'rgba(255,255,255,0.6)' : '#8E3400' }}>
             {label}
           </span>
-          <h3 className="text-xl md:text-2xl font-bold" style={{ color: open ? 'white' : '#132552' }}>
+          <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: open ? 'white' : '#132552' }}>
             {programme.theme}
           </h3>
-          <div className="flex flex-wrap gap-4 mt-2">
-            <span className="flex items-center gap-1 text-sm" style={{ color: open ? 'rgba(255,255,255,0.7)' : '#6B7280' }}>
+          <div className="flex flex-wrap gap-6">
+            <span className="flex items-center gap-2 text-sm" style={{ color: open ? 'rgba(255,255,255,0.7)' : '#6B7280' }}>
               <Calendar className="w-4 h-4" /> {programme.dates}
             </span>
-            <span className="flex items-center gap-1 text-sm" style={{ color: open ? 'rgba(255,255,255,0.7)' : '#6B7280' }}>
+            <span className="flex items-center gap-2 text-sm" style={{ color: open ? 'rgba(255,255,255,0.7)' : '#6B7280' }}>
               <Globe className="w-4 h-4" /> Funded by: {programme.funders.join(' & ')}
             </span>
           </div>
         </div>
-        <div className="ml-4 flex-shrink-0">
+        <div className="ml-6 flex-shrink-0">
           {open
-            ? <ChevronUp className="w-6 h-6" style={{ color: 'white' }} />
-            : <ChevronDown className="w-6 h-6" style={{ color: '#132552' }} />}
+            ? <ChevronUp className="w-7 h-7" style={{ color: 'white' }} />
+            : <ChevronDown className="w-7 h-7" style={{ color: '#132552' }} />}
         </div>
       </button>
 
       {open && (
-        <div className="p-6 md:p-8 bg-gray-50">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="p-8 md:p-10 bg-gray-50">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {items.map((item) => (
               <VideoCard
                 key={item.number}
@@ -164,21 +164,21 @@ const ECOP = () => {
     <div className="w-full min-h-screen" style={{ fontFamily: FONT, backgroundColor: '#F9FAFB' }}>
 
       {/* ═══ HERO ═══ */}
-      <section className="relative py-20 md:py-32 overflow-hidden" style={{ backgroundColor: '#132552' }}>
+      <section className="relative py-24 md:py-36 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/ecop.png)',
+            backgroundImage: 'url(/ecop1.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(19,37,82,0.95) 0%, rgba(19,37,82,0.8) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(19,37,82,0.96) 0%, rgba(19,37,82,0.82) 100%)' }} />
 
-        <div className="container mx-auto max-w-5xl px-6 relative z-10">
+        <div className="container mx-auto max-w-7xl px-6 relative z-10">
           <Link
             to="/services/capacitybuilding"
-            className="inline-flex items-center gap-2 text-sm mb-8 opacity-70 hover:opacity-100 transition-opacity"
+            className="inline-flex items-center gap-2 text-sm mb-10 opacity-70 hover:opacity-100 transition-opacity"
             style={{ color: 'white' }}
           >
             <ArrowLeft className="w-4 h-4" />
@@ -195,26 +195,25 @@ const ECOP = () => {
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em', lineHeight: 1.05 }}>
             Early Career Ocean<br />Professionals Programme
           </h1>
 
-          <p className="text-lg md:text-xl leading-relaxed max-w-3xl" style={{ color: 'rgba(255,255,255,0.85)' }}>
+          <p className="text-xl md:text-2xl leading-relaxed max-w-4xl mb-14" style={{ color: 'rgba(255,255,255,0.85)' }}>
             A flagship GoGMI initiative equipping young Africans with the knowledge, skills, and networks
-            to build sustainable careers and businesses in Africa's blue economy.
+            to build sustainable careers and businesses in Africa's blue economy — under the UN Decade of Ocean Science 2021–2030.
           </p>
 
-          {/* Stats bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
             {[
               { value: '2', label: 'Programmes Delivered' },
-              { value: '12', label: 'Training Sessions' },
+              { value: '7', label: 'Recorded Sessions' },
               { value: '2022', label: 'Year Launched' },
               { value: 'UNESCO', label: 'Key Partner' },
             ].map((stat, i) => (
-              <div key={i} className="text-center p-4 rounded-xl" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-                <div className="text-2xl font-black text-white mb-1">{stat.value}</div>
-                <div className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>{stat.label}</div>
+              <div key={i} className="text-center p-6 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
+                <div className="text-3xl font-black text-white mb-1">{stat.value}</div>
+                <div className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.65)' }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -222,22 +221,22 @@ const ECOP = () => {
       </section>
 
       {/* ═══ ABOUT ═══ */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto max-w-5xl px-6">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
+              <span className="text-xs uppercase tracking-widest font-bold block mb-4" style={{ color: '#8E3400' }}>
                 About the Programme
               </span>
-              <h2 className="text-3xl md:text-4xl font-black mb-5" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-                An African Solution to an African Challenge
+              <h2 className="text-4xl md:text-5xl font-black mb-8" style={{ color: '#132552', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+                An African Solution<br />to an African Challenge
               </h2>
-              <div className="space-y-4 text-base leading-relaxed" style={{ color: '#4B5563' }}>
+              <div className="space-y-5 text-lg leading-relaxed" style={{ color: '#4B5563' }}>
                 <p>
                   The Early Career Ocean Professionals (ECOP) Training Programme is a GoGMI initiative
-                  under the UN Decade of Ocean Science for Sustainable Development (2021–2030). It is
-                  designed to address a critical gap: the absence of African-led, Africa-focused training
-                  that connects young professionals to the continent's vast blue economy potential.
+                  under the UN Decade of Ocean Science for Sustainable Development (2021–2030). It addresses
+                  a critical gap — the absence of African-led, Africa-focused training that connects young
+                  professionals to the continent's vast blue economy potential.
                 </p>
                 <p>
                   Aligned with the African Union's Integrated Maritime Strategy (2050 AIM Strategy) and
@@ -246,61 +245,87 @@ const ECOP = () => {
                   by leading regional and international experts.
                 </p>
                 <p>
-                  Two programmes have been delivered — in March and November 2022 — covering career
-                  pathways, ocean governance, blue economy entrepreneurship, and sustainable development
-                  across Africa's maritime domain.
+                  Two programmes were delivered in 2022 — covering career pathways, ocean governance,
+                  blue economy entrepreneurship, and sustainable development across Africa's maritime domain.
                 </p>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img
-                src="/ecop.png"
-                alt="ECOP Training Programme"
-                className="w-full h-full object-cover"
-                style={{ minHeight: '320px' }}
-              />
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="/ecop-photo.jpg"
+                  alt="ECOP Training in session"
+                  className="w-full object-cover"
+                  style={{ height: '520px' }}
+                />
+              </div>
+              <div
+                className="absolute -bottom-6 -left-6 rounded-2xl p-6 shadow-xl"
+                style={{ backgroundColor: '#8E3400' }}
+              >
+                <div className="text-3xl font-black text-white">2022</div>
+                <div className="text-sm text-white opacity-80 mt-1">Year Launched</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══ SDG CALLOUT ═══ */}
-      <section className="py-12" style={{ backgroundColor: '#F0F4FF' }}>
-        <div className="container mx-auto max-w-5xl px-6">
-          <div className="rounded-2xl p-8 md:p-10" style={{ backgroundColor: '#132552' }}>
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              {[
-                { icon: '🌊', label: 'SDG 14', desc: 'Life Below Water — core alignment of all programme content' },
-                { icon: '🌍', label: 'African-Led', desc: 'Designed for Africa, delivered by African and global experts' },
-                { icon: '🔬', label: 'UN Decade', desc: 'Official contribution to the UN Ocean Science Decade 2021–2030' },
-              ].map((item, i) => (
-                <div key={i} className="p-4">
-                  <div className="text-4xl mb-3">{item.icon}</div>
-                  <div className="text-lg font-bold text-white mb-2">{item.label}</div>
-                  <div className="text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>{item.desc}</div>
-                </div>
-              ))}
-            </div>
+      <section className="py-20" style={{ backgroundColor: '#132552' }}>
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.01em' }}>
+              Grounded in Global Frameworks
+            </h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              Every aspect of ECOP is designed to align with the most important international commitments for ocean sustainability.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: '🌊',
+                label: 'SDG 14 — Life Below Water',
+                desc: 'All programme content is anchored in Sustainable Development Goal 14, focusing on conserving and sustainably using the oceans, seas, and marine resources for sustainable development.',
+              },
+              {
+                icon: '🌍',
+                label: 'African-Led Design',
+                desc: 'Conceptualised and delivered by GoGMI with African realities at the centre — not adapted from foreign curricula but built from the ground up for the continent\'s ocean professionals.',
+              },
+              {
+                icon: '🔬',
+                label: 'UN Ocean Science Decade',
+                desc: 'ECOP is an official contribution to the UN Decade of Ocean Science for Sustainable Development (2021–2030), supporting the global call to transform ocean science for a sustainable future.',
+              },
+            ].map((item, i) => (
+              <div key={i} className="rounded-2xl p-8" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
+                <div className="text-5xl mb-5">{item.icon}</div>
+                <div className="text-xl font-bold text-white mb-3">{item.label}</div>
+                <div className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>{item.desc}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ PROGRAMMES ═══ */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto max-w-5xl px-6">
-          <div className="text-center mb-12">
+      {/* ═══ PROGRAMMES / VIDEOS ═══ */}
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-14">
             <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
               Training Programmes
             </span>
-            <h2 className="text-3xl md:text-4xl font-black" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
               Explore the Programmes
             </h2>
-            <p className="text-base mt-3 max-w-xl mx-auto" style={{ color: '#6B7280' }}>
-              Click on each programme to explore the modules, sessions, and recorded video content.
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
+              Click on each programme below to expand it and watch the recorded sessions directly on this page.
             </p>
           </div>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             <ProgrammeSection
               programme={programmeII}
               label="Programme II · November 2022"
@@ -315,38 +340,60 @@ const ECOP = () => {
         </div>
       </section>
 
+      {/* ═══ PHOTO STRIP ═══ */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
+              Programme Highlights
+            </span>
+            <h2 className="text-4xl font-black" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
+              From the Training Room
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-3xl overflow-hidden shadow-lg" style={{ height: '420px' }}>
+              <img src="/ecop1.jpg" alt="ECOP Programme session" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="rounded-3xl overflow-hidden shadow-lg" style={{ height: '420px' }}>
+              <img src="/ecop-photo.jpg" alt="ECOP Programme participants" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ FUNDERS ═══ */}
-      <section className="py-12 bg-white border-t border-gray-100">
-        <div className="container mx-auto max-w-5xl px-6 text-center">
-          <p className="text-xs uppercase tracking-widest font-bold mb-6" style={{ color: '#8E3400' }}>
-            Supported By
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {[
-              { src: '/GoGMI_PNG.png', alt: 'GoGMI' },
-            ].map((logo, i) => (
-              <img key={i} src={logo.src} alt={logo.alt} className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-            ))}
-            <span className="text-base font-semibold" style={{ color: '#132552' }}>UNESCO</span>
-            <span className="text-base font-semibold" style={{ color: '#132552' }}>Norad</span>
-            <span className="text-base font-semibold" style={{ color: '#132552' }}>IOC-UNESCO</span>
+      <section className="py-20" style={{ backgroundColor: '#F9FAFB' }}>
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
+              Supported By
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
+              Our Partners &amp; Funders
+            </h2>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
+            <img src="/GoGMI_PNG.png" alt="GoGMI" className="h-16 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/norad.jpg" alt="Norad" className="h-16 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/unlogo.jpg" alt="UN / IOC-UNESCO" className="h-16 object-contain opacity-80 hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#132552' }}>
-        <div className="container mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.01em' }}>
-            Interested in Future ECOP Programmes?
+      <section className="py-20 md:py-28" style={{ backgroundColor: '#132552' }}>
+        <div className="container mx-auto max-w-5xl px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
+            Interested in Future<br />ECOP Programmes?
           </h2>
-          <p className="text-base mb-8" style={{ color: 'rgba(255,255,255,0.75)' }}>
+          <p className="text-xl mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Stay connected with GoGMI to be notified about upcoming ECOP cohorts, application windows,
-            and other capacity building opportunities.
+            and other capacity building opportunities for young African ocean professionals.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold transition-all hover:scale-105 shadow-lg"
+            className="inline-flex items-center gap-2 px-10 py-5 rounded-2xl text-lg font-bold transition-all hover:scale-105 shadow-xl"
             style={{ backgroundColor: '#8E3400', color: 'white' }}
           >
             Get in Touch
