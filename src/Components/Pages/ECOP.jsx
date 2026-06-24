@@ -12,7 +12,7 @@ const programmeII = {
   modules: [
     {
       number: 1,
-      title: 'Africa's Blue Economy Landscape',
+      title: "Africa's Blue Economy Landscape",
       description: 'An overview of Africa\'s blue economy, its opportunities, challenges, and the role of youth in shaping sustainable ocean futures.',
       videoId: 'ZsWq9Hn-PDM',
     },
