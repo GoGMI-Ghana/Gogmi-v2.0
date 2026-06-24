@@ -204,19 +204,6 @@ const ECOP = () => {
             to build sustainable careers and businesses in Africa's blue economy — under the UN Decade of Ocean Science 2021–2030.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-            {[
-              { value: '2', label: 'Programmes Delivered' },
-              { value: '7', label: 'Recorded Sessions' },
-              { value: '2022', label: 'Year Launched' },
-              { value: 'UNESCO', label: 'Key Partner' },
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-6 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
-                <div className="text-3xl font-black text-white mb-1">{stat.value}</div>
-                <div className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.65)' }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -255,8 +242,7 @@ const ECOP = () => {
                 <img
                   src="/ecop-photo.jpg"
                   alt="ECOP Training in session"
-                  className="w-full object-cover"
-                  style={{ height: '520px' }}
+                  className="w-full h-auto"
                 />
               </div>
               <div
@@ -285,23 +271,20 @@ const ECOP = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: '🌊',
                 label: 'SDG 14 — Life Below Water',
                 desc: 'All programme content is anchored in Sustainable Development Goal 14, focusing on conserving and sustainably using the oceans, seas, and marine resources for sustainable development.',
               },
               {
-                icon: '🌍',
                 label: 'African-Led Design',
                 desc: 'Conceptualised and delivered by GoGMI with African realities at the centre — not adapted from foreign curricula but built from the ground up for the continent\'s ocean professionals.',
               },
               {
-                icon: '🔬',
                 label: 'UN Ocean Science Decade',
                 desc: 'ECOP is an official contribution to the UN Decade of Ocean Science for Sustainable Development (2021–2030), supporting the global call to transform ocean science for a sustainable future.',
               },
             ].map((item, i) => (
               <div key={i} className="rounded-2xl p-8" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
-                <div className="text-5xl mb-5">{item.icon}</div>
+                <div className="w-10 h-1 rounded-full mb-6" style={{ backgroundColor: '#8E3400' }} />
                 <div className="text-xl font-bold text-white mb-3">{item.label}</div>
                 <div className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>{item.desc}</div>
               </div>
@@ -352,11 +335,11 @@ const ECOP = () => {
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-3xl overflow-hidden shadow-lg" style={{ height: '420px' }}>
-              <img src="/ecop1.jpg" alt="ECOP Programme session" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="rounded-3xl overflow-hidden shadow-lg">
+              <img src="/ecop1.jpg" alt="ECOP Programme session" className="w-full h-auto hover:scale-105 transition-transform duration-500" />
             </div>
-            <div className="rounded-3xl overflow-hidden shadow-lg" style={{ height: '420px' }}>
-              <img src="/ecop-photo.jpg" alt="ECOP Programme participants" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="rounded-3xl overflow-hidden shadow-lg">
+              <img src="/ecop-photo.jpg" alt="ECOP Programme participants" className="w-full h-auto hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>
