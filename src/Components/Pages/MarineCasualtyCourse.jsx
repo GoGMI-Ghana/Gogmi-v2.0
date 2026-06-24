@@ -293,7 +293,7 @@ const MarineCasualtyCourse = () => {
       {/* HERO */}
       <section className="relative text-white py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1569163139394-de4798aa62b2?w=1600&fit=crop&q=90" alt="Marine Casualty Investigation" className="w-full h-full object-cover" />
+          <img src="/casualtyimage.jpg" alt="Marine Casualty Investigation" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-orange-900/95 via-orange-800/90 to-orange-900/95"></div>
         </div>
         <div className="container mx-auto max-w-6xl px-6 relative z-10">
