@@ -43,6 +43,7 @@ import Testimonials from './Components/Pages/Testimonials';
 import ScrollToTopOnNavigate from './Components/ScrollToTopOnNavigate';
 import Privacy from './Components/Pages/Privacy';
 import Terms from './Components/Pages/Terms';
+import ECOP from './Components/Pages/ECOP';
 
 
 
@@ -91,6 +92,7 @@ function App() {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/ecop" element={<ECOP />} />
   
              
 
