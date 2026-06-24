@@ -331,7 +331,7 @@ const MarineCasualtyCourse = () => {
               <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>This executive training course builds the capacity of Maritime Administrations and related agencies to efficiently conduct investigations of marine casualties and incidents, in accordance with SOLAS regulation XI-1/6 and the IMO Casualty Investigation Code.</p>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&fit=crop" alt="Maritime Investigation" className="rounded-2xl shadow-2xl" />
+              <img src="/casualty1.png" alt="Maritime Investigation" className="rounded-2xl shadow-2xl" />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border-2" style={{ borderColor: '#8E3400' }}>
                 <div className="text-3xl font-black mb-1" style={{ color: '#8E3400' }}>IMO</div>
                 <p className="text-sm font-semibold" style={{ color: '#132552' }}>Code Compliant</p>
