@@ -127,14 +127,21 @@ const MarineCasualtyCourse = () => {
     processPayment(nonMemberForm.email, NON_MEMBER_PRICE, 'non-member', nonMemberForm);
   };
 
-  const handleBrochureDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resources/pdfs/Marine-Casualty-Course-Brochure.pdf';
-    link.download = 'Marine-Casualty-Course-Brochure.pdf';
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleBrochureDownload = async () => {
+    try {
+      const response = await fetch('/resources/pdfs/casualtybrochure.pdf');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Marine-Casualty-Course-Brochure.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch {
+      window.open('/resources/pdfs/casualtybrochure.pdf', '_blank');
+    }
   };
 
   const inputClass = "w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent transition-all";
