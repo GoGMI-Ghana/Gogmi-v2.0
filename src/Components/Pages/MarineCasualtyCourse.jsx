@@ -129,7 +129,7 @@ const MarineCasualtyCourse = () => {
 
   const handleBrochureDownload = async () => {
     try {
-      const response = await fetch('/resources/pdfs/casualtybrochure.pdf');
+      const response = await fetch('/resources/pdfs/casualtybronchure.pdf');
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -140,7 +140,7 @@ const MarineCasualtyCourse = () => {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch {
-      window.open('/resources/pdfs/casualtybrochure.pdf', '_blank');
+      window.open('/resources/pdfs/casualtybronchure.pdf', '_blank');
     }
   };
 
