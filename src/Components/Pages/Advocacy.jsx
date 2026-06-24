@@ -67,16 +67,7 @@ const campaigns = [
       logo: '/IMSWG LOGO WHITE BG.jpg',
       link: '/imswg'
     },
-   {
-      status: 'active',
-      title: 'Blue Career and Business Expo',
-      category: 'Youth Development',
-      description: "The Blue Career and Business Expo is a yearly programme designed to create dynamic opportunity-exchange platforms that enable young people to engage with maritime industry leaders and actively contribute to building a robust blue economy in Africa.",
-      supporters: 3200,
-      deadline: 'Annual Event',
-      logo: '/bluecareer.webp',
-      link: '/bluecareerexpo'
-    },
+
     {
       status: 'active',
       title: 'Blue World Initiative',
