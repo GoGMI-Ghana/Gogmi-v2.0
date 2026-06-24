@@ -283,8 +283,8 @@ const JournalistTraining = () => {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
                        style={{ backgroundColor: 'rgba(19,37,82,0.6)' }}>
                     <a
-                      href="/resources/images/journalist-training-flyer.jpg"
-                      download="Journalist-Training-2025-Flyer.jpg"
+                      href="/journalist.training.webp"
+                      download="Journalist-Training-Flyer.webp"
                       className="flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm text-white"
                       style={{ backgroundColor: '#8E3400' }}
                       onClick={(e) => e.stopPropagation()}
@@ -296,8 +296,8 @@ const JournalistTraining = () => {
                 </div>
                 <div className="p-4">
                   <a
-                    href="/resources/images/journalist-training-flyer.jpg"
-                    download="Journalist-Training-2025-Flyer.jpg"
+                    href="/journalist.training.webp"
+                    download="Journalist-Training-Flyer.webp"
                     className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:opacity-90"
                     style={{ backgroundColor: '#8E3400' }}
                   >
@@ -312,8 +312,8 @@ const JournalistTraining = () => {
                 <h3 className="text-base font-black mb-3" style={{ color: '#92400E' }}>Programme Document</h3>
                 <p className="text-xs mb-4" style={{ color: '#78350F' }}>Download the full call for participation PDF for detailed information.</p>
                 <a
-                  href="/resources/pdfs/Journalist-Training-2025.pdf"
-                  download
+                  href="/resources/pdfs/journalistdocument.pdf"
+                  download="Journalist-Training-Programme.pdf"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm text-white transition-all hover:opacity-90"
                   style={{ backgroundColor: '#8E3400' }}
                 >
