@@ -54,7 +54,7 @@ const Research = () => {
               }}
             >
               <Microscope className="w-4 h-4" style={{ color: '#8E3400' }} />
-              <span className="text-xs uppercase tracking-wider" style={{ color: '#8E3400', fontWeight: 700 }}>
+              <span className="text-xs uppercase tracking-wider" style={{ color: '#0000', fontWeight: 700 }}>
                 Research &amp; Innovation
               </span>
             </div>
