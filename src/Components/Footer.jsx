@@ -30,27 +30,7 @@ const Footer = () => {
                 <div className="text-sm text-gray-400" style={{ fontWeight: 400 }}>Gulf of Guinea Maritime Institute</div>
               </div>
             </div>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3 text-gray-400" style={{ fontWeight: 400 }}>
-                <MapPin className="w-5 h-5 text-[#8E3400] flex-shrink-0 mt-0.5" />
-                <div>
-                  <div>No. 4 Obodai link street, Tse Addo La Dade Kotopon, GL-108-0038</div>
-                  <div>Gr. Accra</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400" style={{ fontWeight: 400 }}>
-                <Mail className="w-5 h-5 text-[#8E3400] flex-shrink-0" />
-                <a href="mailto:info@gogmi.org.gh" className="hover:text-[#8E3400] transition-colors">
-                  info@gogmi.org.gh
-                </a>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400" style={{ fontWeight: 400 }}>
-                <Phone className="w-5 h-5 text-[#8E3400] flex-shrink-0" />
-                <a href="tel:+233504953400" className="hover:text-[#8E3400] transition-colors">
-                  +233 50 4953400
-                </a>
-              </div>
-            </div>
+           
           </div>
 
           {/* Column 2 - Quick Links */}
