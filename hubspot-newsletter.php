@@ -1,101 +1,99 @@
 <?php
-/**
- * HubSpot Newsletter (Marketing Emails) API
- * Place this file at: api.gogmi.org.gh/api/courses/hubspot-newsletter.php
- *
- * Fetches published marketing emails from HubSpot to display as newsletters
- * on the GoGMI website.
- */
-
-header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
+header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
-// ── CONFIG ─────────────────────────────────────────────────────────────────
-// Use the same HubSpot private app token already used in hubspot-blog.php
-define('HUBSPOT_API_KEY', getenv('HUBSPOT_API_KEY') ?: 'YOUR_HUBSPOT_PRIVATE_APP_TOKEN');
-
-$action = $_GET['action'] ?? 'list';
-$limit  = min((int)($_GET['limit'] ?? 12), 50);
-$offset = max((int)($_GET['offset'] ?? 0), 0);
-
-// ── HELPERS ────────────────────────────────────────────────────────────────
-function hubspot_get(string $url): array {
-    $ch = curl_init();
-    curl_setopt_array($ch, [
-        CURLOPT_URL            => $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER     => [
-            'Authorization: Bearer ' . HUBSPOT_API_KEY,
-            'Content-Type: application/json',
-        ],
-        CURLOPT_TIMEOUT        => 15,
-        CURLOPT_SSL_VERIFYPEER => true,
-    ]);
-    $body = curl_exec($ch);
-    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $err  = curl_error($ch);
-    curl_close($ch);
-
-    if ($err) {
-        return ['error' => $err, 'code' => 0];
-    }
-    return ['body' => json_decode($body, true), 'code' => $code];
-}
-
-function format_newsletter(array $email): array {
-    return [
-        'id'            => $email['id'] ?? '',
-        'name'          => $email['name'] ?? '',
-        'subject'       => $email['subject'] ?? ($email['name'] ?? ''),
-        'previewText'   => $email['previewText'] ?? '',
-        'publishDate'   => $email['publishDate'] ?? ($email['updatedAt'] ?? ''),
-        'thumbnail'     => $email['thumbnail'] ?? null,
-        'absoluteUrl'   => $email['absoluteUrl'] ?? null,
-        'type'          => 'newsletter',
-    ];
-}
-
-// ── ROUTES ─────────────────────────────────────────────────────────────────
-if ($action === 'list') {
-    // HubSpot Marketing Emails v3 — fetch sent/published emails only
-    $url = "https://api.hubapi.com/marketing/v3/emails?limit={$limit}&offset={$offset}&state=PUBLISHED";
-
-    $result = hubspot_get($url);
-
-    if (!empty($result['error'])) {
-        echo json_encode(['success' => false, 'message' => 'cURL error: ' . $result['error']]);
-        exit();
-    }
-
-    if ($result['code'] !== 200) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'HubSpot returned HTTP ' . $result['code'],
-            'detail'  => $result['body'],
-        ]);
-        exit();
-    }
-
-    $raw    = $result['body'];
-    $emails = array_map('format_newsletter', $raw['results'] ?? []);
-    $total  = $raw['total'] ?? count($emails);
-
-    echo json_encode([
-        'success' => true,
-        'data'    => [
-            'newsletters' => $emails,
-            'total'       => $total,
-            'hasMore'     => ($offset + $limit) < $total,
-        ],
-    ]);
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
     exit();
 }
 
-echo json_encode(['success' => false, 'message' => 'Unknown action']);
+// Set HUBSPOT_TOKEN in your server environment (e.g. .env or Apache/Nginx config)
+// It is the same token used in hubspot-blog.php
+define('HUBSPOT_TOKEN', getenv('HUBSPOT_TOKEN') ?: '');
+define('HUBSPOT_API', 'https://api.hubapi.com');
+
+$action = $_GET['action'] ?? 'list';
+
+try {
+    if ($action === 'list') {
+        $limit  = min((int)($_GET['limit'] ?? 12), 50);
+        $offset = (int)($_GET['offset'] ?? 0);
+
+        // Fetch sent/published marketing emails
+        $url = HUBSPOT_API . "/marketing/v3/emails?limit={$limit}&offset={$offset}&state=PUBLISHED";
+
+        $data = hubspotRequest($url);
+
+        $newsletters = [];
+        foreach ($data['results'] ?? [] as $email) {
+            $newsletters[] = [
+                'id'          => $email['id'],
+                'subject'     => $email['subject'] ?? ($email['name'] ?? 'Newsletter'),
+                'name'        => $email['name'] ?? '',
+                'previewText' => $email['previewText'] ?? '',
+                'publishDate' => $email['publishDate'] ?? ($email['updatedAt'] ?? ''),
+                'thumbnail'   => $email['thumbnail'] ?? null,
+                'absoluteUrl' => $email['absoluteUrl'] ?? null,
+            ];
+        }
+
+        $total = $data['total'] ?? count($newsletters);
+
+        echo json_encode([
+            'success' => true,
+            'data'    => [
+                'newsletters' => $newsletters,
+                'total'       => $total,
+                'offset'      => $offset,
+                'limit'       => $limit,
+                'hasMore'     => $total > ($offset + $limit),
+            ]
+        ]);
+
+    } else {
+        throw new Exception('Unknown action: ' . $action);
+    }
+
+} catch (Exception $e) {
+    error_log('HubSpot Newsletter API Error: ' . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+}
+
+function hubspotRequest(string $url): array {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER     => [
+            'Authorization: Bearer ' . HUBSPOT_TOKEN,
+            'Content-Type: application/json',
+        ],
+        CURLOPT_TIMEOUT        => 30,
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlErr  = curl_error($ch);
+    curl_close($ch);
+
+    if ($curlErr) {
+        throw new Exception('Connection error: ' . $curlErr);
+    }
+
+    if ($httpCode >= 400) {
+        $errorData = json_decode($response, true);
+        $msg = $errorData['message'] ?? "HubSpot API error (HTTP $httpCode)";
+        throw new Exception($msg);
+    }
+
+    return json_decode($response, true) ?? [];
+}
