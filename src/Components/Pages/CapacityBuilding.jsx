@@ -23,7 +23,6 @@ const CapacityBuilding = () => {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [currentStory, setCurrentStory] = useState(0);
 
   // Featured Courses for Auto-Slider - FIXED LINK
   const featuredCourses = [
@@ -172,18 +171,14 @@ const CapacityBuilding = () => {
       name: 'Thomas Lartey',
       role: 'Maritime Safety and Risk Management',
       program: 'WYTEC Blue Project',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&fit=crop',
-      quote: 'The Blue Mentorship Programme connected me with industry leaders who helped me launch my sustainable coastal tourism business.',
-      impact: '€50K revenue, 15 jobs created'
+      linkedin: 'https://www.linkedin.com/in/thomas-lartey-739a85223',
     },
     {
       name: 'Clement Kwara',
       role: 'Marine and Geoscience Graduate',
       program: 'WYTEC Blue Project',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&fit=crop',
-      quote: 'The advanced training equipped me with practical skills in threat assessment and regional coordination.',
-      impact: 'Leading regional security projects'
-    }
+      linkedin: 'https://www.linkedin.com/in/clement-k-aa859211b',
+    },
   ];
 
   const impactMetrics = [
@@ -587,7 +582,7 @@ const CapacityBuilding = () => {
       </section>
 
       
-    {/* SUCCESS STORIES - CAROUSEL */}
+    {/* SUCCESS STORIES */}
 <section className="py-16 bg-white">
   <div className="container mx-auto max-w-7xl px-6">
     <div className="text-center mb-10">
@@ -598,117 +593,25 @@ const CapacityBuilding = () => {
       </h2>
     </div>
 
-    <div className="max-w-5xl mx-auto">
-      {/* Desktop layout */}
-      <div className="hidden md:flex relative items-center">
-        {/* Avatar */}
-        <div className="w-[420px] h-[420px] rounded-3xl overflow-hidden flex-shrink-0 shadow-2xl" style={{ backgroundColor: '#F5F7FA' }}>
-          <img
-            src={successStories[currentStory].image}
-            alt={successStories[currentStory].name}
-            className="w-full h-full object-cover transition-opacity duration-500"
-            key={currentStory}
-          />
-        </div>
-
-        {/* Card */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 ml-[-80px] z-10 max-w-xl flex-1" style={{ border: '1px solid #E5E7EB' }}>
-          <div className="mb-4">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="px-3 py-1 rounded-full text-xs" style={{ backgroundColor: 'rgba(142, 52, 0, 0.1)', color: '#8E3400', fontWeight: 700 }}>
-                {successStories[currentStory].program}
-              </span>
-            </div>
-            <h3 className="text-2xl mb-1" style={{ fontWeight: 900, color: '#132552' }}>
-              {successStories[currentStory].name}
-            </h3>
-            <p className="text-sm" style={{ fontWeight: 600, color: '#8E3400' }}>
-              {successStories[currentStory].role}
-            </p>
-          </div>
-
-          <div className="flex items-start gap-2 mb-6">
-            <Star className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#8E3400' }} />
-            <p className="text-base leading-relaxed italic" style={{ fontWeight: 400, color: '#4B5563' }}>
-              "{successStories[currentStory].quote}"
-            </p>
-          </div>
-
-          <div className="p-4 rounded-xl" style={{ backgroundColor: '#F5F7FA' }}>
-            <div className="flex items-center gap-2">
-              <BarChart3 className="w-5 h-5" style={{ color: '#8E3400' }} />
-              <span className="text-base" style={{ fontWeight: 700, color: '#132552' }}>
-                {successStories[currentStory].impact}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile layout */}
-      <div className="md:hidden max-w-sm mx-auto text-center">
-        <div className="w-full aspect-square rounded-3xl overflow-hidden mb-6 shadow-xl" style={{ backgroundColor: '#F5F7FA' }}>
-          <img
-            src={successStories[currentStory].image}
-            alt={successStories[currentStory].name}
-            className="w-full h-full object-cover transition-opacity duration-500"
-            key={currentStory}
-          />
-        </div>
-
-        <div className="px-2">
-          <span className="inline-block px-3 py-1 rounded-full text-xs mb-3" style={{ backgroundColor: 'rgba(142, 52, 0, 0.1)', color: '#8E3400', fontWeight: 700 }}>
-            {successStories[currentStory].program}
+    <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      {successStories.map((s, i) => (
+        <div key={i} className="rounded-2xl p-8 border border-gray-100 shadow-sm">
+          <span className="inline-block px-3 py-1 rounded-full text-xs mb-5" style={{ backgroundColor: 'rgba(142,52,0,0.1)', color: '#8E3400', fontWeight: 700 }}>
+            {s.program}
           </span>
-          <h3 className="text-xl mb-1" style={{ fontWeight: 900, color: '#132552' }}>
-            {successStories[currentStory].name}
-          </h3>
-          <p className="text-sm mb-4" style={{ fontWeight: 600, color: '#8E3400' }}>
-            {successStories[currentStory].role}
-          </p>
-          <p className="text-sm leading-relaxed italic mb-4" style={{ color: '#4B5563' }}>
-            "{successStories[currentStory].quote}"
-          </p>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style={{ backgroundColor: '#F5F7FA' }}>
-            <BarChart3 className="w-4 h-4" style={{ color: '#8E3400' }} />
-            <span className="text-sm" style={{ fontWeight: 700, color: '#132552' }}>{successStories[currentStory].impact}</span>
-          </div>
+          <h3 className="text-xl font-black mb-1" style={{ color: '#132552' }}>{s.name}</h3>
+          <p className="text-sm mb-6" style={{ color: '#6B7280' }}>{s.role}</p>
+          <a
+            href={s.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold hover:underline"
+            style={{ color: '#8E3400' }}
+          >
+            LinkedIn Profile →
+          </a>
         </div>
-      </div>
-
-      {/* Navigation */}
-      <div className="flex justify-center items-center gap-6 mt-8">
-        <button
-          onClick={() => setCurrentStory((prev) => (prev - 1 + successStories.length) % successStories.length)}
-          className="w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-all"
-          style={{ backgroundColor: '#F5F7FA', border: '1px solid #E5E7EB' }}
-        >
-          <ChevronLeft className="w-6 h-6" style={{ color: '#132552' }} />
-        </button>
-
-        <div className="flex gap-2">
-          {successStories.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentStory(idx)}
-              className="rounded-full transition-all"
-              style={{
-                width: currentStory === idx ? '32px' : '12px',
-                height: '12px',
-                backgroundColor: currentStory === idx ? '#132552' : '#D1D5DB'
-              }}
-            />
-          ))}
-        </div>
-
-        <button
-          onClick={() => setCurrentStory((prev) => (prev + 1) % successStories.length)}
-          className="w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-all"
-          style={{ backgroundColor: '#F5F7FA', border: '1px solid #E5E7EB' }}
-        >
-          <ChevronRight className="w-6 h-6" style={{ color: '#132552' }} />
-        </button>
-      </div>
+      ))}
     </div>
   </div>
 </section>
