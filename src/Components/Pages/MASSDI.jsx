@@ -55,7 +55,7 @@ const participants = [
     name: 'Lt Cdr Edem Komla Akati',
     title: 'Senior Officer, Ghana Navy',
     bio: 'Lieutenant Commander Edem Komla Akati was commissioned into the Executive Branch of the Ghana Navy in September 2011. Over 12 years of commissioned service, he has held notable sea appointments including Training Officer, Navigation Officer, Executive Officer, and Commanding Officer onboard GNS EHWOR, GNS YAA ASANTEWAA, GNS NAA GBEWAA, and GNS PRA. Ashore, he has served as Flag Lieutenant to the Chief of the Naval Staff, Instructor at the Ghana Military Academy, and Assistant Director Naval Administration at Naval Headquarters. He completed the Royal Navy Young Officer Course in the UK (adjudged Overall Best International Student), Navigation Specialisation Course in China, and attended GAFCSC where he emerged Overall Best Student (Junior Staff Course) and Second Best Student (Senior Command and Staff Course). He holds a BEng in Aerospace Engineering from KNUST and an MSc in Defence and International Politics from GAFCSC.',
-    image: '/akati.jpg',
+    image: '/Akati.jpg',
   },
 ];
 
