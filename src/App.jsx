@@ -46,6 +46,7 @@ import Terms from './Components/Pages/Terms';
 import ECOP from './Components/Pages/ECOP';
 import Sitemap from './Components/Pages/Sitemap';
 import MASSDI from './Components/Pages/MASSDI';
+import BlueMentorship from './Components/Pages/BlueMentorship';
 
 
 
@@ -97,6 +98,7 @@ function App() {
               <Route path="/ecop" element={<ECOP />} />
               <Route path="/sitemap" element={<Sitemap />} />
               <Route path="/massdi" element={<MASSDI />} />
+              <Route path="/blue-mentorship" element={<BlueMentorship />} />
   
              
 

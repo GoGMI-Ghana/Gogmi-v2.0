@@ -128,6 +128,19 @@ const CapacityBuilding = () => {
     },
     {
       category: 'Hybrid',
+      status: 'Completed',
+      title: 'THE BLUE MENTORSHIP PROGRAMME',
+      description: 'An African maritime accelerator selecting 30 young individuals for a full mentorship and grooming experience — connecting youth with industry leaders, entrepreneurs, and ocean professionals to prime them for blue success.',
+      duration: '12 months',
+      format: 'Hybrid',
+      level: 'All Levels',
+      image: '/bluementorshipimage.png',
+      features: ['1-on-1 Mentor Pairing', 'Blue Success Speaker Series (BLUESSS)', 'Maritime Business Support Hub'],
+      nextIntake: 'Cohort Completed',
+      link: '/blue-mentorship'
+    },
+    {
+      category: 'Hybrid',
       status: 'Active',
       title: 'ECOP',
       description: 'An African maritime accelerator designed to encourage youth to engage in sustainable blue economy careers.',
