@@ -32,24 +32,30 @@ const modules = [
   },
 ];
 
-const instructors = [
+const participants = [
   {
     name: 'Lt Cdr Emilio Okyere-Dadzie',
     title: 'Deputy Director Naval Research & Development, Ghana Navy',
     bio: 'Lieutenant Commander Emilio Okyere-Dadzie was commissioned into the Executive Branch of the Ghana Navy in 2008. He holds a BSc in Nautical Science from Regional Maritime University, an MBA in Port and Shipping Management, an MBA in Oil and Gas Management (both from the National Institute of Business Management, India), and an MSc in Defence and International Politics from GIMPA. He is a Navigation Specialist, a Class 3 Deck Officer, and a Dynamic Positioning Operator. He currently serves as Deputy Director Naval Research & Development and Command Operations Officer for the Riverine Command. He is an Associate Fellow of the Nautical Institute and the Royal Institute of Navigation, United Kingdom.',
-    image: null,
+    image: '/massdi-participant1.jpg',
   },
   {
     name: 'Lt Cdr Kwame Yelbuor',
     title: 'Commanding Officer, Ghana Navy Ship EHWOR',
     bio: 'Lieutenant Commander Kwame Yelbuor of the Ghana Navy holds a Bachelor of Arts Degree in Geography and Resource Development from the University of Ghana, Legon. Commissioned into the Executive Branch of the Ghana Navy on 30 August 2013, he has undergone Initial Naval Officer Training in Dartmouth, United Kingdom (2015). He has served in various capacities onboard Ghana Navy Ships as Executive Officer, Watch Keeping Officer, and Acting Navigation Officer. Ashore, he served as Acting Assistant Director Naval Intelligence (2019–2020) and Acting Operations Officer for the ECOWAS Multinational Maritime Coordination Centre at Osu Castle (2020–2022). He is currently the Commanding Officer for Ghana Navy Ship EHWOR.',
-    image: null,
+    image: '/massdi-participant2.jpg',
   },
   {
     name: 'Maximus Ashitey',
     title: 'General Manager, Soko Aerial Robotics Limited',
     bio: 'Maximus Ashitey is the General Manager of Soko Aerial Robotics Limited, Deputy Director of the Unmanned Aerial Systems Research Lab (UASRL), and Deputy Director for the Soko Aerial and Signal Training School Centre for Unmanned Aerial Vehicle Research, Development and Education. He holds a BA in Political Science from the University of Ghana, Legon. Combining his passion for drone technology with a solid foundation in political science, he brings a unique perspective to the world of aerial operations — proficient in capturing high-quality aerial imagery and conducting precise surveys through advanced drone technology.',
-    image: null,
+    image: '/massdi-participant3.jpg',
+  },
+  {
+    name: 'Participant Name',
+    title: 'Title / Organisation',
+    bio: 'Bio coming soon.',
+    image: '/massdi-participant4.jpg',
   },
 ];
 
@@ -235,42 +241,51 @@ const MASSDI = () => {
         </div>
       </section>
 
-      {/* ═══ INSTRUCTORS ═══ */}
+      {/* ═══ PARTICIPANTS ═══ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="text-center mb-14">
             <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
-              Expert Faculty
+              Course Participants
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              Course Instructors
+              Meet the Participants
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              Learn from experienced naval officers and security practitioners with deep operational expertise.
+              Naval officers, maritime security professionals, and practitioners who completed the MaSSDI programme.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {instructors.map((instructor, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {participants.map((participant, i) => (
               <div key={i} className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col">
-                {/* Photo placeholder */}
-                <div
-                  className="h-64 flex items-center justify-center"
-                  style={{ backgroundColor: '#F1F5F9' }}
-                >
+                <div className="h-64 relative" style={{ backgroundColor: '#F1F5F9' }}>
+                  {participant.image ? (
+                    <img
+                      src={participant.image}
+                      alt={participant.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                    />
+                  ) : null}
                   <div
-                    className="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-black"
-                    style={{ backgroundColor: '#132552', color: 'white' }}
+                    className="absolute inset-0 items-center justify-center"
+                    style={{ display: participant.image ? 'none' : 'flex' }}
                   >
-                    {instructor.name.split(' ').pop()[0]}
+                    <div
+                      className="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-black"
+                      style={{ backgroundColor: '#132552', color: 'white' }}
+                    >
+                      {participant.name.split(' ').pop()[0]}
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-8 flex flex-col flex-1">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="w-8 h-1 rounded-full mb-4" style={{ backgroundColor: '#8E3400' }} />
-                  <h3 className="text-xl font-bold mb-1" style={{ color: '#132552' }}>{instructor.name}</h3>
-                  <p className="text-sm font-medium mb-5" style={{ color: '#8E3400' }}>{instructor.title}</p>
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: '#4B5563' }}>{instructor.bio}</p>
+                  <h3 className="text-lg font-bold mb-1" style={{ color: '#132552' }}>{participant.name}</h3>
+                  <p className="text-xs font-semibold mb-4 uppercase tracking-wide" style={{ color: '#8E3400' }}>{participant.title}</p>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: '#4B5563' }}>{participant.bio}</p>
                 </div>
               </div>
             ))}
