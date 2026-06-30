@@ -37,25 +37,25 @@ const participants = [
     name: 'Lt Cdr Emilio Okyere-Dadzie',
     title: 'Deputy Director Naval Research & Development, Ghana Navy',
     bio: 'Lieutenant Commander Emilio Okyere-Dadzie was commissioned into the Executive Branch of the Ghana Navy in 2008. He holds a BSc in Nautical Science from Regional Maritime University, an MBA in Port and Shipping Management, an MBA in Oil and Gas Management (both from the National Institute of Business Management, India), and an MSc in Defence and International Politics from GIMPA. He is a Navigation Specialist, a Class 3 Deck Officer, and a Dynamic Positioning Operator. He currently serves as Deputy Director Naval Research & Development and Command Operations Officer for the Riverine Command. He is an Associate Fellow of the Nautical Institute and the Royal Institute of Navigation, United Kingdom.',
-    image: '/massdi-participant1.jpg',
+    image: '/emilio.jpg',
   },
   {
     name: 'Lt Cdr Kwame Yelbuor',
     title: 'Commanding Officer, Ghana Navy Ship EHWOR',
     bio: 'Lieutenant Commander Kwame Yelbuor of the Ghana Navy holds a Bachelor of Arts Degree in Geography and Resource Development from the University of Ghana, Legon. Commissioned into the Executive Branch of the Ghana Navy on 30 August 2013, he has undergone Initial Naval Officer Training in Dartmouth, United Kingdom (2015). He has served in various capacities onboard Ghana Navy Ships as Executive Officer, Watch Keeping Officer, and Acting Navigation Officer. Ashore, he served as Acting Assistant Director Naval Intelligence (2019–2020) and Acting Operations Officer for the ECOWAS Multinational Maritime Coordination Centre at Osu Castle (2020–2022). He is currently the Commanding Officer for Ghana Navy Ship EHWOR.',
-    image: '/massdi-participant2.jpg',
+    image: '/yelbour.jpg',
   },
   {
     name: 'Maximus Ashitey',
     title: 'General Manager, Soko Aerial Robotics Limited',
     bio: 'Maximus Ashitey is the General Manager of Soko Aerial Robotics Limited, Deputy Director of the Unmanned Aerial Systems Research Lab (UASRL), and Deputy Director for the Soko Aerial and Signal Training School Centre for Unmanned Aerial Vehicle Research, Development and Education. He holds a BA in Political Science from the University of Ghana, Legon. Combining his passion for drone technology with a solid foundation in political science, he brings a unique perspective to the world of aerial operations — proficient in capturing high-quality aerial imagery and conducting precise surveys through advanced drone technology.',
-    image: '/massdi-participant3.jpg',
+    image: '/maximus.jpg',
   },
   {
-    name: 'Participant Name',
-    title: 'Title / Organisation',
-    bio: 'Bio coming soon.',
-    image: '/massdi-participant4.jpg',
+    name: 'Lt Cdr Edem Komla Akati',
+    title: 'Senior Officer, Ghana Navy',
+    bio: 'Lieutenant Commander Edem Komla Akati was commissioned into the Executive Branch of the Ghana Navy in September 2011. Over 12 years of commissioned service, he has held notable sea appointments including Training Officer, Navigation Officer, Executive Officer, and Commanding Officer onboard GNS EHWOR, GNS YAA ASANTEWAA, GNS NAA GBEWAA, and GNS PRA. Ashore, he has served as Flag Lieutenant to the Chief of the Naval Staff, Instructor at the Ghana Military Academy, and Assistant Director Naval Administration at Naval Headquarters. He completed the Royal Navy Young Officer Course in the UK (adjudged Overall Best International Student), Navigation Specialisation Course in China, and attended GAFCSC where he emerged Overall Best Student (Junior Staff Course) and Second Best Student (Senior Command and Staff Course). He holds a BEng in Aerospace Engineering from KNUST and an MSc in Defence and International Politics from GAFCSC.',
+    image: '/akati.jpg',
   },
 ];
 
