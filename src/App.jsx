@@ -45,6 +45,7 @@ import Privacy from './Components/Pages/Privacy';
 import Terms from './Components/Pages/Terms';
 import ECOP from './Components/Pages/ECOP';
 import Sitemap from './Components/Pages/Sitemap';
+import MASSDI from './Components/Pages/MASSDI';
 
 
 
@@ -95,6 +96,7 @@ function App() {
               <Route path="/terms" element={<Terms />} />
               <Route path="/ecop" element={<ECOP />} />
               <Route path="/sitemap" element={<Sitemap />} />
+              <Route path="/massdi" element={<MASSDI />} />
   
              
 
