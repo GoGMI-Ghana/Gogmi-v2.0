@@ -470,7 +470,7 @@ const Contact = () => {
               },
               {
                 q: 'How do I apply for the Blue Mentorship Programme?',
-                a: 'Applications for the Blue Mentorship Programme open quarterly. Contact us or check our website for the next intake dates and application requirements.'
+                a: 'Applications for the Blue Mentorship Programme open periodically. Contact us or check our website for the next intake dates and application requirements.'
               }
             ].map((faq, idx) => (
               <div key={idx} className="bg-[#F5F7FA] rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border-2 border-[#8E3400]/20 hover:border-[#8E3400]/40">
