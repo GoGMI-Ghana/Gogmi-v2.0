@@ -583,36 +583,69 @@ const CapacityBuilding = () => {
 
       
     {/* SUCCESS STORIES */}
-<section className="py-16 bg-white">
+<section className="py-20 md:py-28 overflow-hidden" style={{ backgroundColor: '#0D1E45' }}>
   <div className="container mx-auto max-w-7xl px-6">
-    <div className="text-center mb-10">
-      <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>Success Stories</span>
-      <h2 className="text-4xl md:text-5xl mt-4 mb-4"
-          style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-        Alumni Making Waves
-      </h2>
+
+    {/* Header */}
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+      <div>
+        <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
+          Alumni Making Waves
+        </span>
+        <h2 className="text-4xl md:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          Where Our Alumni<br />Are Today
+        </h2>
+      </div>
+      <p className="text-base max-w-xs md:text-right" style={{ color: 'rgba(255,255,255,0.5)' }}>
+        Professionals who trained with GoGMI are now making an impact across Africa's blue economy.
+      </p>
     </div>
 
-    <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+    {/* Cards */}
+    <div className="grid md:grid-cols-2 gap-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '20px', overflow: 'hidden' }}>
       {successStories.map((s, i) => (
-        <div key={i} className="rounded-2xl p-8 border border-gray-100 shadow-sm">
-          <span className="inline-block px-3 py-1 rounded-full text-xs mb-5" style={{ backgroundColor: 'rgba(142,52,0,0.1)', color: '#8E3400', fontWeight: 700 }}>
-            {s.program}
-          </span>
-          <h3 className="text-xl font-black mb-1" style={{ color: '#132552' }}>{s.name}</h3>
-          <p className="text-sm mb-6" style={{ color: '#6B7280' }}>{s.role}</p>
-          <a
-            href={s.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold hover:underline"
-            style={{ color: '#8E3400' }}
-          >
-            LinkedIn Profile →
-          </a>
+        <div
+          key={i}
+          className="p-10 flex flex-col justify-between gap-10"
+          style={{ backgroundColor: '#0D1E45' }}
+        >
+          {/* Top: initials + name block */}
+          <div className="flex items-start gap-5">
+            <div
+              className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 text-lg font-black"
+              style={{ backgroundColor: 'rgba(142,52,0,0.25)', color: '#C4501A' }}
+            >
+              {s.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+            </div>
+            <div>
+              <div className="text-lg font-black text-white leading-tight">{s.name}</div>
+              <div className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.role}</div>
+            </div>
+          </div>
+
+          {/* Bottom: programme + linkedin */}
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <span
+              className="text-xs font-bold px-4 py-2 rounded-full"
+              style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.04em' }}
+            >
+              {s.program}
+            </span>
+            <a
+              href={s.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-bold transition-opacity hover:opacity-70"
+              style={{ color: '#C4501A' }}
+            >
+              View Profile
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       ))}
     </div>
+
   </div>
 </section>
     </div>
