@@ -583,69 +583,60 @@ const CapacityBuilding = () => {
 
       
     {/* SUCCESS STORIES */}
-<section className="py-20 md:py-28 overflow-hidden" style={{ backgroundColor: '#0D1E45' }}>
+<section className="py-20 md:py-28 overflow-hidden" style={{ backgroundColor: '#111827' }}>
   <div className="container mx-auto max-w-7xl px-6">
+    <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
-    {/* Header */}
-    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-      <div>
-        <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
-          Alumni Making Waves
-        </span>
-        <h2 className="text-4xl md:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-          Where Our Alumni<br />Are Today
+      {/* Left: heading */}
+      <div className="lg:w-80 flex-shrink-0">
+        <h2 className="text-4xl md:text-5xl font-black text-white leading-tight" style={{ letterSpacing: '-0.02em' }}>
+          Alumni<br />Making<br />Waves.
         </h2>
+        <p className="mt-6 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          GoGMI alumni are building careers and driving change across Africa's blue economy.
+        </p>
       </div>
-      <p className="text-base max-w-xs md:text-right" style={{ color: 'rgba(255,255,255,0.5)' }}>
-        Professionals who trained with GoGMI are now making an impact across Africa's blue economy.
-      </p>
-    </div>
 
-    {/* Cards */}
-    <div className="grid md:grid-cols-2 gap-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '20px', overflow: 'hidden' }}>
-      {successStories.map((s, i) => (
-        <div
-          key={i}
-          className="p-10 flex flex-col justify-between gap-10"
-          style={{ backgroundColor: '#0D1E45' }}
-        >
-          {/* Top: initials + name block */}
-          <div className="flex items-start gap-5">
-            <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 text-lg font-black"
-              style={{ backgroundColor: 'rgba(142,52,0,0.25)', color: '#C4501A' }}
-            >
-              {s.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-            </div>
+      {/* Right: cards row */}
+      <div className="flex-1 grid sm:grid-cols-2 gap-4">
+        {successStories.map((s, i) => (
+          <div
+            key={i}
+            className="rounded-2xl p-6 flex flex-col justify-between gap-8"
+            style={{ backgroundColor: '#1F2937' }}
+          >
+            {/* Role + programme */}
             <div>
-              <div className="text-lg font-black text-white leading-tight">{s.name}</div>
-              <div className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.role}</div>
+              <p className="text-base font-bold text-white leading-snug mb-1">{s.name}</p>
+              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.role}</p>
+            </div>
+
+            {/* Bottom row */}
+            <div className="flex items-center justify-between gap-3 flex-wrap">
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
+                  style={{ backgroundColor: '#8E3400', color: 'white' }}
+                >
+                  {s.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                </div>
+                <span className="text-xs font-semibold" style={{ color: 'rgba(255,255,255,0.4)' }}>{s.program}</span>
+              </div>
+              <a
+                href={s.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold transition-opacity hover:opacity-70"
+                style={{ color: '#C4501A' }}
+              >
+                LinkedIn →
+              </a>
             </div>
           </div>
+        ))}
+      </div>
 
-          {/* Bottom: programme + linkedin */}
-          <div className="flex items-center justify-between gap-4 flex-wrap">
-            <span
-              className="text-xs font-bold px-4 py-2 rounded-full"
-              style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.04em' }}
-            >
-              {s.program}
-            </span>
-            <a
-              href={s.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-bold transition-opacity hover:opacity-70"
-              style={{ color: '#C4501A' }}
-            >
-              View Profile
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      ))}
     </div>
-
   </div>
 </section>
     </div>
