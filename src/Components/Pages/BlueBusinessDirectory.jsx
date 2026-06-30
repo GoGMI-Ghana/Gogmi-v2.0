@@ -120,6 +120,13 @@ const LISTINGS = [
 const BlueBusinessDirectory = () => {
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
+  const catScrollRef = React.useRef(null);
+
+  const scrollCats = (dir) => {
+    if (catScrollRef.current) {
+      catScrollRef.current.scrollBy({ left: dir * 200, behavior: 'smooth' });
+    }
+  };
 
   const filtered = useMemo(() => {
     return LISTINGS.filter(l => {
@@ -143,21 +150,10 @@ const BlueBusinessDirectory = () => {
       <style>{`
         .cat-scrollbar {
           overflow-x: auto;
-          padding-bottom: 8px;
+          scrollbar-width: none;
         }
         .cat-scrollbar::-webkit-scrollbar {
-          height: 4px;
-        }
-        .cat-scrollbar::-webkit-scrollbar-track {
-          background: #D1D5DB;
-          border-radius: 2px;
-        }
-        .cat-scrollbar::-webkit-scrollbar-thumb {
-          background: #132552;
-          border-radius: 2px;
-        }
-        .cat-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #8E3400;
+          display: none;
         }
       `}</style>
 
@@ -211,31 +207,76 @@ const BlueBusinessDirectory = () => {
       {/* Category filter */}
       <div style={{ backgroundColor: '#EBEDF0', borderBottom: '1px solid #D1D5DB' }}>
         <div className="max-w-5xl mx-auto px-6">
-          <div className="cat-scrollbar" style={{ display: 'flex', gap: '6px', paddingTop: '12px' }}>
-            {CATEGORIES.map(cat => {
-              const isActive = activeCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  style={{
-                    flexShrink: 0,
-                    padding: '6px 16px',
-                    borderRadius: '4px',
-                    border: isActive ? '1px solid #132552' : '1px solid #C4C9D4',
-                    backgroundColor: isActive ? '#132552' : 'white',
-                    color: isActive ? 'white' : '#374151',
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '13px',
-                    fontWeight: isActive ? 600 : 400,
-                    cursor: 'pointer',
-                    transition: 'all 0.15s',
-                  }}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '12px', paddingBottom: '12px' }}>
+            {/* Left arrow */}
+            <button
+              onClick={() => scrollCats(-1)}
+              style={{
+                flexShrink: 0,
+                width: '32px',
+                height: '32px',
+                borderRadius: '6px',
+                border: '1px solid #C4C9D4',
+                backgroundColor: 'white',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#374151',
+                fontSize: '16px',
+                lineHeight: 1,
+              }}
+              aria-label="Scroll left"
+            >‹</button>
+
+            {/* Scrollable buttons */}
+            <div ref={catScrollRef} className="cat-scrollbar" style={{ display: 'flex', gap: '6px', flex: 1 }}>
+              {CATEGORIES.map(cat => {
+                const isActive = activeCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    style={{
+                      flexShrink: 0,
+                      padding: '6px 16px',
+                      borderRadius: '4px',
+                      border: isActive ? '1px solid #132552' : '1px solid #C4C9D4',
+                      backgroundColor: isActive ? '#132552' : 'white',
+                      color: isActive ? 'white' : '#374151',
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: '13px',
+                      fontWeight: isActive ? 600 : 400,
+                      cursor: 'pointer',
+                      transition: 'all 0.15s',
+                    }}
+                  >
+                    {cat.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={() => scrollCats(1)}
+              style={{
+                flexShrink: 0,
+                width: '32px',
+                height: '32px',
+                borderRadius: '6px',
+                border: '1px solid #C4C9D4',
+                backgroundColor: 'white',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#374151',
+                fontSize: '16px',
+                lineHeight: 1,
+              }}
+              aria-label="Scroll right"
+            >›</button>
           </div>
         </div>
       </div>
