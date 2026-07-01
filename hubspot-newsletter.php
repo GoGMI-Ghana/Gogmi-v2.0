@@ -46,105 +46,92 @@ try {
         $id = $_GET['id'] ?? '';
         if (!$id) throw new Exception('ID is required');
 
-        $email   = hubspotRequest(HUBSPOT_API . "/marketing/v3/emails/{$id}");
-        $content = $email['content'] ?? [];
-        $widgets = $content['widgets'] ?? [];
-        $flexAreas = $content['flexAreas']['main']['sections'] ?? [];
+        $email         = hubspotRequest(HUBSPOT_API . "/marketing/v3/emails/{$id}");
+        $content       = $email['content'] ?? [];
+        $widgets       = $content['widgets'] ?? [];
+        $sections      = $content['flexAreas']['main']['sections'] ?? [];
         $styleSettings = $content['styleSettings'] ?? [];
+        $primaryFont   = $styleSettings['primaryFont'] ?? 'Arial,sans-serif';
+        $primaryColor  = $styleSettings['primaryFontColor'] ?? '#333333';
+        $primarySize   = $styleSettings['primaryFontSize'] ?? 16;
 
         $html = '';
 
-        if (!empty($flexAreas) && !empty($widgets)) {
-            // Walk sections in order → columns → widget IDs → render each widget
-            foreach ($flexAreas as $section) {
-                $bgColor = $section['style']['backgroundColor'] ?? '';
-                $sectionHtml = '';
+        foreach ($sections as $section) {
+            $bgColor     = $section['style']['backgroundColor'] ?? '';
+            $sectionHtml = '';
 
-                foreach ($section['columns'] ?? [] as $column) {
-                    foreach ($column['widgets'] ?? [] as $widgetId) {
-                        $widget = $widgets[$widgetId] ?? null;
-                        if (!$widget) continue;
+            foreach ($section['columns'] ?? [] as $column) {
+                foreach ($column['widgets'] ?? [] as $widgetId) {
+                    $widget = $widgets[$widgetId] ?? null;
+                    if (!$widget) continue;
 
-                        $body = $widget['body'] ?? [];
-                        $path = $body['path'] ?? '';
+                    $body = $widget['body'] ?? [];
+                    $path = $body['path'] ?? '';
 
-                        // Rich text / HTML module
-                        if (str_contains($path, 'rich_text') || isset($body['html'])) {
-                            $innerHtml = $body['html'] ?? '';
-                            if ($innerHtml) {
-                                $padding = $body['hs_wrapper_css'] ?? [];
-                                $pt = $padding['padding-top'] ?? '10px';
-                                $pb = $padding['padding-bottom'] ?? '10px';
-                                $pl = $padding['padding-left'] ?? '20px';
-                                $pr = $padding['padding-right'] ?? '20px';
-                                $sectionHtml .= "<div style=\"padding:{$pt} {$pr} {$pb} {$pl};\">{$innerHtml}</div>";
-                            }
-                        }
+                    // Skip footer/unsubscribe modules — not needed on the website
+                    if (strpos($path, 'email_footer') !== false || strpos($path, 'unsubscribe') !== false) {
+                        continue;
+                    }
 
-                        // Image module
-                        if (str_contains($path, 'image_email') || isset($body['img'])) {
-                            $img = $body['img'] ?? [];
-                            $src = $img['src'] ?? '';
-                            $alt = $img['alt'] ?? '';
-                            if ($src) {
-                                $align = $body['style']['alignment'] ?? 'center';
-                                $sectionHtml .= "<div style=\"text-align:{$align};padding:10px 20px;\"><img src=\"".htmlspecialchars($src)."\" alt=\"".htmlspecialchars($alt)."\" style=\"max-width:100%;height:auto;\"></div>";
-                            }
-                        }
+                    $padding = $body['hs_wrapper_css'] ?? [];
+                    $pt = is_array($padding) ? ($padding['padding-top']    ?? '10px') : '10px';
+                    $pb = is_array($padding) ? ($padding['padding-bottom'] ?? '10px') : '10px';
+                    $pl = is_array($padding) ? ($padding['padding-left']   ?? '20px') : '20px';
+                    $pr = is_array($padding) ? ($padding['padding-right']  ?? '20px') : '20px';
+                    $padStyle = "padding:{$pt} {$pr} {$pb} {$pl};";
 
-                        // Button module
-                        if (str_contains($path, 'button') || isset($body['button'])) {
-                            $btn = $body['button'] ?? [];
-                            $btnUrl  = $btn['url']['href'] ?? ($body['link_url'] ?? '#');
-                            $btnText = $btn['text'] ?? ($body['button_text'] ?? 'Learn More');
-                            $btnColor = $styleSettings['buttonStyleSettings']['backgroundColor'] ?? '#c13a3a';
-                            $btnFontColor = $styleSettings['buttonStyleSettings']['fontStyle']['color'] ?? '#ffffff';
-                            $sectionHtml .= "<div style=\"text-align:center;padding:15px 20px;\"><a href=\"".htmlspecialchars($btnUrl)."\" target=\"_blank\" style=\"display:inline-block;background-color:{$btnColor};color:{$btnFontColor};padding:12px 28px;text-decoration:none;font-weight:bold;border-radius:4px;\">{$btnText}</a></div>";
-                        }
-
-                        // Divider module
-                        if (str_contains($path, 'divider')) {
-                            $divColor = $styleSettings['dividerStyleSettings']['color']['color'] ?? '#dddddd';
-                            $sectionHtml .= "<div style=\"padding:5px 20px;\"><hr style=\"border:none;border-top:1px solid {$divColor};margin:0;\"></div>";
+                    // ── Rich text / HTML module
+                    if (strpos($path, 'rich_text') !== false || isset($body['html'])) {
+                        $innerHtml = $body['html'] ?? '';
+                        if ($innerHtml) {
+                            $sectionHtml .= "<div style=\"{$padStyle}font-family:{$primaryFont};color:{$primaryColor};font-size:{$primarySize}px;line-height:1.6;\">{$innerHtml}</div>";
                         }
                     }
-                }
 
-                if ($sectionHtml) {
-                    $bgStyle = $bgColor ? "background-color:{$bgColor};" : '';
-                    $html .= "<div style=\"{$bgStyle}\">{$sectionHtml}</div>";
+                    // ── Image module
+                    elseif (strpos($path, 'image_email') !== false || isset($body['img'])) {
+                        $img   = $body['img'] ?? [];
+                        $src   = $img['src'] ?? '';
+                        $alt   = htmlspecialchars($img['alt'] ?? '');
+                        $align = $body['style']['alignment'] ?? 'center';
+                        if ($src) {
+                            $sectionHtml .= "<div style=\"{$padStyle}text-align:{$align};\"><img src=\"" . htmlspecialchars($src) . "\" alt=\"{$alt}\" style=\"max-width:100%;height:auto;display:inline-block;\"></div>";
+                        }
+                    }
+
+                    // ── Button module
+                    elseif (strpos($path, 'button_email') !== false || isset($body['destination'])) {
+                        $btnUrl   = htmlspecialchars($body['destination'] ?? '#');
+                        $btnText  = htmlspecialchars($body['text'] ?? 'Learn More');
+                        $btnBg    = $body['background_color'] ?? ($styleSettings['buttonStyleSettings']['backgroundColor'] ?? '#073763');
+                        $btnFg    = $body['font_color'] ?? ($styleSettings['buttonStyleSettings']['fontStyle']['color'] ?? '#ffffff');
+                        $btnSize  = $body['font_size'] ?? 16;
+                        $iPadV    = $body['inner_vertical_padding'] ?? 12;
+                        $iPadH    = $body['inner_horizontal_padding'] ?? 24;
+                        $sectionHtml .= "<div style=\"{$padStyle}text-align:center;\"><a href=\"{$btnUrl}\" target=\"_blank\" style=\"display:inline-block;background-color:{$btnBg};color:{$btnFg};font-size:{$btnSize}px;font-family:{$primaryFont};padding:{$iPadV}px {$iPadH}px;text-decoration:none;font-weight:bold;border-radius:4px;\">{$btnText}</a></div>";
+                    }
+
+                    // ── Divider module
+                    elseif (strpos($path, 'email_divider') !== false || strpos($path, 'divider') !== false) {
+                        $divColor = $body['color']['color'] ?? ($styleSettings['dividerStyleSettings']['color']['color'] ?? '#dddddd');
+                        $sectionHtml .= "<div style=\"{$padStyle}\"><hr style=\"border:none;border-top:1px solid {$divColor};margin:0;\"></div>";
+                    }
                 }
             }
-        }
 
-        // Fallback: try fetching the public web version
-        if (!$html && !empty($email['absoluteUrl'])) {
-            $ch = curl_init($email['absoluteUrl']);
-            curl_setopt_array($ch, [
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_MAXREDIRS      => 5,
-                CURLOPT_TIMEOUT        => 20,
-                CURLOPT_USERAGENT      => 'Mozilla/5.0 GoGMI-Website/1.0',
-            ]);
-            $fetched = curl_exec($ch);
-            $code    = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
-            if ($code === 200 && $fetched) {
-                if (preg_match('/<body[^>]*>(.*?)<\/body>/si', $fetched, $m)) {
-                    $html = $m[1];
-                } else {
-                    $html = $fetched;
-                }
+            if ($sectionHtml) {
+                $bgStyle = $bgColor ? "background-color:{$bgColor};" : '';
+                $html .= "<div style=\"{$bgStyle}\">{$sectionHtml}</div>";
             }
         }
 
         echo json_encode(['success' => true, 'data' => array_merge(
             formatNewsletter($email),
-            ['html' => $html, 'absoluteUrl' => $email['absoluteUrl'] ?? null]
+            ['html' => $html ?: null, 'absoluteUrl' => $email['absoluteUrl'] ?? null]
         )]);
 
-    // ── DEBUG (remove in production) ─────────────────────────────────────
+    // ── DEBUG ─────────────────────────────────────────────────────────────
     } elseif ($action === 'debug') {
         $id = $_GET['id'] ?? '';
         if (!$id) throw new Exception('ID is required');
