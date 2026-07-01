@@ -120,7 +120,7 @@ const AdvisoryBoard = () => {
             {[
               
                { 
-                name: 'Mrs. KATHLEEN QUARTEY AYENSU, ESQ', 
+                name: 'Mrs. Kathleen Quartey Ayensu, ESQ', 
                 role: 'Former Commissioner, African Union Commission on International Law and AU Special Rapporteur on Piracy and Maritime Security ', 
                 img: '/kathleen.jpg',
                 flagImg: '/Ghana Flag.jpg',
@@ -128,7 +128,7 @@ const AdvisoryBoard = () => {
               },
 
               { 
-                name: 'REAR ADMIRAL SOLOMON AGADA (RTD)', 
+                name: 'Rear Admiral Solomon Agada (RTD)', 
                 role: 'Former Chief of Training and Operations Nigerian Navy, and pioneer Co-Chair of GoG-SHADE', 
                 img: '/solomon.jpg',
                 flagImg: '/Nigeria flag.jpg',
@@ -136,7 +136,7 @@ const AdvisoryBoard = () => {
               },
               
               { 
-                name: 'JEFFREY LANDSMAN', 
+                name: 'Jeffrey Landsman', 
                 role: 'Prof. Jeffrey Landsman, former U.S. Navy Captain and Associate Professor, U.S. Naval War College ', 
                 img: '/jeffrey.jpg',
                 flagImg: '/usa flag.jpg',
@@ -144,7 +144,7 @@ const AdvisoryBoard = () => {
               },
              
               { 
-                name: 'COMMODORE JAMES OSEI KONTOH (RTD)', 
+                name: 'Commodore James Osei Kontoh (RTD)', 
                 role: 'Former Defence Advisor of Ghana to Nigeria', 
                 img: '/jamesO.jpg',
                 flagImg: '/Ghana Flag.jpg',
