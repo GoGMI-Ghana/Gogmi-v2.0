@@ -314,13 +314,13 @@ const Blog = () => {
                         )}
                       </div>
 
-                      <div className="p-6">
-                        <div className="flex items-center gap-1.5 mb-3">
+                      <div className="p-5">
+                        <div className="inline-flex items-center gap-1.5 mb-3 px-2 py-1 rounded-md" style={{ backgroundColor: '#FEF3EC' }}>
                           <Calendar className="w-3.5 h-3.5" style={{ color: '#8E3400' }} />
-                          <span className="text-xs" style={{ color: '#6B7280', fontWeight: 500 }}>{formatDate(nl.publishDate)}</span>
+                          <span className="text-xs" style={{ color: '#8E3400', fontWeight: 700 }}>{formatDate(nl.publishDate)}</span>
                         </div>
 
-                        <h3 className="text-lg mb-3 line-clamp-2 group-hover:text-[#8E3400] transition-colors" style={{ fontWeight: 700, color: '#132552' }}>
+                        <h3 className="text-base mb-2 line-clamp-2 group-hover:text-[#8E3400] transition-colors" style={{ fontWeight: 700, color: '#132552' }}>
                           {nl.subject}
                         </h3>
 

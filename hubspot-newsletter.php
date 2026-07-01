@@ -24,13 +24,19 @@ try {
         $limit  = min((int)($_GET['limit'] ?? 12), 50);
         $offset = (int)($_GET['offset'] ?? 0);
 
-        $url  = HUBSPOT_API . "/marketing/v3/emails?limit={$limit}&offset={$offset}&state=PUBLISHED&properties=content,thumbnail,subject,previewText,absoluteUrl,publishDate";
+        $url  = HUBSPOT_API . "/marketing/v3/emails?limit={$limit}&offset={$offset}&state=PUBLISHED&sort=publishDate&direction=DESCENDING&properties=content,thumbnail,subject,previewText,absoluteUrl,publishDate";
         $data = hubspotRequest($url);
 
         $newsletters = [];
         foreach ($data['results'] ?? [] as $email) {
             $newsletters[] = formatNewsletter($email);
         }
+
+        // Ensure newest first regardless of API sort support
+        usort($newsletters, function($a, $b) {
+            return strtotime($b['publishDate'] ?? 0) - strtotime($a['publishDate'] ?? 0);
+        });
+
         $total = $data['total'] ?? count($newsletters);
 
         echo json_encode(['success' => true, 'data' => [
