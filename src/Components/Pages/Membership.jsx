@@ -604,16 +604,6 @@ const Membership = () => {
                 <span>Apply Now</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button
-                onClick={() => navigate('/membership-list')}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
-                style={{ backgroundColor: 'transparent', color: 'white', fontWeight: 700, border: '2px solid white' }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'white'; e.currentTarget.style.color = '#132552'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'white'; }}
-              >
-                <span>View Our Membership List</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
             </div>
           </div>
         </div>
