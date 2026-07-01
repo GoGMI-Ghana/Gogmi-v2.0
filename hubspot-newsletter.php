@@ -54,35 +54,67 @@ try {
         $id = $_GET['id'] ?? '';
         if (!$id) throw new Exception('ID is required');
 
+        // Fetch email metadata from HubSpot
         $email = hubspotRequest(HUBSPOT_API . "/marketing/v3/emails/{$id}");
 
-        // Try to get the rendered HTML body
-        // HubSpot stores email HTML in content.html or rssEmailBody
-        $html = $email['content']['html']
-             ?? $email['rssEmailBody']
-             ?? $email['primaryEmailBody']
-             ?? null;
+        $html = null;
 
-        // If no inline HTML, try fetching the web-version URL and returning it as raw HTML
-        if (!$html && !empty($email['absoluteUrl'])) {
-            $ch = curl_init($email['absoluteUrl']);
-            curl_setopt_array($ch, [
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_TIMEOUT        => 15,
-                CURLOPT_USERAGENT      => 'GoGMI-Website/1.0',
-            ]);
-            $fetched = curl_exec($ch);
-            $code    = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
-            if ($code === 200 && $fetched) {
-                $html = $fetched;
+        // 1. Try known HTML body field names in the API response
+        $bodyFields = [
+            ['content', 'html'],
+            ['content', 'emailBody'],
+            ['rssEmailBody'],
+            ['primaryEmailBody'],
+            ['emailBody'],
+        ];
+
+        foreach ($bodyFields as $path) {
+            $val = $email;
+            foreach ($path as $key) {
+                $val = $val[$key] ?? null;
+                if ($val === null) break;
+            }
+            if ($val) { $html = $val; break; }
+        }
+
+        // 2. Best approach: fetch the public web version of the email
+        //    HubSpot hosts every sent email at absoluteUrl — it's the same
+        //    thing recipients see when they click "View in browser"
+        if (!$html) {
+            $webUrl = $email['absoluteUrl'] ?? null;
+
+            if ($webUrl) {
+                $ch = curl_init($webUrl);
+                curl_setopt_array($ch, [
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_MAXREDIRS      => 5,
+                    CURLOPT_TIMEOUT        => 20,
+                    CURLOPT_USERAGENT      => 'Mozilla/5.0 GoGMI-Website/1.0',
+                    CURLOPT_SSL_VERIFYPEER => true,
+                ]);
+                $fetched = curl_exec($ch);
+                $code    = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_close($ch);
+
+                if ($code === 200 && $fetched) {
+                    // Strip <html>/<head> wrappers — keep only <body> content
+                    // so it renders inside our page without CSS conflicts
+                    if (preg_match('/<body[^>]*>(.*?)<\/body>/si', $fetched, $m)) {
+                        $html = $m[1];
+                    } else {
+                        $html = $fetched;
+                    }
+                }
             }
         }
 
         echo json_encode([
             'success' => true,
-            'data'    => array_merge(formatNewsletter($email), ['html' => $html]),
+            'data'    => array_merge(formatNewsletter($email), [
+                'html'        => $html,
+                'absoluteUrl' => $email['absoluteUrl'] ?? null,
+            ]),
         ]);
 
     } else {
