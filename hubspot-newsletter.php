@@ -24,7 +24,7 @@ try {
         $limit  = min((int)($_GET['limit'] ?? 12), 50);
         $offset = (int)($_GET['offset'] ?? 0);
 
-        $url  = HUBSPOT_API . "/marketing/v3/emails?limit={$limit}&offset={$offset}&state=PUBLISHED";
+        $url  = HUBSPOT_API . "/marketing/v3/emails?limit={$limit}&offset={$offset}&state=PUBLISHED&properties=content,thumbnail,subject,previewText,absoluteUrl,publishDate";
         $data = hubspotRequest($url);
 
         $newsletters = [];
