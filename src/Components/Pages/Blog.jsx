@@ -299,12 +299,12 @@ const Blog = () => {
                       style={{ border: '1px solid #E5E7EB' }}
                     >
                       {/* Thumbnail or placeholder */}
-                      <div className="relative h-48 overflow-hidden" style={{ backgroundColor: '#F5F7FA' }}>
+                      <div className="relative h-32 overflow-hidden" style={{ backgroundColor: '#F5F7FA' }}>
                         {nl.thumbnail ? (
                           <img
                             src={nl.thumbnail}
                             alt={nl.subject}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                           />
                         ) : (
                           <div className="w-full h-full flex flex-col items-center justify-center gap-2" style={{ backgroundColor: '#132552' }}>
