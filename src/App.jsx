@@ -48,6 +48,7 @@ import Sitemap from './Components/Pages/Sitemap';
 import MASSDI from './Components/Pages/MASSDI';
 import BlueMentorship from './Components/Pages/BlueMentorship';
 import GMAC from './Components/Pages/GMAC';
+import NewsletterPost from './Components/Pages/NewsletterPost';
 
 
 
@@ -101,6 +102,7 @@ function App() {
               <Route path="/massdi" element={<MASSDI />} />
               <Route path="/blue-mentorship" element={<BlueMentorship />} />
               <Route path="/gmac" element={<GMAC />} />
+              <Route path="/newsletter/:id" element={<NewsletterPost />} />
   
              
 

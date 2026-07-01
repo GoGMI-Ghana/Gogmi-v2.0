@@ -292,9 +292,10 @@ const Blog = () => {
               ) : (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredNewsletters.map((nl) => (
-                    <div
+                    <Link
                       key={nl.id}
-                      className="bg-white rounded-xl overflow-hidden shadow-md"
+                      to={`/newsletter/${nl.id}`}
+                      className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                       style={{ border: '1px solid #E5E7EB' }}
                     >
                       {/* Thumbnail or placeholder */}
@@ -303,7 +304,7 @@ const Blog = () => {
                           <img
                             src={nl.thumbnail}
                             alt={nl.subject}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         ) : (
                           <div className="w-full h-full flex flex-col items-center justify-center gap-2" style={{ backgroundColor: '#132552' }}>
@@ -319,7 +320,7 @@ const Blog = () => {
                           <span className="text-xs" style={{ color: '#6B7280', fontWeight: 500 }}>{formatDate(nl.publishDate)}</span>
                         </div>
 
-                        <h3 className="text-lg mb-3 line-clamp-2" style={{ fontWeight: 700, color: '#132552' }}>
+                        <h3 className="text-lg mb-3 line-clamp-2 group-hover:text-[#8E3400] transition-colors" style={{ fontWeight: 700, color: '#132552' }}>
                           {nl.subject}
                         </h3>
 
@@ -329,20 +330,12 @@ const Blog = () => {
                           </p>
                         )}
 
-                        {nl.absoluteUrl && (
-                          <a
-                            href={nl.absoluteUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-sm"
-                            style={{ fontWeight: 600, color: '#8E3400' }}
-                          >
-                            Read Newsletter
-                            <ArrowRight className="w-4 h-4" />
-                          </a>
-                        )}
+                        <div className="inline-flex items-center gap-2 text-sm group-hover:gap-3 transition-all" style={{ fontWeight: 600, color: '#8E3400' }}>
+                          Read Newsletter
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               )}
