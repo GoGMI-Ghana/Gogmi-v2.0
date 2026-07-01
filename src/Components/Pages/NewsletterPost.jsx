@@ -144,10 +144,7 @@ const NewsletterPost = () => {
         .nl-body a { word-break: break-word; }
         /* Expand inner padding on wide screens so content breathes */
         @media (min-width: 768px) {
-          .nl-body > div > div { padding-left: 48px !important; padding-right: 48px !important; }
-        }
-        @media (min-width: 1200px) {
-          .nl-body > div > div { padding-left: 80px !important; padding-right: 80px !important; }
+          .nl-body { max-width: 860px; margin: 0 auto; }
         }
       `}</style>
     </div>
