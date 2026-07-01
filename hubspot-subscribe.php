@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-define('HUBSPOT_TOKEN', getenv('HUBSPOT_TOKEN') ?: '');
-define('HUBSPOT_API', 'https://api.hubapi.com');
+define('PORTAL_ID', '146341722');
+define('FORM_ID',   'bc2fb711-814c-4249-ba20-0e31cfb85e0a');
 
 $input = json_decode(file_get_contents('php://input'), true);
 $email = trim($input['email'] ?? '');
@@ -24,21 +24,24 @@ if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 try {
-    // Try to create contact; if already exists, update subscription status
     $payload = json_encode([
-        'properties' => [
-            'email'                        => $email,
-            'hs_email_optout_all_email'    => false,
-        ]
+        'fields' => [
+            ['objectTypeId' => '0-1', 'name' => 'email', 'value' => $email],
+        ],
+        'context' => [
+            'pageUri'  => $_SERVER['HTTP_REFERER'] ?? 'https://gogmi.org.gh',
+            'pageName' => 'GoGMI Website',
+        ],
     ]);
 
-    $ch = curl_init(HUBSPOT_API . '/crm/v3/objects/contacts');
+    $url = "https://api.hsforms.com/submissions/v3/integration/submit/" . PORTAL_ID . "/" . FORM_ID;
+
+    $ch = curl_init($url);
     curl_setopt_array($ch, [
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_POST           => true,
         CURLOPT_POSTFIELDS     => $payload,
         CURLOPT_HTTPHEADER     => [
-            'Authorization: Bearer ' . HUBSPOT_TOKEN,
             'Content-Type: application/json',
         ],
         CURLOPT_TIMEOUT        => 15,
@@ -52,13 +55,11 @@ try {
 
     if ($curlErr) throw new Exception('Connection error: ' . $curlErr);
 
-    $data = json_decode($response, true);
-
-    // 409 = contact already exists — treat as success
-    if ($httpCode === 201 || $httpCode === 200 || $httpCode === 409) {
+    if ($httpCode === 200 || $httpCode === 204) {
         echo json_encode(['success' => true, 'message' => 'Thank you for subscribing!']);
     } else {
-        $msg = $data['message'] ?? "Subscription failed (HTTP $httpCode)";
+        $data = json_decode($response, true);
+        $msg  = $data['message'] ?? "Submission failed (HTTP $httpCode)";
         throw new Exception($msg);
     }
 
