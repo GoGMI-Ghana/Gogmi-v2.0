@@ -149,13 +149,33 @@ try {
 }
 
 function formatNewsletter(array $email): array {
+    // Try dedicated thumbnail field first, then extract first image from widgets
+    $thumbnail = $email['thumbnail'] ?? null;
+    if (!$thumbnail) {
+        $widgets = $email['content']['widgets'] ?? [];
+        foreach ($widgets as $widget) {
+            $path = $widget['body']['path'] ?? '';
+            $src  = $widget['body']['img']['src'] ?? '';
+            if ($src && strpos($path, 'image_email') !== false) {
+                $thumbnail = $src;
+                break;
+            }
+        }
+        // Fallback: any widget that has an img.src
+        if (!$thumbnail) {
+            foreach ($widgets as $widget) {
+                $src = $widget['body']['img']['src'] ?? '';
+                if ($src) { $thumbnail = $src; break; }
+            }
+        }
+    }
     return [
         'id'          => $email['id'],
         'subject'     => $email['subject'] ?? ($email['name'] ?? 'Newsletter'),
         'name'        => $email['name'] ?? '',
         'previewText' => $email['previewText'] ?? '',
         'publishDate' => $email['publishDate'] ?? ($email['updatedAt'] ?? ''),
-        'thumbnail'   => $email['thumbnail'] ?? null,
+        'thumbnail'   => $thumbnail,
         'absoluteUrl' => $email['absoluteUrl'] ?? null,
     ];
 }
