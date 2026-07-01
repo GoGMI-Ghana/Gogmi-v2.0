@@ -41,29 +41,28 @@ const NewsletterPost = () => {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F3F4F6', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb', fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
 
       {/* Top bar */}
-      <div className="bg-white border-b sticky top-0 z-30" style={{ borderColor: '#E5E7EB' }}>
-        <div className="container mx-auto max-w-5xl px-6 py-4 flex items-center justify-between gap-4">
+      <div style={{ backgroundColor: 'white', borderBottom: '1px solid #E5E7EB', position: 'sticky', top: 0, zIndex: 30 }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-70 transition-opacity"
-            style={{ color: '#132552' }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 600, color: '#132552', textDecoration: 'none', opacity: 1 }}
+            onMouseEnter={e => e.currentTarget.style.opacity = 0.7}
+            onMouseLeave={e => e.currentTarget.style.opacity = 1}
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft style={{ width: 16, height: 16 }} />
             Back to News & Blog
           </Link>
-
           {newsletter?.absoluteUrl && (
             <a
               href={newsletter.absoluteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold hover:opacity-70 transition-opacity"
-              style={{ color: '#6B7280' }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 600, color: '#6B7280', textDecoration: 'none' }}
             >
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink style={{ width: 14, height: 14 }} />
               Open original
             </a>
           )}
@@ -72,21 +71,17 @@ const NewsletterPost = () => {
 
       {/* Loading */}
       {loading && (
-        <div className="flex items-center justify-center py-40">
-          <Loader2 className="w-8 h-8 animate-spin" style={{ color: '#8E3400' }} />
-          <span className="ml-3 text-lg" style={{ color: '#6B7280' }}>Loading newsletter…</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '160px 0' }}>
+          <Loader2 style={{ width: 32, height: 32, color: '#8E3400', animation: 'spin 1s linear infinite' }} />
+          <span style={{ marginLeft: 12, fontSize: 18, color: '#6B7280' }}>Loading newsletter…</span>
         </div>
       )}
 
       {/* Error */}
       {error && !loading && (
-        <div className="text-center py-40">
-          <p className="text-lg mb-4 font-semibold" style={{ color: '#EF4444' }}>{error}</p>
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-white"
-            style={{ backgroundColor: '#8E3400' }}
-          >
+        <div style={{ textAlign: 'center', padding: '160px 24px' }}>
+          <p style={{ fontSize: 18, fontWeight: 600, color: '#EF4444', marginBottom: 16 }}>{error}</p>
+          <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 8, backgroundColor: '#8E3400', color: 'white', fontWeight: 700, textDecoration: 'none' }}>
             Back to Blog
           </Link>
         </div>
@@ -94,63 +89,42 @@ const NewsletterPost = () => {
 
       {/* Content */}
       {newsletter && !loading && (
-        <div className="w-full">
+        <div>
 
-          {/* Meta header */}
-          <div className="max-w-4xl mx-auto px-6 py-8">
-          <div className="bg-white rounded-2xl px-8 py-6 mb-0 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
-                 style={{ backgroundColor: 'rgba(142,52,0,0.1)' }}>
-              <Mail className="w-3.5 h-3.5" style={{ color: '#8E3400' }} />
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: '#8E3400' }}>Newsletter</span>
-            </div>
-
-            <h1 className="text-2xl md:text-3xl font-black mb-3" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              {newsletter.subject}
-            </h1>
-
-            {newsletter.previewText && (
-              <p className="text-base leading-relaxed mb-4" style={{ color: '#6B7280' }}>
-                {newsletter.previewText}
-              </p>
-            )}
-
-            <div className="flex items-center gap-2 text-sm" style={{ color: '#9CA3AF' }}>
-              <Calendar className="w-4 h-4" />
-              <span>{formatDate(newsletter.publishDate)}</span>
+          {/* Meta strip */}
+          <div style={{ backgroundColor: '#132552', padding: '40px 24px' }}>
+            <div style={{ maxWidth: '860px', margin: '0 auto' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, backgroundColor: 'rgba(142,52,0,0.25)', padding: '6px 14px', borderRadius: 999, marginBottom: 16 }}>
+                <Mail style={{ width: 14, height: 14, color: '#C4501A' }} />
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C4501A' }}>Newsletter</span>
+              </div>
+              <h1 style={{ fontSize: 'clamp(24px, 4vw, 42px)', fontWeight: 900, color: 'white', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 12 }}>
+                {newsletter.subject}
+              </h1>
+              {newsletter.previewText && (
+                <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.65)', marginBottom: 16, lineHeight: 1.6 }}>
+                  {newsletter.previewText}
+                </p>
+              )}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.45)', fontSize: 14 }}>
+                <Calendar style={{ width: 15, height: 15 }} />
+                <span>{formatDate(newsletter.publishDate)}</span>
+              </div>
             </div>
           </div>
 
-          </div>
-          </div>
-
-          {/* Email body — full width */}
+          {/* Email body — true full width */}
           {newsletter.html ? (
-            <div className="w-full bg-white">
-              <div
-                className="newsletter-content"
-                dangerouslySetInnerHTML={{ __html: newsletter.html }}
-              />
-            </div>
+            <div className="nl-body" dangerouslySetInnerHTML={{ __html: newsletter.html }} />
           ) : (
-            <div className="max-w-2xl mx-auto px-6 py-16 text-center">
-              <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#D1D5DB' }} />
-              <p className="text-base font-semibold mb-2" style={{ color: '#132552' }}>
-                Content could not be loaded inline.
-              </p>
-              <p className="text-sm mb-6" style={{ color: '#6B7280' }}>
-                This newsletter may not have a public web version yet.
-              </p>
+            <div style={{ maxWidth: 560, margin: '0 auto', padding: '80px 24px', textAlign: 'center' }}>
+              <Mail style={{ width: 48, height: 48, color: '#D1D5DB', margin: '0 auto 16px' }} />
+              <p style={{ fontSize: 16, fontWeight: 600, color: '#132552', marginBottom: 8 }}>Content could not be loaded inline.</p>
+              <p style={{ fontSize: 14, color: '#6B7280', marginBottom: 24 }}>This newsletter may not have a public web version yet.</p>
               {newsletter.absoluteUrl && (
-                <a
-                  href={newsletter.absoluteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-white"
-                  style={{ backgroundColor: '#8E3400' }}
-                >
-                  Read on HubSpot
-                  <ExternalLink className="w-4 h-4" />
+                <a href={newsletter.absoluteUrl} target="_blank" rel="noopener noreferrer"
+                   style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 8, backgroundColor: '#8E3400', color: 'white', fontWeight: 700, textDecoration: 'none' }}>
+                  Read on HubSpot <ExternalLink style={{ width: 16, height: 16 }} />
                 </a>
               )}
             </div>
@@ -159,28 +133,21 @@ const NewsletterPost = () => {
         </div>
       )}
 
-      {/* Scoped styles — make email HTML look clean inside our page */}
       <style>{`
-        .newsletter-content {
-          width: 100%;
-          overflow-x: hidden;
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .nl-body { width: 100%; background: white; }
+        .nl-body > div { width: 100% !important; box-sizing: border-box; }
+        .nl-body img { max-width: 100% !important; height: auto !important; display: block; }
+        .nl-body table { width: 100% !important; border-collapse: collapse; }
+        .nl-body td, .nl-body th { box-sizing: border-box; }
+        .nl-body p, .nl-body h1, .nl-body h2, .nl-body h3, .nl-body li { max-width: 100%; }
+        .nl-body a { word-break: break-word; }
+        /* Expand inner padding on wide screens so content breathes */
+        @media (min-width: 768px) {
+          .nl-body > div > div { padding-left: 48px !important; padding-right: 48px !important; }
         }
-        .newsletter-content > div {
-          width: 100% !important;
-        }
-        .newsletter-content img {
-          max-width: 100% !important;
-          height: auto !important;
-        }
-        .newsletter-content table {
-          width: 100% !important;
-          border-collapse: collapse;
-        }
-        .newsletter-content td {
-          box-sizing: border-box;
-        }
-        .newsletter-content a {
-          word-break: break-word;
+        @media (min-width: 1200px) {
+          .nl-body > div > div { padding-left: 80px !important; padding-right: 80px !important; }
         }
       `}</style>
     </div>
