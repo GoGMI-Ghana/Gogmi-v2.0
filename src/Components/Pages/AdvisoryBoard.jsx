@@ -136,7 +136,7 @@ const AdvisoryBoard = () => {
               },
               
               { 
-                name: 'Jeffrey Landsman', 
+                name: 'Prof. Jeffrey Landsman', 
                 role: 'Prof. Jeffrey Landsman, former U.S. Navy Captain and Associate Professor, U.S. Naval War College ', 
                 img: '/jeffrey.jpg',
                 flagImg: '/usa flag.jpg',
