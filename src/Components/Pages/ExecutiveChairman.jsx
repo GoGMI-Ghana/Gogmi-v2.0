@@ -63,8 +63,8 @@ const ExecutiveChairman = () => {
                     <img 
                       src="/admiral.profille.jpg" 
                       alt="Executive Board Chairman"
-                      className="w-full h-full object-cover object-center"
-                      style={{ objectPosition: 'center 20%' }}
+                      className="w-full h-full object-contain"
+                      style={{ objectPosition: 'center center' }}
                     />
                   </div>
                 </div>
