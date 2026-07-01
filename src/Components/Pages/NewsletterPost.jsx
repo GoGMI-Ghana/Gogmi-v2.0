@@ -94,10 +94,11 @@ const NewsletterPost = () => {
 
       {/* Content */}
       {newsletter && !loading && (
-        <div className="container mx-auto max-w-3xl px-4 py-10">
+        <div className="w-full">
 
           {/* Meta header */}
-          <div className="bg-white rounded-2xl px-8 py-6 mb-6 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
+          <div className="max-w-4xl mx-auto px-6 py-8">
+          <div className="bg-white rounded-2xl px-8 py-6 mb-0 shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
                  style={{ backgroundColor: 'rgba(142,52,0,0.1)' }}>
               <Mail className="w-3.5 h-3.5" style={{ color: '#8E3400' }} />
@@ -120,21 +121,19 @@ const NewsletterPost = () => {
             </div>
           </div>
 
-          {/* Email body */}
+          </div>
+          </div>
+
+          {/* Email body — full width */}
           {newsletter.html ? (
-            <div
-              className="bg-white rounded-2xl overflow-hidden shadow-sm"
-              style={{ border: '1px solid #E5E7EB' }}
-            >
-              {/* Render the email HTML exactly as HubSpot sends it */}
+            <div className="w-full bg-white">
               <div
                 className="newsletter-content"
                 dangerouslySetInnerHTML={{ __html: newsletter.html }}
               />
             </div>
           ) : (
-            /* Fallback: content couldn't be fetched */
-            <div className="bg-white rounded-2xl p-12 text-center shadow-sm" style={{ border: '1px solid #E5E7EB' }}>
+            <div className="max-w-2xl mx-auto px-6 py-16 text-center">
               <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#D1D5DB' }} />
               <p className="text-base font-semibold mb-2" style={{ color: '#132552' }}>
                 Content could not be loaded inline.
@@ -163,28 +162,25 @@ const NewsletterPost = () => {
       {/* Scoped styles — make email HTML look clean inside our page */}
       <style>{`
         .newsletter-content {
-          max-width: 100%;
-          overflow-x: auto;
+          width: 100%;
+          overflow-x: hidden;
         }
-        .newsletter-content * {
-          max-width: 100% !important;
+        .newsletter-content > div {
+          width: 100% !important;
         }
         .newsletter-content img {
+          max-width: 100% !important;
           height: auto !important;
-          border-radius: 6px;
         }
         .newsletter-content table {
           width: 100% !important;
           border-collapse: collapse;
         }
+        .newsletter-content td {
+          box-sizing: border-box;
+        }
         .newsletter-content a {
           word-break: break-word;
-        }
-        /* Remove HubSpot's fixed-width email wrapper */
-        .newsletter-content .email-body,
-        .newsletter-content .wrapper,
-        .newsletter-content [width] {
-          width: 100% !important;
         }
       `}</style>
     </div>
