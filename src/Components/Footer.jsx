@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Waves, MapPin, Mail, Phone, Linkedin, Twitter, Facebook, ArrowRight, Youtube, MessageCircle } from 'lucide-react';
 
+const API_URL = 'https://api.gogmi.org.gh/api';
+
 const Footer = () => {
+  const [subEmail, setSubEmail] = useState('');
+  const [subStatus, setSubStatus] = useState(null); // null | 'loading' | 'success' | 'error'
+  const [subMsg, setSubMsg] = useState('');
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!subEmail) return;
+    setSubStatus('loading');
+    try {
+      const res = await fetch(`${API_URL}/courses/hubspot-subscribe.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: subEmail }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubStatus('success');
+        setSubMsg('Thank you for subscribing!');
+        setSubEmail('');
+      } else {
+        setSubStatus('error');
+        setSubMsg(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setSubStatus('error');
+      setSubMsg('Unable to subscribe. Please try again later.');
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -140,17 +171,33 @@ const Footer = () => {
             {/* Newsletter */}
             <div>
               <h3 className="font-bold text-lg mb-3 text-center md:text-left" style={{ fontWeight: 700 }}>Subscribe to Newsletter</h3>
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Your email"
-                  className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#8E3400] text-sm"
-                  style={{ fontWeight: 400 }}
-                />
-                <button className="bg-[#8E3400] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#6B2700] transition-all text-sm" style={{ fontWeight: 600 }}>
-                  Subscribe
-                </button>
-              </div>
+              {subStatus === 'success' ? (
+                <p className="text-sm font-semibold" style={{ color: '#4ADE80' }}>{subMsg}</p>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex gap-2">
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    value={subEmail}
+                    onChange={e => setSubEmail(e.target.value)}
+                    required
+                    disabled={subStatus === 'loading'}
+                    className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#8E3400] text-sm flex-1"
+                    style={{ fontWeight: 400 }}
+                  />
+                  <button
+                    type="submit"
+                    disabled={subStatus === 'loading'}
+                    className="bg-[#8E3400] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#6B2700] transition-all text-sm disabled:opacity-60 whitespace-nowrap"
+                    style={{ fontWeight: 600 }}
+                  >
+                    {subStatus === 'loading' ? '…' : 'Subscribe'}
+                  </button>
+                </form>
+              )}
+              {subStatus === 'error' && (
+                <p className="text-xs mt-2" style={{ color: '#F87171' }}>{subMsg}</p>
+              )}
             </div>
           </div>
         </div>
