@@ -38,9 +38,9 @@ try {
             }
         }
 
-        // Newest first
+        // Newest first (descending — current issues appear at the top)
         usort($all, function($a, $b) {
-            return strtotime($b['publishDate'] ?? 0) - strtotime($a['publishDate'] ?? 0);
+            return strtotime($b['publishDate'] ?? '0') - strtotime($a['publishDate'] ?? '0');
         });
 
         $total       = count($all);
