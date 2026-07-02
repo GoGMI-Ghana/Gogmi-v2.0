@@ -24,20 +24,27 @@ try {
         $limit  = min((int)($_GET['limit'] ?? 12), 50);
         $offset = (int)($_GET['offset'] ?? 0);
 
-        $url  = HUBSPOT_API . "/marketing/v3/emails?limit={$limit}&offset={$offset}&state=PUBLISHED&sort=publishDate&direction=DESCENDING&properties=content,thumbnail,subject,previewText,absoluteUrl,publishDate";
+        // Fetch a large batch so we can filter to Gulf Review only
+        $url  = HUBSPOT_API . "/marketing/v3/emails?limit=100&offset=0&state=PUBLISHED&sort=publishDate&direction=DESCENDING&properties=content,thumbnail,subject,previewText,absoluteUrl,publishDate";
         $data = hubspotRequest($url);
 
-        $newsletters = [];
+        $all = [];
         foreach ($data['results'] ?? [] as $email) {
-            $newsletters[] = formatNewsletter($email);
+            $name = strtolower($email['name'] ?? '');
+            $subj = strtolower($email['subject'] ?? '');
+            // Only include Gulf Review newsletters
+            if (strpos($name, 'gulf review') !== false || strpos($subj, 'gulf review') !== false) {
+                $all[] = formatNewsletter($email);
+            }
         }
 
-        // Ensure newest first regardless of API sort support
-        usort($newsletters, function($a, $b) {
+        // Newest first
+        usort($all, function($a, $b) {
             return strtotime($b['publishDate'] ?? 0) - strtotime($a['publishDate'] ?? 0);
         });
 
-        $total = $data['total'] ?? count($newsletters);
+        $total       = count($all);
+        $newsletters = array_slice($all, $offset, $limit);
 
         echo json_encode(['success' => true, 'data' => [
             'newsletters' => $newsletters,
