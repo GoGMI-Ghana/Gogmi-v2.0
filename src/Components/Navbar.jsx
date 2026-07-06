@@ -66,7 +66,7 @@ const Navbar = () => {
         { name: "Gulf Spectrum Podcast", path: "/gulf-spectrum-podcast" },
       ],
     },
-    { name: "Contact", path: "/contact" },
+
   ];
 
   const isActive = (path) => currentPath === path;
