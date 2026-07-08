@@ -15,6 +15,13 @@ import {
 const Home = () => {
   // YouTube Video ID
   const youtubeVideoId = 'XgzCbENPQn0';
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    // Give YouTube enough time to load and start playing before fading in
+    const t = setTimeout(() => setVideoReady(true), 3000);
+    return () => clearTimeout(t);
+  }, []);
 
   const eventBanners = [
     {
@@ -298,14 +305,11 @@ const Home = () => {
           
           {/* YouTube Video Overlay */}
           <iframe
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1&fs=0&iv_load_policy=3&start=0`}
-            className="w-full h-full"
-            style={{ 
+            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1&fs=0&iv_load_policy=3&start=0&vq=hd720`}
+            style={{
               position: 'absolute',
               top: '50%',
               left: '50%',
-              minWidth: '100%',
-              minHeight: '100%',
               width: '100vw',
               height: '56.25vw',
               minHeight: '100vh',
@@ -314,7 +318,9 @@ const Home = () => {
               pointerEvents: 'none',
               zIndex: 1,
               border: 'none',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              opacity: videoReady ? 1 : 0,
+              transition: 'opacity 1.2s ease-in-out',
             }}
             allow="autoplay; fullscreen"
             frameBorder="0"
