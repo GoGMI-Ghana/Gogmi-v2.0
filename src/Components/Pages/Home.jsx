@@ -651,7 +651,7 @@ const Home = () => {
           category: 'News & Blogs',
           title: 'GoGMI Contributes to GAFCSCS Landmark Republic Day Lecture',
           excerpt: 'GoGMI made a significant contribution to the GAFCSCS landmark Republic Day lecture, reinforcing its commitment to advancing maritime security, governance, and the blue economy across the Gulf of Guinea region.',
-          date: '2026',
+          date: 'July 3, 2026',
           image: '/admiral-gafcscs.jpeg',
           link: 'https://www.gogmi.org.gh/blog/gogmi-blog/gogmi-contributes-to-gafcscs-landmark-republic-day-lecture'
         },
