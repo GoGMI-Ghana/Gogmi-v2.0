@@ -31,11 +31,11 @@ const Home = () => {
     },
 
     {
-      id: 3,
-      image: '/MarineCa.jpeg',
-      alt: 'Maritime Course'
+      id: 2,
+      image: '/margov-coh2.jpeg',
+      alt: 'Maritime gov Course'
     },
-        {
+    {
       id: 4,
       image: '/partnerbanner.jpeg',
       alt: 'Partner Banner'
