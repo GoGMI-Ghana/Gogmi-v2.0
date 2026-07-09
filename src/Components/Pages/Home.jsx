@@ -35,6 +35,11 @@ const Home = () => {
       image: '/margov-coh2.jpeg',
       alt: 'Maritime gov Course'
     },
+    {
+      id: 4,
+      image: '/partnerbanner.jpeg',
+      alt: 'Partner Banner'
+    },
   ];
 
   
