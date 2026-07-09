@@ -648,12 +648,12 @@ const Home = () => {
     <div className="grid md:grid-cols-3 gap-8">
       {[
         {
-          category: 'Events',
-          title: 'Marine Casualty Investigation & Safety Management',
-          excerpt: "Maritime and Inland Waterways transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods. This executive training course builds the capacity of Maritime Administrations and related agencies to efficiently conduct investigations of marine casualties and incidents, in accordance with SOLAS regulation XI-1/6 and the IMO Casualty Investigation Code.",
-          date: 'June 29, 2026 - July 3rd 2026',
-          image: '/casualty.jpeg',
-          link: '/marine-casualty-course'
+          category: 'News & Blogs',
+          title: 'GoGMI Contributes to GAFCSCS Landmark Republic Day Lecture',
+          excerpt: 'GoGMI made a significant contribution to the GAFCSCS landmark Republic Day lecture, reinforcing its commitment to advancing maritime security, governance, and the blue economy across the Gulf of Guinea region.',
+          date: '2026',
+          image: '/thumbnail.jpeg',
+          link: '/blog/gogmi-contributes-to-gafcscs-landmark-republic-day-lecture'
         },
         {
           category: 'News & Blogs',
