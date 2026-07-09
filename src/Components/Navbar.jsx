@@ -210,18 +210,6 @@ const Navbar = () => {
 
         {/* Desktop Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
-          <button
-            onClick={() => handleNavClick("/blue-business-directory")}
-            className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
-              scrolled
-                ? "text-[#1F2933] hover:bg-[#8E3400]/10"
-                : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
-            }`}
-            style={{ fontWeight: 600 }}
-          >
-            GoGMI Blue Business Directory
-          </button>
-
           {!isAuthenticated ? (
             <button
               onClick={() => handleNavClick("/login")}
@@ -347,14 +335,6 @@ const Navbar = () => {
                 </button>
               )
             )}
-
-            <button
-              onClick={() => handleNavClick("/blue-business-directory")}
-              className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
-              style={{ fontWeight: 600 }}
-            >
-              GoGMI Blue Business Directory
-            </button>
 
             {!isAuthenticated ? (
               <button
