@@ -35,11 +35,6 @@ const Home = () => {
       image: '/margov-coh2.jpeg',
       alt: 'Maritime gov Course'
     },
-    {
-      id: 4,
-      image: '/partnerbanner.jpeg',
-      alt: 'Partner Banner'
-    }
   ];
 
   
@@ -77,7 +72,7 @@ const Home = () => {
     {
       enabled: true,                          // Turn on/off
       scheduledDate: '2026-04-05',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
-      image: '/MarineCa.jpeg',           // Image path (upload to /public folder)
+      image: '/partnerbanner.jpeg',        // Image path (upload to /public folder)
       displayDuration: 30,                     // How long to show (seconds)
       name: 'Gov Course',                  // Internal reference name
       testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
