@@ -31,11 +31,6 @@ const Home = () => {
     },
 
     {
-      id: 2,
-      image: '/margov-coh2.jpeg',
-      alt: 'Maritime gov Course'
-    },
-    {
       id: 3,
       image: '/MarineCa.jpeg',
       alt: 'Maritime Course'
