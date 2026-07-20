@@ -105,7 +105,7 @@ const OurMembers = () => {
           backgroundImage: 'radial-gradient(circle at 20% 20%, white 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }} />
-        <div className="relative max-w-6xl mx-auto px-6 pt-28 md:pt-36 pb-16 md:pb-20">
+        <div className="relative max-w-6xl mx-auto px-6 pt-28 md:pt-36 pb-14 md:pb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/70 text-xs font-semibold uppercase tracking-wider mb-4">
             <Users className="w-3.5 h-3.5" />
             Our Community
@@ -119,7 +119,7 @@ const OurMembers = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 -mt-8 md:-mt-10 pb-20">
+      <div className="max-w-6xl mx-auto px-6 pt-8 pb-20">
         {/* Search + CTA row */}
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-5 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
           <div className="relative flex-1 max-w-md">
