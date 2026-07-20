@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
   const sendOTP = async ({ membershipId }) => {
     try {
-      const res = await fetch('https://api.gogmi.org.gh/api/api/auth/auth-otp.php', {
+      const res = await fetch('https://api.gogmi.org.gh/api/auth/auth-otp.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'send', membershipId }),
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async ({ membershipId, otp }) => {
     try {
-      const res = await fetch('https://api.gogmi.org.gh/api/api/auth/auth-otp.php', {
+      const res = await fetch('https://api.gogmi.org.gh/api/auth/auth-otp.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'verify', membershipId, otp }),
