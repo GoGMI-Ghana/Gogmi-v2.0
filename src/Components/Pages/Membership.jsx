@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Check } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ArrowRight, Check, Users } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 
@@ -604,6 +604,14 @@ const Membership = () => {
                 <span>Apply Now</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
+              <Link
+                to="/our-members"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all border-2 border-white/40 text-white hover:bg-white/10"
+                style={{ fontWeight: 700 }}
+              >
+                <Users className="w-5 h-5" />
+                <span>See Our Members</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -50,6 +50,7 @@ import BlueMentorship from './Components/Pages/BlueMentorship';
 import GMAC from './Components/Pages/GMAC';
 import NewsletterPost from './Components/Pages/NewsletterPost';
 import MemberDashboard from './Components/Pages/MemberDashboard';
+import OurMembers from './Components/Pages/OurMembers';
 
 
 
@@ -112,6 +113,7 @@ function App() {
               {/* Simple login for returning members */}
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<MemberDashboard />} />
+              <Route path="/our-members" element={<OurMembers />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
