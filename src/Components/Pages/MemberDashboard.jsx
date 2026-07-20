@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
   Mail, Phone, MapPin, Building2, Briefcase, CreditCard,
-  CalendarClock, Award, Download, ShieldCheck, ShieldAlert, ShieldQuestion, BookOpen,
+  CalendarClock, Award, ShieldCheck, ShieldAlert, ShieldQuestion, BookOpen, Clock,
 } from 'lucide-react';
-import { generateMembershipCertificate } from '../../utils/generateCertificate';
 
 const STATUS_STYLES = {
   active: {
@@ -47,13 +46,13 @@ const StatusBadge = ({ status }) => {
 };
 
 const InfoRow = ({ icon: Icon, label, value }) => (
-  <div className="flex items-start gap-3 py-3">
-    <div className="mt-0.5 w-9 h-9 rounded-lg bg-[#132552]/5 flex items-center justify-center flex-shrink-0">
-      <Icon className="w-4 h-4" style={{ color: '#132552' }} />
+  <div className="flex items-start gap-3.5 py-3.5">
+    <div className="mt-0.5 w-10 h-10 rounded-xl bg-[#132552]/5 flex items-center justify-center flex-shrink-0">
+      <Icon className="w-[18px] h-[18px]" style={{ color: '#132552' }} />
     </div>
     <div className="min-w-0">
-      <p className="text-xs font-medium text-gray-400 uppercase tracking-wide">{label}</p>
-      <p className="text-sm font-semibold text-gray-800 truncate">{value || '—'}</p>
+      <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">{label}</p>
+      <p className="text-[15px] font-semibold text-gray-800 truncate">{value || '—'}</p>
     </div>
   </div>
 );
@@ -73,8 +72,6 @@ const daysRemaining = (expiry) => {
 
 const MemberDashboard = () => {
   const { isAuthenticated, user, membership } = useAuth();
-  const [generating, setGenerating] = useState(false);
-  const [certError, setCertError] = useState('');
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
@@ -88,20 +85,6 @@ const MemberDashboard = () => {
     .join('');
 
   const remaining = daysRemaining(membership?.expiry_date);
-  const isActive = membership?.status === 'active';
-
-  const handleDownloadCertificate = async () => {
-    if (!isActive) return;
-    setCertError('');
-    setGenerating(true);
-    try {
-      await generateMembershipCertificate({ user, membership });
-    } catch {
-      setCertError('Could not generate certificate. Please try again.');
-    } finally {
-      setGenerating(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gray-50" style={{ fontFamily: "'Inter', sans-serif" }}>
@@ -111,7 +94,7 @@ const MemberDashboard = () => {
           backgroundImage: 'radial-gradient(circle at 20% 20%, white 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }} />
-        <div className="relative max-w-5xl mx-auto px-6 py-12 sm:py-16">
+        <div className="relative max-w-5xl mx-auto px-6 pt-28 md:pt-36 pb-20 md:pb-24">
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <div
               className="w-20 h-20 rounded-2xl flex items-center justify-center text-2xl font-black text-white flex-shrink-0 shadow-lg"
@@ -121,17 +104,22 @@ const MemberDashboard = () => {
             </div>
             <div className="min-w-0">
               <h1 className="text-2xl sm:text-3xl font-black text-white truncate">{user?.full_name}</h1>
-              <p className="text-white/60 text-sm mb-3">{membership?.plan_name || 'GoGMI Member'}</p>
+              <p className="text-white/60 text-sm mt-1 mb-3">
+                {membership?.plan_name || 'GoGMI Member'}
+                {membership?.membership_id && (
+                  <span className="text-white/40"> · {membership.membership_id}</span>
+                )}
+              </p>
               {membership?.status && <StatusBadge status={membership.status} />}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 -mt-8 pb-16">
+      <div className="max-w-5xl mx-auto px-6 -mt-10 md:-mt-12 pb-16">
         <div className="grid md:grid-cols-2 gap-6">
           {/* Profile details */}
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-7">
             <h2 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-1">Profile</h2>
             <div className="divide-y divide-gray-100">
               <InfoRow icon={Mail} label="Email" value={user?.email} />
@@ -143,7 +131,7 @@ const MemberDashboard = () => {
           </div>
 
           {/* Membership details */}
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-7">
             <h2 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-1">Membership</h2>
             <div className="divide-y divide-gray-100">
               <InfoRow icon={CreditCard} label="Membership ID" value={membership?.membership_id} />
@@ -155,7 +143,7 @@ const MemberDashboard = () => {
               <InfoRow icon={CalendarClock} label="Expires" value={formatDate(membership?.expiry_date)} />
               {typeof remaining === 'number' && (
                 <InfoRow
-                  icon={CalendarClock}
+                  icon={Clock}
                   label="Time Remaining"
                   value={remaining > 0 ? `${remaining} day${remaining === 1 ? '' : 's'} left` : 'Expired'}
                 />
@@ -164,31 +152,26 @@ const MemberDashboard = () => {
           </div>
         </div>
 
-        {/* Certificate download */}
+        {/* Certificate — not yet available */}
         <div className="mt-6 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:justify-between">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FEF3EC' }}>
-                <Award className="w-6 h-6" style={{ color: '#8E3400' }} />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-gray-100">
+                <Award className="w-6 h-6 text-gray-400" />
               </div>
               <div>
                 <h3 className="font-bold text-lg" style={{ color: '#132552' }}>Membership Certificate</h3>
                 <p className="text-sm text-gray-500 mt-1 max-w-md">
-                  {isActive
-                    ? 'Download an official, verifiable PDF certificate of your GoGMI membership.'
-                    : 'Your membership certificate becomes available once your membership is active.'}
+                  Your official certificate is being prepared and will be available to download here once it's issued.
                 </p>
-                {certError && <p className="text-sm text-red-600 mt-2">{certError}</p>}
               </div>
             </div>
             <button
-              onClick={handleDownloadCertificate}
-              disabled={!isActive || generating}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105 shadow-lg disabled:opacity-40 disabled:hover:scale-100 whitespace-nowrap"
-              style={{ backgroundColor: '#8E3400' }}
+              disabled
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-gray-400 bg-gray-100 cursor-not-allowed whitespace-nowrap"
+              title="Certificates are not yet available for download"
             >
-              <Download className="w-5 h-5" />
-              {generating ? 'Generating…' : 'Download Certificate'}
+              Coming Soon
             </button>
           </div>
         </div>
