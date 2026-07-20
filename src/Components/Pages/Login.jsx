@@ -122,7 +122,7 @@ const Login = () => {
                     required
                     value={membershipId}
                     onChange={e => { setMembershipId(e.target.value); setError(''); }}
-                    placeholder="e.g. GoGMI-MASS2026-00001"
+                    placeholder="e.g. GoGMI-MASO2026-00001"
                     className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400] text-sm"
                   />
                 </div>
