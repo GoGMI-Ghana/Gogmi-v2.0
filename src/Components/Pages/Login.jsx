@@ -17,7 +17,7 @@ const Login = () => {
   const [resendCooldown, setResendCooldown] = useState(0);
 
   const otpRefs = useRef([]);
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/dashboard';
 
   // Countdown timer for resend
   useEffect(() => {

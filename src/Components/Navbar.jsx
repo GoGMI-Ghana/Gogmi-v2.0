@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, User, LogOut } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, LayoutDashboard } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
 
@@ -232,8 +232,9 @@ const Navbar = () => {
                 <User className="w-4 h-4" />
                 <span className="max-w-[150px] truncate">{user?.full_name?.split(' ')[0]}</span>
                 {isMember && (
-                  <span className="ml-1 px-2 py-0.5 text-xs bg-[#8E3400] text-white rounded-full">
-                    Member
+                  <span className="ml-1 inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold bg-emerald-50 text-emerald-700 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Active
                   </span>
                 )}
                 <ChevronDown className={`w-4 h-4 transition-transform ${userDropdownOpen ? 'rotate-180' : ''}`} />
@@ -249,12 +250,22 @@ const Navbar = () => {
                       {user?.email}
                     </p>
                     {isMember && (
-                      <p className="text-xs text-[#8E3400] mt-1" style={{ fontWeight: 600 }}>
+                      <span className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                         Active Member
-                      </p>
+                      </span>
                     )}
                   </div>
-                  
+
+                  <button
+                    onClick={() => handleNavClick('/dashboard')}
+                    className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors"
+                    style={{ fontWeight: 400 }}
+                  >
+                    <LayoutDashboard className="w-4 h-4" />
+                    My Dashboard
+                  </button>
+
                   <button
                     onClick={() => handleNavClick('/resources')}
                     className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors"
@@ -262,7 +273,7 @@ const Navbar = () => {
                   >
                     My Resources
                   </button>
-                  
+
                   <button
                     onClick={handleLogout}
                     className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-red-600 hover:text-white transition-colors"
@@ -357,11 +368,21 @@ const Navbar = () => {
                     {user?.email}
                   </p>
                   {isMember && (
-                    <span className="inline-block px-3 py-1 text-xs bg-[#8E3400] text-white rounded-full">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       Active Member
                     </span>
                   )}
                 </div>
+
+                <button
+                  onClick={() => handleNavClick('/dashboard')}
+                  className="flex items-center gap-2 w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
+                  style={{ fontWeight: 600 }}
+                >
+                  <LayoutDashboard className="w-4 h-4" />
+                  My Dashboard
+                </button>
 
                 <button
                   onClick={() => handleNavClick('/resources')}
