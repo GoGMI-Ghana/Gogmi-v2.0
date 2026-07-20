@@ -31,18 +31,17 @@ const CapacityBuilding = () => {
       status: 'Active',
       badge: '2026 TRAINING COURSE ALERT!',
       comingSoon: 'COMING SOON',
-      title: 'MARITIME GOVERNANCE COURSE:',
+      title: 'MARITIME GOVERNANGE FOR PRACTITIONERS:',
       subtitle: 'A FOCUS ON AFRICA',
       tagline: 'A Focus on Africa',
-      fullTitle: 'MARITIME GOVERNANCE COURSE',
+      fullTitle: 'MARITIME GOVERNANCE FOR PRACTITIONERS',
       description: 'Comprehensive 2-week virtual course equipping professionals with expertise to develop and implement maritime security strategies across the African continent.',
       duration: '2 weeks',
-      format: 'Virtual (Zoom)',
+      format: 'Virtual',
       modules: '8 modules',
       level: 'Professional',
-      faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
-      nextIntake: 'May 5 - 14, 2026',
-      image: '/maritmegovvvv.jpeg',
+      nextIntake: 'Septemeber 7 - 18, 2026',
+      image: '/margov-coh2.jpeg',
       bgColor: '#132552',
       accentColor: '#17A2B8',
       buttonColor: '#8E3400',
@@ -103,7 +102,7 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: '2025 Training for Journalist and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
+      title: '2025 TRAINING FOR JOURNALIST AND MEDIA PRACTIONERS ON MARITIME SECURITY, SAFETY AND BLUE ECONOMY IN THE GULF OF GUINEA',
       description: 'To better raise awareness on maritime security issues and challenges, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) are launching a call for participation for a training course on: "Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
       duration: '3 days',
       format: 'Hybrid',
@@ -116,7 +115,7 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'MaSSDI Training Course',
+      title: 'MaSSDI TRAINING COURSE',
       description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
       duration: '2 months',
       format: 'Virtual/Online',
@@ -125,6 +124,19 @@ const CapacityBuilding = () => {
       features: ['Maritime Security Strategy Theory', 'Assessing Maritime Security Challenges & Opportunities I & II', 'Interagency Coordination and Stakeholder Analysis I & II'],
       nextIntake: '6th oct - 30th Nov 2025',
       link: '/massdi'
+    },
+    {
+      category: 'Hybrid',
+      status: 'Completed',
+      title: 'THE BLUE MENTORSHIP PROGRAMME',
+      description: 'An African maritime accelerator selecting 30 young individuals for a full mentorship and grooming experience — connecting youth with industry leaders, entrepreneurs, and ocean professionals to prime them for blue success.',
+      duration: '12 months',
+      format: 'Hybrid',
+      level: 'All Levels',
+      image: '/bluementorshipimage.png',
+      features: ['1-on-1 Mentor Pairing', 'Blue Success Speaker Series (BLUESSS)', 'Maritime Business Support Hub'],
+      nextIntake: 'Cohort Completed',
+      link: '/blue-mentorship'
     },
     {
       category: 'Hybrid',
@@ -156,26 +168,22 @@ const CapacityBuilding = () => {
 
   const successStories = [
     {
-      name: 'Ama Mensah',
-      role: 'Marine Tourism Entrepreneur',
-      program: 'Blue Mentorship Programme 2022',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&fit=crop',
-      quote: 'The Blue Mentorship Programme connected me with industry leaders who helped me launch my sustainable coastal tourism business.',
-      impact: '€50K revenue, 15 jobs created'
+      name: 'Thomas Lartey',
+      role: 'Maritime Safety and Risk Management',
+      program: 'WYTEC Blue Project',
+      linkedin: 'https://www.linkedin.com/in/thomas-lartey-739a85223',
     },
     {
-      name: 'Kwesi Boateng',
-      role: 'Maritime Security Analyst',
-      program: 'Maritime Security Training 2023',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&fit=crop',
-      quote: 'The advanced training equipped me with practical skills in threat assessment and regional coordination.',
-      impact: 'Leading regional security projects'
-    }
+      name: 'Clement Kwara',
+      role: 'Marine and Geoscience Graduate',
+      program: 'WYTEC Blue Project',
+      linkedin: 'https://www.linkedin.com/in/clement-k-aa859211b',
+    },
   ];
 
   const impactMetrics = [
     { label: 'Training Programs', value: '5+', icon: <BookOpen className="w-6 h-6" /> },
-    { label: 'Professionals Certified', value: '100+', icon: <Award className="w-6 h-6" /> },
+    { label: 'Professionals Trained', value: '100+', icon: <Award className="w-6 h-6" /> },
     { label: 'Partner Organizations', value: '15+', icon: <Building2 className="w-6 h-6" /> }
   ];
 
@@ -187,7 +195,7 @@ const CapacityBuilding = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % featuredCourses.length);
-    }, 15000); // 15 seconds
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [featuredCourses.length]);
@@ -204,7 +212,6 @@ const CapacityBuilding = () => {
     setCurrentSlide(index);
   };
 
-  // Handle navigation with fallback
   const handleCourseNavigation = (course) => {
     if (course.id === 'maritime-governance') {
       navigate('/maritime-governance-course');
@@ -407,8 +414,8 @@ const CapacityBuilding = () => {
                             </div>
                           </div>
 
-                          {/* Distinguished Faculty */}
-                          <div className="mb-8">
+                          {/* Distinguished Faculty - commented out until faculty data is available */}
+                          {/* <div className="mb-8">
                             <h4 className="text-sm font-bold uppercase tracking-wide mb-3"
                                 style={{ color: '#6B7280' }}>
                               Distinguished Faculty
@@ -422,7 +429,7 @@ const CapacityBuilding = () => {
                                 </div>
                               ))}
                             </div>
-                          </div>
+                          </div> */}
 
                           {/* Action Buttons */}
                           <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -574,67 +581,73 @@ const CapacityBuilding = () => {
         </div>
       </section>
 
-      {/* SUCCESS STORIES */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-10">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>Success Stories</span>
-            <h2 className="text-4xl md:text-5xl mt-4 mb-4"
-                style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              Alumni Making Waves
-            </h2>
-          </div>
+      
+    {/* SUCCESS STORIES */}
+    <section style={{ backgroundColor: '#111827', padding: '96px 0 120px' }}>
+      <div className="container mx-auto max-w-7xl px-6">
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {successStories.map((story, idx) => (
-              <div
-                key={idx}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={story.image}
-                    alt={story.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-xl text-white mb-1" style={{ fontWeight: 900 }}>
-                      {story.name}
-                    </h3>
-                    <p className="text-sm mb-2" style={{ fontWeight: 600, color: '#8E3400' }}>
-                      {story.role}
-                    </p>
-                    <div className="flex items-center gap-2 text-white text-xs">
-                      <Award className="w-3 h-3" />
-                      <span style={{ fontWeight: 600 }}>{story.program}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-5">
-                  <div className="flex items-start gap-2 mb-4">
-                    <Star className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: '#8E3400' }} />
-                    <p className="text-sm leading-relaxed italic" style={{ fontWeight: 400, color: '#4B5563' }}>
-                      "{story.quote}"
-                    </p>
-                  </div>
-                  
-                  <div className="p-3 rounded-lg" style={{ backgroundColor: '#F5F7FA' }}>
-                    <div className="flex items-center gap-2">
-                      <BarChart3 className="w-4 h-4" style={{ color: '#8E3400' }} />
-                      <span className="text-sm" style={{ fontWeight: 700, color: '#132552' }}>
-                        {story.impact}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Top row: heading left, subtitle right */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
+             style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '48px' }}>
+          <h2 className="text-5xl md:text-6xl font-black text-white" style={{ letterSpacing: '-0.03em', lineHeight: 1.05 }}>
+            Alumni<br />Making Waves
+          </h2>
+          <p className="md:max-w-xs text-sm leading-relaxed md:text-right" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            GoGMI alumni are building careers and driving change across Africa's blue economy.
+          </p>
         </div>
-      </section>
+
+        {/* Cards */}
+        <div className="grid sm:grid-cols-2 gap-5">
+          {successStories.map((s, i) => (
+            <div
+              key={i}
+              className="rounded-2xl flex flex-col gap-10"
+              style={{
+                backgroundColor: '#1a2332',
+                border: '1px solid rgba(255,255,255,0.07)',
+                padding: '32px',
+              }}
+            >
+              {/* Programme tag */}
+              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                {s.program}
+              </span>
+
+              {/* Name + role */}
+              <div>
+                <p className="text-2xl font-black text-white mb-2" style={{ letterSpacing: '-0.01em' }}>{s.name}</p>
+                <p className="text-sm" style={{ color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>{s.role}</p>
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
+                    style={{ backgroundColor: '#8E3400', color: 'white' }}
+                  >
+                    {s.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                  </div>
+                  <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.35)' }}>WYTEC Blue Project</span>
+                </div>
+                <a
+                  href={s.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold transition-opacity hover:opacity-60"
+                  style={{ color: '#C4501A' }}
+                >
+                  LinkedIn Profile
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
 
     </div>
   );

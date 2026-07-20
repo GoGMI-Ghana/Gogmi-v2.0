@@ -26,28 +26,38 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = async ({ membershipId }) => {
+  const sendOTP = async ({ membershipId }) => {
     try {
-      const apiUrl = 'https://api.gogmi.org.gh/api';
-      const response = await fetch(`${apiUrl}/auth/login.php`, {
+      const res = await fetch('https://api.gogmi.org.gh/api/api/auth/auth-otp.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ membershipId })
+        body: JSON.stringify({ action: 'send', membershipId }),
       });
+      const data = await res.json();
+      if (data.success) return { success: true, maskedEmail: data.maskedEmail };
+      return { success: false, error: data.message || 'Failed to send OTP' };
+    } catch {
+      return { success: false, error: 'Unable to connect to server. Please try again.' };
+    }
+  };
 
-      const data = await response.json();
-
+  const login = async ({ membershipId, otp }) => {
+    try {
+      const res = await fetch('https://api.gogmi.org.gh/api/api/auth/auth-otp.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'verify', membershipId, otp }),
+      });
+      const data = await res.json();
       if (data.success) {
         setUser(data.data.user);
         setMembership(data.data.membership);
         localStorage.setItem('gogmi_user', JSON.stringify(data.data.user));
         localStorage.setItem('gogmi_membership', JSON.stringify(data.data.membership));
         return { success: true };
-      } else {
-        return { success: false, error: data.message || 'Login failed' };
       }
-    } catch (error) {
-      console.error('Login error:', error);
+      return { success: false, error: data.message || 'Login failed' };
+    } catch {
       return { success: false, error: 'Unable to connect to server. Please try again.' };
     }
   };
@@ -65,7 +75,7 @@ export const AuthProvider = ({ children }) => {
   if (loading) return null;
 
   return (
-    <AuthContext.Provider value={{ user, membership, isAuthenticated, isMember, login, logout }}>
+    <AuthContext.Provider value={{ user, membership, isAuthenticated, isMember, sendOTP, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

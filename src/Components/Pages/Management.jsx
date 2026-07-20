@@ -98,10 +98,12 @@ const Management = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { name: 'Lawrence Dogli', title: 'Programmes Manager' },
+              
               { name: 'Rhodalyn Owusu', title: 'Finance & Admin Officer' },
               { name: 'Enoch Dzane Nikoi', title: 'Communications Specialist' },
-              { name: 'Caleb Acquah-Harrison', title: 'Research Analyst' } 
+              { name: 'Caleb Acquah-Harrison', title: 'Research Analyst' },
+              { name: 'Ellise Grant Boamah', title: 'National Service Personel' }
+      
             ].map((member, idx) => (
               <div key={idx} className="group">
                 <div className="relative overflow-hidden rounded-xl mb-4 bg-gray-100 aspect-[3/4] shadow-lg border-2 border-gray-200">
@@ -132,7 +134,7 @@ const Management = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { name: 'Ellise Grant Boamah', title: 'National Service Personel' },
+              
               { name: 'Jonas Aryeh', title: 'Corporate Affairs' },
               { name: 'Juliet Afrah Obeng ', title: 'United Nation Hamilton Shirley Amerasinghe Memorial Fellow' }
             ].map((member, idx) => (

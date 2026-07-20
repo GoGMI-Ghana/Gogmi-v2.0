@@ -9,6 +9,7 @@ import AboutUs from './Components/Pages/AboutUs';
 import Services from './Components/Pages/Services';
 import Contact from './Components/Pages/Contact';
 import Blog from './Components/Pages/Blog';
+import BlogPost from './Components/Pages/BlogPost';
 import Resources from './Components/Pages/Resources';
 import NotFound from './Components/Pages/NotFound';
 import Careers from './Components/Pages/CareersOpportunities';
@@ -32,11 +33,25 @@ import MaritimeGovernanceCourse from './Components/Pages/MaritimeGovernanceCours
 import MarineCasualtyCourse from './Components/Pages/MarineCasualtyCourse';
 import GulfSpectrumPodcast from './Components/Pages/GulfSpectrumPodcast';
 import BlueWorldInitiative from './Components/Pages/BlueWorldInitiative';
+import WYTEC from './Components/Pages/WYTEC';
 import IMSWGEvents from './Components/Pages/IMSWGEvents';
 import IMSWGsignup from './Components/Pages/IMSWGsignup';
 import JournalistTraining from './Components/Pages/JournalistTraining';
 import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/react';
+import Testimonials from './Components/Pages/Testimonials';
+import ScrollToTopOnNavigate from './Components/ScrollToTopOnNavigate';
+import Privacy from './Components/Pages/Privacy';
+import Terms from './Components/Pages/Terms';
+import ECOP from './Components/Pages/ECOP';
+import Sitemap from './Components/Pages/Sitemap';
+import MASSDI from './Components/Pages/MASSDI';
+import BlueMentorship from './Components/Pages/BlueMentorship';
+import GMAC from './Components/Pages/GMAC';
+import NewsletterPost from './Components/Pages/NewsletterPost';
+
+
+
 
 function App() {
   return (
@@ -44,6 +59,7 @@ function App() {
       <Router>
         <div className="min-h-screen flex flex-col">
           <Navbar />
+          <ScrollToTopOnNavigate />
           <main className="">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -54,6 +70,7 @@ function App() {
               <Route path="/services/capacitybuilding" element={<CapacityBuilding />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/*" element={<BlogPost />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/membership" element={<Membership />} />
               <Route path="/mediagallery" element={<MediaGallery />} />
@@ -72,10 +89,23 @@ function App() {
               <Route path="/marine-casualty-course" element={<MarineCasualtyCourse />} />
               <Route path="/gulf-spectrum-podcast" element={<GulfSpectrumPodcast />} />
              <Route path="/blue-world-initiative" element={<BlueWorldInitiative />} />
+              <Route path="/wytec" element={<WYTEC />} />
               <Route path="/imswg-events" element={<IMSWGEvents />} />
               <Route path="/imswg-signup" element={<IMSWGsignup />} />
                <Route path="/journalist-training" element={<JournalistTraining />} />
               <Route path="/blue-business-directory" element={<BlueBusinessDirectory />} />
+              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/ecop" element={<ECOP />} />
+              <Route path="/sitemap" element={<Sitemap />} />
+              <Route path="/massdi" element={<MASSDI />} />
+              <Route path="/blue-mentorship" element={<BlueMentorship />} />
+              <Route path="/gmac" element={<GMAC />} />
+              <Route path="/newsletter/:id" element={<NewsletterPost />} />
+  
+             
+
             
               
               {/* Simple login for returning members */}

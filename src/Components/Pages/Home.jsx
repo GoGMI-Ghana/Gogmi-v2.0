@@ -15,6 +15,13 @@ import {
 const Home = () => {
   // YouTube Video ID
   const youtubeVideoId = 'XgzCbENPQn0';
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    // Give YouTube enough time to load and start playing before fading in
+    const t = setTimeout(() => setVideoReady(true), 3000);
+    return () => clearTimeout(t);
+  }, []);
 
   const eventBanners = [
     {
@@ -25,19 +32,14 @@ const Home = () => {
 
     {
       id: 2,
-      image: '/maritime.governance.jpeg',
+      image: '/margov-coh2.jpeg',
       alt: 'Maritime gov Course'
     },
     {
-      id: 3,
-      image: '/maricourse.jpeg',
-      alt: 'Maritime Course'
-    },
-        {
       id: 4,
       image: '/partnerbanner.jpeg',
       alt: 'Partner Banner'
-    }
+    },
   ];
 
   
@@ -75,7 +77,7 @@ const Home = () => {
     {
       enabled: true,                          // Turn on/off
       scheduledDate: '2026-04-05',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
-      image: '/govcourse.jpeg',           // Image path (upload to /public folder)
+      image: '/partnerbanner.jpeg',        // Image path (upload to /public folder)
       displayDuration: 30,                     // How long to show (seconds)
       name: 'Gov Course',                  // Internal reference name
       testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
@@ -298,14 +300,11 @@ const Home = () => {
           
           {/* YouTube Video Overlay */}
           <iframe
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1&fs=0&iv_load_policy=3&start=0`}
-            className="w-full h-full"
-            style={{ 
+            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1&fs=0&iv_load_policy=3&start=0&vq=hd720`}
+            style={{
               position: 'absolute',
               top: '50%',
               left: '50%',
-              minWidth: '100%',
-              minHeight: '100%',
               width: '100vw',
               height: '56.25vw',
               minHeight: '100vh',
@@ -314,7 +313,9 @@ const Home = () => {
               pointerEvents: 'none',
               zIndex: 1,
               border: 'none',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              opacity: videoReady ? 1 : 0,
+              transition: 'opacity 1.2s ease-in-out',
             }}
             allow="autoplay; fullscreen"
             frameBorder="0"
@@ -519,7 +520,7 @@ const Home = () => {
                   {[
                     'Senegal', 'Guinea-Bissau', 'Guinea', 'Sierra Leone', 'Liberia', 
                     'Côte d\'Ivoire', 'Ghana', 'Togo', 'Benin', 'Nigeria', 
-                    'Cameroon', 'Equatorial Guinea', 'Gabon', 'Congo', 
+                    'Cameroon', 'Equatorial Guinea', 'Gabon', 'Congo','Gambia', 
                     'DR Congo', 'Angola','Cape Verde','São Tomé and Príncipe '
                   ].map((country, idx) => (
                     <div 
@@ -538,7 +539,7 @@ const Home = () => {
                 <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all" 
                      style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 100%)' }}>
                   <div className="text-3xl font-black mb-2" 
-                       style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>18</div>
+                       style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>19</div>
                   <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>Coastal Countries</p>
                 </div>
                 <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all" 
@@ -647,12 +648,12 @@ const Home = () => {
     <div className="grid md:grid-cols-3 gap-8">
       {[
         {
-          category: 'Events',
-          title: 'International Maritime Security Working Group',
-          excerpt: 'The International Maritime Security Working Group (IMSWG), formed by the Gulf of Guinea Maritime Institute, is the Institute\'s flagship forum focused on stimulating dialogue and policy innovation.',
-          date: 'March 17, 2026',
-          image: '/imswgq1.jpeg',
-          link: '/imswg'
+          category: 'News & Blogs',
+          title: 'GoGMI Contributes to GAFCSCS Landmark Republic Day Lecture',
+          excerpt: 'GoGMI made a significant contribution to the GAFCSCS landmark Republic Day lecture, reinforcing its commitment to advancing maritime security, governance, and the blue economy across the Gulf of Guinea region.',
+          date: 'July 3, 2026',
+          image: '/admiral-gafcscs.jpeg',
+          link: 'https://www.gogmi.org.gh/blog/gogmi-blog/gogmi-contributes-to-gafcscs-landmark-republic-day-lecture'
         },
         {
           category: 'News & Blogs',
@@ -664,10 +665,10 @@ const Home = () => {
         },
         {
           category: 'Training',
-          title: 'Maritime Governance Course : A Focus on Africa',
+          title: 'Maritime Governance Course For Practitioners : A Focus on Africa',
           excerpt: 'This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.',
-          date: 'May 5 – 14, 2026',
-          image: '/maritmegovvvv.jpeg',
+          date: 'September 7 – 18, 2026',
+          image: '/margov-coh2.jpeg',
           link: '/services/CapacityBuilding'
         }
       ].map((news, idx) => (

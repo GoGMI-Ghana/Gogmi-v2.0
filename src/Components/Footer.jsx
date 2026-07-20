@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Waves, MapPin, Mail, Phone, Linkedin, Twitter, Facebook, ArrowRight, Youtube, MessageCircle } from 'lucide-react';
 
+const API_URL = 'https://api.gogmi.org.gh/api';
+
 const Footer = () => {
+  const [subEmail, setSubEmail] = useState('');
+  const [subStatus, setSubStatus] = useState(null); // null | 'loading' | 'success' | 'error'
+  const [subMsg, setSubMsg] = useState('');
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!subEmail) return;
+    setSubStatus('loading');
+    try {
+      const res = await fetch(`${API_URL}/courses/hubspot-subscribe.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: subEmail }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubStatus('success');
+        setSubMsg('Thank you for subscribing!');
+        setSubEmail('');
+      } else {
+        setSubStatus('error');
+        setSubMsg(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setSubStatus('error');
+      setSubMsg('Unable to subscribe. Please try again later.');
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -30,27 +61,7 @@ const Footer = () => {
                 <div className="text-sm text-gray-400" style={{ fontWeight: 400 }}>Gulf of Guinea Maritime Institute</div>
               </div>
             </div>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3 text-gray-400" style={{ fontWeight: 400 }}>
-                <MapPin className="w-5 h-5 text-[#8E3400] flex-shrink-0 mt-0.5" />
-                <div>
-                  <div>No. 4 Obodai link street, Tse Addo La Dade Kotopon, GL-108-0038</div>
-                  <div>Gr. Accra</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400" style={{ fontWeight: 400 }}>
-                <Mail className="w-5 h-5 text-[#8E3400] flex-shrink-0" />
-                <a href="mailto:info@gogmi.org.gh" className="hover:text-[#8E3400] transition-colors">
-                  info@gogmi.org.gh
-                </a>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-400" style={{ fontWeight: 400 }}>
-                <Phone className="w-5 h-5 text-[#8E3400] flex-shrink-0" />
-                <a href="tel:+233504953400" className="hover:text-[#8E3400] transition-colors">
-                  +233 50 4953400
-                </a>
-              </div>
-            </div>
+           
           </div>
 
           {/* Column 2 - Quick Links */}
@@ -61,6 +72,7 @@ const Footer = () => {
                 { name: 'Home', path: '/' },
                 { name: 'About Us', path: '/about' },
                 { name: 'Membership', path: '/Membership' },
+                { name: 'Blue Business Directory', path: '/blue-business-directory' },
                 
               ].map((item) => (
                 <li key={item.path}>
@@ -146,7 +158,7 @@ const Footer = () => {
                   <Youtube className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://wa.me/233504953400" 
+                  href="https://www.youtube.com/@gulfofguineamaritimeinstitute" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition-all hover:scale-110"
@@ -160,17 +172,33 @@ const Footer = () => {
             {/* Newsletter */}
             <div>
               <h3 className="font-bold text-lg mb-3 text-center md:text-left" style={{ fontWeight: 700 }}>Subscribe to Newsletter</h3>
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Your email"
-                  className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#8E3400] text-sm"
-                  style={{ fontWeight: 400 }}
-                />
-                <button className="bg-[#8E3400] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#6B2700] transition-all text-sm" style={{ fontWeight: 600 }}>
-                  Subscribe
-                </button>
-              </div>
+              {subStatus === 'success' ? (
+                <p className="text-sm font-semibold" style={{ color: '#4ADE80' }}>{subMsg}</p>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex gap-2">
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    value={subEmail}
+                    onChange={e => setSubEmail(e.target.value)}
+                    required
+                    disabled={subStatus === 'loading'}
+                    className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#8E3400] text-sm flex-1"
+                    style={{ fontWeight: 400 }}
+                  />
+                  <button
+                    type="submit"
+                    disabled={subStatus === 'loading'}
+                    className="bg-[#8E3400] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#6B2700] transition-all text-sm disabled:opacity-60 whitespace-nowrap"
+                    style={{ fontWeight: 600 }}
+                  >
+                    {subStatus === 'loading' ? '…' : 'Subscribe'}
+                  </button>
+                </form>
+              )}
+              {subStatus === 'error' && (
+                <p className="text-xs mt-2" style={{ color: '#F87171' }}>{subMsg}</p>
+              )}
             </div>
           </div>
         </div>
@@ -180,6 +208,7 @@ const Footer = () => {
           <p style={{ fontWeight: 400 }}>© 2025 GoGMI. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Privacy Policy</Link>
+  
             <Link to="/terms" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Terms of Service</Link>
             <Link to="/sitemap" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Sitemap</Link>
           </div>

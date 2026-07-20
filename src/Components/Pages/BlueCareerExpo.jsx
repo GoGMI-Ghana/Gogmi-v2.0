@@ -27,12 +27,29 @@ const BlueCareerExpo = () => {
   ];
 
   const vvips = [
-    { name: 'H.E. Kwii Crocus', title: 'Special Guest' },
-    { name: 'Hon. Elijah Mohammed', title: 'Youth Employment Agency Executive Director' },
-    { name: 'Rear Admiral Isaac Tawiah', title: 'Chief of Defense Staff' },
-    { name: 'Hon. Kathleen Quartey-Quaittey', title: 'Guest Speaker' },
-    { name: 'Dr. Juri Stibu', title: 'Guest Lecturer' }
+    { name: 'Her Excellency Kati Csaba ', title: 'High Commissioner of Canada to Ghana' },
+    { name: 'Rear Admiral Issah Yakubu ', title: 'Chief of Naval Staff, Ghana Navy' },
+    { name: 'Hon. Kathleen Quartey Ayensu ', title: 'Special Rapporteur for Piracy and Maritime Security for the AU Commission' },
+    { name: 'Dr. Kofi Mbiah', title: 'Guest Speaker' },
+    
   ];
+
+  const handleDownloadReport = async () => {
+    try {
+      const response = await fetch('/resources/pdfs/BCBE.pdf');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'BCBE_Report.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch {
+      window.open('/resources/pdfs/BCBE.pdf', '_blank');
+    }
+  };
 
   return (
     <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -165,6 +182,7 @@ const BlueCareerExpo = () => {
                 professionals and students engaged with maritime industry leaders to explore opportunities in the blue economy.
               </p>
               <button 
+                onClick={handleDownloadReport}
                 className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold transition-all hover:scale-105 shadow-md"
                 style={{ backgroundColor: '#132552', color: 'white', fontWeight: 700 }}
               >
@@ -312,10 +330,6 @@ const BlueCareerExpo = () => {
         </div>
       </section>
 
-      
-
-      {/* CTA Section */}
-     
     </div>
   );
 };

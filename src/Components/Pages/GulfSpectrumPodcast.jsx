@@ -33,7 +33,7 @@ const GulfSpectrumPodcast = () => {
       title: 'Future of Maritime Excellence II',
       guest: 'Vice Admiral Issah Adam Yakubu',
       description: 'Continuing the conversation on balancing global ambitions with domestic and regional challenges.',
-      image: '/pod2.jpg',
+      image: '/pod2.jp',
       youtubeLink: 'https://www.youtube.com/watch?v=2BEzgqw-M1U'
     },
     {
@@ -113,7 +113,7 @@ const GulfSpectrumPodcast = () => {
 
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <img src="/podcast.png" alt="Gulf Spectrum Podcast" className="w-full h-full object-cover" />
+                <img src="/podcastimage.png" alt="Gulf Spectrum Podcast" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
