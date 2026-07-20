@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Download, Calendar, MapPin, BookOpen, CheckCircle, X, Tag, Shield, User } from 'lucide-react';
 
-const PAYSTACK_PUBLIC_KEY = 'pk_live_5deb38ad873d2e40332a00250c2fbd6199b5de30';
+const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 const USD_TO_GHS = 10.88;
 const API_URL = 'https://api.gogmi.org.gh/api';
 
