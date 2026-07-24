@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
   Mail, Phone, MapPin, Building2, Briefcase, CreditCard,
-  CalendarClock, Award, ShieldCheck, ShieldAlert, ShieldQuestion, BookOpen, Clock,
+  CalendarClock, Award, ShieldCheck, ShieldAlert, ShieldQuestion, BookOpen, Clock, Download,
 } from 'lucide-react';
 
 const STATUS_STYLES = {
@@ -72,6 +72,31 @@ const daysRemaining = (expiry) => {
 
 const MemberDashboard = () => {
   const { isAuthenticated, user, membership } = useAuth();
+  const [certUrl, setCertUrl] = useState(null);
+  const [certChecked, setCertChecked] = useState(false);
+
+  useEffect(() => {
+    if (!membership?.membership_id) {
+      setCertChecked(true);
+      return;
+    }
+    const url = `/resources/certificates/${membership.membership_id}.pdf`;
+    let cancelled = false;
+    fetch(url, { method: 'HEAD' })
+      .then((res) => {
+        if (cancelled) return;
+        // The site's SPA rewrite (vercel.json) serves index.html with a 200
+        // for any unmatched path, so a missing PDF looks "ok" too — only
+        // trust it if the response is actually a PDF.
+        const isRealPdf = res.ok && (res.headers.get('content-type') || '').includes('pdf');
+        setCertUrl(isRealPdf ? url : null);
+        setCertChecked(true);
+      })
+      .catch(() => {
+        if (!cancelled) setCertChecked(true);
+      });
+    return () => { cancelled = true; };
+  }, [membership?.membership_id]);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
@@ -152,27 +177,44 @@ const MemberDashboard = () => {
           </div>
         </div>
 
-        {/* Certificate — not yet available */}
+        {/* Certificate */}
         <div className="mt-6 bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:justify-between">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-gray-100">
-                <Award className="w-6 h-6 text-gray-400" />
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: certUrl ? '#FEF3EC' : '#F3F4F6' }}
+              >
+                <Award className="w-6 h-6" style={{ color: certUrl ? '#8E3400' : '#9CA3AF' }} />
               </div>
               <div>
                 <h3 className="font-bold text-lg" style={{ color: '#132552' }}>Membership Certificate</h3>
                 <p className="text-sm text-gray-500 mt-1 max-w-md">
-                  Your official certificate is being prepared and will be available to download here once it's issued.
+                  {certUrl
+                    ? 'Your official GoGMI membership certificate is ready to download.'
+                    : "Your official certificate is being prepared and will be available to download here once it's issued."}
                 </p>
               </div>
             </div>
-            <button
-              disabled
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-gray-400 bg-gray-100 cursor-not-allowed whitespace-nowrap"
-              title="Certificates are not yet available for download"
-            >
-              Coming Soon
-            </button>
+            {certUrl ? (
+              <a
+                href={certUrl}
+                download
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105 shadow-lg whitespace-nowrap"
+                style={{ backgroundColor: '#8E3400' }}
+              >
+                <Download className="w-5 h-5" />
+                Download Certificate
+              </a>
+            ) : (
+              <button
+                disabled
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-gray-400 bg-gray-100 cursor-not-allowed whitespace-nowrap"
+                title="Certificates are not yet available for download"
+              >
+                {certChecked ? 'Coming Soon' : 'Checking…'}
+              </button>
+            )}
           </div>
         </div>
 
