@@ -74,7 +74,7 @@ const PartnerCard = ({ partner }) => {
 
         <div className="flex items-center justify-between text-sm">
           <span style={{ color: '#4B5563', fontWeight: 400 }}>
-            {partner.since ? `Since ${partner.since}` : ''}
+            {partner.since || ''}
           </span>
           {partner.website && (
             <a
