@@ -120,6 +120,7 @@ function App() {
           </main>
           <Footer />
           <ScrollToTop />
+          <Analytics />
         </div>
       </Router>
     </AuthProvider>
