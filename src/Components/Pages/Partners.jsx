@@ -1,203 +1,174 @@
 import React, { useState } from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Partners = () => {
-  const [selectedCategory, setSelectedCategory] = useState('International');
+  const [selectedCategory, setSelectedCategory] = useState('Partnership');
 
   const partners = [
     {
       id: 1,
-      name: 'AFRICAN UNION',
-      logo: '/AU Main.png',
-      category: 'International',
-      // type: 'Strategic Partner',
-      // since: '2015',
-      
-      website: 'https://au.int/',
-      // projects: 8
+      name: 'NIMASA',
+      logo: '/nimasa.jpg',
+      category: 'Partnership',
+      project: 'GOG-MCF/SHADE',
+      description: 'GOG-MCF/SHADE (Gulf of Guinea Maritime Collaboration Forum and Shared Awareness and De-confliction) is a collaborative platform launched in July 2021. Co-chaired by Nigeria and the Inter-Regional Coordination Centre (ICC) Yaoundé, it unites regional navies, international governments, and shipping industries to combat piracy and armed robbery at sea.',
+      since: '2021',
+      website: 'https://nimasa.gov.ng/',
     },
     {
       id: 2,
-      name: 'ECOWAS',
-      logo: '/ECOWAS Logo (1).png',
-      category: 'International',
-      // type: 'Strategic Partner',
-      // since: '2016',
-      
-      // website: 'https://www.ecowas.int/about-ecowas/',
-      // projects: 12
+      name: 'THE HEYL GROUP',
+      logo: null,
+      category: 'Partnership',
+      project: 'Air Maritime Working Group',
+      description: 'The Gulf of Guinea Regional Integrated Air Strategy provides a regional framework for developing and integrating airpower capabilities across West and Central Africa to strengthen collective security. It outlines a shared vision, strategic objectives, and guiding principles for enhancing intelligence, surveillance, rapid response, humanitarian assistance, and maritime security through coordinated air operations among member states.',
+      since: '',
+      website: '',
     },
     {
       id: 3,
-      name: 'DOTCAN',
-      logo: '/DOTCAN LOGO.png',
-      category: 'International',
-      // type: 'Strategic Partner',
-      // since: '2014',
-      
-      website: 'https://dotcan.institute/',
-      // projects: 15
+      name: 'ATLANTIC CENTRE',
+      logo: '/AtlanticCenter.webp',
+      category: 'Partnership',
+      project: 'Research Initiatives',
+      description: "The Gulf of Guinea Maritime Institute (GoGMI) collaborates with the Atlantic Centre on research initiatives that advance maritime security, defence cooperation, and governance across the Atlantic basin. This partnership brings together military and civilian expertise to produce policy-relevant research, strategic analyses, and knowledge products that strengthen regional security, promote interoperability, and support sustainable Blue Economy development. Through joint research programmes, GoGMI contributes its expertise in maritime governance and the Gulf of Guinea while supporting the Atlantic Centre's mission of enhancing defence capacity-building and multilateral cooperation among Atlantic partner states.",
+      since: '',
+      website: 'https://www.defesa.gov.pt/pt/pdefesa/ac/about',
     },
     {
       id: 4,
-      name: 'APN',
-      logo: '/APN.png',
-      category: 'Regional',
-      // type: 'Strategic Partner',
-      // since: '2017',
-      
-      website: '#####',
-      // projects: 6
+      name: 'WISTA GHANA',
+      logo: '/wista ghana.jpg',
+      category: 'Partnership',
+      project: 'BCBE 2021',
+      description: 'The Blue Careers and Business Expo 2021 was the maiden conference held on November 09 and 10 2021 at the KAIPTC at Teshie, hosted by Gulf of Guinea Maritime Institute (GoGMI) in collaboration with WISTA Ghana. The theme for this conference was "building a robust blue economy, leaving no one behind". Over 200 people participated in the Conference, including high profile personalities; Her Excellency Katai Csaba, High Commissioner of Canada to Ghana, Vice Admiral Issah Yakubu, Past Chief of Naval Staff, Ghana Navy, Hon. Kathleen Quartey Ayensu, AU Commission, Special Rapporteur for Piracy and Maritime Security, and Mr. Tukur Mohammed, Programme Officer, Maritime Security and Safety, Economic Community of West Africa States, ECOWAS, who joined the meeting virtually.',
+      since: '',
+      website: 'https://wistainternational.com/association/wista-ghana/',
     },
     {
       id: 5,
-      name: 'ECCAS',
-      logo: '/ECCAS_logo (1).jpg',
-      category: 'International',
-      // type: 'Funding Partner',
-      // since: '2018',
-      
-      website: 'https://www.ceeac-eccas.org/2023/05/28/eccas-in-brief/',
-      // projects: 10
+      name: 'EYE ON PORT',
+      logo: '/eyeonport.jpg',
+      category: 'Partnership',
+      project: '',
+      description: '',
+      since: '',
+      website: 'https://www.youtube.com/c/EyeOnPort',
     },
     {
       id: 6,
-      name: 'ENMAR',
-      logo: '/Enmar.png',
-      category: 'International',
-      // type: 'Implementation Partner',
-      // since: '2013',
-      
-      website: 'https://www.expertisefrance.fr/en/projects/enmar-maritime-security-gulf-guinea',
-      // projects: 20
+      name: 'MARITIME DIGEST',
+      logo: '/maritimedigest.webp',
+      category: 'Partnership',
+      project: '',
+      description: '',
+      since: '',
+      website: 'https://maritimedigestgh.com/',
     },
     {
       id: 7,
-      name: 'NIGERIA NAVY',
-      logo: '/nigerian navy.png',
-      category: 'Government',
-      // type: 'Regulatory Partner',
-      // since: '2016',
-      
-      website: 'https://navy.mil.ng/',
-      // projects: 9
+      name: 'CANADIAN EMBASSY',
+      logo: '/canadalogo.jpg',
+      category: 'Partnership',
+      project: '',
+      description: '',
+      since: '',
+      website: 'https://www.international.gc.ca/country-pays/ghana/accra.aspx?lang=eng',
     },
     {
       id: 8,
-      name: 'GGC',
-      logo: '/GGC Logo (1).jpg',
-      category: 'International',
-      // type: 'Funding Partner',
-      // since: '2019',
-      
-      website: 'https://luanda.mfa.gov.gh/ghana-and-the-gulf-of-guinea-commission/the-gulf-of-guinea-commission/',
-      // projects: 5
+      name: 'CONSHIP',
+      logo: '/ConShip-logo-new.webp',
+      category: 'Partnership',
+      project: '',
+      description: '',
+      since: '',
+      website: 'https://conship.com.gh/',
     },
     {
       id: 9,
-      name: 'EYE ON PORT',
-      logo: '/eyeonport.jpg',
-      category: 'Private Sector',
-      // type: 'Network Partner',
-      // since: '2017',
-      
-      website: 'https://www.youtube.com/c/EyeOnPort',
-      // projects: 7
+      name: 'ECOP',
+      logo: '/ecop.png',
+      category: 'Sponsorship',
+      project: 'ECOP Training 1 & 2',
+      description: 'Following the success of the Blue Career and Business Expo — organized to expose Ghanaian youth and early career ocean professionals to the blue economy, its challenges, and opportunities for sustainable development in 2021 — a training program on the blue economy was developed for Early Career Ocean Professionals (ECOP), with funding support from UNESCO, to sustain the interest generated among participants of the event.',
+      since: 'Mar-22',
+      website: 'https://www.ecopdecade.org/ghana/',
     },
     {
       id: 10,
-      name: 'ICC',
-      logo: '/ICC Logo (1).png',
-      category: 'International',
-      // type: 'Network Partner',
-      // since: '2017',
-      
-      website: '#',
-      // projects: 7
+      name: 'NORAD',
+      logo: '/norad.jpg',
+      category: 'Sponsorship',
+      project: '',
+      description: '',
+      since: 'Mar-22',
+      website: 'https://www.norad.no/en/',
     },
-    
     {
       id: 11,
-      name: 'Maritimafrica.jpg',
-      logo: '/Maritimafrica.jpg',
-      category: 'Private Sector',
-      // type: 'Network Partner',
-      // since: '2017',
-    
-      website: 'https://maritimafrica.com/en/',
-      // projects: 7
+      name: 'UNESCO',
+      logo: '/UNESCO_logo_hor_blue_transparent.png',
+      category: 'Sponsorship',
+      project: 'ECOP Training 2',
+      description: 'Following the success of the Blue Career and Business Expo — organized to expose Ghanaian youth and early career ocean professionals to the blue economy, its challenges, and opportunities for sustainable development in 2021 — a training program on the blue economy was developed for Early Career Ocean Professionals (ECOP), with funding support from UNESCO, to sustain the interest generated among participants of the event.',
+      since: '',
+      website: 'https://www.unesco.org/en',
     },
-
     {
       id: 12,
-      name: 'IMO',
-      logo: '/international-maritime-organization-vector-logo (1).png',
-      category: 'Private Sector',
-      // type: 'Network Partner',
-      // since: '2017',
-   
-      website: 'https://www.imo.org/ ',
-      //  projects: 7
-     },
-
-     {
-    id: 13,
-    name: 'NIMASA',
-    logo: '/nimasa.jpg',
-    category: 'Private Sector',
-    //  type: 'Network Partner',
-      // since: '2017',
-      // description: 'Women in maritime empowerment programs',
-      website: 'https://nimasa.gov.ng/',
-      // projects: 7
-     },
-
-
-     {
-    id: 14,
-    name: 'GHANA NAVY',
-    logo: '/gh-navy.png',
-    category: 'Government',
-    //  type: 'Network Partner',
-      // since: '2017',
-      // description: 'Women in maritime empowerment programs',
-      website: 'https://navyonline.mil.gh/',
-      // projects: 7
-     },
-
-      {
-    id: 15,
-    name: 'NEXUS COASTAL',
-    logo: '/NEXUS COASTAL LOGO.png',
-    category: 'Private Sector',
-    //  type: 'Network Partner',
-      // since: '2017',
-      // description: 'Women in maritime empowerment programs',
-      website: ' https://nexuscoastal.com/',
-      // projects: 7
-     },
-
-
-
-     
-      {
-    id: 16,
-    name: 'CONSHIP',
-    logo: '/Conship.jpg',
-    category: 'Private Sector',
-    //  type: 'Network Partner',
-      // since: '2017',
-      // description: 'Women in maritime empowerment programs',
-      website: 'https://conship.com.gh/',
-      // projects: 7
-     },
-
-
-    
+      name: 'EXPERTISE FRANCE',
+      logo: null,
+      category: 'Partnership',
+      project: 'ENMAR',
+      description: 'Enhanced Maritime Action in the Gulf of Guinea (ENMAR) is a European Union-funded initiative implemented by Expertise France to strengthen maritime security, safety, and governance in the Gulf of Guinea through enhanced regional cooperation and capacity development. As a research and implementation partner, the Gulf of Guinea Maritime Institute (GoGMI) collaborated with Expertise France to produce comprehensive maritime country briefs for Gulf of Guinea states, providing strategic analyses of national maritime governance, security challenges, institutional frameworks, and emerging Blue Economy opportunities. In addition, GoGMI designed and delivered specialised training for media practitioners, equipping journalists with the knowledge and skills needed to report accurately on maritime security, governance, and Blue Economy issues, thereby promoting informed public discourse and greater awareness of the maritime domain across the region.',
+      since: '2025 - 2026',
+      website: 'https://www.expertisefrance.fr/en',
+    },
+    {
+      id: 13,
+      name: 'GREAT MINDS EVENT MANAGEMENT',
+      logo: null,
+      category: 'Partnership',
+      project: 'IDEC & IMDEC',
+      description: '',
+      since: '',
+      website: 'https://www.gmevents.ae/',
+    },
+    {
+      id: 14,
+      name: 'DOTCAN',
+      logo: '/DOTCANLOGO.png',
+      category: 'Partnership',
+      project: 'World Oceans Day, Ocean Career Fair, WYTEC Blue I & II',
+      description: '',
+      since: '',
+      website: 'https://dotcan.institute/',
+    },
+    {
+      id: 15,
+      name: 'MARITIMAFRICA',
+      logo: '/Maritimafrica.jpg',
+      category: 'Partnership',
+      project: 'Blue Mentorship',
+      description: '',
+      since: '',
+      website: 'https://maritimafrica.com/en/',
+    },
+    {
+      id: 16,
+      name: 'KAIPTC',
+      logo: '/kaiptc.jpg',
+      category: 'Partnership',
+      project: 'IMSWG',
+      description: '',
+      since: '',
+      website: 'https://www.kaiptc.org/',
+    },
   ];
 
-  const categories = ['International', 'Regional', 'Government', 'Private Sector'];
+  const categories = ['Partnership', 'Sponsorship'];
 
   const filteredPartners = partners.filter(partner => partner.category === selectedCategory);
 
@@ -331,52 +302,65 @@ const Partners = () => {
             {filteredPartners.map((partner) => (
               <div
                 key={partner.id}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300 relative"
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300 relative flex flex-col"
               >
-                {/* Project Count Badge */}
+                {/* Category Badge */}
                 <div className="absolute top-4 right-4">
                   <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs"
-                        style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}>
-                    {partner.projects} Projects
+                        style={{ backgroundColor: partner.category === 'Sponsorship' ? '#132552' : '#8E3400', color: 'white', fontWeight: 600 }}>
+                    {partner.category}
                   </span>
                 </div>
 
                 {/* Logo */}
                 <div className="flex items-center justify-center h-24 mb-5">
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-contain"
-                  />
+                  {partner.logo ? (
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center rounded-lg"
+                         style={{ backgroundColor: '#F5F7FA' }}>
+                      <Building2 className="w-8 h-8" style={{ color: '#132552', opacity: 0.4 }} />
+                    </div>
+                  )}
                 </div>
 
                 {/* Name */}
-                <h3 className="text-center text-base font-bold mb-2" 
+                <h3 className="text-center text-base font-bold mb-2"
                     style={{ color: '#132552', fontWeight: 700 }}>
                   {partner.name}
                 </h3>
 
-                {/* Type */}
-                <p className="text-center text-sm mb-4" 
-                   style={{ color: '#4B5563', fontWeight: 600 }}>
-                  {partner.type}
-                </p>
-
-                {/* Details - Always Visible */}
-                <div className="pt-4 border-t border-gray-200">
-                  <p className="text-sm leading-relaxed mb-4" 
-                     style={{ color: '#4B5563', fontWeight: 400 }}>
-                    {partner.description}
+                {/* Project */}
+                {partner.project && (
+                  <p className="text-center text-sm mb-4"
+                     style={{ color: '#8E3400', fontWeight: 600 }}>
+                    {partner.project}
                   </p>
-                  
+                )}
+
+                {/* Details */}
+                <div className="pt-4 border-t border-gray-200 mt-auto">
+                  {partner.description && (
+                    <p className="text-sm leading-relaxed mb-4"
+                       style={{ color: '#4B5563', fontWeight: 400 }}>
+                      {partner.description}
+                    </p>
+                  )}
+
                   <div className="flex items-center justify-between text-sm">
-                    <span style={{ color: '#4B5563', fontWeight: 400 }}>Since {partner.since}</span>
-                    {partner.website !== '#' && (
-                      <a 
+                    <span style={{ color: '#4B5563', fontWeight: 400 }}>
+                      {partner.since ? `Since ${partner.since}` : ''}
+                    </span>
+                    {partner.website && (
+                      <a
                         href={partner.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:text-[#8E3400] transition-colors"
+                        className="flex items-center gap-1 hover:text-[#8E3400] transition-colors ml-auto"
                         style={{ color: '#132552', fontWeight: 600 }}
                       >
                         <span>Visit</span>
