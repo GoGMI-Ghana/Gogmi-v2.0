@@ -1,6 +1,98 @@
 import React, { useState } from 'react';
-import { ExternalLink, Building2 } from 'lucide-react';
+import { ExternalLink, Building2, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+const DESCRIPTION_TRUNCATE_LENGTH = 140;
+
+const PartnerCard = ({ partner }) => {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = partner.description && partner.description.length > DESCRIPTION_TRUNCATE_LENGTH;
+
+  return (
+    <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300 relative flex flex-col">
+      {/* Category Badge */}
+      <div className="absolute top-4 right-4">
+        <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs"
+              style={{ backgroundColor: partner.category === 'Sponsorship' ? '#132552' : '#8E3400', color: 'white', fontWeight: 600 }}>
+          {partner.category}
+        </span>
+      </div>
+
+      {/* Logo */}
+      <div className="flex items-center justify-center h-24 mb-5">
+        {partner.logo ? (
+          <img
+            src={partner.logo}
+            alt={partner.name}
+            className="max-w-full max-h-full object-contain"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center rounded-lg"
+               style={{ backgroundColor: '#F5F7FA' }}>
+            <Building2 className="w-8 h-8" style={{ color: '#132552', opacity: 0.4 }} />
+          </div>
+        )}
+      </div>
+
+      {/* Name */}
+      <h3 className="text-center text-base font-bold mb-2"
+          style={{ color: '#132552', fontWeight: 700 }}>
+        {partner.name}
+      </h3>
+
+      {/* Project */}
+      {partner.project && (
+        <p className="text-center text-sm mb-4"
+           style={{ color: '#8E3400', fontWeight: 600 }}>
+          {partner.project}
+        </p>
+      )}
+
+      {/* Details */}
+      <div className="pt-4 border-t border-gray-200 mt-auto">
+        {partner.description && (
+          <>
+            <p
+              className={`text-sm leading-relaxed ${expanded ? 'mb-2' : 'mb-1 line-clamp-3'}`}
+              style={{ color: '#4B5563', fontWeight: 400 }}
+            >
+              {partner.description}
+            </p>
+            {isLong && (
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                className="flex items-center gap-1 text-xs mb-3 hover:underline"
+                style={{ color: '#8E3400', fontWeight: 600 }}
+              >
+                {expanded ? 'Read less' : 'Read more'}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
+              </button>
+            )}
+          </>
+        )}
+
+        <div className="flex items-center justify-between text-sm">
+          <span style={{ color: '#4B5563', fontWeight: 400 }}>
+            {partner.since ? `Since ${partner.since}` : ''}
+          </span>
+          {partner.website && (
+            <a
+              href={partner.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-[#8E3400] transition-colors ml-auto"
+              style={{ color: '#132552', fontWeight: 600 }}
+            >
+              <span>Visit</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Partners = () => {
   const [selectedCategory, setSelectedCategory] = useState('Partnership');
@@ -300,76 +392,7 @@ const Partners = () => {
           {/* Grid - 3 columns for better content display */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPartners.map((partner) => (
-              <div
-                key={partner.id}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300 relative flex flex-col"
-              >
-                {/* Category Badge */}
-                <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs"
-                        style={{ backgroundColor: partner.category === 'Sponsorship' ? '#132552' : '#8E3400', color: 'white', fontWeight: 600 }}>
-                    {partner.category}
-                  </span>
-                </div>
-
-                {/* Logo */}
-                <div className="flex items-center justify-center h-24 mb-5">
-                  {partner.logo ? (
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      className="max-w-full max-h-full object-contain"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center rounded-lg"
-                         style={{ backgroundColor: '#F5F7FA' }}>
-                      <Building2 className="w-8 h-8" style={{ color: '#132552', opacity: 0.4 }} />
-                    </div>
-                  )}
-                </div>
-
-                {/* Name */}
-                <h3 className="text-center text-base font-bold mb-2"
-                    style={{ color: '#132552', fontWeight: 700 }}>
-                  {partner.name}
-                </h3>
-
-                {/* Project */}
-                {partner.project && (
-                  <p className="text-center text-sm mb-4"
-                     style={{ color: '#8E3400', fontWeight: 600 }}>
-                    {partner.project}
-                  </p>
-                )}
-
-                {/* Details */}
-                <div className="pt-4 border-t border-gray-200 mt-auto">
-                  {partner.description && (
-                    <p className="text-sm leading-relaxed mb-4"
-                       style={{ color: '#4B5563', fontWeight: 400 }}>
-                      {partner.description}
-                    </p>
-                  )}
-
-                  <div className="flex items-center justify-between text-sm">
-                    <span style={{ color: '#4B5563', fontWeight: 400 }}>
-                      {partner.since ? `Since ${partner.since}` : ''}
-                    </span>
-                    {partner.website && (
-                      <a
-                        href={partner.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:text-[#8E3400] transition-colors ml-auto"
-                        style={{ color: '#132552', fontWeight: 600 }}
-                      >
-                        <span>Visit</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <PartnerCard key={partner.id} partner={partner} />
             ))}
           </div>
         </div>
