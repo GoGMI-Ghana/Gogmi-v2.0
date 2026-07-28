@@ -89,7 +89,7 @@ const Partners = () => {
     {
       id: 9,
       name: 'ECOP',
-      logo: '/ecop.png',
+      logo: '/ecop1.jpg',
       category: 'Sponsorship',
       project: 'ECOP Training 1 & 2',
       description: 'Following the success of the Blue Career and Business Expo — organized to expose Ghanaian youth and early career ocean professionals to the blue economy, its challenges, and opportunities for sustainable development in 2021 — a training program on the blue economy was developed for Early Career Ocean Professionals (ECOP), with funding support from UNESCO, to sustain the interest generated among participants of the event.',
