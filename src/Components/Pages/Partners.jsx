@@ -119,7 +119,7 @@ const Partners = () => {
     {
       id: 12,
       name: 'EXPERTISE FRANCE',
-      logo: null,
+      logo: '/expertise-france.jpg',
       category: 'Partnership',
       project: 'ENMAR',
       description: 'Enhanced Maritime Action in the Gulf of Guinea (ENMAR) is a European Union-funded initiative implemented by Expertise France to strengthen maritime security, safety, and governance in the Gulf of Guinea through enhanced regional cooperation and capacity development. As a research and implementation partner, the Gulf of Guinea Maritime Institute (GoGMI) collaborated with Expertise France to produce comprehensive maritime country briefs for Gulf of Guinea states, providing strategic analyses of national maritime governance, security challenges, institutional frameworks, and emerging Blue Economy opportunities. In addition, GoGMI designed and delivered specialised training for media practitioners, equipping journalists with the knowledge and skills needed to report accurately on maritime security, governance, and Blue Economy issues, thereby promoting informed public discourse and greater awareness of the maritime domain across the region.',
