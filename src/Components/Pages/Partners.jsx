@@ -105,7 +105,7 @@ const Partners = () => {
       category: 'Partnership',
       project: 'GOG-MCF/SHADE',
       description: 'GOG-MCF/SHADE (Gulf of Guinea Maritime Collaboration Forum and Shared Awareness and De-confliction) is a collaborative platform launched in July 2021. Co-chaired by Nigeria and the Inter-Regional Coordination Centre (ICC) Yaoundé, it unites regional navies, international governments, and shipping industries to combat piracy and armed robbery at sea.',
-      since: '2021',
+      since: '2021-2021',
       website: 'https://nimasa.gov.ng/',
     },
     {
