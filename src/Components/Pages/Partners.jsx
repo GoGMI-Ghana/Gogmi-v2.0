@@ -79,7 +79,7 @@ const Partners = () => {
     {
       id: 8,
       name: 'CONSHIP',
-      logo: '/ConShip-logo-new.webp',
+      logo: '/Conship.jpg',
       category: 'Partnership',
       project: '',
       description: '',
