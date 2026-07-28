@@ -235,8 +235,8 @@ const Partners = () => {
           <div className="flex justify-center">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl">
               {[
-                { number: '20+', label: 'Global Partners' },
-                { number: '15+', label: 'Countries' },
+                { number: '15+', label: 'Global Partners' },
+                { number: '10+', label: 'Countries' },
                 // { number: '100+', label: 'Joint Projects' },
                 { number: '10 Years', label: 'Collaboration' }
               ].map((stat, idx) => (
