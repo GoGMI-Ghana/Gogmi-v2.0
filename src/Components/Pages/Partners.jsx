@@ -125,7 +125,7 @@ const Partners = () => {
       category: 'Partnership',
       project: 'Research Initiatives',
       description: "The Gulf of Guinea Maritime Institute (GoGMI) collaborates with the Atlantic Centre on research initiatives that advance maritime security, defence cooperation, and governance across the Atlantic basin. This partnership brings together military and civilian expertise to produce policy-relevant research, strategic analyses, and knowledge products that strengthen regional security, promote interoperability, and support sustainable Blue Economy development. Through joint research programmes, GoGMI contributes its expertise in maritime governance and the Gulf of Guinea while supporting the Atlantic Centre's mission of enhancing defence capacity-building and multilateral cooperation among Atlantic partner states.",
-      since: '',
+      since: '2020-present',
       website: 'https://www.defesa.gov.pt/pt/pdefesa/ac/about',
     },
     {
@@ -185,7 +185,7 @@ const Partners = () => {
       category: 'Sponsorship',
       project: 'ECOP Training 1 & 2',
       description: 'Following the success of the Blue Career and Business Expo — organized to expose Ghanaian youth and early career ocean professionals to the blue economy, its challenges, and opportunities for sustainable development in 2021 — a training program on the blue economy was developed for Early Career Ocean Professionals (ECOP), with funding support from UNESCO, to sustain the interest generated among participants of the event.',
-      since: 'Mar-22',
+      since: '2022-2022',
       website: 'https://www.ecopdecade.org/ghana/',
     },
     {
@@ -195,7 +195,7 @@ const Partners = () => {
       category: 'Sponsorship',
       project: '',
       description: '',
-      since: 'Mar-22',
+      since: '2022-2022',
       website: 'https://www.norad.no/en/',
     },
     {
@@ -235,7 +235,7 @@ const Partners = () => {
       category: 'Partnership',
       project: 'World Oceans Day, Ocean Career Fair, WYTEC Blue I & II',
       description: '',
-      since: '',
+      since: '2020-present',
       website: 'https://dotcan.institute/',
     },
     {
