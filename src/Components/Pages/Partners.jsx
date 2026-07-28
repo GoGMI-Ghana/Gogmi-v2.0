@@ -129,7 +129,7 @@ const Partners = () => {
     {
       id: 13,
       name: 'GREAT MINDS EVENT MANAGEMENT',
-      logo: null,
+      logo: '/GM-logo.webp',
       category: 'Partnership',
       project: 'IDEC & IMDEC',
       description: '',
