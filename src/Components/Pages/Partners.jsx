@@ -258,6 +258,28 @@ const Partners = () => {
       since: '2020',
       website: 'https://www.kaiptc.org/',
     },
+
+     {
+      id: 17,
+      name: 'SOKO AERIA',
+      logo: '/DOTCANLOGO.png',
+      category: 'SPONSORSHIP',
+      project: 'WORLD OCEANS DAY',
+      description: "DOTCAN Institute and the Gulf of Guinea Maritime Institute (GoGMI) have partnered on a range of initiatives to strengthen ocean literacy, build technical capacity, and promote inclusive participation in the Blue Economy across Ghana and the wider Atlantic community. Through this collaboration, GoGMI coordinated a World Oceans Day celebration that connected students from Accra Girls Senior High School with their counterparts in Nova Scotia, Canada, fostering cross-cultural dialogue on ocean stewardship and sustainability. The partnership also delivered an Ocean Career Fair, preceded by an extensive Ocean Literacy Campaign across selected second-cycle schools in Ghana, exposing hundreds of students to career opportunities in the maritime and ocean sectors while inspiring the next generation of blue economy professionals. In addition, GoGMI serves as a key partner in WYTEC Blue (Women & Youth Technical Capacity for the Blue Economy), an internationally recognised capacity-building programme that equips women and young professionals in Canada and West Africa with technical, leadership, and entrepreneurial skills in ocean science, maritime safety, and the Blue Economy. Together, these initiatives have advanced education, international collaboration, and workforce development for a safe, secure, and sustainable Blue Economy.",
+      since: '2020-present',
+      website: 'https://sokoaerial.com/',
+    },
+
+     {
+      id: 18,
+      name: 'NEXUS COASTAL RESOURCE MANAGEMENT LTD.',
+      logo: '/NEXUS COASTAL LOGO.png',
+      category: 'SPONSORSHIP',
+      project: 'World Oceans Day, Ocean Career Fair, WYTEC Blue I & II',
+      description: "DOTCAN Institute and the Gulf of Guinea Maritime Institute (GoGMI) have partnered on a range of initiatives to strengthen ocean literacy, build technical capacity, and promote inclusive participation in the Blue Economy across Ghana and the wider Atlantic community. Through this collaboration, GoGMI coordinated a World Oceans Day celebration that connected students from Accra Girls Senior High School with their counterparts in Nova Scotia, Canada, fostering cross-cultural dialogue on ocean stewardship and sustainability. The partnership also delivered an Ocean Career Fair, preceded by an extensive Ocean Literacy Campaign across selected second-cycle schools in Ghana, exposing hundreds of students to career opportunities in the maritime and ocean sectors while inspiring the next generation of blue economy professionals. In addition, GoGMI serves as a key partner in WYTEC Blue (Women & Youth Technical Capacity for the Blue Economy), an internationally recognised capacity-building programme that equips women and young professionals in Canada and West Africa with technical, leadership, and entrepreneurial skills in ocean science, maritime safety, and the Blue Economy. Together, these initiatives have advanced education, international collaboration, and workforce development for a safe, secure, and sustainable Blue Economy.",
+      since: '2021',
+      website: 'https://nexuscoastal.com/',
+    },
   ];
 
   const categories = ['Partnership', 'Sponsorship'];
