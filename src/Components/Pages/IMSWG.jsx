@@ -313,7 +313,7 @@ const IMSWG = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => navigate('/imswg-forum')}
+              onClick={() => navigate('/imswg-forum-q3')}
               className="px-10 py-4 rounded-xl font-semibold transition-all hover:scale-105 bg-white text-slate-900 shadow-xl cursor-pointer"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
             >

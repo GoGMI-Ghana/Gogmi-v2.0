@@ -29,6 +29,7 @@ import Management from './Components/Pages/Management';
 import AdvisoryBoard from './Components/Pages/AdvisoryBoard';
 import Login from './Components/Pages/Login';
 import IMSWGforum from './Components/Pages/IMSWGforum';
+import IMSWGforumQ3 from './Components/Pages/IMSWGforumQ3';
 import MaritimeGovernanceCourse from './Components/Pages/MaritimeGovernanceCourse';
 import MarineCasualtyCourse from './Components/Pages/MarineCasualtyCourse';
 import GulfSpectrumPodcast from './Components/Pages/GulfSpectrumPodcast';
@@ -87,6 +88,7 @@ function App() {
               <Route path="/management" element={<Management />} />
               <Route path="/advisoryboard" element={<AdvisoryBoard />} />
               <Route path="/imswg-forum" element={<IMSWGforum />} />
+              <Route path="/imswg-forum-q3" element={<IMSWGforumQ3 />} />
               <Route path="/maritime-governance-course" element={<MaritimeGovernanceCourse />} />
               <Route path="/marine-casualty-course" element={<MarineCasualtyCourse />} />
               <Route path="/gulf-spectrum-podcast" element={<GulfSpectrumPodcast />} />
