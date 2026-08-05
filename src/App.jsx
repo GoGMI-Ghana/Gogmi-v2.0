@@ -52,6 +52,7 @@ import GMAC from './Components/Pages/GMAC';
 import NewsletterPost from './Components/Pages/NewsletterPost';
 import MemberDashboard from './Components/Pages/MemberDashboard';
 import OurMembers from './Components/Pages/OurMembers';
+import OurBrand from './Components/Pages/OurBrand';
 
 
 
@@ -116,6 +117,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<MemberDashboard />} />
               <Route path="/our-members" element={<OurMembers />} />
+              <Route path="/our-brand" element={<OurBrand />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
