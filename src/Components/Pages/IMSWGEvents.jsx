@@ -201,7 +201,7 @@ const IMSWGEvents = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full"></div>
               <img
-                src="/BBNJ.jpeg"
+                src="/BBNJ-new.jpeg"
                 alt="IMSWG 2026 Quarter 3 Forum Flyer"
                 className="relative rounded-2xl shadow-2xl w-full hover:scale-105 transition-transform duration-300"
               />
