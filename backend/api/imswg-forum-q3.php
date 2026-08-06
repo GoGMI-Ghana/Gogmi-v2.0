@@ -179,14 +179,20 @@ try {
             <div class='content'>
                 <p>Dear <strong>$fullName</strong>,</p>
 
-                <p>Thank you for registering for our upcoming IMSWG 2026 Quarter 3 event.
-                We truly appreciate your interest and look forward to your participation.</p>
+                <p>Thank you for registering for the International Maritime Security Working Group (IMSWG) meeting titled: <strong>The Implications of the BBNJ Agreement for the Gulf of Guinea</strong>.</p>
 
-                <p>Event details, including the meeting link and schedule, will be sent to you in a follow-up email closer to the date.</p>
+                <p>We are delighted to confirm your registration and look forward to your participation in what promises to be an engaging and insightful discussion with maritime experts and practitioners.</p>
 
-                <p>If you have any questions ahead of the event, please feel free to reach out.</p>
+                <div class='highlight'>
+                    <p style='margin: 0 0 8px 0;'><strong>Zoom Meeting Link:</strong></p>
+                    <p style='margin: 0;'><a href='https://us06web.zoom.us/j/82389137570?pwd=80bSuwazOJfhI5bJx5aGXkfWb8HkSr.1' style='color: #8E3400;'>https://us06web.zoom.us/j/82389137570?pwd=80bSuwazOJfhI5bJx5aGXkfWb8HkSr.1</a></p>
+                </div>
 
-                <p>We look forward to an engaging and productive session with you.</p>
+                <p>We encourage you to join a few minutes before the scheduled start time to ensure a smooth connection.</p>
+
+                <p>Should you have any questions before the meeting, please do not hesitate to contact us.</p>
+
+                <p>Thank you once again for your interest. We look forward to welcoming you to the session.</p>
 
                 <p>Warm regards,<br>GoGMI Team, <strong>IMSWG Forum 2026 - Quarter 3</strong>.</p>
 

@@ -32,7 +32,7 @@ const IMSWGforumQ3 = () => {
             Thank you for registering for our upcoming IMSWG 2026 Quarter 3 event. We truly appreciate your interest and look forward to your participation.
           </p>
           <p className="text-base mb-6" style={{ color: '#475569' }}>
-            Event details, including the meeting link and schedule, will be sent to you in a follow-up email closer to the date.
+            Kindly check your email for the Zoom meeting link and other event details.
           </p>
           <p className="text-sm font-semibold mb-8" style={{ color: '#1e293b' }}>
             GoGMI.
