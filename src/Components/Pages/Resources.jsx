@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Download, Search, Calendar, Eye, BookOpen, Video, X, ExternalLink, Lock } from 'lucide-react';
+import { Download, Search, Calendar, Eye, BookOpen, Video, X, ExternalLink, Lock } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Resources = () => {
@@ -721,24 +721,6 @@ const Resources = () => {
             <span>•</span>
             <span>Internal Reports: Members only</span>
           </p>
-        </div>
-      </section>
-
-      <section className="relative -mt-16 z-20 px-6 pb-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-3 gap-4">
-            {[
-              { icon: <FileText />, number: '18+', label: 'Publications' },
-              { icon: <Download />, number: '15K+', label: 'Downloads' },
-              { icon: <BookOpen />, number: '1200+', label: 'Pages' }
-            ].map((stat, idx) => (
-              <div key={idx} className="bg-[#F5F7FA] rounded-2xl p-6 shadow-xl text-center hover:shadow-2xl transition-all hover:-translate-y-1">
-                <div className="text-[#8E3400] flex justify-center mb-3">{stat.icon}</div>
-                <div className="text-3xl font-bold text-[#132552] mb-1" style={{ fontWeight: 900 }}>{stat.number}</div>
-                <p className="text-[#1F2933] text-sm font-medium" style={{ fontWeight: 600 }}>{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
