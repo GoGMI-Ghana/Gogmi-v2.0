@@ -21,6 +21,13 @@ const Resources = () => {
   useEffect(() => {
     if (location.hash === '#internal-reports') {
       setSelectedType('Internal Reports');
+
+      const params = new URLSearchParams(location.search);
+      const subcategory = params.get('subcategory');
+      if (subcategory) {
+        setSelectedSubcategory(subcategory);
+      }
+
       setTimeout(() => {
         const element = document.getElementById('internal-reports');
         if (element) {

@@ -6,7 +6,7 @@ const IMSWG = () => {
   const navigate = useNavigate();
 
   const goToReports = () => {
-    navigate('/resources#internal-reports');
+    navigate('/resources?subcategory=IMSWG+Reports#internal-reports');
   };
 
   return (
