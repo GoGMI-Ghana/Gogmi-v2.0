@@ -151,10 +151,12 @@ try {
         </html>
     ";
 
+    $senderEmail = 'info@gogmi.org.gh';
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8\r\n";
-    $headers .= "From: IMSWG Forum <noreply@gogmi.org.gh>\r\n";
-    $headers .= "Reply-To: info@gogmi.org.gh\r\n";
+    $headers .= "From: GoGMI IMSWG Forum <$senderEmail>\r\n";
+    $headers .= "Reply-To: $senderEmail\r\n";
+    $headers .= "Return-Path: $senderEmail\r\n";
 
     // Send to admin
     // @mail($adminEmail, $subject, $emailBody, $headers);
@@ -205,8 +207,8 @@ try {
         </html>
     ";
 
-    // Send to applicant
-    @mail($email, $confirmSubject, $confirmBody, $headers);
+    // Send to applicant (-f sets the envelope sender so it matches the From address, which helps deliverability/SPF alignment)
+    @mail($email, $confirmSubject, $confirmBody, $headers, "-f$senderEmail");
 
     // Return success response
     echo json_encode([
