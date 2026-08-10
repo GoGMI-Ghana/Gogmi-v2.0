@@ -21,7 +21,7 @@ const GulfSpectrumPodcast = () => {
       title: 'Future of Maritime Excellence II',
       guest: 'Vice Admiral Issah Adam Yakubu',
       description: 'Continuing the conversation on balancing global ambitions with domestic and regional challenges.',
-      image: '/pod2.jp',
+      image: '/pod2.jpg',
       youtubeLink: 'https://www.youtube.com/watch?v=2BEzgqw-M1U'
     },
     {
