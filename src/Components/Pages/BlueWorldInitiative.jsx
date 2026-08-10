@@ -99,7 +99,7 @@ const BlueWorldInitiative = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
               <img 
-                src="/DOTCAN LOGO.png"
+                src="/DOTCANLOGO.png"
                 alt="DOTCAN Logo"
                 className="max-w-md w-full"
               />
