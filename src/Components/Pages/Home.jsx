@@ -570,7 +570,7 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
   {[
     { name: 'ENMAR', logo: '/Enmar.png', website: 'https://www.linkedin.com/company/enmar-enhanced-maritime-action-in-the-gulf-of-guinea/' },
-    { name: 'DOTCAN', logo: '/DOTCAN LOGO.png', website: 'https://dotcan.institute/' },
+    { name: 'DOTCAN', logo: '/DOTCANLOGO.png', website: 'https://dotcan.institute/' },
 
 
     { name: 'GREAT MINDS EVENT MANAGEMENT', logo: '/GM-logo.webp', website: 'https://www.ecowas.int/' },
