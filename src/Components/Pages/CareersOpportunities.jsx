@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, MapPin, Clock, Users, Heart, Lightbulb, Target, GraduationCap, Globe, TrendingUp, Search, Filter, ChevronRight, FileText } from 'lucide-react';
+import { Briefcase, MapPin, Clock, GraduationCap, Globe, TrendingUp, Search, Filter, ChevronRight, FileText } from 'lucide-react';
 
 const Careers = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -51,29 +51,6 @@ const Careers = () => {
   
   ];
 
-  const coreValues = [
-    {
-      icon: <Target className="w-12 h-12" />,
-      title: 'Excellence',
-      description: 'We strive for the highest standards in everything we do'
-    },
-    {
-      icon: <Lightbulb className="w-12 h-12" />,
-      title: 'Innovation',
-      description: 'We embrace creative solutions to maritime challenges'
-    },
-    {
-      icon: <Users className="w-12 h-12" />,
-      title: 'Collaboration',
-      description: 'We work together to achieve greater impact'
-    },
-    {
-      icon: <Heart className="w-12 h-12" />,
-      title: 'Integrity',
-      description: 'We operate with transparency and accountability'
-    }
-  ];
-
   const filteredJobs = openPositions.filter(job => {
     const matchesCategory = selectedCategory === 'All' || job.category === selectedCategory;
     const matchesType = selectedType === 'All' || job.type === selectedType;
@@ -109,42 +86,6 @@ const Careers = () => {
           <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8" style={{ fontWeight: 400 }}>
             Be part of a team transforming The Future of the Gulf of Guinea Maritime Domain
           </p>
-
-          {/* Quick Stats */}
-          <div className="flex justify-center">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl w-full mx-auto mt-12">
-              {[
-                { number: '20+', label: 'Team Members' },
-                { number: '5', label: 'Nationalities' },
-                { number: '0', label: 'Open Positions' },
-              ].map((stat, idx) => (
-                <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <div className="text-3xl font-bold text-[#8E3400] mb-1" style={{ fontWeight: 900 }}>{stat.number}</div>
-                  <p className="text-white/80 text-sm" style={{ fontWeight: 400 }}>{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16">
-            <span className="text-[#8E3400] font-semibold text-sm uppercase tracking-wider" style={{ fontWeight: 600 }}>Our Values</span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#132552] mt-4" style={{ fontWeight: 900 }}>What Drives Us</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreValues.map((value, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-all">
-                <div className="text-[#8E3400] mb-6 flex justify-center">{value.icon}</div>
-                <h3 className="text-xl font-bold text-[#132552] mb-3" style={{ fontWeight: 700 }}>{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed" style={{ fontWeight: 400 }}>{value.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
