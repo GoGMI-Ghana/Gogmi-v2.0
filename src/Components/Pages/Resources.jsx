@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Download, Search, Calendar, Eye, BookOpen, Video, X, ExternalLink, Lock } from 'lucide-react';
+import { Download, Search, Calendar, Eye, BookOpen, Video, X, ExternalLink, Lock } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Resources = () => {
@@ -7,6 +7,7 @@ const Resources = () => {
   const location = useLocation();
   const [selectedType, setSelectedType] = useState('Strategic Documents');
   const [selectedSubcategory, setSelectedSubcategory] = useState('All');
+  const [selectedYear, setSelectedYear] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [previewResource, setPreviewResource] = useState(null);
   const [showMembershipModal, setShowMembershipModal] = useState(false);
@@ -21,6 +22,13 @@ const Resources = () => {
   useEffect(() => {
     if (location.hash === '#internal-reports') {
       setSelectedType('Internal Reports');
+
+      const params = new URLSearchParams(location.search);
+      const subcategory = params.get('subcategory');
+      if (subcategory) {
+        setSelectedSubcategory(subcategory);
+      }
+
       setTimeout(() => {
         const element = document.getElementById('internal-reports');
         if (element) {
@@ -381,18 +389,25 @@ const Resources = () => {
 
   const types = ['Strategic Documents', 'Academic Papers', 'Internal Reports', 'Videos'];
   const internalReportSubcategories = ['All', 'Policy Briefs', 'IMSWG Reports', 'Quarterly Highlights', 'Maritime Governance'];
+  const imswgReportYears = ['All', '2020', '2021', '2022', '2023', '2024', '2025', '2026'];
 
   const filteredResources = resources.filter(resource => {
     const matchesType = resource.type === selectedType;
     const matchesSearch = resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          resource.description.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     // For Internal Reports, also filter by subcategory
-    const matchesSubcategory = selectedType !== 'Internal Reports' || 
-                                selectedSubcategory === 'All' || 
+    const matchesSubcategory = selectedType !== 'Internal Reports' ||
+                                selectedSubcategory === 'All' ||
                                 resource.subcategory === selectedSubcategory;
-    
-    return matchesType && matchesSearch && matchesSubcategory;
+
+    // For IMSWG Reports, also filter by year
+    const matchesYear = selectedType !== 'Internal Reports' ||
+                         selectedSubcategory !== 'IMSWG Reports' ||
+                         selectedYear === 'All' ||
+                         resource.date.includes(selectedYear);
+
+    return matchesType && matchesSearch && matchesSubcategory && matchesYear;
   });
 
   const handleDownload = async (resource) => {
@@ -709,24 +724,6 @@ const Resources = () => {
         </div>
       </section>
 
-      <section className="relative -mt-16 z-20 px-6 pb-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-3 gap-4">
-            {[
-              { icon: <FileText />, number: '18+', label: 'Publications' },
-              { icon: <Download />, number: '15K+', label: 'Downloads' },
-              { icon: <BookOpen />, number: '1200+', label: 'Pages' }
-            ].map((stat, idx) => (
-              <div key={idx} className="bg-[#F5F7FA] rounded-2xl p-6 shadow-xl text-center hover:shadow-2xl transition-all hover:-translate-y-1">
-                <div className="text-[#8E3400] flex justify-center mb-3">{stat.icon}</div>
-                <div className="text-3xl font-bold text-[#132552] mb-1" style={{ fontWeight: 900 }}>{stat.number}</div>
-                <p className="text-[#1F2933] text-sm font-medium" style={{ fontWeight: 600 }}>{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-12 bg-[#F5F7FA] border-b sticky top-20 z-30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col gap-4">
@@ -750,6 +747,7 @@ const Resources = () => {
                     onClick={() => {
                       setSelectedType(type);
                       setSelectedSubcategory('All');
+                      setSelectedYear('All');
                     }}
                     className={`px-5 py-2 rounded-lg font-medium transition-all ${
                       selectedType === type
@@ -770,7 +768,10 @@ const Resources = () => {
                 {internalReportSubcategories.map((subcategory) => (
                   <button
                     key={subcategory}
-                    onClick={() => setSelectedSubcategory(subcategory)}
+                    onClick={() => {
+                      setSelectedSubcategory(subcategory);
+                      setSelectedYear('All');
+                    }}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                       selectedSubcategory === subcategory
                         ? 'bg-[#132552] text-white shadow-lg'
@@ -779,6 +780,26 @@ const Resources = () => {
                     style={{ fontWeight: 600 }}
                   >
                     {subcategory}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Year filters for IMSWG Reports */}
+            {selectedType === 'Internal Reports' && selectedSubcategory === 'IMSWG Reports' && (
+              <div className="flex flex-wrap gap-2 justify-center pt-4 border-t border-gray-200">
+                {imswgReportYears.map((year) => (
+                  <button
+                    key={year}
+                    onClick={() => setSelectedYear(year)}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                      selectedYear === year
+                        ? 'bg-[#8E3400] text-white shadow-lg'
+                        : 'bg-white text-[#1F2933] hover:bg-[#8E3400]/10 border border-gray-200'
+                    }`}
+                    style={{ fontWeight: 600 }}
+                  >
+                    {year}
                   </button>
                 ))}
               </div>

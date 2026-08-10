@@ -32,6 +32,7 @@ const Navbar = () => {
       path: "/about",
       dropdown: [
         { name: "Who We Are", path: "/about" },
+        { name: "Our Brand", path: "/our-brand" },
         { name: "Partners", path: "/partners" },
         { name: "Careers", path: "/CareersOpportunities" },
         { name: "Testimonials", path: "/Testimonials" }

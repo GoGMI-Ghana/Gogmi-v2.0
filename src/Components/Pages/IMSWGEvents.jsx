@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { 
+import {
   ArrowLeft,
-  ArrowRight, 
+  ArrowRight,
   Calendar,
   Clock,
   Users,
@@ -14,8 +14,7 @@ import {
   AlertTriangle,
   CheckCircle,
   BookOpen,
-  BarChart3,
-  Waves
+  BarChart3
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,93 +22,104 @@ const IMSWGEvents = () => {
   const navigate = useNavigate();
   const [activeTheme, setActiveTheme] = useState(null);
 
-  const keyIssues = [
+  const topicsForDiscussion = [
     {
       number: 1,
-      title: "Evolving Maritime Threats in the Gulf of Guinea",
+      title: "BBNJ Relevance to a Predominantly Coastal Region",
       icon: <AlertTriangle className="w-6 h-6" />,
       color: "#0891b2",
-      description: "Examining the changing spectrum of maritime security threats including piracy, armed robbery at sea, IUU fishing, trafficking, and marine pollution that continue to undermine sustainable development.",
-      points: [
-
-      ]
+      description: "Transboundary impacts of area-based management tools and environmental impact assessments on national waters, and eligibility for marine genetic resources benefit sharing.",
+      points: []
     },
     {
       number: 2,
-      title: "Impact of Maritime Insecurity on Investment & Livelihoods",
-      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Maritime Security & Enforcement Implications",
+      icon: <Shield className="w-6 h-6" />,
       color: "#132552",
-      description: "Analysing how maritime insecurity affects economic investment, governance structures, and coastal community livelihoods across the Gulf of Guinea region.",
-      points: [
-       
-      ]
+      description: "Monitoring and surveillance requirements at the exclusive economic zone and areas-beyond-national-jurisdiction boundary, and linkages to illegal, unreported, and unregulated fishing.",
+      points: []
     },
     {
       number: 3,
-      title: "Institutional Coordination Challenges",
-      icon: <Shield className="w-6 h-6" />,
+      title: "Capacity Building & Technology Transfer",
+      icon: <Target className="w-6 h-6" />,
       color: "#0891b2",
-      description: "Assessing the effectiveness of existing regional governance mechanisms, including the Yaoundé Architecture and the Gulf of Guinea Commission.",
-      points: [
-       
-      ]
+      description: "Needs for resource-constrained navies, coast guards, and marine agencies in the region, drawing on Ghana's experience with the Enabling Activities for the Biodiversity Beyond National Jurisdiction project.",
+      points: []
     },
     {
       number: 4,
-      title: "Regional Organisations & Maritime Governance",
+      title: "Pathways to the First Conference of the Parties",
       icon: <Globe className="w-6 h-6" />,
       color: "#132552",
-      description: "Exploring the role of regional organisations in strengthening integrated maritime governance and fostering cooperation between states.",
-      points: [
-       
-      ]
-    },
-    {
-      number: 5,
-      title: "Aligning Security Operations with Blue Economy Development",
-      icon: <Waves className="w-6 h-6" />,
-      color: "#0891b2",
-      description: "Identifying policy and operational pathways for strengthening coordination between maritime security initiatives and sustainable blue economy development strategies.",
-      points: [
-       
-      ]
+      description: "How Gulf of Guinea states can engage in the preparatory process toward the first Conference of the Parties, scheduled for 11–22 January 2027.",
+      points: []
     }
+  ];
+
+  const objectives = [
+    "Establish a shared understanding of what the BBNJ Agreement means for the Gulf of Guinea, given that it governs the high seas rather than national waters, and how its effects still reach the region indirectly, through spillover from protected areas and environmental assessments, and through benefit sharing from marine genetic resources.",
+    "Assess the maritime security and enforcement implications of the Agreement's area-based management tools and monitoring obligations, including the monitoring, surveillance, and enforcement capacity required of regional navies and coast guards at the exclusive economic zone and areas-beyond-national-jurisdiction boundary, and linkages to illegal, unreported, and unregulated fishing.",
+    "Identify capacity building and technology transfer needs for regional implementation, drawing on Ghana's experience with the Enabling Activities for the Biodiversity Beyond National Jurisdiction project.",
+    "Approve a publication plan, an IMSWG report attributed to the presenting expert, and identify priority follow-on research or advocacy activity."
+  ];
+
+  const agenda = [
+    { time: "1300 – 1305", activity: "Welcome, objectives, operating principles" },
+    { time: "1305 – 1320", activity: "Opening address" },
+    { time: "1320 – 1345", activity: "Segment 1: The BBNJ Agreement — provisions and implications for ocean governance in the Gulf of Guinea" },
+    { time: "1345 – 1410", activity: "Segment 2: Capacity building, technology transfer, and regional positioning ahead of the first Conference of the Parties" },
+    { time: "1410 – 1445", activity: "Interactive session" },
+    { time: "1445 – 1500", activity: "Closing summary and confirmation of report process" }
+  ];
+
+  const stakeholders = [
+    "Members of the GoGMI-hosted IMSWG",
+    "Senior representatives of navies and coast guards",
+    "Fisheries and marine environment agencies",
+    "Maritime administrations and regulators",
+    "Ministry of Environment, Science and Technology and UNDP team implementing the Enabling Activities for the BBNJ project",
+    "Officials engaged in ocean governance from relevant ministries",
+    "Academia and research institutions",
+    "Regional and international organisations",
+    "Development partners",
+    "Think tanks and non-governmental organisations"
   ];
 
   const expectedOutcomes = [
     {
       icon: <MessageSquare className="w-5 h-5" />,
-      text: "Foster informed dialogue among regional maritime stakeholders"
+      text: "Shared understanding of the implications of the BBNJ Agreement for Gulf of Guinea maritime governance"
     },
     {
-      icon: <FileText className="w-5 h-5" />,
-      text: "Generate policy insights and recommendations for strengthening maritime governance in the Gulf of Guinea"
+      icon: <BarChart3 className="w-5 h-5" />,
+      text: "An assessment of capacity building and technology transfer needs relevant to regional implementation"
     },
     {
       icon: <Target className="w-5 h-5" />,
-      text: "Promote greater awareness of the security–development nexus in ocean governance"
+      text: "Identification of linkages between BBNJ provisions and existing regional maritime security and environmental governance frameworks"
     },
     {
       icon: <BookOpen className="w-5 h-5" />,
-      text: "Contribute to ongoing research, policy engagement, and regional cooperation on maritime security and the blue economy"
+      text: "Priority areas for follow-on research, capacity building, or advocacy activity"
+    },
+    {
+      icon: <FileText className="w-5 h-5" />,
+      text: "A meeting record and a published IMSWG report"
+    },
+    {
+      icon: <CheckCircle className="w-5 h-5" />,
+      text: "A validated publication plan, with a named presenting expert and delivery timeline"
     }
-  ];
-
-  const meetingObjectives = [
-    "Present and discuss the key findings and analytical framework proposed in the research paper",
-    "Examine the linkages between maritime security challenges and the development of blue economy sectors in the Gulf of Guinea",
-    "Assess the effectiveness of existing regional governance mechanisms, including the Yaoundé Architecture and the Gulf of Guinea Commission",
-    "Identify policy and operational pathways for strengthening coordination between maritime security initiatives and blue economy development strategies",
-    "Facilitate expert feedback that can contribute to further policy discussions and regional research on maritime security and ocean governance"
   ];
 
   return (
     <div className="w-full bg-white" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-      
+
       {/* HERO SECTION */}
       <section className="relative text-white py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
+          <img
             src="/imswg4.jpg"
             alt="IMSWG Forum"
             className="w-full h-full object-cover"
@@ -129,36 +139,36 @@ const IMSWGEvents = () => {
 
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-cyan-400/20 backdrop-blur-md border border-cyan-400/30">
               <Calendar className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm font-bold uppercase tracking-wide text-cyan-400">Quarter 1 Forum — 2026</span>
+              <span className="text-sm font-bold uppercase tracking-wide text-cyan-400">Quarter 3 Forum — 2026</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl leading-tight mb-6"
                 style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Optimizing Maritime Security for Sustainable Blue Economy Development
+              The Implications of the BBNJ Agreement for the Gulf of Guinea
             </h1>
 
             <p className="text-xl md:text-2xl leading-relaxed mb-8 text-white/90">
-              A Strategic Framework for the Gulf of Guinea
+              High-Level Expert Meeting of the International Maritime Security Working Group (IMSWG), 2026
             </p>
 
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Calendar className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">17th March, 2026</span>
+                <span className="font-semibold">26th August, 2026</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Clock className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">2:00 PM GMT</span>
+                <span className="font-semibold">1:00 PM – 3:00 PM GMT</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Globe className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">Virtual (Zoom)</span>
+                <span className="font-semibold">Virtual</span>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => navigate('/imswg-forum')}
+              <button
+                onClick={() => navigate('/imswg-forum-q3')}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl bg-cyan-400 text-slate-900"
               >
                 <span>Register Now</span>
@@ -169,7 +179,7 @@ const IMSWGEvents = () => {
         </div>
       </section>
 
-      {/* FLYER + RESEARCH OVERVIEW */}
+      {/* EXECUTIVE SUMMARY */}
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
@@ -178,29 +188,26 @@ const IMSWGEvents = () => {
                 About This Forum
               </span>
               <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-                Background & Context
+                Executive Summary
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{ color: '#4B5563' }}>
-                The Gulf of Guinea remains one of the most strategically significant maritime regions in the world. Its waters support critical shipping lanes, offshore energy infrastructure, fisheries, and emerging blue economy sectors vital to the economic growth of West and Central African states.
-              </p>
-              <p className="text-base leading-relaxed mb-6" style={{ color: '#6B7280' }}>
-                Despite the region's immense potential, persistent maritime security challenges — including piracy, armed robbery at sea, IUU fishing, trafficking, marine pollution, and weak maritime governance — continue to undermine sustainable ocean-based development.
+                IMSWG will convene a session to align practitioners, policy leaders, and researchers on the implications of the entry into force of the BBNJ Agreement for the Gulf of Guinea. The dialogue will bridge science, policy, and ocean governance in line with UNCLOS and the BBNJ Agreement's provisions on marine genetic resources, area-based management tools, environmental impact assessments, and capacity building and technology transfer.
               </p>
               <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                This forum will discuss the research paper authored by Commander Kofi Amponsah Duodu, developed under the United Nations – Nippon Foundation Fellowship Programme at the International Maritime Law Institute (IMLI), Malta.
+                Immediate outputs will include a meeting record and a published IMSWG report.
               </p>
             </div>
 
             <div className="relative">
               <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full"></div>
-              <img 
-                src="/imswgq1.jpeg"
-                alt="IMSWG 2026 Forum Flyer"
+              <img
+                src="/BBNJ-new.jpeg"
+                alt="IMSWG 2026 Quarter 3 Forum Flyer"
                 className="relative rounded-2xl shadow-2xl w-full hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border-2" style={{ borderColor: '#0891b2' }}>
                 <div className="text-2xl font-black mb-1" style={{ color: '#0891b2' }}>IMSWG</div>
-                <p className="text-sm font-semibold" style={{ color: '#132552' }}>Q1 2026 Forum</p>
+                <p className="text-sm font-semibold" style={{ color: '#132552' }}>Q3 2026 Forum</p>
               </div>
             </div>
           </div>
@@ -208,9 +215,9 @@ const IMSWGEvents = () => {
           {/* Forum Highlights */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: <Shield className="w-5 h-5" />, title: "Policy Dialogue", description: "Expert reflection and critical discussion on maritime governance findings" },
+              { icon: <Shield className="w-5 h-5" />, title: "Policy Dialogue", description: "Expert reflection and critical discussion on ocean governance and the BBNJ Agreement" },
               { icon: <Users className="w-5 h-5" />, title: "Multi-Stakeholder", description: "Practitioners, policymakers, researchers, and regional stakeholders" },
-              { icon: <Globe className="w-5 h-5" />, title: "Regional Focus", description: "Gulf of Guinea maritime security and blue economy integration" },
+              { icon: <Globe className="w-5 h-5" />, title: "Regional Focus", description: "Gulf of Guinea maritime governance and BBNJ implementation" },
               { icon: <Anchor className="w-5 h-5" />, title: "Chatham House Rule", description: "Open discussion under Chatham House confidentiality principles" }
             ].map((highlight, idx) => (
               <div key={idx} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all">
@@ -230,7 +237,7 @@ const IMSWGEvents = () => {
         </div>
       </section>
 
-      {/* RATIONALE / WHY THIS MATTERS */}
+      {/* BACKGROUND */}
       <section className="py-20 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="max-w-4xl mx-auto">
@@ -241,16 +248,13 @@ const IMSWGEvents = () => {
               </div>
               <div>
                 <h2 className="text-3xl font-black mb-4" style={{ color: '#132552' }}>
-                  Why This Discussion Matters
+                  Background
                 </h2>
                 <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>
-                  In recent years, regional and international efforts such as the Yaoundé Architecture for Maritime Security, the 2050 Africa Integrated Maritime Strategy, and the African Union Blue Economy Strategy have sought to strengthen cooperation and institutional responses.
-                </p>
-                <p className="text-base leading-relaxed mb-4" style={{ color: '#6B7280' }}>
-                  However, important gaps remain in aligning maritime security frameworks with broader blue economy development strategies. These threats not only affect maritime trade and economic investment but also impact coastal livelihoods, regional stability, and environmental sustainability.
+                  The Agreement under the United Nations Convention on the Law of the Sea on the Conservation and Sustainable Use of Marine Biological Diversity of Areas Beyond National Jurisdiction (BBNJ Agreement) was adopted on 19 June 2023. The sixtieth instrument of ratification was deposited on 19 September 2025, triggering entry into force 120 days later, on 17 January 2026. At the point of entry into force, the Agreement had 83 parties and 145 signatories, establishing a legally binding framework covering marine genetic resources and benefit sharing, area-based management tools including marine protected areas, environmental impact assessments, and capacity building and technology transfer.
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                  The research paper proposes a strategic governance framework that addresses structural coordination challenges within existing regional mechanisms and highlights the potential role of institutions such as the Gulf of Guinea Commission (GGC) in strengthening integrated maritime governance.
+                  Ghana deposited its instrument of ratification on 14 January 2026, and the Agreement entered into force for Ghana on 13 February 2026. In July 2026, the Ministry of Environment, Science and Technology, in partnership with the United Nations Development Programme and with funding support from the Global Environment Facility, launched the Enabling Activities for the Biodiversity Beyond National Jurisdiction project at an inception meeting in Accra. The third and final session of the Preparatory Commission took place from 23 March to 2 April 2026 at UN Headquarters in New York, concluding with a report of recommendations to be forwarded to the first Conference of the Parties, scheduled to convene from 11 to 22 January 2027.
                 </p>
               </div>
             </div>
@@ -258,7 +262,7 @@ const IMSWGEvents = () => {
         </div>
       </section>
 
-      {/* MEETING OBJECTIVES */}
+      {/* OBJECTIVES */}
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
@@ -266,15 +270,15 @@ const IMSWGEvents = () => {
               What We Aim To Achieve
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              Meeting Objectives
+              Objectives
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              This high-level expert meeting brings together stakeholders to examine critical maritime governance issues
+              To convene a high-level session of IMSWG that aligns policy makers, practitioners, and researchers on the provisions, opportunities, and governance requirements of the BBNJ Agreement for the Gulf of Guinea, and to map practical pathways for regional engagement ahead of the first Conference of the Parties.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-4">
-            {meetingObjectives.map((objective, idx) => (
+            {objectives.map((objective, idx) => (
               <div key={idx} className="bg-gradient-to-r from-cyan-50 to-white rounded-2xl p-6 border-l-4"
                    style={{ borderColor: '#0891b2' }}>
                 <div className="flex items-start gap-4">
@@ -292,7 +296,7 @@ const IMSWGEvents = () => {
         </div>
       </section>
 
-      {/* KEY ISSUES FOR DISCUSSION */}
+      {/* TOPICS FOR DISCUSSION */}
       <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
@@ -300,15 +304,15 @@ const IMSWGEvents = () => {
               Discussion Themes
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              Key Issues for Discussion
+              Topics for Discussion
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              Participants will explore several important themes emerging from the research
+              Discussions will centre around the following thematic areas
             </p>
           </div>
 
           <div className="space-y-4">
-            {keyIssues.map((issue, idx) => (
+            {topicsForDiscussion.map((issue, idx) => (
               <div key={idx} className="bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
                 <button
                   onClick={() => setActiveTheme(activeTheme === idx ? null : idx)}
@@ -321,9 +325,9 @@ const IMSWGEvents = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm font-bold px-3 py-1 rounded-full" 
+                        <span className="text-sm font-bold px-3 py-1 rounded-full"
                               style={{ backgroundColor: `${issue.color}15`, color: issue.color }}>
-                          Theme {issue.number}
+                          Topic {issue.number}
                         </span>
                       </div>
                       <h3 className="text-xl font-bold" style={{ color: '#132552' }}>
@@ -341,20 +345,9 @@ const IMSWGEvents = () => {
                 {activeTheme === idx && (
                   <div className="px-6 pb-6 border-t border-gray-100">
                     <div className="pt-6">
-                      <p className="text-base leading-relaxed mb-6" style={{ color: '#4B5563' }}>
+                      <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>
                         {issue.description}
                       </p>
-                      <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#6B7280' }}>
-                        Key Discussion Points
-                      </h4>
-                      <ul className="space-y-3">
-                        {issue.points.map((point, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: issue.color }} />
-                            <span className="text-sm" style={{ color: '#4B5563' }}>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
                 )}
@@ -364,92 +357,42 @@ const IMSWGEvents = () => {
         </div>
       </section>
 
-      {/* RESEARCHER PROFILE */}
+      {/* FORMAT / AGENDA + STAKEHOLDERS */}
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-                Featured Research
+                2-Hour Meeting
               </span>
               <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-                About the Research Paper
+                Format & Agenda
               </h2>
-              
-              <div className="bg-gray-50 rounded-2xl p-6 mb-6">
-                <h3 className="text-lg font-bold mb-2" style={{ color: '#132552' }}>
-                  Optimizing Maritime Security for Sustainable Blue Economy Development
-                </h3>
-                <p className="text-base italic mb-4" style={{ color: '#6B7280' }}>
-                  A Strategic Framework for the Gulf of Guinea
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                         style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)' }}>
-                      <Users className="w-4 h-4" style={{ color: '#0891b2' }} />
+
+              <div className="space-y-3">
+                {agenda.map((slot, idx) => (
+                  <div key={idx} className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
+                    <div className="flex-shrink-0 text-sm font-bold px-3 py-1.5 rounded-lg whitespace-nowrap"
+                         style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)', color: '#0891b2' }}>
+                      {slot.time}
                     </div>
-                    <div>
-                      <p className="text-sm font-bold" style={{ color: '#132552' }}>Author</p>
-                      <p className="text-sm" style={{ color: '#6B7280' }}>Commander Kofi Amponsah Duodu</p>
-                    </div>
+                    <p className="text-sm pt-1" style={{ color: '#4B5563' }}>
+                      {slot.activity}
+                    </p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                         style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)' }}>
-                      <BookOpen className="w-4 h-4" style={{ color: '#0891b2' }} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold" style={{ color: '#132552' }}>Programme</p>
-                      <p className="text-sm" style={{ color: '#6B7280' }}>United Nations – The Nippon Foundation Fellowship Programme (2025)</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                         style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)' }}>
-                      <Globe className="w-4 h-4" style={{ color: '#0891b2' }} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold" style={{ color: '#132552' }}>Institution</p>
-                      <p className="text-sm" style={{ color: '#6B7280' }}>International Maritime Law Institute (IMLI), Malta</p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
             <div>
               <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-                Expected Outcomes
+                Stakeholders & Participants
               </h2>
-              
-              <div className="space-y-4">
-                {expectedOutcomes.map((outcome, idx) => (
-                  <div key={idx} className="bg-gradient-to-r from-cyan-50 to-white rounded-xl p-5 border-l-4" style={{ borderColor: '#0891b2' }}>
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                           style={{ backgroundColor: '#0891b2', color: 'white' }}>
-                        {outcome.icon}
-                      </div>
-                      <p className="text-base font-semibold pt-1" style={{ color: '#132552' }}>
-                        {outcome.text}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
-              <div className="mt-6 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white">
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white">
                 <h3 className="text-xl font-bold mb-3">Who Should Participate</h3>
                 <ul className="space-y-2 text-sm">
-                  {[
-                    "Maritime security practitioners and analysts",
-                    "Government policymakers and regulatory officials",
-                    "Academic researchers in ocean governance",
-                    "Regional and international organisation representatives",
-                    "Blue economy development stakeholders",
-                    "Diplomatic community members"
-                  ].map((item, i) => (
+                  {stakeholders.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-cyan-400" />
                       <span>{item}</span>
@@ -462,6 +405,51 @@ const IMSWGEvents = () => {
         </div>
       </section>
 
+      {/* EXPECTED OUTCOMES */}
+      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="text-center mb-12">
+            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
+              What This Meeting Will Produce
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
+              Expected Outcomes
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {expectedOutcomes.map((outcome, idx) => (
+              <div key={idx} className="bg-white rounded-xl p-5 border-l-4" style={{ borderColor: '#0891b2' }}>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                       style={{ backgroundColor: '#0891b2', color: 'white' }}>
+                    {outcome.icon}
+                  </div>
+                  <p className="text-base font-semibold pt-1" style={{ color: '#132552' }}>
+                    {outcome.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONCLUSION */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
+            Conclusion
+          </h2>
+          <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>
+            The entry into force of the BBNJ Agreement marks a new phase in ocean governance with direct relevance to Gulf of Guinea maritime security and blue economy agendas. Effective regional engagement will require a clear understanding of the Agreement's provisions, identification of capacity gaps, and coordinated preparation ahead of the first Conference of the Parties.
+          </p>
+          <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
+            By examining these implications at this stage, IMSWG and its partners can support informed regional positioning, strengthen ocean governance capacity, and contribute to sustainable blue economy outcomes for the Gulf of Guinea.
+          </p>
+        </div>
+      </section>
+
       {/* CTA SECTION */}
       <section className="py-20" style={{ backgroundColor: '#132552' }}>
         <div className="container mx-auto max-w-5xl px-6 text-center">
@@ -471,16 +459,16 @@ const IMSWGEvents = () => {
               Join the Discussion
             </h2>
             <p className="text-xl text-white/90 mb-2">
-              17th March, 2026 — 2:00 PM GMT
+              26th August, 2026 — 1:00 PM – 3:00 PM GMT
             </p>
             <p className="text-lg text-white/80">
-              Virtual Meeting via Zoom — Registration required
+              Virtual Meeting — Registration required
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => navigate('/imswg-forum')}
+            <button
+              onClick={() => navigate('/imswg-forum-q3')}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl bg-cyan-400 text-slate-900"
             >
               <span>Register Now</span>

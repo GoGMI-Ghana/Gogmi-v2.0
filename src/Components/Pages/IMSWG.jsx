@@ -6,7 +6,7 @@ const IMSWG = () => {
   const navigate = useNavigate();
 
   const goToReports = () => {
-    navigate('/resources#internal-reports');
+    navigate('/resources?subcategory=IMSWG+Reports#internal-reports');
   };
 
   return (
@@ -255,16 +255,16 @@ const IMSWG = () => {
               </button>
             </div>
 
-            {/* 2020-2025 Report */}
+            {/* 2020-2026 Report */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center mb-6">
                 <FileText className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>2020-2025 Report</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>2020-2026 Report</h3>
               <p className="text-sm mb-6 leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                Comprehensive report of forums held from 2020 to 2025 with key insights
+                Comprehensive report of forums held from 2020 to 2026 with key insights
               </p>
               <button 
                 onClick={goToReports}
@@ -313,7 +313,7 @@ const IMSWG = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => navigate('/imswg-forum')}
+              onClick={() => navigate('/imswg-forum-q3')}
               className="px-10 py-4 rounded-xl font-semibold transition-all hover:scale-105 bg-white text-slate-900 shadow-xl cursor-pointer"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
             >

@@ -1,0 +1,239 @@
+<?php
+// CRITICAL: These headers MUST be first - before ANY other code
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Max-Age: 86400');
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+        header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+    exit(0);
+}
+
+header('Content-Type: application/json');
+
+// Only allow POST for actual submissions
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
+    exit();
+}
+
+// DATABASE CONFIGURATION
+$host = 'localhost';
+$dbname = 'u448928185_gogmi_website';
+$username = 'u448928185_site_database';
+$password = 'CDCTeam2o25';
+
+try {
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+
+    if (!$data) {
+        throw new Exception('Invalid data received');
+    }
+
+    // Validate required fields
+    $required = ['fullName', 'email', 'position', 'country'];
+    foreach ($required as $field) {
+        if (empty($data[$field])) {
+            throw new Exception(ucfirst($field) . ' is required');
+        }
+    }
+
+    // Validate email format
+    if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        throw new Exception('Invalid email address');
+    }
+
+    // Sanitize input data
+    $fullName = htmlspecialchars(trim($data['fullName']));
+    $email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
+    $whatsappNumber = htmlspecialchars(trim($data['whatsappNumber'] ?? ''));
+    $country = htmlspecialchars(trim($data['country']));
+    $position = htmlspecialchars(trim($data['position']));
+    $institution = htmlspecialchars(trim($data['institution'] ?? ''));
+
+    // Connect to database
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Create table for IMSWG Forum 2026 Quarter 3 applications
+    $createTable = "
+        CREATE TABLE IF NOT EXISTS imswg_forum_q3_2026 (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            full_name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            whatsapp_number VARCHAR(50),
+            country VARCHAR(100) NOT NULL,
+            position VARCHAR(255) NOT NULL,
+            institution VARCHAR(255),
+            application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+            notes TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            INDEX idx_email (email),
+            INDEX idx_country (country),
+            INDEX idx_status (status),
+            INDEX idx_application_date (application_date)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    ";
+    $pdo->exec($createTable);
+
+    // Check for duplicate email
+    $checkStmt = $pdo->prepare("SELECT id FROM imswg_forum_q3_2026 WHERE email = ?");
+    $checkStmt->execute([$email]);
+    if ($checkStmt->fetch()) {
+        throw new Exception('This email has already been registered for the IMSWG Forum 2026 - Quarter 3');
+    }
+
+    // Insert new application
+    $stmt = $pdo->prepare("
+        INSERT INTO imswg_forum_q3_2026
+        (full_name, email, whatsapp_number, country, position, institution)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ");
+
+    $stmt->execute([
+        $fullName,
+        $email,
+        $whatsappNumber,
+        $country,
+        $position,
+        $institution
+    ]);
+
+    $applicationId = $pdo->lastInsertId();
+    $referenceNumber = 'IMSWGQ32026-' . str_pad($applicationId, 5, '0', STR_PAD_LEFT);
+
+    // Send notification email to admin (info@gogmi.org.gh)
+    $adminEmail = 'info@gogmi.org.gh';
+    $subject = 'New IMSWG Forum 2026 - Quarter 3 Application - ' . $fullName;
+
+    $emailBody = "
+        <html>
+        <head>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .header { background-color: #132552; color: white; padding: 20px; text-align: center; }
+                .content { padding: 20px; background-color: #f9f9f9; }
+                .field { margin-bottom: 15px; padding: 10px; background-color: white; border-left: 4px solid #8E3400; }
+                .field strong { color: #132552; display: inline-block; width: 200px; }
+                .footer { background-color: #f5f5f5; padding: 15px; text-align: center; font-size: 12px; color: #666; margin-top: 20px; }
+            </style>
+        </head>
+        <body>
+            <div class='header'>
+                <h2>IMSWG Forum 2026 - Quarter 3 Application</h2>
+            </div>
+            <div class='content'>
+                <div class='field'><strong>Application ID:</strong> #$applicationId</div>
+                <div class='field'><strong>Reference Number:</strong> $referenceNumber</div>
+                <div class='field'><strong>Full Name:</strong> $fullName</div>
+                <div class='field'><strong>Email Address:</strong> $email</div>
+                <div class='field'><strong>WhatsApp Number:</strong> " . ($whatsappNumber ?: 'Not provided') . "</div>
+                <div class='field'><strong>Country of Residence:</strong> $country</div>
+                <div class='field'><strong>Position/Title:</strong> $position</div>
+                <div class='field'><strong>Institution/Organisation:</strong> " . ($institution ?: 'Not provided') . "</div>
+                <div class='field'><strong>Application Date:</strong> " . date('F j, Y \a\t g:i A') . "</div>
+                <div class='field'><strong>Status:</strong> <span style='color: orange; font-weight: bold;'>PENDING REVIEW</span></div>
+            </div>
+            <div class='footer'>
+                <p>This is an automated notification from GoGMI IMSWG Forum Registration System</p>
+                <p>Gulf of Guinea Maritime Institute &copy; " . date('Y') . "</p>
+            </div>
+        </body>
+        </html>
+    ";
+
+    $senderEmail = 'info@gogmi.org.gh';
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8\r\n";
+    $headers .= "From: GoGMI IMSWG Forum <$senderEmail>\r\n";
+    $headers .= "Reply-To: $senderEmail\r\n";
+    $headers .= "Return-Path: $senderEmail\r\n";
+
+    // Send to admin
+    // @mail($adminEmail, $subject, $emailBody, $headers);
+
+    // Send confirmation email to applicant
+    $confirmSubject = 'IMSWG Forum 2026 - Quarter 3 - Application Received';
+    $confirmBody = "
+        <html>
+        <head>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .header { background-color: #132552; color: white; padding: 20px; text-align: center; }
+                .content { padding: 30px; }
+                .highlight { background-color: #f0f8ff; padding: 15px; border-left: 4px solid #8E3400; margin: 20px 0; }
+                .footer { background-color: #f5f5f5; padding: 15px; text-align: center; font-size: 12px; color: #666; }
+            </style>
+        </head>
+        <body>
+            <div class='header'>
+                <h2>Application Confirmed</h2>
+            </div>
+            <div class='content'>
+                <p>Dear <strong>$fullName</strong>,</p>
+
+                <p>Thank you for registering for the International Maritime Security Working Group (IMSWG) meeting titled: <strong>The Implications of the BBNJ Agreement for the Gulf of Guinea</strong>.</p>
+
+                <p>We are delighted to confirm your registration and look forward to your participation in what promises to be an engaging and insightful discussion with maritime experts and practitioners.</p>
+
+                <div class='highlight'>
+                    <p style='margin: 0 0 8px 0;'><strong>Zoom Meeting Link:</strong></p>
+                    <p style='margin: 0;'><a href='https://us06web.zoom.us/j/82389137570?pwd=80bSuwazOJfhI5bJx5aGXkfWb8HkSr.1' style='color: #8E3400;'>https://us06web.zoom.us/j/82389137570?pwd=80bSuwazOJfhI5bJx5aGXkfWb8HkSr.1</a></p>
+                </div>
+
+                <p>We encourage you to join a few minutes before the scheduled start time to ensure a smooth connection.</p>
+
+                <p>Should you have any questions before the meeting, please do not hesitate to contact us.</p>
+
+                <p>Thank you once again for your interest. We look forward to welcoming you to the session.</p>
+
+                <p>Warm regards,<br>GoGMI Team, <strong>IMSWG Forum 2026 - Quarter 3</strong>.</p>
+
+                <p>If you have any questions, please contact us at <a href='mailto:info@gogmi.org.gh' style='color: #8E3400;'>info@gogmi.org.gh</a></p>
+            </div>
+            <div class='footer'>
+                <p>© " . date('Y') . " Gulf of Guinea Maritime Institute. All rights reserved.</p>
+            </div>
+        </body>
+        </html>
+    ";
+
+    // Send to applicant (-f sets the envelope sender so it matches the From address, which helps deliverability/SPF alignment)
+    @mail($email, $confirmSubject, $confirmBody, $headers, "-f$senderEmail");
+
+    // Return success response
+    echo json_encode([
+        'success' => true,
+        'message' => 'Application submitted successfully! You will receive a confirmation email shortly.',
+        'data' => [
+            'applicationId' => $applicationId,
+            'referenceNumber' => $referenceNumber,
+            'fullName' => $fullName,
+            'email' => $email
+        ]
+    ]);
+
+} catch (PDOException $e) {
+    error_log("IMSWG Q3 Application Error (PDO): " . $e->getMessage());
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'A database error occurred. Please try again later or contact support.'
+    ]);
+
+} catch (Exception $e) {
+    http_response_code(400);
+    echo json_encode([
+        'success' => false,
+        'message' => $e->getMessage()
+    ]);
+}
