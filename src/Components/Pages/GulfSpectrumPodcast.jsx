@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Youtube, Mic, Globe, Users } from 'lucide-react';
+import { Play, Youtube, Mic } from 'lucide-react';
 
 const GulfSpectrumPodcast = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,18 +8,6 @@ const GulfSpectrumPodcast = () => {
     setIsVisible(true);
     window.scrollTo(0, 0);
   }, []);
-
-  const themes = [
-    'Geopolitics and Maritime Security',
-    'Ocean Governance and Law of the Sea',
-    'International Maritime Relations',
-    'Global Maritime Economics',
-    'Social Issues',
-    'Fisheries and Aquaculture',
-    'Global Commerce and Trade',
-    'Blue Economy',
-    'Sustainable Shipping and Technology'
-  ];
 
   const featuredEpisodes = [
     {
@@ -118,48 +106,6 @@ const GulfSpectrumPodcast = () => {
         </div>
       </section>
 
-      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
-              What We Do
-            </h2>
-</div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md border-l-4" style={{ borderColor: '#8E3400' }}>
-              <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style={{ backgroundColor: '#132552' }}>
-                <Globe className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: '#132552' }}>Explore</h3>
-              <p className="text-base" style={{ color: '#4B5563' }}>
-                Examine the latest advancements and trends in maritime technology, operations, and policy
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md border-l-4" style={{ borderColor: '#8E3400' }}>
-              <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style={{ backgroundColor: '#132552' }}>
-                <Mic className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: '#132552' }}>Engage</h3>
-              <p className="text-base" style={{ color: '#4B5563' }}>
-                Foster dialogue and debate among experts, policymakers, and the public on key maritime challenges
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md border-l-4" style={{ borderColor: '#8E3400' }}>
-              <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style={{ backgroundColor: '#132552' }}>
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: '#132552' }}>Connect</h3>
-              <p className="text-base" style={{ color: '#4B5563' }}>
-                Build a network of stakeholders interested in the future of maritime excellence
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Episodes - Grid Layout (3 per row) */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -204,26 +150,6 @@ const GulfSpectrumPodcast = () => {
                     <span>Watch Now</span>
                   </a>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
-              Key Thematic Areas
-            </h2>
-</div>
-
-          <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {themes.map((theme, idx) => (
-              <div key={idx} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4" style={{ borderColor: '#8E3400' }}>
-                <p className="text-sm font-semibold" style={{ color: '#132552' }}>
-                  {theme}
-                </p>
               </div>
             ))}
           </div>
