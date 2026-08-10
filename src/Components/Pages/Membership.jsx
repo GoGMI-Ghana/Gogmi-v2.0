@@ -643,8 +643,7 @@ const Membership = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Membership Benefits
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-md">
@@ -667,8 +666,7 @@ const Membership = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Individual Memberships</h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {individualPlans.map((plan) => (
@@ -722,8 +720,7 @@ const Membership = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Institutional Memberships</h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {institutionalPlans.map((plan) => (
@@ -770,8 +767,7 @@ const Membership = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>How to Apply</h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[

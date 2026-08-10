@@ -41,8 +41,7 @@ const AboutUs = () => {
                     style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
                   Who We Are
                 </h2>
-                <div className="w-20 h-1.5 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-              </div>
+</div>
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
                  Established in 2010, The Gulf of Guinea Maritime Institute (GoGMI) is a think-tank organization in Ghana. 
@@ -134,8 +133,7 @@ const AboutUs = () => {
                 style={{ fontWeight: 900, letterSpacing: '-0.02em', lineHeight: '1.1', color: '#132552' }}>
               Aligned with UN Sustainable<br />Development Goals
             </h2>
-            <div className="w-20 h-1 mx-auto mb-8 rounded-full" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" 
+<p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" 
                style={{ color: '#4B5563', fontWeight: 400 }}>
               Our work directly contributes to achieving global sustainability targets through maritime excellence and regional cooperation
             </p>

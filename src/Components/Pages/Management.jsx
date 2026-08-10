@@ -70,9 +70,7 @@ const Management = () => {
                 Executive Director
               </h2>
               
-              <div className="w-16 h-1 rounded-full mb-6" style={{ backgroundColor: '#8E3400' }}></div>
-              
-              <div className="p-8 rounded-2xl border-2 border-dashed"
+<div className="p-8 rounded-2xl border-2 border-dashed"
                    style={{ backgroundColor: '#F5F7FA', borderColor: '#E5E7EB' }}>
                 <div className="flex flex-col items-center justify-center text-center py-12">
                   <div className="w-20 h-20 rounded-full mb-6 flex items-center justify-center"

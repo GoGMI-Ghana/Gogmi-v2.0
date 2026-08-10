@@ -99,9 +99,7 @@ const GulfSpectrumPodcast = () => {
               <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
                 A Platform for Maritime Excellence
               </h2>
-              <div className="w-20 h-1 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-              
-              <div className="space-y-4 text-lg leading-relaxed" style={{ color: '#4B5563' }}>
+<div className="space-y-4 text-lg leading-relaxed" style={{ color: '#4B5563' }}>
                 <p>
                   The Gulf Spectrum Podcast, produced by the Gulf of Guinea Maritime Institute, serves as a vital platform for exploring the future of maritime excellence in the Gulf of Guinea region and beyond.
                 </p>
@@ -126,8 +124,7 @@ const GulfSpectrumPodcast = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
               What We Do
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-md border-l-4" style={{ borderColor: '#8E3400' }}>
@@ -170,8 +167,7 @@ const GulfSpectrumPodcast = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
               Featured Episodes
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {featuredEpisodes.map((episode, idx) => (
@@ -220,8 +216,7 @@ const GulfSpectrumPodcast = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
               Key Thematic Areas
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {themes.map((theme, idx) => (

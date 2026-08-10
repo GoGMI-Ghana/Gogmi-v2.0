@@ -192,8 +192,7 @@ const MaritimeSecurityAudit = () => {
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: '"SF Pro Display", sans-serif' }}>
               Areas of Exploration
             </h2>
-            <div className="w-20 h-1.5 rounded-full mx-auto mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
+<p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
               This study seeks to contribute to the limited research on the complexity of maritime security interventions in the Gulf of Guinea, with the ultimate intent of illuminating viable pathways for harmonising collective efforts towards enhancing shared goals. The research questions are categorised under three thematic areas as indicated below:
             </p>
           </div>
@@ -222,9 +221,7 @@ const MaritimeSecurityAudit = () => {
                   <div className="space-y-4">
                     {area.questions.map((question, qIdx) => (
                       <div key={qIdx} className="flex gap-3">
-                        <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full mt-2.5"
-                             style={{ backgroundColor: '#8E3400' }}></div>
-                        <p className="text-sm leading-relaxed" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
+<p className="text-sm leading-relaxed" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
                           {question}
                         </p>
                       </div>
@@ -249,8 +246,7 @@ const MaritimeSecurityAudit = () => {
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: '"SF Pro Display", sans-serif' }}>
               Phases of the Audit
             </h2>
-            <div className="w-20 h-1.5 rounded-full mx-auto mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
+<p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
               The fundamental aim of this study is to map the range of maritime security initiatives and interventions in the Gulf of Guinea, assess the complexities these have posed to maritime security governance, examine the responses of actors to these complexities and determine whether or not efforts have been successful and can be ultimately harmonised towards enhancing the region's maritime security. To achieve this, the audit will be conducted along four different phases, depicted in the figure below.
             </p>
           </div>
@@ -320,8 +316,7 @@ const MaritimeSecurityAudit = () => {
                 style={{ letterSpacing: '-0.02em', fontFamily: '"SF Pro Display", sans-serif' }}>
               Major Outputs
             </h2>
-            <div className="w-20 h-1.5 rounded-full mx-auto mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg max-w-3xl mx-auto text-white/80 leading-relaxed" style={{ fontFamily: 'Georgia, serif' }}>
+<p className="text-lg max-w-3xl mx-auto text-white/80 leading-relaxed" style={{ fontFamily: 'Georgia, serif' }}>
               The Audit has been structured by the Institute to result in a number of notable outputs, each of which will result in substantial contributions to advancing maritime security governance in the Gulf of Guinea and beyond.
             </p>
           </div>
@@ -364,8 +359,7 @@ const MaritimeSecurityAudit = () => {
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: '"SF Pro Display", sans-serif' }}>
               Audit Outcomes & Impacts
             </h2>
-            <div className="w-20 h-1.5 rounded-full mx-auto mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
+<p className="text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontWeight: 400, fontFamily: 'Georgia, serif' }}>
               The Audit is a crucial first step to demystifying complexities resulting from the convoluted mix of maritime security interventions in the Gulf of Guinea. It is intended to yield an array of short-term outcomes and long-term impacts, as illustrated below.
             </p>
           </div>
@@ -459,8 +453,7 @@ const MaritimeSecurityAudit = () => {
                 style={{ color: '#132552', letterSpacing: '-0.02em' }}>
               Methodology
             </h2>
-            <div className="w-20 h-1.5 rounded-full mx-auto mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
+<p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
               The research is expected to be conducted using a mix of methods, ranging from open and explorative qualitative and quantitative approaches, through desktop reviews, interviews, focus-group discussions and stakeholder surveys. Each of these approaches will be segmented according to the various phases of the research as per the figure below.
             </p>
           </div>

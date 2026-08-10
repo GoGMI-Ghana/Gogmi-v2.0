@@ -366,8 +366,7 @@ const Home = () => {
                     style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
                   Driving Maritime Excellence in the Gulf of Guinea
                 </h2>
-                <div className="w-20 h-1.5 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-              </div>
+</div>
               
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
@@ -487,8 +486,7 @@ const Home = () => {
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
               The Gulf of Guinea
             </h2>
-            <div className="w-20 h-1.5 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             {/* Professional Image - 7 columns, on the left */}
@@ -729,9 +727,7 @@ const Home = () => {
 <section className="py-20 md:py-28 relative overflow-hidden" 
          style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
   {/* Subtle decorative elements */}
-  <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
-       style={{ backgroundColor: '#8E3400' }}></div>
-  <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
+<div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
        style={{ backgroundColor: '#132552' }}></div>
        
   {/* FIXED: Added the missing container div */}

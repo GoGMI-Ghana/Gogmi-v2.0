@@ -201,8 +201,7 @@ const BlueCareerExpo = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Key Themes
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {keyThemes.map((theme, idx) => (
@@ -227,8 +226,7 @@ const BlueCareerExpo = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Event Impact
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="space-y-8 max-w-5xl mx-auto">
             <div className="bg-gray-50 p-8 rounded-xl border border-gray-200">
@@ -307,8 +305,7 @@ const BlueCareerExpo = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Distinguished Speakers
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
             {vvips.map((vip, idx) => (

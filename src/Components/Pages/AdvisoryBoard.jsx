@@ -37,8 +37,7 @@ const AdvisoryBoard = () => {
                 style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Advisory Board Members
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           {/* Air Vice Marshal - Full Featured Profile */}
           <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 mb-12">

@@ -323,8 +323,7 @@ const Partners = () => {
                 style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Strategic Partnerships for Maritime Excellence
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="space-y-6 text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
             <p>

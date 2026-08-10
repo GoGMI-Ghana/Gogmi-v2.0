@@ -94,8 +94,7 @@ const BlueWorldInitiative = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Partnership with DOTCAN
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
@@ -134,8 +133,7 @@ const BlueWorldInitiative = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Ocean Career Fair 2023
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="md:col-span-2">
@@ -206,8 +204,7 @@ const BlueWorldInitiative = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Key Ocean Concepts
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg max-w-3xl mx-auto font-semibold" style={{ color: '#4B5563' }}>
+<p className="text-lg max-w-3xl mx-auto font-semibold" style={{ color: '#4B5563' }}>
               Understanding these fundamental concepts is essential for anyone interested in ocean-related careers and the blue economy.
             </p>
           </div>
@@ -234,8 +231,7 @@ const BlueWorldInitiative = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Ocean-Related Career Pathways
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#8E3400' }}></div>
-            <p className="text-lg max-w-3xl mx-auto font-semibold" style={{ color: '#4B5563' }}>
+<p className="text-lg max-w-3xl mx-auto font-semibold" style={{ color: '#4B5563' }}>
               Discover exciting career opportunities in the blue economy and maritime sector.
             </p>
           </div>
@@ -357,8 +353,7 @@ const BlueWorldInitiative = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Initiative in Action
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">

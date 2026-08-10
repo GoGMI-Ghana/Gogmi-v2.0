@@ -97,8 +97,7 @@ const SHADE = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Modus Operandi
             </h2>
-            <div className="w-20 h-1.5 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="space-y-6 text-lg leading-relaxed font-semibold mb-12" style={{ color: '#4B5563' }}>
             <p>
@@ -160,8 +159,7 @@ const SHADE = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Complementarities
             </h2>
-            <div className="w-20 h-1.5 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <p className="text-lg leading-relaxed font-semibold mb-12" style={{ color: '#4B5563' }}>
             The GoG-MCF/SHADE model was designed to work complementarily with existing information sharing architectures 
@@ -211,8 +209,7 @@ const SHADE = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               The Fifth Plenary: A Closer Look
             </h2>
-            <div className="w-20 h-1.5 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="space-y-6 text-lg leading-relaxed font-semibold mb-12" style={{ color: '#4B5563' }}>
             <p>
@@ -337,8 +334,7 @@ const SHADE = () => {
             <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Towards Effective Counter-piracy Responses
             </h2>
-            <div className="w-20 h-1.5 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="space-y-6 text-lg leading-relaxed font-semibold mb-12" style={{ color: '#4B5563' }}>
             <p>

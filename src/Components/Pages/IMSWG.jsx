@@ -58,9 +58,7 @@ const IMSWG = () => {
                   style={{ color: '#132552', fontFamily: 'Inter, sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}>
                 About the Working Group
               </h2>
-              <div className="w-20 h-1 rounded-full mb-8" style={{ backgroundColor: '#8E3400' }}></div>
-              
-              <p className="text-base leading-relaxed mb-6"
+<p className="text-base leading-relaxed mb-6"
                  style={{ color: '#475569', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
                 The International Maritime Security Working Group (IMSWG), formed by the Gulf of Guinea Maritime Institute, is the Institute's flagship forum focused on stimulating dialogue and policy innovation aimed at addressing maritime security and safety concerns in the Gulf of Guinea (GoG) region.
               </p>
@@ -133,8 +131,7 @@ const IMSWG = () => {
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
               Forum Composition
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="bg-white rounded-2xl p-10 md:p-12 shadow-lg mb-10">
             <p className="text-base leading-relaxed mb-8 text-center"
@@ -173,8 +170,7 @@ const IMSWG = () => {
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
               Forum Activities
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-2 gap-10 mb-16">
             <div>
@@ -230,8 +226,7 @@ const IMSWG = () => {
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
               Reports & Upcoming Events
             </h2>
-            <div className="w-20 h-1 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
-          </div>
+</div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Sign Up */}
