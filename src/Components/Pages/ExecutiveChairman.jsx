@@ -36,7 +36,6 @@ const ExecutiveChairman = () => {
                 style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
               Our Leadership
             </h1>
-            <div className="w-20 h-1.5 rounded-full mx-auto" style={{ backgroundColor: '#8E3400' }}></div>
           </div>
         </div>
       </section>

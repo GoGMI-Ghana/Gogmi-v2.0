@@ -23,7 +23,6 @@ const AdvisoryBoard = () => {
               style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
             Advisory Board
           </h1>
-          <div className="w-20 h-1.5 rounded-full mx-auto mb-6" style={{ backgroundColor: '#8E3400' }}></div>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" style={{ fontWeight: 400 }}>
             Distinguished experts providing strategic guidance and thought leadership to advance maritime excellence in the Gulf of Guinea
           </p>

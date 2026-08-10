@@ -309,7 +309,6 @@ const Partners = () => {
               style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
             Our Partners
           </h1>
-          <div className="w-20 h-1.5 rounded-full mx-auto mb-6" style={{ backgroundColor: '#8E3400' }}></div>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" style={{ fontWeight: 400 }}>
             Working together with leading organizations to advance maritime excellence across the Gulf Of Guinea
           </p>
