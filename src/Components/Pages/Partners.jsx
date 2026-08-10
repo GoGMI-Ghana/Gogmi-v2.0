@@ -343,31 +343,6 @@ const Partners = () => {
         </div>
       </section>
 
-      {/* Partnership Statistics */}
-      <section className="py-16" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-center">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl">
-              {[
-                { number: '15+', label: 'Global Partners' },
-                { number: '10+', label: 'Countries' },
-                // { number: '100+', label: 'Joint Projects' },
-                { number: '10 Years', label: 'Collaboration' }
-              ].map((stat, idx) => (
-                <div key={idx} className="bg-white rounded-xl p-6 shadow-lg text-center border border-gray-100">
-                  <div className="text-4xl mb-2" style={{ color: '#132552', fontWeight: 900 }}>
-                    {stat.number}
-                  </div>
-                  <p className="text-sm" style={{ color: '#4B5563', fontWeight: 600 }}>
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Category Filter */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6">
