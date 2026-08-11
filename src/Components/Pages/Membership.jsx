@@ -285,7 +285,9 @@ const Membership = () => {
         'Career development programmes and capacity-building sessions',
         'Opportunities to contribute to GoGMI blogs, research outputs, and junior committees',
         'Networking with regional and international maritime professionals',
-        'Early access to GoGMI fellowships and project calls'
+        'Early access to GoGMI fellowships and project calls',
+        'Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events',
+        'Institutional Representation — may be selected to represent GoGMI at national and international engagements, including conferences, workshops, and forums'
       ]
     },
     {
@@ -303,7 +305,8 @@ const Membership = () => {
         'Opportunity to moderate sessions or speak at GoGMI events',
         'Opportunity to mentor young graduates interested in Maritime affairs',
         'Professional profile listing on the GoGMI website',
-        'Executive networking with regional experts and institutions'
+        'Executive networking with regional experts and institutions',
+        'Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events'
       ]
     },
     {
