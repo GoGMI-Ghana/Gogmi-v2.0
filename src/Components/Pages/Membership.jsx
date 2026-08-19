@@ -324,7 +324,7 @@ const Membership = () => {
     {
       id: 'institution',
       name: 'Institutional Membership',
-      price: 'USD 2,000',
+      price: 'USD 1,000',
       period: '/year',
       description: 'For universities, research centres, and think tanks.',
       features: [
@@ -340,7 +340,7 @@ const Membership = () => {
     {
       id: 'corporate',
       name: 'Corporate Membership',
-      price: 'USD 4,000',
+      price: 'USD 3,000',
       period: '/year',
       description: 'For private sector organisations operating in maritime, logistics, energy, security, and related sectors.',
       features: [
