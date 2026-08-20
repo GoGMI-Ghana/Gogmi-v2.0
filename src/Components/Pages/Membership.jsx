@@ -241,7 +241,7 @@ const Membership = () => {
   };
 
   const handleBrochureDownload = () => {
-    const brochureUrl = '/resources/pdfs/GoGMI-Membership-2026.pdf';
+    const brochureUrl = '/resources/pdfs/GoGMI-Membership-2026-new.pdf';
     const link = document.createElement('a');
     link.href = brochureUrl;
     link.download = 'GoGMI-Membership-2026.pdf';
