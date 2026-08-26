@@ -154,7 +154,7 @@ const IMSWGEvents = () => {
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Calendar className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">26th August, 2026</span>
+                <span className="font-semibold">16th September, 2026</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Clock className="w-5 h-5 text-cyan-400" />
