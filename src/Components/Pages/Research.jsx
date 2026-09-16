@@ -72,7 +72,7 @@ const Research = () => {
             </p>
 
             <a
-              href="http://www.gulfspectrumjournal.org"
+              href="https://www.gulfspectrumjournal.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl transition-all shadow-lg hover:scale-105"
