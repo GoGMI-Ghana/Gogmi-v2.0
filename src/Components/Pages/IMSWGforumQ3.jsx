@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowLeft, CheckCircle, AlertCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle, AlertCircle, XCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
+const REGISTRATION_CLOSED = true;
 
 const IMSWGforumQ3 = () => {
   const navigate = useNavigate();
@@ -16,6 +18,32 @@ const IMSWGforumQ3 = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  // ── Registration Closed Screen ─────────────────────────────────────────────
+  if (REGISTRATION_CLOSED) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6" style={{ paddingTop: '100px' }}>
+        <div className="max-w-lg w-full bg-white rounded-2xl shadow-xl p-10 text-center">
+          <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <XCircle className="w-12 h-12 text-slate-500" />
+          </div>
+          <h2 className="text-3xl font-bold mb-4" style={{ color: '#1e293b' }}>
+            Registration Closed
+          </h2>
+          <p className="text-base mb-6" style={{ color: '#475569' }}>
+            The IMSWG 2026 Quarter 3 Forum has concluded and registration is now closed. Thank you to everyone who participated. Stay tuned for details on upcoming IMSWG events.
+          </p>
+          <button
+            onClick={() => navigate('/imswg')}
+            className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Back to IMSWG</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // ── Success Screen ─────────────────────────────────────────────────────────
   if (submitted) {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   ArrowLeft,
-  ArrowRight,
   Calendar,
   Clock,
   Users,
@@ -167,13 +166,9 @@ const IMSWGEvents = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => navigate('/imswg-forum-q3')}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl bg-cyan-400 text-slate-900"
-              >
-                <span>Register Now</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
+              <span className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold shadow-2xl bg-white/10 text-white/70 border border-white/20 cursor-not-allowed">
+                <span>Registration Closed</span>
+              </span>
             </div>
           </div>
         </div>
@@ -459,21 +454,17 @@ const IMSWGEvents = () => {
               Join the Discussion
             </h2>
             <p className="text-xl text-white/90 mb-2">
-              26th August, 2026 — 1:00 PM – 3:00 PM GMT
+              16th September, 2026 — 1:00 PM – 3:00 PM GMT
             </p>
             <p className="text-lg text-white/80">
-              Virtual Meeting — Registration required
+              Virtual Meeting — This forum has concluded
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/imswg-forum-q3')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl bg-cyan-400 text-slate-900"
-            >
-              <span>Register Now</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <span className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold shadow-2xl bg-white/10 text-white/70 border border-white/20 cursor-not-allowed">
+              <span>Registration Closed</span>
+            </span>
           </div>
 
           <div className="mt-12 pt-8 border-t border-white/20">
