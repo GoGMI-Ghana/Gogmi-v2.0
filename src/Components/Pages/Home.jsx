@@ -76,10 +76,10 @@ const Home = () => {
   const festiveOverlays = [
     {
       enabled: true,                          // Turn on/off
-      scheduledDate: '2026-04-05',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
-      image: '/IMSWG-BBNJ-newdate.jpeg',        // Image path (upload to /public folder)
+      scheduledDate: '2026-09-18',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
+      image: '/gulf-spectrum-flyer.jpeg',        // Image path (upload to /public folder)
       displayDuration: 30,                     // How long to show (seconds)
-      name: 'Gov Course',                  // Internal reference name
+      name: 'Gulf Spectrum Journal Launch',                  // Internal reference name
       testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
     },
     {
