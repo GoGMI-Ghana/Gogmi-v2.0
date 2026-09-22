@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, User, LogOut, LayoutDashboard } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, LayoutDashboard, Heart } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
 
@@ -211,6 +211,18 @@ const Navbar = () => {
 
         {/* Desktop Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+          <button
+            onClick={() => handleNavClick("/donate")}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-lg border-2 transition-all hover:scale-105 whitespace-nowrap"
+            style={{
+              borderColor: '#8E3400',
+              color: scrolled ? '#8E3400' : '#F5F7FA',
+              fontWeight: 600,
+            }}
+          >
+            <Heart className="w-4 h-4" />
+            Donate
+          </button>
           {!isAuthenticated ? (
             <button
               onClick={() => handleNavClick("/login")}
@@ -347,6 +359,15 @@ const Navbar = () => {
                 </button>
               )
             )}
+
+            <button
+              onClick={() => handleNavClick("/donate")}
+              className="flex items-center justify-center gap-2 w-full text-center border-2 px-6 py-3 rounded-lg transition-all"
+              style={{ borderColor: '#8E3400', color: '#8E3400', fontWeight: 600 }}
+            >
+              <Heart className="w-4 h-4" />
+              Donate
+            </button>
 
             {!isAuthenticated ? (
               <button
