@@ -12,6 +12,7 @@ const Donate = () => {
     country: '',
     amount: '',
     message: '',
+    isAnonymous: false,
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState('');
@@ -28,7 +29,8 @@ const Donate = () => {
   }, []);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, type, value, checked } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
   const recordDonation = async (paymentReference, amountUSD) => {
@@ -45,12 +47,13 @@ const Donate = () => {
           amount: amountUSD,
           currency: 'USD',
           paymentReference,
+          isAnonymous: formData.isAnonymous,
         }),
       });
       const data = await result.json();
       if (data.success) {
         setSuccess({ amount: amountUSD, reference: paymentReference });
-        setFormData({ fullName: '', email: '', phone: '', country: '', amount: '', message: '' });
+        setFormData({ fullName: '', email: '', phone: '', country: '', amount: '', message: '', isAnonymous: false });
       } else {
         setError(
           `Your payment went through, but we hit a snag recording it (${data.message || 'unknown error'}). ` +
@@ -108,6 +111,7 @@ const Donate = () => {
             { display_name: 'Country', variable_name: 'country', value: formData.country },
             { display_name: 'USD Amount', variable_name: 'usd_amount', value: '$' + amountUSD },
             { display_name: 'Donation Type', variable_name: 'donation_type', value: 'General Donation' },
+            { display_name: 'Anonymous', variable_name: 'anonymous', value: formData.isAnonymous ? 'Yes' : 'No' },
           ],
         },
         callback: (response) => {
@@ -299,6 +303,23 @@ const Donate = () => {
                     className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400] resize-none"
                   />
                 </div>
+
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="isAnonymous"
+                    checked={formData.isAnonymous}
+                    onChange={handleChange}
+                    className="mt-0.5 w-4 h-4 rounded border-gray-300 focus:ring-2"
+                    style={{ accentColor: '#8E3400' }}
+                  />
+                  <span className="text-sm text-gray-600">
+                    I'd like to donate anonymously — don't display my name publicly.
+                    <span className="block text-xs text-gray-400 mt-0.5">
+                      We'll still keep your details on file for your receipt; they just won't be shared or shown.
+                    </span>
+                  </span>
+                </label>
 
                 <button
                   type="submit"
