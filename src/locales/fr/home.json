@@ -1,0 +1,95 @@
+{
+  "festiveClose": "Fermer la bannière",
+  "clickToContinue": "Cliquez n'importe où pour continuer",
+  "hero": {
+    "badge": "À l'avant-garde de l'avenir maritime du Golfe de Guinée",
+    "titleLine1": "Façonner l'économie bleue",
+    "titleLine2": "du Golfe de Guinée",
+    "subtitle": "Pionniers d'initiatives maritimes durables qui stimulent la croissance économique et la gestion environnementale dans tout le Golfe de Guinée"
+  },
+  "about": {
+    "eyebrow": "Qui sommes-nous",
+    "heading": "Promouvoir l'excellence maritime dans le Golfe de Guinée",
+    "body": "Créé en 2010, l'Institut Maritime du Golfe de Guinée (GoGMI) est un groupe de réflexion enregistré au Ghana. L'Institut offre une plateforme unique permettant aux penseurs stratégiques, praticiens, experts et alliés du secteur maritime d'échanger, de partager des idées et de mener des recherches sur les affaires maritimes stratégiques touchant la région du Golfe de Guinée. La mission principale de l'Institut est la recherche maritime stratégique, le plaidoyer et le renforcement des capacités dans les domaines de la sécurité maritime, de la sûreté et de la promotion d'une économie bleue durable au Ghana et dans l'espace maritime du Golfe de Guinée au sens large.",
+    "link": "En savoir plus sur nous"
+  },
+  "services": {
+    "eyebrow": "Nos domaines d'action",
+    "heading": "Ce que nous faisons",
+    "subtitle": "Des solutions maritimes globales répondant aux besoins essentiels de la région du Golfe de Guinée",
+    "items": [
+      { "title": "Recherche sur la sécurité maritime", "desc": "Facilitation de partenariats régionaux et internationaux pour promouvoir la sûreté et la sécurité maritimes dans la région du Golfe de Guinée" },
+      { "title": "Plaidoyer politique", "desc": "Analyse des politiques nationales, régionales et internationales relatives à la gouvernance des océans et à la sécurité maritime." },
+      { "title": "Renforcement des capacités", "desc": "Élaboration, audit et validation des plans de sécurité maritime des entreprises." },
+      { "title": "Collaboration internationale", "desc": "Organisation de conférences et d'expositions internationales sur la gouvernance des océans et la sécurité maritime" },
+      { "title": "Développement de l'économie bleue", "desc": "Analyse des activités dans le domaine maritime du Golfe de Guinée" },
+      { "title": "Mentorat des jeunes", "desc": "Élaboration de notes de politique, d'articles et d'autres publications pertinentes" }
+    ]
+  },
+  "region": {
+    "eyebrow": "Notre région",
+    "heading": "Le Golfe de Guinée",
+    "para1": "Le Golfe de Guinée est l'une des régions maritimes les plus critiques au monde, s'étendant du Sénégal à l'Angola et comptant plus de 6 000 kilomètres de littoral.",
+    "para2": "Cette région est vitale pour le commerce mondial, la sécurité énergétique et le développement économique, mais elle fait face à des défis importants, notamment l'insécurité maritime, la pêche illégale et la dégradation de l'environnement.",
+    "countriesHeading": "Pays du Golfe de Guinée :",
+    "statCountries": "Pays côtiers",
+    "statPeople": "Habitants"
+  },
+  "partners": {
+    "eyebrow": "Ils nous font confiance",
+    "heading": "Nos partenaires stratégiques",
+    "subtitle": "Travailler aux côtés d'organisations de premier plan pour faire progresser l'excellence maritime dans toute la région du Golfe de Guinée",
+    "viewAll": "Voir tous les partenaires"
+  },
+  "news": {
+    "eyebrow": "Restez informé",
+    "heading": "Dernières actualités",
+    "subtitle": "Analyses, résultats de recherche et développements maritimes dans tout le Golfe de Guinée",
+    "readMore": "Lire la suite",
+    "items": [
+      {
+        "category": "Actualités et blogs",
+        "title": "Le GoGMI contribue à la conférence historique du Republic Day de la GAFCSCS",
+        "excerpt": "Le GoGMI a apporté une contribution significative à la conférence historique du Republic Day de la GAFCSCS, réaffirmant son engagement à faire progresser la sécurité maritime, la gouvernance et l'économie bleue dans la région du Golfe de Guinée.",
+        "date": "3 juillet 2026"
+      },
+      {
+        "category": "Actualités et blogs",
+        "title": "L'ancien chef de la marine soutient la décision d'arbitrage du Ghana sur la frontière maritime",
+        "excerpt": "Le vice-amiral Issah Adam Yakubu (à la retraite), ancien chef d'état-major de la marine ghanéenne, a fermement soutenu la décision du gouvernement ghanéen de soumettre le différend frontalier maritime de longue date avec le Togo à un arbitrage international.",
+        "date": "25 février 2026"
+      },
+      {
+        "category": "Formation",
+        "title": "Cours de gouvernance maritime pour praticiens : focus sur l'Afrique",
+        "excerpt": "Ce cours complet dote les professionnels, les parties prenantes et les décideurs des connaissances, compétences et outils nécessaires pour élaborer et mettre en œuvre des stratégies maritimes efficaces dans le contexte africain.",
+        "date": "7 – 18 septembre 2026"
+      }
+    ]
+  },
+  "events": {
+    "heading": "Événements à la une",
+    "subtitle": "Découvrez nos forums, conférences, formations et autres activités clés"
+  },
+  "countries": {
+    "Senegal": "Sénégal",
+    "Guinea-Bissau": "Guinée-Bissau",
+    "Guinea": "Guinée",
+    "Sierra Leone": "Sierra Leone",
+    "Liberia": "Liberia",
+    "Côte d'Ivoire": "Côte d'Ivoire",
+    "Ghana": "Ghana",
+    "Togo": "Togo",
+    "Benin": "Bénin",
+    "Nigeria": "Nigeria",
+    "Cameroon": "Cameroun",
+    "Equatorial Guinea": "Guinée équatoriale",
+    "Gabon": "Gabon",
+    "Congo": "Congo",
+    "Gambia": "Gambie",
+    "DR Congo": "RD Congo",
+    "Angola": "Angola",
+    "Cape Verde": "Cap-Vert",
+    "São Tomé and Príncipe": "Sao Tomé-et-Principe"
+  }
+}

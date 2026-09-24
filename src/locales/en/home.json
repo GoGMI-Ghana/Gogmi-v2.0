@@ -1,0 +1,95 @@
+{
+  "festiveClose": "Close festive overlay",
+  "clickToContinue": "Click anywhere to continue",
+  "hero": {
+    "badge": "Leading The Gulf Of Guinea Maritime Future",
+    "titleLine1": "Shaping The Gulf of Guinea",
+    "titleLine2": "Blue Economy",
+    "subtitle": "Pioneering sustainable maritime initiatives that drive economic growth and environmental stewardship across the Gulf of Guinea"
+  },
+  "about": {
+    "eyebrow": "Who We Are",
+    "heading": "Driving Maritime Excellence in the Gulf of Guinea",
+    "body": "Established in 2010, The Gulf of Guinea Maritime Institute (GoGMI) is a think-tank incorporated in Ghana. The Institute provides a unique platform for maritime Strategic Thinkers, Practitioners, Experts and allies to interact, share ideas and research into strategic maritime affairs affecting the Gulf of Guinea (GoG) Region. The Institute's core mandate is strategic maritime research, advocacy and capacity building in the areas of maritime security, safety and advocacy for sustainable Blue Economy in Ghana and the Gulf of Guinea (GoG) maritime space at large.",
+    "link": "Learn More About Us"
+  },
+  "services": {
+    "eyebrow": "Our Areas of Work",
+    "heading": "What We Do",
+    "subtitle": "Comprehensive maritime solutions addressing the critical needs of the Gulf of Guinea region",
+    "items": [
+      { "title": "Maritime Security Research", "desc": "Facilitation of Regional and International Partnerships Foster Maritime Safety and Security in the Gulf of Guinea Region" },
+      { "title": "Policy Advocacy", "desc": "Analysis of National, Regional and International Policies On Ocean Governance and Maritime Security." },
+      { "title": "Capacity Building", "desc": "Development, Audit and Validation Of Corporate Maritime Security Plans." },
+      { "title": "International Collaboration", "desc": "Organization of International Ocean Governance And Maritime Security Conferences and Exhibitions" },
+      { "title": "Blue Economy Development", "desc": "Analysis of Activities In the Gulf of Guinea Maritime Domain" },
+      { "title": "Youth Mentorship", "desc": "Development of Policy Briefs Articles and Other Relevant Publications" }
+    ]
+  },
+  "region": {
+    "eyebrow": "Our Region",
+    "heading": "The Gulf of Guinea",
+    "para1": "The Gulf of Guinea is one of the world's most critical maritime regions, stretching from Senegal to Angola and encompassing over 6,000 kilometers of coastline.",
+    "para2": "This region is vital for global trade, energy security, and economic development, yet faces significant challenges including maritime insecurity, illegal fishing, and environmental degradation.",
+    "countriesHeading": "Gulf of Guinea Countries:",
+    "statCountries": "Coastal Countries",
+    "statPeople": "People"
+  },
+  "partners": {
+    "eyebrow": "Trusted By",
+    "heading": "Our Strategic Partners",
+    "subtitle": "Working alongside leading organizations to advance maritime excellence across the Gulf of Guinea Region",
+    "viewAll": "View All Partners"
+  },
+  "news": {
+    "eyebrow": "Stay Informed",
+    "heading": "Latest News & Updates",
+    "subtitle": "Insights, research findings, and maritime developments from across the Gulf of Guinea",
+    "readMore": "Read More",
+    "items": [
+      {
+        "category": "News & Blogs",
+        "title": "GoGMI Contributes to GAFCSCS Landmark Republic Day Lecture",
+        "excerpt": "GoGMI made a significant contribution to the GAFCSCS landmark Republic Day lecture, reinforcing its commitment to advancing maritime security, governance, and the blue economy across the Gulf of Guinea region.",
+        "date": "July 3, 2026"
+      },
+      {
+        "category": "News & Blogs",
+        "title": "Past Naval Chief Endorses Ghana's Arbitration Decision on Maritime Boundary",
+        "excerpt": "Vice Admiral Issah Adam Yakubu (Rtd), immediate past Chief of the Naval Staff of the Ghana Navy, strongly endorsed the government of Ghana's decision to submit the long-standing maritime boundary dispute with Togo to international arbitration.",
+        "date": "February 25, 2026"
+      },
+      {
+        "category": "Training",
+        "title": "Maritime Governance Course For Practitioners : A Focus on Africa",
+        "excerpt": "This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.",
+        "date": "September 7 – 18, 2026"
+      }
+    ]
+  },
+  "events": {
+    "heading": "Featured Events",
+    "subtitle": "Discover our forums, conferences, trainings and other key activities"
+  },
+  "countries": {
+    "Senegal": "Senegal",
+    "Guinea-Bissau": "Guinea-Bissau",
+    "Guinea": "Guinea",
+    "Sierra Leone": "Sierra Leone",
+    "Liberia": "Liberia",
+    "Côte d'Ivoire": "Côte d'Ivoire",
+    "Ghana": "Ghana",
+    "Togo": "Togo",
+    "Benin": "Benin",
+    "Nigeria": "Nigeria",
+    "Cameroon": "Cameroon",
+    "Equatorial Guinea": "Equatorial Guinea",
+    "Gabon": "Gabon",
+    "Congo": "Congo",
+    "Gambia": "Gambia",
+    "DR Congo": "DR Congo",
+    "Angola": "Angola",
+    "Cape Verde": "Cape Verde",
+    "São Tomé and Príncipe": "São Tomé and Príncipe"
+  }
+}

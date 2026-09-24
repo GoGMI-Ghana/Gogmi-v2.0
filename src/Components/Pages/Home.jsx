@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowRight,
   Users,
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 
 const Home = () => {
+  const { t } = useTranslation('home');
   // YouTube Video ID
   const youtubeVideoId = 'XgzCbENPQn0';
   const [videoReady, setVideoReady] = useState(false);
@@ -265,7 +267,7 @@ const Home = () => {
           <button
             onClick={closeFestiveOverlay}
             className="absolute top-8 right-8 z-[10000] p-3 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md transition-all hover:scale-110 group shadow-2xl"
-            aria-label="Close festive overlay"
+            aria-label={t('festiveClose')}
           >
             <X className="w-7 h-7 text-white group-hover:rotate-90 transition-transform" strokeWidth={2.5} />
           </button>
@@ -284,7 +286,7 @@ const Home = () => {
 
           {/* Auto-close timer indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-sm font-bold bg-black/60 px-6 py-3 rounded-full backdrop-blur-md shadow-xl border border-white/20">
-            Click anywhere to continue
+            {t('clickToContinue')}
           </div>
         </div>
       )}
@@ -332,21 +334,20 @@ const Home = () => {
                style={{ backgroundColor: 'rgba(142, 52, 0, 0.2)', borderColor: 'rgba(142, 52, 0, 0.3)', backdropFilter: 'blur(8px)' }}>
             <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#8E3400' }}></span>
             <span className="font-semibold text-sm" style={{ color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              Leading The Gulf Of Guinea Maritime Future
+              {t('hero.badge')}
             </span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-slide-up"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 900 }}>
-            Shaping The Gulf of Guinea
+            {t('hero.titleLine1')}
             <span className="block mt-3 drop-shadow-lg" style={{ color: '#8E3400' }}>
-              Blue Economy
+              {t('hero.titleLine2')}
             </span>
           </h1>
 
           <p className="mt-2 text-lg sm:text-xl md:text-2xl max-w-3xl leading-relaxed drop-shadow-md" style={{ color: 'rgba(255, 255, 255, 0.95)', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            Pioneering sustainable maritime initiatives that drive economic growth
-            and environmental stewardship across the Gulf of Guinea
+            {t('hero.subtitle')}
           </p>
         </div>
       </header>
@@ -360,29 +361,27 @@ const Home = () => {
               <div>
                 <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-6" 
                       style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                  Who We Are
+                  {t('about.eyebrow')}
                 </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8" 
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8"
                     style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-                  Driving Maritime Excellence in the Gulf of Guinea
+                  {t('about.heading')}
                 </h2>
 </div>
-              
+
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  Established in 2010, The Gulf of Guinea Maritime Institute (GoGMI) is a think - tank incorporated in Ghana. 
-                  The Institute provides a unique platform for maritime Strategic Thinkers, Practitioners, 
-                  Experts and allies to interact, share ideas and research into strategic maritime affairs affecting the Gulf of Guinea (GoG) Region. The Institute’s core mandate is strategic maritime research, advocacy and capacity building in the areas of maritime security, safety and advocacy for sustainable Blue Economy in Ghana and the Gulf of Guinea (GoG) maritime space at large.
+                  {t('about.body')}
                 </p>
-               
+
               </div>
-              
+
               <Link
                 to="/about"
                 className="inline-flex items-center gap-3 font-bold hover:gap-5 transition-all text-lg mt-8 group"
                 style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
               >
-                <span>Learn More About Us</span>
+                <span>{t('about.link')}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -406,49 +405,22 @@ const Home = () => {
 <section className="py-20 md:py-28 bg-white">
   <div className="container mx-auto max-w-7xl px-6">
     <div className="text-center mb-16">
-      <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>Our Areas of Work</span>
-      <h2 className="text-5xl md:text-6xl font-black mt-4 mb-6" 
+      <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('services.eyebrow')}</span>
+      <h2 className="text-5xl md:text-6xl font-black mt-4 mb-6"
           style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-        What We Do
+        {t('services.heading')}
       </h2>
       <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-        Comprehensive maritime solutions addressing the critical needs of the Gulf of Guinea region
+        {t('services.subtitle')}
       </p>
     </div>
 
     <div className="grid md:grid-cols-3 gap-8">
-      {[
-        {
-          title: 'Maritime Security Research',
-          desc: 'Facilitation of Regional and International Partnerships Foster Maritime Safety and Security in the Gulf of Guinea Region',
-          color: '#132552'
-        },
-        {
-          title: 'Policy Advocacy',
-          desc: 'Analysis of National, Regional and International Policies On Ocean Governance and Maritime Security.',
-          color: '#8E3400'
-        },
-        {
-          title: 'Capacity Building',
-          desc: 'Development, Audit and Validation Of Corporate Maritime Security Plans.',
-          color: '#1A336C'
-        },
-        {
-          title: 'International Collaboration',
-          desc: 'Organization of International Ocean Governance And Maritime Security Conferences and Exhibitions',
-          color: '#6B2700'
-        },
-        {
-          title: 'Blue Economy Development',
-          desc: 'Analysis of Activities In the Gulf of Guinea Maritime Domain',
-          color: '#132552'
-        },
-        {
-          title: 'Youth Mentorship',
-          desc: 'Development of Policy Briefs Articles and Other Relevant Publications',
-          color: '#8E3400'
-        }
-      ].map((service, idx) => (
+      {t('services.items', { returnObjects: true }).map((service, idx) => {
+        const colors = ['#132552', '#8E3400', '#1A336C', '#6B2700', '#132552', '#8E3400'];
+        const color = colors[idx % colors.length];
+        return { ...service, color };
+      }).map((service, idx) => (
         <div
           key={idx}
           className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
@@ -480,11 +452,11 @@ const Home = () => {
           <div className="text-center mb-20">
             <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-6" 
                   style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              Our Region
+              {t('region.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8"
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              The Gulf of Guinea
+              {t('region.heading')}
             </h2>
 </div>
 
@@ -502,49 +474,49 @@ const Home = () => {
             <div className="space-y-8 order-1 lg:order-2 lg:col-span-5">
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  The Gulf of Guinea is one of the world's most critical maritime regions, stretching from Senegal to Angola and encompassing over 6,000 kilometers of coastline.
+                  {t('region.para1')}
                 </p>
                 <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  This region is vital for global trade, energy security, and economic development, yet faces significant challenges including maritime insecurity, illegal fishing, and environmental degradation.
+                  {t('region.para2')}
                 </p>
               </div>
-              
+
               {/* Countries List */}
               <div className="pt-4">
                 <h3 className="text-lg font-bold mb-6" style={{ color: '#132552', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>
-                  Gulf of Guinea Countries:
+                  {t('region.countriesHeading')}
                 </h3>
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    'Senegal', 'Guinea-Bissau', 'Guinea', 'Sierra Leone', 'Liberia', 
-                    'Côte d\'Ivoire', 'Ghana', 'Togo', 'Benin', 'Nigeria', 
-                    'Cameroon', 'Equatorial Guinea', 'Gabon', 'Congo','Gambia', 
-                    'DR Congo', 'Angola','Cape Verde','São Tomé and Príncipe '
+                    'Senegal', 'Guinea-Bissau', 'Guinea', 'Sierra Leone', 'Liberia',
+                    'Côte d\'Ivoire', 'Ghana', 'Togo', 'Benin', 'Nigeria',
+                    'Cameroon', 'Equatorial Guinea', 'Gabon', 'Congo','Gambia',
+                    'DR Congo', 'Angola','Cape Verde','São Tomé and Príncipe'
                   ].map((country, idx) => (
-                    <div 
+                    <div
                       key={idx}
                       className="flex items-center gap-2 text-sm"
                       style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
                     >
                       <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#8E3400' }}></span>
-                      <span style={{ color: '#4B5563' }}>{country}</span>
+                      <span style={{ color: '#4B5563' }}>{t(`countries.${country}`, country)}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4 pt-6">
-                <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all" 
+                <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
                      style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 100%)' }}>
-                  <div className="text-3xl font-black mb-2" 
+                  <div className="text-3xl font-black mb-2"
                        style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>19</div>
-                  <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>Coastal Countries</p>
+                  <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('region.statCountries')}</p>
                 </div>
-                <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all" 
+                <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
                      style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 100%)' }}>
-                  <div className="text-3xl font-black mb-2" 
+                  <div className="text-3xl font-black mb-2"
                        style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>400M+</div>
-                  <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>People</p>
+                  <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('region.statPeople')}</p>
                 </div>
               </div>
             </div>
@@ -557,13 +529,13 @@ const Home = () => {
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
-            <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>Trusted By</span>
+            <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('partners.eyebrow')}</span>
             <h2 className="text-5xl md:text-6xl font-black mt-4 mb-6"
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              Our Strategic Partners
+              {t('partners.heading')}
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-              Working alongside leading organizations to advance maritime excellence across the Gulf of Guinea Region
+              {t('partners.subtitle')}
             </p>
           </div>
 
@@ -622,7 +594,7 @@ const Home = () => {
               onMouseEnter={(e) => e.currentTarget.style.color = '#6B2700'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#8E3400'}
             >
-              <span>View All Partners</span>
+              <span>{t('partners.viewAll')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -633,43 +605,25 @@ const Home = () => {
       <section className="py-20 md:py-28" style={{ backgroundColor: '#F5F7FA' }}>
   <div className="container mx-auto max-w-7xl px-6">
     <div className="text-center mb-16">
-      <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>Stay Informed</span>
+      <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('news.eyebrow')}</span>
       <h2 className="text-5xl md:text-6xl font-black mt-4 mb-6"
           style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-        Latest News & Updates
+        {t('news.heading')}
       </h2>
       <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-        Insights, research findings, and maritime developments from across the Gulf of Guinea
+        {t('news.subtitle')}
       </p>
     </div>
 
     <div className="grid md:grid-cols-3 gap-8">
-      {[
-        {
-          category: 'News & Blogs',
-          title: 'GoGMI Contributes to GAFCSCS Landmark Republic Day Lecture',
-          excerpt: 'GoGMI made a significant contribution to the GAFCSCS landmark Republic Day lecture, reinforcing its commitment to advancing maritime security, governance, and the blue economy across the Gulf of Guinea region.',
-          date: 'July 3, 2026',
-          image: '/admiral-gafcscs.jpeg',
-          link: 'https://www.gogmi.org.gh/blog/gogmi-blog/gogmi-contributes-to-gafcscs-landmark-republic-day-lecture'
-        },
-        {
-          category: 'News & Blogs',
-          title: 'Past Naval Chief Endorses Ghana’s Arbitration Decision on Maritime Boundary ',
-          excerpt: 'Vice Admiral Issah Adam Yakubu (Rtd), immediate past Chief of the Naval Staff of the Ghana Navy, strongly endorsed the government of Ghana’s decision to submit the long-standing maritime boundary dispute with Togo to international arbitration. ',
-          date: 'February 25, 2026',
-          link: 'https://www.gogmiconsult.com/post/why-the-ghana-togo-maritime-boundary-delimitation-must-go-for-international-arbitration ',
-          image: '/thumbnail.jpeg'
-        },
-        {
-          category: 'Training',
-          title: 'Maritime Governance Course For Practitioners : A Focus on Africa',
-          excerpt: 'This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.',
-          date: 'September 7 – 18, 2026',
-          image: '/margov-coh2.jpeg',
-          link: '/services/CapacityBuilding'
-        }
-      ].map((news, idx) => (
+      {t('news.items', { returnObjects: true }).map((newsItem, idx) => {
+        const extras = [
+          { image: '/admiral-gafcscs.jpeg', link: 'https://www.gogmi.org.gh/blog/gogmi-blog/gogmi-contributes-to-gafcscs-landmark-republic-day-lecture' },
+          { image: '/thumbnail.jpeg', link: 'https://www.gogmiconsult.com/post/why-the-ghana-togo-maritime-boundary-delimitation-must-go-for-international-arbitration' },
+          { image: '/margov-coh2.jpeg', link: '/services/CapacityBuilding' }
+        ];
+        return { ...newsItem, ...extras[idx] };
+      }).map((news, idx) => (
         <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
           <div className="relative h-56 overflow-hidden">
             <img 
@@ -702,13 +656,13 @@ const Home = () => {
             {news.link ? (
               <Link to={news.link} className="font-semibold flex items-center group-hover:gap-3 transition-all"
                     style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                <span>Read More</span>
+                <span>{t('news.readMore')}</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             ) : (
               <Link to="/blog" className="font-semibold flex items-center group-hover:gap-3 transition-all"
                     style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                <span>Read More</span>
+                <span>{t('news.readMore')}</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             )}
@@ -734,10 +688,10 @@ const Home = () => {
   <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
     <h2 className="text-5xl md:text-6xl font-black mb-6"
         style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-      Featured Events
+      {t('events.heading')}
     </h2>
     <p className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-      Discover our forums, conferences, trainings and other key activities
+      {t('events.subtitle')}
     </p>
     
     {/* Horizontal Continuous Autoscroll Slideshow - 2 images at a time */}

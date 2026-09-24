@@ -1,0 +1,95 @@
+{
+  "festiveClose": "Cerrar aviso",
+  "clickToContinue": "Haz clic en cualquier lugar para continuar",
+  "hero": {
+    "badge": "Liderando el futuro marítimo del Golfo de Guinea",
+    "titleLine1": "Dando forma a la economía azul",
+    "titleLine2": "del Golfo de Guinea",
+    "subtitle": "Pioneros en iniciativas marítimas sostenibles que impulsan el crecimiento económico y la gestión ambiental en todo el Golfo de Guinea"
+  },
+  "about": {
+    "eyebrow": "Quiénes somos",
+    "heading": "Impulsando la excelencia marítima en el Golfo de Guinea",
+    "body": "Fundado en 2010, el Instituto Marítimo del Golfo de Guinea (GoGMI) es un centro de pensamiento constituido en Ghana. El Instituto ofrece una plataforma única para que pensadores estratégicos, profesionales, expertos y aliados del ámbito marítimo interactúen, compartan ideas e investiguen sobre asuntos marítimos estratégicos que afectan a la región del Golfo de Guinea. El mandato principal del Instituto es la investigación marítima estratégica, la incidencia y el fortalecimiento de capacidades en las áreas de seguridad marítima, protección y promoción de una economía azul sostenible en Ghana y en el espacio marítimo del Golfo de Guinea en general.",
+    "link": "Conoce más sobre nosotros"
+  },
+  "services": {
+    "eyebrow": "Nuestras áreas de trabajo",
+    "heading": "Qué hacemos",
+    "subtitle": "Soluciones marítimas integrales que atienden las necesidades críticas de la región del Golfo de Guinea",
+    "items": [
+      { "title": "Investigación sobre seguridad marítima", "desc": "Facilitación de asociaciones regionales e internacionales para promover la seguridad marítima en la región del Golfo de Guinea" },
+      { "title": "Incidencia política", "desc": "Análisis de políticas nacionales, regionales e internacionales sobre gobernanza oceánica y seguridad marítima." },
+      { "title": "Fortalecimiento de capacidades", "desc": "Desarrollo, auditoría y validación de planes corporativos de seguridad marítima." },
+      { "title": "Colaboración internacional", "desc": "Organización de conferencias y exposiciones internacionales sobre gobernanza oceánica y seguridad marítima" },
+      { "title": "Desarrollo de la economía azul", "desc": "Análisis de actividades en el dominio marítimo del Golfo de Guinea" },
+      { "title": "Mentoría juvenil", "desc": "Elaboración de notas de política, artículos y otras publicaciones relevantes" }
+    ]
+  },
+  "region": {
+    "eyebrow": "Nuestra región",
+    "heading": "El Golfo de Guinea",
+    "para1": "El Golfo de Guinea es una de las regiones marítimas más críticas del mundo, extendiéndose desde Senegal hasta Angola y abarcando más de 6.000 kilómetros de costa.",
+    "para2": "Esta región es vital para el comercio mundial, la seguridad energética y el desarrollo económico, pero enfrenta desafíos importantes, incluyendo la inseguridad marítima, la pesca ilegal y la degradación ambiental.",
+    "countriesHeading": "Países del Golfo de Guinea:",
+    "statCountries": "Países costeros",
+    "statPeople": "Personas"
+  },
+  "partners": {
+    "eyebrow": "Confían en nosotros",
+    "heading": "Nuestros socios estratégicos",
+    "subtitle": "Trabajando junto a organizaciones líderes para impulsar la excelencia marítima en toda la región del Golfo de Guinea",
+    "viewAll": "Ver todos los socios"
+  },
+  "news": {
+    "eyebrow": "Mantente informado",
+    "heading": "Últimas noticias y novedades",
+    "subtitle": "Análisis, resultados de investigación y novedades marítimas de todo el Golfo de Guinea",
+    "readMore": "Leer más",
+    "items": [
+      {
+        "category": "Noticias y blogs",
+        "title": "GoGMI contribuye a la histórica conferencia del Día de la República de GAFCSCS",
+        "excerpt": "GoGMI hizo una contribución significativa a la histórica conferencia del Día de la República de GAFCSCS, reafirmando su compromiso con el avance de la seguridad marítima, la gobernanza y la economía azul en toda la región del Golfo de Guinea.",
+        "date": "3 de julio de 2026"
+      },
+      {
+        "category": "Noticias y blogs",
+        "title": "Exjefe naval respalda la decisión de arbitraje de Ghana sobre la frontera marítima",
+        "excerpt": "El vicealmirante Issah Adam Yakubu (retirado), exjefe del Estado Mayor Naval de la Marina de Ghana, respaldó firmemente la decisión del gobierno de Ghana de someter la disputa fronteriza marítima de larga data con Togo a arbitraje internacional.",
+        "date": "25 de febrero de 2026"
+      },
+      {
+        "category": "Formación",
+        "title": "Curso de gobernanza marítima para profesionales: enfoque en África",
+        "excerpt": "Este curso integral dota a profesionales, partes interesadas y tomadores de decisiones de los conocimientos, habilidades y herramientas necesarios para desarrollar e implementar estrategias marítimas efectivas en el contexto africano.",
+        "date": "7 – 18 de septiembre de 2026"
+      }
+    ]
+  },
+  "events": {
+    "heading": "Eventos destacados",
+    "subtitle": "Descubre nuestros foros, conferencias, formaciones y otras actividades clave"
+  },
+  "countries": {
+    "Senegal": "Senegal",
+    "Guinea-Bissau": "Guinea-Bisáu",
+    "Guinea": "Guinea",
+    "Sierra Leone": "Sierra Leona",
+    "Liberia": "Liberia",
+    "Côte d'Ivoire": "Costa de Marfil",
+    "Ghana": "Ghana",
+    "Togo": "Togo",
+    "Benin": "Benín",
+    "Nigeria": "Nigeria",
+    "Cameroon": "Camerún",
+    "Equatorial Guinea": "Guinea Ecuatorial",
+    "Gabon": "Gabón",
+    "Congo": "Congo",
+    "Gambia": "Gambia",
+    "DR Congo": "RD Congo",
+    "Angola": "Angola",
+    "Cape Verde": "Cabo Verde",
+    "São Tomé and Príncipe": "Santo Tomé y Príncipe"
+  }
+}
