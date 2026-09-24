@@ -1,0 +1,52 @@
+{
+  "closed": {
+    "heading": "Inscripciones cerradas",
+    "body": "Las inscripciones para el Foro IMSWG 2026 – Primer trimestre están ahora cerradas.",
+    "enquiryPrefix": "Para consultas, contáctenos en",
+    "backButton": "Volver al IMSWG"
+  },
+  "success": {
+    "heading": "Solicitud enviada",
+    "body1": "Gracias por inscribirse en nuestro próximo evento IMSWG 2026 del primer trimestre. Apreciamos sinceramente su interés y esperamos contar con su participación.",
+    "body2": "Por favor, revise su correo electrónico para obtener más información y el enlace al evento.",
+    "signature": "GoGMI.",
+    "backButton": "Volver al IMSWG"
+  },
+  "errors": {
+    "fullNameRequired": "El nombre completo es obligatorio",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "El correo electrónico no es válido",
+    "countryRequired": "El país de residencia es obligatorio",
+    "positionRequired": "El puesto/cargo es obligatorio",
+    "submitFailed": "No se pudo enviar la solicitud",
+    "submitFailedFallback": "No se pudo enviar la solicitud. Inténtelo de nuevo o contáctenos en info@gogmi.org.gh"
+  },
+  "form": {
+    "backButton": "Volver al IMSWG",
+    "title": "IMSWG 2026 - Foro del primer trimestre",
+    "subtitle": "Grupo de Trabajo Internacional sobre Seguridad Marítima",
+    "intro": "Por favor, complete el siguiente formulario para inscribirse en el foro IMSWG del primer trimestre de 2026.",
+    "personalInfo": {
+      "heading": "Información personal",
+      "fullNameLabel": "Nombre completo",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "john@example.com",
+      "whatsappLabel": "Código de país y número de WhatsApp",
+      "whatsappPlaceholder": "+233 XX XXX XXXX",
+      "countryLabel": "País de residencia",
+      "countryPlaceholder": "p. ej., Ghana"
+    },
+    "professionalInfo": {
+      "heading": "Información profesional",
+      "positionLabel": "Puesto o cargo profesional actual",
+      "positionPlaceholder": "p. ej., Analista de seguridad marítima",
+      "institutionLabel": "Institución/Organización",
+      "institutionPlaceholder": "p. ej., Autoridad marítima, empresa de seguridad, etc."
+    },
+    "optional": "(Opcional)",
+    "submitButton": "Enviar solicitud",
+    "submitting": "Enviando solicitud...",
+    "consent": "Al enviar este formulario, usted acepta ser contactado/a en relación con las actividades del IMSWG"
+  }
+}

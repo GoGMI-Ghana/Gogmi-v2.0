@@ -1,0 +1,16 @@
+{
+  "loading": "Loading post...",
+  "backToBlog": "Back to Blog",
+  "share": "Share",
+  "errors": {
+    "notFoundTitle": "Post Not Found",
+    "notFoundMessage": "This post could not be found.",
+    "notFoundFallback": "Post not found",
+    "loadFailed": "Unable to load this post. Please try again."
+  },
+  "linkCopied": "Link copied to clipboard!",
+  "bottomNav": {
+    "allPosts": "All Posts",
+    "sharePost": "Share Post"
+  }
+}

@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { CreditCard, AlertCircle, Mail, ArrowLeft, RefreshCw } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
+  const { t } = useTranslation('login');
   const navigate = useNavigate();
   const location = useLocation();
   const { sendOTP, login } = useAuth();
@@ -29,7 +31,7 @@ const Login = () => {
   const handleSendOTP = async (e) => {
     e?.preventDefault();
     setError('');
-    if (!membershipId.trim()) { setError('Please enter your Membership ID'); return; }
+    if (!membershipId.trim()) { setError(t('errors.membershipIdRequired')); return; }
     setLoading(true);
     const result = await sendOTP({ membershipId: membershipId.trim() });
     setLoading(false);
@@ -69,7 +71,7 @@ const Login = () => {
   const handleVerifyOTP = async (e) => {
     e?.preventDefault();
     const code = otp.join('');
-    if (code.length < 6) { setError('Please enter the full 6-digit code'); return; }
+    if (code.length < 6) { setError(t('errors.otpIncomplete')); return; }
     setLoading(true);
     setError('');
     const result = await login({ membershipId: membershipId.trim(), otp: code });
@@ -91,10 +93,10 @@ const Login = () => {
           <img src="/GoGMI_PNG.png" alt="GoGMI" className="h-14 object-contain" />
         </div>
         <h2 className="text-center text-3xl font-black" style={{ color: '#132552' }}>
-          Member Login
+          {t('heading')}
         </h2>
         <p className="mt-2 text-center text-sm text-gray-500">
-          {step === 'id' ? 'Enter your Membership ID to continue' : `Enter the 6-digit code sent to ${maskedEmail}`}
+          {step === 'id' ? t('subtitle.enterId') : t('subtitle.enterCode', { email: maskedEmail })}
         </p>
       </div>
 
@@ -113,7 +115,7 @@ const Login = () => {
             <form onSubmit={handleSendOTP} className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  Membership ID
+                  {t('step1.label')}
                 </label>
                 <div className="relative">
                   <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -122,12 +124,12 @@ const Login = () => {
                     required
                     value={membershipId}
                     onChange={e => { setMembershipId(e.target.value); setError(''); }}
-                    placeholder="e.g. GoGMI-MASO2026-00001"
+                    placeholder={t('step1.placeholder')}
                     className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400] text-sm"
                   />
                 </div>
                 <p className="mt-2 text-xs text-gray-400">
-                  Your Membership ID was sent to your email after registration.
+                  {t('step1.helpText')}
                 </p>
               </div>
               <button
@@ -136,7 +138,7 @@ const Login = () => {
                 className="w-full py-3 px-4 rounded-lg text-sm font-bold text-white transition-all disabled:opacity-50"
                 style={{ backgroundColor: '#8E3400' }}
               >
-                {loading ? 'Sending code…' : 'Send Login Code'}
+                {loading ? t('step1.submitLoading') : t('step1.submitIdle')}
               </button>
             </form>
           )}
@@ -150,7 +152,7 @@ const Login = () => {
                   <Mail className="w-7 h-7" style={{ color: '#8E3400' }} />
                 </div>
                 <p className="text-sm text-gray-500">
-                  A 6-digit code was sent to <span className="font-semibold text-gray-700">{maskedEmail}</span>
+                  {t('step2.codeSentToPrefix')} <span className="font-semibold text-gray-700">{maskedEmail}</span>
                 </p>
               </div>
 
@@ -182,7 +184,7 @@ const Login = () => {
                 className="w-full py-3 px-4 rounded-lg text-sm font-bold text-white transition-all disabled:opacity-50"
                 style={{ backgroundColor: '#132552' }}
               >
-                {loading ? 'Verifying…' : 'Verify & Sign In'}
+                {loading ? t('step2.verifyLoading') : t('step2.verifyIdle')}
               </button>
 
               <div className="flex items-center justify-between text-sm">
@@ -191,7 +193,7 @@ const Login = () => {
                   onClick={() => { setStep('id'); setOtp(['','','','','','']); setError(''); }}
                   className="flex items-center gap-1 text-gray-500 hover:text-gray-700"
                 >
-                  <ArrowLeft className="w-4 h-4" /> Change ID
+                  <ArrowLeft className="w-4 h-4" /> {t('step2.changeId')}
                 </button>
                 <button
                   type="button"
@@ -201,7 +203,7 @@ const Login = () => {
                   style={{ color: '#8E3400' }}
                 >
                   <RefreshCw className="w-4 h-4" />
-                  {resendCooldown > 0 ? `Resend in ${resendCooldown}s` : 'Resend code'}
+                  {resendCooldown > 0 ? t('step2.resendCooldown', { seconds: resendCooldown }) : t('step2.resendIdle')}
                 </button>
               </div>
             </form>
@@ -209,9 +211,9 @@ const Login = () => {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-500">
-              Not a member yet?{' '}
+              {t('footer.notAMember')}{' '}
               <Link to="/membership" className="font-semibold hover:underline" style={{ color: '#8E3400' }}>
-                Join GoGMI
+                {t('footer.joinLink')}
               </Link>
             </p>
           </div>

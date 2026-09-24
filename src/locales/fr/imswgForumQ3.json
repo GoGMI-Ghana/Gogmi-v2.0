@@ -1,0 +1,51 @@
+{
+  "closed": {
+    "heading": "Inscriptions closes",
+    "body": "Le Forum IMSWG 2026 – Troisième trimestre s'est achevé et les inscriptions sont désormais closes. Merci à toutes les personnes qui y ont participé. Restez à l'écoute pour les informations sur les prochains événements de l'IMSWG.",
+    "backButton": "Retour à l'IMSWG"
+  },
+  "success": {
+    "heading": "Candidature soumise",
+    "body1": "Merci de vous être inscrit(e) à notre prochain événement IMSWG 2026 – Troisième trimestre. Nous apprécions sincèrement votre intérêt et sommes impatients de vous compter parmi les participants.",
+    "body2": "Veuillez consulter votre boîte mail pour le lien de la réunion Zoom et les autres détails de l'événement.",
+    "signature": "GoGMI.",
+    "backButton": "Retour à l'IMSWG"
+  },
+  "errors": {
+    "fullNameRequired": "Le nom complet est requis",
+    "emailRequired": "L'adresse e-mail est requise",
+    "emailInvalid": "L'adresse e-mail n'est pas valide",
+    "countryRequired": "Le pays de résidence est requis",
+    "positionRequired": "Le poste/titre est requis",
+    "submitFailed": "Échec de l'envoi de la candidature",
+    "submitFailedFallback": "Échec de l'envoi de la candidature. Veuillez réessayer ou nous contacter à info@gogmi.org.gh"
+  },
+  "form": {
+    "backButton": "Retour à l'IMSWG",
+    "title": "IMSWG 2026 - Forum du troisième trimestre",
+    "subtitle": "Groupe de travail international sur la sûreté maritime",
+    "intro": "Veuillez remplir le formulaire ci-dessous pour vous inscrire au forum IMSWG du troisième trimestre 2026.",
+    "personalInfo": {
+      "heading": "Informations personnelles",
+      "fullNameLabel": "Nom complet",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Adresse e-mail",
+      "emailPlaceholder": "john@example.com",
+      "whatsappLabel": "Indicatif du pays et numéro WhatsApp",
+      "whatsappPlaceholder": "+233 XX XXX XXXX",
+      "countryLabel": "Pays de résidence",
+      "countryPlaceholder": "ex. : Ghana"
+    },
+    "professionalInfo": {
+      "heading": "Informations professionnelles",
+      "positionLabel": "Poste ou titre professionnel actuel",
+      "positionPlaceholder": "ex. : Analyste en sûreté maritime",
+      "institutionLabel": "Institution/Organisation",
+      "institutionPlaceholder": "ex. : Autorité maritime, société de sécurité, etc."
+    },
+    "optional": "(Facultatif)",
+    "submitButton": "Soumettre la candidature",
+    "submitting": "Envoi de la candidature en cours...",
+    "consent": "En soumettant ce formulaire, vous acceptez d'être contacté(e) au sujet des activités de l'IMSWG"
+  }
+}

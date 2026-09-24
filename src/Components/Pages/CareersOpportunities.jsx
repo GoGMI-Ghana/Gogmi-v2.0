@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 import { Briefcase, MapPin, Clock, GraduationCap, Globe, TrendingUp, Search, Filter, ChevronRight, FileText } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Careers = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedType, setSelectedType] = useState('All');
+  const { t } = useTranslation('careers');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedType, setSelectedType] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const jobCategories = ['All', 'Research', 'Policy & Advocacy', 'Operations', 'Communications', 'Finance', 'IT'];
-  const jobTypes = ['All', 'Full-Time', 'Part-Time', 'Internship', 'Volunteer'];
+  const categoryIds = ['all', 'research', 'policyAdvocacy', 'operations', 'communications', 'finance', 'it'];
+  const typeIds = ['all', 'fullTime', 'partTime', 'internship', 'volunteer'];
 
-  const openPositions = [
+  const openPositionsMeta = [
     {
       id: 1,
-      title: 'Executive Director ',
-      category: 'Strategic Leadership',
-      type: 'Full-Time',
+      categoryId: 'strategicLeadership',
+      typeId: 'fullTime',
       location: 'Accra, Ghana',
-      experience: '5-7 years',
-      deadline: 'December 15, 2024',
-      description: 'Lead policy research and analysis on maritime governance frameworks across West Africa. Develop policy briefs and engage with regional stakeholders.',
-      requirements: ['Masters in Maritime Studies, International Relations, or related field', 'Proven experience in policy analysis', 'Excellent research and writing skills', 'Knowledge of West African maritime sector'],
-      responsibilities: ['Conduct comprehensive policy research', 'Develop policy recommendations', 'Engage with government officials', 'Lead advocacy campaigns']
     },
     // {
     //   id: 2,
@@ -51,9 +47,21 @@ const Careers = () => {
   
   ];
 
+  const openPositions = openPositionsMeta.map(meta => ({
+    ...meta,
+    title: t(`jobs.${meta.id}.title`),
+    category: t(`jobs.${meta.id}.category`),
+    typeLabel: t(`types.${meta.typeId}`),
+    experience: t(`jobs.${meta.id}.experience`),
+    deadline: t(`jobs.${meta.id}.deadline`),
+    description: t(`jobs.${meta.id}.description`),
+    requirements: t(`jobs.${meta.id}.requirements`, { returnObjects: true }),
+    responsibilities: t(`jobs.${meta.id}.responsibilities`, { returnObjects: true }),
+  }));
+
   const filteredJobs = openPositions.filter(job => {
-    const matchesCategory = selectedCategory === 'All' || job.category === selectedCategory;
-    const matchesType = selectedType === 'All' || job.type === selectedType;
+    const matchesCategory = selectedCategory === 'all' || job.categoryId === selectedCategory;
+    const matchesType = selectedType === 'all' || job.typeId === selectedType;
     const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          job.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesType && matchesSearch;
@@ -77,14 +85,14 @@ const Careers = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
           <div className="inline-flex items-center space-x-2 bg-[#8E3400]/20 backdrop-blur-sm px-6 py-3 rounded-full border border-[#8E3400]/30 mb-8">
             <Briefcase className="w-5 h-5 text-[#8E3400]" />
-            <span className="text-white font-semibold text-sm uppercase tracking-wide" style={{ fontWeight: 600 }}>Join Our Team</span>
+            <span className="text-white font-semibold text-sm uppercase tracking-wide" style={{ fontWeight: 600 }}>{t('hero.badge')}</span>
           </div>
-          
+
           <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 tracking-tight" style={{ fontWeight: 900 }}>
-            Careers at GOGMI
+            {t('hero.title')}
           </h1>
           <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8" style={{ fontWeight: 400 }}>
-            Be part of a team transforming The Future of the Gulf of Guinea Maritime Domain
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -93,9 +101,9 @@ const Careers = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
-            <span className="text-[#8E3400] font-semibold text-sm uppercase tracking-wider" style={{ fontWeight: 600 }}>Opportunities</span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#132552] mt-4 mb-6" style={{ fontWeight: 900 }}>Open Positions</h2>
-            <p className="text-lg text-gray-600" style={{ fontWeight: 400 }}>Find your perfect role in our team</p>
+            <span className="text-[#8E3400] font-semibold text-sm uppercase tracking-wider" style={{ fontWeight: 600 }}>{t('positions.eyebrow')}</span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#132552] mt-4 mb-6" style={{ fontWeight: 900 }}>{t('positions.heading')}</h2>
+            <p className="text-lg text-gray-600" style={{ fontWeight: 400 }}>{t('positions.subtitle')}</p>
           </div>
 
           {/* Search and Filters */}
@@ -105,7 +113,7 @@ const Careers = () => {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Search positions..."
+                  placeholder={t('filters.searchPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
@@ -120,8 +128,8 @@ const Careers = () => {
                   className="flex-1 lg:flex-initial px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] cursor-pointer"
                   style={{ fontWeight: 400 }}
                 >
-                  {jobCategories.map(cat => (
-                    <option key={cat} value={cat}>{cat}</option>
+                  {categoryIds.map(id => (
+                    <option key={id} value={id}>{t(`categories.${id}`)}</option>
                   ))}
                 </select>
 
@@ -131,28 +139,28 @@ const Careers = () => {
                   className="flex-1 lg:flex-initial px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] cursor-pointer"
                   style={{ fontWeight: 400 }}
                 >
-                  {jobTypes.map(type => (
-                    <option key={type} value={type}>{type}</option>
+                  {typeIds.map(id => (
+                    <option key={id} value={id}>{t(`types.${id}`)}</option>
                   ))}
                 </select>
               </div>
             </div>
 
             <p className="text-gray-600 mt-4" style={{ fontWeight: 400 }}>
-              Showing <span className="font-bold text-[#132552]" style={{ fontWeight: 700 }}>{filteredJobs.length}</span> {filteredJobs.length === 1 ? 'position' : 'positions'}
+              {t('filters.showingPrefix')} <span className="font-bold text-[#132552]" style={{ fontWeight: 700 }}>{filteredJobs.length}</span> {t('filters.positionCount', { count: filteredJobs.length })}
             </p>
           </div>
 
           {/* Job Listings */}
           {filteredJobs.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-xl text-gray-500 mb-4" style={{ fontWeight: 400 }}>No positions found matching your criteria</p>
-              <button 
-                onClick={() => { setSearchQuery(''); setSelectedCategory('All'); setSelectedType('All'); }}
+              <p className="text-xl text-gray-500 mb-4" style={{ fontWeight: 400 }}>{t('empty.message')}</p>
+              <button
+                onClick={() => { setSearchQuery(''); setSelectedCategory('all'); setSelectedType('all'); }}
                 className="px-6 py-3 bg-[#8E3400] text-white rounded-lg hover:bg-[#6B2700] transition-all"
                 style={{ fontWeight: 600 }}
               >
-                Clear Filters
+                {t('empty.clearFilters')}
               </button>
             </div>
           ) : (
@@ -166,12 +174,12 @@ const Careers = () => {
                           {job.category}
                         </span>
                         <span className={`px-4 py-1.5 rounded-full text-sm font-semibold ${
-                          job.type === 'Full-Time' ? 'bg-green-100 text-green-700' :
-                          job.type === 'Part-Time' ? 'bg-blue-100 text-blue-700' :
-                          job.type === 'Internship' ? 'bg-yellow-100 text-yellow-700' :
+                          job.typeId === 'fullTime' ? 'bg-green-100 text-green-700' :
+                          job.typeId === 'partTime' ? 'bg-blue-100 text-blue-700' :
+                          job.typeId === 'internship' ? 'bg-yellow-100 text-yellow-700' :
                           'bg-purple-100 text-purple-700'
                         }`} style={{ fontWeight: 600 }}>
-                          {job.type}
+                          {job.typeLabel}
                         </span>
                       </div>
 
@@ -189,13 +197,13 @@ const Careers = () => {
                         </div>
                         <div className="flex items-center gap-2">
                           <Clock className="w-4 h-4 text-[#8E3400]" />
-                          <span>Apply by {job.deadline}</span>
+                          <span>{t('job.applyBy', { date: job.deadline })}</span>
                         </div>
                       </div>
                     </div>
 
                     <button className="lg:flex-shrink-0 bg-[#8E3400] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 flex items-center justify-center gap-2" style={{ fontWeight: 700 }}>
-                      <span>Closed</span>
+                      <span>{t('job.closed')}</span>
                       <ChevronRight className="w-5 h-5" />
                     </button>
                   </div>

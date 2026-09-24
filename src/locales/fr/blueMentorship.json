@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "backLink": "Retour au Renforcement des capacités",
+    "badge": "Renforcement des capacités · Mentorat",
+    "titleLine1": "Le Programme de",
+    "titleLine2": "Mentorat Bleu",
+    "subtitle": "Un accélérateur maritime africain qui met en relation 30 jeunes avec des dirigeants du secteur, des entrepreneurs et des professionnels de l'océan afin de les préparer à réussir dans l'économie bleue de l'Afrique.",
+    "statusBadge": "Programme achevé"
+  },
+  "origin": {
+    "eyebrow": "Aux origines du programme",
+    "heading": "Né du Salon des Carrières et des Affaires Bleues",
+    "para1": "En novembre 2021, le GoGMI a organisé son événement phare, le Blue Career and Business Expo (BCBE), créant des plateformes d'échange à multiples opportunités permettant aux jeunes d'apprendre auprès des dirigeants de l'industrie maritime et de mieux appréhender l'éventail d'opportunités qu'offrent les secteurs de l'économie bleue du Ghana. Le salon a réuni plus de 200 personnes, dont des personnalités de premier plan, des praticiens de l'industrie maritime, des étudiants et d'autres parties prenantes.",
+    "para2": "Le BCBE avait toujours été conçu comme le premier d'une série d'événements visant à mobiliser activement la jeunesse africaine sur la voie de la construction d'une économie bleue résiliente. Comme prévu, il a servi à lancer un programme de mentorat pour lequel plusieurs jeunes participants ont manifesté un vif intérêt.",
+    "para3": "Le GoGMI est allé plus loin en sélectionnant trente jeunes pour le Programme de Mentorat Bleu — une expérience complète de mentorat et de préparation conçue pour les mener vers la réussite bleue.",
+    "stats": [
+      { "label": "Jeunes mentorés sélectionnés" },
+      { "label": "Participants au BCBE" },
+      { "label": "Année du programme" },
+      { "label": "Composantes du programme" }
+    ]
+  },
+  "impacts": {
+    "eyebrow": "À propos du programme",
+    "heading": "Domaines d'impact du programme",
+    "subtitle": "Le Programme de Mentorat Bleu est conçu pour produire quatre impacts essentiels pour les jeunes professionnels maritimes africains.",
+    "items": [
+      {
+        "title": "Accès au mentorat de l'industrie",
+        "desc": "Offrir aux jeunes un accès au mentorat de l'industrie maritime, à des services d'accompagnement ainsi qu'à des événements éducatifs et de réseautage, tout en les tenant informés des dernières évolutions et initiatives au sein de la communauté de l'économie bleue africaine."
+      },
+      {
+        "title": "Engagement des entreprises et de l'industrie",
+        "desc": "Faciliter l'engagement des jeunes auprès de partenaires du secteur privé et de l'industrie passionnés par l'innovation, la diversité et l'inclusion des jeunes esprits dans le développement de l'économie bleue africaine."
+      },
+      {
+        "title": "Pôle d'incubation de l'économie bleue",
+        "desc": "Servir de pôle d'incubation pour les start-up de l'économie bleue, en fournissant des ressources, des réseaux et un accompagnement structuré pour aider les jeunes entrepreneurs à transformer leurs idées océaniques en entreprises viables."
+      },
+      {
+        "title": "Accompagnement de carrière et d'affaires",
+        "desc": "Offrir un accompagnement et un apprentissage aux jeunes tout au long de leur parcours professionnel, entrepreneurial ou commercial — de la conception de l'idée jusqu'à sa mise en œuvre et sa croissance."
+      }
+    ]
+  },
+  "elements": {
+    "eyebrow": "Structure du programme",
+    "heading": "Composantes du programme",
+    "subtitle": "Trois composantes structurées qui se déploient tout au long du cycle de vie du programme.",
+    "items": [
+      {
+        "title": "Jumelage mentor-mentoré",
+        "desc": "Au début du programme, les mentorés sont jumelés à des mentors qui les guident dans leurs parcours de carrière bleue et d'entrepreneuriat, sur un large éventail de domaines. Ce mentorat se poursuit pendant toute la durée du programme et constitue le socle sur lequel reposent toutes les autres activités.",
+        "period": "À partir du mois 1"
+      },
+      {
+        "title": "Série de conférenciers du succès bleu (BLUESSS) 2022",
+        "desc": "La plateforme BLUESSS offre aux jeunes l'occasion d'entendre directement les témoignages d'entrepreneurs de l'économie bleue, d'innovateurs océaniques et d'autres professionnels de l'océan qui ont réussi. Les intervenants partagent leur parcours professionnel et entrepreneurial, y compris leurs succès et leurs échecs marquants. Les mentorés sont répartis en groupes sectoriels afin de recevoir des conseils spécialisés adaptés à leurs centres d'intérêt.",
+        "period": "Mois 2–3"
+      },
+      {
+        "title": "Centre d'appui aux entreprises maritimes 2023",
+        "desc": "Après le BLUESSS, les mentorés approfondissent les enseignements tirés au sein d'un incubateur d'entreprises maritimes d'une durée d'un an. Des sessions sont organisées chaque trimestre : Trimestre 1 (La carte mentale) — un remue-méninges guidé pour identifier des opportunités dans l'économie bleue ; Trimestre 2 (Le défi d'innovation de l'économie bleue) — les mentorés présentent des idées océaniques innovantes devant un jury ; Trimestre 3 (La plateforme bleue) — une communauté virtuelle permettant aux mentorés de se connecter avec des innovateurs, des experts, des partenaires potentiels et des conseillers.",
+        "period": "Mois 4–12"
+      }
+    ]
+  },
+  "incubator": {
+    "eyebrow": "Une vision plus large",
+    "heading": "Un incubateur d'entreprises maritimes",
+    "para1": "Au-delà du Programme de Mentorat Bleu, le GoGMI souhaite élargir son engagement auprès des jeunes en développant un Incubateur d'Entreprises Maritimes (MBI) — en partenariat avec l'industrie maritime mondiale et ses praticiens — afin de fournir des solutions et des ressources permettant d'améliorer les connexions de carrière et d'affaires ainsi que le financement des innovations des start-up bleues dans la région du Golfe de Guinée.",
+    "para2": "Le MBI collaborera avec le monde universitaire pour développer des réseaux de recherche collaboratifs à travers la sous-région, dédiés à renforcer la compréhension locale des secteurs de l'économie bleue africaine. Il comprendra également un Pôle de Données Maritimes — un guichet unique de données pour le développement et le test de nouvelles applications et services numériques destinés à l'industrie maritime.",
+    "para3": "L'implication du secteur privé contribuera à insuffler un esprit novateur de changement pour les jeunes entrepreneurs et pour l'ensemble de la communauté d'affaires de l'économie bleue du Golfe de Guinée.",
+    "themesHeading": "Thématiques de l'incubateur",
+    "themes": [
+      { "label": "Entrepreneuriat", "desc": "Développer de nouvelles entreprises et initiatives de l'économie bleue à partir de zéro." },
+      { "label": "Mentorat", "desc": "Un accompagnement individuel et collectif par des professionnels maritimes expérimentés." },
+      { "label": "Réseautage et partage des connaissances", "desc": "Conférences, tables rondes, discussions informelles et réunions de conseils connectant les jeunes esprits." },
+      { "label": "Innovation maritime", "desc": "Développement technologique, données et applications numériques pour l'industrie maritime." },
+      { "label": "Innovation du capital humain bleu", "desc": "Former la prochaine génération de professionnels de l'océan qualifiés pour le Golfe de Guinée." }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Intéressé par les futures",
+    "headingLine2": "cohortes de mentorat ?",
+    "subtitle": "Contactez le GoGMI pour exprimer votre intérêt pour la prochaine cohorte du Programme de Mentorat Bleu ou pour l'Incubateur d'Entreprises Maritimes.",
+    "button": "Contactez-nous"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "status": {
+    "active": "Active Member",
+    "pending": "Pending Member",
+    "expired": "Expired Member",
+    "cancelled": "Cancelled Member"
+  },
+  "header": {
+    "defaultPlanName": "GoGMI Member"
+  },
+  "profile": {
+    "heading": "Profile",
+    "email": "Email",
+    "phone": "Phone",
+    "country": "Country",
+    "organization": "Organization",
+    "position": "Position"
+  },
+  "membership": {
+    "heading": "Membership",
+    "membershipId": "Membership ID",
+    "type": "Type",
+    "expires": "Expires",
+    "timeRemaining": "Time Remaining",
+    "expired": "Expired",
+    "daysLeft_one": "{{count}} day left",
+    "daysLeft_other": "{{count}} days left"
+  },
+  "certificate": {
+    "heading": "Membership Certificate",
+    "readyDescription": "Your official GoGMI membership certificate is ready to download.",
+    "pendingDescription": "Your official certificate is being prepared and will be available to download here once it's issued.",
+    "download": "Download Certificate",
+    "comingSoon": "Coming Soon",
+    "checking": "Checking…",
+    "notAvailableTitle": "Certificates are not yet available for download"
+  },
+  "quickLinks": {
+    "resources": {
+      "title": "My Resources",
+      "description": "Access member-only publications and briefs"
+    },
+    "membership": {
+      "title": "Manage Membership",
+      "description": "View plans, renew, or upgrade your membership"
+    }
+  }
+}

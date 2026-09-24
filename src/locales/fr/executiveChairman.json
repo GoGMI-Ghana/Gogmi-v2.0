@@ -1,0 +1,30 @@
+{
+  "breadcrumb": {
+    "home": "Accueil",
+    "leadership": "Direction"
+  },
+  "hero": {
+    "title": "Notre Direction"
+  },
+  "section": {
+    "heading": "Conseil d'Administration"
+  },
+  "chairman": {
+    "imageAlt": "Président du Conseil exécutif",
+    "flagAlt": "Marine du Ghana",
+    "credentials": "nwc(USA) psc++ nsc jdc (Nigeria) MA (USA) dpa MUSni",
+    "blog": "Blog",
+    "quote": "La stratégie ne repose pas sur l'abondance des ressources. Elle repose sur la clarté des priorités, le consensus entre les parties prenantes et l'alignement discipliné de moyens limités sur des objectifs essentiels",
+    "quoteAttribution": "— Vice-amiral Issah Adam Yakubu (Rtd.)",
+    "aboutHeading": "À propos du Président du Conseil exécutif",
+    "bio": [
+      "Le Vice-amiral Issah Yakubu est l'ancien Chef d'état-major de la Marine du Ghana et occupe actuellement le poste de Président exécutif de l'Institut Maritime du Golfe de Guinée (GoGMI). Fort d'une carrière distinguée de plus de trois décennies dans le commandement naval, il est profondément engagé en faveur de la sécurité maritime, de la réflexion stratégique et de la coopération régionale dans le Golfe de Guinée et au-delà.",
+      "Durant son mandat de Chef d'état-major de la Marine, il a mené un vaste programme de transformation axé sur la modernisation de la Marine ghanéenne, à travers un renouvellement complet de la flotte, le développement des infrastructures et l'intégration de technologies avancées. Sous sa direction, les efforts de la Marine ghanéenne en matière de diplomatie de défense et d'innovation opérationnelle ont considérablement renforcé la posture maritime du Ghana et son influence régionale.",
+      "Le Vice-amiral Issah Yakubu est titulaire d'une maîtrise en relations internationales de la Salve Regina University (États-Unis) et d'un diplôme d'études supérieures en administration publique du Ghana Institute of Management and Public Administration. Chercheur passionné, il est l'auteur de nombreux articles sur la sécurité maritime et la stratégie."
+    ]
+  },
+  "members": {
+    "imageAlt": "Membre du Conseil",
+    "boardDirector": "Administrateur du Conseil"
+  }
+}

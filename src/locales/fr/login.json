@@ -1,0 +1,30 @@
+{
+  "heading": "Connexion membre",
+  "subtitle": {
+    "enterId": "Saisissez votre identifiant de membre pour continuer",
+    "enterCode": "Saisissez le code à 6 chiffres envoyé à {{email}}"
+  },
+  "errors": {
+    "membershipIdRequired": "Veuillez saisir votre identifiant de membre",
+    "otpIncomplete": "Veuillez saisir le code complet à 6 chiffres"
+  },
+  "step1": {
+    "label": "Identifiant de membre",
+    "placeholder": "ex. GoGMI-MASO2026-00001",
+    "helpText": "Votre identifiant de membre vous a été envoyé par e-mail après votre inscription.",
+    "submitIdle": "Envoyer le code de connexion",
+    "submitLoading": "Envoi du code…"
+  },
+  "step2": {
+    "codeSentToPrefix": "Un code à 6 chiffres a été envoyé à",
+    "verifyIdle": "Vérifier et se connecter",
+    "verifyLoading": "Vérification…",
+    "changeId": "Changer d'identifiant",
+    "resendIdle": "Renvoyer le code",
+    "resendCooldown": "Renvoi dans {{seconds}}s"
+  },
+  "footer": {
+    "notAMember": "Vous n'êtes pas encore membre ?",
+    "joinLink": "Rejoindre GoGMI"
+  }
+}

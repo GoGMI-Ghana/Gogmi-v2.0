@@ -1,0 +1,48 @@
+{
+  "status": {
+    "active": "Miembro activo",
+    "pending": "Miembro pendiente",
+    "expired": "Miembro vencido",
+    "cancelled": "Miembro cancelado"
+  },
+  "header": {
+    "defaultPlanName": "Miembro de GoGMI"
+  },
+  "profile": {
+    "heading": "Perfil",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "country": "País",
+    "organization": "Organización",
+    "position": "Cargo"
+  },
+  "membership": {
+    "heading": "Membresía",
+    "membershipId": "ID de membresía",
+    "type": "Tipo",
+    "expires": "Vence",
+    "timeRemaining": "Tiempo restante",
+    "expired": "Vencida",
+    "daysLeft_one": "{{count}} día restante",
+    "daysLeft_other": "{{count}} días restantes"
+  },
+  "certificate": {
+    "heading": "Certificado de membresía",
+    "readyDescription": "Su certificado oficial de membresía de GoGMI está listo para descargar.",
+    "pendingDescription": "Su certificado oficial se está preparando y estará disponible para descargar aquí una vez emitido.",
+    "download": "Descargar certificado",
+    "comingSoon": "Próximamente",
+    "checking": "Verificando…",
+    "notAvailableTitle": "Los certificados aún no están disponibles para descargar"
+  },
+  "quickLinks": {
+    "resources": {
+      "title": "Mis recursos",
+      "description": "Acceda a publicaciones e informes exclusivos para miembros"
+    },
+    "membership": {
+      "title": "Gestionar membresía",
+      "description": "Consulte los planes, renueve o mejore su membresía"
+    }
+  }
+}

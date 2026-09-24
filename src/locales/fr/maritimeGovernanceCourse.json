@@ -1,0 +1,230 @@
+{
+  "hero": {
+    "badge": "Développement professionnel",
+    "title": "Cours de Gouvernance Maritime pour Praticiens",
+    "subtitle": "Un focus sur l'Afrique",
+    "applyNow": "Postuler",
+    "downloadBrochure": "Télécharger la brochure"
+  },
+  "tabs": {
+    "overview": "Aperçu",
+    "format": "Format du programme",
+    "attend": "Public cible",
+    "team": "Équipe pédagogique",
+    "modules": "Modules du cours"
+  },
+  "sidebar": {
+    "datesHeading": "Dates",
+    "datesValue": "7 – 18 septembre 2026",
+    "datesSubtext": "2 semaines, 8 modules",
+    "statusHeading": "Statut",
+    "statusValue": "Candidatures en cours",
+    "formatHeading": "Format",
+    "formatValue": "Virtuel/En ligne (sessions en direct)",
+    "locationHeading": "Lieu",
+    "locationValue": "En ligne",
+    "feesHeading": "Frais de cours",
+    "membersLabel": "Membres GoGMI",
+    "saveLabel": "Économisez {{percent}} %",
+    "nonMembersLabel": "Non-membres",
+    "applyNow": "Postuler",
+    "downloadBrochure": "Télécharger la brochure",
+    "questionsPrompt": "Des questions ?",
+    "contactUs": "Contactez-nous"
+  },
+  "overview": {
+    "heading": "Maîtriser le développement de la stratégie maritime pour l'Afrique",
+    "intro": "Depuis des décennies, le continent africain fait face à un large éventail de menaces et de défis liés à la sécurité maritime. Ce cours complet dote les professionnels des connaissances, des compétences et des outils nécessaires pour élaborer et mettre en œuvre des stratégies maritimes efficaces dans le contexte africain.",
+    "objectivesHeading": "Objectifs du cours",
+    "objectives": [
+      "Comprendre comment la stratégie maritime renforce les priorités nationales et régionales",
+      "Élaborer des stratégies maritimes adaptées aux défis propres à l'Afrique",
+      "Examiner les éléments qui renforcent la durabilité des stratégies",
+      "Explorer les outils de mise en œuvre des stratégies maritimes",
+      "Préparer les participants à contribuer à l'élaboration de stratégies",
+      "Comprendre les implications des processus d'élaboration de stratégies",
+      "Développer des compétences de collaboration avec les parties prenantes"
+    ],
+    "outcomesHeading": "Résultats attendus",
+    "outcomes": [
+      { "title": "Praticiens qualifiés", "desc": "Former des acteurs compétents pour renforcer l'élaboration des stratégies de sécurité maritime" },
+      { "title": "Mise en œuvre renforcée", "desc": "Améliorer la mise en œuvre des stratégies existantes" },
+      { "title": "Meilleure coordination", "desc": "Favoriser une coordination interinstitutionnelle efficace" },
+      { "title": "Réseau professionnel", "desc": "Renforcer le réseautage entre les parties prenantes maritimes" }
+    ]
+  },
+  "format": {
+    "heading": "Format du programme",
+    "weeksLabel": "semaines d'apprentissage intensif",
+    "modulesLabel": "modules complets",
+    "liveSessionsHeading": "Sessions en direct/virtuelles",
+    "liveSessionsList": [
+      "Simulations interactives, présentations et discussions de groupe",
+      "Salles de sous-groupes pour les activités collectives",
+      "Séances de questions-réponses en direct",
+      "Sessions enregistrées pour un visionnage ultérieur"
+    ]
+  },
+  "attend": {
+    "heading": "Public cible",
+    "groups": [
+      { "title": "Organismes gouvernementaux", "description": "Fonctionnaires en charge de la politique et de la gouvernance maritimes" },
+      { "title": "Forces navales et de sécurité", "description": "Officiers de marine et professionnels de la sécurité maritime" },
+      { "title": "Organisations non gouvernementales", "description": "ONG œuvrant sur les questions maritimes" },
+      { "title": "Secteur privé", "description": "Entreprises ayant des intérêts maritimes" },
+      { "title": "Institutions académiques", "description": "Étudiants et chercheurs en études maritimes" },
+      { "title": "Grand public", "description": "Toute personne intéressée par la gouvernance des océans" }
+    ]
+  },
+  "team": {
+    "heading": "Équipe pédagogique",
+    "faculty": [
+      { "title": "Président du Conseil exécutif, GoGMI", "credentials": "Ancien chef d'état-major de la Marine ghanéenne" },
+      { "title": "CAPT, USN (Ret.)", "credentials": "Expert en stratégie maritime" },
+      { "title": "Directrice du Conseil, GoGMI", "credentials": "Experte maritime" }
+    ]
+  },
+  "modules": {
+    "heading": "Modules du cours",
+    "moduleList": [
+      { "title": "Introduction et théorie de la stratégie maritime", "description": "Concepts fondamentaux de la stratégie maritime, réflexion stratégique versus planification opérationnelle, et cycle d'élaboration de la stratégie maritime." },
+      { "title": "Évaluation des défis et opportunités du domaine maritime", "description": "Paysage des menaces maritimes, défis sécuritaires, opportunités économiques et évaluations complètes du domaine maritime." },
+      { "title": "Processus d'élaboration de la stratégie", "description": "Cadre d'élaboration de stratégie étape par étape, définition de la vision et des objectifs, formulation des objectifs stratégiques et alignement des politiques." },
+      { "title": "Coordination interinstitutionnelle et analyse des parties prenantes", "description": "Cartographie des parties prenantes maritimes, mécanismes de coordination, développement de partenariats et collaboration multisectorielle." },
+      { "title": "Fins, moyens, voies et risques", "description": "Alignement du cadre stratégique, mobilisation des ressources, identification des risques, stratégies d'atténuation et planification des mesures d'urgence." },
+      { "title": "Mise en œuvre de la stratégie maritime", "description": "De la stratégie à l'action : planification de la mise en œuvre, systèmes de suivi et d'évaluation, et gestion adaptative." },
+      { "title": "Planification sectorielle – Exercice en classe", "description": "Exercice pratique de planification sectorielle, application des cadres d'élaboration de stratégies et travail d'équipe sur l'élaboration de stratégies." },
+      { "title": "Rapports d'étude de cas et conclusion du cours", "description": "Analyse des stratégies maritimes régionales, analyse comparative des succès et des difficultés, et présentations finales." }
+    ],
+    "weeklyBreakdownHeading": "Répartition hebdomadaire",
+    "weeklyBreakdown": [
+      {
+        "week": "Semaine 1",
+        "title": "Théorie et évaluation de la stratégie maritime",
+        "sessions": [
+          "Directives et instruments d'élaboration de la stratégie",
+          "Finalité et nécessité d'élaborer des stratégies maritimes",
+          "Aperçu du processus d'élaboration de la stratégie",
+          "Évaluation des défis et opportunités du domaine maritime"
+        ]
+      },
+      {
+        "week": "Semaine 2",
+        "title": "Élaboration de la stratégie et analyse des parties prenantes",
+        "sessions": [
+          "Élaboration de l'énoncé de vision",
+          "Comprendre les rôles des parties prenantes",
+          "Coordination interinstitutionnelle et bonnes pratiques",
+          "Outils et techniques d'analyse des parties prenantes"
+        ]
+      },
+      {
+        "week": "Semaine 3",
+        "title": "Fins, moyens, voies et mise en œuvre",
+        "sessions": [
+          "Introduction aux fins, moyens, voies et risques",
+          "Réussites et échecs de la mise en œuvre",
+          "Processus de planification du secteur maritime",
+          "Élaboration des plans d'action"
+        ]
+      },
+      {
+        "week": "Semaine 4",
+        "title": "Exercice pratique et conclusion",
+        "sessions": [
+          "Exercice de planification sectorielle de la stratégie maritime",
+          "Présentations d'études de cas en groupe",
+          "Conclusion et discussion du cours",
+          "Évaluation du cours"
+        ]
+      }
+    ],
+    "keySessionsLabel": "SESSIONS CLÉS :"
+  },
+  "modal": {
+    "titles": {
+      "choose": "Postuler au cours",
+      "verify": "Vérification d'adhésion",
+      "member": "Candidature membre",
+      "nonmember": "Candidature non-membre"
+    },
+    "courseSubtitle": "Cours de Gouvernance Maritime pour Praticiens — Un focus sur l'Afrique",
+    "choose": {
+      "question": "Êtes-vous membre du GoGMI ? Les membres bénéficient d'une remise exclusive.",
+      "memberTitle": "Postuler en tant que membre",
+      "memberSave": "Économisez {{discount}} $ ({{percent}} % de réduction)",
+      "memberDesc": "Saisissez votre identifiant de membre pour vérification et bénéficier de la remise.",
+      "nonMemberTitle": "Postuler en tant que non-membre",
+      "standardRate": "Tarif standard",
+      "nonMemberDesc": "Vous recevrez une adhésion gratuite au GoGMI avec votre inscription.",
+      "joinPrompt": "Pas encore membre ?",
+      "joinLink": "Rejoindre le GoGMI",
+      "joinSuffix": "pour bénéficier du tarif membre."
+    },
+    "verify": {
+      "memberPriceLabel": "Tarif membre",
+      "save": "Économisez {{discount}} $ ({{percent}} % de réduction)",
+      "inputLabel": "Saisissez votre identifiant de membre",
+      "placeholder": "ex. GoGMI-MST2026-00001",
+      "helper": "Votre identifiant de membre vous a été envoyé par e-mail lors de votre adhésion au GoGMI.",
+      "back": "Retour",
+      "verifying": "Vérification en cours...",
+      "verifyContinue": "Vérifier et continuer"
+    },
+    "member": {
+      "verifiedBadge": "✓ Vérifié — Tarif membre appliqué",
+      "saveAmount": "Économisez {{discount}} $",
+      "fullNameLabel": "Nom complet",
+      "emailLabel": "Adresse e-mail",
+      "phoneLabel": "Indicatif du pays et numéro WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Poste/Titre",
+      "institutionLabel": "Institution/Organisation",
+      "countryLabel": "Pays",
+      "back": "Retour",
+      "processing": "Traitement en cours...",
+      "pay": "Payer {{amount}} USD"
+    },
+    "nonmember": {
+      "standardRate": "Tarif standard",
+      "freeMembership": "Vous recevrez une adhésion gratuite au GoGMI",
+      "fullNameLabel": "Nom complet",
+      "fullNamePlaceholder": "Jean Dupont",
+      "emailLabel": "Adresse e-mail",
+      "emailPlaceholder": "jean@exemple.com",
+      "dobLabel": "Date de naissance",
+      "phoneLabel": "Indicatif du pays et numéro WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Poste/Titre",
+      "institutionLabel": "Institution/Organisation",
+      "optional": "(Facultatif)",
+      "countryLabel": "Pays",
+      "countryPlaceholder": "Ghana",
+      "membershipTypeLabel": "Sélectionnez le type d'adhésion",
+      "membershipTypePlaceholder": "-- Sélectionnez votre type d'adhésion --",
+      "membershipTypeStudent": "Adhésion étudiante",
+      "membershipTypeAssociate": "Adhésion associée",
+      "membershipTypeProfessional": "Adhésion professionnelle",
+      "membershipTypeHelper": "Vous recevrez une adhésion gratuite au GoGMI du type sélectionné avec votre inscription au cours.",
+      "back": "Retour",
+      "processing": "Traitement en cours...",
+      "pay": "Payer {{amount}} USD"
+    }
+  },
+  "alerts": {
+    "enterMembershipId": "Veuillez saisir votre identifiant de membre",
+    "invalidMembershipId": "Identifiant de membre invalide",
+    "verifyError": "Impossible de vérifier. Veuillez vérifier votre connexion.",
+    "paymentLoading": "Chargement du système de paiement. Veuillez patienter.",
+    "paymentCancelled": "Paiement annulé.",
+    "paymentFailed": "Échec du paiement : {{error}}",
+    "fillRequired": "Veuillez remplir tous les champs obligatoires",
+    "selectMembershipType": "Veuillez sélectionner un type d'adhésion",
+    "enterDob": "Veuillez saisir votre date de naissance",
+    "registrationSuccess": "Inscription réussie !\n\nVous êtes maintenant inscrit(e) au Cours de Gouvernance Maritime.\nRéférence : {{reference}}\n",
+    "autoMembership": "\nFélicitations ! Vous êtes désormais membre du GoGMI.\nIdentifiant de membre : {{membershipId}}\nUtilisez cet identifiant pour vous connecter sur gogmi.org.gh/login\n",
+    "confirmationEmail": "\nUn e-mail de confirmation a été envoyé à {{email}}",
+    "registrationFailed": "Échec de l'inscription : {{message}}\nRéférence : {{reference}}\nContactez info@gogmi.org.gh",
+    "registrationError": "Erreur d'inscription. Contactez info@gogmi.org.gh en indiquant la référence : {{reference}}"
+  }
+}

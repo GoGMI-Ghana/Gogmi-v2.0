@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowRight,
   Users,
@@ -15,32 +16,17 @@ import {
 } from 'lucide-react';
 
 const Secretariat = () => {
-  const services = [
-    {
-      icon: <Calendar className="w-8 h-8" />,
-      title: 'Event Planning & Management',
-      description: 'From concept to execution, we handle every detail of your maritime events, conferences, and symposiums.',
-      color: '#132552'
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: 'Stakeholder Coordination',
-      description: 'Seamless coordination of regional and international stakeholders for collaborative maritime initiatives.',
-      color: '#8E3400'
-    },
-    {
-      icon: <FileText className="w-8 h-8" />,
-      title: 'Technical Secretariat Services',
-      description: 'Comprehensive administrative and technical support for maritime forums and working groups.',
-      color: '#1A336C'
-    },
-    {
-      icon: <Target className="w-8 h-8" />,
-      title: 'Capacity Building Programs',
-      description: 'Design and implementation of training programs for maritime professionals and institutions.',
-      color: '#8E3400'
-    }
+  const { t } = useTranslation('secretariat');
+  const servicesMeta = [
+    { icon: <Calendar className="w-8 h-8" />, color: '#132552' },
+    { icon: <Users className="w-8 h-8" />, color: '#8E3400' },
+    { icon: <FileText className="w-8 h-8" />, color: '#1A336C' },
+    { icon: <Target className="w-8 h-8" />, color: '#8E3400' }
   ];
+  const services = t('services.items', { returnObjects: true }).map((service, idx) => ({
+    ...service,
+    ...servicesMeta[idx]
+  }));
 
   const portfolioItems = [
     {
@@ -90,13 +76,12 @@ const Secretariat = () => {
           <div className="max-w-4xl">
             <h1 className="text-5xl sm:text-6xl md:text-7xl leading-tight mb-8"
                 style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-             Secretarial Services (Consultancy)
+             {t('hero.title')}
             </h1>
 
              <p className="text-5xl sm:text-2xl md:text-2xl leading-tight mb-8"
                 style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            We provide expert advisory services to governments, organizations, corporate bodies,
-             and individuals on maritime strategy, policy development, and regional partnerships.
+            {t('hero.subtitle')}
             </p>
 
            
@@ -110,7 +95,7 @@ const Secretariat = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
               >
-                <span>Contact Us Now</span>
+                <span>{t('hero.cta')}</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
@@ -122,14 +107,13 @@ const Secretariat = () => {
       <section className="py-20 md:py-32 bg-white">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>What We Offer</span>
+            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>{t('services.eyebrow')}</span>
             <h2 className="text-5xl md:text-6xl mt-4 mb-6"
                 style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              Explore Our Services
+              {t('services.heading')}
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-              Whether you're planning an innovation centre, a blue economy innovation symposium, or a bespoke stakeholder event, 
-              the Gulf of Guinea Maritime Institute is your trusted partner.
+              {t('services.subtitle')}
             </p>
           </div>
 
@@ -163,13 +147,13 @@ const Secretariat = () => {
 <section className="py-20 md:py-32" style={{ backgroundColor: '#F5F7FA' }}>
   <div className="container mx-auto max-w-7xl px-6">
     <div className="text-center mb-16">
-      <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>Our Portfolio</span>
+      <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>{t('portfolio.eyebrow')}</span>
       <h2 className="text-5xl md:text-6xl mt-4 mb-6"
           style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-        Signature Events & Initiatives
+        {t('portfolio.heading')}
       </h2>
       <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-        Explore our track record of delivering world-class secretariat services for major maritime events
+        {t('portfolio.subtitle')}
       </p>
     </div>
 
@@ -198,42 +182,38 @@ const Secretariat = () => {
               </div>
               <div className="px-4 py-1.5 rounded-full text-sm"
                    style={{ fontWeight: 600, backgroundColor: '#F5F7FA', color: '#8E3400' }}>
-                37 stakeholders engaged
+                {t('portfolio.gmac.badge')}
               </div>
             </div>
 
             <h3 className="text-xl md:text-2xl mb-3 group-hover:text-[#8E3400] transition-colors"
                 style={{ fontWeight: 900, color: '#132552' }}>
-              Green Maritime Africa Coalition
+              {t('portfolio.gmac.title')}
             </h3>
 
             <p className="text-sm font-bold mb-4 uppercase tracking-wide" style={{ color: '#8E3400' }}>
-              Theme: Advancing Net-Zero Emissions and Maritime Resilience in Africa through Continental Collaboration
+              {t('portfolio.gmac.theme')}
             </p>
 
             <p className="text-base leading-relaxed mb-4 line-clamp-3" style={{ fontWeight: 400, color: '#4B5563' }}>
-              GoGMI collaborates with the Nigerian Maritime Administration and Safety Agency to host the Green Maritime Africa Coalition (GMAC). 
-              GMAC's mission is a shared continental initiative aimed at leading the global energy transition. By 2030, GMAC intends to provide 
-              zero-emission fuels for the maritime industry and implement them in both international and domestic shipping throughout Africa.
+              {t('portfolio.gmac.overview')}
             </p>
 
             {/* Highlights */}
             <div className="mt-4">
-              <p className="text-sm font-bold mb-2" style={{ color: '#132552' }}>Key Highlights:</p>
+              <p className="text-sm font-bold mb-2" style={{ color: '#132552' }}>{t('portfolio.highlightsLabel')}</p>
               <ul className="space-y-1">
-                <li className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
-                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
-                  <span>Thought-provoking insights from industry leaders, experts, and influencers</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
-                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
-                  <span>Stakeholders had the chance to connect with peers, forge new partnerships, and expand their professional networks</span>
-                </li>
+                {t('portfolio.gmac.highlights', { returnObjects: true }).map((highlight, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
+                    <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="flex items-center gap-2 mt-6 text-sm font-semibold group-hover:gap-3 transition-all" style={{ color: '#8E3400' }}>
-              <span>View Full Project</span>
+              <span>{t('portfolio.viewProject')}</span>
               <ArrowRight className="w-4 h-4" />
             </div>
           </div>
@@ -264,39 +244,34 @@ const Secretariat = () => {
               </div>
               <div className="px-4 py-1.5 rounded-full text-sm"
                    style={{ fontWeight: 600, backgroundColor: '#F5F7FA', color: '#8E3400' }}>
-                Enhanced regional security
+                {t('portfolio.shade.badge')}
               </div>
             </div>
 
             <h3 className="text-xl md:text-2xl mb-3 group-hover:text-[#8E3400] transition-colors"
                 style={{ fontWeight: 900, color: '#132552' }}>
-              Gulf of Guinea Maritime Collaboration Forum - Shared Awareness and Deconfliction (GoG-MCF SHADE)
+              {t('portfolio.shade.title')}
             </h3>
 
             <p className="text-base leading-relaxed mb-4 line-clamp-3" style={{ fontWeight: 400, color: '#4B5563' }}>
-              The Gulf of Guinea Maritime Collaboration Forum - Shared Awareness and Deconfliction (GoG-MCF SHADE) was a dynamic forum designed 
-              and implemented by GoGMI in collaboration with the Nigerian Maritime Administration and Safety Agency (NIMASA) as a viable platform 
-              for regional and international navies, maritime industry partners and relevant stakeholders from across the GoG and beyond to harmonise 
-              counter-piracy efforts and communication in the GoG region.
+              {t('portfolio.shade.overview')}
             </p>
 
             {/* Highlights */}
             <div className="mt-4">
-              <p className="text-sm font-bold mb-2" style={{ color: '#132552' }}>Key Highlights:</p>
+              <p className="text-sm font-bold mb-2" style={{ color: '#132552' }}>{t('portfolio.highlightsLabel')}</p>
               <ul className="space-y-1">
-                <li className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
-                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
-                  <span>Dynamic discussions on counter-piracy efforts and communication</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
-                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
-                  <span>Working group discussions on industry disruptions and collaboration</span>
-                </li>
+                {t('portfolio.shade.highlights', { returnObjects: true }).map((highlight, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
+                    <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="flex items-center gap-2 mt-6 text-sm font-semibold group-hover:gap-3 transition-all" style={{ color: '#8E3400' }}>
-              <span>View Full Project</span>
+              <span>{t('portfolio.viewProject')}</span>
               <ArrowRight className="w-4 h-4" />
             </div>
           </div>

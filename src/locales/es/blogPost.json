@@ -1,0 +1,16 @@
+{
+  "loading": "Cargando publicación...",
+  "backToBlog": "Volver al blog",
+  "share": "Compartir",
+  "errors": {
+    "notFoundTitle": "Publicación no encontrada",
+    "notFoundMessage": "No se pudo encontrar esta publicación.",
+    "notFoundFallback": "Publicación no encontrada",
+    "loadFailed": "No se pudo cargar esta publicación. Inténtalo de nuevo."
+  },
+  "linkCopied": "¡Enlace copiado al portapapeles!",
+  "bottomNav": {
+    "allPosts": "Todas las publicaciones",
+    "sharePost": "Compartir publicación"
+  }
+}

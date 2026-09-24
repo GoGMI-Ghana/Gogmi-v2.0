@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "badge": "Rejoignez notre équipe",
+    "title": "Carrières chez GOGMI",
+    "subtitle": "Faites partie d'une équipe qui transforme l'avenir du domaine maritime du golfe de Guinée"
+  },
+  "positions": {
+    "eyebrow": "Opportunités",
+    "heading": "Postes à pourvoir",
+    "subtitle": "Trouvez le poste qui vous correspond au sein de notre équipe"
+  },
+  "filters": {
+    "searchPlaceholder": "Rechercher un poste...",
+    "showingPrefix": "Affichage de",
+    "positionCount_one": "poste",
+    "positionCount_other": "postes"
+  },
+  "categories": {
+    "all": "Tous",
+    "research": "Recherche",
+    "policyAdvocacy": "Politiques et plaidoyer",
+    "operations": "Opérations",
+    "communications": "Communications",
+    "finance": "Finances",
+    "it": "Informatique"
+  },
+  "types": {
+    "all": "Tous",
+    "fullTime": "Temps plein",
+    "partTime": "Temps partiel",
+    "internship": "Stage",
+    "volunteer": "Bénévolat"
+  },
+  "empty": {
+    "message": "Aucun poste ne correspond à vos critères",
+    "clearFilters": "Réinitialiser les filtres"
+  },
+  "job": {
+    "applyBy": "Date limite de candidature : {{date}}",
+    "closed": "Clôturé"
+  },
+  "jobs": {
+    "1": {
+      "title": "Directeur exécutif",
+      "category": "Direction stratégique",
+      "experience": "5 à 7 ans",
+      "deadline": "15 décembre 2024",
+      "description": "Diriger la recherche et l'analyse des politiques sur les cadres de gouvernance maritime en Afrique de l'Ouest. Élaborer des notes de politique et dialoguer avec les parties prenantes régionales.",
+      "requirements": [
+        "Master en études maritimes, relations internationales ou domaine connexe",
+        "Expérience avérée en analyse des politiques",
+        "Excellentes compétences en recherche et en rédaction",
+        "Connaissance du secteur maritime ouest-africain"
+      ],
+      "responsibilities": [
+        "Mener des recherches politiques approfondies",
+        "Élaborer des recommandations politiques",
+        "Dialoguer avec les responsables gouvernementaux",
+        "Diriger des campagnes de plaidoyer"
+      ]
+    }
+  }
+}

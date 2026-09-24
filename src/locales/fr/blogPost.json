@@ -1,0 +1,16 @@
+{
+  "loading": "Chargement de l'article...",
+  "backToBlog": "Retour au blog",
+  "share": "Partager",
+  "errors": {
+    "notFoundTitle": "Article introuvable",
+    "notFoundMessage": "Cet article n'a pas pu être trouvé.",
+    "notFoundFallback": "Article introuvable",
+    "loadFailed": "Impossible de charger cet article. Veuillez réessayer."
+  },
+  "linkCopied": "Lien copié dans le presse-papiers !",
+  "bottomNav": {
+    "allPosts": "Tous les articles",
+    "sharePost": "Partager l'article"
+  }
+}

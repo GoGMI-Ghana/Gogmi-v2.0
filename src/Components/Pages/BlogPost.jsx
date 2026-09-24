@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Calendar, User, ArrowLeft, Share2, Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const API_URL = 'https://api.gogmi.org.gh/api';
 
 const BlogPost = () => {
+  const { t } = useTranslation('blogPost');
   const location = useLocation();
   const slug = location.pathname.replace('/blog/', '');
 
@@ -23,10 +25,10 @@ const BlogPost = () => {
         if (data.success) {
           setPost(data.data);
         } else {
-          setError(data.message || 'Post not found');
+          setError(data.message || t('errors.notFoundFallback'));
         }
       } catch (err) {
-        setError('Unable to load this post. Please try again.');
+        setError(t('errors.loadFailed'));
         console.error('Post fetch error:', err);
       } finally {
         setLoading(false);
@@ -47,7 +49,7 @@ const BlogPost = () => {
       navigator.share({ title: post.title, url: window.location.href });
     } else {
       navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
+      alert(t('linkCopied'));
     }
   };
 
@@ -55,7 +57,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F5F7FA' }}>
         <Loader2 className="w-8 h-8 animate-spin" style={{ color: '#8E3400' }} />
-        <span className="ml-3 text-lg" style={{ color: '#6B7280' }}>Loading post...</span>
+        <span className="ml-3 text-lg" style={{ color: '#6B7280' }}>{t('loading')}</span>
       </div>
     );
   }
@@ -64,10 +66,10 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="text-center">
-          <h2 className="text-3xl font-black mb-4" style={{ color: '#132552' }}>Post Not Found</h2>
-          <p className="text-base mb-6" style={{ color: '#6B7280' }}>{error || 'This post could not be found.'}</p>
+          <h2 className="text-3xl font-black mb-4" style={{ color: '#132552' }}>{t('errors.notFoundTitle')}</h2>
+          <p className="text-base mb-6" style={{ color: '#6B7280' }}>{error || t('errors.notFoundMessage')}</p>
           <Link to="/blog" className="px-6 py-3 rounded-lg text-white font-bold" style={{ backgroundColor: '#8E3400' }}>
-            Back to Blog
+            {t('backToBlog')}
           </Link>
         </div>
       </div>
@@ -96,7 +98,7 @@ const BlogPost = () => {
             className="inline-flex items-center gap-2 mb-8 text-white/70 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-semibold">Back to Blog</span>
+            <span className="text-sm font-semibold">{t('backToBlog')}</span>
           </button>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl leading-tight mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
@@ -117,7 +119,7 @@ const BlogPost = () => {
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
             >
               <Share2 className="w-4 h-4" />
-              <span className="text-sm font-semibold">Share</span>
+              <span className="text-sm font-semibold">{t('share')}</span>
             </button>
           </div>
         </div>
@@ -148,7 +150,7 @@ const BlogPost = () => {
               style={{ backgroundColor: '#132552', color: 'white' }}
             >
               <ArrowLeft className="w-4 h-4" />
-              All Posts
+              {t('bottomNav.allPosts')}
             </Link>
             <button
               onClick={handleShare}
@@ -156,7 +158,7 @@ const BlogPost = () => {
               style={{ borderColor: '#8E3400', color: '#8E3400' }}
             >
               <Share2 className="w-4 h-4" />
-              Share Post
+              {t('bottomNav.sharePost')}
             </button>
           </div>
         </div>

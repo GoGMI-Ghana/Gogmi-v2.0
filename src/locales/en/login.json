@@ -1,0 +1,30 @@
+{
+  "heading": "Member Login",
+  "subtitle": {
+    "enterId": "Enter your Membership ID to continue",
+    "enterCode": "Enter the 6-digit code sent to {{email}}"
+  },
+  "errors": {
+    "membershipIdRequired": "Please enter your Membership ID",
+    "otpIncomplete": "Please enter the full 6-digit code"
+  },
+  "step1": {
+    "label": "Membership ID",
+    "placeholder": "e.g. GoGMI-MASO2026-00001",
+    "helpText": "Your Membership ID was sent to your email after registration.",
+    "submitIdle": "Send Login Code",
+    "submitLoading": "Sending code…"
+  },
+  "step2": {
+    "codeSentToPrefix": "A 6-digit code was sent to",
+    "verifyIdle": "Verify & Sign In",
+    "verifyLoading": "Verifying…",
+    "changeId": "Change ID",
+    "resendIdle": "Resend code",
+    "resendCooldown": "Resend in {{seconds}}s"
+  },
+  "footer": {
+    "notAMember": "Not a member yet?",
+    "joinLink": "Join GoGMI"
+  }
+}

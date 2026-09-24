@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../context/AuthContext';
 import {
   Mail, Phone, MapPin, Building2, Briefcase, CreditCard,
@@ -8,25 +9,21 @@ import {
 
 const STATUS_STYLES = {
   active: {
-    label: 'Active',
     dot: 'bg-emerald-500',
     className: 'bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-600/20',
     Icon: ShieldCheck,
   },
   pending: {
-    label: 'Pending',
     dot: 'bg-amber-500',
     className: 'bg-amber-50 text-amber-700 ring-1 ring-inset ring-amber-600/20',
     Icon: ShieldQuestion,
   },
   expired: {
-    label: 'Expired',
     dot: 'bg-red-500',
     className: 'bg-red-50 text-red-700 ring-1 ring-inset ring-red-600/20',
     Icon: ShieldAlert,
   },
   cancelled: {
-    label: 'Cancelled',
     dot: 'bg-gray-400',
     className: 'bg-gray-100 text-gray-600 ring-1 ring-inset ring-gray-400/20',
     Icon: ShieldAlert,
@@ -34,13 +31,15 @@ const STATUS_STYLES = {
 };
 
 const StatusBadge = ({ status }) => {
-  const s = STATUS_STYLES[status] || STATUS_STYLES.pending;
+  const { t } = useTranslation('memberDashboard');
+  const key = STATUS_STYLES[status] ? status : 'pending';
+  const s = STATUS_STYLES[key];
   const { Icon } = s;
   return (
     <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${s.className}`}>
       <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
       <Icon className="w-3.5 h-3.5" />
-      {s.label} Member
+      {t(`status.${key}`)}
     </span>
   );
 };
@@ -71,6 +70,7 @@ const daysRemaining = (expiry) => {
 };
 
 const MemberDashboard = () => {
+  const { t } = useTranslation('memberDashboard');
   const { isAuthenticated, user, membership } = useAuth();
   const [certUrl, setCertUrl] = useState(null);
   const [certChecked, setCertChecked] = useState(false);
@@ -130,7 +130,7 @@ const MemberDashboard = () => {
             <div className="min-w-0">
               <h1 className="text-2xl sm:text-3xl font-black text-white truncate">{user?.full_name}</h1>
               <p className="text-white/60 text-sm mt-1 mb-3">
-                {membership?.plan_name || 'GoGMI Member'}
+                {membership?.plan_name || t('header.defaultPlanName')}
                 {membership?.membership_id && (
                   <span className="text-white/40"> · {membership.membership_id}</span>
                 )}
@@ -145,32 +145,32 @@ const MemberDashboard = () => {
         <div className="grid md:grid-cols-2 gap-6">
           {/* Profile details */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-7">
-            <h2 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-1">Profile</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-1">{t('profile.heading')}</h2>
             <div className="divide-y divide-gray-100">
-              <InfoRow icon={Mail} label="Email" value={user?.email} />
-              <InfoRow icon={Phone} label="Phone" value={user?.phone} />
-              <InfoRow icon={MapPin} label="Country" value={user?.country} />
-              <InfoRow icon={Building2} label="Organization" value={user?.organization} />
-              <InfoRow icon={Briefcase} label="Position" value={user?.position} />
+              <InfoRow icon={Mail} label={t('profile.email')} value={user?.email} />
+              <InfoRow icon={Phone} label={t('profile.phone')} value={user?.phone} />
+              <InfoRow icon={MapPin} label={t('profile.country')} value={user?.country} />
+              <InfoRow icon={Building2} label={t('profile.organization')} value={user?.organization} />
+              <InfoRow icon={Briefcase} label={t('profile.position')} value={user?.position} />
             </div>
           </div>
 
           {/* Membership details */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-7">
-            <h2 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-1">Membership</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-1">{t('membership.heading')}</h2>
             <div className="divide-y divide-gray-100">
-              <InfoRow icon={CreditCard} label="Membership ID" value={membership?.membership_id} />
+              <InfoRow icon={CreditCard} label={t('membership.membershipId')} value={membership?.membership_id} />
               <InfoRow
                 icon={Award}
-                label="Type"
+                label={t('membership.type')}
                 value={membership?.membership_type ? membership.membership_type[0].toUpperCase() + membership.membership_type.slice(1) : null}
               />
-              <InfoRow icon={CalendarClock} label="Expires" value={formatDate(membership?.expiry_date)} />
+              <InfoRow icon={CalendarClock} label={t('membership.expires')} value={formatDate(membership?.expiry_date)} />
               {typeof remaining === 'number' && (
                 <InfoRow
                   icon={Clock}
-                  label="Time Remaining"
-                  value={remaining > 0 ? `${remaining} day${remaining === 1 ? '' : 's'} left` : 'Expired'}
+                  label={t('membership.timeRemaining')}
+                  value={remaining > 0 ? t('membership.daysLeft', { count: remaining }) : t('membership.expired')}
                 />
               )}
             </div>
@@ -188,11 +188,11 @@ const MemberDashboard = () => {
                 <Award className="w-6 h-6" style={{ color: certUrl ? '#8E3400' : '#9CA3AF' }} />
               </div>
               <div>
-                <h3 className="font-bold text-lg" style={{ color: '#132552' }}>Membership Certificate</h3>
+                <h3 className="font-bold text-lg" style={{ color: '#132552' }}>{t('certificate.heading')}</h3>
                 <p className="text-sm text-gray-500 mt-1 max-w-md">
                   {certUrl
-                    ? 'Your official GoGMI membership certificate is ready to download.'
-                    : "Your official certificate is being prepared and will be available to download here once it's issued."}
+                    ? t('certificate.readyDescription')
+                    : t('certificate.pendingDescription')}
                 </p>
               </div>
             </div>
@@ -204,15 +204,15 @@ const MemberDashboard = () => {
                 style={{ backgroundColor: '#8E3400' }}
               >
                 <Download className="w-5 h-5" />
-                Download Certificate
+                {t('certificate.download')}
               </a>
             ) : (
               <button
                 disabled
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-gray-400 bg-gray-100 cursor-not-allowed whitespace-nowrap"
-                title="Certificates are not yet available for download"
+                title={t('certificate.notAvailableTitle')}
               >
-                {certChecked ? 'Coming Soon' : 'Checking…'}
+                {certChecked ? t('certificate.comingSoon') : t('certificate.checking')}
               </button>
             )}
           </div>
@@ -228,8 +228,8 @@ const MemberDashboard = () => {
               <BookOpen className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="font-bold" style={{ color: '#132552' }}>My Resources</p>
-              <p className="text-sm text-gray-500">Access member-only publications and briefs</p>
+              <p className="font-bold" style={{ color: '#132552' }}>{t('quickLinks.resources.title')}</p>
+              <p className="text-sm text-gray-500">{t('quickLinks.resources.description')}</p>
             </div>
           </Link>
           <Link
@@ -240,8 +240,8 @@ const MemberDashboard = () => {
               <CreditCard className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="font-bold" style={{ color: '#132552' }}>Manage Membership</p>
-              <p className="text-sm text-gray-500">View plans, renew, or upgrade your membership</p>
+              <p className="font-bold" style={{ color: '#132552' }}>{t('quickLinks.membership.title')}</p>
+              <p className="text-sm text-gray-500">{t('quickLinks.membership.description')}</p>
             </div>
           </Link>
         </div>

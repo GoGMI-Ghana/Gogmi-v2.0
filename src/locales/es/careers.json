@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "badge": "Únete a nuestro equipo",
+    "title": "Carreras en GOGMI",
+    "subtitle": "Forma parte de un equipo que está transformando el futuro del dominio marítimo del golfo de Guinea"
+  },
+  "positions": {
+    "eyebrow": "Oportunidades",
+    "heading": "Vacantes disponibles",
+    "subtitle": "Encuentra el puesto ideal en nuestro equipo"
+  },
+  "filters": {
+    "searchPlaceholder": "Buscar puestos...",
+    "showingPrefix": "Mostrando",
+    "positionCount_one": "puesto",
+    "positionCount_other": "puestos"
+  },
+  "categories": {
+    "all": "Todos",
+    "research": "Investigación",
+    "policyAdvocacy": "Políticas e incidencia",
+    "operations": "Operaciones",
+    "communications": "Comunicaciones",
+    "finance": "Finanzas",
+    "it": "TI"
+  },
+  "types": {
+    "all": "Todos",
+    "fullTime": "Tiempo completo",
+    "partTime": "Medio tiempo",
+    "internship": "Pasantía",
+    "volunteer": "Voluntariado"
+  },
+  "empty": {
+    "message": "No se encontraron puestos que coincidan con sus criterios",
+    "clearFilters": "Borrar filtros"
+  },
+  "job": {
+    "applyBy": "Fecha límite de postulación: {{date}}",
+    "closed": "Cerrado"
+  },
+  "jobs": {
+    "1": {
+      "title": "Director ejecutivo",
+      "category": "Liderazgo estratégico",
+      "experience": "5 a 7 años",
+      "deadline": "15 de diciembre de 2024",
+      "description": "Dirigir la investigación y el análisis de políticas sobre los marcos de gobernanza marítima en África Occidental. Elaborar documentos de políticas y colaborar con las partes interesadas regionales.",
+      "requirements": [
+        "Maestría en Estudios Marítimos, Relaciones Internacionales o campo afín",
+        "Experiencia comprobada en análisis de políticas",
+        "Excelentes habilidades de investigación y redacción",
+        "Conocimiento del sector marítimo de África Occidental"
+      ],
+      "responsibilities": [
+        "Realizar investigaciones de políticas exhaustivas",
+        "Elaborar recomendaciones de políticas",
+        "Colaborar con funcionarios gubernamentales",
+        "Liderar campañas de incidencia"
+      ]
+    }
+  }
+}

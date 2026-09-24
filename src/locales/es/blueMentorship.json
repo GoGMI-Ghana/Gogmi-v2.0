@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "backLink": "Volver a Desarrollo de Capacidades",
+    "badge": "Desarrollo de Capacidades · Mentoría",
+    "titleLine1": "El Programa de",
+    "titleLine2": "Mentoría Azul",
+    "subtitle": "Un acelerador marítimo africano que conecta a 30 jóvenes con líderes del sector, emprendedores y profesionales del océano para prepararlos para el éxito en la economía azul de África.",
+    "statusBadge": "Programa finalizado"
+  },
+  "origin": {
+    "eyebrow": "Cómo comenzó todo",
+    "heading": "Nacido de la Expo de Carreras y Negocios Azules",
+    "para1": "En noviembre de 2021, GoGMI celebró su evento insignia, el Blue Career and Business Expo (BCBE), creando plataformas de intercambio con múltiples oportunidades para que los jóvenes aprendieran de los líderes de la industria marítima y conocieran el abanico de oportunidades dentro de los sectores de la economía azul de Ghana. La Expo contó con la asistencia de más de 200 personas, entre ellas figuras destacadas, profesionales del sector marítimo, estudiantes y otras partes interesadas.",
+    "para2": "El BCBE siempre estuvo concebido como el primero de una serie de eventos destinados a involucrar activamente a la juventud africana en el camino hacia la construcción de una economía azul resiliente. Tal como estaba previsto, sirvió para poner en marcha un Programa de Mentoría por el cual varios jóvenes participantes mostraron un gran interés.",
+    "para3": "GoGMI fue más allá al seleccionar a treinta jóvenes para el Programa de Mentoría Azul, una experiencia integral de mentoría y preparación diseñada para encaminarlos hacia el éxito azul.",
+    "stats": [
+      { "label": "Jóvenes mentoreados seleccionados" },
+      { "label": "Asistentes al BCBE" },
+      { "label": "Año del programa" },
+      { "label": "Componentes del programa" }
+    ]
+  },
+  "impacts": {
+    "eyebrow": "Sobre el programa",
+    "heading": "Áreas de impacto del programa",
+    "subtitle": "El Programa de Mentoría Azul está diseñado para generar cuatro impactos fundamentales para los jóvenes profesionales marítimos africanos.",
+    "items": [
+      {
+        "title": "Acceso a mentoría del sector",
+        "desc": "Brindar a los jóvenes acceso a mentoría del sector marítimo, servicios de apoyo y eventos educativos y de networking, manteniéndolos al tanto de los últimos avances e iniciativas en la comunidad de la economía azul africana."
+      },
+      {
+        "title": "Vinculación con empresas y el sector",
+        "desc": "Facilitar la vinculación de los jóvenes con socios corporativos e industriales apasionados por la innovación, la diversidad y la inclusión de las mentes jóvenes en el desarrollo de la economía azul africana."
+      },
+      {
+        "title": "Centro de incubación de la economía azul",
+        "desc": "Funcionar como un centro de incubación para start-ups de la economía azul, proporcionando recursos, redes y apoyo estructurado para ayudar a los jóvenes emprendedores a convertir sus ideas oceánicas en negocios viables."
+      },
+      {
+        "title": "Apoyo profesional y empresarial",
+        "desc": "Ofrecer aprendizaje y apoyo a los jóvenes a lo largo de su trayectoria profesional, emprendedora o empresarial, desde la concepción de la idea hasta su implementación y crecimiento."
+      }
+    ]
+  },
+  "elements": {
+    "eyebrow": "Estructura del programa",
+    "heading": "Componentes del programa",
+    "subtitle": "Tres componentes estructurados que se desarrollan a lo largo de todo el ciclo del programa.",
+    "items": [
+      {
+        "title": "Emparejamiento de mentores",
+        "desc": "Al inicio del programa, los mentoreados son emparejados con mentores que ofrecen orientación en sus trayectorias de carrera azul y emprendimiento en una amplia gama de áreas. Esta mentoría continúa durante toda la duración del programa y constituye la base sobre la que se desarrollan el resto de las actividades.",
+        "period": "Desde el mes 1"
+      },
+      {
+        "title": "Serie de Oradores del Éxito Azul (BLUESSS) 2022",
+        "desc": "La plataforma BLUESSS ofrece a los jóvenes la oportunidad de escuchar testimonios de primera mano de emprendedores exitosos de la economía azul, innovadores oceánicos y otros profesionales del océano. Los oradores comparten sus trayectorias profesionales y emprendedoras, incluyendo éxitos y fracasos destacados. Los mentoreados se agrupan por sectores para recibir asesoramiento especializado adaptado a sus intereses.",
+        "period": "Meses 2–3"
+      },
+      {
+        "title": "Centro de Apoyo Empresarial Marítimo 2023",
+        "desc": "Tras el BLUESSS, los mentoreados profundizan lo aprendido a través de una incubadora empresarial marítima de un año de duración. Las sesiones se realizan cada trimestre: Trimestre 1 (El Mapa Mental) — una lluvia de ideas guiada para identificar oportunidades en la economía azul; Trimestre 2 (El Desafío de Innovación de la Economía Azul) — los mentoreados presentan ideas oceánicas innovadoras ante un panel; Trimestre 3 (La Plataforma Azul) — una comunidad virtual para que los mentoreados se conecten con innovadores, expertos, posibles socios y asesores.",
+        "period": "Meses 4–12"
+      }
+    ]
+  },
+  "incubator": {
+    "eyebrow": "El panorama general",
+    "heading": "Una incubadora de negocios marítimos",
+    "para1": "Más allá del Programa de Mentoría Azul, GoGMI busca ampliar su vinculación con los jóvenes mediante el desarrollo de una Incubadora de Negocios Marítimos (MBI), en colaboración con la industria marítima mundial y sus profesionales, para brindar soluciones y recursos que mejoren las conexiones de carrera y negocios, así como el financiamiento de innovaciones en start-ups azules en toda la región del Golfo de Guinea.",
+    "para2": "La MBI colaborará con el ámbito académico para desarrollar redes de investigación conjuntas en toda la subregión, dedicadas a fortalecer la comprensión local de los sectores de la economía azul africana. También contará con un Centro de Datos Marítimos, un repositorio de datos integral para desarrollar y probar nuevas aplicaciones y servicios digitales para la industria marítima.",
+    "para3": "La participación del sector privado ayudará a impulsar un espíritu innovador de cambio para los jóvenes emprendedores y para la comunidad empresarial de la economía azul del Golfo de Guinea en su conjunto.",
+    "themesHeading": "Temáticas de la incubadora",
+    "themes": [
+      { "label": "Emprendimiento", "desc": "Desarrollar nuevas empresas e iniciativas de la economía azul desde cero." },
+      { "label": "Mentoría", "desc": "Orientación individual y grupal por parte de profesionales marítimos con experiencia." },
+      { "label": "Networking e intercambio de conocimientos", "desc": "Conferencias, mesas redondas, charlas informales y reuniones de directorio que conectan a las mentes jóvenes." },
+      { "label": "Innovación marítima", "desc": "Desarrollo de tecnología, datos y aplicaciones digitales para la industria marítima." },
+      { "label": "Innovación del capital humano azul", "desc": "Formar a la próxima generación de profesionales del océano capacitados para el Golfo de Guinea." }
+    ]
+  },
+  "cta": {
+    "headingLine1": "¿Interesado en futuras",
+    "headingLine2": "cohortes de mentoría?",
+    "subtitle": "Póngase en contacto con GoGMI para expresar su interés en la próxima cohorte del Programa de Mentoría Azul o en la Incubadora de Negocios Marítimos.",
+    "button": "Contáctenos"
+  }
+}

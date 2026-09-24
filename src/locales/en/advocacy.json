@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "title": "Advocacy",
+    "subtitle": "We raise awareness on how crucial the marine sector is in shaping policy, advancing the blue economy, and promoting sustainable ocean use in the Gulf of Guinea.",
+    "cta": "Partner With Us"
+  },
+  "campaignsSection": {
+    "eyebrow": "Get Involved",
+    "heading": "Our Campaigns",
+    "readMore": "Read More"
+  },
+  "campaignStatus": {
+    "active": "Active",
+    "completed": "Completed"
+  },
+  "campaigns": [
+    {
+      "title": "International Maritime Security Working Group",
+      "category": "Maritime Security",
+      "description": "The IMSWG forum is a leading platform for regional knowledge sharing and research, with insight into international trends.",
+      "deadline": "Ongoing"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Youth Development",
+      "description": "BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards.",
+      "deadline": "Ongoing"
+    },
+    {
+      "title": "Blue Career and Business Expo",
+      "category": "Youth Development",
+      "description": "The Blue Career and Business Expo is a yearly programme designed to create dynamic opportunity-exchange platforms that enable young people to engage with maritime industry leaders and actively contribute to building a robust blue economy in Africa.",
+      "deadline": "Annual Event"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Youth Development",
+      "description": "BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards. Our ocean covers over 70% of our planet and plays an essential role in regulating climate, providing food and resources, and supporting incredible biodiversity.",
+      "deadline": "2023"
+    }
+  ]
+}

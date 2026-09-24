@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "backLink": "Back to Capacity Building",
+    "badge": "Capacity Building · Mentorship",
+    "titleLine1": "The Blue Mentorship",
+    "titleLine2": "Programme",
+    "subtitle": "An African maritime accelerator connecting 30 young individuals with industry leaders, entrepreneurs, and ocean professionals to prime them for success in Africa's blue economy.",
+    "statusBadge": "Programme Completed"
+  },
+  "origin": {
+    "eyebrow": "Where It All Began",
+    "heading": "Born from the Blue Career & Business Expo",
+    "para1": "In November 2021, GoGMI held its flagship Blue Career and Business Expo (BCBE) — creating multi-opportunity exchange platforms for young people to learn from maritime industry leaders and gain an appreciation of the range of opportunities within Ghana's blue economy sectors. The Expo was attended by over 200 individuals, including high profile personalities, maritime industry practitioners, students, and other stakeholders.",
+    "para2": "The BCBE was always intended as the first in a series of events aimed at actively engaging African youth on the path towards building a resilient blue economy. As intended, it was used to initiate a Mentorship Programme for which several participating youth showed strong interest.",
+    "para3": "GoGMI took it a step further by selecting thirty young individuals for the Blue Mentorship Programme — a full mentorship and grooming experience designed to prime them for blue success.",
+    "stats": [
+      { "label": "Young Mentees Selected" },
+      { "label": "BCBE Attendees" },
+      { "label": "Programme Year" },
+      { "label": "Programme Elements" }
+    ]
+  },
+  "impacts": {
+    "eyebrow": "About the Programme",
+    "heading": "Programme Impact Areas",
+    "subtitle": "The Blue Mentorship Programme is designed to deliver four core impacts for young African maritime professionals.",
+    "items": [
+      {
+        "title": "Industry Mentorship Access",
+        "desc": "Provide youth with access to maritime industry mentorship, support services, educational and networking events, while keeping them updated on the latest developments and engagements in Africa's blue economy community."
+      },
+      {
+        "title": "Corporate & Industry Engagement",
+        "desc": "Facilitate youth engagement with corporate and industry partners who are passionate about innovation, diversity and inclusion of young minds in the development of Africa's blue economy."
+      },
+      {
+        "title": "Blue Economy Incubation Hub",
+        "desc": "Serve as an incubation hub for blue economy start-ups, providing resources, networks, and structured support to help young entrepreneurs turn ocean ideas into viable businesses."
+      },
+      {
+        "title": "Career & Business Support",
+        "desc": "Provide learning and support for youth through their career, entrepreneurial or business journey — from idea conception through to implementation and growth."
+      }
+    ]
+  },
+  "elements": {
+    "eyebrow": "Programme Structure",
+    "heading": "Elements of the Programme",
+    "subtitle": "Three structured elements running across the full programme lifecycle.",
+    "items": [
+      {
+        "title": "Mentor Pairing",
+        "desc": "At the start of the programme, mentees are paired with mentors who offer guidance in their blue career and entrepreneurship pursuits across a broad range of areas. This mentorship continues for the full duration of the programme and forms the foundation upon which all other activities commence.",
+        "period": "Month 1 onwards"
+      },
+      {
+        "title": "Blue Success Speaker Series (BLUESSS) 2022",
+        "desc": "The BLUESSS platform creates the opportunity for young people to hear first-hand accounts from successful blue economy entrepreneurs, ocean innovators, and other ocean professionals. Speakers share insights into their career and entrepreneurial journey — including notable successes and failures. Mentees are clustered into sector groups to receive specialised advice tailored to their interests.",
+        "period": "Month 2–3"
+      },
+      {
+        "title": "Maritime Business Support Hub 2023",
+        "desc": "Following the BLUESSS, mentees build on lessons learned through a year-long Maritime Business Incubator. Sessions are held each quarter: Quarter 1 (The Mind Map) — guided brainstorming to identify blue economy opportunities; Quarter 2 (The Blue Economy Innovation Challenge) — mentees pitch innovative ocean ideas to a panel; Quarter 3 (The Blue Platform) — a virtual community for mentees to connect with innovators, experts, potential partners and advisers.",
+        "period": "Month 4–12"
+      }
+    ]
+  },
+  "incubator": {
+    "eyebrow": "The Bigger Picture",
+    "heading": "A Maritime Business Incubator",
+    "para1": "Beyond the Blue Mentorship Programme, GoGMI aims to expand its engagement with youth to develop a Maritime Business Incubator (MBI) — partnering with global maritime industry and practitioners to provide solutions and resources to improve career and business connections and financing for innovations in blue start-ups across the Gulf of Guinea region.",
+    "para2": "The MBI will collaborate with academia to develop collaborative research networks across the sub-region, dedicated to enhancing indigenous understanding of Africa's blue economy sectors. It will also feature a Maritime Data Hub — a one-stop data repository for developing and test-bedding new digital applications and services for the maritime industry.",
+    "para3": "Private sector involvement will help bring about an innovative spirit of change for young entrepreneurs and the broader Gulf of Guinea blue economy business community.",
+    "themesHeading": "Themes of the Incubator",
+    "themes": [
+      { "label": "Entrepreneurship", "desc": "Developing new blue economy businesses and ventures from the ground up." },
+      { "label": "Mentorship", "desc": "One-on-one and group guidance from experienced maritime professionals." },
+      { "label": "Networking & Knowledge-Sharing", "desc": "Conferences, roundtables, fireside chats and boardrooms connecting young minds." },
+      { "label": "Maritime Innovation", "desc": "Technology, data, and digital application development for the maritime industry." },
+      { "label": "Blue Human Capital Innovation", "desc": "Building the next generation of skilled ocean professionals for the Gulf of Guinea." }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Interested in Future",
+    "headingLine2": "Mentorship Cohorts?",
+    "subtitle": "Get in touch with GoGMI to express your interest in the next Blue Mentorship Programme cohort or the Maritime Business Incubator.",
+    "button": "Contact Us"
+  }
+}

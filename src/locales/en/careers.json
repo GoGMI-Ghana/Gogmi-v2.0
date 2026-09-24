@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "badge": "Join Our Team",
+    "title": "Careers at GOGMI",
+    "subtitle": "Be part of a team transforming The Future of the Gulf of Guinea Maritime Domain"
+  },
+  "positions": {
+    "eyebrow": "Opportunities",
+    "heading": "Open Positions",
+    "subtitle": "Find your perfect role in our team"
+  },
+  "filters": {
+    "searchPlaceholder": "Search positions...",
+    "showingPrefix": "Showing",
+    "positionCount_one": "position",
+    "positionCount_other": "positions"
+  },
+  "categories": {
+    "all": "All",
+    "research": "Research",
+    "policyAdvocacy": "Policy & Advocacy",
+    "operations": "Operations",
+    "communications": "Communications",
+    "finance": "Finance",
+    "it": "IT"
+  },
+  "types": {
+    "all": "All",
+    "fullTime": "Full-Time",
+    "partTime": "Part-Time",
+    "internship": "Internship",
+    "volunteer": "Volunteer"
+  },
+  "empty": {
+    "message": "No positions found matching your criteria",
+    "clearFilters": "Clear Filters"
+  },
+  "job": {
+    "applyBy": "Apply by {{date}}",
+    "closed": "Closed"
+  },
+  "jobs": {
+    "1": {
+      "title": "Executive Director",
+      "category": "Strategic Leadership",
+      "experience": "5-7 years",
+      "deadline": "December 15, 2024",
+      "description": "Lead policy research and analysis on maritime governance frameworks across West Africa. Develop policy briefs and engage with regional stakeholders.",
+      "requirements": [
+        "Masters in Maritime Studies, International Relations, or related field",
+        "Proven experience in policy analysis",
+        "Excellent research and writing skills",
+        "Knowledge of West African maritime sector"
+      ],
+      "responsibilities": [
+        "Conduct comprehensive policy research",
+        "Develop policy recommendations",
+        "Engage with government officials",
+        "Lead advocacy campaigns"
+      ]
+    }
+  }
+}

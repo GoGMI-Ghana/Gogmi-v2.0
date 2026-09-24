@@ -1,0 +1,48 @@
+{
+  "status": {
+    "active": "Membre actif",
+    "pending": "Membre en attente",
+    "expired": "Membre expiré",
+    "cancelled": "Membre annulé"
+  },
+  "header": {
+    "defaultPlanName": "Membre GoGMI"
+  },
+  "profile": {
+    "heading": "Profil",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "country": "Pays",
+    "organization": "Organisation",
+    "position": "Poste"
+  },
+  "membership": {
+    "heading": "Adhésion",
+    "membershipId": "Numéro d'adhésion",
+    "type": "Type",
+    "expires": "Expire le",
+    "timeRemaining": "Temps restant",
+    "expired": "Expiré",
+    "daysLeft_one": "{{count}} jour restant",
+    "daysLeft_other": "{{count}} jours restants"
+  },
+  "certificate": {
+    "heading": "Certificat d'adhésion",
+    "readyDescription": "Votre certificat officiel d'adhésion GoGMI est prêt à être téléchargé.",
+    "pendingDescription": "Votre certificat officiel est en cours de préparation et sera disponible au téléchargement ici dès sa délivrance.",
+    "download": "Télécharger le certificat",
+    "comingSoon": "Bientôt disponible",
+    "checking": "Vérification en cours…",
+    "notAvailableTitle": "Les certificats ne sont pas encore disponibles au téléchargement"
+  },
+  "quickLinks": {
+    "resources": {
+      "title": "Mes ressources",
+      "description": "Accédez aux publications et notes réservées aux membres"
+    },
+    "membership": {
+      "title": "Gérer mon adhésion",
+      "description": "Consultez les formules, renouvelez ou améliorez votre adhésion"
+    }
+  }
+}

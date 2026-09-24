@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "title": "Incidencia",
+    "subtitle": "Sensibilizamos sobre la importancia crucial del sector marítimo en la formulación de políticas, el impulso de la economía azul y la promoción del uso sostenible del océano en el Golfo de Guinea.",
+    "cta": "Sé nuestro socio"
+  },
+  "campaignsSection": {
+    "eyebrow": "Involúcrate",
+    "heading": "Nuestras campañas",
+    "readMore": "Leer más"
+  },
+  "campaignStatus": {
+    "active": "Activa",
+    "completed": "Completada"
+  },
+  "campaigns": [
+    {
+      "title": "Grupo de Trabajo Internacional sobre Seguridad Marítima",
+      "category": "Seguridad marítima",
+      "description": "El foro IMSWG es una plataforma líder para el intercambio de conocimientos y la investigación a nivel regional, con una visión de las tendencias internacionales.",
+      "deadline": "En curso"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Desarrollo juvenil",
+      "description": "BWI es un programa de alfabetización oceánica para estudiantes de educación básica y secundaria, que les brinda el conocimiento y las herramientas para convertirse en guardianes del océano informados y comprometidos.",
+      "deadline": "En curso"
+    },
+    {
+      "title": "Blue Career and Business Expo",
+      "category": "Desarrollo juvenil",
+      "description": "El Blue Career and Business Expo es un programa anual diseñado para crear plataformas dinámicas de intercambio de oportunidades que permiten a los jóvenes relacionarse con líderes de la industria marítima y contribuir activamente a la construcción de una economía azul sólida en África.",
+      "deadline": "Evento anual"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Desarrollo juvenil",
+      "description": "BWI es un programa de alfabetización oceánica para estudiantes de educación básica y secundaria, que les brinda el conocimiento y las herramientas para convertirse en guardianes del océano informados y comprometidos. Nuestro océano cubre más del 70 % de nuestro planeta y desempeña un papel esencial en la regulación del clima, el suministro de alimentos y recursos, y el sostenimiento de una biodiversidad extraordinaria.",
+      "deadline": "2023"
+    }
+  ]
+}

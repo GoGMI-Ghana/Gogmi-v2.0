@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "title": "Plaidoyer",
+    "subtitle": "Nous sensibilisons le public à l'importance cruciale du secteur maritime dans l'élaboration des politiques, la promotion de l'économie bleue et l'utilisation durable de l'océan dans le Golfe de Guinée.",
+    "cta": "Devenir partenaire"
+  },
+  "campaignsSection": {
+    "eyebrow": "Impliquez-vous",
+    "heading": "Nos campagnes",
+    "readMore": "En savoir plus"
+  },
+  "campaignStatus": {
+    "active": "Active",
+    "completed": "Terminée"
+  },
+  "campaigns": [
+    {
+      "title": "Groupe de travail international sur la sécurité maritime",
+      "category": "Sécurité maritime",
+      "description": "Le forum IMSWG est une plateforme de référence pour le partage des connaissances et la recherche à l'échelle régionale, offrant un aperçu des tendances internationales.",
+      "deadline": "En continu"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Développement de la jeunesse",
+      "description": "BWI est un programme d'éducation à l'océan destiné aux élèves du primaire et du secondaire, leur donnant les connaissances et les outils nécessaires pour devenir des gardiens informés et engagés de l'océan.",
+      "deadline": "En continu"
+    },
+    {
+      "title": "Blue Career and Business Expo",
+      "category": "Développement de la jeunesse",
+      "description": "Le Blue Career and Business Expo est un programme annuel conçu pour créer des plateformes dynamiques d'échange d'opportunités permettant aux jeunes d'interagir avec les leaders de l'industrie maritime et de contribuer activement à la construction d'une économie bleue solide en Afrique.",
+      "deadline": "Événement annuel"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Développement de la jeunesse",
+      "description": "BWI est un programme d'éducation à l'océan destiné aux élèves du primaire et du secondaire, leur donnant les connaissances et les outils nécessaires pour devenir des gardiens informés et engagés de l'océan. Notre océan couvre plus de 70 % de notre planète et joue un rôle essentiel dans la régulation du climat, la fourniture de nourriture et de ressources, et le maintien d'une biodiversité exceptionnelle.",
+      "deadline": "2023"
+    }
+  ]
+}

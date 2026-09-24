@@ -1,0 +1,52 @@
+{
+  "closed": {
+    "heading": "Registration Closed",
+    "body": "Registration for the IMSWG 2026 Quarter 1 Forum is now closed.",
+    "enquiryPrefix": "For enquiries, please contact us at",
+    "backButton": "Back to IMSWG"
+  },
+  "success": {
+    "heading": "Application Submitted",
+    "body1": "Thank you for registering for our upcoming IMSWG 2026 quarter one event. We truly appreciate your interest and look forward to your participation.",
+    "body2": "Kindly check your email for other information and link to the event.",
+    "signature": "GoGMI.",
+    "backButton": "Back to IMSWG"
+  },
+  "errors": {
+    "fullNameRequired": "Full name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Email is invalid",
+    "countryRequired": "Country of residence is required",
+    "positionRequired": "Position/Title is required",
+    "submitFailed": "Failed to submit application",
+    "submitFailedFallback": "Failed to submit application. Please try again or contact us at info@gogmi.org.gh"
+  },
+  "form": {
+    "backButton": "Back to IMSWG",
+    "title": "IMSWG 2026 - Quarter 1 Forum",
+    "subtitle": "International Maritime Security Working Group",
+    "intro": "Please fill out the form below to register for the 2026 IMSWG Quarter one forum.",
+    "personalInfo": {
+      "heading": "Personal Information",
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "whatsappLabel": "Country Code Plus WhatsApp Number",
+      "whatsappPlaceholder": "+233 XX XXX XXXX",
+      "countryLabel": "Country of Residence",
+      "countryPlaceholder": "e.g., Ghana"
+    },
+    "professionalInfo": {
+      "heading": "Professional Information",
+      "positionLabel": "Current Professional/Position or Title Held",
+      "positionPlaceholder": "e.g., Maritime Security Analyst",
+      "institutionLabel": "Institution/Organisation",
+      "institutionPlaceholder": "e.g., Maritime Authority, Security Firm, etc."
+    },
+    "optional": "(Optional)",
+    "submitButton": "Submit Application",
+    "submitting": "Submitting Application...",
+    "consent": "By submitting this form, you agree to be contacted regarding IMSWG activities"
+  }
+}

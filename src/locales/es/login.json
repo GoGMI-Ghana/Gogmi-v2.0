@@ -1,0 +1,30 @@
+{
+  "heading": "Acceso de miembros",
+  "subtitle": {
+    "enterId": "Introduzca su ID de miembro para continuar",
+    "enterCode": "Introduzca el código de 6 dígitos enviado a {{email}}"
+  },
+  "errors": {
+    "membershipIdRequired": "Por favor, introduzca su ID de miembro",
+    "otpIncomplete": "Por favor, introduzca el código completo de 6 dígitos"
+  },
+  "step1": {
+    "label": "ID de miembro",
+    "placeholder": "p. ej. GoGMI-MASO2026-00001",
+    "helpText": "Su ID de miembro se envió a su correo electrónico después del registro.",
+    "submitIdle": "Enviar código de acceso",
+    "submitLoading": "Enviando código…"
+  },
+  "step2": {
+    "codeSentToPrefix": "Se envió un código de 6 dígitos a",
+    "verifyIdle": "Verificar e iniciar sesión",
+    "verifyLoading": "Verificando…",
+    "changeId": "Cambiar ID",
+    "resendIdle": "Reenviar código",
+    "resendCooldown": "Reenviar en {{seconds}}s"
+  },
+  "footer": {
+    "notAMember": "¿Aún no eres miembro?",
+    "joinLink": "Únete a GoGMI"
+  }
+}

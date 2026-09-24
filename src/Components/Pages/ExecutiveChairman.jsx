@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ExecutiveChairman = () => {
+  const { t } = useTranslation('executiveChairman');
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -24,9 +26,9 @@ const ExecutiveChairman = () => {
           {/* Breadcrumb */}
           <div className={`mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
             <p className="text-sm" style={{ color: '#4B5563', fontWeight: 400 }}>
-              <span className="hover:text-[#8E3400] transition-colors cursor-pointer" onClick={() => navigate('/')}>Home</span>
+              <span className="hover:text-[#8E3400] transition-colors cursor-pointer" onClick={() => navigate('/')}>{t('breadcrumb.home')}</span>
               <span className="mx-2">/</span>
-              <span style={{ color: '#8E3400', fontWeight: 600 }}>Leadership</span>
+              <span style={{ color: '#8E3400', fontWeight: 600 }}>{t('breadcrumb.leadership')}</span>
             </p>
           </div>
 
@@ -34,7 +36,7 @@ const ExecutiveChairman = () => {
           <div className={`text-center transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
                 style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Our Leadership
+              {t('hero.title')}
             </h1>
           </div>
         </div>
@@ -47,7 +49,7 @@ const ExecutiveChairman = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-4"
                 style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Board Of Directors
+              {t('section.heading')}
             </h2>
           </div>
 
@@ -60,8 +62,8 @@ const ExecutiveChairman = () => {
                 <div className="relative bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
                   <div className="aspect-[3/4]">
                     <img 
-                      src="/admiral.profille.jpg" 
-                      alt="Executive Board Chairman"
+                      src="/admiral.profille.jpg"
+                      alt={t('chairman.imageAlt')}
                       className="w-full h-full object-contain"
                       style={{ objectPosition: 'center center' }}
                     />
@@ -76,8 +78,8 @@ const ExecutiveChairman = () => {
                       Vice Admiral Issah Adam Yakubu (Rtd.)
                     </h3>
                     <img 
-                      src="/Flag.png" 
-                      alt="Ghana Navy" 
+                      src="/Flag.png"
+                      alt={t('chairman.flagAlt')}
                       className="w-7 h-14 object-contain flex-shrink-0"
                     />
                   </div>
@@ -87,7 +89,7 @@ const ExecutiveChairman = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                     </svg>
                     <span className="text-xs font-semibold leading-tight" style={{ color: '#4B5563', fontWeight: 600 }}>
-                      nwc(USA) psc++ nsc jdc (Nigeria) MA (USA) dpa MUSni
+                      {t('chairman.credentials')}
                     </span>
                   </div>
                 </div>
@@ -120,7 +122,7 @@ const ExecutiveChairman = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
-                    <span className="font-semibold" style={{ color: '#132552', fontWeight: 600 }}>Blog</span>
+                    <span className="font-semibold" style={{ color: '#132552', fontWeight: 600 }}>{t('chairman.blog')}</span>
                   </a>
                 </div>
               </div>
@@ -130,12 +132,12 @@ const ExecutiveChairman = () => {
                 
                 {/* Quote */}
                 <div className="bg-[#F5F7FA] rounded-xl p-6 border-l-4" style={{ borderColor: '#8E3400' }}>
-                  <p className="text-lg italic leading-relaxed mb-4" 
+                  <p className="text-lg italic leading-relaxed mb-4"
                      style={{ color: '#132552', fontWeight: 400 }}>
-                    "Strategy is not about the abundance of resources. It is about clarity of priorities, consensus among stakeholders, and the disciplined alignment of limited means to vital ends"
+                    "{t('chairman.quote')}"
                   </p>
                   <p className="text-sm font-semibold" style={{ color: '#8E3400', fontWeight: 600 }}>
-                    — Vice Admiral Issah Adam Yakubu (Rtd.)
+                    {t('chairman.quoteAttribution')}
                   </p>
                 </div>
 
@@ -144,28 +146,15 @@ const ExecutiveChairman = () => {
                   <h4 className="text-xl font-bold mb-4 flex items-center gap-2"
                       style={{ color: '#132552', fontWeight: 700 }}>
                     <span className="w-1 h-6 rounded-full" style={{ backgroundColor: '#8E3400' }}></span>
-                    About the Executive Board Chairman
+                    {t('chairman.aboutHeading')}
                   </h4>
-                  
+
                   <div className="space-y-4 text-base leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-                    <p>
-                      Vice Admiral Issah Yakubu is the immediate past Chief of the Naval Staff of Ghana and currently 
-                      serves as the Executive Chairman of the Gulf of Guinea Maritime Institute (GoGMI).
-                      With a distinguished career spanning over three decades in naval leadership,
-                      he is deeply committed to advancing maritime security,
-                      strategic thought, and regional cooperation in the Gulf of Guinea and beyond.
-                    </p>
-                    <p>
-                      During his tenure as Chief of the Naval Staff, he led a bold transformation agenda focused on modernising 
-                      the Ghana Navy through comprehensive fleet renewal, infrastructure development, and the integration of 
-                      advanced technologies. Under his leadership, the Ghana Navy's efforts in defence diplomacy and operational innovation 
-                      significantly enhanced Ghana's maritime posture and regional influence.
-                    </p>
-                    <p>
-                      Vice Admiral Issah Yakubu holds a Master of Arts Degree in International Relations from Salve 
-                      Regina University, USA and a Post-graduate Diploma in Public Administration from the 
-                      Ghana Institute of Management and Public Administration. He is an avid researcher and has authored numerous papers on maritime security and strategy.
-                    </p>
+                    {t('chairman.bio', { returnObjects: true }).map((paragraph, idx) => (
+                      <p key={idx}>
+                        {paragraph}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -179,9 +168,9 @@ const ExecutiveChairman = () => {
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <div className="relative bg-white rounded-1g overflow-hidden shadow-md border border-gray-100 mb-4">
                 <div className="aspect-[5/4]">
-                  <img 
-                    src="/lt.amponsah.jpg" 
-                    alt="Board Member"
+                  <img
+                    src="/lt.amponsah.jpg"
+                    alt={t('members.imageAlt')}
                     className="w-full h-full object-cover object-center"
                     style={{ objectPosition: 'center 20%' }}
                   />
@@ -199,7 +188,7 @@ const ExecutiveChairman = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                   <span className="text-xs font-semibold" style={{ color: '#4B5563', fontWeight: 600 }}>
-                    Board Director
+                    {t('members.boardDirector')}
                   </span>
                 </div>
               </div>
@@ -209,9 +198,9 @@ const ExecutiveChairman = () => {
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <div className="relative bg-white rounded-1g overflow-hidden shadow-md border border-gray-100 mb-4">
                 <div className="aspect-[5/4]">
-                  <img 
-                    src="/Alberta.jpg" 
-                    alt="Board Member"
+                  <img
+                    src="/Alberta.jpg"
+                    alt={t('members.imageAlt')}
                     className="w-full h-full object-cover object-center"
                     style={{ objectPosition: 'center 10%' }}
                   />
@@ -229,7 +218,7 @@ const ExecutiveChairman = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                   <span className="text-xs font-semibold" style={{ color: '#4B5563', fontWeight: 600 }}>
-                    Board Director
+                    {t('members.boardDirector')}
                   </span>
                 </div>
               </div>

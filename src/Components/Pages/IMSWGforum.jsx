@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, AlertCircle, XCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 // ── Toggle this to open or close registration ────────────────────────────────
 const REGISTRATION_CLOSED = true;
 // ────────────────────────────────────────────────────────────────────────────
 
 const IMSWGforum = () => {
+  const { t } = useTranslation('imswgForum');
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -30,13 +32,13 @@ const IMSWGforum = () => {
             <XCircle className="w-12 h-12 text-red-500" />
           </div>
           <h2 className="text-3xl font-bold mb-4" style={{ color: '#1e293b' }}>
-            Registration Closed
+            {t('closed.heading')}
           </h2>
           <p className="text-base mb-4" style={{ color: '#475569' }}>
-            Registration for the IMSWG 2026 Quarter 1 Forum is now closed.
+            {t('closed.body')}
           </p>
           <p className="text-base mb-8" style={{ color: '#475569' }}>
-            For enquiries, please contact us at{' '}
+            {t('closed.enquiryPrefix')}{' '}
             <a
               href="mailto:info@gogmi.org.gh"
               className="font-semibold underline"
@@ -50,7 +52,7 @@ const IMSWGforum = () => {
             className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Back to IMSWG</span>
+            <span>{t('closed.backButton')}</span>
           </button>
         </div>
       </div>
@@ -66,23 +68,23 @@ const IMSWGforum = () => {
             <CheckCircle className="w-12 h-12 text-green-600" />
           </div>
           <h2 className="text-3xl font-bold mb-4" style={{ color: '#1e293b' }}>
-            Application Submitted
+            {t('success.heading')}
           </h2>
           <p className="text-base mb-4" style={{ color: '#475569' }}>
-            Thank you for registering for our upcoming IMSWG 2026 quarter one event. We truly appreciate your interest and look forward to your participation.
+            {t('success.body1')}
           </p>
           <p className="text-base mb-6" style={{ color: '#475569' }}>
-            Kindly check your email for other information and link to the event.
+            {t('success.body2')}
           </p>
           <p className="text-sm font-semibold mb-8" style={{ color: '#1e293b' }}>
-            GoGMI.
+            {t('success.signature')}
           </p>
           <button
             onClick={() => navigate('/imswg')}
             className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Back to IMSWG</span>
+            <span>{t('success.backButton')}</span>
           </button>
         </div>
       </div>
@@ -91,14 +93,14 @@ const IMSWGforum = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
+    if (!formData.fullName.trim()) newErrors.fullName = t('errors.fullNameRequired');
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('errors.emailRequired');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
+      newErrors.email = t('errors.emailInvalid');
     }
-    if (!formData.country.trim()) newErrors.country = 'Country of residence is required';
-    if (!formData.position.trim()) newErrors.position = 'Position/Title is required';
+    if (!formData.country.trim()) newErrors.country = t('errors.countryRequired');
+    if (!formData.position.trim()) newErrors.position = t('errors.positionRequired');
     return newErrors;
   };
 
@@ -128,13 +130,13 @@ const IMSWGforum = () => {
       });
       const result = await response.json();
       if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Failed to submit application');
+        throw new Error(result.message || t('errors.submitFailed'));
       }
       setSubmitted(true);
       setFormData({ fullName: '', email: '', whatsappNumber: '', country: '', position: '', institution: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
-      setErrors({ submit: error.message || 'Failed to submit application. Please try again or contact us at info@gogmi.org.gh' });
+      setErrors({ submit: error.message || t('errors.submitFailedFallback') });
     } finally {
       setIsSubmitting(false);
     }
@@ -149,7 +151,7 @@ const IMSWGforum = () => {
           className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
-          <span className="font-semibold">Back to IMSWG</span>
+          <span className="font-semibold">{t('form.backButton')}</span>
         </button>
       </div>
 
@@ -157,16 +159,16 @@ const IMSWGforum = () => {
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#1e293b' }}>
-              IMSWG 2026 - Quarter 1 Forum
+              {t('form.title')}
             </h1>
             <p className="text-lg" style={{ color: '#64748b' }}>
-              International Maritime Security Working Group
+              {t('form.subtitle')}
             </p>
           </div>
 
           <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
             <p className="text-base leading-relaxed font-medium" style={{ color: '#475569' }}>
-              Please fill out the form below to register for the 2026 IMSWG Quarter one forum.
+              {t('form.intro')}
             </p>
           </div>
 
@@ -180,52 +182,52 @@ const IMSWGforum = () => {
           <form onSubmit={handleSubmit} className="space-y-8">
             <div>
               <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>
-                Personal Information
+                {t('form.personalInfo.heading')}
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
-                    Full Name <span className="text-red-500">*</span>
+                    {t('form.personalInfo.fullNameLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text" name="fullName" value={formData.fullName} onChange={handleChange}
                     className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.fullName ? 'border-red-300' : 'border-slate-200'}`}
-                    placeholder="John Doe"
+                    placeholder={t('form.personalInfo.fullNamePlaceholder')}
                   />
                   {errors.fullName && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.fullName}</p>}
                 </div>
 
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
-                    Email Address <span className="text-red-500">*</span>
+                    {t('form.personalInfo.emailLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email" name="email" value={formData.email} onChange={handleChange}
                     className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.email ? 'border-red-300' : 'border-slate-200'}`}
-                    placeholder="john@example.com"
+                    placeholder={t('form.personalInfo.emailPlaceholder')}
                   />
                   {errors.email && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.email}</p>}
                 </div>
 
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
-                    Country Code Plus WhatsApp Number
+                    {t('form.personalInfo.whatsappLabel')}
                   </label>
                   <input
                     type="tel" name="whatsappNumber" value={formData.whatsappNumber} onChange={handleChange}
                     className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
-                    placeholder="+233 XX XXX XXXX"
+                    placeholder={t('form.personalInfo.whatsappPlaceholder')}
                   />
                 </div>
 
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
-                    Country of Residence <span className="text-red-500">*</span>
+                    {t('form.personalInfo.countryLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text" name="country" value={formData.country} onChange={handleChange}
                     className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.country ? 'border-red-300' : 'border-slate-200'}`}
-                    placeholder="e.g., Ghana"
+                    placeholder={t('form.personalInfo.countryPlaceholder')}
                   />
                   {errors.country && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.country}</p>}
                 </div>
@@ -234,29 +236,29 @@ const IMSWGforum = () => {
 
             <div>
               <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>
-                Professional Information
+                {t('form.professionalInfo.heading')}
               </h3>
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
-                    Current Professional/Position or Title Held <span className="text-red-500">*</span>
+                    {t('form.professionalInfo.positionLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text" name="position" value={formData.position} onChange={handleChange}
                     className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.position ? 'border-red-300' : 'border-slate-200'}`}
-                    placeholder="e.g., Maritime Security Analyst"
+                    placeholder={t('form.professionalInfo.positionPlaceholder')}
                   />
                   {errors.position && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.position}</p>}
                 </div>
 
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
-                    Institution/Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                    {t('form.professionalInfo.institutionLabel')} <span className="text-slate-400 text-xs font-normal">{t('form.optional')}</span>
                   </label>
                   <input
                     type="text" name="institution" value={formData.institution} onChange={handleChange}
                     className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent"
-                    placeholder="e.g., Maritime Authority, Security Firm, etc."
+                    placeholder={t('form.professionalInfo.institutionPlaceholder')}
                   />
                 </div>
               </div>
@@ -267,10 +269,10 @@ const IMSWGforum = () => {
                 type="submit" disabled={isSubmitting}
                 className="w-full py-4 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
               >
-                {isSubmitting ? 'Submitting Application...' : 'Submit Application'}
+                {isSubmitting ? t('form.submitting') : t('form.submitButton')}
               </button>
               <p className="text-sm text-center mt-4 italic" style={{ color: '#64748b' }}>
-                By submitting this form, you agree to be contacted regarding IMSWG activities
+                {t('form.consent')}
               </p>
             </div>
           </form>

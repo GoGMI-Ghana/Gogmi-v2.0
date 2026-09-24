@@ -1,0 +1,30 @@
+{
+  "breadcrumb": {
+    "home": "Inicio",
+    "leadership": "Liderazgo"
+  },
+  "hero": {
+    "title": "Nuestro Liderazgo"
+  },
+  "section": {
+    "heading": "Junta Directiva"
+  },
+  "chairman": {
+    "imageAlt": "Presidente de la Junta Ejecutiva",
+    "flagAlt": "Armada de Ghana",
+    "credentials": "nwc(USA) psc++ nsc jdc (Nigeria) MA (USA) dpa MUSni",
+    "blog": "Blog",
+    "quote": "La estrategia no depende de la abundancia de recursos. Depende de la claridad de las prioridades, el consenso entre las partes interesadas y la alineación disciplinada de medios limitados con fines vitales",
+    "quoteAttribution": "— Vicealmirante Issah Adam Yakubu (Rtd.)",
+    "aboutHeading": "Sobre el Presidente de la Junta Ejecutiva",
+    "bio": [
+      "El Vicealmirante Issah Yakubu es el inmediato anterior Jefe del Estado Mayor Naval de Ghana y actualmente ejerce como Presidente Ejecutivo del Instituto Marítimo del Golfo de Guinea (GoGMI). Con una destacada carrera de más de tres décadas en el liderazgo naval, está profundamente comprometido con el avance de la seguridad marítima, el pensamiento estratégico y la cooperación regional en el Golfo de Guinea y más allá.",
+      "Durante su mandato como Jefe del Estado Mayor Naval, lideró una audaz agenda de transformación centrada en la modernización de la Armada de Ghana mediante una renovación integral de la flota, el desarrollo de infraestructuras y la integración de tecnologías avanzadas. Bajo su liderazgo, los esfuerzos de la Armada de Ghana en diplomacia de defensa e innovación operativa reforzaron notablemente la postura marítima de Ghana y su influencia regional.",
+      "El Vicealmirante Issah Yakubu posee una Maestría en Relaciones Internacionales de la Universidad Salve Regina, Estados Unidos, y un Diplomado de posgrado en Administración Pública del Ghana Institute of Management and Public Administration. Es un investigador entusiasta y ha sido autor de numerosos artículos sobre seguridad marítima y estrategia."
+    ]
+  },
+  "members": {
+    "imageAlt": "Miembro de la Junta",
+    "boardDirector": "Director de la Junta"
+  }
+}

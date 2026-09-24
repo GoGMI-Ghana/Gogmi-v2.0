@@ -1,0 +1,230 @@
+{
+  "hero": {
+    "badge": "Professional Development",
+    "title": "Maritime Governance Course For Practitioners",
+    "subtitle": "A Focus on Africa",
+    "applyNow": "Apply Now",
+    "downloadBrochure": "Download Brochure"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "format": "Program Format",
+    "attend": "Who Should Attend",
+    "team": "Teaching Team",
+    "modules": "Course Modules"
+  },
+  "sidebar": {
+    "datesHeading": "Dates",
+    "datesValue": "September 7 – 18, 2026",
+    "datesSubtext": "2 weeks, 8 modules",
+    "statusHeading": "Status",
+    "statusValue": "Accepting Applications",
+    "formatHeading": "Format",
+    "formatValue": "Virtual/Online (Live Sessions)",
+    "locationHeading": "Location",
+    "locationValue": "Online",
+    "feesHeading": "Course Fees",
+    "membersLabel": "GoGMI Members",
+    "saveLabel": "Save {{percent}}%",
+    "nonMembersLabel": "Non-Members",
+    "applyNow": "Apply Now",
+    "downloadBrochure": "Download Brochure",
+    "questionsPrompt": "Questions?",
+    "contactUs": "Contact us"
+  },
+  "overview": {
+    "heading": "Master Maritime Strategy Development for Africa",
+    "intro": "For decades, the African continent has faced a wide range of maritime security threats and challenges. This comprehensive course equips professionals with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.",
+    "objectivesHeading": "Course Objectives",
+    "objectives": [
+      "Understand how maritime strategy enhances national and regional priorities",
+      "Develop maritime strategies for Africa's unique challenges",
+      "Examine features that enhance sustainability of strategies",
+      "Explore tools for implementing maritime strategies",
+      "Equip participants to contribute to strategy development",
+      "Understand implications of strategy development processes",
+      "Develop collaboration skills with stakeholders"
+    ],
+    "outcomesHeading": "Expected Outcomes",
+    "outcomes": [
+      { "title": "Skilled Practitioners", "desc": "Develop skilled actors to enhance maritime security strategy development" },
+      { "title": "Enhanced Implementation", "desc": "Enhance implementation of existing strategies" },
+      { "title": "Better Coordination", "desc": "Foster effective inter-agency coordination" },
+      { "title": "Professional Network", "desc": "Enhance networking among maritime stakeholders" }
+    ]
+  },
+  "format": {
+    "heading": "Program Format",
+    "weeksLabel": "weeks of intensive learning",
+    "modulesLabel": "comprehensive modules",
+    "liveSessionsHeading": "Live/Virtual Sessions",
+    "liveSessionsList": [
+      "Interactive simulations, presentations, and group discussions",
+      "Breakout rooms for group activities",
+      "Live Q&A sessions",
+      "Recorded sessions for later review"
+    ]
+  },
+  "attend": {
+    "heading": "Who Should Attend",
+    "groups": [
+      { "title": "Government Agencies", "description": "Officials in maritime policy and governance" },
+      { "title": "Naval & Security Forces", "description": "Naval officers and maritime security professionals" },
+      { "title": "Non-Governmental Organizations", "description": "NGOs in maritime issues" },
+      { "title": "Private Sector", "description": "Industries with maritime interests" },
+      { "title": "Academic Institutions", "description": "Students and researchers in maritime studies" },
+      { "title": "General Public", "description": "Anyone interested in ocean governance" }
+    ]
+  },
+  "team": {
+    "heading": "Teaching Team",
+    "faculty": [
+      { "title": "Executive Board Chairman, GoGMI", "credentials": "Former Chief of Naval Staff, Ghana Navy" },
+      { "title": "CAPT, USN (Ret.)", "credentials": "Maritime Strategy Expert" },
+      { "title": "Board Director, GoGMI", "credentials": "Maritime Expert" }
+    ]
+  },
+  "modules": {
+    "heading": "Course Modules",
+    "moduleList": [
+      { "title": "Introduction & Maritime Strategy Theory", "description": "Foundational concepts of maritime strategy, strategic thinking versus operational planning, and the maritime strategy development cycle." },
+      { "title": "Assessing Maritime Domain Challenges & Opportunities", "description": "Maritime threat landscape, security challenges, economic opportunities, and comprehensive maritime domain assessments." },
+      { "title": "Strategy Development Process", "description": "Step-by-step strategy development framework, vision and goal setting, strategic objective formulation, and policy alignment." },
+      { "title": "Interagency Coordination & Stakeholder Analysis", "description": "Mapping maritime stakeholders, coordination mechanisms, building partnerships, and multi-sectoral collaboration." },
+      { "title": "Ends, Ways, Means & Risk", "description": "Strategic framework alignment, resource mobilization, risk identification, mitigation strategies, and contingency planning." },
+      { "title": "Maritime Strategy Implementation", "description": "From strategy to action, implementation planning, monitoring and evaluation systems, and adaptive management." },
+      { "title": "Sector Planning – In Class Exercise", "description": "Practical sector planning exercise, applying strategy development frameworks, and team-based strategy development." },
+      { "title": "Case Study Reports & Course Conclusion", "description": "Analysis of regional maritime strategies, comparative analysis of successes and challenges, and final presentations." }
+    ],
+    "weeklyBreakdownHeading": "Weekly Breakdown",
+    "weeklyBreakdown": [
+      {
+        "week": "Week 1",
+        "title": "Maritime Strategy Theory & Assessment",
+        "sessions": [
+          "Strategy Development Directives and Instruments",
+          "Purpose and need to develop Maritime Strategies",
+          "Overview of the Strategy Development Process",
+          "Assessing Maritime Domain Challenges & Opportunities"
+        ]
+      },
+      {
+        "week": "Week 2",
+        "title": "Strategy Development & Stakeholder Analysis",
+        "sessions": [
+          "Developing the Vision Statement",
+          "Understanding stakeholder roles",
+          "Interagency Coordination and best practices",
+          "Stakeholder analysis tools and techniques"
+        ]
+      },
+      {
+        "week": "Week 3",
+        "title": "Ends, Ways, Means & Implementation",
+        "sessions": [
+          "Introduction to Ends, Ways, Means, and Risk",
+          "Successes and Failures of implementation",
+          "Maritime Sector Planning Process",
+          "Course of Action Development"
+        ]
+      },
+      {
+        "week": "Week 4",
+        "title": "Practical Exercise & Conclusion",
+        "sessions": [
+          "Maritime Strategy Sector Planning Exercise",
+          "Group Case Study Presentations",
+          "Course Conclusion and Discussion",
+          "Course Evaluation"
+        ]
+      }
+    ],
+    "keySessionsLabel": "KEY SESSIONS:"
+  },
+  "modal": {
+    "titles": {
+      "choose": "Apply for Course",
+      "verify": "Verify Membership",
+      "member": "Member Application",
+      "nonmember": "Non-Member Application"
+    },
+    "courseSubtitle": "Maritime Governance Course For Practitioners — A Focus on Africa",
+    "choose": {
+      "question": "Are you a GoGMI member? Members enjoy an exclusive discount.",
+      "memberTitle": "Apply as a Member",
+      "memberSave": "Save ${{discount}} ({{percent}}% off)",
+      "memberDesc": "Enter your Membership ID to verify and get the discount.",
+      "nonMemberTitle": "Apply as a Non-Member",
+      "standardRate": "Standard Rate",
+      "nonMemberDesc": "You will receive a free GoGMI membership with your registration.",
+      "joinPrompt": "Not yet a member?",
+      "joinLink": "Join GoGMI",
+      "joinSuffix": "to unlock member pricing."
+    },
+    "verify": {
+      "memberPriceLabel": "Member Price",
+      "save": "Save ${{discount}} ({{percent}}% off)",
+      "inputLabel": "Enter Your Membership ID",
+      "placeholder": "e.g. GoGMI-MST2026-00001",
+      "helper": "Your Membership ID was sent to your email when you joined GoGMI.",
+      "back": "Back",
+      "verifying": "Verifying...",
+      "verifyContinue": "Verify & Continue"
+    },
+    "member": {
+      "verifiedBadge": "✓ Verified — Member Price Applied",
+      "saveAmount": "Save ${{discount}}",
+      "fullNameLabel": "Full Name",
+      "emailLabel": "Email Address",
+      "phoneLabel": "Country Code Plus WhatsApp Number",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Position/Title",
+      "institutionLabel": "Institution/Organisation",
+      "countryLabel": "Country",
+      "back": "Back",
+      "processing": "Processing...",
+      "pay": "Pay USD {{amount}}"
+    },
+    "nonmember": {
+      "standardRate": "Standard Rate",
+      "freeMembership": "You will receive a free GoGMI membership",
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "dobLabel": "Date of Birth",
+      "phoneLabel": "Country Code Plus WhatsApp Number",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Position/Title",
+      "institutionLabel": "Institution/Organisation",
+      "optional": "(Optional)",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Ghana",
+      "membershipTypeLabel": "Select Membership Type",
+      "membershipTypePlaceholder": "-- Select your membership type --",
+      "membershipTypeStudent": "Student Membership",
+      "membershipTypeAssociate": "Associate Membership",
+      "membershipTypeProfessional": "Professional Membership",
+      "membershipTypeHelper": "You will receive a free GoGMI membership of the selected type with your course registration.",
+      "back": "Back",
+      "processing": "Processing...",
+      "pay": "Pay USD {{amount}}"
+    }
+  },
+  "alerts": {
+    "enterMembershipId": "Please enter your Membership ID",
+    "invalidMembershipId": "Invalid Membership ID",
+    "verifyError": "Unable to verify. Please check your connection.",
+    "paymentLoading": "Payment system loading. Please wait.",
+    "paymentCancelled": "Payment cancelled.",
+    "paymentFailed": "Payment failed: {{error}}",
+    "fillRequired": "Please fill all required fields",
+    "selectMembershipType": "Please select a membership type",
+    "enterDob": "Please enter your date of birth",
+    "registrationSuccess": "Registration Successful!\n\nYou are now registered for the Maritime Governance Course.\nReference: {{reference}}\n",
+    "autoMembership": "\nCongratulations! You are now a GoGMI member.\nMembership ID: {{membershipId}}\nUse this ID to login at gogmi.org.gh/login\n",
+    "confirmationEmail": "\nA confirmation email has been sent to {{email}}",
+    "registrationFailed": "Registration failed: {{message}}\nReference: {{reference}}\nContact info@gogmi.org.gh",
+    "registrationError": "Registration error. Contact info@gogmi.org.gh with reference: {{reference}}"
+  }
+}

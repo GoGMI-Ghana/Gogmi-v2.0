@@ -1,0 +1,98 @@
+{
+  "hero": {
+    "backLink": "Back to Capacity Building",
+    "badge": "Capacity Building · Training Course",
+    "title": "MaSSDI Training Course",
+    "subtitle": "Maritime Security Strategy Development Initiative",
+    "description": "A specialised training programme equipping maritime security professionals, naval officers, and policymakers with the strategic tools, analytical frameworks, and interagency coordination skills needed to address complex security challenges in the Gulf of Guinea."
+  },
+  "quickFacts": [
+    { "label": "Duration", "value": "2 Months" },
+    { "label": "Format", "value": "Virtual / Online" },
+    { "label": "Level", "value": "All Levels" },
+    { "label": "Intake", "value": "6 Oct – 30 Nov 2025" },
+    { "label": "Modules", "value": "5 Core Modules" },
+    { "label": "Status", "value": "Completed" }
+  ],
+  "about": {
+    "eyebrow": "About the Programme",
+    "heading": "Building Strategic Maritime Security Capacity",
+    "para1": "The Maritime Security Strategy Development Initiative (MaSSDI) Training Course is a GoGMI-led programme designed to develop the strategic thinking and operational capacity of maritime security practitioners across the Gulf of Guinea region.",
+    "para2": "The course brings together naval officers, coast guard personnel, maritime policymakers, and security analysts for an intensive two-month online training covering the theoretical foundations and practical tools required for effective maritime security strategy development.",
+    "para3": "Participants engage with expert instructors from Ghana's naval and security sectors, gaining hands-on experience in threat assessment, stakeholder mapping, and interagency coordination planning — skills critical for addressing the complex and evolving security landscape of West Africa's maritime domain.",
+    "learnHeading": "What You Will Learn",
+    "learnItems": [
+      "Theoretical frameworks underpinning maritime security strategy",
+      "Analysis of security threats and opportunities in the Gulf of Guinea",
+      "Regional and international maritime governance instruments",
+      "Practical interagency coordination and stakeholder management",
+      "Strategy development and operational planning skills",
+      "Emerging technology applications in maritime security"
+    ],
+    "attendHeading": "Who Should Attend",
+    "attendItems": [
+      "Naval and coast guard officers",
+      "Maritime security policy professionals",
+      "Port and harbour security managers",
+      "Security researchers and analysts",
+      "Government officials in maritime-related ministries",
+      "Private sector maritime security practitioners"
+    ]
+  },
+  "modulesSection": {
+    "eyebrow": "Curriculum",
+    "heading": "Course Modules",
+    "subtitle": "Five core modules delivered over eight weeks through a structured online learning environment.",
+    "items": [
+      {
+        "title": "Maritime Security Strategy Theory",
+        "description": "Foundational frameworks and theoretical underpinnings of maritime security strategy in the Gulf of Guinea, drawing on international conventions, regional treaties, and best practice from global maritime security operations."
+      },
+      {
+        "title": "Assessing Maritime Security Challenges & Opportunities I",
+        "description": "In-depth analysis of the primary maritime security threats facing the Gulf of Guinea — including piracy, armed robbery at sea, illegal fishing, and narcotics trafficking — and the institutional responses deployed to address them."
+      },
+      {
+        "title": "Assessing Maritime Security Challenges & Opportunities II",
+        "description": "Advanced exploration of emerging and evolving maritime security challenges, assessing gaps in current frameworks and identifying strategic opportunities for improved regional cooperation and intervention."
+      },
+      {
+        "title": "Interagency Coordination and Stakeholder Analysis I",
+        "description": "Theory and practice of interagency coordination in maritime security contexts — examining how navies, coast guards, port authorities, customs agencies, and civilian stakeholders collaborate to achieve shared security objectives."
+      },
+      {
+        "title": "Interagency Coordination and Stakeholder Analysis II",
+        "description": "Applied stakeholder mapping and coordination planning exercises. Participants develop practical frameworks for managing complex multi-agency relationships and designing effective coordination mechanisms."
+      }
+    ]
+  },
+  "participantsSection": {
+    "eyebrow": "Course Participants",
+    "heading": "Meet the Participants",
+    "subtitle": "Naval officers, maritime security professionals, and practitioners who completed the MaSSDI programme.",
+    "items": [
+      {
+        "title": "Deputy Director Naval Research & Development, Ghana Navy",
+        "bio": "Lieutenant Commander Emilio Okyere-Dadzie was commissioned into the Executive Branch of the Ghana Navy in 2008. He holds a BSc in Nautical Science from Regional Maritime University, an MBA in Port and Shipping Management, an MBA in Oil and Gas Management (both from the National Institute of Business Management, India), and an MSc in Defence and International Politics from GIMPA. He is a Navigation Specialist, a Class 3 Deck Officer, and a Dynamic Positioning Operator. He currently serves as Deputy Director Naval Research & Development and Command Operations Officer for the Riverine Command. He is an Associate Fellow of the Nautical Institute and the Royal Institute of Navigation, United Kingdom."
+      },
+      {
+        "title": "Commanding Officer, Ghana Navy Ship EHWOR",
+        "bio": "Lieutenant Commander Kwame Yelbuor of the Ghana Navy holds a Bachelor of Arts Degree in Geography and Resource Development from the University of Ghana, Legon. Commissioned into the Executive Branch of the Ghana Navy on 30 August 2013, he has undergone Initial Naval Officer Training in Dartmouth, United Kingdom (2015). He has served in various capacities onboard Ghana Navy Ships as Executive Officer, Watch Keeping Officer, and Acting Navigation Officer. Ashore, he served as Acting Assistant Director Naval Intelligence (2019–2020) and Acting Operations Officer for the ECOWAS Multinational Maritime Coordination Centre at Osu Castle (2020–2022). He is currently the Commanding Officer for Ghana Navy Ship EHWOR."
+      },
+      {
+        "title": "General Manager, Soko Aerial Robotics Limited",
+        "bio": "Maximus Ashitey is the General Manager of Soko Aerial Robotics Limited, Deputy Director of the Unmanned Aerial Systems Research Lab (UASRL), and Deputy Director for the Soko Aerial and Signal Training School Centre for Unmanned Aerial Vehicle Research, Development and Education. He holds a BA in Political Science from the University of Ghana, Legon. Combining his passion for drone technology with a solid foundation in political science, he brings a unique perspective to the world of aerial operations — proficient in capturing high-quality aerial imagery and conducting precise surveys through advanced drone technology."
+      },
+      {
+        "title": "Senior Officer, Ghana Navy",
+        "bio": "Lieutenant Commander Edem Komla Akati was commissioned into the Executive Branch of the Ghana Navy in September 2011. Over 12 years of commissioned service, he has held notable sea appointments including Training Officer, Navigation Officer, Executive Officer, and Commanding Officer onboard GNS EHWOR, GNS YAA ASANTEWAA, GNS NAA GBEWAA, and GNS PRA. Ashore, he has served as Flag Lieutenant to the Chief of the Naval Staff, Instructor at the Ghana Military Academy, and Assistant Director Naval Administration at Naval Headquarters. He completed the Royal Navy Young Officer Course in the UK (adjudged Overall Best International Student), Navigation Specialisation Course in China, and attended GAFCSC where he emerged Overall Best Student (Junior Staff Course) and Second Best Student (Senior Command and Staff Course). He holds a BEng in Aerospace Engineering from KNUST and an MSc in Defence and International Politics from GAFCSC."
+      }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Interested in the",
+    "headingLine2": "Next MaSSDI Cohort?",
+    "subtitle": "Get in touch with GoGMI to express your interest in upcoming MaSSDI intakes or to request more information about the programme.",
+    "button": "Contact Us"
+  }
+}
