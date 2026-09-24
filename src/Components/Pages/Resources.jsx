@@ -383,8 +383,21 @@ const Resources = () => {
       thumbnail: '/IMSWG2026flyer.jpg',
       fileType: 'VIDEO',
       videoUrl: 'https://youtu.be/Hy8-4KvAKfE',
+    },
+    {
+      id: 19,
+      title: 'THE IMPLICATIONS OF THE BBNJ AGREEMENT FOR THE GULF OF GUINEA',
+      description: 'High-Level Expert Meeting of the International Maritime Security Working Group (IMSWG), September 2026 Edition, on the BBNJ Agreement and its implications for the Gulf of Guinea.',
+      fullDescription: 'The Gulf of Guinea is entering a new phase of ocean governance as the BBNJ Agreement brings new opportunities and responsibilities for States and maritime stakeholders. Moderated by Commander Ayo Olusola Pacheco (Nigerian Navy, PhD candidate, World Maritime University), with speakers Kome Adhekpukoli (Lawyer, Federal Ministry of Justice, Nigeria) and Dr. Godwin Djokoto (Senior Lecturer, University of Ghana School of Law).',
+      type: 'Videos',
+      category: 'Educational',
+      duration: '1:58:12',
+      date: 'September 2026',
+      thumbnail: '/IMSWG-BBNJ-Sept2026.webp',
+      fileType: 'VIDEO',
+      videoUrl: 'https://www.youtube.com/watch?v=81Bue4Xnj4A',
     }
-   
+
   ];
 
   const types = ['Strategic Documents', 'Academic Papers', 'Internal Reports', 'Videos'];
