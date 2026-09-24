@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "badge": "Solutions complètes",
+    "title": "Nos Services",
+    "subtitle": "Votre pôle de référence pour la sécurité maritime, la sûreté et le plaidoyer en faveur d'une économie bleue durable"
+  },
+  "categories": [
+    { "name": "Plaidoyer" },
+    { "name": "Recherche" },
+    { "name": "Renforcement des capacités" },
+    { "name": "Secrétariat" }
+  ],
+  "items": [
+    {
+      "title": "Plaidoyer",
+      "shortDesc": "Promouvoir les réformes politiques et des pratiques maritimes durables",
+      "fullDesc": "Nous défendons les réformes politiques et les pratiques maritimes durables à travers le Golfe de Guinée. Nous sommes la voix de référence des parties prenantes maritimes, comblant l'écart entre les réalités maritimes et l'action politique grâce à un plaidoyer fondé sur des données probantes qui façonne les cadres de gouvernance régionaux et internationaux.",
+      "features": ["Plaidoyer pour la sécurité maritime", "Promotion de l'économie bleue", "Élaboration de politiques", "Collaboration régionale"]
+    },
+    {
+      "title": "Recherche",
+      "shortDesc": "Recherche maritime locale et analyse stratégique",
+      "fullDesc": "Nous fournissons une recherche maritime locale et une analyse stratégique qui répondent aux enjeux de sécurité, de sûreté et d'économie bleue. Nos travaux de recherche éclairent les décisions politiques et proposent des solutions selon une perspective ouest-africaine, comblant ainsi une lacune essentielle dans les études maritimes régionales et garantissant une bonne représentation des intérêts locaux.",
+      "features": ["Recherche maritime stratégique", "Conseil en politiques publiques", "Analyse des menaces", "Analyses fondées sur les données"]
+    },
+    {
+      "title": "Renforcement des capacités",
+      "shortDesc": "Autonomiser les professionnels maritimes et la jeunesse",
+      "fullDesc": "Nous formons la prochaine génération de professionnels maritimes grâce à des programmes de formation complets, des initiatives de mentorat et des plateformes de partage des connaissances. De notre programme phare de mentorat bleu à des ateliers spécialisés, nous dotons les jeunes, les praticiens et les parties prenantes des compétences et des connaissances nécessaires pour s'épanouir dans l'économie bleue.",
+      "features": ["Programme de mentorat bleu", "Formation professionnelle", "Engagement des jeunes", "Développement des compétences"]
+    },
+    {
+      "title": "Services de secrétariat",
+      "shortDesc": "Pilier institutionnel de la coordination maritime",
+      "fullDesc": "Nous servons de pilier institutionnel pour la coordination et la collaboration maritimes régionales. Nous offrons un appui professionnel de secrétariat au Groupe de travail international sur la sécurité maritime (IMSWG) et à d'autres forums maritimes, en facilitant le dialogue, en gérant les opérations et en assurant la mise en œuvre efficace des initiatives maritimes régionales.",
+      "features": ["Coordination de l'IMSWG", "Gestion des forums", "Engagement des parties prenantes", "Mise en œuvre des programmes"]
+    }
+  ],
+  "learnMore": "En savoir plus",
+  "cta": {
+    "heading": "Prêt à commencer ?",
+    "subtitle": "Discutons de la manière dont nos services peuvent soutenir vos objectifs maritimes",
+    "consultation": "Demander une consultation",
+    "brochure": "Télécharger la brochure"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "header": {
+    "badge": "Identidad de marca",
+    "title": "Nuestra marca",
+    "subtitle": "Logotipo, colores y tipografía que representan al Instituto Marítimo del Golfo de Guinea."
+  },
+  "logo": {
+    "heading": "Logotipo",
+    "altLight": "Logotipo de GoGMI sobre fondo claro",
+    "altDark": "Logotipo de GoGMI sobre fondo oscuro",
+    "downloadButton": "Descargar logotipo (PNG)"
+  },
+  "colors": {
+    "heading": "Colores",
+    "subtitle": "Haga clic en una muestra para copiar su código hexadecimal.",
+    "copied": "¡Copiado!",
+    "items": [
+      { "name": "Azul marino principal", "usage": "Encabezados, navegación, texto principal" },
+      { "name": "Óxido de acento", "usage": "Botones, destacados, llamadas a la acción" },
+      { "name": "Blanco roto", "usage": "Fondos, superficies claras" },
+      { "name": "Pizarra oscura", "usage": "Texto de cuerpo sobre fondos claros" }
+    ]
+  },
+  "typography": {
+    "heading": "Tipografía",
+    "label": "Tipografía principal",
+    "description": "Se utiliza en todo el sitio para títulos y texto de cuerpo, en los pesos Bold (700) y Semibold (600) para los títulos, y Regular (400) para el texto de cuerpo."
+  },
+  "brandKit": {
+    "heading": "Kit de marca completo",
+    "description": "Descargue las directrices de marca completas de GoGMI, incluyendo variaciones del logotipo, paleta de colores y normas de uso.",
+    "downloadButton": "Descargar kit de marca"
+  }
+}

@@ -1,30 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Microscope } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const FONT = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
-const researchThemes = [
+const researchThemesMeta = [
   {
-    question: "MARITIME SECURITY INTERVENTIONS AUDIT",
-    description: "Comprehensive audit mapping maritime security interventions across the Gulf of Guinea, analyzing their evolution, effectiveness, and the complex interplay of regional and international actors in addressing maritime threats.",
     image: "/Marsof operators fastrope on A Dutch naval vessel.jpg",
     link: '/research/maritime-security-audit',
   },
   {
-    question: "GOG MARITIME GOVERNANCE INDEX",
-    description: "Mapping untapped blue economy opportunities across fisheries, tourism, renewable energy, and marine biotechnology.",
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&fit=crop",
     link: '/research/project-2',
   },
 ];
 
 const Research = () => {
-  const liveData = [
-    { label: "Active Research Projects", value: "3" },
-    { label: "Data Points Collected",    value: "2000" },
-    { label: "Partner Institutions",     value: "12" },
-  ];
+  const { t } = useTranslation('research');
+
+  const statLabels = t('dashboard.stats', { returnObjects: true });
+  const liveValues = ["3", "2000", "12"];
+  const liveData = statLabels.map((label, idx) => ({ label, value: liveValues[idx] }));
+
+  const researchThemes = t('themes.items', { returnObjects: true }).map((item, idx) => ({
+    ...item,
+    ...researchThemesMeta[idx],
+  }));
 
   return (
     <div className="w-full overflow-x-hidden" style={{ fontFamily: FONT }}>
@@ -55,7 +57,7 @@ const Research = () => {
             >
               <Microscope className="w-4 h-4" style={{ color: '#8E3400' }} />
               <span className="text-xs uppercase tracking-wider" style={{ color: '#FFFFFF', fontWeight: 700 }}>
-                Research &amp; Innovation
+                {t('hero.badge')}
               </span>
             </div>
 
@@ -63,12 +65,11 @@ const Research = () => {
               className="text-4xl sm:text-5xl md:text-6xl leading-tight mb-6"
               style={{ fontWeight: 800, letterSpacing: '-0.02em' }}
             >
-              Answering the Big Questions in Maritime Security
+              {t('hero.title')}
             </h1>
 
             <p className="text-lg md:text-xl leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.95)' }}>
-              We focus on strategic maritime research addressing safety, security, and
-              environmental challenges in the Gulf of Guinea.
+              {t('hero.subtitle')}
             </p>
 
             <a
@@ -78,7 +79,7 @@ const Research = () => {
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl transition-all shadow-lg hover:scale-105"
               style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}
             >
-              <span>Explore Our Gulf Spectrum Journal</span>
+              <span>{t('hero.cta')}</span>
               <ArrowRight className="w-5 h-5" />
             </a>
           </div>
@@ -92,9 +93,9 @@ const Research = () => {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#8E3400' }} />
-                <h3 className="text-lg" style={{ fontWeight: 700, color: '#132552' }}>Research Dashboard</h3>
+                <h3 className="text-lg" style={{ fontWeight: 700, color: '#132552' }}>{t('dashboard.title')}</h3>
               </div>
-              <span className="text-xs" style={{ fontWeight: 500, color: '#6B7280' }}>Updated 2 min ago</span>
+              <span className="text-xs" style={{ fontWeight: 500, color: '#6B7280' }}>{t('dashboard.updated')}</span>
             </div>
             <div className="flex justify-center">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl w-full">
@@ -118,16 +119,16 @@ const Research = () => {
               className="text-xs uppercase tracking-widest"
               style={{ fontWeight: 600, color: '#8E3400', letterSpacing: '0.1em' }}
             >
-              Research Themes
+              {t('themes.eyebrow')}
             </span>
             <h2
               className="text-4xl md:text-5xl mt-3 mb-4"
               style={{ fontWeight: 800, color: '#132552', letterSpacing: '-0.01em' }}
             >
-              Our Research Focus
+              {t('themes.heading')}
             </h2>
             <p className="text-base max-w-2xl mx-auto" style={{ fontWeight: 400, color: '#4B5563' }}>
-              Ambitious research tackling pressing challenges in Gulf of Guinea maritime security
+              {t('themes.subtitle')}
             </p>
           </div>
 
@@ -154,7 +155,7 @@ const Research = () => {
                       className="text-xs uppercase tracking-wide mb-2 block"
                       style={{ fontWeight: 600, color: '#8E3400' }}
                     >
-                      Research Theme {idx + 1}
+                      {t('themes.themeLabel', { number: idx + 1 })}
                     </span>
 
                     <h3
@@ -175,7 +176,7 @@ const Research = () => {
                       className="inline-flex items-center gap-2 text-sm group-hover:gap-3 transition-all"
                       style={{ fontWeight: 600, color: '#8E3400' }}
                     >
-                      <span>Learn More About This Research</span>
+                      <span>{t('themes.learnMore')}</span>
                       <ArrowRight className="w-4 h-4 flex-shrink-0" />
                     </div>
                   </div>

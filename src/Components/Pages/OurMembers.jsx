@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Users, Building2, MapPin, ArrowRight, AlertCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const API_URL = 'https://api.gogmi.org.gh/api/members/public-list.php';
 
@@ -61,6 +62,7 @@ const CardSkeleton = () => (
 );
 
 const OurMembers = () => {
+  const { t } = useTranslation('ourMembers');
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -76,16 +78,16 @@ const OurMembers = () => {
         if (data.success) {
           setMembers(data.data || []);
         } else {
-          setError(data.message || 'Could not load members.');
+          setError(data.message || t('errors.loadFailed'));
         }
       } catch {
-        if (!cancelled) setError('Unable to connect to the server. Please try again later.');
+        if (!cancelled) setError(t('errors.connectionFailed'));
       } finally {
         if (!cancelled) setLoading(false);
       }
     })();
     return () => { cancelled = true; };
-  }, []);
+  }, [t]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -108,13 +110,13 @@ const OurMembers = () => {
         <div className="relative max-w-6xl mx-auto px-6 pt-28 md:pt-36 pb-14 md:pb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/70 text-xs font-semibold uppercase tracking-wider mb-4">
             <Users className="w-3.5 h-3.5" />
-            Our Community
+            {t('badge')}
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white max-w-2xl" style={{ letterSpacing: '-0.02em' }}>
-            Meet the professionals shaping Gulf of Guinea maritime governance
+            {t('hero.title')}
           </h1>
           <p className="text-white/60 mt-4 max-w-xl text-base sm:text-lg">
-            GoGMI members span government, navies, academia, and industry across the region and beyond.
+            {t('hero.subtitle')}
           </p>
         </div>
       </div>
@@ -128,7 +130,7 @@ const OurMembers = () => {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by name, organization, or country"
+              placeholder={t('search.placeholder')}
               className="w-full pl-9 pr-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
             />
           </div>
@@ -137,7 +139,7 @@ const OurMembers = () => {
             className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg font-bold text-sm text-white transition-all hover:scale-105 whitespace-nowrap"
             style={{ backgroundColor: '#8E3400' }}
           >
-            Join Them <ArrowRight className="w-4 h-4" />
+            {t('cta')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -158,13 +160,13 @@ const OurMembers = () => {
             <div className="text-center py-20 bg-white rounded-2xl border border-gray-100">
               <Users className="w-10 h-10 text-gray-300 mx-auto mb-3" />
               <p className="text-gray-500 font-semibold">
-                {members.length === 0 ? 'No members to show yet.' : 'No members match your search.'}
+                {members.length === 0 ? t('empty.noMembers') : t('empty.noResults')}
               </p>
             </div>
           ) : (
             <>
               <p className="text-sm text-gray-400 font-semibold mb-4">
-                {filtered.length} member{filtered.length === 1 ? '' : 's'}
+                {t('resultsCount', { count: filtered.length })}
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {filtered.map((m, idx) => (

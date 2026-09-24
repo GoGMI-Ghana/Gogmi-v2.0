@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Liderazgo",
+    "title": "Consejo Asesor",
+    "subtitle": "Expertos distinguidos que brindan orientación estratégica y liderazgo intelectual para impulsar la excelencia marítima en el Golfo de Guinea"
+  },
+  "section": {
+    "heading": "Miembros del Consejo Asesor"
+  },
+  "chair": {
+    "imageAlt": "Presidente del Consejo Asesor",
+    "flagAlt": "Bandera de Ghana",
+    "role": "Ex Jefe del Estado Mayor Aéreo, Fuerza Aérea de Ghana",
+    "badge": "Presidente del Consejo Asesor",
+    "aboutHeading": "Sobre el Presidente del Consejo Asesor",
+    "bio": [
+      "El Vicemariscal del Aire (AVM) Frank Hanson fue Jefe del Estado Mayor Aéreo de la Fuerza Aérea de Ghana desde enero de 2019 hasta enero de 2023. Posee una Maestría en Estudios Estratégicos con especialización en Gran Estrategia y, como ferviente defensor del mantenimiento de la paz, sirvió ante las Naciones Unidas y la Unión Africana como planificador militar y de aviación estratégico.",
+      "Es un experto en seguridad nacional e internacional. Piloto instructor militar astuto y de amplia experiencia, el AVM Hanson ha trabajado con importantes fabricantes de aeronaves para desarrollar el «concepto de portaaviones estático» destinado al apoyo aéreo táctico para operaciones marítimas (TASMO), así como a operaciones de fuerzas especiales en alta mar. Durante su gestión al frente de la Fuerza Aérea de Ghana se logró una interoperabilidad integral entre la Armada y la Fuerza Aérea de Ghana. Además, ha participado en varias misiones de la UA y la ONU en el continente, como parte del equipo consultivo que elaboró la Estrategia Marítima Integrada Nacional de Ghana.",
+      "Es egresado de Harvard University, la US Air University, el US Air War College, el Command and Staff College de Ghana y el Command Staff College de Nigeria, y aporta al Instituto más de 30 años de experiencia y un profundo conocimiento de la diplomacia, los asuntos geopolíticos mundiales, la aviación, la seguridad nacional y el liderazgo estratégico."
+    ]
+  },
+  "grid": {
+    "imageFallback": "Imagen",
+    "members": [
+      {
+        "role": "Ex Comisionada, Comisión de la Unión Africana sobre Derecho Internacional, y Relatora Especial de la UA sobre Piratería y Seguridad Marítima",
+        "flagAlt": "Bandera de Ghana"
+      },
+      {
+        "role": "Ex Jefe de Formación y Operaciones de la Armada de Nigeria, y copresidente fundador de GoG-SHADE",
+        "flagAlt": "Bandera de Nigeria"
+      },
+      {
+        "role": "Prof. Jeffrey Landsman, excapitán de la Marina de los Estados Unidos y profesor asociado en el U.S. Naval War College",
+        "flagAlt": "Bandera de Estados Unidos"
+      },
+      {
+        "role": "Ex Asesor de Defensa de Ghana ante Nigeria",
+        "flagAlt": "Bandera de Ghana"
+      }
+    ]
+  }
+}

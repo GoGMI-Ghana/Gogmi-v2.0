@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Direction",
+    "title": "Conseil consultatif",
+    "subtitle": "Des experts de renom offrant des orientations stratégiques et un leadership intellectuel pour faire progresser l'excellence maritime dans le Golfe de Guinée"
+  },
+  "section": {
+    "heading": "Membres du Conseil consultatif"
+  },
+  "chair": {
+    "imageAlt": "Président du Conseil consultatif",
+    "flagAlt": "Drapeau du Ghana",
+    "role": "Ancien chef d'état-major de l'armée de l'air, Force aérienne du Ghana",
+    "badge": "Président du Conseil consultatif",
+    "aboutHeading": "À propos du Président du Conseil consultatif",
+    "bio": [
+      "Le Vice-Maréchal de l'Air (AVM) Frank Hanson a été chef d'état-major de l'armée de l'air du Ghana de janvier 2019 à janvier 2023. Titulaire d'une maîtrise en études stratégiques avec spécialisation en grande stratégie, et ardent défenseur du maintien de la paix, il a servi auprès des Nations Unies et de l'Union africaine en tant que planificateur militaire et aéronautique stratégique.",
+      "Il est un expert en sécurité nationale et internationale. Pilote instructeur militaire aguerri et hautement expérimenté, l'AVM Hanson a collaboré avec de grands constructeurs aéronautiques pour développer le concept de « porte-avions statique » destiné à l'appui aérien tactique aux opérations maritimes (TASMO) ainsi qu'aux opérations offshore des forces spéciales. Sous sa direction, la Force aérienne du Ghana a connu une interopérabilité globale avec la Marine ghanéenne. Il a également participé à plusieurs missions de l'UA et de l'ONU à travers le continent, au sein de l'équipe consultative ayant élaboré la Stratégie maritime intégrée nationale du Ghana.",
+      "Ancien élève de Harvard University, de la US Air University, du US Air War College, du Command and Staff College du Ghana et du Command Staff College du Nigeria, il apporte à l'Institut plus de 30 ans d'expérience et une compréhension approfondie de la diplomatie, des enjeux géopolitiques mondiaux, de l'aviation, de la sécurité nationale et du leadership stratégique."
+    ]
+  },
+  "grid": {
+    "imageFallback": "Image",
+    "members": [
+      {
+        "role": "Ancienne Commissaire, Commission de l'Union africaine sur le droit international, et Rapporteuse spéciale de l'UA sur la piraterie et la sécurité maritime",
+        "flagAlt": "Drapeau du Ghana"
+      },
+      {
+        "role": "Ancien chef de la formation et des opérations de la Marine nigériane, et co-président fondateur du GoG-SHADE",
+        "flagAlt": "Drapeau du Nigeria"
+      },
+      {
+        "role": "Prof. Jeffrey Landsman, ancien capitaine de la marine américaine et professeur associé au US Naval War College",
+        "flagAlt": "Drapeau des États-Unis"
+      },
+      {
+        "role": "Ancien conseiller de défense du Ghana auprès du Nigeria",
+        "flagAlt": "Drapeau du Ghana"
+      }
+    ]
+  }
+}

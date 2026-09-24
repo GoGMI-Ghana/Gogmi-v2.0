@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "badge": "Maritime Conversations",
+    "subtitle": "Exploring the Future of Maritime Excellence in the Gulf of Guinea and Beyond",
+    "cta": "Watch Episodes"
+  },
+  "about": {
+    "eyebrow": "About the Podcast",
+    "heading": "A Platform for Maritime Excellence",
+    "para1": "The Gulf Spectrum Podcast, produced by the Gulf of Guinea Maritime Institute, serves as a vital platform for exploring the future of maritime excellence in the Gulf of Guinea region and beyond.",
+    "para2": "GSP delves into cutting-edge innovations, pressing challenges, and emerging opportunities shaping the maritime industry from sustainable shipping practices and advanced technologies to the intricate dynamics of global trade."
+  },
+  "episodes": {
+    "heading": "Featured Episodes",
+    "with": "with",
+    "watchNow": "Watch Now",
+    "items": [
+      { "title": "Future of Maritime Excellence I", "description": "A deep dive into the strategies, partnerships, and innovations shaping Ghana maritime sector and blue economy." },
+      { "title": "Future of Maritime Excellence II", "description": "Continuing the conversation on balancing global ambitions with domestic and regional challenges." },
+      { "title": "Renewing the Gulf of Guinea Region IUU Fishing Agenda", "description": "Reflecting on the progress made in the Gulf of Guinea fisheries landscape over the past years." }
+    ]
+  },
+  "subscribe": {
+    "heading": "Subscribe and Stay Updated",
+    "subtitle": "Join the conversation on the future of maritime excellence"
+  }
+}

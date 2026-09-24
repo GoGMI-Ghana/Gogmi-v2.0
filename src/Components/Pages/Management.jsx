@@ -1,7 +1,9 @@
 import React from 'react';
 import { X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Management = () => {
+  const { t } = useTranslation('management');
   return (
     <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
       {/* Hero Section */}
@@ -18,14 +20,14 @@ const Management = () => {
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
                 style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}>
-            Leadership
+            {t('hero.badge')}
           </span>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6" 
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-6"
               style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Management Team
+            {t('hero.title')}
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" style={{ fontWeight: 400 }}>
-            Meet the dedicated professionals driving GoGMI's mission
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -44,8 +46,8 @@ const Management = () => {
                     <X className="w-16 h-16" style={{ color: '#8E3400' }} strokeWidth={3} />
                   </div>
                   <div className="text-center px-6">
-                    <p className="text-2xl font-black mb-2" style={{ color: '#132552' }}>VACANT</p>
-                    <p className="text-sm" style={{ color: '#6B7280' }}>Position Currently Unfilled</p>
+                    <p className="text-2xl font-black mb-2" style={{ color: '#132552' }}>{t('executiveDirector.vacant')}</p>
+                    <p className="text-sm" style={{ color: '#6B7280' }}>{t('executiveDirector.positionUnfilled')}</p>
                   </div>
                 </div>
               </div>
@@ -57,7 +59,7 @@ const Management = () => {
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="font-bold text-sm" style={{ fontWeight: 700 }}>Executive Director</span>
+                    <span className="font-bold text-sm" style={{ fontWeight: 700 }}>{t('executiveDirector.title')}</span>
                   </div>
                 </div>
               </div>
@@ -65,11 +67,11 @@ const Management = () => {
 
             {/* Profile Section - Right */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-black mb-4" 
+              <h2 className="text-4xl md:text-5xl font-black mb-4"
                   style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-                Executive Director
+                {t('executiveDirector.title')}
               </h2>
-              
+
 <div className="p-8 rounded-2xl border-2 border-dashed"
                    style={{ backgroundColor: '#F5F7FA', borderColor: '#E5E7EB' }}>
                 <div className="flex flex-col items-center justify-center text-center py-12">
@@ -78,10 +80,10 @@ const Management = () => {
                     <X className="w-10 h-10" style={{ color: '#8E3400' }} strokeWidth={3} />
                   </div>
                   <h3 className="text-2xl font-black mb-3" style={{ color: '#132552' }}>
-                    Position Vacant
+                    {t('executiveDirector.positionVacant')}
                   </h3>
                   <p className="text-base max-w-md" style={{ color: '#6B7280' }}>
-                    This position is currently unfilled. 
+                    {t('executiveDirector.unfilledDescription')}
                   </p>
                 </div>
               </div>
@@ -95,13 +97,16 @@ const Management = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              
-              { name: 'Rhodalyn Owusu', title: 'Finance & Admin Officer' },
-              { name: 'Enoch Dzane Nikoi', title: 'Communications Specialist' },
-              { name: 'Caleb Acquah-Harrison', title: 'Research Analyst' },
-              { name: 'Ellise Grant Boamah', title: 'National Service Personel' }
-      
-            ].map((member, idx) => (
+
+              { name: 'Rhodalyn Owusu' },
+              { name: 'Enoch Dzane Nikoi' },
+              { name: 'Caleb Acquah-Harrison' },
+              { name: 'Ellise Grant Boamah' }
+
+            ].map((member, idx) => ({
+              ...member,
+              title: t('corporateAffairsTeam.titles', { returnObjects: true })[idx]
+            })).map((member, idx) => (
               <div key={idx} className="group">
                 <div className="relative overflow-hidden rounded-xl mb-4 bg-gray-100 aspect-[3/4] shadow-lg border-2 border-gray-200">
                   {/* Empty frame - no image */}
@@ -131,10 +136,13 @@ const Management = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              
-              { name: 'Jonas Aryeh', title: 'Corporate Affairs' },
-              { name: 'Juliet Afrah Obeng ', title: 'United Nation Hamilton Shirley Amerasinghe Memorial Fellow' }
-            ].map((member, idx) => (
+
+              { name: 'Jonas Aryeh' },
+              { name: 'Juliet Afrah Obeng ' }
+            ].map((member, idx) => ({
+              ...member,
+              title: t('extendedTeam.titles', { returnObjects: true })[idx]
+            })).map((member, idx) => (
               <div key={idx} className="group">
                 <div className="relative overflow-hidden rounded-xl mb-4 bg-gray-100 aspect-[3/4] shadow-lg border-2 border-gray-200">
                   {/* Empty frame - no image */}

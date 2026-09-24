@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "badge": "Soluciones integrales",
+    "title": "Nuestros Servicios",
+    "subtitle": "Su centro de referencia para la seguridad marítima, la protección y la incidencia a favor de una economía azul sostenible"
+  },
+  "categories": [
+    { "name": "Incidencia" },
+    { "name": "Investigación" },
+    { "name": "Fortalecimiento de capacidades" },
+    { "name": "Secretaría" }
+  ],
+  "items": [
+    {
+      "title": "Incidencia",
+      "shortDesc": "Impulsando reformas políticas y prácticas marítimas sostenibles",
+      "fullDesc": "Impulsamos reformas políticas y prácticas marítimas sostenibles en todo el Golfo de Guinea. Somos la voz de referencia de los actores marítimos, tendiendo un puente entre las realidades marítimas y la acción política mediante una incidencia basada en evidencia que da forma a los marcos de gobernanza regionales e internacionales.",
+      "features": ["Incidencia en seguridad marítima", "Promoción de la economía azul", "Desarrollo de políticas", "Colaboración regional"]
+    },
+    {
+      "title": "Investigación",
+      "shortDesc": "Investigación marítima local y análisis estratégico",
+      "fullDesc": "Ofrecemos investigación marítima local y análisis estratégico que abordan los desafíos de seguridad, protección y economía azul. Nuestra investigación orienta las decisiones de política y aporta soluciones desde una perspectiva de África Occidental, cubriendo una brecha crítica en los estudios marítimos regionales y garantizando una buena representación de los intereses locales.",
+      "features": ["Investigación marítima estratégica", "Asesoría en políticas", "Análisis de amenazas", "Información basada en datos"]
+    },
+    {
+      "title": "Fortalecimiento de capacidades",
+      "shortDesc": "Empoderando a los profesionales marítimos y a la juventud",
+      "fullDesc": "Formamos a la próxima generación de profesionales marítimos mediante programas de capacitación integrales, iniciativas de mentoría y plataformas de intercambio de conocimiento. Desde nuestro programa insignia de mentoría azul hasta talleres especializados, dotamos a jóvenes, profesionales y actores clave de las competencias y conocimientos necesarios para prosperar en la economía azul.",
+      "features": ["Programa de Mentoría Azul", "Capacitación profesional", "Participación juvenil", "Desarrollo de competencias"]
+    },
+    {
+      "title": "Servicios de Secretaría",
+      "shortDesc": "Columna institucional para la coordinación marítima",
+      "fullDesc": "Actuamos como columna institucional para la coordinación y colaboración marítima regional. Brindamos apoyo profesional de secretaría al Grupo de Trabajo Internacional sobre Seguridad Marítima (IMSWG) y a otros foros marítimos, facilitando el diálogo, gestionando las operaciones y garantizando la implementación efectiva de las iniciativas marítimas regionales.",
+      "features": ["Coordinación del IMSWG", "Gestión de foros", "Participación de actores clave", "Implementación de programas"]
+    }
+  ],
+  "learnMore": "Más información",
+  "cta": {
+    "heading": "¿Listo para comenzar?",
+    "subtitle": "Conversemos sobre cómo nuestros servicios pueden apoyar sus objetivos marítimos",
+    "consultation": "Solicitar una consulta",
+    "brochure": "Descargar folleto"
+  }
+}

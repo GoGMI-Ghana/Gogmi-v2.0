@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ArrowLeft, Search, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
+  const { t } = useTranslation('notFound');
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center px-6 pt-24 pb-16">
       <div className="max-w-5xl mx-auto text-center space-y-16">
@@ -24,10 +26,10 @@ const NotFound = () => {
         {/* ===== Message Section ===== */}
         <div className="space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Oops! Page Not Found
+            {t('heading')}
           </h2>
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            The page you're looking for seems to have sailed away. Don't worry, we'll help you navigate back to safe waters.
+            {t('message')}
           </p>
         </div>
 
@@ -39,14 +41,14 @@ const NotFound = () => {
     className="group bg-yellow-500 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-600 transition-all shadow-2xl hover:scale-105 flex items-center justify-center space-x-2 pb-6"
   >
     <Home className="w-5 h-5" />
-    <span>Go Home</span>
+    <span>{t('goHome')}</span>
   </Link>
-  <button 
+  <button
     onClick={() => window.history.back()}
     className="group bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all flex items-center justify-center space-x-2 pb-6"
   >
     <ArrowLeft className="w-5 h-5" />
-    <span>Go Back</span>
+    <span>{t('goBack')}</span>
   </button>
 </div>
 {/* ===== End Buttons Section ===== */}
@@ -55,12 +57,12 @@ const NotFound = () => {
 
         {/* ===== Helpful Links Section ===== */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-10 border border-white/20 space-y-8 shadow-xl">
-          <h3 className="text-2xl font-bold text-white mb-6">Popular Pages</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">{t('popularPages')}</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              { name: 'About Us', path: '/about', icon: <Search /> },
-              { name: 'Services', path: '/services', icon: <Search /> },
-              { name: 'Contact', path: '/contact', icon: <Mail /> }
+              { key: 'aboutUs', path: '/about', icon: <Search /> },
+              { key: 'services', path: '/services', icon: <Search /> },
+              { key: 'contact', path: '/contact', icon: <Mail /> }
             ].map((link) => (
               <Link
                 key={link.path}
@@ -68,7 +70,7 @@ const NotFound = () => {
                 className="bg-white/10 hover:bg-white/20 backdrop-blur-sm px-6 py-4 rounded-xl text-white font-semibold transition-all hover:scale-105 flex items-center justify-center space-x-2"
               >
                 {link.icon}
-                <span>{link.name}</span>
+                <span>{t(`links.${link.key}`)}</span>
               </Link>
             ))}
           </div>
@@ -76,13 +78,13 @@ const NotFound = () => {
 
         {/* ===== Support Section ===== */}
         <div className="mt-16 space-y-4">
-          <p className="text-white/70 text-lg">Still can't find what you're looking for?</p>
-          <Link 
-            to="/contact" 
+          <p className="text-white/70 text-lg">{t('supportPrompt')}</p>
+          <Link
+            to="/contact"
             className="text-yellow-400 font-semibold hover:text-yellow-300 transition-colors inline-flex items-center space-x-2"
           >
             <Mail className="w-5 h-5" />
-            <span>Contact Our Support Team</span>
+            <span>{t('contactSupport')}</span>
           </Link>
         </div>
       </div>

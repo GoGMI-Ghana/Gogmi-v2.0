@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "backToHome": "Volver al inicio",
+    "eyebrow": "Navegación",
+    "title": "Mapa del sitio",
+    "subtitle": "Una visión completa de todas las páginas del sitio web de GoGMI."
+  },
+  "sections": [
+    {
+      "title": "Páginas principales",
+      "links": [
+        { "label": "Inicio" },
+        { "label": "Sobre nosotros" },
+        { "label": "Servicios" },
+        { "label": "Contacto" },
+        { "label": "Blog" },
+        { "label": "Recursos" },
+        { "label": "Galería multimedia" },
+        { "label": "Testimonios" },
+        { "label": "Empleo y oportunidades" }
+      ]
+    },
+    {
+      "title": "Servicios",
+      "links": [
+        { "label": "Incidencia" },
+        { "label": "Investigación" },
+        { "label": "Fortalecimiento de capacidades" }
+      ]
+    },
+    {
+      "title": "Investigación",
+      "links": [
+        { "label": "Auditoría de intervenciones de seguridad marítima" }
+      ]
+    },
+    {
+      "title": "Fortalecimiento de capacidades y formación",
+      "links": [
+        { "label": "Curso de gobernanza marítima" },
+        { "label": "Curso de investigación de siniestros marítimos" },
+        { "label": "Profesionales Oceánicos de Carrera Temprana (ECOP)" },
+        { "label": "Formación Azul WYTEC" },
+        { "label": "Formación de periodistas" }
+      ]
+    },
+    {
+      "title": "Programas e iniciativas",
+      "links": [
+        { "label": "IMSWG" },
+        { "label": "Foro IMSWG" },
+        { "label": "Eventos IMSWG" },
+        { "label": "Registro IMSWG" },
+        { "label": "Expo Blue Career" },
+        { "label": "Iniciativa Blue World" },
+        { "label": "Directorio Blue Business" },
+        { "label": "SHADE" },
+        { "label": "Podcast Gulf Spectrum" }
+      ]
+    },
+    {
+      "title": "Organización",
+      "links": [
+        { "label": "Presidente ejecutivo" },
+        { "label": "Gerencia" },
+        { "label": "Junta asesora" },
+        { "label": "Secretaría" },
+        { "label": "Socios" },
+        { "label": "Membresía" }
+      ]
+    },
+    {
+      "title": "Legal",
+      "links": [
+        { "label": "Política de privacidad" },
+        { "label": "Términos de servicio" }
+      ]
+    }
+  ]
+}

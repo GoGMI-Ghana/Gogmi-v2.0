@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "backToHome": "Back to Home",
+    "eyebrow": "Navigation",
+    "title": "Sitemap",
+    "subtitle": "A complete overview of all pages on the GoGMI website."
+  },
+  "sections": [
+    {
+      "title": "Main Pages",
+      "links": [
+        { "label": "Home" },
+        { "label": "About Us" },
+        { "label": "Services" },
+        { "label": "Contact" },
+        { "label": "Blog" },
+        { "label": "Resources" },
+        { "label": "Media Gallery" },
+        { "label": "Testimonials" },
+        { "label": "Careers & Opportunities" }
+      ]
+    },
+    {
+      "title": "Services",
+      "links": [
+        { "label": "Advocacy" },
+        { "label": "Research" },
+        { "label": "Capacity Building" }
+      ]
+    },
+    {
+      "title": "Research",
+      "links": [
+        { "label": "Maritime Security Interventions Audit" }
+      ]
+    },
+    {
+      "title": "Capacity Building & Training",
+      "links": [
+        { "label": "Maritime Governance Course" },
+        { "label": "Marine Casualty Investigation Course" },
+        { "label": "Early Career Ocean Professionals (ECOP)" },
+        { "label": "WYTEC Blue Training" },
+        { "label": "Journalist Training" }
+      ]
+    },
+    {
+      "title": "Programmes & Initiatives",
+      "links": [
+        { "label": "IMSWG" },
+        { "label": "IMSWG Forum" },
+        { "label": "IMSWG Events" },
+        { "label": "IMSWG Sign Up" },
+        { "label": "Blue Career Expo" },
+        { "label": "Blue World Initiative" },
+        { "label": "Blue Business Directory" },
+        { "label": "SHADE" },
+        { "label": "Gulf Spectrum Podcast" }
+      ]
+    },
+    {
+      "title": "Organisation",
+      "links": [
+        { "label": "Executive Chairman" },
+        { "label": "Management" },
+        { "label": "Advisory Board" },
+        { "label": "Secretariat" },
+        { "label": "Partners" },
+        { "label": "Membership" }
+      ]
+    },
+    {
+      "title": "Legal",
+      "links": [
+        { "label": "Privacy Policy" },
+        { "label": "Terms of Service" }
+      ]
+    }
+  ]
+}

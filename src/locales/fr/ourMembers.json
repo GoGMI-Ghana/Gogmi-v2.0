@@ -1,0 +1,21 @@
+{
+  "badge": "Notre communauté",
+  "hero": {
+    "title": "Rencontrez les professionnels qui façonnent la gouvernance maritime du Golfe de Guinée",
+    "subtitle": "Les membres du GoGMI viennent des administrations publiques, des marines, du monde universitaire et de l'industrie, dans la région et au-delà."
+  },
+  "search": {
+    "placeholder": "Rechercher par nom, organisation ou pays"
+  },
+  "cta": "Rejoignez-les",
+  "errors": {
+    "loadFailed": "Impossible de charger les membres.",
+    "connectionFailed": "Impossible de se connecter au serveur. Veuillez réessayer plus tard."
+  },
+  "empty": {
+    "noMembers": "Aucun membre à afficher pour le moment.",
+    "noResults": "Aucun membre ne correspond à votre recherche."
+  },
+  "resultsCount_one": "{{count}} membre",
+  "resultsCount_other": "{{count}} membres"
+}

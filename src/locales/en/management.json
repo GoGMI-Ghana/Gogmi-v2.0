@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "badge": "Leadership",
+    "title": "Management Team",
+    "subtitle": "Meet the dedicated professionals driving GoGMI's mission"
+  },
+  "executiveDirector": {
+    "title": "Executive Director",
+    "vacant": "VACANT",
+    "positionUnfilled": "Position Currently Unfilled",
+    "positionVacant": "Position Vacant",
+    "unfilledDescription": "This position is currently unfilled."
+  },
+  "corporateAffairsTeam": {
+    "titles": [
+      "Finance & Admin Officer",
+      "Communications Specialist",
+      "Research Analyst",
+      "National Service Personnel"
+    ]
+  },
+  "extendedTeam": {
+    "titles": [
+      "Corporate Affairs",
+      "United Nations Hamilton Shirley Amerasinghe Memorial Fellow"
+    ]
+  }
+}

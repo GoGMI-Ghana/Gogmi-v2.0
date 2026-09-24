@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "backToBlog": "Retour aux actualités et au blog",
+    "openOriginal": "Ouvrir l'original"
+  },
+  "loading": "Chargement du bulletin…",
+  "badge": "Bulletin d'information",
+  "errors": {
+    "notFound": "Bulletin introuvable",
+    "loadFailed": "Impossible de charger ce bulletin. Veuillez réessayer.",
+    "backToBlog": "Retour au blog"
+  },
+  "fallback": {
+    "title": "Le contenu n'a pas pu être chargé directement.",
+    "subtitle": "Ce bulletin ne dispose peut-être pas encore d'une version web publique.",
+    "readOnHubspot": "Lire sur HubSpot"
+  }
+}

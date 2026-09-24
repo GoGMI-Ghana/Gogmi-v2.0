@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "Research & Innovation",
+    "title": "Answering the Big Questions in Maritime Security",
+    "subtitle": "We focus on strategic maritime research addressing safety, security, and environmental challenges in the Gulf of Guinea.",
+    "cta": "Explore Our Gulf Spectrum Journal"
+  },
+  "dashboard": {
+    "title": "Research Dashboard",
+    "updated": "Updated 2 min ago",
+    "stats": ["Active Research Projects", "Data Points Collected", "Partner Institutions"]
+  },
+  "themes": {
+    "eyebrow": "Research Themes",
+    "heading": "Our Research Focus",
+    "subtitle": "Ambitious research tackling pressing challenges in Gulf of Guinea maritime security",
+    "themeLabel": "Research Theme {{number}}",
+    "learnMore": "Learn More About This Research",
+    "items": [
+      {
+        "question": "MARITIME SECURITY INTERVENTIONS AUDIT",
+        "description": "Comprehensive audit mapping maritime security interventions across the Gulf of Guinea, analyzing their evolution, effectiveness, and the complex interplay of regional and international actors in addressing maritime threats."
+      },
+      {
+        "question": "GOG MARITIME GOVERNANCE INDEX",
+        "description": "Mapping untapped blue economy opportunities across fisheries, tourism, renewable energy, and marine biotechnology."
+      }
+    ]
+  }
+}

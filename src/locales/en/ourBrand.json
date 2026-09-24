@@ -1,0 +1,34 @@
+{
+  "header": {
+    "badge": "Brand Identity",
+    "title": "Our Brand",
+    "subtitle": "Logo, colors, and typography that represent the Gulf of Guinea Maritime Institute."
+  },
+  "logo": {
+    "heading": "Logo",
+    "altLight": "GoGMI Logo on light background",
+    "altDark": "GoGMI Logo on dark background",
+    "downloadButton": "Download Logo (PNG)"
+  },
+  "colors": {
+    "heading": "Colors",
+    "subtitle": "Click a swatch to copy its hex code.",
+    "copied": "Copied!",
+    "items": [
+      { "name": "Primary Navy", "usage": "Headers, navigation, primary text" },
+      { "name": "Accent Rust", "usage": "Buttons, highlights, calls to action" },
+      { "name": "Off-White", "usage": "Backgrounds, light surfaces" },
+      { "name": "Dark Slate", "usage": "Body copy on light backgrounds" }
+    ]
+  },
+  "typography": {
+    "heading": "Typography",
+    "label": "Primary Typeface",
+    "description": "Used across the site for headings and body copy, in Bold (700) and Semibold (600) weights for headings, Regular (400) for body text."
+  },
+  "brandKit": {
+    "heading": "Full Brand Kit",
+    "description": "Download the complete GoGMI brand guidelines, including logo variations, color palette, and usage rules.",
+    "downloadButton": "Download Brand Kit"
+  }
+}

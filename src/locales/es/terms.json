@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "backToHome": "Volver al inicio",
+    "badge": "Legal",
+    "title": "Términos de Servicio",
+    "updated": "Última actualización: junio de 2025",
+    "orgName": "Instituto Marítimo del Golfo de Guinea (GoGMI)"
+  },
+  "sections": [
+    {
+      "id": "acceptance",
+      "title": "Aceptación de los Términos",
+      "content": "Al acceder o utilizar el sitio web del GoGMI (gogmi.org.gh) y cualquiera de sus servicios, programas o plataformas asociados, usted acepta quedar sujeto a estos Términos de Servicio. Si no está de acuerdo con estos términos, deje de utilizar nuestros servicios. El GoGMI se reserva el derecho de actualizar estos términos en cualquier momento, y el uso continuado del sitio web constituye la aceptación de dichos cambios."
+    },
+    {
+      "id": "services",
+      "title": "Descripción de los Servicios",
+      "content": "El Instituto Marítimo del Golfo de Guinea (GoGMI) ofrece información, investigación, programas de formación, servicios de afiliación, foros y recursos de incidencia relacionados con la seguridad marítima, la gobernanza y la economía azul en la región del Golfo de Guinea. El acceso a determinados servicios puede requerir registro y estar sujeto a condiciones adicionales específicas de esos programas."
+    },
+    {
+      "id": "user-obligations",
+      "title": "Obligaciones del Usuario",
+      "intro": "Al utilizar nuestro sitio web y servicios, usted se compromete a:",
+      "list": [
+        "Proporcionar información precisa, actualizada y completa al registrarse o enviar formularios.",
+        "Mantener la confidencialidad de las credenciales de su cuenta y notificarnos de inmediato cualquier acceso no autorizado.",
+        "Utilizar el sitio web y su contenido únicamente con fines lícitos, personales o profesionales.",
+        "No reproducir, distribuir ni explotar comercialmente ningún contenido de este sitio web sin el permiso previo por escrito del GoGMI.",
+        "No incurrir en ninguna conducta que interrumpa o interfiera con el correcto funcionamiento del sitio web o sus servicios.",
+        "Cumplir con todas las leyes y normativas locales, nacionales e internacionales aplicables."
+      ]
+    },
+    {
+      "id": "intellectual-property",
+      "title": "Propiedad Intelectual",
+      "content": "Todo el contenido de este sitio web —incluidos textos, gráficos, logotipos, imágenes, clips de audio, publicaciones de investigación, materiales de cursos y software— es propiedad del GoGMI o de sus proveedores de contenido y está protegido por las leyes de derechos de autor y propiedad intelectual aplicables. Usted no podrá reproducir, modificar, publicar ni distribuir ningún contenido sin el consentimiento previo y por escrito del GoGMI, salvo que la ley aplicable lo permita de otro modo."
+    },
+    {
+      "id": "membership",
+      "title": "Afiliación y Registro",
+      "intro": "Al registrarse para la afiliación o los programas de formación:",
+      "bullets": [
+        { "label": "Elegibilidad", "text": "Debe tener al menos 18 años de edad y proporcionar información personal precisa." },
+        { "label": "Cuotas de afiliación", "text": "No son reembolsables, salvo que se indique lo contrario en las condiciones específicas del programa." },
+        { "label": "Cancelación de cuenta", "text": "El GoGMI se reserva el derecho de suspender o cancelar las cuentas que incumplan estos términos." },
+        { "label": "Acceso", "text": "Los recursos exclusivos para miembros están destinados únicamente a miembros registrados y no pueden compartirse con terceros." }
+      ]
+    },
+    {
+      "id": "disclaimers",
+      "title": "Exenciones de Responsabilidad y Limitación de Responsabilidad",
+      "content": "El GoGMI ofrece su sitio web y sus servicios \"tal cual\" y \"según disponibilidad\". Si bien nos esforzamos por garantizar la exactitud y la vigencia de la información contenida en este sitio, no realizamos declaraciones ni ofrecemos garantías de ningún tipo, expresas o implícitas, respecto de la integridad, exactitud, fiabilidad, idoneidad o disponibilidad del contenido. El GoGMI no será responsable de ningún daño directo, indirecto, incidental, consecuente o punitivo derivado del uso, o de la imposibilidad de uso, de este sitio web o sus servicios."
+    },
+    {
+      "id": "third-party",
+      "title": "Enlaces y Servicios de Terceros",
+      "content": "Nuestro sitio web puede contener enlaces a sitios web de terceros, organizaciones asociadas o recursos externos. Estos enlaces se proporcionan únicamente para su comodidad. El GoGMI no tiene control sobre el contenido ni las prácticas de dichos sitios y no acepta responsabilidad alguna por ellos. La inclusión de cualquier enlace no implica el respaldo del GoGMI al sitio enlazado ni a su contenido."
+    },
+    {
+      "id": "privacy",
+      "title": "Privacidad",
+      "content": "El uso que usted haga de los servicios del GoGMI también se rige por nuestra Política de Privacidad, la cual se incorpora a estos Términos de Servicio por referencia. Al utilizar nuestros servicios, usted consiente la recopilación y el uso de su información tal como se describe en la Política de Privacidad."
+    },
+    {
+      "id": "governing-law",
+      "title": "Ley Aplicable",
+      "content": "Estos Términos de Servicio se regirán e interpretarán de conformidad con las leyes de la República de Ghana. Cualquier controversia que surja en relación con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales de Ghana."
+    },
+    {
+      "id": "changes",
+      "title": "Cambios en los Términos",
+      "content": "El GoGMI se reserva el derecho de modificar estos Términos de Servicio en cualquier momento y sin previo aviso. Los cambios entrarán en vigor de inmediato tras su publicación en el sitio web. Es su responsabilidad revisar estos términos periódicamente. El uso continuado del sitio web tras cualquier modificación constituye su aceptación de los términos revisados."
+    },
+    {
+      "id": "contact",
+      "title": "Contáctenos",
+      "content": "Si tiene alguna pregunta o inquietud respecto de estos Términos de Servicio, comuníquese con nosotros a través de info@gogmi.org.gh o mediante el formulario de contacto de nuestro sitio web."
+    }
+  ],
+  "contact": {
+    "heading": "¿Tiene preguntas sobre estos términos?",
+    "body": "Con gusto le ayudamos a aclarar cualquier duda. Contáctenos directamente."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "badge": "Comprehensive Solutions",
+    "title": "Our Services",
+    "subtitle": "Your Hub For Maritime Security, Safety and Advocacy for Sustainable Blue Economy"
+  },
+  "categories": [
+    { "name": "Advocacy" },
+    { "name": "Research" },
+    { "name": "Capacity Building" },
+    { "name": "Secretariat" }
+  ],
+  "items": [
+    {
+      "title": "Advocacy",
+      "shortDesc": "Championing policy reforms and sustainable maritime practices",
+      "fullDesc": "Championing policy reforms and sustainable maritime practices across the Gulf of Guinea. We serve as the authoritative voice for maritime stakeholders, bridging the gap between maritime realities and policy action through evidence-based advocacy that shapes regional and international governance frameworks.",
+      "features": ["Maritime Security Advocacy", "Blue Economy Promotion", "Policy Development", "Regional Collaboration"]
+    },
+    {
+      "title": "Research",
+      "shortDesc": "Indigenous maritime research and strategic analysis",
+      "fullDesc": "Providing indigenous maritime research and strategic analysis that addresses security, safety, and blue economy challenges. Our research informs policy decisions and delivers solutions from a West African perspective, filling the critical gap in regional maritime studies and ensuring local interests are well-represented.",
+      "features": ["Strategic Maritime Research", "Policy Advisory", "Threat Analysis", "Data-Driven Insights"]
+    },
+    {
+      "title": "Capacity Building",
+      "shortDesc": "Empowering maritime professionals and youth",
+      "fullDesc": "Empowering the next generation of maritime professionals through comprehensive training programs, mentorship initiatives, and knowledge-sharing platforms. From our flagship Blue Mentorship Programme to specialized workshops, we equip youth, practitioners, and stakeholders with the skills and knowledge needed to thrive in the blue economy.",
+      "features": ["Blue Mentorship Programme", "Professional Training", "Youth Engagement", "Skills Development"]
+    },
+    {
+      "title": "Secretariat Services",
+      "shortDesc": "Institutional backbone for maritime coordination",
+      "fullDesc": "Serving as the institutional backbone for regional maritime coordination and collaboration. We provide professional secretariat support to the International Maritime Security Working Group (IMSWG) and other maritime forums, facilitating dialogue, managing operations, and ensuring effective implementation of regional maritime initiatives.",
+      "features": ["IMSWG Coordination", "Forum Management", "Stakeholder Engagement", "Programme Implementation"]
+    }
+  ],
+  "learnMore": "Learn More",
+  "cta": {
+    "heading": "Ready to Get Started?",
+    "subtitle": "Let's discuss how our services can support your maritime objectives",
+    "consultation": "Request a Consultation",
+    "brochure": "Download Brochure"
+  }
+}

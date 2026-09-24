@@ -1,0 +1,21 @@
+{
+  "badge": "Our Community",
+  "hero": {
+    "title": "Meet the professionals shaping Gulf of Guinea maritime governance",
+    "subtitle": "GoGMI members span government, navies, academia, and industry across the region and beyond."
+  },
+  "search": {
+    "placeholder": "Search by name, organization, or country"
+  },
+  "cta": "Join Them",
+  "errors": {
+    "loadFailed": "Could not load members.",
+    "connectionFailed": "Unable to connect to the server. Please try again later."
+  },
+  "empty": {
+    "noMembers": "No members to show yet.",
+    "noResults": "No members match your search."
+  },
+  "resultsCount_one": "{{count}} member",
+  "resultsCount_other": "{{count}} members"
+}

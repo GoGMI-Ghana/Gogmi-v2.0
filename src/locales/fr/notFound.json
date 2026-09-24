@@ -1,0 +1,14 @@
+{
+  "heading": "Oups ! Page introuvable",
+  "message": "La page que vous recherchez semble avoir pris le large. Ne vous inquiétez pas, nous allons vous aider à retrouver votre chemin.",
+  "goHome": "Retour à l'accueil",
+  "goBack": "Retour",
+  "popularPages": "Pages populaires",
+  "links": {
+    "aboutUs": "À propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "supportPrompt": "Vous ne trouvez toujours pas ce que vous cherchez ?",
+  "contactSupport": "Contactez notre équipe d'assistance"
+}

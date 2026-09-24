@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Map } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const FONT = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
@@ -78,6 +79,8 @@ const sections = [
 ];
 
 const Sitemap = () => {
+  const { t } = useTranslation('sitemap');
+  const translatedSections = t('sections', { returnObjects: true });
   return (
     <div className="w-full min-h-screen" style={{ fontFamily: FONT, backgroundColor: '#F9FAFB' }}>
 
@@ -90,19 +93,19 @@ const Sitemap = () => {
             style={{ color: 'white' }}
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            {t('hero.backToHome')}
           </Link>
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: 'rgba(142,52,0,0.25)' }}>
               <Map className="w-6 h-6" style={{ color: '#8E3400' }} />
             </div>
-            <span className="text-xs uppercase tracking-widest font-bold" style={{ color: '#8E3400' }}>Navigation</span>
+            <span className="text-xs uppercase tracking-widest font-bold" style={{ color: '#8E3400' }}>{t('hero.eyebrow')}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-            Sitemap
+            {t('hero.title')}
           </h1>
           <p className="text-base" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            A complete overview of all pages on the GoGMI website.
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -111,17 +114,17 @@ const Sitemap = () => {
       <section className="py-16">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.map((section) => (
+            {sections.map((section, sIdx) => (
               <div
                 key={section.title}
                 className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100"
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-1 h-6 rounded-full flex-shrink-0" style={{ backgroundColor: '#8E3400' }} />
-                  <h2 className="text-lg font-bold" style={{ color: '#132552' }}>{section.title}</h2>
+                  <h2 className="text-lg font-bold" style={{ color: '#132552' }}>{translatedSections[sIdx]?.title}</h2>
                 </div>
                 <ul className="space-y-3">
-                  {section.links.map((link) => (
+                  {section.links.map((link, lIdx) => (
                     <li key={link.path}>
                       <Link
                         to={link.path}
@@ -136,7 +139,7 @@ const Sitemap = () => {
                           onMouseEnter={e => e.target.style.color = '#8E3400'}
                           onMouseLeave={e => e.target.style.color = '#4B5563'}
                         >
-                          {link.label}
+                          {translatedSections[sIdx]?.links[lIdx]?.label}
                         </span>
                       </Link>
                     </li>

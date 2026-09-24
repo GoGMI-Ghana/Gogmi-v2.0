@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "backLink": "Back to Secretariat Services",
+    "badge": "Secretariat · 2023",
+    "titleLine1": "Green Maritime",
+    "titleLine2": "Africa Coalition",
+    "theme": "Theme: Advancing Net-Zero Emissions and Maritime Resilience in Africa through Continental Collaboration",
+    "date": "November 2023",
+    "stakeholders": "37 Stakeholders Engaged"
+  },
+  "overview": {
+    "eyebrow": "About GMAC",
+    "heading": "A Continental Initiative for the Green Energy Transition",
+    "para1": "GoGMI collaborates with the Nigerian Maritime Administration and Safety Agency to host the Green Maritime Africa Coalition (GMAC). GMAC's mission is a shared continental initiative aimed at leading the global energy transition. By 2030, GMAC intends to provide zero-emission fuels for the maritime industry and implement them in both international and domestic shipping throughout Africa.",
+    "para2": "During the launch in November 2023, hosted by GoGMI, 37 stakeholders from the shipping industry — including the private sector, ship and port operators, fuel operators, and charterers — joined forces to advance the mission. The primary objective is to amplify Africa's collective voice in global greenhouse gas (GHG) emissions reduction efforts. GMAC aims to foster awareness, create opportunities, and implement concrete near and long-term actions for the continent.",
+    "para3": "The coalition places a strategic focus on maritime policy, capacity building, technology, financing, and skill development. The overarching goal is to collaborate with host governments and regional institutions, strengthening maritime policies, streamlining processes, and aligning with Africa's priorities for sustainable development and economic growth.",
+    "imageAlt": "Green Maritime Africa Coalition launch"
+  },
+  "highlightsSection": {
+    "eyebrow": "Event Highlights",
+    "heading": "Key Highlights"
+  },
+  "highlights": [
+    "Thought-provoking insights from industry leaders, experts, and influencers",
+    "Stakeholders had the chance to connect with peers, forge new partnerships, and expand their professional networks"
+  ],
+  "focusSection": {
+    "eyebrow": "Strategic Direction",
+    "heading": "Areas of Strategic Focus",
+    "subtitle": "GMAC's multi-faceted approach reflects its commitment to driving impactful change in Africa's maritime sector."
+  },
+  "focusAreas": [
+    { "label": "Maritime Policy", "desc": "Collaborating with host governments and regional institutions to strengthen maritime policies." },
+    { "label": "Capacity Building", "desc": "Developing skills and knowledge across Africa's maritime workforce." },
+    { "label": "Technology", "desc": "Driving adoption of zero-emission technologies in shipping." },
+    { "label": "Financing", "desc": "Creating pathways for sustainable financing of the green energy transition." },
+    { "label": "Skill Development", "desc": "Building the human capital needed to lead Africa's maritime energy transition." }
+  ],
+  "testimonial": {
+    "quote": "I applaud the organizers, GoGMI and the Nigerian Maritime Administration and Safety Agency, for orchestrating an event that has set a new standard for collaboration, innovation, and commitment to sustainability. GMAC's summit was not just a meeting; it was a catalyst for change, and I am excited to see the positive impact it will have on Africa's maritime industry in the years to come.",
+    "name": "Amb. Nancy Karigithu",
+    "title": "Special Envoy and Advisor in the Office of the President on Blue Economy and Maritime Affairs, Kenya"
+  },
+  "cta": {
+    "headingLine1": "Interested in Partnering",
+    "headingLine2": "with GoGMI?",
+    "subtitle": "Get in touch to learn more about the Green Maritime Africa Coalition or explore secretariat services for your next maritime initiative.",
+    "button": "Contact Us"
+  }
+}

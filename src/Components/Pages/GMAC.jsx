@@ -1,23 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowLeft, CheckCircle, Globe, Quote } from 'lucide-react';
 
 const FONT = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
-const highlights = [
-  'Thought-provoking insights from industry leaders, experts, and influencers',
-  'Stakeholders had the chance to connect with peers, forge new partnerships, and expand their professional networks',
-];
-
-const focusAreas = [
-  { label: 'Maritime Policy', desc: 'Collaborating with host governments and regional institutions to strengthen maritime policies.' },
-  { label: 'Capacity Building', desc: 'Developing skills and knowledge across Africa\'s maritime workforce.' },
-  { label: 'Technology', desc: 'Driving adoption of zero-emission technologies in shipping.' },
-  { label: 'Financing', desc: 'Creating pathways for sustainable financing of the green energy transition.' },
-  { label: 'Skill Development', desc: 'Building the human capital needed to lead Africa\'s maritime energy transition.' },
-];
-
 const GMAC = () => {
+  const { t } = useTranslation('gmac');
+  const highlights = t('highlights', { returnObjects: true });
+  const focusAreas = t('focusAreas', { returnObjects: true });
   return (
     <div className="w-full min-h-screen" style={{ fontFamily: FONT, backgroundColor: '#F9FAFB' }}>
 
@@ -40,7 +31,7 @@ const GMAC = () => {
             style={{ color: 'white' }}
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Secretariat Services
+            {t('hero.backLink')}
           </Link>
 
           <div
@@ -49,26 +40,26 @@ const GMAC = () => {
           >
             <Globe className="w-4 h-4" style={{ color: '#8E3400' }} />
             <span className="text-xs uppercase tracking-wider font-bold" style={{ color: '#8E3400' }}>
-              Secretariat · 2023
+              {t('hero.badge')}
             </span>
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em', lineHeight: 1.05 }}>
-            Green Maritime<br />Africa Coalition
+            {t('hero.titleLine1')}<br />{t('hero.titleLine2')}
           </h1>
 
           <p className="text-lg md:text-xl font-semibold mb-4 uppercase tracking-wide" style={{ color: '#8E3400' }}>
-            Theme: Advancing Net-Zero Emissions and Maritime Resilience in Africa through Continental Collaboration
+            {t('hero.theme')}
           </p>
 
           <div className="flex flex-wrap gap-4 mt-6">
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold" style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: 'white' }}>
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#8E3400' }} />
-              November 2023
+              {t('hero.date')}
             </div>
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold" style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: 'white' }}>
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#8E3400' }} />
-              37 Stakeholders Engaged
+              {t('hero.stakeholders')}
             </div>
           </div>
         </div>
@@ -80,20 +71,20 @@ const GMAC = () => {
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <span className="text-xs uppercase tracking-widest font-bold block mb-4" style={{ color: '#8E3400' }}>
-                About GMAC
+                {t('overview.eyebrow')}
               </span>
               <h2 className="text-4xl md:text-5xl font-black mb-8" style={{ color: '#132552', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
-                A Continental Initiative for the Green Energy Transition
+                {t('overview.heading')}
               </h2>
               <div className="space-y-5 text-lg leading-relaxed" style={{ color: '#4B5563' }}>
                 <p>
-                  GoGMI collaborates with the Nigerian Maritime Administration and Safety Agency to host the Green Maritime Africa Coalition (GMAC). GMAC's mission is a shared continental initiative aimed at leading the global energy transition. By 2030, GMAC intends to provide zero-emission fuels for the maritime industry and implement them in both international and domestic shipping throughout Africa.
+                  {t('overview.para1')}
                 </p>
                 <p>
-                  During the launch in November 2023, hosted by GoGMI, 37 stakeholders from the shipping industry — including the private sector, ship and port operators, fuel operators, and charterers — joined forces to advance the mission. The primary objective is to amplify Africa's collective voice in global greenhouse gas (GHG) emissions reduction efforts. GMAC aims to foster awareness, create opportunities, and implement concrete near and long-term actions for the continent.
+                  {t('overview.para2')}
                 </p>
                 <p>
-                  The coalition places a strategic focus on maritime policy, capacity building, technology, financing, and skill development. The overarching goal is to collaborate with host governments and regional institutions, strengthening maritime policies, streamlining processes, and aligning with Africa's priorities for sustainable development and economic growth.
+                  {t('overview.para3')}
                 </p>
               </div>
             </div>
@@ -101,7 +92,7 @@ const GMAC = () => {
             <div>
               <img
                 src="/gmacpic.jpg"
-                alt="Green Maritime Africa Coalition launch"
+                alt={t('overview.imageAlt')}
                 className="w-full h-auto rounded-2xl shadow-lg object-cover"
               />
             </div>
@@ -114,10 +105,10 @@ const GMAC = () => {
         <div className="container mx-auto max-w-7xl px-6">
           <div className="text-center mb-14">
             <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
-              Event Highlights
+              {t('highlightsSection.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ letterSpacing: '-0.01em' }}>
-              Key Highlights
+              {t('highlightsSection.heading')}
             </h2>
           </div>
 
@@ -137,13 +128,13 @@ const GMAC = () => {
         <div className="container mx-auto max-w-7xl px-6">
           <div className="text-center mb-14">
             <span className="text-xs uppercase tracking-widest font-bold block mb-3" style={{ color: '#8E3400' }}>
-              Strategic Direction
+              {t('focusSection.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              Areas of Strategic Focus
+              {t('focusSection.heading')}
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              GMAC's multi-faceted approach reflects its commitment to driving impactful change in Africa's maritime sector.
+              {t('focusSection.subtitle')}
             </p>
           </div>
 
@@ -165,12 +156,12 @@ const GMAC = () => {
           <div className="rounded-3xl p-12 md:p-16 text-center" style={{ backgroundColor: '#132552' }}>
             <Quote className="w-12 h-12 mx-auto mb-8 opacity-40 text-white" />
             <blockquote className="text-xl md:text-2xl font-medium leading-relaxed text-white mb-10" style={{ fontStyle: 'italic' }}>
-              "I applaud the organizers, GoGMI and the Nigerian Maritime Administration and Safety Agency, for orchestrating an event that has set a new standard for collaboration, innovation, and commitment to sustainability. GMAC's summit was not just a meeting; it was a catalyst for change, and I am excited to see the positive impact it will have on Africa's maritime industry in the years to come."
+              "{t('testimonial.quote')}"
             </blockquote>
             <div>
-              <div className="text-base font-bold text-white">Amb. Nancy Karigithu</div>
+              <div className="text-base font-bold text-white">{t('testimonial.name')}</div>
               <div className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                Special Envoy and Advisor in the Office of the President on Blue Economy and Maritime Affairs, Kenya
+                {t('testimonial.title')}
               </div>
             </div>
           </div>
@@ -181,17 +172,17 @@ const GMAC = () => {
       <section className="py-20 md:py-28" style={{ backgroundColor: '#132552' }}>
         <div className="container mx-auto max-w-5xl px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
-            Interested in Partnering<br />with GoGMI?
+            {t('cta.headingLine1')}<br />{t('cta.headingLine2')}
           </h2>
           <p className="text-xl mb-10 max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Get in touch to learn more about the Green Maritime Africa Coalition or explore secretariat services for your next maritime initiative.
+            {t('cta.subtitle')}
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 px-10 py-5 rounded-2xl text-lg font-bold transition-all hover:scale-105 shadow-xl"
             style={{ backgroundColor: '#8E3400', color: 'white' }}
           >
-            Contact Us
+            {t('cta.button')}
           </Link>
         </div>
       </section>

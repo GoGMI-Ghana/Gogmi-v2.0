@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "backToHome": "Retour à l'accueil",
+    "badge": "Mentions légales",
+    "title": "Conditions d'utilisation",
+    "updated": "Dernière mise à jour : juin 2025",
+    "orgName": "Institut Maritime du Golfe de Guinée (GoGMI)"
+  },
+  "sections": [
+    {
+      "id": "acceptance",
+      "title": "Acceptation des conditions",
+      "content": "En accédant au site web du GoGMI (gogmi.org.gh) ou en utilisant celui-ci, ainsi que tout service, programme ou plateforme qui y est associé, vous acceptez d'être lié par les présentes Conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez cesser d'utiliser nos services. Le GoGMI se réserve le droit de modifier ces conditions à tout moment, et la poursuite de l'utilisation du site web vaut acceptation de toute modification."
+    },
+    {
+      "id": "services",
+      "title": "Description des services",
+      "content": "L'Institut Maritime du Golfe de Guinée (GoGMI) fournit des informations, des travaux de recherche, des programmes de formation, des services d'adhésion, des forums et des ressources de plaidoyer relatifs à la sécurité maritime, à la gouvernance et à l'économie bleue dans la région du Golfe de Guinée. L'accès à certains services peut nécessiter une inscription et être soumis à des conditions supplémentaires propres à ces programmes."
+    },
+    {
+      "id": "user-obligations",
+      "title": "Obligations de l'utilisateur",
+      "intro": "En utilisant notre site web et nos services, vous vous engagez à :",
+      "list": [
+        "Fournir des informations exactes, à jour et complètes lors de votre inscription ou de la soumission de formulaires.",
+        "Préserver la confidentialité des identifiants de votre compte et nous signaler immédiatement tout accès non autorisé.",
+        "Utiliser le site web et son contenu uniquement à des fins licites, personnelles ou professionnelles.",
+        "Ne pas reproduire, distribuer ou exploiter commercialement le contenu de ce site web sans l'autorisation écrite préalable du GoGMI.",
+        "Ne pas adopter de comportement perturbant ou entravant le bon fonctionnement du site web ou de ses services.",
+        "Respecter l'ensemble des lois et réglementations locales, nationales et internationales applicables."
+      ]
+    },
+    {
+      "id": "intellectual-property",
+      "title": "Propriété intellectuelle",
+      "content": "L'ensemble du contenu de ce site web — y compris les textes, graphiques, logos, images, extraits audio, publications de recherche, supports de cours et logiciels — est la propriété du GoGMI ou de ses fournisseurs de contenu et est protégé par les lois applicables en matière de droit d'auteur et de propriété intellectuelle. Vous ne pouvez reproduire, modifier, publier ou distribuer aucun contenu sans le consentement écrit exprès du GoGMI, sauf autorisation contraire prévue par la loi applicable."
+    },
+    {
+      "id": "membership",
+      "title": "Adhésion et inscription",
+      "intro": "Lors de l'inscription à l'adhésion ou aux programmes de formation :",
+      "bullets": [
+        { "label": "Admissibilité", "text": "Vous devez être âgé d'au moins 18 ans et fournir des informations personnelles exactes." },
+        { "label": "Frais d'adhésion", "text": "Ne sont pas remboursables, sauf indication contraire dans les conditions spécifiques du programme." },
+        { "label": "Résiliation de compte", "text": "Le GoGMI se réserve le droit de suspendre ou de résilier tout compte enfreignant les présentes conditions." },
+        { "label": "Accès", "text": "Les ressources réservées aux membres sont destinées exclusivement aux membres inscrits et ne peuvent être partagées avec des tiers." }
+      ]
+    },
+    {
+      "id": "disclaimers",
+      "title": "Avertissements et limitation de responsabilité",
+      "content": "Le GoGMI fournit son site web et ses services « en l'état » et « selon leur disponibilité ». Bien que nous nous efforcions de garantir l'exactitude et l'actualité des informations présentées sur ce site, nous ne faisons aucune déclaration ni ne donnons aucune garantie, expresse ou implicite, quant à l'exhaustivité, l'exactitude, la fiabilité, l'adéquation ou la disponibilité du contenu. Le GoGMI ne saurait être tenu responsable de tout dommage direct, indirect, accessoire, consécutif ou punitif résultant de l'utilisation, ou de l'impossibilité d'utiliser, ce site web ou ses services."
+    },
+    {
+      "id": "third-party",
+      "title": "Liens et services de tiers",
+      "content": "Notre site web peut contenir des liens vers des sites web de tiers, des organisations partenaires ou des ressources externes. Ces liens sont fournis uniquement pour votre commodité. Le GoGMI n'exerce aucun contrôle sur le contenu ou les pratiques de ces sites et décline toute responsabilité à leur égard. L'inclusion d'un lien n'implique aucune approbation par le GoGMI du site lié ou de son contenu."
+    },
+    {
+      "id": "privacy",
+      "title": "Confidentialité",
+      "content": "Votre utilisation des services du GoGMI est également régie par notre Politique de confidentialité, qui est incorporée aux présentes Conditions d'utilisation par référence. En utilisant nos services, vous consentez à la collecte et à l'utilisation de vos informations telles que décrites dans la Politique de confidentialité."
+    },
+    {
+      "id": "governing-law",
+      "title": "Droit applicable",
+      "content": "Les présentes Conditions d'utilisation sont régies et interprétées conformément aux lois de la République du Ghana. Tout litige découlant de ces conditions ou en lien avec celles-ci relève de la compétence exclusive des tribunaux du Ghana."
+    },
+    {
+      "id": "changes",
+      "title": "Modifications des conditions",
+      "content": "Le GoGMI se réserve le droit de modifier les présentes Conditions d'utilisation à tout moment et sans préavis. Les modifications prennent effet immédiatement dès leur publication sur le site web. Il vous incombe de consulter régulièrement ces conditions. La poursuite de l'utilisation du site web après toute modification vaut acceptation des conditions révisées."
+    },
+    {
+      "id": "contact",
+      "title": "Nous contacter",
+      "content": "Si vous avez des questions ou des préoccupations concernant les présentes Conditions d'utilisation, veuillez nous contacter à l'adresse info@gogmi.org.gh ou via le formulaire de contact de notre site web."
+    }
+  ],
+  "contact": {
+    "heading": "Des questions sur ces conditions ?",
+    "body": "Nous serons heureux de vous apporter des précisions. Contactez-nous directement."
+  }
+}

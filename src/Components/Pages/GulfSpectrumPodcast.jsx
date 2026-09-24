@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Play, Youtube, Mic } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const GulfSpectrumPodcast = () => {
+  const { t } = useTranslation('gulfSpectrumPodcast');
   const [isVisible, setIsVisible] = useState(false);
 
   React.useEffect(() => {
@@ -9,29 +11,28 @@ const GulfSpectrumPodcast = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const featuredEpisodes = [
+  const episodesMeta = [
     {
-      title: 'Future of Maritime Excellence I',
       guest: 'Vice Admiral Issah Adam Yakubu',
-      description: 'A deep dive into the strategies, partnerships, and innovations shaping Ghana maritime sector and blue economy.',
       image: '/pod1.jpg',
       youtubeLink: 'https://www.youtube.com/watch?v=5KMyV26r8nc'
     },
     {
-      title: 'Future of Maritime Excellence II',
       guest: 'Vice Admiral Issah Adam Yakubu',
-      description: 'Continuing the conversation on balancing global ambitions with domestic and regional challenges.',
       image: '/pod2.jpg',
       youtubeLink: 'https://www.youtube.com/watch?v=2BEzgqw-M1U'
     },
     {
-      title: 'Renewing the Gulf of Guinea Region IUU Fishing Agenda',
       guest: 'Dr. Ian Ralby',
-      description: 'Reflecting on the progress made in the Gulf of Guinea fisheries landscape over the past years.',
       image: '/pod3.jpg',
       youtubeLink: 'https://www.youtube.com/watch?v=fpwxCQGAAdM'
     }
   ];
+
+  const featuredEpisodes = t('episodes.items', { returnObjects: true }).map((episode, idx) => ({
+    ...episode,
+    ...episodesMeta[idx]
+  }));
 
   return (
     <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -56,21 +57,21 @@ const GulfSpectrumPodcast = () => {
 
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
               <Mic className="w-5 h-5 text-white" />
-              <span className="text-white font-semibold">Maritime Conversations</span>
+              <span className="text-white font-semibold">{t('hero.badge')}</span>
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
               Gulf Spectrum Podcast
             </h1>
-            
+
             <p className="text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Exploring the Future of Maritime Excellence in the Gulf of Guinea and Beyond
+              {t('hero.subtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://www.youtube.com/@gulfofguineamaritimeinstitute" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-xl" style={{ backgroundColor: '#8E3400', color: 'white' }}>
                 <Youtube className="w-6 h-6" />
-                <span>Watch Episodes</span>
+                <span>{t('hero.cta')}</span>
               </a>
             </div>
           </div>
@@ -82,17 +83,17 @@ const GulfSpectrumPodcast = () => {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-sm uppercase tracking-wider font-semibold mb-4 block" style={{ color: '#8E3400' }}>
-                About the Podcast
+                {t('about.eyebrow')}
               </span>
               <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                A Platform for Maritime Excellence
+                {t('about.heading')}
               </h2>
 <div className="space-y-4 text-lg leading-relaxed" style={{ color: '#4B5563' }}>
                 <p>
-                  The Gulf Spectrum Podcast, produced by the Gulf of Guinea Maritime Institute, serves as a vital platform for exploring the future of maritime excellence in the Gulf of Guinea region and beyond.
+                  {t('about.para1')}
                 </p>
                 <p>
-                  GSP delves into cutting-edge innovations, pressing challenges, and emerging opportunities shaping the maritime industry from sustainable shipping practices and advanced technologies to the intricate dynamics of global trade.
+                  {t('about.para2')}
                 </p>
               </div>
             </div>
@@ -111,7 +112,7 @@ const GulfSpectrumPodcast = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
-              Featured Episodes
+              {t('episodes.heading')}
             </h2>
 </div>
 
@@ -138,7 +139,7 @@ const GulfSpectrumPodcast = () => {
                   </h3>
 
                   <p className="text-sm font-bold mb-3" style={{ color: '#8E3400' }}>
-                    with {episode.guest}
+                    {t('episodes.with')} {episode.guest}
                   </p>
 
                   <p className="text-sm leading-relaxed mb-4 line-clamp-3" style={{ color: '#4B5563' }}>
@@ -147,7 +148,7 @@ const GulfSpectrumPodcast = () => {
 
                   <a href={episode.youtubeLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all hover:scale-105 text-sm" style={{ backgroundColor: '#132552', color: 'white' }}>
                     <Youtube className="w-4 h-4" />
-                    <span>Watch Now</span>
+                    <span>{t('episodes.watchNow')}</span>
                   </a>
                 </div>
               </div>
@@ -159,10 +160,10 @@ const GulfSpectrumPodcast = () => {
       <section className="py-20" style={{ backgroundColor: '#132552' }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontWeight: 900 }}>
-            Subscribe and Stay Updated
+            {t('subscribe.heading')}
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Join the conversation on the future of maritime excellence
+            {t('subscribe.subtitle')}
           </p>
         </div>
       </section>

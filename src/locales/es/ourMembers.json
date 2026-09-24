@@ -1,0 +1,21 @@
+{
+  "badge": "Nuestra comunidad",
+  "hero": {
+    "title": "Conozca a los profesionales que dan forma a la gobernanza marítima del Golfo de Guinea",
+    "subtitle": "Los miembros del GoGMI provienen de gobiernos, armadas, el ámbito académico y la industria, en la región y más allá."
+  },
+  "search": {
+    "placeholder": "Buscar por nombre, organización o país"
+  },
+  "cta": "Únase a ellos",
+  "errors": {
+    "loadFailed": "No se pudieron cargar los miembros.",
+    "connectionFailed": "No se pudo conectar con el servidor. Inténtelo de nuevo más tarde."
+  },
+  "empty": {
+    "noMembers": "Aún no hay miembros para mostrar.",
+    "noResults": "Ningún miembro coincide con su búsqueda."
+  },
+  "resultsCount_one": "{{count}} miembro",
+  "resultsCount_other": "{{count}} miembros"
+}

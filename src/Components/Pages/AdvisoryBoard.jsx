@@ -1,6 +1,37 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+const advisoryBoardMembersMeta = [
+  {
+    name: 'Mrs. Kathleen Quartey Ayensu, ESQ',
+    img: '/kathleen.jpg',
+    flagImg: '/Ghana Flag.jpg',
+  },
+  {
+    name: 'Rear Admiral Solomon Agada (RTD)',
+    img: '/solomon.jpg',
+    flagImg: '/Nigeria flag.jpg',
+  },
+  {
+    name: 'Prof. Jeffrey Landsman',
+    img: '/jeffrey.jpg',
+    flagImg: '/usa flag.jpg',
+  },
+  {
+    name: 'Commodore James Osei Kontoh (RTD)',
+    img: '/jamesO.jpg',
+    flagImg: '/Ghana Flag.jpg',
+  },
+];
 
 const AdvisoryBoard = () => {
+  const { t } = useTranslation('advisoryBoard');
+  const imageFallback = t('grid.imageFallback');
+  const advisoryBoardMembers = t('grid.members', { returnObjects: true }).map((item, idx) => ({
+    ...item,
+    ...advisoryBoardMembersMeta[idx],
+  }));
+
   return (
     <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
       {/* Hero Section */}
@@ -17,14 +48,14 @@ const AdvisoryBoard = () => {
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
                 style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}>
-            Leadership
+            {t('hero.badge')}
           </span>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6" 
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-6"
               style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Advisory Board
+            {t('hero.title')}
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" style={{ fontWeight: 400 }}>
-            Distinguished experts providing strategic guidance and thought leadership to advance maritime excellence in the Gulf of Guinea
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -35,7 +66,7 @@ const AdvisoryBoard = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-4"
                 style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Advisory Board Members
+              {t('section.heading')}
             </h2>
 </div>
 
@@ -46,33 +77,33 @@ const AdvisoryBoard = () => {
               <div className="lg:col-span-4">
                 <div className="relative bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
                   <div className="aspect-[3/4] relative">
-                    <img 
-                      src="/frank.jpg" 
-                      alt="Advisory Board Chair"
+                    <img
+                      src="/frank.jpg"
+                      alt={t('chair.imageAlt')}
                       className="w-full h-full object-cover object-center"
                       style={{ objectPosition: 'center 20%' }}
                     />
-                    
+
                     {/* Flag Image - Bottom Right */}
                     <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg z-10">
-                      <img 
-                        src="/Ghana Flag.jpg" 
-                        alt="Ghana flag"
+                      <img
+                        src="/Ghana Flag.jpg"
+                        alt={t('chair.flagAlt')}
                         className="w-12 h-8 object-cover rounded"
                       />
                     </div>
-                    
+
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/95 to-transparent p-4 pr-20">
                       <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2">
-                          <h3 className="text-lg font-bold leading-tight flex-1" 
+                          <h3 className="text-lg font-bold leading-tight flex-1"
                               style={{ color: '#132552', fontWeight: 700 }}>
                             Air Vice Marshal Frank Hanson (Rtd.)
                           </h3>
                         </div>
 
                         <p className="text-xs leading-tight mb-2" style={{ fontWeight: 400, color: '#4B5563' }}>
-                          Former Chief of Air Staff, Ghana Air Force
+                          {t('chair.role')}
                         </p>
 
                         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-gray-200 w-fit">
@@ -80,7 +111,7 @@ const AdvisoryBoard = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                           </svg>
                           <span className="text-xs font-semibold leading-tight" style={{ color: '#4B5563', fontWeight: 600 }}>
-                            Advisory Board Chair
+                            {t('chair.badge')}
                           </span>
                         </div>
                       </div>
@@ -94,19 +125,15 @@ const AdvisoryBoard = () => {
                   <h4 className="text-xl font-bold mb-4 flex items-center gap-2"
                       style={{ color: '#132552', fontWeight: 700 }}>
                     <span className="w-1 h-6 rounded-full" style={{ backgroundColor: '#8E3400' }}></span>
-                    About the Advisory Board Chair
+                    {t('chair.aboutHeading')}
                   </h4>
-                  
+
                   <div className="space-y-4 text-base leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-                    <p>
-                      AVM Frank Hanson was the Chief of Air Staff of the Ghana Air Force from January 2019 to January 2023. He holds an MSc in Strategic Studies with Grand Strategy Concentration and as an ardent Peacekeeper, he served with the United Nations and African Union as a strategic Military and Aviation planner.
-                    </p>
-                    <p>
-                      He is an expert in national and international security. An astute and highly experienced military instructor pilot. AVM Hanson has worked with leading aircraft manufacturers to develop the "static aircraft carrier concept"; for Tactical Air support for Maritime Operations (TASMO) as well as offshore Special Forces Operations. His tenure at the helm of affairs at the Ghana Air Force saw a holistic interoperability between the Ghana Navy and the Ghana Air Force. Additionally, he has participated in several AU and UN missions across the continent as part of the consultative team that worked on Ghana's National Integrated Maritime Strategy.
-                    </p>
-                    <p>
-                      He is an alumni of the Harvard University, the US Air University, the US Air War College, Command and Staff College, Ghana, Command Staff College, Nigeria and brings over 30 years of experience in deep understanding of diplomacy, global geopolitical matters, Aviation, National Security and Strategic Leadership to the Institute.
-                    </p>
+                    {t('chair.bio', { returnObjects: true }).map((paragraph, idx) => (
+                      <p key={idx}>
+                        {paragraph}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -115,66 +142,32 @@ const AdvisoryBoard = () => {
 
           {/* Other Advisory Board Members - Grid */}
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              
-               { 
-                name: 'Mrs. Kathleen Quartey Ayensu, ESQ', 
-                role: 'Former Commissioner, African Union Commission on International Law and AU Special Rapporteur on Piracy and Maritime Security ', 
-                img: '/kathleen.jpg',
-                flagImg: '/Ghana Flag.jpg',
-                country: 'Ghana'
-              },
-
-              { 
-                name: 'Rear Admiral Solomon Agada (RTD)', 
-                role: 'Former Chief of Training and Operations Nigerian Navy, and pioneer Co-Chair of GoG-SHADE', 
-                img: '/solomon.jpg',
-                flagImg: '/Nigeria flag.jpg',
-                country: 'Nigeria'
-              },
-              
-              { 
-                name: 'Prof. Jeffrey Landsman', 
-                role: 'Prof. Jeffrey Landsman, former U.S. Navy Captain and Associate Professor, U.S. Naval War College ', 
-                img: '/jeffrey.jpg',
-                flagImg: '/usa flag.jpg',
-                country: 'United States'
-              },
-             
-              { 
-                name: 'Commodore James Osei Kontoh (RTD)', 
-                role: 'Former Defence Advisor of Ghana to Nigeria', 
-                img: '/jamesO.jpg',
-                flagImg: '/Ghana Flag.jpg',
-                country: 'Ghana'
-              },
-              
-            ].map((member, idx) => (
+            {advisoryBoardMembers.map((member, idx) => (
               <div key={idx} className="group">
                 <div className="relative overflow-hidden rounded-xl bg-white aspect-[3/4] shadow-lg hover:shadow-xl transition-all duration-300 mb-4">
-                  <img 
-                    src={member.img} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500" 
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500"
                     onError={(e) => {
                       e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-sm"><span>Image</span></div>';
+                      e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center text-gray-400 text-sm"><span>${imageFallback}</span></div>`;
                     }}
                   />
-                  
+
                   {/* Flag Image - Bottom Right */}
                   <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
-                    <img 
-                      src={member.flagImg} 
-                      alt={`${member.country} flag`}
+                    <img
+                      src={member.flagImg}
+                      alt={member.flagAlt}
                       className="w-10 h-7 object-cover rounded"
                     />
                   </div>
                 </div>
-                
+
                 {/* Text Content - Below Image */}
                 <div>
-                  <h3 className="text-sm font-bold mb-1.5 leading-tight" 
+                  <h3 className="text-sm font-bold mb-1.5 leading-tight"
                       style={{ fontWeight: 700, color: '#132552' }}>
                     {member.name}
                   </h3>

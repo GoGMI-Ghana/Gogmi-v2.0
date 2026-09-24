@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "backToHome": "Retour à l'accueil",
+    "eyebrow": "Navigation",
+    "title": "Plan du site",
+    "subtitle": "Une vue d'ensemble complète de toutes les pages du site web du GoGMI."
+  },
+  "sections": [
+    {
+      "title": "Pages principales",
+      "links": [
+        { "label": "Accueil" },
+        { "label": "À propos" },
+        { "label": "Services" },
+        { "label": "Contact" },
+        { "label": "Blog" },
+        { "label": "Ressources" },
+        { "label": "Galerie média" },
+        { "label": "Témoignages" },
+        { "label": "Carrières et opportunités" }
+      ]
+    },
+    {
+      "title": "Services",
+      "links": [
+        { "label": "Plaidoyer" },
+        { "label": "Recherche" },
+        { "label": "Renforcement des capacités" }
+      ]
+    },
+    {
+      "title": "Recherche",
+      "links": [
+        { "label": "Audit des interventions de sécurité maritime" }
+      ]
+    },
+    {
+      "title": "Renforcement des capacités et formation",
+      "links": [
+        { "label": "Cours de gouvernance maritime" },
+        { "label": "Cours d'enquête sur les sinistres maritimes" },
+        { "label": "Jeunes professionnels de l'océan (ECOP)" },
+        { "label": "Formation Bleue WYTEC" },
+        { "label": "Formation des journalistes" }
+      ]
+    },
+    {
+      "title": "Programmes et initiatives",
+      "links": [
+        { "label": "IMSWG" },
+        { "label": "Forum IMSWG" },
+        { "label": "Événements IMSWG" },
+        { "label": "Inscription IMSWG" },
+        { "label": "Expo Blue Career" },
+        { "label": "Initiative Blue World" },
+        { "label": "Annuaire Blue Business" },
+        { "label": "SHADE" },
+        { "label": "Podcast Gulf Spectrum" }
+      ]
+    },
+    {
+      "title": "Organisation",
+      "links": [
+        { "label": "Président exécutif" },
+        { "label": "Direction" },
+        { "label": "Comité consultatif" },
+        { "label": "Secrétariat" },
+        { "label": "Partenaires" },
+        { "label": "Adhésion" }
+      ]
+    },
+    {
+      "title": "Mentions légales",
+      "links": [
+        { "label": "Politique de confidentialité" },
+        { "label": "Conditions d'utilisation" }
+      ]
+    }
+  ]
+}

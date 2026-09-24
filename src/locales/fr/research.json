@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "Recherche et Innovation",
+    "title": "Répondre aux grandes questions de la sécurité maritime",
+    "subtitle": "Nous concentrons nos travaux sur la recherche maritime stratégique portant sur la sûreté, la sécurité et les enjeux environnementaux dans le Golfe de Guinée.",
+    "cta": "Découvrir notre Gulf Spectrum Journal"
+  },
+  "dashboard": {
+    "title": "Tableau de bord de la recherche",
+    "updated": "Mis à jour il y a 2 min",
+    "stats": ["Projets de recherche actifs", "Points de données collectés", "Institutions partenaires"]
+  },
+  "themes": {
+    "eyebrow": "Thématiques de recherche",
+    "heading": "Nos axes de recherche",
+    "subtitle": "Une recherche ambitieuse pour relever les défis pressants de la sécurité maritime dans le Golfe de Guinée",
+    "themeLabel": "Thématique de recherche {{number}}",
+    "learnMore": "En savoir plus sur cette recherche",
+    "items": [
+      {
+        "question": "AUDIT DES INTERVENTIONS EN MATIÈRE DE SÉCURITÉ MARITIME",
+        "description": "Un audit complet recensant les interventions en matière de sécurité maritime dans le Golfe de Guinée, analysant leur évolution, leur efficacité et l'interaction complexe des acteurs régionaux et internationaux face aux menaces maritimes."
+      },
+      {
+        "question": "INDICE DE GOUVERNANCE MARITIME DU GOLFE DE GUINÉE",
+        "description": "Recensement des opportunités inexploitées de l'économie bleue dans les secteurs de la pêche, du tourisme, des énergies renouvelables et de la biotechnologie marine."
+      }
+    ]
+  }
+}

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Calendar, ArrowLeft, Loader2, Mail, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const API_URL = 'https://api.gogmi.org.gh/api';
 
 const NewsletterPost = () => {
+  const { t } = useTranslation('newsletterPost');
   const { id } = useParams();
   const [newsletter, setNewsletter] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,16 +24,16 @@ const NewsletterPost = () => {
         if (data.success) {
           setNewsletter(data.data);
         } else {
-          setError(data.message || 'Newsletter not found');
+          setError(data.message || t('errors.notFound'));
         }
       } catch {
-        setError('Unable to load this newsletter. Please try again.');
+        setError(t('errors.loadFailed'));
       } finally {
         setLoading(false);
       }
     };
     load();
-  }, [id]);
+  }, [id, t]);
 
   const formatDate = (dateStr) => {
     if (!dateStr) return '';
@@ -53,7 +55,7 @@ const NewsletterPost = () => {
             onMouseLeave={e => e.currentTarget.style.opacity = 1}
           >
             <ArrowLeft style={{ width: 16, height: 16 }} />
-            Back to News & Blog
+            {t('nav.backToBlog')}
           </Link>
           {newsletter?.absoluteUrl && (
             <a
@@ -63,7 +65,7 @@ const NewsletterPost = () => {
               style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 600, color: '#6B7280', textDecoration: 'none' }}
             >
               <ExternalLink style={{ width: 14, height: 14 }} />
-              Open original
+              {t('nav.openOriginal')}
             </a>
           )}
         </div>
@@ -73,7 +75,7 @@ const NewsletterPost = () => {
       {loading && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '160px 0' }}>
           <Loader2 style={{ width: 32, height: 32, color: '#8E3400', animation: 'spin 1s linear infinite' }} />
-          <span style={{ marginLeft: 12, fontSize: 18, color: '#6B7280' }}>Loading newsletter…</span>
+          <span style={{ marginLeft: 12, fontSize: 18, color: '#6B7280' }}>{t('loading')}</span>
         </div>
       )}
 
@@ -82,7 +84,7 @@ const NewsletterPost = () => {
         <div style={{ textAlign: 'center', padding: '160px 24px' }}>
           <p style={{ fontSize: 18, fontWeight: 600, color: '#EF4444', marginBottom: 16 }}>{error}</p>
           <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 8, backgroundColor: '#8E3400', color: 'white', fontWeight: 700, textDecoration: 'none' }}>
-            Back to Blog
+            {t('errors.backToBlog')}
           </Link>
         </div>
       )}
@@ -96,7 +98,7 @@ const NewsletterPost = () => {
             <div style={{ maxWidth: '860px', margin: '0 auto' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, backgroundColor: 'rgba(142,52,0,0.25)', padding: '6px 14px', borderRadius: 999, marginBottom: 16 }}>
                 <Mail style={{ width: 14, height: 14, color: '#C4501A' }} />
-                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C4501A' }}>Newsletter</span>
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C4501A' }}>{t('badge')}</span>
               </div>
               <h1 style={{ fontSize: 'clamp(24px, 4vw, 42px)', fontWeight: 900, color: 'white', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 12 }}>
                 {newsletter.subject}
@@ -119,12 +121,12 @@ const NewsletterPost = () => {
           ) : (
             <div style={{ maxWidth: 560, margin: '0 auto', padding: '80px 24px', textAlign: 'center' }}>
               <Mail style={{ width: 48, height: 48, color: '#D1D5DB', margin: '0 auto 16px' }} />
-              <p style={{ fontSize: 16, fontWeight: 600, color: '#132552', marginBottom: 8 }}>Content could not be loaded inline.</p>
-              <p style={{ fontSize: 14, color: '#6B7280', marginBottom: 24 }}>This newsletter may not have a public web version yet.</p>
+              <p style={{ fontSize: 16, fontWeight: 600, color: '#132552', marginBottom: 8 }}>{t('fallback.title')}</p>
+              <p style={{ fontSize: 14, color: '#6B7280', marginBottom: 24 }}>{t('fallback.subtitle')}</p>
               {newsletter.absoluteUrl && (
                 <a href={newsletter.absoluteUrl} target="_blank" rel="noopener noreferrer"
                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 8, backgroundColor: '#8E3400', color: 'white', fontWeight: 700, textDecoration: 'none' }}>
-                  Read on HubSpot <ExternalLink style={{ width: 16, height: 16 }} />
+                  {t('fallback.readOnHubspot')} <ExternalLink style={{ width: 16, height: 16 }} />
                 </a>
               )}
             </div>

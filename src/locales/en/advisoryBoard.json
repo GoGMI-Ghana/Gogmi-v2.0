@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Leadership",
+    "title": "Advisory Board",
+    "subtitle": "Distinguished experts providing strategic guidance and thought leadership to advance maritime excellence in the Gulf of Guinea"
+  },
+  "section": {
+    "heading": "Advisory Board Members"
+  },
+  "chair": {
+    "imageAlt": "Advisory Board Chair",
+    "flagAlt": "Ghana flag",
+    "role": "Former Chief of Air Staff, Ghana Air Force",
+    "badge": "Advisory Board Chair",
+    "aboutHeading": "About the Advisory Board Chair",
+    "bio": [
+      "AVM Frank Hanson was the Chief of Air Staff of the Ghana Air Force from January 2019 to January 2023. He holds an MSc in Strategic Studies with Grand Strategy Concentration and as an ardent Peacekeeper, he served with the United Nations and African Union as a strategic Military and Aviation planner.",
+      "He is an expert in national and international security. An astute and highly experienced military instructor pilot. AVM Hanson has worked with leading aircraft manufacturers to develop the \"static aircraft carrier concept\"; for Tactical Air support for Maritime Operations (TASMO) as well as offshore Special Forces Operations. His tenure at the helm of affairs at the Ghana Air Force saw a holistic interoperability between the Ghana Navy and the Ghana Air Force. Additionally, he has participated in several AU and UN missions across the continent as part of the consultative team that worked on Ghana's National Integrated Maritime Strategy.",
+      "He is an alumni of the Harvard University, the US Air University, the US Air War College, Command and Staff College, Ghana, Command Staff College, Nigeria and brings over 30 years of experience in deep understanding of diplomacy, global geopolitical matters, Aviation, National Security and Strategic Leadership to the Institute."
+    ]
+  },
+  "grid": {
+    "imageFallback": "Image",
+    "members": [
+      {
+        "role": "Former Commissioner, African Union Commission on International Law and AU Special Rapporteur on Piracy and Maritime Security",
+        "flagAlt": "Ghana flag"
+      },
+      {
+        "role": "Former Chief of Training and Operations Nigerian Navy, and pioneer Co-Chair of GoG-SHADE",
+        "flagAlt": "Nigeria flag"
+      },
+      {
+        "role": "Prof. Jeffrey Landsman, former U.S. Navy Captain and Associate Professor, U.S. Naval War College",
+        "flagAlt": "United States flag"
+      },
+      {
+        "role": "Former Defence Advisor of Ghana to Nigeria",
+        "flagAlt": "Ghana flag"
+      }
+    ]
+  }
+}

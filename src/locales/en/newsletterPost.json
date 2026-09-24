@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "backToBlog": "Back to News & Blog",
+    "openOriginal": "Open original"
+  },
+  "loading": "Loading newsletter…",
+  "badge": "Newsletter",
+  "errors": {
+    "notFound": "Newsletter not found",
+    "loadFailed": "Unable to load this newsletter. Please try again.",
+    "backToBlog": "Back to Blog"
+  },
+  "fallback": {
+    "title": "Content could not be loaded inline.",
+    "subtitle": "This newsletter may not have a public web version yet.",
+    "readOnHubspot": "Read on HubSpot"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "heading": "Oops! Page Not Found",
+  "message": "The page you're looking for seems to have sailed away. Don't worry, we'll help you navigate back to safe waters.",
+  "goHome": "Go Home",
+  "goBack": "Go Back",
+  "popularPages": "Popular Pages",
+  "links": {
+    "aboutUs": "About Us",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "supportPrompt": "Still can't find what you're looking for?",
+  "contactSupport": "Contact Our Support Team"
+}

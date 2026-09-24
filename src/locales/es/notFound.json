@@ -1,0 +1,14 @@
+{
+  "heading": "¡Vaya! Página no encontrada",
+  "message": "La página que buscas parece haberse hecho a la mar. No te preocupes, te ayudaremos a volver a aguas seguras.",
+  "goHome": "Ir al inicio",
+  "goBack": "Volver",
+  "popularPages": "Páginas populares",
+  "links": {
+    "aboutUs": "Sobre nosotros",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "supportPrompt": "¿Sigues sin encontrar lo que buscas?",
+  "contactSupport": "Contacta a nuestro equipo de soporte"
+}
