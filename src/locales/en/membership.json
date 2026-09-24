@@ -1,0 +1,171 @@
+{
+  "hero": {
+    "title": "Fast track your professional journey with GoGMI Membership",
+    "subtitle": "Join our maritime community to access exclusive research, engage with thought leaders, and expand your network across the Gulf of Guinea maritime sector.",
+    "applyNow": "Apply Now",
+    "seeMembers": "See Our Members"
+  },
+  "whyJoin": {
+    "heading": "Why Join GoGMI?",
+    "para1": "GoGMI membership provides access to a vibrant community of maritime professionals, researchers, policymakers, and industry leaders across the Gulf of Guinea region.",
+    "para2": "As a member, you become part of the Gulf of Guinea premier maritime think tank, dedicated to advancing maritime security, sustainable blue economy development, and regional cooperation.",
+    "para3": "Members gain exclusive access to cutting-edge research, policy briefs, training programs, and networking opportunities that connect you with experts across the Gulf of Guinea."
+  },
+  "benefits": {
+    "heading": "Membership Benefits",
+    "items": [
+      { "title": "Knowledge & Research", "desc": "Access comprehensive maritime research, publications, and policy briefs from across the Gulf of Guinea region." },
+      { "title": "Professional Network", "desc": "Connect with maritime professionals, researchers, and policymakers across the Gulf of Guinea." },
+      { "title": "Capacity Building", "desc": "Participate in training programs, workshops, and skill development sessions led by industry experts." }
+    ]
+  },
+  "individual": {
+    "heading": "Individual Memberships",
+    "mostPopular": "MOST POPULAR",
+    "benefitsLabel": "Benefits",
+    "plans": {
+      "student": {
+        "name": "Student Membership",
+        "description": "Designed for undergraduate students with an interest in maritime, ocean, environmental, and security studies.",
+        "features": [
+          "Official Certificate of Membership",
+          "Access to GoGMI research reports and publications",
+          "Invitations to student-focused webinars and seminars",
+          "Discounted fees for GoGMI trainings and workshops",
+          "Structured mentorship opportunities with professionals and researchers",
+          "Career development support (research skills, writing clinics, CV guidance)",
+          "Access to student networking platforms and discussion groups",
+          "Opportunities to volunteer or intern on GoGMI projects"
+        ]
+      },
+      "associate": {
+        "name": "Associate Membership",
+        "subtitle": "2-7 Years Experience",
+        "description": "For early-career professionals (1–5 years of experience) seeking skills development, visibility, and networking.",
+        "features": [
+          "Official Certificate of Membership",
+          "Invitations to GoGMI conferences, seminars, and policy dialogues",
+          "Discounted access to professional training and workshops",
+          "Access to research reports, briefs, and policy publications",
+          "Career development programmes and capacity-building sessions",
+          "Opportunities to contribute to GoGMI blogs, research outputs, and junior committees",
+          "Networking with regional and international maritime professionals",
+          "Early access to GoGMI fellowships and project calls",
+          "Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events",
+          "Institutional Representation — may be selected to represent GoGMI at national and international engagements, including conferences, workshops, and forums"
+        ]
+      },
+      "professional": {
+        "name": "Professional Membership",
+        "subtitle": "7 Years upwards Experience",
+        "description": "For mid-level professionals seeking influence, policy engagement, and regional visibility.",
+        "features": [
+          "Official Certificate of Membership",
+          "Priority invitations to policy dialogues and expert roundtables",
+          "Access to GoGMI research outputs and policy briefs",
+          "Discounted access to advanced trainings and conferences",
+          "Opportunity to moderate sessions or speak at GoGMI events",
+          "Opportunity to mentor young graduates interested in Maritime affairs",
+          "Professional profile listing on the GoGMI website",
+          "Executive networking with regional experts and institutions",
+          "Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events"
+        ]
+      },
+      "fellow": {
+        "name": "Fellow Membership",
+        "subtitle": "Senior Experts",
+        "description": "For senior professionals and experts contributing to maritime research, policy, and governance.",
+        "features": []
+      }
+    }
+  },
+  "institutional": {
+    "heading": "Institutional Memberships",
+    "benefitsLabel": "Benefits",
+    "plans": {
+      "institution": {
+        "name": "Institutional Membership",
+        "description": "For universities, research centres, and think tanks.",
+        "features": [
+          "Official Institutional Membership Certificate",
+          "Access to GoGMI membership benefits for nominated staff and students",
+          "Joint research, training, and capacity-building programmes",
+          "Co-branded research outputs and policy publications",
+          "Opportunities for joint grant proposals and funded projects",
+          "Priority consideration for institutional partnerships and programmes",
+          "Institutional visibility on GoGMI platforms"
+        ]
+      },
+      "corporate": {
+        "name": "Corporate Membership",
+        "description": "For private sector organisations operating in maritime, logistics, energy, security, and related sectors.",
+        "features": [
+          "Official Corporate Membership Certificate",
+          "Corporate branding and visibility at GoGMI website, social media, events and publications",
+          "Invitations to high-level advisory events and stakeholder dialogues",
+          "Access to customised briefings on maritime and ocean governance issues",
+          "Networking with local, regional and international partners",
+          "Opportunities to align corporate social responsibility (CSR) initiatives with GoGMI programmes"
+        ]
+      },
+      "strategic": {
+        "name": "Strategic Partner",
+        "description": "For organisations with long-term strategic alignment with GoGMI mission.",
+        "features": []
+      }
+    }
+  },
+  "applyNow": "Apply Now",
+  "howToApply": {
+    "heading": "How to Apply",
+    "steps": [
+      { "title": "Choose Your Plan", "description": "Select the membership tier that best fits your needs and professional goals." },
+      { "title": "Complete Application", "description": "Fill out the online application form with your details." },
+      { "title": "Payment", "description": "Complete payment securely via Paystack. Your account is automatically created." },
+      { "title": "Welcome Aboard", "description": "Receive your Membership ID via email and use it to login anytime." }
+    ]
+  },
+  "brochure": {
+    "heading": "Download Membership Brochure",
+    "body": "Get detailed information about all membership categories, benefits, and application procedures.",
+    "button": "Download Brochure"
+  },
+  "modal": {
+    "close": "Close",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "your.email@example.com",
+    "dobLabel": "Date of Birth",
+    "orgOptionalLabel": "Organisation/Institution Name",
+    "optional": "(Optional)",
+    "orgOptionalPlaceholder": "e.g., University of Ghana, Maritime Authority",
+    "positionLabel": "Position/Title",
+    "positionPlaceholder": "Your current position",
+    "phoneLabel": "Country Code Plus WhatsApp Number",
+    "phonePlaceholder": "+233 XX XXX XXXX",
+    "orgNameLabel": "Organization Name",
+    "orgNamePlaceholder": "Enter organization name",
+    "orgEmailLabel": "Organization Email Address",
+    "orgEmailPlaceholder": "org@example.com",
+    "countryLabel": "Country",
+    "countryPlaceholder": "e.g., Ghana",
+    "cancel": "Cancel",
+    "processing": "Processing…",
+    "submitApplication": "Submit Application",
+    "pay": "Pay"
+  },
+  "alerts": {
+    "fillRequired": "Please fill in all required fields",
+    "enterDob": "Please enter your date of birth",
+    "fillOrg": "Please fill in organization name and organization email",
+    "invitationOnly": "Thank you for your interest! Our team will contact you at info@gogmi.org.gh regarding this membership tier.",
+    "paymentLoading": "Payment system is still loading. Please wait a moment and try again.",
+    "paymentCancelled": "Payment cancelled. The payment window was closed.",
+    "paymentInitFailed": "Payment initialisation failed. Please check your internet connection and try again.",
+    "welcomeSuccess": "Welcome to GoGMI!\n\nYour membership has been activated successfully.\n\nMembership ID: {{membershipId}}\nCertificate ID: {{certId}}\n\nUse your Membership ID to login at any time.\nA confirmation email with your details has been sent to {{email}}.\n\nReference: {{reference}}",
+    "activationFailed": "Payment successful but membership activation failed.\n\nPlease contact support at info@gogmi.org.gh\nReference: {{reference}}\n\nError: {{error}}",
+    "activationError": "Payment successful but there was an error activating your membership.\n\nPlease contact support at info@gogmi.org.gh\nReference: {{reference}}",
+    "failedToLoadPayment": "Failed to load payment system. Please check your internet connection."
+  }
+}

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check, Users } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 
 const Membership = () => {
+  const { t } = useTranslation('membership');
   const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -33,7 +35,7 @@ const Membership = () => {
       };
       script.onerror = () => {
         console.error('Failed to load Paystack script');
-        alert('Failed to load payment system. Please check your internet connection.');
+        alert(t('alerts.failedToLoadPayment'));
       };
       document.body.appendChild(script);
     }
@@ -115,13 +117,12 @@ const Membership = () => {
       if (data.success) {
         const certId = data.data.certificateId || data.data.certificateNumber;
         alert(
-          'Welcome to GoGMI!\n\n' +
-          'Your membership has been activated successfully.\n\n' +
-          'Membership ID: ' + data.data.membershipId + '\n' +
-          'Certificate ID: ' + certId + '\n\n' +
-          'Use your Membership ID to login at any time.\n' +
-          'A confirmation email with your details has been sent to ' + formData.email + '.\n\n' +
-          'Reference: ' + paymentReference
+          t('alerts.welcomeSuccess', {
+            membershipId: data.data.membershipId,
+            certId,
+            email: formData.email,
+            reference: paymentReference
+          })
         );
 
         closeMembershipModal();
@@ -131,18 +132,13 @@ const Membership = () => {
         }, 1000);
       } else {
         alert(
-          'Payment successful but membership activation failed.\n\n' +
-          'Please contact support at info@gogmi.org.gh\n' +
-          'Reference: ' + paymentReference + '\n\n' +
-          'Error: ' + data.message
+          t('alerts.activationFailed', { reference: paymentReference, error: data.message })
         );
       }
     } catch (error) {
       console.error('Activation error:', error);
       alert(
-        'Payment successful but there was an error activating your membership.\n\n' +
-        'Please contact support at info@gogmi.org.gh\n' +
-        'Reference: ' + paymentReference
+        t('alerts.activationError', { reference: paymentReference })
       );
     } finally {
       setIsProcessing(false);
@@ -153,22 +149,22 @@ const Membership = () => {
     e.preventDefault();
 
     if (!formData.fullName || !formData.email || !formData.phone || !formData.country) {
-      alert('Please fill in all required fields');
+      alert(t('alerts.fillRequired'));
       return;
     }
 
     if (isIndividualPlan(selectedPlan.id) && !formData.dateOfBirth) {
-      alert('Please enter your date of birth');
+      alert(t('alerts.enterDob'));
       return;
     }
 
     if (formData.membershipType === 'institutional' && (!formData.organization || !formData.organizationEmail)) {
-      alert('Please fill in organization name and organization email');
+      alert(t('alerts.fillOrg'));
       return;
     }
 
     if (!selectedPlan.price || selectedPlan.price === 'By Invitation Only') {
-      alert('Thank you for your interest! Our team will contact you at info@gogmi.org.gh regarding this membership tier.');
+      alert(t('alerts.invitationOnly'));
       closeMembershipModal();
       return;
     }
@@ -177,13 +173,13 @@ const Membership = () => {
     const amountUSD  = priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
 
     if (amountUSD === 0) {
-      alert('Thank you for your interest! Our team will contact you at info@gogmi.org.gh regarding this membership tier.');
+      alert(t('alerts.invitationOnly'));
       closeMembershipModal();
       return;
     }
 
     if (typeof window.PaystackPop === 'undefined') {
-      alert('Payment system is still loading. Please wait a moment and try again.');
+      alert(t('alerts.paymentLoading'));
       return;
     }
 
@@ -225,7 +221,7 @@ const Membership = () => {
         onClose: () => {
           console.log('Paystack popup closed by user');
           setIsProcessing(false);
-          alert('Payment cancelled. The payment window was closed.');
+          alert(t('alerts.paymentCancelled'));
         }
       });
 
@@ -234,8 +230,7 @@ const Membership = () => {
       console.error('Paystack setup error:', error);
       setIsProcessing(false);
       alert(
-        'Payment initialisation failed. Please check your internet connection and try again.\n\n' +
-        'Error: ' + error.message
+        t('alerts.paymentInitFailed') + '\n\nError: ' + error.message
       );
     }
   };
@@ -251,116 +246,35 @@ const Membership = () => {
     document.body.removeChild(link);
   };
 
-  const individualPlans = [
-    {
-      id: 'student',
-      name: 'Student Membership',
-      price: 'USD 20',
-      period: '/year',
-      description: 'Designed for undergraduate students with an interest in maritime, ocean, environmental, and security studies.',
-      features: [
-        'Official Certificate of Membership',
-        'Access to GoGMI research reports and publications',
-        'Invitations to student-focused webinars and seminars',
-        'Discounted fees for GoGMI trainings and workshops',
-        'Structured mentorship opportunities with professionals and researchers',
-        'Career development support (research skills, writing clinics, CV guidance)',
-        'Access to student networking platforms and discussion groups',
-        'Opportunities to volunteer or intern on GoGMI projects'
-      ]
-    },
-    {
-      id: 'associate',
-      name: 'Associate Membership',
-      price: 'USD 100',
-      period: '/year',
-      popular: true,
-      subtitle: '2-7 Years Experience',
-      description: 'For early-career professionals (1–5 years of experience) seeking skills development, visibility, and networking.',
-      features: [
-        'Official Certificate of Membership',
-        'Invitations to GoGMI conferences, seminars, and policy dialogues',
-        'Discounted access to professional training and workshops',
-        'Access to research reports, briefs, and policy publications',
-        'Career development programmes and capacity-building sessions',
-        'Opportunities to contribute to GoGMI blogs, research outputs, and junior committees',
-        'Networking with regional and international maritime professionals',
-        'Early access to GoGMI fellowships and project calls',
-        'Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events',
-        'Institutional Representation — may be selected to represent GoGMI at national and international engagements, including conferences, workshops, and forums'
-      ]
-    },
-    {
-      id: 'professional',
-      name: 'Professional Membership',
-      price: 'USD 200',
-      period: '/year',
-      subtitle: '7 Years upwards Experience',
-      description: 'For mid-level professionals seeking influence, policy engagement, and regional visibility.',
-      features: [
-        'Official Certificate of Membership',
-        'Priority invitations to policy dialogues and expert roundtables',
-        'Access to GoGMI research outputs and policy briefs',
-        'Discounted access to advanced trainings and conferences',
-        'Opportunity to moderate sessions or speak at GoGMI events',
-        'Opportunity to mentor young graduates interested in Maritime affairs',
-        'Professional profile listing on the GoGMI website',
-        'Executive networking with regional experts and institutions',
-        'Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events'
-      ]
-    },
-    {
-      id: 'fellow',
-      name: 'Fellow Membership',
-      price: 'By Invitation Only',
-      period: '',
-      subtitle: 'Senior Experts',
-      description: 'For senior professionals and experts contributing to maritime research, policy, and governance.',
-      features: []
-    }
-  ];
+  const individualPlanMeta = {
+    student: { price: 'USD 20', period: '/year' },
+    associate: { price: 'USD 100', period: '/year', popular: true },
+    professional: { price: 'USD 200', period: '/year' },
+    fellow: { price: 'By Invitation Only', period: '' }
+  };
 
-  const institutionalPlans = [
-    {
-      id: 'institution',
-      name: 'Institutional Membership',
-      price: 'USD 1,000',
-      period: '/year',
-      description: 'For universities, research centres, and think tanks.',
-      features: [
-        'Official Institutional Membership Certificate',
-        'Access to GoGMI membership benefits for nominated staff and students',
-        'Joint research, training, and capacity-building programmes',
-        'Co-branded research outputs and policy publications',
-        'Opportunities for joint grant proposals and funded projects',
-        'Priority consideration for institutional partnerships and programmes',
-        'Institutional visibility on GoGMI platforms'
-      ]
-    },
-    {
-      id: 'corporate',
-      name: 'Corporate Membership',
-      price: 'USD 3,000',
-      period: '/year',
-      description: 'For private sector organisations operating in maritime, logistics, energy, security, and related sectors.',
-      features: [
-        'Official Corporate Membership Certificate',
-        'Corporate branding and visibility at GoGMI website, social media, events and publications',
-        'Invitations to high-level advisory events and stakeholder dialogues',
-        'Access to customised briefings on maritime and ocean governance issues',
-        'Networking with local, regional and international partners',
-        'Opportunities to align corporate social responsibility (CSR) initiatives with GoGMI programmes'
-      ]
-    },
-    {
-      id: 'strategic',
-      name: 'Strategic Partner',
-      price: 'By Invitation Only',
-      period: '',
-      description: 'For organisations with long-term strategic alignment with GoGMI mission.',
-      features: []
-    }
-  ];
+  const individualPlans = ['student', 'associate', 'professional', 'fellow'].map((id) => ({
+    id,
+    ...individualPlanMeta[id],
+    name: t(`individual.plans.${id}.name`),
+    subtitle: t(`individual.plans.${id}.subtitle`, ''),
+    description: t(`individual.plans.${id}.description`),
+    features: t(`individual.plans.${id}.features`, { returnObjects: true })
+  }));
+
+  const institutionalPlanMeta = {
+    institution: { price: 'USD 1,000', period: '/year' },
+    corporate: { price: 'USD 3,000', period: '/year' },
+    strategic: { price: 'By Invitation Only', period: '' }
+  };
+
+  const institutionalPlans = ['institution', 'corporate', 'strategic'].map((id) => ({
+    id,
+    ...institutionalPlanMeta[id],
+    name: t(`institutional.plans.${id}.name`),
+    description: t(`institutional.plans.${id}.description`),
+    features: t(`institutional.plans.${id}.features`, { returnObjects: true })
+  }));
 
   return (
     <div className="w-full">
@@ -382,6 +296,7 @@ const Membership = () => {
                   disabled={isProcessing}
                   className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-all disabled:opacity-40"
                   style={{ color: '#4B5563' }}
+                  aria-label={t('modal.close')}
                 >
                   ✕
                 </button>
@@ -392,7 +307,7 @@ const Membership = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                    Full Name <span className="text-red-500">*</span>
+                    {t('modal.fullNameLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -401,13 +316,13 @@ const Membership = () => {
                     onChange={handleFormChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                    placeholder="Enter your full name"
+                    placeholder={t('modal.fullNamePlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                    Email Address <span className="text-red-500">*</span>
+                    {t('modal.emailLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -416,14 +331,14 @@ const Membership = () => {
                     onChange={handleFormChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                    placeholder="your.email@example.com"
+                    placeholder={t('modal.emailPlaceholder')}
                   />
                 </div>
 
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                      Date of Birth <span className="text-red-500">*</span>
+                      {t('modal.dobLabel')} <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="date"
@@ -439,7 +354,7 @@ const Membership = () => {
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                      Organisation/Institution Name <span className="text-slate-400 text-xs font-normal">(Optional)</span>
+                      {t('modal.orgOptionalLabel')} <span className="text-slate-400 text-xs font-normal">{t('modal.optional')}</span>
                     </label>
                     <input
                       type="text"
@@ -447,7 +362,7 @@ const Membership = () => {
                       value={formData.organization}
                       onChange={handleFormChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                      placeholder="e.g., University of Ghana, Maritime Authority"
+                      placeholder={t('modal.orgOptionalPlaceholder')}
                     />
                   </div>
                 )}
@@ -455,7 +370,7 @@ const Membership = () => {
                 {formData.membershipType === 'institutional' && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                      Position/Title
+                      {t('modal.positionLabel')}
                     </label>
                     <input
                       type="text"
@@ -463,14 +378,14 @@ const Membership = () => {
                       value={formData.position}
                       onChange={handleFormChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                      placeholder="Your current position"
+                      placeholder={t('modal.positionPlaceholder')}
                     />
                   </div>
                 )}
 
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                    Country Code Plus WhatsApp Number <span className="text-red-500">*</span>
+                    {t('modal.phoneLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -479,7 +394,7 @@ const Membership = () => {
                     onChange={handleFormChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                    placeholder="+233 XX XXX XXXX"
+                    placeholder={t('modal.phonePlaceholder')}
                   />
                 </div>
 
@@ -487,7 +402,7 @@ const Membership = () => {
                   <>
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                        Organization Name <span className="text-red-500">*</span>
+                        {t('modal.orgNameLabel')} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -496,13 +411,13 @@ const Membership = () => {
                         onChange={handleFormChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                        placeholder="Enter organization name"
+                        placeholder={t('modal.orgNamePlaceholder')}
                       />
                     </div>
 
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                        Organization Email Address <span className="text-red-500">*</span>
+                        {t('modal.orgEmailLabel')} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -511,7 +426,7 @@ const Membership = () => {
                         onChange={handleFormChange}
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                        placeholder="org@example.com"
+                        placeholder={t('modal.orgEmailPlaceholder')}
                       />
                     </div>
                   </>
@@ -520,7 +435,7 @@ const Membership = () => {
                 {isIndividualPlan(selectedPlan.id) && (
                   <div>
                     <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                      Position/Title
+                      {t('modal.positionLabel')}
                     </label>
                     <input
                       type="text"
@@ -528,14 +443,14 @@ const Membership = () => {
                       value={formData.position}
                       onChange={handleFormChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                      placeholder="Your current position"
+                      placeholder={t('modal.positionPlaceholder')}
                     />
                   </div>
                 )}
 
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                    Country <span className="text-red-500">*</span>
+                    {t('modal.countryLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -544,7 +459,7 @@ const Membership = () => {
                     onChange={handleFormChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400]"
-                    placeholder="e.g., Ghana"
+                    placeholder={t('modal.countryPlaceholder')}
                   />
                 </div>
               </div>
@@ -557,7 +472,7 @@ const Membership = () => {
                   className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40"
                   style={{ borderColor: '#132552', color: '#132552', fontWeight: 700 }}
                 >
-                  Cancel
+                  {t('modal.cancel')}
                 </button>
                 <button
                   type="submit"
@@ -568,10 +483,10 @@ const Membership = () => {
                   onMouseLeave={(e) => { if (!isProcessing) e.currentTarget.style.backgroundColor = '#8E3400'; }}
                 >
                   {isProcessing
-                    ? 'Processing…'
+                    ? t('modal.processing')
                     : selectedPlan.price === 'By Invitation Only'
-                      ? 'Submit Application'
-                      : 'Pay ' + selectedPlan.price}
+                      ? t('modal.submitApplication')
+                      : t('modal.pay') + ' ' + selectedPlan.price}
                 </button>
               </div>
             </form>
@@ -591,10 +506,10 @@ const Membership = () => {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Fast track your professional journey with GoGMI Membership
+              {t('hero.title')}
             </h1>
             <p className="text-xl text-white/90 leading-relaxed mb-8 font-semibold">
-              Join our maritime community to access exclusive research, engage with thought leaders, and expand your network across the Gulf of Guinea maritime sector.
+              {t('hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
               <button
@@ -604,7 +519,7 @@ const Membership = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
               >
-                <span>Apply Now</span>
+                <span>{t('hero.applyNow')}</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
               <Link
@@ -613,7 +528,7 @@ const Membership = () => {
                 style={{ fontWeight: 700 }}
               >
                 <Users className="w-5 h-5" />
-                <span>See Our Members</span>
+                <span>{t('hero.seeMembers')}</span>
               </Link>
             </div>
           </div>
@@ -625,12 +540,12 @@ const Membership = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                Why Join GoGMI?
+                {t('whyJoin.heading')}
               </h2>
               <div className="space-y-4 text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
-                <p>GoGMI membership provides access to a vibrant community of maritime professionals, researchers, policymakers, and industry leaders across the Gulf of Guinea region.</p>
-                <p>As a member, you become part of the Gulf of Guinea premier maritime think tank, dedicated to advancing maritime security, sustainable blue economy development, and regional cooperation.</p>
-                <p>Members gain exclusive access to cutting-edge research, policy briefs, training programs, and networking opportunities that connect you with experts across the Gulf of Guinea.</p>
+                <p>{t('whyJoin.para1')}</p>
+                <p>{t('whyJoin.para2')}</p>
+                <p>{t('whyJoin.para3')}</p>
               </div>
             </div>
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
@@ -644,23 +559,17 @@ const Membership = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Membership Benefits
+              {t('benefits.heading')}
             </h2>
 </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>Knowledge & Research</h3>
-              <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Access comprehensive maritime research, publications, and policy briefs from across the Gulf of Guinea region.</p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>Professional Network</h3>
-              <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Connect with maritime professionals, researchers, and policymakers across the Gulf of Guinea.</p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>Capacity Building</h3>
-              <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Participate in training programs, workshops, and skill development sessions led by industry experts.</p>
-            </div>
+            {t('benefits.items', { returnObjects: true }).map((item, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-xl shadow-md">
+                <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>{item.title}</h3>
+                <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -668,7 +577,7 @@ const Membership = () => {
       <section id="plans" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Individual Memberships</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>{t('individual.heading')}</h2>
 </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -678,7 +587,7 @@ const Membership = () => {
                 className={'bg-white rounded-xl border ' + (plan.popular ? 'border-[#8E3400] shadow-xl' : 'border-gray-200 shadow-md') + ' hover:shadow-lg transition-all duration-300'}
               >
                 {plan.popular && (
-                  <div className="px-4 py-2 text-sm font-bold text-center rounded-t-lg text-white" style={{ backgroundColor: '#8E3400', fontWeight: 700 }}>MOST POPULAR</div>
+                  <div className="px-4 py-2 text-sm font-bold text-center rounded-t-lg text-white" style={{ backgroundColor: '#8E3400', fontWeight: 700 }}>{t('individual.mostPopular')}</div>
                 )}
                 <div className="p-6">
                   <h3 className="text-lg font-bold mb-1" style={{ color: '#132552', fontWeight: 700 }}>{plan.name}</h3>
@@ -692,7 +601,7 @@ const Membership = () => {
                   <p className="text-xs leading-relaxed font-semibold mb-4" style={{ color: '#4B5563' }}>{plan.description}</p>
                   {plan.id !== 'fellow' && (
                     <>
-                      <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>Benefits</p></div>
+                      <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>{t('individual.benefitsLabel')}</p></div>
                       <ul className="space-y-2 mb-6">
                         {plan.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-2">
@@ -708,7 +617,7 @@ const Membership = () => {
                         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                         onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
                       >
-                        Apply Now
+                        {t('applyNow')}
                       </button>
                     </>
                   )}
@@ -722,7 +631,7 @@ const Membership = () => {
       <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Institutional Memberships</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>{t('institutional.heading')}</h2>
 </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -739,7 +648,7 @@ const Membership = () => {
                   <p className="text-sm leading-relaxed font-semibold mb-4" style={{ color: '#4B5563' }}>{plan.description}</p>
                   {plan.id !== 'strategic' && (
                     <>
-                      <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>Benefits</p></div>
+                      <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>{t('institutional.benefitsLabel')}</p></div>
                       <ul className="space-y-2 mb-6">
                         {plan.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-2">
@@ -755,7 +664,7 @@ const Membership = () => {
                         onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                         onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
                       >
-                        Apply Now
+                        {t('applyNow')}
                       </button>
                     </>
                   )}
@@ -769,16 +678,11 @@ const Membership = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>How to Apply</h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>{t('howToApply.heading')}</h2>
 </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { step: '1', title: 'Choose Your Plan', description: 'Select the membership tier that best fits your needs and professional goals.' },
-              { step: '2', title: 'Complete Application', description: 'Fill out the online application form with your details.' },
-              { step: '3', title: 'Payment', description: 'Complete payment securely via Paystack. Your account is automatically created.' },
-              { step: '4', title: 'Welcome Aboard', description: 'Receive your Membership ID via email and use it to login anytime.' }
-            ].map((process, idx) => (
+            {t('howToApply.steps', { returnObjects: true }).map((process, idx) => ({ ...process, step: String(idx + 1) })).map((process, idx) => (
               <div key={idx} className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl font-black mb-4 text-white" style={{ backgroundColor: '#132552', fontWeight: 900 }}>
                   {process.step}
@@ -798,8 +702,8 @@ const Membership = () => {
               <img src="/memb3.png" alt="Membership Brochure" className="w-full h-full object-cover" />
             </div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>Download Membership Brochure</h2>
-              <p className="text-lg mb-8 leading-relaxed font-semibold" style={{ color: '#4B5563' }}>Get detailed information about all membership categories, benefits, and application procedures.</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>{t('brochure.heading')}</h2>
+              <p className="text-lg mb-8 leading-relaxed font-semibold" style={{ color: '#4B5563' }}>{t('brochure.body')}</p>
               <button
                 onClick={handleBrochureDownload}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all"
@@ -807,7 +711,7 @@ const Membership = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#0F1C3F'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#132552'}
               >
-                <span>Download Brochure</span>
+                <span>{t('brochure.button')}</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

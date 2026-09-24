@@ -1,0 +1,171 @@
+{
+  "hero": {
+    "title": "Acelera tu trayectoria profesional con la membresía de GoGMI",
+    "subtitle": "Únete a nuestra comunidad marítima para acceder a investigaciones exclusivas, interactuar con líderes de pensamiento y ampliar tu red en todo el sector marítimo del Golfo de Guinea.",
+    "applyNow": "Solicitar ahora",
+    "seeMembers": "Ver nuestros miembros"
+  },
+  "whyJoin": {
+    "heading": "¿Por qué unirte a GoGMI?",
+    "para1": "La membresía de GoGMI brinda acceso a una vibrante comunidad de profesionales marítimos, investigadores, responsables de políticas y líderes de la industria en toda la región del Golfo de Guinea.",
+    "para2": "Como miembro, pasas a formar parte del principal centro de pensamiento marítimo del Golfo de Guinea, dedicado a promover la seguridad marítima, el desarrollo sostenible de la economía azul y la cooperación regional.",
+    "para3": "Los miembros obtienen acceso exclusivo a investigaciones de vanguardia, notas de política, programas de formación y oportunidades de networking que te conectan con expertos de todo el Golfo de Guinea."
+  },
+  "benefits": {
+    "heading": "Beneficios de la membresía",
+    "items": [
+      { "title": "Conocimiento e investigación", "desc": "Accede a investigaciones marítimas integrales, publicaciones y notas de política de toda la región del Golfo de Guinea." },
+      { "title": "Red profesional", "desc": "Conéctate con profesionales marítimos, investigadores y responsables de políticas de todo el Golfo de Guinea." },
+      { "title": "Fortalecimiento de capacidades", "desc": "Participa en programas de formación, talleres y sesiones de desarrollo de habilidades dirigidas por expertos del sector." }
+    ]
+  },
+  "individual": {
+    "heading": "Membresías individuales",
+    "mostPopular": "MÁS POPULAR",
+    "benefitsLabel": "Beneficios",
+    "plans": {
+      "student": {
+        "name": "Membresía estudiantil",
+        "description": "Diseñada para estudiantes de pregrado interesados en estudios marítimos, oceánicos, ambientales y de seguridad.",
+        "features": [
+          "Certificado oficial de membresía",
+          "Acceso a informes de investigación y publicaciones de GoGMI",
+          "Invitaciones a webinars y seminarios enfocados en estudiantes",
+          "Tarifas reducidas para formaciones y talleres de GoGMI",
+          "Oportunidades de mentoría estructurada con profesionales e investigadores",
+          "Apoyo al desarrollo profesional (habilidades de investigación, talleres de redacción, orientación de CV)",
+          "Acceso a plataformas de networking y grupos de discusión estudiantiles",
+          "Oportunidades de voluntariado o pasantías en proyectos de GoGMI"
+        ]
+      },
+      "associate": {
+        "name": "Membresía asociada",
+        "subtitle": "2-7 años de experiencia",
+        "description": "Para profesionales en etapa inicial de carrera (1-5 años de experiencia) que buscan desarrollo de habilidades, visibilidad y networking.",
+        "features": [
+          "Certificado oficial de membresía",
+          "Invitaciones a conferencias, seminarios y diálogos políticos de GoGMI",
+          "Acceso con descuento a formación y talleres profesionales",
+          "Acceso a informes de investigación, notas y publicaciones de política",
+          "Programas de desarrollo profesional y sesiones de fortalecimiento de capacidades",
+          "Oportunidades de contribuir a blogs, resultados de investigación y comités junior de GoGMI",
+          "Networking con profesionales marítimos regionales e internacionales",
+          "Acceso anticipado a becas y convocatorias de proyectos de GoGMI",
+          "Boletín exclusivo para miembros — un boletín dedicado con análisis de investigación seleccionados, notas de política y aviso de próximas conferencias y eventos",
+          "Representación institucional — posibilidad de ser seleccionado para representar a GoGMI en eventos nacionales e internacionales, incluyendo conferencias, talleres y foros"
+        ]
+      },
+      "professional": {
+        "name": "Membresía profesional",
+        "subtitle": "7 años de experiencia en adelante",
+        "description": "Para profesionales de nivel medio que buscan influencia, participación en políticas y visibilidad regional.",
+        "features": [
+          "Certificado oficial de membresía",
+          "Invitaciones prioritarias a diálogos políticos y mesas redondas de expertos",
+          "Acceso a resultados de investigación y notas de política de GoGMI",
+          "Acceso con descuento a formaciones avanzadas y conferencias",
+          "Oportunidad de moderar sesiones o participar como ponente en eventos de GoGMI",
+          "Oportunidad de mentorar a jóvenes graduados interesados en asuntos marítimos",
+          "Perfil profesional listado en el sitio web de GoGMI",
+          "Networking ejecutivo con expertos e instituciones regionales",
+          "Boletín exclusivo para miembros — un boletín dedicado con análisis de investigación seleccionados, notas de política y aviso de próximas conferencias y eventos"
+        ]
+      },
+      "fellow": {
+        "name": "Membresía Fellow",
+        "subtitle": "Expertos senior",
+        "description": "Para profesionales senior y expertos que contribuyen a la investigación, política y gobernanza marítima.",
+        "features": []
+      }
+    }
+  },
+  "institutional": {
+    "heading": "Membresías institucionales",
+    "benefitsLabel": "Beneficios",
+    "plans": {
+      "institution": {
+        "name": "Membresía institucional",
+        "description": "Para universidades, centros de investigación y centros de pensamiento.",
+        "features": [
+          "Certificado oficial de membresía institucional",
+          "Acceso a los beneficios de membresía de GoGMI para personal y estudiantes designados",
+          "Programas conjuntos de investigación, formación y fortalecimiento de capacidades",
+          "Resultados de investigación y publicaciones de política de marca compartida",
+          "Oportunidades para propuestas de subvenciones conjuntas y proyectos financiados",
+          "Consideración prioritaria para asociaciones y programas institucionales",
+          "Visibilidad institucional en las plataformas de GoGMI"
+        ]
+      },
+      "corporate": {
+        "name": "Membresía corporativa",
+        "description": "Para organizaciones del sector privado que operan en los sectores marítimo, logístico, energético, de seguridad y afines.",
+        "features": [
+          "Certificado oficial de membresía corporativa",
+          "Imagen de marca y visibilidad corporativa en el sitio web, redes sociales, eventos y publicaciones de GoGMI",
+          "Invitaciones a eventos consultivos de alto nivel y diálogos con partes interesadas",
+          "Acceso a informes personalizados sobre temas de gobernanza marítima y oceánica",
+          "Networking con socios locales, regionales e internacionales",
+          "Oportunidades de alinear iniciativas de responsabilidad social corporativa (RSC) con los programas de GoGMI"
+        ]
+      },
+      "strategic": {
+        "name": "Socio estratégico",
+        "description": "Para organizaciones con alineación estratégica a largo plazo con la misión de GoGMI.",
+        "features": []
+      }
+    }
+  },
+  "applyNow": "Solicitar ahora",
+  "howToApply": {
+    "heading": "Cómo solicitar",
+    "steps": [
+      { "title": "Elige tu plan", "description": "Selecciona el nivel de membresía que mejor se adapte a tus necesidades y objetivos profesionales." },
+      { "title": "Completa la solicitud", "description": "Completa el formulario de solicitud en línea con tus datos." },
+      { "title": "Pago", "description": "Completa el pago de forma segura a través de Paystack. Tu cuenta se crea automáticamente." },
+      { "title": "Bienvenido a bordo", "description": "Recibe tu ID de membresía por correo electrónico y úsalo para iniciar sesión en cualquier momento." }
+    ]
+  },
+  "brochure": {
+    "heading": "Descargar folleto de membresía",
+    "body": "Obtén información detallada sobre todas las categorías de membresía, beneficios y procedimientos de solicitud.",
+    "button": "Descargar folleto"
+  },
+  "modal": {
+    "close": "Cerrar",
+    "fullNameLabel": "Nombre completo",
+    "fullNamePlaceholder": "Ingresa tu nombre completo",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu.correo@ejemplo.com",
+    "dobLabel": "Fecha de nacimiento",
+    "orgOptionalLabel": "Nombre de la organización/institución",
+    "optional": "(Opcional)",
+    "orgOptionalPlaceholder": "ej.: Universidad de Ghana, Autoridad Marítima",
+    "positionLabel": "Puesto/Cargo",
+    "positionPlaceholder": "Tu puesto actual",
+    "phoneLabel": "Código de país y número de WhatsApp",
+    "phonePlaceholder": "+233 XX XXX XXXX",
+    "orgNameLabel": "Nombre de la organización",
+    "orgNamePlaceholder": "Ingresa el nombre de la organización",
+    "orgEmailLabel": "Correo electrónico de la organización",
+    "orgEmailPlaceholder": "org@ejemplo.com",
+    "countryLabel": "País",
+    "countryPlaceholder": "ej.: Ghana",
+    "cancel": "Cancelar",
+    "processing": "Procesando…",
+    "submitApplication": "Enviar solicitud",
+    "pay": "Pagar"
+  },
+  "alerts": {
+    "fillRequired": "Por favor completa todos los campos obligatorios",
+    "enterDob": "Por favor ingresa tu fecha de nacimiento",
+    "fillOrg": "Por favor completa el nombre y correo de la organización",
+    "invitationOnly": "¡Gracias por tu interés! Nuestro equipo se pondrá en contacto contigo en info@gogmi.org.gh respecto a este nivel de membresía.",
+    "paymentLoading": "El sistema de pago aún se está cargando. Por favor espera un momento e inténtalo de nuevo.",
+    "paymentCancelled": "Pago cancelado. Se cerró la ventana de pago.",
+    "paymentInitFailed": "Error al iniciar el pago. Por favor verifica tu conexión a internet e inténtalo de nuevo.",
+    "welcomeSuccess": "¡Bienvenido a GoGMI!\n\nTu membresía ha sido activada con éxito.\n\nID de membresía: {{membershipId}}\nID de certificado: {{certId}}\n\nUsa tu ID de membresía para iniciar sesión en cualquier momento.\nSe ha enviado un correo de confirmación con tus datos a {{email}}.\n\nReferencia: {{reference}}",
+    "activationFailed": "El pago fue exitoso pero la activación de la membresía falló.\n\nPor favor contacta al soporte en info@gogmi.org.gh\nReferencia: {{reference}}\n\nError: {{error}}",
+    "activationError": "El pago fue exitoso pero ocurrió un error al activar tu membresía.\n\nPor favor contacta al soporte en info@gogmi.org.gh\nReferencia: {{reference}}",
+    "failedToLoadPayment": "Error al cargar el sistema de pago. Por favor verifica tu conexión a internet."
+  }
+}

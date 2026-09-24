@@ -1,0 +1,171 @@
+{
+  "hero": {
+    "title": "Accélérez votre parcours professionnel avec l'adhésion GoGMI",
+    "subtitle": "Rejoignez notre communauté maritime pour accéder à des recherches exclusives, échanger avec des leaders d'opinion et élargir votre réseau dans tout le secteur maritime du Golfe de Guinée.",
+    "applyNow": "Postuler maintenant",
+    "seeMembers": "Voir nos membres"
+  },
+  "whyJoin": {
+    "heading": "Pourquoi rejoindre le GoGMI ?",
+    "para1": "L'adhésion au GoGMI donne accès à une communauté dynamique de professionnels maritimes, chercheurs, décideurs politiques et leaders de l'industrie dans toute la région du Golfe de Guinée.",
+    "para2": "En devenant membre, vous rejoignez le principal groupe de réflexion maritime du Golfe de Guinée, dédié à la promotion de la sécurité maritime, du développement durable de l'économie bleue et de la coopération régionale.",
+    "para3": "Les membres bénéficient d'un accès exclusif à des recherches de pointe, des notes de politique, des programmes de formation et des opportunités de réseautage qui vous connectent à des experts de tout le Golfe de Guinée."
+  },
+  "benefits": {
+    "heading": "Avantages de l'adhésion",
+    "items": [
+      { "title": "Connaissances et recherche", "desc": "Accédez à des recherches maritimes complètes, des publications et des notes de politique de toute la région du Golfe de Guinée." },
+      { "title": "Réseau professionnel", "desc": "Connectez-vous avec des professionnels maritimes, chercheurs et décideurs politiques de tout le Golfe de Guinée." },
+      { "title": "Renforcement des capacités", "desc": "Participez à des programmes de formation, des ateliers et des séances de développement des compétences animés par des experts du secteur." }
+    ]
+  },
+  "individual": {
+    "heading": "Adhésions individuelles",
+    "mostPopular": "LE PLUS POPULAIRE",
+    "benefitsLabel": "Avantages",
+    "plans": {
+      "student": {
+        "name": "Adhésion étudiante",
+        "description": "Conçue pour les étudiants de premier cycle intéressés par les études maritimes, océaniques, environnementales et de sécurité.",
+        "features": [
+          "Certificat officiel d'adhésion",
+          "Accès aux rapports de recherche et publications du GoGMI",
+          "Invitations à des webinaires et séminaires destinés aux étudiants",
+          "Frais réduits pour les formations et ateliers du GoGMI",
+          "Opportunités de mentorat structuré avec des professionnels et chercheurs",
+          "Soutien au développement de carrière (compétences en recherche, ateliers de rédaction, conseils CV)",
+          "Accès aux plateformes de réseautage et groupes de discussion étudiants",
+          "Opportunités de bénévolat ou de stage sur les projets du GoGMI"
+        ]
+      },
+      "associate": {
+        "name": "Adhésion associée",
+        "subtitle": "2 à 7 ans d'expérience",
+        "description": "Pour les professionnels en début de carrière (1 à 5 ans d'expérience) recherchant le développement de compétences, la visibilité et le réseautage.",
+        "features": [
+          "Certificat officiel d'adhésion",
+          "Invitations aux conférences, séminaires et dialogues politiques du GoGMI",
+          "Accès à tarif réduit aux formations et ateliers professionnels",
+          "Accès aux rapports de recherche, notes et publications politiques",
+          "Programmes de développement de carrière et séances de renforcement des capacités",
+          "Opportunités de contribuer aux blogs, résultats de recherche et comités juniors du GoGMI",
+          "Réseautage avec des professionnels maritimes régionaux et internationaux",
+          "Accès anticipé aux bourses et appels à projets du GoGMI",
+          "Newsletter exclusive réservée aux membres — une newsletter dédiée avec des analyses de recherche sélectionnées, des notes de politique et l'annonce des prochaines conférences et événements",
+          "Représentation institutionnelle — possibilité d'être sélectionné pour représenter le GoGMI lors d'engagements nationaux et internationaux, notamment des conférences, ateliers et forums"
+        ]
+      },
+      "professional": {
+        "name": "Adhésion professionnelle",
+        "subtitle": "7 ans d'expérience et plus",
+        "description": "Pour les professionnels de niveau intermédiaire recherchant l'influence, l'engagement politique et la visibilité régionale.",
+        "features": [
+          "Certificat officiel d'adhésion",
+          "Invitations prioritaires aux dialogues politiques et tables rondes d'experts",
+          "Accès aux résultats de recherche et notes de politique du GoGMI",
+          "Accès à tarif réduit aux formations avancées et conférences",
+          "Opportunité de modérer des sessions ou de prendre la parole lors d'événements du GoGMI",
+          "Opportunité de mentorer de jeunes diplômés intéressés par les affaires maritimes",
+          "Profil professionnel répertorié sur le site web du GoGMI",
+          "Réseautage exécutif avec des experts et institutions régionaux",
+          "Newsletter exclusive réservée aux membres — une newsletter dédiée avec des analyses de recherche sélectionnées, des notes de politique et l'annonce des prochaines conférences et événements"
+        ]
+      },
+      "fellow": {
+        "name": "Adhésion Fellow",
+        "subtitle": "Experts seniors",
+        "description": "Pour les professionnels seniors et experts contribuant à la recherche maritime, aux politiques et à la gouvernance.",
+        "features": []
+      }
+    }
+  },
+  "institutional": {
+    "heading": "Adhésions institutionnelles",
+    "benefitsLabel": "Avantages",
+    "plans": {
+      "institution": {
+        "name": "Adhésion institutionnelle",
+        "description": "Pour les universités, centres de recherche et groupes de réflexion.",
+        "features": [
+          "Certificat officiel d'adhésion institutionnelle",
+          "Accès aux avantages de l'adhésion GoGMI pour le personnel et les étudiants nommés",
+          "Programmes conjoints de recherche, formation et renforcement des capacités",
+          "Résultats de recherche et publications politiques co-marqués",
+          "Opportunités de propositions de subventions conjointes et de projets financés",
+          "Considération prioritaire pour les partenariats et programmes institutionnels",
+          "Visibilité institutionnelle sur les plateformes du GoGMI"
+        ]
+      },
+      "corporate": {
+        "name": "Adhésion corporative",
+        "description": "Pour les organisations du secteur privé opérant dans les secteurs maritime, logistique, énergétique, sécuritaire et connexes.",
+        "features": [
+          "Certificat officiel d'adhésion corporative",
+          "Image de marque et visibilité corporative sur le site web, les réseaux sociaux, les événements et les publications du GoGMI",
+          "Invitations à des événements consultatifs de haut niveau et dialogues avec les parties prenantes",
+          "Accès à des briefings personnalisés sur les enjeux de gouvernance maritime et océanique",
+          "Réseautage avec des partenaires locaux, régionaux et internationaux",
+          "Opportunités d'aligner les initiatives de responsabilité sociale des entreprises (RSE) avec les programmes du GoGMI"
+        ]
+      },
+      "strategic": {
+        "name": "Partenaire stratégique",
+        "description": "Pour les organisations ayant un alignement stratégique à long terme avec la mission du GoGMI.",
+        "features": []
+      }
+    }
+  },
+  "applyNow": "Postuler maintenant",
+  "howToApply": {
+    "heading": "Comment postuler",
+    "steps": [
+      { "title": "Choisissez votre formule", "description": "Sélectionnez le niveau d'adhésion qui correspond le mieux à vos besoins et objectifs professionnels." },
+      { "title": "Complétez la candidature", "description": "Remplissez le formulaire de candidature en ligne avec vos coordonnées." },
+      { "title": "Paiement", "description": "Effectuez le paiement en toute sécurité via Paystack. Votre compte est créé automatiquement." },
+      { "title": "Bienvenue à bord", "description": "Recevez votre identifiant de membre par e-mail et utilisez-le pour vous connecter à tout moment." }
+    ]
+  },
+  "brochure": {
+    "heading": "Télécharger la brochure d'adhésion",
+    "body": "Obtenez des informations détaillées sur toutes les catégories d'adhésion, les avantages et les procédures de candidature.",
+    "button": "Télécharger la brochure"
+  },
+  "modal": {
+    "close": "Fermer",
+    "fullNameLabel": "Nom complet",
+    "fullNamePlaceholder": "Entrez votre nom complet",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "dobLabel": "Date de naissance",
+    "orgOptionalLabel": "Nom de l'organisation/institution",
+    "optional": "(Facultatif)",
+    "orgOptionalPlaceholder": "ex. : Université du Ghana, Autorité maritime",
+    "positionLabel": "Poste/Titre",
+    "positionPlaceholder": "Votre poste actuel",
+    "phoneLabel": "Indicatif pays et numéro WhatsApp",
+    "phonePlaceholder": "+233 XX XXX XXXX",
+    "orgNameLabel": "Nom de l'organisation",
+    "orgNamePlaceholder": "Entrez le nom de l'organisation",
+    "orgEmailLabel": "Adresse e-mail de l'organisation",
+    "orgEmailPlaceholder": "org@exemple.com",
+    "countryLabel": "Pays",
+    "countryPlaceholder": "ex. : Ghana",
+    "cancel": "Annuler",
+    "processing": "Traitement en cours…",
+    "submitApplication": "Soumettre la candidature",
+    "pay": "Payer"
+  },
+  "alerts": {
+    "fillRequired": "Veuillez remplir tous les champs obligatoires",
+    "enterDob": "Veuillez indiquer votre date de naissance",
+    "fillOrg": "Veuillez indiquer le nom et l'e-mail de l'organisation",
+    "invitationOnly": "Merci de votre intérêt ! Notre équipe vous contactera à info@gogmi.org.gh concernant ce niveau d'adhésion.",
+    "paymentLoading": "Le système de paiement est en cours de chargement. Veuillez patienter un instant et réessayer.",
+    "paymentCancelled": "Paiement annulé. La fenêtre de paiement a été fermée.",
+    "paymentInitFailed": "L'initialisation du paiement a échoué. Veuillez vérifier votre connexion internet et réessayer.",
+    "welcomeSuccess": "Bienvenue au GoGMI !\n\nVotre adhésion a été activée avec succès.\n\nIdentifiant de membre : {{membershipId}}\nIdentifiant du certificat : {{certId}}\n\nUtilisez votre identifiant de membre pour vous connecter à tout moment.\nUn e-mail de confirmation avec vos informations a été envoyé à {{email}}.\n\nRéférence : {{reference}}",
+    "activationFailed": "Paiement réussi mais l'activation de l'adhésion a échoué.\n\nVeuillez contacter le support à info@gogmi.org.gh\nRéférence : {{reference}}\n\nErreur : {{error}}",
+    "activationError": "Paiement réussi mais une erreur s'est produite lors de l'activation de votre adhésion.\n\nVeuillez contacter le support à info@gogmi.org.gh\nRéférence : {{reference}}",
+    "failedToLoadPayment": "Échec du chargement du système de paiement. Veuillez vérifier votre connexion internet."
+  }
+}
