@@ -1,19 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, User, LogOut, LayoutDashboard, Heart } from "lucide-react";
+import { Menu, X, ChevronDown, User, LogOut, LayoutDashboard, Heart, Globe } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from '../context/AuthContext';
 
+const LANGUAGES = [
+  { code: "en", label: "EN" },
+  { code: "fr", label: "FR" },
+  { code: "es", label: "ES" },
+];
+
 const Navbar = () => {
+  const { t, i18n } = useTranslation("common");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const [currentPath, setCurrentPath] = useState("/");
-  
+
   const { isAuthenticated, user, isMember, logout } = useAuth();
+
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code);
+    setLangDropdownOpen(false);
+    setMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     setCurrentPath(location.pathname || "/");
@@ -26,45 +41,49 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { 
-      name: "About Us", 
+    { id: "home", name: t("nav.home"), path: "/" },
+    {
+      id: "aboutUs",
+      name: t("nav.aboutUs"),
       path: "/about",
       dropdown: [
-        { name: "Who We Are", path: "/about" },
-        { name: "Our Brand", path: "/our-brand" },
-        { name: "Partners", path: "/partners" },
-        { name: "Careers", path: "/CareersOpportunities" },
-        { name: "Testimonials", path: "/Testimonials" }
-      ]
-    },
-    { 
-      name: "Areas of Work", 
-      path: "/services",
-      dropdown: [
-        { name: "Advocacy", path: "/services/advocacy" },
-        { name: "Research", path: "/services/research" },
-        { name: "Capacity Building", path: "/services/CapacityBuilding" },
-        { name: "Secretariat Services", path: "/secretariat" },
-      ],
-    },
-    { 
-      name: "Our Team", 
-      path: "/ExecutiveChairman",
-      dropdown: [
-        { name: "Board Of Directors", path: "/ExecutiveChairman" },
-        { name: "Advisory Board", path: "/AdvisoryBoard" },
-        { name: "Management", path: "/Management" }
+        { id: "whoWeAre", name: t("nav.whoWeAre"), path: "/about" },
+        { id: "ourBrand", name: t("nav.ourBrand"), path: "/our-brand" },
+        { id: "partners", name: t("nav.partners"), path: "/partners" },
+        { id: "careers", name: t("nav.careers"), path: "/CareersOpportunities" },
+        { id: "testimonials", name: t("nav.testimonials"), path: "/Testimonials" }
       ]
     },
     {
-      name: "Resources", 
+      id: "areasOfWork",
+      name: t("nav.areasOfWork"),
+      path: "/services",
+      dropdown: [
+        { id: "advocacy", name: t("nav.advocacy"), path: "/services/advocacy" },
+        { id: "research", name: t("nav.research"), path: "/services/research" },
+        { id: "capacityBuilding", name: t("nav.capacityBuilding"), path: "/services/CapacityBuilding" },
+        { id: "secretariatServices", name: t("nav.secretariatServices"), path: "/secretariat" },
+      ],
+    },
+    {
+      id: "ourTeam",
+      name: t("nav.ourTeam"),
+      path: "/ExecutiveChairman",
+      dropdown: [
+        { id: "boardOfDirectors", name: t("nav.boardOfDirectors"), path: "/ExecutiveChairman" },
+        { id: "advisoryBoard", name: t("nav.advisoryBoard"), path: "/AdvisoryBoard" },
+        { id: "management", name: t("nav.management"), path: "/Management" }
+      ]
+    },
+    {
+      id: "resources",
+      name: t("nav.resources"),
       path: "/resources",
       dropdown: [
-        { name: "Library", path: "/resources" },
-        { name: "News & Blogs", path: "/blog" },
-        { name: "Membership", path: "/Membership" },
-        { name: "Gulf Spectrum Podcast", path: "/gulf-spectrum-podcast" },
+        { id: "library", name: t("nav.library"), path: "/resources" },
+        { id: "newsBlogs", name: t("nav.newsBlogs"), path: "/blog" },
+        { id: "membership", name: t("nav.membership"), path: "/Membership" },
+        { id: "gulfSpectrumPodcast", name: t("nav.gulfSpectrumPodcast"), path: "/gulf-spectrum-podcast" },
       ],
     },
 
@@ -72,12 +91,12 @@ const Navbar = () => {
 
   const isActive = (path) => currentPath === path;
 
-  const handleDropdownEnter = (itemName) => {
+  const handleDropdownEnter = (itemId) => {
     if (closeTimeout) {
       clearTimeout(closeTimeout);
       setCloseTimeout(null);
     }
-    setDropdownOpen(itemName);
+    setDropdownOpen(itemId);
   };
 
   const handleDropdownLeave = () => {
@@ -131,7 +150,7 @@ const Navbar = () => {
               }`}
               style={{ fontWeight: 700 }}
             >
-              GoGMI
+              {t("brand.name")}
             </div>
             <div
               className={`text-xs whitespace-nowrap ${
@@ -139,7 +158,7 @@ const Navbar = () => {
               }`}
               style={{ fontWeight: 600 }}
             >
-              Gulf Of Guinea Maritime Institute
+              {t("brand.tagline")}
             </div>
           </div>
         </button>
@@ -152,7 +171,7 @@ const Navbar = () => {
                 <div
                   key={item.path}
                   className="relative"
-                  onMouseEnter={() => handleDropdownEnter(item.name)}
+                  onMouseEnter={() => handleDropdownEnter(item.id)}
                   onMouseLeave={handleDropdownLeave}
                 >
                   <button
@@ -172,7 +191,7 @@ const Navbar = () => {
                     <ChevronDown className="w-4 h-4" />
                   </button>
 
-                  {dropdownOpen === item.name && (
+                  {dropdownOpen === item.id && (
                     <div className="absolute top-full left-0 mt-2 w-64 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
                       {item.dropdown.map((subItem) => (
                         <button
@@ -211,6 +230,41 @@ const Navbar = () => {
 
         {/* Desktop Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+          <div
+            className="relative"
+            onMouseEnter={() => setLangDropdownOpen(true)}
+            onMouseLeave={() => setLangDropdownOpen(false)}
+          >
+            <button
+              type="button"
+              className={`flex items-center gap-1 px-3 py-2.5 rounded-lg transition-all whitespace-nowrap ${
+                scrolled ? "text-[#1F2933] hover:bg-[#8E3400]/10" : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
+              }`}
+              style={{ fontWeight: 600 }}
+              aria-label="Change language"
+            >
+              <Globe className="w-4 h-4" />
+              {LANGUAGES.find((l) => l.code === i18n.resolvedLanguage)?.label || "EN"}
+            </button>
+            {langDropdownOpen && (
+              <div className="absolute top-full right-0 mt-2 w-32 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
+                {LANGUAGES.map((lng) => (
+                  <button
+                    key={lng.code}
+                    onClick={() => changeLanguage(lng.code)}
+                    className={`block w-full text-left px-4 py-2 text-sm transition-colors ${
+                      i18n.resolvedLanguage === lng.code
+                        ? "text-white bg-[#8E3400]/40"
+                        : "text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white"
+                    }`}
+                    style={{ fontWeight: 400 }}
+                  >
+                    {t(`language.${lng.code}`)}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button
             onClick={() => handleNavClick("/donate")}
             className="flex items-center gap-2 px-5 py-2.5 rounded-lg border-2 transition-all hover:scale-105 whitespace-nowrap"
@@ -221,7 +275,7 @@ const Navbar = () => {
             }}
           >
             <Heart className="w-4 h-4" />
-            Donate
+            {t("nav.donate")}
           </button>
           {!isAuthenticated ? (
             <button
@@ -229,7 +283,7 @@ const Navbar = () => {
               className="bg-[#8E3400] text-white px-6 py-2.5 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 whitespace-nowrap"
               style={{ fontWeight: 600 }}
             >
-              Member Login
+              {t("nav.memberLogin")}
             </button>
           ) : (
             <div className="relative">
@@ -247,7 +301,7 @@ const Navbar = () => {
                 {isMember && (
                   <span className="ml-1 inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold bg-emerald-50 text-emerald-700 rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    Active
+                    {t("nav.active")}
                   </span>
                 )}
                 <ChevronDown className={`w-4 h-4 transition-transform ${userDropdownOpen ? 'rotate-180' : ''}`} />
@@ -265,7 +319,7 @@ const Navbar = () => {
                     {isMember && (
                       <span className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Active Member
+                        {t("nav.activeMember")}
                       </span>
                     )}
                   </div>
@@ -276,7 +330,7 @@ const Navbar = () => {
                     style={{ fontWeight: 400 }}
                   >
                     <LayoutDashboard className="w-4 h-4" />
-                    My Dashboard
+                    {t("nav.myDashboard")}
                   </button>
 
                   <button
@@ -284,7 +338,7 @@ const Navbar = () => {
                     className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors"
                     style={{ fontWeight: 400 }}
                   >
-                    My Resources
+                    {t("nav.myResources")}
                   </button>
 
                   <button
@@ -293,7 +347,7 @@ const Navbar = () => {
                     style={{ fontWeight: 400 }}
                   >
                     <LogOut className="w-4 h-4" />
-                    Logout
+                    {t("nav.logout")}
                   </button>
                 </div>
               )}
@@ -322,14 +376,14 @@ const Navbar = () => {
                 <div key={item.path}>
                   <button
                     type="button"
-                    onClick={() => setDropdownOpen(dropdownOpen === item.name ? null : item.name)}
+                    onClick={() => setDropdownOpen(dropdownOpen === item.id ? null : item.id)}
                     className="flex items-center justify-between w-full text-left py-3 px-4 text-[#1F2933] rounded-lg hover:bg-[#8E3400]/10"
                     style={{ fontWeight: 600 }}
                   >
                     {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen === item.name ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen === item.id ? 'rotate-180' : ''}`} />
                   </button>
-                  {dropdownOpen === item.name && (
+                  {dropdownOpen === item.id && (
                     <div className="pl-4 space-y-1 mt-2 bg-[#132552] rounded-lg p-2">
                       {item.dropdown.map((subItem) => (
                         <button
@@ -360,13 +414,36 @@ const Navbar = () => {
               )
             )}
 
+            <div className="pt-2">
+              <p className="px-4 text-xs text-[#1F2933]/60 mb-1" style={{ fontWeight: 600 }}>
+                <Globe className="w-3.5 h-3.5 inline mr-1" />
+                Language
+              </p>
+              <div className="flex gap-2 px-4">
+                {LANGUAGES.map((lng) => (
+                  <button
+                    key={lng.code}
+                    onClick={() => changeLanguage(lng.code)}
+                    className={`flex-1 py-2 rounded-lg text-sm transition-colors ${
+                      i18n.resolvedLanguage === lng.code
+                        ? "bg-[#132552] text-[#F5F7FA]"
+                        : "bg-gray-100 text-[#1F2933] hover:bg-[#8E3400]/10"
+                    }`}
+                    style={{ fontWeight: 600 }}
+                  >
+                    {t(`language.${lng.code}`)}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <button
               onClick={() => handleNavClick("/donate")}
               className="flex items-center justify-center gap-2 w-full text-center border-2 px-6 py-3 rounded-lg transition-all"
               style={{ borderColor: '#8E3400', color: '#8E3400', fontWeight: 600 }}
             >
               <Heart className="w-4 h-4" />
-              Donate
+              {t("nav.donate")}
             </button>
 
             {!isAuthenticated ? (
@@ -375,7 +452,7 @@ const Navbar = () => {
                 className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg"
                 style={{ fontWeight: 600 }}
               >
-                Member Login
+                {t("nav.memberLogin")}
               </button>
             ) : (
               <>
@@ -392,7 +469,7 @@ const Navbar = () => {
                   {isMember && (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 rounded-full">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      Active Member
+                      {t("nav.activeMember")}
                     </span>
                   )}
                 </div>
@@ -403,7 +480,7 @@ const Navbar = () => {
                   style={{ fontWeight: 600 }}
                 >
                   <LayoutDashboard className="w-4 h-4" />
-                  My Dashboard
+                  {t("nav.myDashboard")}
                 </button>
 
                 <button
@@ -411,7 +488,7 @@ const Navbar = () => {
                   className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
                   style={{ fontWeight: 600 }}
                 >
-                  My Resources
+                  {t("nav.myResources")}
                 </button>
 
                 <button
@@ -420,7 +497,7 @@ const Navbar = () => {
                   style={{ fontWeight: 600 }}
                 >
                   <LogOut className="w-4 h-4" />
-                  Logout
+                  {t("nav.logout")}
                 </button>
               </>
             )}

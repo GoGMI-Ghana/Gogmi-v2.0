@@ -1,0 +1,69 @@
+{
+  "badge": "Restons en contact",
+  "title": "Contactez-nous",
+  "subtitle": "Vous avez une question ou souhaitez collaborer avec nous ? Nous serions ravis de vous entendre.",
+  "cards": {
+    "call": { "title": "Appelez-nous", "info": "+233 50 4953400", "subinfo": "Lun-Ven : 8h30-16h30 GMT" },
+    "email": { "title": "Écrivez-nous", "info": "info@gogmi.org.gh", "subinfo": "Nous répondons sous 48 heures" },
+    "visit": { "title": "Rendez-nous visite", "info": "GL-108-0038, No. 4 Obodai link street", "subinfo": "Tse Addo La Dade Kotopon, Gr Accra" }
+  },
+  "form": {
+    "eyebrow": "Formulaire de contact",
+    "heading": "Envoyez-nous un message",
+    "description": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les meilleurs délais.",
+    "successMessage": "Message envoyé avec succès ! Nous vous recontacterons bientôt.",
+    "nameLabel": "Votre nom *",
+    "namePlaceholder": "James Bond",
+    "emailLabel": "Adresse e-mail *",
+    "emailPlaceholder": "info@example.com",
+    "phoneLabel": "Numéro de téléphone",
+    "phonePlaceholder": "+233 XXX XXX XXX",
+    "subjectLabel": "Sujet *",
+    "subjectPlaceholder": "Sélectionnez un sujet",
+    "subjectOptions": {
+      "general": "Demande générale",
+      "partnership": "Opportunité de partenariat",
+      "training": "Programmes de formation",
+      "research": "Collaboration en recherche",
+      "membership": "Adhésion",
+      "other": "Autre"
+    },
+    "messageLabel": "Message *",
+    "messagePlaceholder": "Parlez-nous de votre demande...",
+    "sending": "Envoi en cours...",
+    "send": "Envoyer le message",
+    "errors": {
+      "name": "Le nom est requis",
+      "emailRequired": "L'e-mail est requis",
+      "emailInvalid": "L'e-mail n'est pas valide",
+      "subject": "Veuillez sélectionner un sujet",
+      "messageRequired": "Le message est requis",
+      "messageTooShort": "Le message doit contenir au moins 10 caractères",
+      "submitFallback": "Échec de l'envoi du message. Veuillez réessayer ou nous écrire directement à info@gogmi.org.gh"
+    }
+  },
+  "officeHours": {
+    "heading": "Heures d'ouverture",
+    "schedule": [
+      { "days": "Lundi - Vendredi", "hours": "8h30 - 16h30" },
+      { "days": "Samedi", "hours": "Sur rendez-vous" },
+      { "days": "Dimanche", "hours": "Fermé" }
+    ]
+  },
+  "social": {
+    "heading": "Suivez-nous",
+    "subtitle": "Suivez-nous sur les réseaux sociaux pour nos actualités et analyses"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heading": "Questions fréquentes",
+    "subtitle": "Réponses rapides aux questions courantes",
+    "items": [
+      { "q": "Comment puis-je devenir partenaire du GOGMI ?", "a": "Nous accueillons volontiers les partenariats ! Veuillez remplir le formulaire de contact ci-dessus en choisissant « Opportunité de partenariat » comme sujet, et notre équipe vous contactera pour discuter des possibilités de collaboration." },
+      { "q": "Proposez-vous des programmes de formation ?", "a": "Oui, nous proposons divers programmes de renforcement des capacités et de formation, notamment le Programme de mentorat bleu, la formation en sécurité maritime et des cours sur l'économie bleue. Consultez notre page Renforcement des capacités pour en savoir plus." },
+      { "q": "Combien de temps faut-il pour obtenir une réponse ?", "a": "Nous répondons généralement à toutes les demandes dans un délai de 24 à 48 heures les jours ouvrables. Pour les questions urgentes, vous pouvez nous joindre par téléphone pour une assistance immédiate." },
+      { "q": "Puis-je visiter vos bureaux ?", "a": "Oui ! Nous accueillons volontiers les visites à nos bureaux d'Accra. Merci de prendre rendez-vous à l'avance en nous contactant pour vous assurer qu'un membre de l'équipe soit disponible." },
+      { "q": "Comment postuler au Programme de mentorat bleu ?", "a": "Les candidatures au Programme de mentorat bleu ouvrent périodiquement. Contactez-nous ou consultez notre site web pour connaître les prochaines dates d'admission et les conditions de candidature." }
+    ]
+  }
+}

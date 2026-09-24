@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Waves, MapPin, Mail, Phone, Linkedin, Twitter, Facebook, ArrowRight, Youtube, MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const API_URL = 'https://api.gogmi.org.gh/api';
 
 const Footer = () => {
+  const { t } = useTranslation('common');
   const [subEmail, setSubEmail] = useState('');
   const [subStatus, setSubStatus] = useState(null); // null | 'loading' | 'success' | 'error'
   const [subMsg, setSubMsg] = useState('');
@@ -22,15 +24,15 @@ const Footer = () => {
       const data = await res.json();
       if (data.success) {
         setSubStatus('success');
-        setSubMsg('Thank you for subscribing!');
+        setSubMsg(t('footer.subscribeSuccess'));
         setSubEmail('');
       } else {
         setSubStatus('error');
-        setSubMsg(data.message || 'Something went wrong. Please try again.');
+        setSubMsg(data.message || t('footer.subscribeError'));
       }
     } catch {
       setSubStatus('error');
-      setSubMsg('Unable to subscribe. Please try again later.');
+      setSubMsg(t('footer.subscribeErrorGeneric'));
     }
   };
 
@@ -57,23 +59,23 @@ const Footer = () => {
                 <Waves className="w-6 h-6 text-[#8E3400]" />
               </div>
               <div>
-                <div className="font-bold text-xl" style={{ fontWeight: 700 }}>GoGMI</div>
-                <div className="text-sm text-gray-400" style={{ fontWeight: 400 }}>Gulf of Guinea Maritime Institute</div>
+                <div className="font-bold text-xl" style={{ fontWeight: 700 }}>{t('brand.name')}</div>
+                <div className="text-sm text-gray-400" style={{ fontWeight: 400 }}>{t('footer.tagline')}</div>
               </div>
             </div>
-           
+
           </div>
 
           {/* Column 2 - Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>Quick Links</h3>
+            <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>{t('footer.quickLinks')}</h3>
             <ul className="space-y-3">
               {[
-                { name: 'Home', path: '/' },
-                { name: 'About Us', path: '/about' },
-                { name: 'Membership', path: '/Membership' },
-                { name: 'Blue Business Directory', path: '/blue-business-directory' },
-                
+                { name: t('footer.home'), path: '/' },
+                { name: t('footer.aboutUs'), path: '/about' },
+                { name: t('footer.membership'), path: '/Membership' },
+                { name: t('footer.blueBusinessDirectory'), path: '/blue-business-directory' },
+
               ].map((item) => (
                 <li key={item.path}>
                   <Link 
@@ -91,14 +93,14 @@ const Footer = () => {
 
           {/* Column 3 - Resources */}
           <div>
-            <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>Resources</h3>
+            <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>{t('footer.resources')}</h3>
             <ul className="space-y-3">
               {[
-                { name: 'Library', path: '/Resources' },
-                { name: 'News & Blogs', path: '/blog' },
-                { name: 'Contact', path: '/contact' },
-                { name: 'Careers', path: '/CareersOpportunities' },
-                { name: 'Partners', path: '/partners' }
+                { name: t('footer.library'), path: '/Resources' },
+                { name: t('footer.newsBlogs'), path: '/blog' },
+                { name: t('footer.contact'), path: '/contact' },
+                { name: t('footer.careers'), path: '/CareersOpportunities' },
+                { name: t('footer.partners'), path: '/partners' }
               ].map((item) => (
                 <li key={item.path}>
                   <Link 
@@ -119,7 +121,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>Connect With Us</h3>
+              <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>{t('footer.connectWithUs')}</h3>
               <div className="flex space-x-4">
                 <a 
                   href="https://www.linkedin.com/company/gulf-of-guinea-maritime-institute/" 
@@ -171,14 +173,14 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div>
-              <h3 className="font-bold text-lg mb-3 text-center md:text-left" style={{ fontWeight: 700 }}>Subscribe to Newsletter</h3>
+              <h3 className="font-bold text-lg mb-3 text-center md:text-left" style={{ fontWeight: 700 }}>{t('footer.subscribeNewsletter')}</h3>
               {subStatus === 'success' ? (
                 <p className="text-sm font-semibold" style={{ color: '#4ADE80' }}>{subMsg}</p>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex gap-2">
                   <input
                     type="email"
-                    placeholder="Your email"
+                    placeholder={t('footer.emailPlaceholder')}
                     value={subEmail}
                     onChange={e => setSubEmail(e.target.value)}
                     required
@@ -192,7 +194,7 @@ const Footer = () => {
                     className="bg-[#8E3400] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#6B2700] transition-all text-sm disabled:opacity-60 whitespace-nowrap"
                     style={{ fontWeight: 600 }}
                   >
-                    {subStatus === 'loading' ? '…' : 'Subscribe'}
+                    {subStatus === 'loading' ? t('footer.subscribing') : t('footer.subscribe')}
                   </button>
                 </form>
               )}
@@ -205,12 +207,12 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p style={{ fontWeight: 400 }}>© 2025 GoGMI. All rights reserved.</p>
+          <p style={{ fontWeight: 400 }}>{t('footer.copyright')}</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Privacy Policy</Link>
-  
-            <Link to="/terms" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Terms of Service</Link>
-            <Link to="/sitemap" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>Sitemap</Link>
+            <Link to="/privacy" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>{t('footer.privacyPolicy')}</Link>
+
+            <Link to="/terms" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>{t('footer.termsOfService')}</Link>
+            <Link to="/sitemap" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>{t('footer.sitemap')}</Link>
           </div>
         </div>
       </div>

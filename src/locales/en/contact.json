@@ -1,0 +1,69 @@
+{
+  "badge": "Let's Connect",
+  "title": "Get In Touch",
+  "subtitle": "Have a question or want to work with us? We'd love to hear from you.",
+  "cards": {
+    "call": { "title": "Call Us", "info": "+233 50 4953400", "subinfo": "Mon-Fri : 8:30 am-4:30pm GMT" },
+    "email": { "title": "Email Us", "info": "info@gogmi.org.gh", "subinfo": "We reply within 48 hours" },
+    "visit": { "title": "Visit Us", "info": "GL-108-0038, No. 4 Obodai link street", "subinfo": "Tse Addo La Dade Kotopon, Gr Accra" }
+  },
+  "form": {
+    "eyebrow": "Contact Form",
+    "heading": "Send Us a Message",
+    "description": "Fill out the form below and we'll get back to you as soon as possible.",
+    "successMessage": "Message sent successfully! We'll be in touch soon.",
+    "nameLabel": "Your Name *",
+    "namePlaceholder": "James Bond",
+    "emailLabel": "Email Address *",
+    "emailPlaceholder": "info@example.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "+233 XXX XXX XXX",
+    "subjectLabel": "Subject *",
+    "subjectPlaceholder": "Select a subject",
+    "subjectOptions": {
+      "general": "General Inquiry",
+      "partnership": "Partnership Opportunity",
+      "training": "Training Programs",
+      "research": "Research Collaboration",
+      "membership": "Membership",
+      "other": "Other"
+    },
+    "messageLabel": "Message *",
+    "messagePlaceholder": "Tell us about your inquiry...",
+    "sending": "Sending...",
+    "send": "Send Message",
+    "errors": {
+      "name": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Email is invalid",
+      "subject": "Please select a subject",
+      "messageRequired": "Message is required",
+      "messageTooShort": "Message must be at least 10 characters",
+      "submitFallback": "Failed to send message. Please try again or email us directly at info@gogmi.org.gh"
+    }
+  },
+  "officeHours": {
+    "heading": "Office Hours",
+    "schedule": [
+      { "days": "Monday - Friday", "hours": "8:30 AM - 4:30 PM" },
+      { "days": "Saturday", "hours": "By Appointment" },
+      { "days": "Sunday", "hours": "Closed" }
+    ]
+  },
+  "social": {
+    "heading": "Connect With Us",
+    "subtitle": "Follow us on social media for updates and insights"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heading": "Frequently Asked Questions",
+    "subtitle": "Quick answers to common questions",
+    "items": [
+      { "q": "How can I partner with GOGMI?", "a": "We welcome partnerships! Please fill out the contact form above with \"Partnership Opportunity\" as the subject, and our team will reach out to discuss collaboration opportunities." },
+      { "q": "Do you offer training programs?", "a": "Yes, we offer various capacity building and training programs including the Blue Mentorship Programme, Maritime Security Training, and Blue Economy courses. Visit our Capacity Building page for more information." },
+      { "q": "How long does it take to get a response?", "a": "We typically respond to all inquiries within 24-48 hours during business days. Urgent matters can be directed to our phone line for immediate assistance." },
+      { "q": "Can I visit your office?", "a": "Yes! We welcome office visits at our Accra location. Please schedule an appointment by contacting us in advance to ensure someone is available to meet with you." },
+      { "q": "How do I apply for the Blue Mentorship Programme?", "a": "Applications for the Blue Mentorship Programme open periodically. Contact us or check our website for the next intake dates and application requirements." }
+    ]
+  }
+}
