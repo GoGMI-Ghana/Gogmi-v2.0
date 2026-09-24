@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Support Our Work",
+    "title": "Donate to GoGMI",
+    "subtitle": "Your contribution helps sustain independent maritime research, capacity building, and advocacy for a safer, more sustainable Gulf of Guinea."
+  },
+  "impact": {
+    "research": { "title": "Independent Research", "desc": "Funds policy briefs, reports, and strategic analysis on maritime security and the blue economy." },
+    "capacity": { "title": "Capacity Building", "desc": "Supports training programmes and mentorship for the next generation of maritime professionals." },
+    "advocacy": { "title": "Regional Advocacy", "desc": "Sustains GoGMI's voice in regional dialogues shaping maritime governance and policy." }
+  },
+  "form": {
+    "heading": "Make a Donation",
+    "subheading": "Every contribution, large or small, makes a difference.",
+    "fullNameLabel": "Full Name *",
+    "emailLabel": "Email Address *",
+    "phoneLabel": "Phone",
+    "countryLabel": "Country *",
+    "amountLabel": "Donation Amount (USD) *",
+    "amountPlaceholder": "0.00",
+    "messageLabel": "Message (optional)",
+    "messagePlaceholder": "Leave a note with your donation",
+    "anonymousLabel": "I'd like to donate anonymously — don't display my name publicly.",
+    "anonymousSubtext": "We'll still keep your details on file for your receipt; they just won't be shared or shown.",
+    "processing": "Processing…",
+    "donateNow": "Donate Now",
+    "securityNote": "Payments are processed securely via Paystack. GoGMI does not store your card details."
+  },
+  "success": {
+    "heading": "Thank You!",
+    "body": "Your donation of {{amount}} has been received.",
+    "reference": "Reference: {{reference}}",
+    "another": "Make Another Donation"
+  },
+  "errors": {
+    "fillRequired": "Please fill in your name, email, and country.",
+    "invalidAmount": "Please enter a donation amount greater than zero.",
+    "paymentLoading": "Payment system is still loading. Please wait a moment and try again.",
+    "paymentInitFailed": "Payment initialisation failed. Please check your internet connection and try again.",
+    "recordFailed": "Your payment went through, but we hit a snag recording it ({{error}}). Please contact info@gogmi.org.gh with this reference so we can confirm your donation: {{reference}}",
+    "recordUnconfirmed": "Your payment went through, but we couldn't confirm it was recorded. Please contact info@gogmi.org.gh with this reference: {{reference}}"
+  }
+}

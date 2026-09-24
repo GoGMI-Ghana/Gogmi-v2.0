@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, ShieldCheck, BookOpen, Users, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 const USD_TO_GHS = 10.88;
 
 const Donate = () => {
+  const { t } = useTranslation('donate');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -56,14 +58,12 @@ const Donate = () => {
         setFormData({ fullName: '', email: '', phone: '', country: '', amount: '', message: '', isAnonymous: false });
       } else {
         setError(
-          `Your payment went through, but we hit a snag recording it (${data.message || 'unknown error'}). ` +
-          `Please contact info@gogmi.org.gh with this reference so we can confirm your donation: ${paymentReference}`
+          t('errors.recordFailed', { error: data.message || 'unknown error', reference: paymentReference })
         );
       }
     } catch (err) {
       setError(
-        `Your payment went through, but we couldn't confirm it was recorded. ` +
-        `Please contact info@gogmi.org.gh with this reference: ${paymentReference}`
+        t('errors.recordUnconfirmed', { reference: paymentReference })
       );
     } finally {
       setIsProcessing(false);
@@ -75,18 +75,18 @@ const Donate = () => {
     setError('');
 
     if (!formData.fullName || !formData.email || !formData.country) {
-      setError('Please fill in your name, email, and country.');
+      setError(t('errors.fillRequired'));
       return;
     }
 
     const amountUSD = parseFloat(formData.amount);
     if (!amountUSD || amountUSD <= 0) {
-      setError('Please enter a donation amount greater than zero.');
+      setError(t('errors.invalidAmount'));
       return;
     }
 
     if (typeof window.PaystackPop === 'undefined') {
-      setError('Payment system is still loading. Please wait a moment and try again.');
+      setError(t('errors.paymentLoading'));
       return;
     }
 
@@ -124,7 +124,7 @@ const Donate = () => {
       handler.openIframe();
     } catch (err) {
       setIsProcessing(false);
-      setError('Payment initialisation failed. Please check your internet connection and try again.');
+      setError(t('errors.paymentInitFailed'));
     }
   };
 
@@ -146,14 +146,13 @@ const Donate = () => {
             style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}
           >
             <Heart className="w-4 h-4" />
-            Support Our Work
+            {t('hero.badge')}
           </span>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Donate to GoGMI
+            {t('hero.title')}
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed" style={{ fontWeight: 400 }}>
-            Your contribution helps sustain independent maritime research, capacity building, and
-            advocacy for a safer, more sustainable Gulf of Guinea.
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -166,27 +165,27 @@ const Donate = () => {
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#FEF3EC' }}>
                 <BookOpen className="w-7 h-7" style={{ color: '#8E3400' }} />
               </div>
-              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>Independent Research</h3>
+              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>{t('impact.research.title')}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Funds policy briefs, reports, and strategic analysis on maritime security and the blue economy.
+                {t('impact.research.desc')}
               </p>
             </div>
             <div>
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#FEF3EC' }}>
                 <Users className="w-7 h-7" style={{ color: '#8E3400' }} />
               </div>
-              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>Capacity Building</h3>
+              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>{t('impact.capacity.title')}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Supports training programmes and mentorship for the next generation of maritime professionals.
+                {t('impact.capacity.desc')}
               </p>
             </div>
             <div>
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#FEF3EC' }}>
                 <ShieldCheck className="w-7 h-7" style={{ color: '#8E3400' }} />
               </div>
-              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>Regional Advocacy</h3>
+              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>{t('impact.advocacy.title')}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Sustains GoGMI's voice in regional dialogues shaping maritime governance and policy.
+                {t('impact.advocacy.desc')}
               </p>
             </div>
           </div>
@@ -202,23 +201,23 @@ const Donate = () => {
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: '#ECFDF5' }}>
                   <CheckCircle className="w-8 h-8 text-emerald-600" />
                 </div>
-                <h2 className="text-2xl font-bold mb-2" style={{ color: '#132552' }}>Thank You!</h2>
+                <h2 className="text-2xl font-bold mb-2" style={{ color: '#132552' }}>{t('success.heading')}</h2>
                 <p className="text-gray-500 mb-1">
-                  Your donation of <span className="font-semibold" style={{ color: '#132552' }}>${success.amount}</span> has been received.
+                  {t('success.body', { amount: '$' + success.amount })}
                 </p>
-                <p className="text-xs text-gray-400">Reference: {success.reference}</p>
+                <p className="text-xs text-gray-400">{t('success.reference', { reference: success.reference })}</p>
                 <button
                   onClick={() => setSuccess(null)}
                   className="mt-6 px-6 py-2.5 rounded-lg font-bold text-sm"
                   style={{ backgroundColor: '#8E3400', color: 'white' }}
                 >
-                  Make Another Donation
+                  {t('success.another')}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <h2 className="text-2xl font-bold mb-1" style={{ color: '#132552' }}>Make a Donation</h2>
-                <p className="text-sm text-gray-500 mb-4">Every contribution, large or small, makes a difference.</p>
+                <h2 className="text-2xl font-bold mb-1" style={{ color: '#132552' }}>{t('form.heading')}</h2>
+                <p className="text-sm text-gray-500 mb-4">{t('form.subheading')}</p>
 
                 {error && (
                   <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg text-sm">
@@ -227,7 +226,7 @@ const Donate = () => {
                 )}
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.fullNameLabel')}</label>
                   <input
                     type="text"
                     name="fullName"
@@ -239,7 +238,7 @@ const Donate = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.emailLabel')}</label>
                   <input
                     type="email"
                     name="email"
@@ -252,7 +251,7 @@ const Donate = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Phone</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.phoneLabel')}</label>
                     <input
                       type="tel"
                       name="phone"
@@ -262,7 +261,7 @@ const Donate = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Country *</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.countryLabel')}</label>
                     <input
                       type="text"
                       name="country"
@@ -275,7 +274,7 @@ const Donate = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Donation Amount (USD) *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.amountLabel')}</label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
                     <input
@@ -286,20 +285,20 @@ const Donate = () => {
                       min="1"
                       step="0.01"
                       required
-                      placeholder="0.00"
+                      placeholder={t('form.amountPlaceholder')}
                       className="w-full pl-7 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Message (optional)</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.messageLabel')}</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     rows={3}
-                    placeholder="Leave a note with your donation"
+                    placeholder={t('form.messagePlaceholder')}
                     className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400] resize-none"
                   />
                 </div>
@@ -314,9 +313,9 @@ const Donate = () => {
                     style={{ accentColor: '#8E3400' }}
                   />
                   <span className="text-sm text-gray-600">
-                    I'd like to donate anonymously — don't display my name publicly.
+                    {t('form.anonymousLabel')}
                     <span className="block text-xs text-gray-400 mt-0.5">
-                      We'll still keep your details on file for your receipt; they just won't be shared or shown.
+                      {t('form.anonymousSubtext')}
                     </span>
                   </span>
                 </label>
@@ -327,11 +326,11 @@ const Donate = () => {
                   className="w-full py-3.5 rounded-lg font-bold text-white transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
                   style={{ backgroundColor: '#8E3400' }}
                 >
-                  {isProcessing ? 'Processing…' : 'Donate Now'}
+                  {isProcessing ? t('form.processing') : t('form.donateNow')}
                 </button>
 
                 <p className="text-xs text-gray-400 text-center">
-                  Payments are processed securely via Paystack. GoGMI does not store your card details.
+                  {t('form.securityNote')}
                 </p>
               </form>
             )}

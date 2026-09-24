@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "badge": "Nuestra red",
+    "title": "Nuestros socios",
+    "subtitle": "Trabajando junto a organizaciones líderes para impulsar la excelencia marítima en todo el Golfo de Guinea"
+  },
+  "intro": {
+    "heading": "Alianzas estratégicas para la excelencia marítima",
+    "para1": "Las alianzas de GoGMI representan una red diversa de organizaciones internacionales, organismos regionales, agencias gubernamentales, instituciones académicas y entidades del sector privado comprometidas con impulsar la seguridad marítima y el desarrollo sostenible de la economía azul en el Golfo de Guinea.",
+    "para2": "A través de colaboraciones estratégicas, aprovechamos la experiencia, los recursos y las redes colectivas para abordar desafíos marítimos complejos, fortalecer la capacidad regional y promover la formulación de políticas basadas en evidencia.",
+    "para3": "Cada alianza se basa en valores compartidos de transparencia, respeto mutuo y compromiso con el avance de la economía azul."
+  },
+  "filter": {
+    "heading": "Filtrar por categoría",
+    "partnership": "Alianza",
+    "sponsorship": "Patrocinio"
+  },
+  "grid": {
+    "showing": "Mostrando",
+    "partnersIn": "socios en"
+  },
+  "card": {
+    "readMore": "Leer más",
+    "readLess": "Leer menos",
+    "visit": "Visitar"
+  },
+  "cta": {
+    "badge": "Únete a nuestra red",
+    "heading": "Conviértete en socio",
+    "subtitle": "Únete a nuestra red de organizaciones líderes que impulsan la excelencia marítima en el Golfo de Guinea.",
+    "button": "Ser socio"
+  }
+}

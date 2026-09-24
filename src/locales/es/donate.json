@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Apoya nuestro trabajo",
+    "title": "Donar a GoGMI",
+    "subtitle": "Tu contribución ayuda a sostener la investigación marítima independiente, el fortalecimiento de capacidades y la incidencia por un Golfo de Guinea más seguro y sostenible."
+  },
+  "impact": {
+    "research": { "title": "Investigación independiente", "desc": "Financia notas de política, informes y análisis estratégicos sobre seguridad marítima y economía azul." },
+    "capacity": { "title": "Fortalecimiento de capacidades", "desc": "Apoya programas de formación y mentoría para la próxima generación de profesionales marítimos." },
+    "advocacy": { "title": "Incidencia regional", "desc": "Sostiene la voz de GoGMI en los diálogos regionales que dan forma a la gobernanza y las políticas marítimas." }
+  },
+  "form": {
+    "heading": "Hacer una donación",
+    "subheading": "Cada contribución, grande o pequeña, marca la diferencia.",
+    "fullNameLabel": "Nombre completo *",
+    "emailLabel": "Correo electrónico *",
+    "phoneLabel": "Teléfono",
+    "countryLabel": "País *",
+    "amountLabel": "Monto de la donación (USD) *",
+    "amountPlaceholder": "0.00",
+    "messageLabel": "Mensaje (opcional)",
+    "messagePlaceholder": "Deja una nota con tu donación",
+    "anonymousLabel": "Me gustaría donar de forma anónima — no mostrar mi nombre públicamente.",
+    "anonymousSubtext": "Aun así conservaremos tus datos para tu recibo; simplemente no se compartirán ni se mostrarán.",
+    "processing": "Procesando…",
+    "donateNow": "Donar ahora",
+    "securityNote": "Los pagos se procesan de forma segura a través de Paystack. GoGMI no almacena los datos de tu tarjeta."
+  },
+  "success": {
+    "heading": "¡Gracias!",
+    "body": "Tu donación de {{amount}} ha sido recibida.",
+    "reference": "Referencia: {{reference}}",
+    "another": "Hacer otra donación"
+  },
+  "errors": {
+    "fillRequired": "Por favor completa tu nombre, correo electrónico y país.",
+    "invalidAmount": "Por favor ingresa un monto de donación mayor que cero.",
+    "paymentLoading": "El sistema de pago aún se está cargando. Por favor espera un momento e inténtalo de nuevo.",
+    "paymentInitFailed": "Error al iniciar el pago. Por favor verifica tu conexión a internet e inténtalo de nuevo.",
+    "recordFailed": "Tu pago se realizó, pero tuvimos un problema al registrarlo ({{error}}). Por favor contacta a info@gogmi.org.gh con esta referencia para que podamos confirmar tu donación: {{reference}}",
+    "recordUnconfirmed": "Tu pago se realizó, pero no pudimos confirmar que se haya registrado. Por favor contacta a info@gogmi.org.gh con esta referencia: {{reference}}"
+  }
+}

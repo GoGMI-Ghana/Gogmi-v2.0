@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { ExternalLink, Building2, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const DESCRIPTION_TRUNCATE_LENGTH = 140;
 
 const PartnerCard = ({ partner }) => {
+  const { t } = useTranslation('partners');
   const [expanded, setExpanded] = useState(false);
   const isLong = partner.description && partner.description.length > DESCRIPTION_TRUNCATE_LENGTH;
 
@@ -14,7 +16,7 @@ const PartnerCard = ({ partner }) => {
       <div className="absolute top-4 right-4">
         <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs"
               style={{ backgroundColor: partner.category === 'Sponsorship' ? '#132552' : '#8E3400', color: 'white', fontWeight: 600 }}>
-          {partner.category}
+          {partner.category === 'Sponsorship' ? t('filter.sponsorship') : t('filter.partnership')}
         </span>
       </div>
 
@@ -65,7 +67,7 @@ const PartnerCard = ({ partner }) => {
                 className="flex items-center gap-1 text-xs mb-3 hover:underline"
                 style={{ color: '#8E3400', fontWeight: 600 }}
               >
-                {expanded ? 'Read less' : 'Read more'}
+                {expanded ? t('card.readLess') : t('card.readMore')}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
               </button>
             )}
@@ -84,7 +86,7 @@ const PartnerCard = ({ partner }) => {
               className="flex items-center gap-1 hover:text-[#8E3400] transition-colors ml-auto"
               style={{ color: '#132552', fontWeight: 600 }}
             >
-              <span>Visit</span>
+              <span>{t('card.visit')}</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           )}
@@ -95,6 +97,7 @@ const PartnerCard = ({ partner }) => {
 };
 
 const Partners = () => {
+  const { t } = useTranslation('partners');
   const [selectedCategory, setSelectedCategory] = useState('Partnership');
 
   const partners = [
@@ -303,14 +306,14 @@ const Partners = () => {
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
                 style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}>
-            Our Network
+            {t('hero.badge')}
           </span>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6" 
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-6"
               style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Our Partners
+            {t('hero.title')}
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" style={{ fontWeight: 400 }}>
-            Working together with leading organizations to advance maritime excellence across the Gulf Of Guinea
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -321,21 +324,21 @@ const Partners = () => {
           <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-black mb-6 text-center"
                 style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Strategic Partnerships for Maritime Excellence
+              {t('intro.heading')}
             </h2>
 </div>
 
           <div className="space-y-6 text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
             <p>
-              GoGMI's partnerships represent a diverse network of international organizations, regional bodies, government agencies, academic institutions, and private sector entities committed to advancing maritime security and sustainable blue economy development in the Gulf of Guinea.
+              {t('intro.para1')}
             </p>
 
             <p>
-              Through strategic collaborations, we leverage collective expertise, resources, and networks to address complex maritime challenges, build regional capacity, and promote evidence-based policymaking.
+              {t('intro.para2')}
             </p>
 
             <p>
-              Each partnership is built on shared values of transparency, mutual respect, and commitment to advancing the blue economy.
+              {t('intro.para3')}
             </p>
           </div>
         </div>
@@ -346,10 +349,10 @@ const Partners = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-6" style={{ color: '#132552', fontWeight: 700 }}>
-              Filter by Category
+              {t('filter.heading')}
             </h3>
           </div>
-          
+
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <button
@@ -360,14 +363,14 @@ const Partners = () => {
                     ? 'shadow-lg'
                     : 'border-2 hover:border-[#8E3400]'
                 }`}
-                style={{ 
+                style={{
                   backgroundColor: selectedCategory === category ? '#8E3400' : 'white',
                   color: selectedCategory === category ? 'white' : '#132552',
                   borderColor: selectedCategory === category ? '#8E3400' : '#E5E7EB',
-                  fontWeight: 600 
+                  fontWeight: 600
                 }}
               >
-                {category}
+                {category === 'Sponsorship' ? t('filter.sponsorship') : t('filter.partnership')}
               </button>
             ))}
           </div>
@@ -380,7 +383,7 @@ const Partners = () => {
           {/* Count Display */}
           <div className="text-center mb-10">
             <p className="text-lg" style={{ color: '#4B5563', fontWeight: 400 }}>
-              Showing <span style={{ color: '#8E3400', fontWeight: 700 }}>{filteredPartners.length}</span> partners in <span style={{ color: '#8E3400', fontWeight: 700 }}>{selectedCategory}</span>
+              {t('grid.showing')} <span style={{ color: '#8E3400', fontWeight: 700 }}>{filteredPartners.length}</span> {t('grid.partnersIn')} <span style={{ color: '#8E3400', fontWeight: 700 }}>{selectedCategory === 'Sponsorship' ? t('filter.sponsorship') : t('filter.partnership')}</span>
             </p>
           </div>
 
@@ -399,21 +402,21 @@ const Partners = () => {
   <div className="max-w-4xl mx-auto px-6 text-center">
     <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4"
           style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}>
-      Join Our Network
+      {t('cta.badge')}
     </span>
     <h2 className="text-4xl font-black mb-6"
         style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-      Become a Partner
+      {t('cta.heading')}
     </h2>
     <p className="text-xl mb-10 leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-      Join our network of leading organizations driving maritime excellence in the Gulf of Guinea.
+      {t('cta.subtitle')}
     </p>
     <Link
       to="/contact"
       className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl transition-all shadow-lg hover:scale-105"
       style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
     >
-      <span>Partner With Us</span>
+      <span>{t('cta.button')}</span>
       <ExternalLink className="w-5 h-5" />
     </Link>
   </div>

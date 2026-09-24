@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "badge": "Our Network",
+    "title": "Our Partners",
+    "subtitle": "Working together with leading organizations to advance maritime excellence across the Gulf Of Guinea"
+  },
+  "intro": {
+    "heading": "Strategic Partnerships for Maritime Excellence",
+    "para1": "GoGMI's partnerships represent a diverse network of international organizations, regional bodies, government agencies, academic institutions, and private sector entities committed to advancing maritime security and sustainable blue economy development in the Gulf of Guinea.",
+    "para2": "Through strategic collaborations, we leverage collective expertise, resources, and networks to address complex maritime challenges, build regional capacity, and promote evidence-based policymaking.",
+    "para3": "Each partnership is built on shared values of transparency, mutual respect, and commitment to advancing the blue economy."
+  },
+  "filter": {
+    "heading": "Filter by Category",
+    "partnership": "Partnership",
+    "sponsorship": "Sponsorship"
+  },
+  "grid": {
+    "showing": "Showing",
+    "partnersIn": "partners in"
+  },
+  "card": {
+    "readMore": "Read more",
+    "readLess": "Read less",
+    "visit": "Visit"
+  },
+  "cta": {
+    "badge": "Join Our Network",
+    "heading": "Become a Partner",
+    "subtitle": "Join our network of leading organizations driving maritime excellence in the Gulf of Guinea.",
+    "button": "Partner With Us"
+  }
+}

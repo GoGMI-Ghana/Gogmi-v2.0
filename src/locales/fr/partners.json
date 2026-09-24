@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "badge": "Notre réseau",
+    "title": "Nos partenaires",
+    "subtitle": "Collaborer avec des organisations de premier plan pour faire progresser l'excellence maritime dans tout le Golfe de Guinée"
+  },
+  "intro": {
+    "heading": "Partenariats stratégiques pour l'excellence maritime",
+    "para1": "Les partenariats du GoGMI représentent un réseau diversifié d'organisations internationales, d'organismes régionaux, d'agences gouvernementales, d'institutions académiques et d'entités du secteur privé engagés à faire progresser la sécurité maritime et le développement durable de l'économie bleue dans le Golfe de Guinée.",
+    "para2": "Grâce à des collaborations stratégiques, nous mobilisons expertise, ressources et réseaux collectifs pour relever des défis maritimes complexes, renforcer les capacités régionales et promouvoir une élaboration de politiques fondée sur des données probantes.",
+    "para3": "Chaque partenariat repose sur des valeurs partagées de transparence, de respect mutuel et d'engagement en faveur de l'économie bleue."
+  },
+  "filter": {
+    "heading": "Filtrer par catégorie",
+    "partnership": "Partenariat",
+    "sponsorship": "Parrainage"
+  },
+  "grid": {
+    "showing": "Affichage de",
+    "partnersIn": "partenaires dans"
+  },
+  "card": {
+    "readMore": "Lire plus",
+    "readLess": "Lire moins",
+    "visit": "Visiter"
+  },
+  "cta": {
+    "badge": "Rejoignez notre réseau",
+    "heading": "Devenir partenaire",
+    "subtitle": "Rejoignez notre réseau d'organisations de premier plan qui font progresser l'excellence maritime dans le Golfe de Guinée.",
+    "button": "Devenir partenaire"
+  }
+}
