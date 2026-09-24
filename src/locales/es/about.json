@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "Sobre GoGMI",
+    "subtitle": "Impulsando la excelencia marítima en el Golfo de Guinea desde 2010"
+  },
+  "story": {
+    "eyebrow": "Nuestra historia",
+    "heading": "Quiénes somos",
+    "para1": "Fundado en 2010, el Instituto Marítimo del Golfo de Guinea (GoGMI) es una organización de tipo centro de pensamiento con sede en Ghana. El Instituto ofrece una plataforma única para que pensadores estratégicos, profesionales, expertos y aliados del ámbito marítimo interactúen, compartan ideas e investiguen sobre asuntos marítimos estratégicos que afectan a la región del Golfo de Guinea. El mandato principal del Instituto es la investigación marítima estratégica, la incidencia y el fortalecimiento de capacidades en las áreas de seguridad marítima, protección y promoción de una economía azul sostenible en Ghana y en el espacio marítimo del Golfo de Guinea en general.",
+    "para2": "A través de su intrincada red de expertos, el Instituto Marítimo del Golfo de Guinea (GoGMI) desarrolla e implementa una gran variedad de programas a medida para abordar problemas marítimos relevantes dentro de la región del Golfo de Guinea. El contenido generado por la investigación del Instituto y su red de expertos se difunde a través de diversos canales, incluyendo documentos de investigación, publicaciones, reuniones presenciales y virtuales, programas, conferencias, seminarios, y también mediante el compromiso de diversos grupos de interés, en particular la juventud, en la trayectoria de la economía azul de Ghana."
+  },
+  "vision": {
+    "heading": "Nuestra visión",
+    "body": "Nuestra visión es convertirnos en el instituto líder en investigación e incidencia en asuntos marítimos estratégicos en la región del Golfo de Guinea"
+  },
+  "mission": {
+    "heading": "Nuestra misión",
+    "body": "La misión del GoGMI es proporcionar una base intelectual a los gobiernos, organizaciones, entidades corporativas e individuos cuyas actividades inciden en el dominio marítimo de la región del Golfo de Guinea, para garantizar un uso sostenible del mar. Lo haremos mediante la investigación y la incidencia en temas marítimos estratégicos que afectan a la región, con el fin de influir en las políticas y actividades que afectan el entorno marítimo de la región. En la conducción de nuestro trabajo, defenderemos los valores de independencia, precisión y equidad."
+  },
+  "businessModel": {
+    "heading": "Modelo de negocio",
+    "body": "La fuerza motriz del GoGMI es el logro de la excelencia en la investigación marítima estratégica, la educación, los medios y los servicios de consultoría. GoGMI es una organización interdisciplinaria pionera que busca ofrecer conocimiento para todos, utilizando una variedad de medios para superar las barreras tradicionales. Como organización de investigación sin fines de lucro, el modelo de negocio del GoGMI es único porque depende de su comunidad virtual para generar los ingresos necesarios para producir soluciones de investigación y educación. El modelo es un ciclo autosostenible que garantiza la independencia del Instituto y su capacidad para responder a las necesidades de la región. Los colaboradores del Instituto y su red de expertos crean el contenido, que luego se difunde a través de diversos canales, incluyendo publicaciones periódicas, libros, seminarios, conferencias e internet, y se pone a disposición de la comunidad interesada en el estudio del dominio marítimo de la región."
+  },
+  "sdg": {
+    "eyebrow": "Nuestro compromiso",
+    "headingLine1": "Alineados con los Objetivos de Desarrollo",
+    "headingLine2": "Sostenible de la ONU",
+    "subtitle": "Nuestro trabajo contribuye directamente a alcanzar las metas globales de sostenibilidad a través de la excelencia marítima y la cooperación regional",
+    "footer": "Contribuyendo a un futuro marítimo sostenible",
+    "items": [
+      { "title": "Vida submarina", "desc": "Proteger los ecosistemas marinos y promover una gestión sostenible de los recursos oceánicos" },
+      { "title": "Trabajo decente y crecimiento económico", "desc": "Crear oportunidades de empleo marítimo y fomentar un desarrollo económico sostenible" },
+      { "title": "Educación de calidad", "desc": "Ofrecer formación marítima, fortalecimiento de capacidades y programas de desarrollo profesional" },
+      { "title": "Acción por el clima", "desc": "Abordar los impactos climáticos en los entornos marítimos y promover la gestión ambiental" },
+      { "title": "Paz, justicia e instituciones sólidas", "desc": "Fortalecer la gobernanza de la seguridad marítima y promover la estabilidad regional" },
+      { "title": "Alianzas para lograr los objetivos", "desc": "Construir colaboraciones regionales e internacionales para la seguridad y el desarrollo marítimos" }
+    ]
+  }
+}

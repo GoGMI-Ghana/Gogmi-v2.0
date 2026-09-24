@@ -5,30 +5,36 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import enCommon from './locales/en/common.json';
 import enContact from './locales/en/contact.json';
 import enHome from './locales/en/home.json';
+import enAbout from './locales/en/about.json';
 
 import frCommon from './locales/fr/common.json';
 import frContact from './locales/fr/contact.json';
 import frHome from './locales/fr/home.json';
+import frAbout from './locales/fr/about.json';
 
 import esCommon from './locales/es/common.json';
 import esContact from './locales/es/contact.json';
 import esHome from './locales/es/home.json';
+import esAbout from './locales/es/about.json';
 
 const resources = {
   en: {
     common: enCommon,
     contact: enContact,
     home: enHome,
+    about: enAbout,
   },
   fr: {
     common: frCommon,
     contact: frContact,
     home: frHome,
+    about: frAbout,
   },
   es: {
     common: esCommon,
     contact: esContact,
     home: esHome,
+    about: esAbout,
   },
 };
 
@@ -40,7 +46,7 @@ i18n
     fallbackLng: 'en',
     supportedLngs: ['en', 'fr', 'es'],
     defaultNS: 'common',
-    ns: ['common', 'contact', 'home'],
+    ns: ['common', 'contact', 'home', 'about'],
     interpolation: {
       escapeValue: false,
     },

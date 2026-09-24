@@ -1,7 +1,9 @@
 import React from 'react';
 import { Target, Eye, Heart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
+  const { t } = useTranslation('about');
   return (
     <div className="w-full overflow-x-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
       
@@ -18,11 +20,11 @@ const AboutUs = () => {
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6"
               style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            About GoGMI
+            {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
              style={{ fontWeight: 400 }}>
-            Championing Maritime Excellence in the Gulf Of Guinea Since 2010
+            {t('hero.subtitle')}
           </p>
         </div>
       </section>
@@ -35,28 +37,19 @@ const AboutUs = () => {
               <div>
                 <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-6" 
                       style={{ color: '#8E3400', fontWeight: 600 }}>
-                  Our Story
+                  {t('story.eyebrow')}
                 </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8" 
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8"
                     style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-                  Who We Are
+                  {t('story.heading')}
                 </h2>
 </div>
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-                 Established in 2010, The Gulf of Guinea Maritime Institute (GoGMI) is a think-tank organization in Ghana. 
-                 The Institute provides a unique platform for maritime Strategic Thinkers, Practitioners, Experts and allies to interact, 
-                 share ideas and research into strategic maritime affairs affecting the Gulf of Guinea (GoG) Region. The Institute's core
-                  mandate is strategic maritime research, advocacy and capacity building in the areas of maritime 
-                 security, safety and advocacy for sustainable Blue Economy in Ghana and the Gulf of Guinea (GoG) maritime space at large. 
+                 {t('story.para1')}
                 </p>
                 <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-                The Gulf of Guinea Maritime Institute (GoGMI), through its intricate network of experts, develops and implements a 
-                myriad of tailored programmes to address pertinent maritime concerns within the Gulf of Guinea (GoG) region.
-                 Content generated from the Institute's research and stakeholder network of experts is disseminated through
-                  variety of channels including research papers, publications, physical and virtual meetings, programmes, 
-                  conferences, seminars and also through the engagements of diverse stakeholder groups particularly 
-                 the youth in Ghana's blue economy trajectory.
+                {t('story.para2')}
                 </p>
               </div>
             </div>
@@ -78,14 +71,14 @@ const AboutUs = () => {
   <div className="text-center">
     <div className="flex items-center justify-center gap-6 mb-6">
       <h3 className="text-3xl font-bold" style={{ color: '#132552', fontWeight: 700 }}>
-        Our Vision
+        {t('vision.heading')}
       </h3>
       <div style={{ color: '#8E3400' }}>
         <Eye className="w-16 h-16" />
       </div>
     </div>
     <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-      Our vision is to become the lead research and advocacy institute in strategic maritime affairs in the GoG Region
+      {t('vision.body')}
     </p>
   </div>
 
@@ -93,14 +86,14 @@ const AboutUs = () => {
   <div className="text-center">
     <div className="flex items-center justify-center gap-6 mb-6">
       <h3 className="text-3xl font-bold" style={{ color: '#132552', fontWeight: 700 }}>
-        Our Mission
+        {t('mission.heading')}
       </h3>
       <div style={{ color: '#8E3400' }}>
         <Target className="w-16 h-16" />
       </div>
     </div>
     <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-      The mission of the GoGMI is to provide an intellectual base to governments, organizations, corporate bodies and individuals whose activities impinge upon the maritime domain of the GoG Region to ensure a sustainable use of the sea. We will do that by research and advocacy in strategic maritime issues affecting the Region in order to influence policies and activities affecting the maritime environment of the Region. In conducting our business we shall uphold the values of independence, accuracy and fairness.
+      {t('mission.body')}
     </p>
   </div>
 
@@ -108,14 +101,14 @@ const AboutUs = () => {
   <div className="text-center">
     <div className="flex items-center justify-center gap-6 mb-6">
       <h3 className="text-3xl font-bold" style={{ color: '#132552', fontWeight: 700 }}>
-        Business Model
+        {t('businessModel.heading')}
       </h3>
       <div style={{ color: '#8E3400' }}>
         <Heart className="w-16 h-16" />
       </div>
     </div>
     <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-      The driving force behind GoGMI is the achievement of excellence in strategic maritime research, education, media and consultancy services. GoGMI is a pioneering interdisciplinary organization that aims to provide knowledge for all, using a variety of mediums to overcome traditional barriers. As a non-profit research organization, GoGMI's business model is unique in that it relies on its virtual community to generate revenue required to produce research and education solutions. The model is a self-perpetuating cycle that ensures the Institute's independence and ability to respond to the needs of the GoG Region. Contributors from within the Institute and its network of experts create the content which is then disseminated through a variety of channels including periodic publications, books, seminars, conferences and the internet and made available to the community of people interested in the study of the maritime domain of the region.
+      {t('businessModel.body')}
     </p>
   </div>
 </div>
@@ -127,27 +120,30 @@ const AboutUs = () => {
           <div className="text-center mb-16">
             <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4" 
                   style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
-              Our Commitment
+              {t('sdg.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl mt-4 mb-6"
                 style={{ fontWeight: 900, letterSpacing: '-0.02em', lineHeight: '1.1', color: '#132552' }}>
-              Aligned with UN Sustainable<br />Development Goals
+              {t('sdg.headingLine1')}<br />{t('sdg.headingLine2')}
             </h2>
-<p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" 
+<p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
                style={{ color: '#4B5563', fontWeight: 400 }}>
-              Our work directly contributes to achieving global sustainability targets through maritime excellence and regional cooperation
+              {t('sdg.subtitle')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { number: '14', title: 'Life Below Water', desc: 'Protecting marine ecosystems and promoting sustainable ocean resources management', bgColor: '#1F8DD6' },
-              { number: '8', title: 'Decent Work & Economic Growth', desc: 'Creating maritime employment opportunities and fostering sustainable economic development', bgColor: '#A21942' },
-              { number: '4', title: 'Quality Education', desc: 'Providing maritime training, capacity building, and professional development programs', bgColor: '#C5192D' },
-              { number: '13', title: 'Climate Action', desc: 'Addressing climate impacts on maritime environments and promoting environmental stewardship', bgColor: '#3F7E44' },
-              { number: '16', title: 'Peace, Justice & Strong Institutions', desc: 'Strengthening maritime security governance and promoting regional stability', bgColor: '#00689D' },
-              { number: '17', title: 'Partnerships for the Goals', desc: 'Building regional and international collaborations for maritime security and development', bgColor: '#19486A' }
-            ].map((sdg, idx) => (
+            {t('sdg.items', { returnObjects: true }).map((sdg, idx) => {
+              const meta = [
+                { number: '14', bgColor: '#1F8DD6' },
+                { number: '8', bgColor: '#A21942' },
+                { number: '4', bgColor: '#C5192D' },
+                { number: '13', bgColor: '#3F7E44' },
+                { number: '16', bgColor: '#00689D' },
+                { number: '17', bgColor: '#19486A' }
+              ];
+              return { ...sdg, ...meta[idx] };
+            }).map((sdg, idx) => (
               <div key={idx} className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group"
                 style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb' }}>
                 <div className="h-2" style={{ backgroundColor: sdg.bgColor }}></div>
@@ -174,7 +170,7 @@ const AboutUs = () => {
                  style={{ backgroundColor: '#fef3e2', border: '2px solid #8E3400' }}>
               <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#8E3400' }}></span>
               <span className="font-semibold text-base" style={{ color: '#8E3400', fontWeight: 600 }}>
-                Contributing to a sustainable maritime future
+                {t('sdg.footer')}
               </span>
             </div>
           </div>

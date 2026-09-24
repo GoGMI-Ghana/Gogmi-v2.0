@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "About GoGMI",
+    "subtitle": "Championing Maritime Excellence in the Gulf Of Guinea Since 2010"
+  },
+  "story": {
+    "eyebrow": "Our Story",
+    "heading": "Who We Are",
+    "para1": "Established in 2010, The Gulf of Guinea Maritime Institute (GoGMI) is a think-tank organization in Ghana. The Institute provides a unique platform for maritime Strategic Thinkers, Practitioners, Experts and allies to interact, share ideas and research into strategic maritime affairs affecting the Gulf of Guinea (GoG) Region. The Institute's core mandate is strategic maritime research, advocacy and capacity building in the areas of maritime security, safety and advocacy for sustainable Blue Economy in Ghana and the Gulf of Guinea (GoG) maritime space at large.",
+    "para2": "The Gulf of Guinea Maritime Institute (GoGMI), through its intricate network of experts, develops and implements a myriad of tailored programmes to address pertinent maritime concerns within the Gulf of Guinea (GoG) region. Content generated from the Institute's research and stakeholder network of experts is disseminated through variety of channels including research papers, publications, physical and virtual meetings, programmes, conferences, seminars and also through the engagements of diverse stakeholder groups particularly the youth in Ghana's blue economy trajectory."
+  },
+  "vision": {
+    "heading": "Our Vision",
+    "body": "Our vision is to become the lead research and advocacy institute in strategic maritime affairs in the GoG Region"
+  },
+  "mission": {
+    "heading": "Our Mission",
+    "body": "The mission of the GoGMI is to provide an intellectual base to governments, organizations, corporate bodies and individuals whose activities impinge upon the maritime domain of the GoG Region to ensure a sustainable use of the sea. We will do that by research and advocacy in strategic maritime issues affecting the Region in order to influence policies and activities affecting the maritime environment of the Region. In conducting our business we shall uphold the values of independence, accuracy and fairness."
+  },
+  "businessModel": {
+    "heading": "Business Model",
+    "body": "The driving force behind GoGMI is the achievement of excellence in strategic maritime research, education, media and consultancy services. GoGMI is a pioneering interdisciplinary organization that aims to provide knowledge for all, using a variety of mediums to overcome traditional barriers. As a non-profit research organization, GoGMI's business model is unique in that it relies on its virtual community to generate revenue required to produce research and education solutions. The model is a self-perpetuating cycle that ensures the Institute's independence and ability to respond to the needs of the GoG Region. Contributors from within the Institute and its network of experts create the content which is then disseminated through a variety of channels including periodic publications, books, seminars, conferences and the internet and made available to the community of people interested in the study of the maritime domain of the region."
+  },
+  "sdg": {
+    "eyebrow": "Our Commitment",
+    "headingLine1": "Aligned with UN Sustainable",
+    "headingLine2": "Development Goals",
+    "subtitle": "Our work directly contributes to achieving global sustainability targets through maritime excellence and regional cooperation",
+    "footer": "Contributing to a sustainable maritime future",
+    "items": [
+      { "title": "Life Below Water", "desc": "Protecting marine ecosystems and promoting sustainable ocean resources management" },
+      { "title": "Decent Work & Economic Growth", "desc": "Creating maritime employment opportunities and fostering sustainable economic development" },
+      { "title": "Quality Education", "desc": "Providing maritime training, capacity building, and professional development programs" },
+      { "title": "Climate Action", "desc": "Addressing climate impacts on maritime environments and promoting environmental stewardship" },
+      { "title": "Peace, Justice & Strong Institutions", "desc": "Strengthening maritime security governance and promoting regional stability" },
+      { "title": "Partnerships for the Goals", "desc": "Building regional and international collaborations for maritime security and development" }
+    ]
+  }
+}
