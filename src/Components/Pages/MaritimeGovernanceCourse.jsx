@@ -109,6 +109,10 @@ const MaritimeGovernanceCourse = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+      `}</style>
       {applyStep && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}>
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
@@ -223,7 +227,7 @@ const MaritimeGovernanceCourse = () => {
       </section>
 
       <div className={`sticky top-0 z-40 bg-white border-b transition-all ${isSticky ? 'shadow-lg' : ''}`} style={{ borderColor: '#E5E7EB' }}>
-        <div className="max-w-7xl mx-auto px-6"><div className="flex overflow-x-auto">{tabs.map((tab) => (<button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-6 py-4 font-bold text-sm whitespace-nowrap border-b-4 transition-all ${activeTab === tab.id ? 'border-[#8E3400] text-[#132552]' : 'border-transparent text-gray-500 hover:text-[#132552]'}`}>{tab.label}</button>))}</div></div>
+        <div className="max-w-7xl mx-auto px-6"><div className="flex overflow-x-auto no-scrollbar">{tabs.map((tab) => (<button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`px-6 py-4 font-bold text-sm whitespace-nowrap border-b-4 transition-all ${activeTab === tab.id ? 'border-[#8E3400] text-[#132552]' : 'border-transparent text-gray-500 hover:text-[#132552]'}`}>{tab.label}</button>))}</div></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-12">
