@@ -34,7 +34,7 @@ const LISTINGS = [
     city: 'Accra',
     phone: '+233 302 666 501',
     email: 'ops@blackstarline.gh',
-    website: 'https://www.blackstarlineinc.com/',
+    website: 'https://www.blackstarline-inc.com/',
     description: 'Regional shipping and freight forwarding across the Gulf of Guinea with scheduled services to 14 ports.',
     featured: true,
   },
