@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "Blue Career & Business Expo 2021",
+    "subtitle": "Building a Robust Blue Economy, Leaving No One Behind",
+    "imageAlt": "Blue Career Expo"
+  },
+  "images": {
+    "event": "Event",
+    "moment1": "Event Moment 1",
+    "moment2": "Event Moment 2",
+    "highlights": "Event Highlights"
+  },
+  "logos": {
+    "hostedBy": "Hosted by",
+    "inCollaboration": "In collaboration with"
+  },
+  "stats": {
+    "heading": "Event Summary",
+    "labels": {
+      "workshops": "Workshops",
+      "days": "Days",
+      "sessions": "Sessions",
+      "participants": "Participants",
+      "hostCountries": "Host Countries"
+    }
+  },
+  "vision": {
+    "heading": "Building A Robust Blue Economy, Leaving No One Behind",
+    "body": "The Blue Economy and Business Expo 2021 was attended by several students representing countries that actively engage in ocean economy. As a result, numerous valuable insights were shared. Youth engagement across various sectors represented the commitment to leaving no one behind."
+  },
+  "about": {
+    "heading": "About the Event",
+    "para1": "The Gulf of Guinea Maritime Institute (GoGMI), in collaboration with West Africa's Blue Economy Stakeholders, organized the inaugural Blue Career and Business Expo 2021 (BCBE 2021). This unique forum was dedicated to promoting sustainable maritime solutions, which facilitated young people to have greater awareness of the opportunities available for career advancement in the blue economy.",
+    "para2": "The 5-day programme brought together young African stakeholders to discuss innovative proposals on various subjects that highlighted important issues concerning the blue economy."
+  },
+  "highlights": {
+    "heading": "Event Highlights",
+    "body": "Experience the energy and insights from the Blue Career and Business Expo 2021. Young African professionals and students engaged with maritime industry leaders to explore opportunities in the blue economy.",
+    "downloadReport": "Download Report"
+  },
+  "themesSection": {
+    "heading": "Key Themes"
+  },
+  "themes": [
+    "Ocean economy and blue sectors",
+    "Blue careers",
+    "Blue economy opportunities",
+    "Capacity development and training opportunities",
+    "Advocacy, governance, and decision-making processes",
+    "SME solutions"
+  ],
+  "impact": {
+    "heading": "Event Impact",
+    "diverseHeading": "Diverse Panel Discussions",
+    "diverseBody": "One of the primary differentiators of the BCBE was its scope of panel discussions and presentations. The diversity in debate participants by nation, focus, and rank set BCBE apart, drawing thousands of African university students in search of innovative mind management and inspiring speeches.",
+    "cards": [
+      "Speakers from a wide range of disciplines spoke at length about their subjects, sharing personal tales and offering advice for overcoming obstacles.",
+      "The BCBE brought together approximately 200 participants from 16 African countries in one shared commitment to building a successful Blue Economy.",
+      "Events culminated with on-campus presentations on feasible climate solutions in the Maritime Space."
+    ],
+    "midParagraph": "The panel discussions were heavily engaging, with youth showing keen interest in all discussion phases. Debates were characterized by high levels of youth representation among the panelists and overall diversity among experts from government and industry practitioners.",
+    "numbered": [
+      "On-campus presentations on feasible climate solutions at the Maritime Space followed by youth networking roundtables.",
+      "Roundtables were pivotal in inspiring youth to promote youth-centered Blue Economy initiatives.",
+      "The BCBE Expo brought together individuals, institutions, and private & public sectors."
+    ]
+  },
+  "speakers": {
+    "heading": "Distinguished Speakers",
+    "titles": {
+      "1": "High Commissioner of Canada to Ghana",
+      "2": "Chief of Naval Staff, Ghana Navy",
+      "3": "Special Rapporteur for Piracy and Maritime Security for the AU Commission",
+      "4": "Guest Speaker"
+    }
+  }
+}

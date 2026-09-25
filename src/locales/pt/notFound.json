@@ -1,0 +1,14 @@
+{
+  "heading": "Ups! Página Não Encontrada",
+  "message": "A página que procura parece ter zarpado. Não se preocupe, ajudamo-lo a navegar de volta para águas seguras.",
+  "goHome": "Ir para o Início",
+  "goBack": "Voltar",
+  "popularPages": "Páginas Populares",
+  "links": {
+    "aboutUs": "Sobre Nós",
+    "services": "Serviços",
+    "contact": "Contacto"
+  },
+  "supportPrompt": "Ainda não encontrou o que procurava?",
+  "contactSupport": "Contacte a Nossa Equipa de Apoio"
+}

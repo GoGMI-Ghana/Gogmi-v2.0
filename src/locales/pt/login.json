@@ -1,0 +1,30 @@
+{
+  "heading": "Login de Membro",
+  "subtitle": {
+    "enterId": "Introduza o seu ID de Associado para continuar",
+    "enterCode": "Introduza o código de 6 dígitos enviado para {{email}}"
+  },
+  "errors": {
+    "membershipIdRequired": "Introduza o seu ID de Associado",
+    "otpIncomplete": "Introduza o código completo de 6 dígitos"
+  },
+  "step1": {
+    "label": "ID de Associado",
+    "placeholder": "ex. GoGMI-MASO2026-00001",
+    "helpText": "O seu ID de Associado foi enviado para o seu e-mail após o registo.",
+    "submitIdle": "Enviar Código de Login",
+    "submitLoading": "A enviar código…"
+  },
+  "step2": {
+    "codeSentToPrefix": "Foi enviado um código de 6 dígitos para",
+    "verifyIdle": "Verificar e Entrar",
+    "verifyLoading": "A verificar…",
+    "changeId": "Alterar ID",
+    "resendIdle": "Reenviar código",
+    "resendCooldown": "Reenviar em {{seconds}}s"
+  },
+  "footer": {
+    "notAMember": "Ainda não é associado?",
+    "joinLink": "Junte-se ao GoGMI"
+  }
+}

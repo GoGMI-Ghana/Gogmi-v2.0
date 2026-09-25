@@ -1,0 +1,98 @@
+{
+  "hero": {
+    "backLink": "Voltar à Capacitação",
+    "badge": "Capacitação · Curso de Formação",
+    "title": "Curso de Formação MaSSDI",
+    "subtitle": "Maritime Security Strategy Development Initiative",
+    "description": "Um programa de formação especializado que dota profissionais de segurança marítima, oficiais navais e decisores políticos das ferramentas estratégicas, dos quadros analíticos e das competências de coordenação interinstitucional necessárias para responder aos desafios de segurança complexos no Golfo da Guiné."
+  },
+  "quickFacts": [
+    { "label": "Duração", "value": "2 Meses" },
+    { "label": "Formato", "value": "Virtual / Online" },
+    { "label": "Nível", "value": "Todos os Níveis" },
+    { "label": "Admissão", "value": "6 out – 30 nov 2025" },
+    { "label": "Módulos", "value": "5 Módulos Centrais" },
+    { "label": "Estado", "value": "Concluído" }
+  ],
+  "about": {
+    "eyebrow": "Sobre o Programa",
+    "heading": "A Construir Capacidade Estratégica em Segurança Marítima",
+    "para1": "O Curso de Formação Maritime Security Strategy Development Initiative (MaSSDI) é um programa liderado pelo GoGMI, concebido para desenvolver o pensamento estratégico e a capacidade operacional dos profissionais de segurança marítima em toda a região do Golfo da Guiné.",
+    "para2": "O curso reúne oficiais navais, guardas costeiros, decisores políticos marítimos e analistas de segurança para uma formação online intensiva de dois meses, abrangendo os fundamentos teóricos e as ferramentas práticas necessárias para um desenvolvimento eficaz de estratégias de segurança marítima.",
+    "para3": "Os participantes trabalham com formadores especialistas dos setores naval e de segurança do Gana, ganhando experiência prática em avaliação de ameaças, mapeamento de partes interessadas e planeamento de coordenação interinstitucional — competências fundamentais para responder ao panorama de segurança complexo e em constante evolução do domínio marítimo da África Ocidental.",
+    "learnHeading": "O Que Vai Aprender",
+    "learnItems": [
+      "Quadros teóricos subjacentes à estratégia de segurança marítima",
+      "Análise das ameaças e oportunidades de segurança no Golfo da Guiné",
+      "Instrumentos de governação marítima regionais e internacionais",
+      "Coordenação interinstitucional prática e gestão de partes interessadas",
+      "Competências de desenvolvimento de estratégia e planeamento operacional",
+      "Aplicações de tecnologias emergentes na segurança marítima"
+    ],
+    "attendHeading": "Quem Deve Participar",
+    "attendItems": [
+      "Oficiais navais e da guarda costeira",
+      "Profissionais de política de segurança marítima",
+      "Gestores de segurança portuária e de porto",
+      "Investigadores e analistas de segurança",
+      "Responsáveis governamentais de ministérios ligados ao setor marítimo",
+      "Profissionais de segurança marítima do setor privado"
+    ]
+  },
+  "modulesSection": {
+    "eyebrow": "Currículo",
+    "heading": "Módulos do Curso",
+    "subtitle": "Cinco módulos centrais lecionados ao longo de oito semanas num ambiente de aprendizagem online estruturado.",
+    "items": [
+      {
+        "title": "Teoria da Estratégia de Segurança Marítima",
+        "description": "Quadros fundamentais e fundamentos teóricos da estratégia de segurança marítima no Golfo da Guiné, com base em convenções internacionais, tratados regionais e boas práticas das operações globais de segurança marítima."
+      },
+      {
+        "title": "Avaliação dos Desafios e Oportunidades de Segurança Marítima I",
+        "description": "Análise aprofundada das principais ameaças de segurança marítima que afetam o Golfo da Guiné — incluindo pirataria, roubo à mão armada no mar, pesca ilegal e tráfico de estupefacientes — e das respostas institucionais implementadas para as enfrentar."
+      },
+      {
+        "title": "Avaliação dos Desafios e Oportunidades de Segurança Marítima II",
+        "description": "Exploração avançada dos desafios de segurança marítima emergentes e em evolução, avaliando lacunas nos quadros atuais e identificando oportunidades estratégicas para melhorar a cooperação e a intervenção regional."
+      },
+      {
+        "title": "Coordenação Interinstitucional e Análise de Partes Interessadas I",
+        "description": "Teoria e prática da coordenação interinstitucional em contextos de segurança marítima — analisando de que forma marinhas, guardas costeiras, autoridades portuárias, alfândegas e partes interessadas civis colaboram para alcançar objetivos de segurança partilhados."
+      },
+      {
+        "title": "Coordenação Interinstitucional e Análise de Partes Interessadas II",
+        "description": "Exercícios práticos de mapeamento de partes interessadas e de planeamento de coordenação. Os participantes desenvolvem quadros práticos para gerir relações complexas multi-institucionais e conceber mecanismos de coordenação eficazes."
+      }
+    ]
+  },
+  "participantsSection": {
+    "eyebrow": "Participantes do Curso",
+    "heading": "Conheça os Participantes",
+    "subtitle": "Oficiais navais, profissionais de segurança marítima e outros profissionais que concluíram o programa MaSSDI.",
+    "items": [
+      {
+        "title": "Diretor-Adjunto de Investigação e Desenvolvimento Naval, Marinha do Gana",
+        "bio": "O Tenente-Comandante Emilio Okyere-Dadzie foi incorporado no Ramo Executivo da Marinha do Gana em 2008. É licenciado em Ciências Náuticas pela Regional Maritime University, detentor de um MBA em Gestão Portuária e de Transporte Marítimo, de um MBA em Gestão de Petróleo e Gás (ambos pelo National Institute of Business Management, Índia), e de um Mestrado em Defesa e Política Internacional pelo GIMPA. É Especialista em Navegação, Oficial de Convés de Classe 3 e Operador de Posicionamento Dinâmico. Exerce atualmente o cargo de Diretor-Adjunto de Investigação e Desenvolvimento Naval e Oficial de Operações de Comando para o Comando Fluvial. É Membro Associado do Nautical Institute e do Royal Institute of Navigation, Reino Unido."
+      },
+      {
+        "title": "Comandante, Navio da Marinha do Gana EHWOR",
+        "bio": "O Tenente-Comandante Kwame Yelbuor, da Marinha do Gana, é licenciado em Geografia e Desenvolvimento de Recursos pela Universidade do Gana, Legon. Incorporado no Ramo Executivo da Marinha do Gana a 30 de agosto de 2013, realizou a Formação Inicial de Oficiais Navais em Dartmouth, Reino Unido (2015). Serviu em diversas funções a bordo de navios da Marinha do Gana como Imediato, Oficial de Quarto e Oficial de Navegação interino. Em terra, serviu como Diretor-Adjunto interino de Informações Navais (2019–2020) e Oficial de Operações interino do Centro de Coordenação Marítima Multinacional da CEDEAO em Osu Castle (2020–2022). Exerce atualmente o cargo de Comandante do Navio da Marinha do Gana EHWOR."
+      },
+      {
+        "title": "Diretor-Geral, Soko Aerial Robotics Limited",
+        "bio": "Maximus Ashitey é Diretor-Geral da Soko Aerial Robotics Limited, Diretor-Adjunto do Unmanned Aerial Systems Research Lab (UASRL) e Diretor-Adjunto do Soko Aerial and Signal Training School Centre for Unmanned Aerial Vehicle Research, Development and Education. É licenciado em Ciência Política pela Universidade do Gana, Legon. Conjugando a sua paixão pela tecnologia de drones com uma sólida formação em ciência política, traz uma perspetiva única ao mundo das operações aéreas — com competência na captação de imagens aéreas de alta qualidade e na realização de estudos precisos através de tecnologia avançada de drones."
+      },
+      {
+        "title": "Oficial Superior, Marinha do Gana",
+        "bio": "O Tenente-Comandante Edem Komla Akati foi incorporado no Ramo Executivo da Marinha do Gana em setembro de 2011. Ao longo de mais de 12 anos de serviço como oficial, ocupou destacados cargos no mar, incluindo Oficial de Instrução, Oficial de Navegação, Imediato e Comandante a bordo dos navios GNS EHWOR, GNS YAA ASANTEWAA, GNS NAA GBEWAA e GNS PRA. Em terra, serviu como Tenente de Bandeira do Chefe do Estado-Maior Naval, Instrutor na Academia Militar do Gana e Diretor-Adjunto de Administração Naval no Quartel-General da Marinha. Concluiu o Curso de Jovens Oficiais da Royal Navy no Reino Unido (considerado o Melhor Estudante Internacional Global), o Curso de Especialização em Navegação na China, e frequentou o GAFCSC, onde se destacou como Melhor Estudante Global (Curso de Estado-Maior Júnior) e Segundo Melhor Estudante (Curso de Comando e Estado-Maior Sénior). É licenciado em Engenharia Aeroespacial pelo KNUST e detentor de um Mestrado em Defesa e Política Internacional pelo GAFCSC."
+      }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Interessado na",
+    "headingLine2": "Próxima Edição do MaSSDI?",
+    "subtitle": "Contacte o GoGMI para manifestar o seu interesse nas próximas edições do MaSSDI ou para solicitar mais informações sobre o programa.",
+    "button": "Contacte-nos"
+  }
+}

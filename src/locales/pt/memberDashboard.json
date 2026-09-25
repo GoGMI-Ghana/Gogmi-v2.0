@@ -1,0 +1,48 @@
+{
+  "status": {
+    "active": "Associado Ativo",
+    "pending": "Associado Pendente",
+    "expired": "Associado Expirado",
+    "cancelled": "Associado Cancelado"
+  },
+  "header": {
+    "defaultPlanName": "Associado do GoGMI"
+  },
+  "profile": {
+    "heading": "Perfil",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "country": "País",
+    "organization": "Organização",
+    "position": "Cargo"
+  },
+  "membership": {
+    "heading": "Associação",
+    "membershipId": "ID de Associado",
+    "type": "Tipo",
+    "expires": "Expira em",
+    "timeRemaining": "Tempo Restante",
+    "expired": "Expirada",
+    "daysLeft_one": "falta {{count}} dia",
+    "daysLeft_other": "faltam {{count}} dias"
+  },
+  "certificate": {
+    "heading": "Certificado de Associado",
+    "readyDescription": "O seu certificado oficial de associado do GoGMI está pronto para ser descarregado.",
+    "pendingDescription": "O seu certificado oficial está a ser preparado e estará disponível para descarregar aqui assim que for emitido.",
+    "download": "Descarregar Certificado",
+    "comingSoon": "Brevemente",
+    "checking": "A verificar…",
+    "notAvailableTitle": "Os certificados ainda não estão disponíveis para download"
+  },
+  "quickLinks": {
+    "resources": {
+      "title": "Os Meus Recursos",
+      "description": "Aceda a publicações e notas exclusivas para associados"
+    },
+    "membership": {
+      "title": "Gerir Associação",
+      "description": "Consulte os planos, renove ou faça upgrade da sua associação"
+    }
+  }
+}

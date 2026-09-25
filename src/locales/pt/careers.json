@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "badge": "Junte-se à Nossa Equipa",
+    "title": "Carreiras no GOGMI",
+    "subtitle": "Faça parte de uma equipa que está a transformar o futuro do domínio marítimo do Golfo da Guiné"
+  },
+  "positions": {
+    "eyebrow": "Oportunidades",
+    "heading": "Vagas Abertas",
+    "subtitle": "Encontre o lugar ideal na nossa equipa"
+  },
+  "filters": {
+    "searchPlaceholder": "Pesquisar vagas...",
+    "showingPrefix": "A mostrar",
+    "positionCount_one": "vaga",
+    "positionCount_other": "vagas"
+  },
+  "categories": {
+    "all": "Todas",
+    "research": "Investigação",
+    "policyAdvocacy": "Políticas e Advocacia",
+    "operations": "Operações",
+    "communications": "Comunicação",
+    "finance": "Finanças",
+    "it": "TI"
+  },
+  "types": {
+    "all": "Todos",
+    "fullTime": "Tempo Inteiro",
+    "partTime": "Meio Tempo",
+    "internship": "Estágio",
+    "volunteer": "Voluntariado"
+  },
+  "empty": {
+    "message": "Nenhuma vaga encontrada com os critérios indicados",
+    "clearFilters": "Limpar Filtros"
+  },
+  "job": {
+    "applyBy": "Candidate-se até {{date}}",
+    "closed": "Encerrada"
+  },
+  "jobs": {
+    "1": {
+      "title": "Diretor Executivo",
+      "category": "Liderança Estratégica",
+      "experience": "5-7 anos",
+      "deadline": "15 de dezembro de 2024",
+      "description": "Liderar a investigação e a análise de políticas sobre quadros de governação marítima na África Ocidental. Elaborar notas de política e envolver-se com as partes interessadas regionais.",
+      "requirements": [
+        "Mestrado em Estudos Marítimos, Relações Internacionais ou área afim",
+        "Experiência comprovada em análise de políticas",
+        "Excelentes competências de investigação e redação",
+        "Conhecimento do setor marítimo da África Ocidental"
+      ],
+      "responsibilities": [
+        "Conduzir investigação abrangente sobre políticas",
+        "Elaborar recomendações de política",
+        "Envolver-se com responsáveis governamentais",
+        "Liderar campanhas de advocacia"
+      ]
+    }
+  }
+}

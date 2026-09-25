@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "badgeLabel": "Desarrollo de Capacidades · WYTEC Blue",
+    "title": "WYTEC Blue Training",
+    "edition": "Primera edición — Completada en abril de 2024",
+    "description": "Capacidad Técnica de Mujeres y Jóvenes para la Economía Azul: fortalecer la capacidad técnica de mujeres y jóvenes en Canadá y África Occidental para una economía azul segura, protegida y sostenible."
+  },
+  "quickFacts": {
+    "duration": { "label": "Duración", "unit": "semanas" },
+    "locations": { "label": "Ubicaciones", "value": "Canadá · Ghana · Cabo Verde" },
+    "format": { "label": "Formato", "value": "Híbrido (en línea + sedes presenciales)" },
+    "delivery": { "label": "Calendario", "value": "Ene. – marzo 2024" }
+  },
+  "flyer": {
+    "imageAlt": "Folleto WYTEC Blue 2024"
+  },
+  "about": {
+    "eyebrow": "Sobre el proyecto",
+    "heading": "Descripción del proyecto",
+    "para1": "Este proyecto se relaciona directamente con los compromisos asumidos por el Gobierno de Canadá en la Conferencia sobre la Economía Azul Sostenible de Nairobi (SBEC), copatrocinada del 26 al 28 de noviembre de 2018. La contribución de Canadá al Decenio de las Naciones Unidas de las Ciencias Oceánicas para el Desarrollo Sostenible (2021–2030) se anunció en conjunto con dichos compromisos.",
+    "para2": "El proyecto WYTEC Blue desarrolló dos cursos de nivel introductorio, impartidos de forma virtual por expertos canadienses y de África Occidental de los sectores académico, empresarial y no gubernamental — uno sobre Tecnología Oceánica y otro sobre Seguridad Marítima y Gestión de Riesgos —, con módulos compartidos sobre desarrollo empresarial, emprendimiento y las competencias necesarias para desempeñarse en los sectores público, privado y de las ONG.",
+    "para3": "Los cursos se impartieron en sedes de enseñanza seleccionadas en Nueva Escocia (Canadá), São Vicente (Cabo Verde) y Accra (Ghana). Este proyecto de 3 años respaldó el diseño y desarrollo de los cursos, así como una oferta inicial basada en un análisis de brechas, estableciendo equipos docentes y asociándose con instituciones de África Occidental y Nueva Escocia.",
+    "para4": "Se prevé que estos cursos sienten las bases de un programa de formación posterior, de mayor escala, que incluya programas de nivel de maestría impartidos en universidades de África Occidental.",
+    "imageAlt": "WYTEC Blue Training"
+  },
+  "significance": {
+    "eyebrow": "Reconocimiento",
+    "heading": "Importancia y Financiación",
+    "unDecade": {
+      "heading": "Aval del Decenio de la ONU",
+      "body": "WYTEC Blue (UN2021-002) recibió el aval formal del Secretario Ejecutivo de la Comisión Oceanográfica Intergubernamental de la UNESCO (COI) como proyecto integrado en el Decenio de las Naciones Unidas de las Ciencias Oceánicas para el Desarrollo Sostenible 2021–2030. Este reconocimiento confirma el papel del proyecto en la promoción de soluciones transformadoras de la ciencia oceánica para el desarrollo sostenible."
+    },
+    "canadaLogoAlt": "Fisheries and Oceans Canada",
+    "dfo": {
+      "heading": "Apoyo Financiero del DFO",
+      "body": "WYTEC Blue fortalecerá y conectará la capacidad emergente de un pequeño Estado insular en desarrollo (Cabo Verde) y de instituciones asociadas en países de África Occidental con la experiencia multisectorial canadiense en tecnología oceánica, seguridad marítima y desarrollo empresarial. Este proyecto cuenta con el apoyo parcial de una contribución financiera de Pesca y Océanos de Canadá (DFO)."
+    }
+  },
+  "curriculum": {
+    "eyebrow": "Plan de Estudios",
+    "heading": "Componentes de la Formación 2024",
+    "subtitle": "Impartido de enero a marzo de 2024 simultáneamente en tres sedes mediante una plataforma en línea.",
+    "streams": {
+      "1": {
+        "title": "Módulo 1: Tecnología Oceánica (OT)",
+        "highlights": [
+          "Introducción a la Tecnología Oceánica",
+          "Sensores Oceánicos",
+          "Acuicultura Sostenible",
+          "Recopilación de Datos Biológicos para el Monitoreo y la Conservación",
+          "Programación y Gestión de Datos"
+        ]
+      },
+      "2": {
+        "title": "Módulo 2: Seguridad Marítima y Gestión de Riesgos (MSRM)",
+        "highlights": [
+          "Seguridad y Protección Marítima",
+          "Conocimiento del Dominio Marítimo",
+          "Operaciones y Gestión Marítima",
+          "Seguridad y Gestión de Riesgos"
+        ]
+      },
+      "3": {
+        "title": "Liderazgo y Emprendimiento Compartidos (L&E)",
+        "highlights": [
+          "Introducción a los Negocios y el Emprendimiento en la Economía Azul",
+          "Análisis de Mercado e Identificación de Oportunidades",
+          "Innovación y Desarrollo de Productos",
+          "Comercialización y Marketing",
+          "Estrategias de Financiación e Inversión"
+        ]
+      }
+    }
+  },
+  "partnersSection": {
+    "eyebrow": "Colaboración",
+    "heading": "Socios del Proyecto",
+    "subtitle": "WYTEC Blue está impulsado por una coalición multilateral y multisectorial de organizaciones de Canadá y África Occidental.",
+    "items": {
+      "1": {
+        "description": "DOTCAN es una iniciativa de base impulsada por la Conferencia sobre la Economía Azul Sostenible celebrada en Nairobi, Kenia, en noviembre de 2018. La iniciativa se basa en los compromisos asumidos por Canadá en dicha conferencia y constituye una implementación concreta de la Estrategia Oceánica de Canadá, fundamentada en los principios del desarrollo sostenible, la gestión integrada y el enfoque precautorio.",
+        "country": "Canadá"
+      },
+      "2": {
+        "description": "Establecido en Ghana, GoGMI es una organización local de investigación sin fines de lucro que constituye un centro de pensamiento para que estrategas marítimos, profesionales y aliados interactúen, compartan ideas e investiguen sobre asuntos marítimos estratégicos que afectan a la región del Golfo de Guinea.",
+        "country": "Ghana"
+      },
+      "3": {
+        "description": "Con sede en Mindelo, isla de São Vicente, Biosfera 1 es una organización no gubernamental local cuya misión es promover la conservación de especies de fauna y flora, la rehabilitación de los ecosistemas marinos y costeros, así como la sensibilización y educación ambiental.",
+        "country": "Cabo Verde"
+      },
+      "4": {
+        "description": "En Nueva Escocia, Canadá, SOAR es una organización local sin fines de lucro que ofrece servicios e infraestructura para ayudar a investigadores y desarrolladores de tecnología a acceder al océano costero, impulsando la investigación necesaria para el desarrollo sostenible de la industria.",
+        "country": "Canadá"
+      },
+      "5": {
+        "description": "IFA involucra a agentes de cambio, emprendedores, tomadores de decisiones y ciudadanos para crear puentes de oportunidad en el continente africano. A través de programas de mentoría, inspiración, creación de redes y preincubación, IFA ya ha impactado a más de 2500 jóvenes africanos.",
+        "country": "Panáfrica"
+      },
+      "6": {
+        "description": "El Superclúster Oceánico de Canadá (OSP) inspira, impulsa e invierte para hacer de Canadá el mejor lugar del mundo para iniciar y hacer crecer una empresa de tecnología oceánica. Como colaboración panatlántica cofinanciada, el OSP complementa los aceleradores e incubadoras de la industria ya existentes en el ecosistema de innovación canadiense de clase mundial.",
+        "country": "Canadá"
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "En Imágenes",
+    "heading": "Momentos Destacados del Programa",
+    "imageAlt": "Momento destacado de WYTEC Blue 2024 {{n}}"
+  },
+  "sustainability": {
+    "eyebrow": "Edición Inaugural",
+    "heading": "Iniciativa de Sostenibilidad",
+    "forumHeading": "All-Atlantic Ocean Research & Innovation Alliance (AAORIA) Forum 2024",
+    "forumBody": "Pesca y Océanos de Canadá (DFO), la Comisión Europea y OKEANO CSA fueron anfitriones del Foro anual AAORIA 2024, celebrado del 8 al 10 de octubre de 2024 en el Museo Canadiense de la Naturaleza en Ottawa (Canadá). Con contribuciones financieras del DFO y MEOPAR, DOTCAN patrocinó a cuatro Aprendices Inspiradores de la primera formación WYTEC Blue, procedentes de Ghana, Cabo Verde y Nueva Escocia, para asistir a este importante evento internacional.",
+    "ecopHeading": "Profesionales Oceánicos de Carrera Temprana (ECOPs)",
+    "ecopBody": "Los ECOPs de WYTEC Blue viajaron a Canadá y participaron en el Diálogo Intergeneracional, un componente central del Foro orientado a facilitar el intercambio entre los ECOPs y profesionales y responsables de políticas de mayor trayectoria en el ámbito oceánico. Más de 30 ECOPs de toda la región atlántica trabajaron en grupos para idear y codiseñar propuestas de acción colaborativa hacia las áreas prioritarias panatlánticas.",
+    "impactHeading": "Impacto y Conexiones",
+    "impactBody": "La asistencia representó la primera oportunidad de visitar Canadá para los tres becarios de África Occidental, y la primera oportunidad de viaje internacional para uno de ellos. Estas conexiones personales a través de las fronteras nacionales son esenciales para el desarrollo de una perspectiva profesional y global, la colaboración, la innovación y la creación de redes, construyendo conexiones transatlánticas duraderas.",
+    "quote": "Estas propuestas se formalizaron en seis notas de política dirigidas a la atención de la Junta de Alto Nivel de AAORIA. El Foro 2024 destacó oportunidades de colaboración científica, incluida la coordinación de esfuerzos en observación oceánica y una mayor comprensión de la relación entre el océano y el clima para apoyar la resiliencia costera."
+  }
+}

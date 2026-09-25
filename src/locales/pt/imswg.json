@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "imageAlt": "Fórum IMSWG",
+    "heading1": "GRUPO DE TRABALHO INTERNACIONAL",
+    "heading2": "SOBRE SEGURANÇA MARÍTIMA",
+    "subtitle": "A impulsionar a inovação política e o diálogo sobre a segurança marítima no Golfo da Guiné",
+    "downloadReports": "Descarregar Relatórios"
+  },
+  "about": {
+    "eyebrow": "Sobre o Fórum",
+    "heading": "Sobre o Grupo de Trabalho",
+    "para1": "O Grupo de Trabalho Internacional sobre Segurança Marítima (IMSWG), constituído pelo Gulf of Guinea Maritime Institute, é o fórum emblemático do Instituto, centrado em estimular o diálogo e a inovação política com vista a responder às preocupações de segurança e proteção marítimas na região do Golfo da Guiné (GoG).",
+    "para2": "O fórum IMSWG destaca-se como uma rede de intercâmbio de conhecimento e investigação sobre questões regionais, mantendo-se atento ao pulsar das perspetivas internacionais.",
+    "imageAlt": "Colaboração Marítima",
+    "cards": {
+      "expertNetwork": {
+        "heading": "Rede de Especialistas",
+        "desc": "Especialistas em governação oceânica do governo, da indústria, do setor privado, de universidades, de instituições de investigação e da comunidade diplomática"
+      },
+      "regionalFocus": {
+        "heading": "Enfoque Regional",
+        "desc": "Centrado nos desafios de segurança e proteção marítimas do Golfo da Guiné, com perspetivas internacionais"
+      },
+      "policyInnovation": {
+        "heading": "Inovação Política",
+        "desc": "Desenvolve reformas abrangentes e recomendações estratégicas para o desenvolvimento da segurança marítima"
+      }
+    }
+  },
+  "composition": {
+    "eyebrow": "Como Trabalhamos",
+    "heading": "Composição do Fórum",
+    "para1": "Constituído por especialistas do governo, da indústria, do setor privado, de universidades, de instituições de investigação e da comunidade diplomática na prática da governação oceânica, o fórum dedica-se ocasionalmente a trocar ideias e a formular recomendações relevantes para dirigentes de organizações e decisores políticos, com vista a aprofundar de forma abrangente as reformas e o desenvolvimento de estratégias, promover ativamente o desenvolvimento da segurança marítima e construir um consenso coletivo para a prosperidade social e económica.",
+    "chathamHouse": {
+      "heading": "Regra de Chatham House",
+      "desc": "O IMSWG rege-se pela Regra de Chatham House: uma regra ou princípio segundo o qual a informação divulgada durante uma reunião pode ser reportada pelos presentes, mas a fonte dessa informação não pode ser identificada explícita ou implicitamente."
+    }
+  },
+  "activities": {
+    "eyebrow": "O Que Fazemos",
+    "heading": "Atividades do Fórum",
+    "discussionTopics": {
+      "heading": "Temas de Discussão",
+      "desc": "Em cada fórum, os membros e participantes envolvem-se em discussões aprofundadas sobre um vasto leque de temas relacionados com o tema central, e oferecem sugestões para a promoção e o desenvolvimento da governação oceânica e da economia azul sustentável."
+    },
+    "reports": {
+      "heading": "Relatórios e Recomendações",
+      "desc": "Estas discussões estão disponíveis em relatórios e recomendações no sítio web do Instituto e servem como repositório para decisores políticos e instituições que trabalham no desenvolvimento da segurança marítima na região do Golfo da Guiné."
+    },
+    "imageAlt": "Discussão do Fórum Marítimo",
+    "overlayTitle": "Discussões colaborativas a impulsionar a inovação em segurança marítima",
+    "overlaySubtitle": "A reunir especialistas de todo o ecossistema marítimo"
+  },
+  "reportsEvents": {
+    "eyebrow": "Envolva-se",
+    "heading": "Relatórios e Próximos Eventos",
+    "signUp": {
+      "heading": "Inscreva-se",
+      "desc": "Junte-se à rede do IMSWG e participe em futuros fóruns para ajudar a moldar a política marítima",
+      "button": "Manifeste o Seu Interesse"
+    },
+    "report": {
+      "heading": "Relatório 2020-2026",
+      "desc": "Relatório abrangente dos fóruns realizados entre 2020 e 2026, com as principais conclusões",
+      "button": "Descarregar Relatório"
+    },
+    "event": {
+      "heading": "Evento 2026",
+      "desc": "Consulte o calendário do próximo fórum de 2026 e os detalhes do evento",
+      "button": "Ver Detalhes"
+    }
+  },
+  "cta": {
+    "heading": "Junte-se à Conversa",
+    "subtitle": "Faça parte do principal fórum que impulsiona a inovação em política de segurança marítima no Golfo da Guiné",
+    "register": "Inscreva-se no Próximo Fórum",
+    "download": "Descarregar Relatórios"
+  }
+}

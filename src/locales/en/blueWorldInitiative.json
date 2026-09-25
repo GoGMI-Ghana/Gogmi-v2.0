@@ -1,0 +1,96 @@
+{
+  "hero": { "imageAlt": "Blue World Initiative" },
+  "about": {
+    "badge": "Ocean Literacy & Career Development",
+    "heading": "The Blue World Initiative",
+    "para1": "The Blue World Initiative is a transformative program by GoGMI in partnership with DOTCAN (Development of Ocean Technical Capacity for African Nations), dedicated to inspiring the next generation of ocean leaders and blue economy champions across the Gulf of Guinea.",
+    "para2": "Through interactive career fairs, educational resources, and hands-on experiences, we empower young Africans to explore exciting maritime careers while understanding their crucial role in protecting our ocean and building a sustainable blue economy.",
+    "imageAlt": "Blue World Initiative Activities"
+  },
+  "dotcan": {
+    "heading": "Partnership with DOTCAN",
+    "logoAlt": "DOTCAN Logo",
+    "subheading": "Development of Ocean Technical Capacity for African Nations",
+    "para1": "DOTCAN is committed to building ocean technical capacity across African nations through innovative educational programs, research initiatives, and capacity-building workshops.",
+    "para2": "Through this strategic partnership, GoGMI and DOTCAN combine expertise in maritime research, policy development, and youth education to create transformative learning experiences that inspire the next generation of ocean leaders.",
+    "para3": "Together, we are building a sustainable blue economy across the Gulf of Guinea region through education, innovation, and collaboration."
+  },
+  "careerFair": {
+    "heading": "Ocean Career Fair 2023",
+    "eventHeading": "A Groundbreaking Event",
+    "para1": "The Gulf of Guinea Maritime Institute (GoGMI) in partnership with the Development of Technical Capacity for African Nations (DOTCAN) organized a transformative one-day event that brought together students from junior high and secondary schools to interact with key maritime stakeholders.",
+    "para2": "Through engaging presentations and interactive sessions, students discovered the diverse career opportunities in the maritime sector and learned how they can contribute to ocean conservation and sustainable development.",
+    "bullets": [
+      "Interactive Sessions with Industry Experts",
+      "Career Pathway Guidance",
+      "Ocean Literacy Education",
+      "Hands-on Learning Activities"
+    ],
+    "partnersHeading": "Partner Organizations",
+    "images": {
+      "img1": "Students at Career Fair",
+      "img2": "Interactive Learning Session",
+      "img3": "Career Fair Activities"
+    }
+  },
+  "concepts": {
+    "heading": "Key Ocean Concepts",
+    "subtitle": "Understanding these fundamental concepts is essential for anyone interested in ocean-related careers and the blue economy.",
+    "items": [
+      { "title": "Ocean", "description": "The vast body of saltwater that covers over 70% of the Earth's surface." },
+      { "title": "Ocean Economy", "description": "The sum total of economic activities that take place in and around the ocean, including fishing, shipping, tourism, and energy production." },
+      { "title": "Blue Economy", "description": "The sustainable use of ocean resources for economic growth, job creation, and environmental preservation." },
+      { "title": "Sustainability", "description": "The practice of using resources in a way that does not deplete or damage them for future generations." },
+      { "title": "Marine Conservation", "description": "The protection and preservation of ocean ecosystems and biodiversity." },
+      { "title": "Renewable Energy", "description": "Energy that is generated from sources that are replenished naturally, such as wind, solar, and wave power." },
+      { "title": "Aquaculture", "description": "The farming of aquatic organisms such as fish, shellfish, and seaweed." }
+    ]
+  },
+  "careers": {
+    "heading": "Ocean-Related Career Pathways",
+    "subtitle": "Discover exciting career opportunities in the blue economy and maritime sector.",
+    "imageAlt": "Maritime Professionals",
+    "categories": {
+      "scienceResearch": { "heading": "Science & Research", "items": ["Marine Biologist", "Oceanographer", "Environmental Scientist", "Marine Policy Analyst"] },
+      "maritimeOperations": { "heading": "Maritime Operations", "items": ["Naval Officer", "Marine Engineer", "Coastal Planner", "Fisheries Manager"] },
+      "blueEconomy": { "heading": "Blue Economy", "items": ["Aquaculture Farmer", "Renewable Energy Engineer", "Ocean Advocate"] },
+      "educationPolicy": { "heading": "Education & Policy", "items": ["Marine Educator", "International Lawyer"] }
+    },
+    "funFact": {
+      "heading": "Fun Fact About Blue Careers",
+      "para1": "Did you know that you can play a crucial role in safeguarding the ocean even if you do not wish to work in the careers listed above?",
+      "para2": "Accountants and economists can contribute to initiatives on accounting for the Ocean Economy. Doctors, lab technicians and other categories of scientists can learn more about how the release of toxins into the ocean affect human health. Even psychologists can explore the factors that affect the willingness of individuals to adopt sustainable behaviours that safeguard the ocean and its resources. In almost all career fields, you can carve a unique niche for yourself by specialising in a branch of that career that supports the blue economy!"
+    }
+  },
+  "comic": {
+    "badge": "Educational Comic Series",
+    "heading": "MAN: The Adventures of Maritime Domain Awareness",
+    "imageAlt": "MAN - Maritime Domain Awareness Comic",
+    "para1": "Engage young minds through exciting storytelling! Our educational comic book series brings maritime concepts to life through the adventures of MAN and his team as they protect the ocean and promote maritime domain awareness.",
+    "para2": "Through vibrant illustrations and compelling narratives, students learn about ocean conservation, maritime security, and the importance of protecting our blue planet – all while being entertained by action-packed adventures.",
+    "bullets": [
+      "Educational & Entertaining",
+      "Culturally Relevant Stories",
+      "Inspiring Ocean Stewardship"
+    ]
+  },
+  "gallery": {
+    "heading": "Initiative in Action",
+    "img1Alt": "Student Engagement",
+    "img2Alt": "Learning Activities"
+  },
+  "resourcesSection": {
+    "heading": "Download Resources",
+    "subtitle": "Access our Blue Career Fair Handbook and other educational materials to learn more about ocean careers and the blue economy.",
+    "handbook": {
+      "heading": "Blue Career Fair Handbook",
+      "desc": "Complete guide with ocean definitions, career pathways, and industry insights.",
+      "download": "Download Handbook"
+    },
+    "getInvolved": {
+      "heading": "Get Involved",
+      "desc": "Want to participate in future Blue World Initiative events? Contact us to learn more.",
+      "button": "Contact Us"
+    }
+  }
+}

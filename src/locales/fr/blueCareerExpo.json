@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "Blue Career & Business Expo 2021",
+    "subtitle": "Construire une économie bleue robuste, sans laisser personne de côté",
+    "imageAlt": "Blue Career Expo"
+  },
+  "images": {
+    "event": "Événement",
+    "moment1": "Moment de l'événement 1",
+    "moment2": "Moment de l'événement 2",
+    "highlights": "Temps forts de l'événement"
+  },
+  "logos": {
+    "hostedBy": "Organisé par",
+    "inCollaboration": "En collaboration avec"
+  },
+  "stats": {
+    "heading": "Résumé de l'événement",
+    "labels": {
+      "workshops": "Ateliers",
+      "days": "Jours",
+      "sessions": "Sessions",
+      "participants": "Participants",
+      "hostCountries": "Pays hôtes"
+    }
+  },
+  "vision": {
+    "heading": "Construire une économie bleue robuste, sans laisser personne de côté",
+    "body": "Le Blue Economy and Business Expo 2021 a réuni plusieurs étudiants représentant des pays activement engagés dans l'économie océanique. De nombreuses réflexions précieuses ont ainsi été partagées. L'engagement des jeunes dans divers secteurs a traduit cet engagement à ne laisser personne de côté."
+  },
+  "about": {
+    "heading": "À propos de l'événement",
+    "para1": "Le Gulf of Guinea Maritime Institute (GoGMI), en collaboration avec les acteurs de l'économie bleue d'Afrique de l'Ouest, a organisé le premier Blue Career and Business Expo 2021 (BCBE 2021). Ce forum unique en son genre était consacré à la promotion de solutions maritimes durables, permettant aux jeunes de mieux appréhender les opportunités de développement de carrière dans l'économie bleue.",
+    "para2": "Ce programme de 5 jours a réuni de jeunes acteurs africains autour de propositions innovantes sur divers sujets mettant en lumière des enjeux importants de l'économie bleue."
+  },
+  "highlights": {
+    "heading": "Temps forts de l'événement",
+    "body": "Revivez l'énergie et les enseignements du Blue Career and Business Expo 2021. De jeunes professionnels et étudiants africains ont échangé avec des dirigeants de l'industrie maritime pour explorer les opportunités de l'économie bleue.",
+    "downloadReport": "Télécharger le rapport"
+  },
+  "themesSection": {
+    "heading": "Thèmes clés"
+  },
+  "themes": [
+    "Économie océanique et secteurs bleus",
+    "Carrières bleues",
+    "Opportunités de l'économie bleue",
+    "Développement des capacités et opportunités de formation",
+    "Plaidoyer, gouvernance et processus décisionnels",
+    "Solutions pour les PME"
+  ],
+  "impact": {
+    "heading": "Impact de l'événement",
+    "diverseHeading": "Diversité des tables rondes",
+    "diverseBody": "L'un des principaux atouts du BCBE résidait dans l'ampleur de ses tables rondes et présentations. La diversité des intervenants, par nationalité, domaine d'expertise et rang, a distingué le BCBE, attirant des milliers d'étudiants universitaires africains en quête d'une gestion novatrice des idées et de discours inspirants.",
+    "cards": [
+      "Des intervenants issus de disciplines variées ont partagé longuement leurs expériences personnelles et prodigué des conseils pour surmonter les obstacles.",
+      "Le BCBE a réuni environ 200 participants venus de 16 pays africains autour d'un engagement commun : bâtir une économie bleue prospère.",
+      "L'événement s'est conclu par des présentations sur les campus consacrées à des solutions climatiques réalisables dans l'espace maritime."
+    ],
+    "midParagraph": "Les tables rondes ont suscité un vif intérêt, les jeunes se montrant très engagés à chaque phase de discussion. Les débats se sont caractérisés par une forte représentation des jeunes parmi les panélistes et une grande diversité d'experts issus du gouvernement et de l'industrie.",
+    "numbered": [
+      "Présentations sur les campus consacrées à des solutions climatiques réalisables dans l'espace maritime, suivies de tables rondes de réseautage pour les jeunes.",
+      "Les tables rondes ont joué un rôle clé en incitant les jeunes à promouvoir des initiatives d'économie bleue centrées sur la jeunesse.",
+      "Le BCBE Expo a réuni des individus, des institutions ainsi que les secteurs privé et public."
+    ]
+  },
+  "speakers": {
+    "heading": "Personnalités invitées",
+    "titles": {
+      "1": "Haute-Commissaire du Canada au Ghana",
+      "2": "Chef d'état-major de la Marine, Marine ghanéenne",
+      "3": "Rapporteure spéciale sur la piraterie et la sécurité maritime pour la Commission de l'Union africaine",
+      "4": "Intervenant invité"
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowLeft, CheckCircle, AlertCircle, Upload, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const IMSWGsignup = () => {
+  const { t } = useTranslation('imswgSignup');
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
@@ -23,28 +25,29 @@ const IMSWGsignup = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const interestOptions = t('interests.options', { returnObjects: true });
   const AREAS_OF_INTEREST = [
-    { id: 'become_mentor', label: 'Become a Mentor' },
-    { id: 'join_panel', label: 'Join a Panel for Discussions' },
-    { id: 'speak_events', label: 'Speak at Our Events' },
-    { id: 'contribute_projects', label: 'Contribute to Our Projects' },
-    { id: 'support_fundraising', label: 'Support Fundraising Projects' },
-    { id: 'join_membership', label: 'Join Our Membership' },
-    { id: 'partner_with_us', label: 'Partner with Us' }
+    { id: 'become_mentor', label: interestOptions.become_mentor },
+    { id: 'join_panel', label: interestOptions.join_panel },
+    { id: 'speak_events', label: interestOptions.speak_events },
+    { id: 'contribute_projects', label: interestOptions.contribute_projects },
+    { id: 'support_fundraising', label: interestOptions.support_fundraising },
+    { id: 'join_membership', label: interestOptions.join_membership },
+    { id: 'partner_with_us', label: interestOptions.partner_with_us }
   ];
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
+    if (!formData.fullName.trim()) newErrors.fullName = t('errors.fullNameRequired');
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('errors.emailRequired');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
+      newErrors.email = t('errors.emailInvalid');
     }
-    if (!formData.country.trim()) newErrors.country = 'Country of residence is required';
-    if (!formData.position.trim()) newErrors.position = 'Position/Title is required';
-    if (!formData.bio.trim()) newErrors.bio = 'A brief bio is required';
-    if (formData.areasOfInterest.length === 0) newErrors.areasOfInterest = 'Please select at least one area of interest';
+    if (!formData.country.trim()) newErrors.country = t('errors.countryRequired');
+    if (!formData.position.trim()) newErrors.position = t('errors.positionRequired');
+    if (!formData.bio.trim()) newErrors.bio = t('errors.bioRequired');
+    if (formData.areasOfInterest.length === 0) newErrors.areasOfInterest = t('errors.areasOfInterestRequired');
     return newErrors;
   };
 
@@ -72,11 +75,11 @@ const IMSWGsignup = () => {
     if (!file) return;
     const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
     if (!validTypes.includes(file.type)) {
-      setErrors(prev => ({ ...prev, profilePicture: 'Please upload a JPG, PNG, or WEBP image' }));
+      setErrors(prev => ({ ...prev, profilePicture: t('errors.invalidImageType') }));
       return;
     }
     if (file.size > 5 * 1024 * 1024) {
-      setErrors(prev => ({ ...prev, profilePicture: 'Image must be smaller than 5MB' }));
+      setErrors(prev => ({ ...prev, profilePicture: t('errors.imageTooLarge') }));
       return;
     }
     setFormData(prev => ({ ...prev, profilePicture: file }));
@@ -132,7 +135,7 @@ const IMSWGsignup = () => {
       const data = await response.json();
 
       if (!data.success) {
-        throw new Error(data.message || 'Submission failed');
+        throw new Error(data.message || t('errors.submissionFailed'));
       }
 
       setSubmitted(true);
@@ -148,7 +151,7 @@ const IMSWGsignup = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       setErrors({
-        submit: error.message || 'Failed to submit. Please try again or contact us at info@gogmi.org.gh'
+        submit: error.message || t('errors.submitFailedFallback')
       });
     } finally {
       setIsSubmitting(false);
@@ -164,22 +167,22 @@ const IMSWGsignup = () => {
             <CheckCircle className="w-12 h-12 text-green-600" />
           </div>
           <h2 className="text-3xl font-bold mb-4" style={{ color: '#1e293b' }}>
-            Interest Submitted!
+            {t('success.heading')}
           </h2>
           <p className="text-lg mb-4" style={{ color: '#64748b' }}>
-            Thank you for your interest in the International Maritime Security Working Group. We appreciate you sharing your background and areas of interest with us.
+            {t('success.body1')}
           </p>
           <p className="text-base mb-8" style={{ color: '#64748b' }}>
-            Our team will review your submission and reach out to you with next steps. Keep an eye on your inbox!
+            {t('success.body2')}
             <br /><br />
-            — GoGMI
+            — {t('success.signature')}
           </p>
           <button
             onClick={() => navigate('/imswg')}
             className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Back to IMSWG</span>
+            <span>{t('success.backButton')}</span>
           </button>
         </div>
       </div>
@@ -196,13 +199,13 @@ const IMSWGsignup = () => {
             className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors mb-4"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span className="font-semibold">Back to IMSWG</span>
+            <span className="font-semibold">{t('header.backButton')}</span>
           </button>
           <h1 className="text-4xl font-bold mb-2" style={{ color: '#1e293b' }}>
-            Sign Up to our IMSWG Group
+            {t('header.title')}
           </h1>
           <p className="text-lg" style={{ color: '#64748b' }}>
-            International Maritime Security Working Group
+            {t('header.subtitle')}
           </p>
         </div>
       </div>
@@ -211,7 +214,7 @@ const IMSWGsignup = () => {
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
           <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
             <p className="text-base leading-relaxed font-medium" style={{ color: '#475569' }}>
-              Tell us about yourself and how you'd like to be involved with IMSWG. Whether you want to mentor, speak, collaborate, or simply join our network — we'd love to hear from you.
+              {t('intro')}
             </p>
           </div>
 
@@ -224,54 +227,54 @@ const IMSWGsignup = () => {
 
           <form onSubmit={handleSubmit} className="space-y-10">
             <div>
-              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>Personal Information</h3>
+              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('personalInfo.heading')}</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="md:col-span-2" data-error={!!errors.fullName}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>Full Name <span className="text-red-500">*</span></label>
-                  <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.fullName ? 'border-red-300' : 'border-slate-200'}`} placeholder="John Doe" />
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.fullNameLabel')} <span className="text-red-500">*</span></label>
+                  <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.fullName ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('personalInfo.fullNamePlaceholder')} />
                   {errors.fullName && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.fullName}</p>}
                 </div>
 
                 <div className="md:col-span-2" data-error={!!errors.email}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>Email Address <span className="text-red-500">*</span></label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.email ? 'border-red-300' : 'border-slate-200'}`} placeholder="john@example.com" />
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.emailLabel')} <span className="text-red-500">*</span></label>
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.email ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('personalInfo.emailPlaceholder')} />
                   {errors.email && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.email}</p>}
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>Country Code Plus WhatsApp Number</label>
-                  <input type="tel" name="whatsappNumber" value={formData.whatsappNumber} onChange={handleChange} className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent" placeholder="+233 XX XXX XXXX" />
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.whatsappLabel')}</label>
+                  <input type="tel" name="whatsappNumber" value={formData.whatsappNumber} onChange={handleChange} className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent" placeholder={t('personalInfo.whatsappPlaceholder')} />
                 </div>
 
                 <div className="md:col-span-2" data-error={!!errors.country}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>Country of Residence <span className="text-red-500">*</span></label>
-                  <input type="text" name="country" value={formData.country} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.country ? 'border-red-300' : 'border-slate-200'}`} placeholder="e.g., Ghana" />
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.countryLabel')} <span className="text-red-500">*</span></label>
+                  <input type="text" name="country" value={formData.country} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.country ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('personalInfo.countryPlaceholder')} />
                   {errors.country && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.country}</p>}
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>Professional Information</h3>
+              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('professionalInfo.heading')}</h3>
               <div className="space-y-6">
                 <div data-error={!!errors.position}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>Current Professional Position / Title Held <span className="text-red-500">*</span></label>
-                  <input type="text" name="position" value={formData.position} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.position ? 'border-red-300' : 'border-slate-200'}`} placeholder="e.g., Maritime Security Analyst" />
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('professionalInfo.positionLabel')} <span className="text-red-500">*</span></label>
+                  <input type="text" name="position" value={formData.position} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.position ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('professionalInfo.positionPlaceholder')} />
                   {errors.position && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.position}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>Institution / Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span></label>
-                  <input type="text" name="institution" value={formData.institution} onChange={handleChange} className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent" placeholder="e.g., Maritime Authority, Security Firm, etc." />
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('professionalInfo.institutionLabel')} <span className="text-slate-400 text-xs font-normal">{t('optional')}</span></label>
+                  <input type="text" name="institution" value={formData.institution} onChange={handleChange} className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent" placeholder={t('professionalInfo.institutionPlaceholder')} />
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>About You</h3>
+              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('aboutYou.heading')}</h3>
               <div data-error={!!errors.bio}>
-                <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>Brief Bio <span className="text-red-500">*</span></label>
-                <p className="text-xs mb-3" style={{ color: '#94a3b8' }}>Tell us a little about your background, expertise, and what you bring to the maritime security space. (Max 500 characters)</p>
-                <textarea name="bio" value={formData.bio} onChange={handleChange} maxLength={500} rows={5} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent resize-none ${errors.bio ? 'border-red-300' : 'border-slate-200'}`} placeholder="e.g., I am a maritime security professional with over 10 years of experience..." />
+                <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('aboutYou.bioLabel')} <span className="text-red-500">*</span></label>
+                <p className="text-xs mb-3" style={{ color: '#94a3b8' }}>{t('aboutYou.bioHelper')}</p>
+                <textarea name="bio" value={formData.bio} onChange={handleChange} maxLength={500} rows={5} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent resize-none ${errors.bio ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('aboutYou.bioPlaceholder')} />
                 <div className="flex justify-between items-center mt-1">
                   {errors.bio ? <p className="text-red-600 text-sm font-semibold">{errors.bio}</p> : <span />}
                   <p className="text-xs ml-auto" style={{ color: formData.bio.length >= 480 ? '#ef4444' : '#94a3b8' }}>{formData.bio.length}/500</p>
@@ -280,8 +283,8 @@ const IMSWGsignup = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-2 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>Areas of Interest</h3>
-              <p className="text-sm mb-6" style={{ color: '#64748b' }}>Select all that apply — you can choose more than one. <span className="text-red-500">*</span></p>
+              <h3 className="text-xl font-bold mb-2 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('interests.heading')}</h3>
+              <p className="text-sm mb-6" style={{ color: '#64748b' }}>{t('interests.helper')} <span className="text-red-500">*</span></p>
               <div className={`rounded-xl border-2 p-2 ${errors.areasOfInterest ? 'border-red-300 bg-red-50' : 'border-slate-100 bg-slate-50'}`} data-error={!!errors.areasOfInterest}>
                 <div className="grid sm:grid-cols-2 gap-2">
                   {AREAS_OF_INTEREST.map(({ id, label }) => {
@@ -314,39 +317,39 @@ const IMSWGsignup = () => {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-2 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>Profile Picture <span className="text-slate-400 text-sm font-normal">(Optional)</span></h3>
-              <p className="text-sm mb-6" style={{ color: '#64748b' }}>Upload a professional headshot. Accepted formats: JPG, PNG, WEBP. Max size: 5MB.</p>
+              <h3 className="text-xl font-bold mb-2 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('profilePicture.heading')} <span className="text-slate-400 text-sm font-normal">{t('profilePicture.optional')}</span></h3>
+              <p className="text-sm mb-6" style={{ color: '#64748b' }}>{t('profilePicture.helper')}</p>
               {!profilePreview ? (
                 <div>
                   <input type="file" ref={fileInputRef} accept="image/jpeg,image/png,image/webp" onChange={handleProfilePicture} className="hidden" id="profilePictureInput" />
                   <label htmlFor="profilePictureInput" className="flex flex-col items-center justify-center w-full py-10 border-2 border-dashed rounded-xl cursor-pointer transition-all hover:border-slate-400 hover:bg-slate-50" style={{ borderColor: errors.profilePicture ? '#fca5a5' : '#cbd5e1' }}>
                     <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-3"><Upload className="w-7 h-7 text-slate-400" /></div>
-                    <p className="text-sm font-semibold" style={{ color: '#475569' }}>Click to upload your photo</p>
-                    <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>JPG, PNG or WEBP up to 5MB</p>
+                    <p className="text-sm font-semibold" style={{ color: '#475569' }}>{t('profilePicture.uploadPrompt')}</p>
+                    <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>{t('profilePicture.uploadHint')}</p>
                   </label>
                   {errors.profilePicture && <p className="text-red-600 text-sm mt-2 font-semibold">{errors.profilePicture}</p>}
                 </div>
               ) : (
                 <div className="flex items-center gap-6 p-5 bg-slate-50 rounded-xl border-2 border-slate-200">
                   <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-md flex-shrink-0">
-                    <img src={profilePreview} alt="Profile preview" className="w-full h-full object-cover" />
+                    <img src={profilePreview} alt={t('profilePicture.previewAlt')} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-bold text-slate-800 mb-1">{formData.profilePicture?.name}</p>
                     <p className="text-xs text-slate-500">{formData.profilePicture ? (formData.profilePicture.size / 1024).toFixed(0) + ' KB' : ''}</p>
-                    <p className="text-xs text-green-600 font-semibold mt-1 flex items-center gap-1"><CheckCircle className="w-3 h-3" /> Image ready</p>
+                    <p className="text-xs text-green-600 font-semibold mt-1 flex items-center gap-1"><CheckCircle className="w-3 h-3" /> {t('profilePicture.imageReady')}</p>
                   </div>
-                  <button type="button" onClick={removeProfilePicture} className="p-2 rounded-full hover:bg-red-100 transition-colors text-slate-400 hover:text-red-500" title="Remove photo"><X className="w-5 h-5" /></button>
+                  <button type="button" onClick={removeProfilePicture} className="p-2 rounded-full hover:bg-red-100 transition-colors text-slate-400 hover:text-red-500" title={t('profilePicture.removeTitle')}><X className="w-5 h-5" /></button>
                 </div>
               )}
             </div>
 
             <div className="pt-6 border-t border-slate-200">
               <button type="submit" disabled={isSubmitting} className="w-full py-4 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl">
-                {isSubmitting ? 'Submitting...' : 'Submit My Interest'}
+                {isSubmitting ? t('submit.submitting') : t('submit.button')}
               </button>
               <p className="text-sm text-center mt-4 italic" style={{ color: '#64748b' }}>
-                By submitting this form, you agree to be contacted regarding IMSWG activities and opportunities.
+                {t('submit.consent')}
               </p>
             </div>
           </form>

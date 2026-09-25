@@ -1,0 +1,69 @@
+{
+  "badge": "Vamos Falar",
+  "title": "Entre em Contacto",
+  "subtitle": "Tem alguma questão ou quer trabalhar connosco? Adoraríamos ouvi-lo.",
+  "cards": {
+    "call": { "title": "Ligue-nos", "info": "+233 50 4953400", "subinfo": "Seg-Sex : 8h30-16h30 GMT" },
+    "email": { "title": "Envie-nos um E-mail", "info": "info@gogmi.org.gh", "subinfo": "Respondemos no prazo de 48 horas" },
+    "visit": { "title": "Visite-nos", "info": "GL-108-0038, No. 4 Obodai link street", "subinfo": "Tse Addo La Dade Kotopon, Gr Accra" }
+  },
+  "form": {
+    "eyebrow": "Formulário de Contacto",
+    "heading": "Envie-nos uma Mensagem",
+    "description": "Preencha o formulário abaixo e entraremos em contacto o mais brevemente possível.",
+    "successMessage": "Mensagem enviada com sucesso! Entraremos em contacto em breve.",
+    "nameLabel": "O Seu Nome *",
+    "namePlaceholder": "James Bond",
+    "emailLabel": "Endereço de E-mail *",
+    "emailPlaceholder": "info@example.com",
+    "phoneLabel": "Número de Telefone",
+    "phonePlaceholder": "+233 XXX XXX XXX",
+    "subjectLabel": "Assunto *",
+    "subjectPlaceholder": "Selecione um assunto",
+    "subjectOptions": {
+      "general": "Questão Geral",
+      "partnership": "Oportunidade de Parceria",
+      "training": "Programas de Formação",
+      "research": "Colaboração em Investigação",
+      "membership": "Associação",
+      "other": "Outro"
+    },
+    "messageLabel": "Mensagem *",
+    "messagePlaceholder": "Conte-nos sobre a sua questão...",
+    "sending": "A enviar...",
+    "send": "Enviar Mensagem",
+    "errors": {
+      "name": "O nome é obrigatório",
+      "emailRequired": "O e-mail é obrigatório",
+      "emailInvalid": "O e-mail é inválido",
+      "subject": "Selecione um assunto",
+      "messageRequired": "A mensagem é obrigatória",
+      "messageTooShort": "A mensagem deve ter pelo menos 10 carateres",
+      "submitFallback": "Falha ao enviar a mensagem. Tente novamente ou envie-nos um e-mail diretamente para info@gogmi.org.gh"
+    }
+  },
+  "officeHours": {
+    "heading": "Horário de Funcionamento",
+    "schedule": [
+      { "days": "Segunda - Sexta", "hours": "8h30 - 16h30" },
+      { "days": "Sábado", "hours": "Mediante Marcação" },
+      { "days": "Domingo", "hours": "Encerrado" }
+    ]
+  },
+  "social": {
+    "heading": "Conecte-se Connosco",
+    "subtitle": "Siga-nos nas redes sociais para novidades e informações"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heading": "Perguntas Frequentes",
+    "subtitle": "Respostas rápidas às perguntas mais comuns",
+    "items": [
+      { "q": "Como posso estabelecer uma parceria com o GOGMI?", "a": "Damos as boas-vindas a parcerias! Preencha o formulário de contacto acima com \"Oportunidade de Parceria\" como assunto, e a nossa equipa entrará em contacto para discutir oportunidades de colaboração." },
+      { "q": "Oferecem programas de formação?", "a": "Sim, oferecemos vários programas de capacitação e formação, incluindo o Blue Mentorship Programme, formação em Segurança Marítima e cursos de Economia Azul. Visite a nossa página de Capacitação para mais informações." },
+      { "q": "Quanto tempo demora a obter uma resposta?", "a": "Normalmente respondemos a todas as questões no prazo de 24 a 48 horas em dias úteis. Assuntos urgentes podem ser direcionados para a nossa linha telefónica para assistência imediata." },
+      { "q": "Posso visitar o vosso escritório?", "a": "Sim! Damos as boas-vindas a visitas nas nossas instalações em Accra. Marque uma visita contactando-nos com antecedência para garantir que alguém esteja disponível para o receber." },
+      { "q": "Como me candidato ao Blue Mentorship Programme?", "a": "As candidaturas ao Blue Mentorship Programme abrem periodicamente. Contacte-nos ou consulte o nosso site para saber as próximas datas de admissão e os requisitos de candidatura." }
+    ]
+  }
+}

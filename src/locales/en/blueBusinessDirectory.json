@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Gulf of Guinea Maritime Institute",
+  "title": "Blue Business Directory",
+  "subtitle": "The Gulf of Guinea's register of maritime trade & professional services",
+  "searchPlaceholder": "Search by name, service or country…",
+  "scrollLeft": "Scroll left",
+  "scrollRight": "Scroll right",
+  "categories": {
+    "all": "All",
+    "shipping": "Shipping & Logistics",
+    "port": "Port Services",
+    "security": "Maritime Security",
+    "engineering": "Marine Engineering",
+    "legal": "Legal & Insurance",
+    "energy": "Offshore Energy",
+    "consulting": "Consulting",
+    "training": "Training & Education"
+  },
+  "listingCount_one": "listing",
+  "listingCount_other": "listings",
+  "listYourBusiness": "List your business →",
+  "listYourBusinessSubject": "Blue Business Directory — List My Business",
+  "featured": "Featured",
+  "allListings": "All Listings",
+  "empty": {
+    "title": "No listings found",
+    "subtitle": "Try adjusting your search or category filter"
+  },
+  "footerNote": "To add or update a listing, contact",
+  "listings": {
+    "1": { "description": "State authority managing container, bulk and general cargo operations across Ghana's major ports including Tema and Takoradi." },
+    "2": { "description": "Regional shipping and freight forwarding across the Gulf of Guinea with scheduled services to 14 ports." },
+    "3": { "description": "Deep-water container terminal and the primary transshipment hub serving landlocked West African states." },
+    "4": { "description": "Maritime law practice specialising in ship finance, cargo claims, P&I matters and admiralty proceedings." }
+  }
+}

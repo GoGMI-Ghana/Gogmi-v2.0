@@ -16,101 +16,60 @@ import {
   BarChart3
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+const topicIcons = [
+  { icon: <AlertTriangle className="w-6 h-6" />, color: "#0891b2" },
+  { icon: <Shield className="w-6 h-6" />, color: "#132552" },
+  { icon: <Target className="w-6 h-6" />, color: "#0891b2" },
+  { icon: <Globe className="w-6 h-6" />, color: "#132552" }
+];
+
+const highlightIcons = [
+  <Shield className="w-5 h-5" />,
+  <Users className="w-5 h-5" />,
+  <Globe className="w-5 h-5" />,
+  <Anchor className="w-5 h-5" />
+];
+
+const outcomeIcons = [
+  <MessageSquare className="w-5 h-5" />,
+  <BarChart3 className="w-5 h-5" />,
+  <Target className="w-5 h-5" />,
+  <BookOpen className="w-5 h-5" />,
+  <FileText className="w-5 h-5" />,
+  <CheckCircle className="w-5 h-5" />
+];
 
 const IMSWGEvents = () => {
+  const { t } = useTranslation('imswgEvents');
   const navigate = useNavigate();
   const [activeTheme, setActiveTheme] = useState(null);
 
-  const topicsForDiscussion = [
-    {
-      number: 1,
-      title: "BBNJ Relevance to a Predominantly Coastal Region",
-      icon: <AlertTriangle className="w-6 h-6" />,
-      color: "#0891b2",
-      description: "Transboundary impacts of area-based management tools and environmental impact assessments on national waters, and eligibility for marine genetic resources benefit sharing.",
-      points: []
-    },
-    {
-      number: 2,
-      title: "Maritime Security & Enforcement Implications",
-      icon: <Shield className="w-6 h-6" />,
-      color: "#132552",
-      description: "Monitoring and surveillance requirements at the exclusive economic zone and areas-beyond-national-jurisdiction boundary, and linkages to illegal, unreported, and unregulated fishing.",
-      points: []
-    },
-    {
-      number: 3,
-      title: "Capacity Building & Technology Transfer",
-      icon: <Target className="w-6 h-6" />,
-      color: "#0891b2",
-      description: "Needs for resource-constrained navies, coast guards, and marine agencies in the region, drawing on Ghana's experience with the Enabling Activities for the Biodiversity Beyond National Jurisdiction project.",
-      points: []
-    },
-    {
-      number: 4,
-      title: "Pathways to the First Conference of the Parties",
-      icon: <Globe className="w-6 h-6" />,
-      color: "#132552",
-      description: "How Gulf of Guinea states can engage in the preparatory process toward the first Conference of the Parties, scheduled for 11–22 January 2027.",
-      points: []
-    }
-  ];
+  const topicsForDiscussion = t('topics.items', { returnObjects: true }).map((item, idx) => ({
+    number: idx + 1,
+    title: item.title,
+    description: item.description,
+    icon: topicIcons[idx].icon,
+    color: topicIcons[idx].color
+  }));
 
-  const objectives = [
-    "Establish a shared understanding of what the BBNJ Agreement means for the Gulf of Guinea, given that it governs the high seas rather than national waters, and how its effects still reach the region indirectly, through spillover from protected areas and environmental assessments, and through benefit sharing from marine genetic resources.",
-    "Assess the maritime security and enforcement implications of the Agreement's area-based management tools and monitoring obligations, including the monitoring, surveillance, and enforcement capacity required of regional navies and coast guards at the exclusive economic zone and areas-beyond-national-jurisdiction boundary, and linkages to illegal, unreported, and unregulated fishing.",
-    "Identify capacity building and technology transfer needs for regional implementation, drawing on Ghana's experience with the Enabling Activities for the Biodiversity Beyond National Jurisdiction project.",
-    "Approve a publication plan, an IMSWG report attributed to the presenting expert, and identify priority follow-on research or advocacy activity."
-  ];
+  const highlights = t('executiveSummary.highlights', { returnObjects: true }).map((item, idx) => ({
+    title: item.title,
+    description: item.description,
+    icon: highlightIcons[idx]
+  }));
 
-  const agenda = [
-    { time: "1300 – 1305", activity: "Welcome, objectives, operating principles" },
-    { time: "1305 – 1320", activity: "Opening address" },
-    { time: "1320 – 1345", activity: "Segment 1: The BBNJ Agreement — provisions and implications for ocean governance in the Gulf of Guinea" },
-    { time: "1345 – 1410", activity: "Segment 2: Capacity building, technology transfer, and regional positioning ahead of the first Conference of the Parties" },
-    { time: "1410 – 1445", activity: "Interactive session" },
-    { time: "1445 – 1500", activity: "Closing summary and confirmation of report process" }
-  ];
+  const objectives = t('objectives.items', { returnObjects: true });
 
-  const stakeholders = [
-    "Members of the GoGMI-hosted IMSWG",
-    "Senior representatives of navies and coast guards",
-    "Fisheries and marine environment agencies",
-    "Maritime administrations and regulators",
-    "Ministry of Environment, Science and Technology and UNDP team implementing the Enabling Activities for the BBNJ project",
-    "Officials engaged in ocean governance from relevant ministries",
-    "Academia and research institutions",
-    "Regional and international organisations",
-    "Development partners",
-    "Think tanks and non-governmental organisations"
-  ];
+  const agenda = t('format.agenda', { returnObjects: true });
 
-  const expectedOutcomes = [
-    {
-      icon: <MessageSquare className="w-5 h-5" />,
-      text: "Shared understanding of the implications of the BBNJ Agreement for Gulf of Guinea maritime governance"
-    },
-    {
-      icon: <BarChart3 className="w-5 h-5" />,
-      text: "An assessment of capacity building and technology transfer needs relevant to regional implementation"
-    },
-    {
-      icon: <Target className="w-5 h-5" />,
-      text: "Identification of linkages between BBNJ provisions and existing regional maritime security and environmental governance frameworks"
-    },
-    {
-      icon: <BookOpen className="w-5 h-5" />,
-      text: "Priority areas for follow-on research, capacity building, or advocacy activity"
-    },
-    {
-      icon: <FileText className="w-5 h-5" />,
-      text: "A meeting record and a published IMSWG report"
-    },
-    {
-      icon: <CheckCircle className="w-5 h-5" />,
-      text: "A validated publication plan, with a named presenting expert and delivery timeline"
-    }
-  ];
+  const stakeholders = t('stakeholders.items', { returnObjects: true });
+
+  const expectedOutcomes = t('outcomes.items', { returnObjects: true }).map((text, idx) => ({
+    icon: outcomeIcons[idx],
+    text
+  }));
 
   return (
     <div className="w-full bg-white" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
@@ -120,7 +79,7 @@ const IMSWGEvents = () => {
         <div className="absolute inset-0">
           <img
             src="/imswg4.jpg"
-            alt="IMSWG Forum"
+            alt={t('hero.imageAlt')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-cyan-900/95"></div>
@@ -133,41 +92,41 @@ const IMSWGEvents = () => {
               className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8"
             >
               <ArrowLeft className="w-5 h-5" />
-              <span className="font-semibold">Back to IMSWG</span>
+              <span className="font-semibold">{t('hero.backButton')}</span>
             </button>
 
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-cyan-400/20 backdrop-blur-md border border-cyan-400/30">
               <Calendar className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm font-bold uppercase tracking-wide text-cyan-400">Quarter 3 Forum — 2026</span>
+              <span className="text-sm font-bold uppercase tracking-wide text-cyan-400">{t('hero.quarterBadge')}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl leading-tight mb-6"
                 style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-              The Implications of the BBNJ Agreement for the Gulf of Guinea
+              {t('hero.title')}
             </h1>
 
             <p className="text-xl md:text-2xl leading-relaxed mb-8 text-white/90">
-              High-Level Expert Meeting of the International Maritime Security Working Group (IMSWG), 2026
+              {t('hero.subtitle')}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Calendar className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">16th September, 2026</span>
+                <span className="font-semibold">{t('hero.date')}</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Clock className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">1:00 PM – 3:00 PM GMT</span>
+                <span className="font-semibold">{t('hero.time')}</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Globe className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">Virtual</span>
+                <span className="font-semibold">{t('hero.format')}</span>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <span className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold shadow-2xl bg-white/10 text-white/70 border border-white/20 cursor-not-allowed">
-                <span>Registration Closed</span>
+                <span>{t('hero.registrationClosed')}</span>
               </span>
             </div>
           </div>
@@ -180,16 +139,16 @@ const IMSWGEvents = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-                About This Forum
+                {t('executiveSummary.eyebrow')}
               </span>
               <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-                Executive Summary
+                {t('executiveSummary.heading')}
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{ color: '#4B5563' }}>
-                IMSWG will convene a session to align practitioners, policy leaders, and researchers on the implications of the entry into force of the BBNJ Agreement for the Gulf of Guinea. The dialogue will bridge science, policy, and ocean governance in line with UNCLOS and the BBNJ Agreement's provisions on marine genetic resources, area-based management tools, environmental impact assessments, and capacity building and technology transfer.
+                {t('executiveSummary.para1')}
               </p>
               <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                Immediate outputs will include a meeting record and a published IMSWG report.
+                {t('executiveSummary.para2')}
               </p>
             </div>
 
@@ -197,24 +156,19 @@ const IMSWGEvents = () => {
               <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full"></div>
               <img
                 src="/IMSWG-BBNJ-newdate.jpeg"
-                alt="IMSWG 2026 Quarter 3 Forum Flyer"
+                alt={t('executiveSummary.flyerAlt')}
                 className="relative rounded-2xl shadow-2xl w-full hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border-2" style={{ borderColor: '#0891b2' }}>
                 <div className="text-2xl font-black mb-1" style={{ color: '#0891b2' }}>IMSWG</div>
-                <p className="text-sm font-semibold" style={{ color: '#132552' }}>Q3 2026 Forum</p>
+                <p className="text-sm font-semibold" style={{ color: '#132552' }}>{t('executiveSummary.badgeLine')}</p>
               </div>
             </div>
           </div>
 
           {/* Forum Highlights */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: <Shield className="w-5 h-5" />, title: "Policy Dialogue", description: "Expert reflection and critical discussion on ocean governance and the BBNJ Agreement" },
-              { icon: <Users className="w-5 h-5" />, title: "Multi-Stakeholder", description: "Practitioners, policymakers, researchers, and regional stakeholders" },
-              { icon: <Globe className="w-5 h-5" />, title: "Regional Focus", description: "Gulf of Guinea maritime governance and BBNJ implementation" },
-              { icon: <Anchor className="w-5 h-5" />, title: "Chatham House Rule", description: "Open discussion under Chatham House confidentiality principles" }
-            ].map((highlight, idx) => (
+            {highlights.map((highlight, idx) => (
               <div key={idx} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                      style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)', color: '#0891b2' }}>
@@ -243,13 +197,13 @@ const IMSWGEvents = () => {
               </div>
               <div>
                 <h2 className="text-3xl font-black mb-4" style={{ color: '#132552' }}>
-                  Background
+                  {t('background.heading')}
                 </h2>
                 <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>
-                  The Agreement under the United Nations Convention on the Law of the Sea on the Conservation and Sustainable Use of Marine Biological Diversity of Areas Beyond National Jurisdiction (BBNJ Agreement) was adopted on 19 June 2023. The sixtieth instrument of ratification was deposited on 19 September 2025, triggering entry into force 120 days later, on 17 January 2026. At the point of entry into force, the Agreement had 83 parties and 145 signatories, establishing a legally binding framework covering marine genetic resources and benefit sharing, area-based management tools including marine protected areas, environmental impact assessments, and capacity building and technology transfer.
+                  {t('background.para1')}
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                  Ghana deposited its instrument of ratification on 14 January 2026, and the Agreement entered into force for Ghana on 13 February 2026. In July 2026, the Ministry of Environment, Science and Technology, in partnership with the United Nations Development Programme and with funding support from the Global Environment Facility, launched the Enabling Activities for the Biodiversity Beyond National Jurisdiction project at an inception meeting in Accra. The third and final session of the Preparatory Commission took place from 23 March to 2 April 2026 at UN Headquarters in New York, concluding with a report of recommendations to be forwarded to the first Conference of the Parties, scheduled to convene from 11 to 22 January 2027.
+                  {t('background.para2')}
                 </p>
               </div>
             </div>
@@ -262,13 +216,13 @@ const IMSWGEvents = () => {
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
             <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-              What We Aim To Achieve
+              {t('objectives.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              Objectives
+              {t('objectives.heading')}
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              To convene a high-level session of IMSWG that aligns policy makers, practitioners, and researchers on the provisions, opportunities, and governance requirements of the BBNJ Agreement for the Gulf of Guinea, and to map practical pathways for regional engagement ahead of the first Conference of the Parties.
+              {t('objectives.subtitle')}
             </p>
           </div>
 
@@ -296,13 +250,13 @@ const IMSWGEvents = () => {
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
             <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-              Discussion Themes
+              {t('topics.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              Topics for Discussion
+              {t('topics.heading')}
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              Discussions will centre around the following thematic areas
+              {t('topics.subtitle')}
             </p>
           </div>
 
@@ -322,7 +276,7 @@ const IMSWGEvents = () => {
                       <div className="flex items-center gap-3 mb-2">
                         <span className="text-sm font-bold px-3 py-1 rounded-full"
                               style={{ backgroundColor: `${issue.color}15`, color: issue.color }}>
-                          Topic {issue.number}
+                          {t('topics.topicLabel')} {issue.number}
                         </span>
                       </div>
                       <h3 className="text-xl font-bold" style={{ color: '#132552' }}>
@@ -358,10 +312,10 @@ const IMSWGEvents = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-                2-Hour Meeting
+                {t('format.eyebrow')}
               </span>
               <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-                Format & Agenda
+                {t('format.heading')}
               </h2>
 
               <div className="space-y-3">
@@ -381,11 +335,11 @@ const IMSWGEvents = () => {
 
             <div>
               <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-                Stakeholders & Participants
+                {t('stakeholders.heading')}
               </h2>
 
               <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Who Should Participate</h3>
+                <h3 className="text-xl font-bold mb-3">{t('stakeholders.cardHeading')}</h3>
                 <ul className="space-y-2 text-sm">
                   {stakeholders.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -405,10 +359,10 @@ const IMSWGEvents = () => {
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
             <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-              What This Meeting Will Produce
+              {t('outcomes.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              Expected Outcomes
+              {t('outcomes.heading')}
             </h2>
           </div>
 
@@ -434,13 +388,13 @@ const IMSWGEvents = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-            Conclusion
+            {t('conclusion.heading')}
           </h2>
           <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>
-            The entry into force of the BBNJ Agreement marks a new phase in ocean governance with direct relevance to Gulf of Guinea maritime security and blue economy agendas. Effective regional engagement will require a clear understanding of the Agreement's provisions, identification of capacity gaps, and coordinated preparation ahead of the first Conference of the Parties.
+            {t('conclusion.para1')}
           </p>
           <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-            By examining these implications at this stage, IMSWG and its partners can support informed regional positioning, strengthen ocean governance capacity, and contribute to sustainable blue economy outcomes for the Gulf of Guinea.
+            {t('conclusion.para2')}
           </p>
         </div>
       </section>
@@ -451,24 +405,24 @@ const IMSWGEvents = () => {
           <div className="mb-8">
             <Calendar className="w-12 h-12 mx-auto mb-4 text-cyan-400" />
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-              Join the Discussion
+              {t('ctaSection.heading')}
             </h2>
             <p className="text-xl text-white/90 mb-2">
-              16th September, 2026 — 1:00 PM – 3:00 PM GMT
+              {t('ctaSection.dateLine')}
             </p>
             <p className="text-lg text-white/80">
-              Virtual Meeting — This forum has concluded
+              {t('ctaSection.formatLine')}
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <span className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold shadow-2xl bg-white/10 text-white/70 border border-white/20 cursor-not-allowed">
-              <span>Registration Closed</span>
+              <span>{t('ctaSection.registrationClosed')}</span>
             </span>
           </div>
 
           <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-white/80 mb-4">For sponsorship & inquiries:</p>
+            <p className="text-white/80 mb-4">{t('ctaSection.sponsorship')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-white">
               <span>📧 info@gogmi.org.gh</span>
               <span className="hidden sm:block">|</span>

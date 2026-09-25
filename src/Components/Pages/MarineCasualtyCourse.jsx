@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowRight, CheckCircle, Clock, Users, BookOpen, Award,
   FileText, Shield, AlertTriangle, Search, BarChart3, Brain,
@@ -10,6 +11,7 @@ const USD_TO_GHS = 10.88;
 const API_URL = 'https://api.gogmi.org.gh/api';
 
 const MarineCasualtyCourse = () => {
+  const { t } = useTranslation('marineCasualtyCourse');
   const [activeModule, setActiveModule] = useState(null);
   const [applyStep, setApplyStep] = useState(null);
   const [memberCode, setMemberCode] = useState('');
@@ -50,7 +52,7 @@ const MarineCasualtyCourse = () => {
   };
 
   const verifyMemberCode = async () => {
-    if (!memberCode.trim()) { setMemberCodeError('Please enter your Membership ID'); return; }
+    if (!memberCode.trim()) { setMemberCodeError(t('alerts.enterMembershipId')); return; }
     setIsVerifying(true); setMemberCodeError('');
     try {
       const res = await fetch(API_URL + '/courses/marine-casualty.php', {
@@ -66,8 +68,8 @@ const MarineCasualtyCourse = () => {
           institution: data.data.organization || '', country: data.data.country || ''
         });
         setApplyStep('member');
-      } else { setMemberCodeError(data.message || 'Invalid Membership ID'); }
-    } catch { setMemberCodeError('Unable to verify. Please check your connection.'); }
+      } else { setMemberCodeError(data.message || t('alerts.invalidMembershipId')); }
+    } catch { setMemberCodeError(t('alerts.verifyError')); }
     finally { setIsVerifying(false); }
   };
 
@@ -75,7 +77,7 @@ const MarineCasualtyCourse = () => {
   const handleMemberChange = (e) => setMemberForm({ ...memberForm, [e.target.name]: e.target.value });
 
   const processPayment = (email, amountUSD, applicantType, formPayload) => {
-    if (typeof window.PaystackPop === 'undefined') { alert('Payment system loading. Please wait.'); return; }
+    if (typeof window.PaystackPop === 'undefined') { alert(t('alerts.paymentLoading')); return; }
     const amountPesewas = Math.round(amountUSD * USD_TO_GHS * 100);
     const reference = 'GOGMI-MCC-' + Date.now() + '-' + Math.floor(Math.random() * 1e6);
     setIsProcessing(true);
@@ -88,10 +90,10 @@ const MarineCasualtyCourse = () => {
           { display_name: 'Type', variable_name: 'type', value: applicantType }
         ]},
         callback: (response) => { activateRegistration(response.reference, applicantType, formPayload); },
-        onClose: () => { setIsProcessing(false); alert('Payment cancelled.'); }
+        onClose: () => { setIsProcessing(false); alert(t('alerts.paymentCancelled')); }
       });
       handler.openIframe();
-    } catch (error) { setIsProcessing(false); alert('Payment failed: ' + error.message); }
+    } catch (error) { setIsProcessing(false); alert(t('alerts.paymentFailed', { error: error.message })); }
   };
 
   const activateRegistration = async (paymentReference, applicantType, formPayload) => {
@@ -103,27 +105,27 @@ const MarineCasualtyCourse = () => {
       });
       const data = await res.json();
       if (data.success) {
-        let msg = 'Registration Successful!\n\nYou are now registered for the Marine Casualty Investigation Course.\nReference: ' + paymentReference + '\n';
+        let msg = t('alerts.registrationSuccess', { reference: paymentReference });
         if (data.data.autoMembership) {
-          msg += '\nCongratulations! You are now a GoGMI member.\nMembership ID: ' + data.data.membershipId + '\nUse this ID to login at gogmi.org.gh/login\n';
+          msg += t('alerts.autoMembership', { membershipId: data.data.membershipId });
         }
-        msg += '\nA confirmation email has been sent to ' + formPayload.email;
+        msg += t('alerts.confirmationEmail', { email: formPayload.email });
         alert(msg); closeApply();
-      } else { alert('Registration failed: ' + data.message + '\nReference: ' + paymentReference + '\nContact info@gogmi.org.gh'); }
-    } catch { alert('Registration error. Contact info@gogmi.org.gh with reference: ' + paymentReference); }
+      } else { alert(t('alerts.registrationFailed', { message: data.message, reference: paymentReference })); }
+    } catch { alert(t('alerts.registrationError', { reference: paymentReference })); }
     finally { setIsProcessing(false); }
   };
 
   const handleMemberSubmit = (e) => {
     e.preventDefault();
-    if (!memberForm.fullName || !memberForm.email || !memberForm.phone || !memberForm.country || !memberForm.position) { alert('Please fill all required fields'); return; }
+    if (!memberForm.fullName || !memberForm.email || !memberForm.phone || !memberForm.country || !memberForm.position) { alert(t('alerts.fillRequired')); return; }
     processPayment(memberForm.email, MEMBER_PRICE, 'member', memberForm);
   };
 
   const handleNonMemberSubmit = (e) => {
     e.preventDefault();
-    if (!nonMemberForm.fullName || !nonMemberForm.email || !nonMemberForm.phone || !nonMemberForm.country || !nonMemberForm.position) { alert('Please fill all required fields'); return; }
-    if (!nonMemberForm.membershipType) { alert('Please select a membership type'); return; }
+    if (!nonMemberForm.fullName || !nonMemberForm.email || !nonMemberForm.phone || !nonMemberForm.country || !nonMemberForm.position) { alert(t('alerts.fillRequired')); return; }
+    if (!nonMemberForm.membershipType) { alert(t('alerts.selectMembershipType')); return; }
     processPayment(nonMemberForm.email, NON_MEMBER_PRICE, 'non-member', nonMemberForm);
   };
 
@@ -147,37 +149,26 @@ const MarineCasualtyCourse = () => {
   const inputClass = "w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent transition-all";
   const labelClass = "block text-sm font-bold mb-2";
 
-  const modules = [
-    { number: 1, title: "Marine Casualty Investigation – Concepts, Scope and Legal Framework", icon: <Shield className="w-6 h-6" />, color: "#8E3400",
-      topics: ["Understanding the importance of marine casualty investigations","Understanding the nature and types of marine casualties","Legal definition and classification under national and regional provisions","IMO Casualty Investigation Code and related SOLAS requirements","Detailed study of Sections of the IMO Casualty Investigation Code","Roles of the Maritime Administration, Wreck Commissioner, and Assessors","Procedures for preliminary inquiry and formal investigation","The 'Stop Rule'","Appeals, rehearing, and disciplinary actions on certificates","Coordination between national agencies"],
-      learningOutcomes: ["Explain the philosophy, importance and international background of marine casualty investigations","Identify key international instruments (IMO Casualty Investigation Code, SOLAS requirements)","Describe the roles, powers and responsibilities of Maritime Administration, Wreck Commissioner and Assessors","Outline the full procedural sequence for preliminary inquiries, formal investigations, appeals","Assess inter-agency coordination responsibilities in casualty response"] },
-    { number: 2, title: "Investigation Procedures and Evidence Handling", icon: <Search className="w-6 h-6" />, color: "#132552",
-      topics: ["Step-by-step process of investigation","Scene management and preservation of evidence","Witness interviewing and record-keeping","Application of the causal chain and root cause analysis models","The 5 Whys technique for drilling down to root causes","Fishbone (Ishikawa) diagram for categorizing contributing factors","Barrier analysis: identifying failed or missing controls","Drafting structured investigation reports"],
-      learningOutcomes: ["Execute a systematic step-by-step investigation process","Apply scene management techniques to preserve evidence","Conduct effective witness interviews and maintain accurate records","Use causal chain and root cause analysis models","Produce structured investigation reports with clear findings"] },
-    { number: 3, title: "Safety Data Management and Reporting", icon: <BarChart3 className="w-6 h-6" />, color: "#8E3400",
-      topics: ["Standard formats for casualty reporting and documentation","Integration of data into national and IMO systems (GISIS)","Overview of Global Integrated Shipping Information System (GISIS)","Types and sources of maritime safety data","Data recorders: VDR, SVDR","Safety trend analysis and data visualisation techniques","Risk matrices and ALARP presentations","Developing feedback loops for policy improvement"],
-      learningOutcomes: ["Prepare casualty reports using standard formats","Integrate investigation data into national and IMO reporting systems","Analyse safety trends using data visualization techniques","Develop effective feedback mechanisms to inform policy improvements"] },
-    { number: 4, title: "Human Factors, Safety Culture, and Crisis Response", icon: <Brain className="w-6 h-6" />, color: "#132552",
-      topics: ["Human performance, organisational culture, and accident causation","Stress and its impact on performance","Fatigue and vigilance degradation","Drug and alcohol impairment","Communication breakdowns and failure modes","Organisational and management factors","Decision-making under pressure and coordination failures","Communication and leadership during emergency response","Media management during crisis","Promoting proactive safety behaviour"],
-      learningOutcomes: ["Analyse human performance factors and organizational culture elements","Evaluate decision-making processes under pressure","Apply effective communication and leadership principles during emergency response","Develop strategies to promote proactive safety behaviour"] },
-    { number: 5, title: "Basic Analysis of Marine Casualties", icon: <Microscope className="w-6 h-6" />, color: "#8E3400",
-      topics: ["Understanding the purpose and principles of casualty analysis","Applying critical thinking to marine accident events","Distinguishing between immediate, underlying and root causes","Identifying human, technical, organisational and environmental factors","Using basic analytical techniques to examine evidence","Human Factors Analysis and Classification System","Differentiating facts, assumptions and inferences","Producing logical summaries of analytical findings"],
-      learningOutcomes: ["Apply structured critical thinking principles when examining marine casualty events","Identify and categorise immediate, underlying and root causes","Use simple analytical tools to evaluate events and contributing factors","Distinguish between facts, assumptions, inferences and opinions","Prepare clear, logical and concise analytical summaries"] },
-    { number: 6, title: "Case Study - Mock Marine Accident Investigation and Report", icon: <FileText className="w-6 h-6" />, color: "#132552",
-      topics: ["Comprehensive analysis of provided accident scenario","Evidence evaluation and documentation","Root cause identification and analysis","Sequence of events visualization","Development of findings and recommendations","Formal investigation report preparation","Practical application of all course learnings"],
-      learningOutcomes: ["Integrate learning from across the course to a topical case study","Produce a detailed and well-structured investigation report","Apply all investigation techniques to a realistic scenario"] }
+  const moduleIcons = [
+    <Shield className="w-6 h-6" />, <Search className="w-6 h-6" />, <BarChart3 className="w-6 h-6" />,
+    <Brain className="w-6 h-6" />, <Microscope className="w-6 h-6" />, <FileText className="w-6 h-6" />
   ];
+  const moduleColors = ["#8E3400", "#132552", "#8E3400", "#132552", "#8E3400", "#132552"];
+  const translatedModules = t('modules', { returnObjects: true });
+  const modules = translatedModules.map((m, i) => ({
+    number: i + 1, title: m.title, icon: moduleIcons[i], color: moduleColors[i],
+    topics: m.topics, learningOutcomes: m.learningOutcomes
+  }));
 
-  const targetParticipants = ["Maritime Law Enforcement Agencies","Maritime Administrations","National and Regional Transport Authorities","Marine Surveyors","Maritime Lawyers, Prosecutors, and Regulatory Professionals","Vessel Operators and Owners, and Safety Managers","Representatives from Academia and Civil Society working in Maritime Safety"];
+  const targetParticipants = t('participants.list', { returnObjects: true });
 
-  const expectedOutcomes = ["Conduct credible and procedurally compliant marine casualty investigations","Apply the IMO Casualty Investigation Code to real-world accident cases","Draft clear, evidence-based investigation reports and safety recommendations","Strengthen institutional learning and accident prevention mechanisms","Support in building a national accident database for safety policy formulation"];
+  const expectedOutcomes = t('outcomesSection.list', { returnObjects: true });
 
-  const courseHighlights = [
-    { icon: <Shield className="w-5 h-5" />, title: "IMO Compliance", description: "Aligned with IMO Casualty Investigation Code (MSC.255(84)) and SOLAS Chapter XI-1 Regulation 6" },
-    { icon: <Users className="w-5 h-5" />, title: "Expert Faculty", description: "Maritime safety experts, IMO certified investigators, and regional specialists" },
-    { icon: <Globe className="w-5 h-5" />, title: "Hybrid Format", description: "In-person for Ghana participants, virtual for international attendees" },
-    { icon: <Award className="w-5 h-5" />, title: "Certification", description: "Certificate upon successful completion of all modules and case study" }
+  const highlightIcons = [
+    <Shield className="w-5 h-5" />, <Users className="w-5 h-5" />, <Globe className="w-5 h-5" />, <Award className="w-5 h-5" />
   ];
+  const translatedHighlights = t('overview.highlights', { returnObjects: true });
+  const courseHighlights = translatedHighlights.map((h, i) => ({ icon: highlightIcons[i], title: h.title, description: h.description }));
 
   return (
     <div className="w-full bg-white" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
@@ -189,9 +180,9 @@ const MarineCasualtyCourse = () => {
             <div className="sticky top-0 bg-white border-b p-6 flex items-center justify-between z-10" style={{ borderColor: '#E5E7EB' }}>
               <div>
                 <h3 className="text-2xl font-black" style={{ color: '#132552' }}>
-                  {applyStep === 'choose' ? 'Apply for Course' : applyStep === 'verify' ? 'Verify Membership' : applyStep === 'member' ? 'Member Application' : 'Non-Member Application'}
+                  {applyStep === 'choose' ? t('modal.titles.choose') : applyStep === 'verify' ? t('modal.titles.verify') : applyStep === 'member' ? t('modal.titles.member') : t('modal.titles.nonmember')}
                 </h3>
-                <p className="text-sm mt-1" style={{ color: '#6B7280' }}>Marine Casualty Investigation & Safety Management</p>
+                <p className="text-sm mt-1" style={{ color: '#6B7280' }}>{t('modal.courseSubtitle')}</p>
               </div>
               <button onClick={closeApply} disabled={isProcessing} className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-40"><X className="w-6 h-6" style={{ color: '#6B7280' }} /></button>
             </div>
@@ -199,24 +190,24 @@ const MarineCasualtyCourse = () => {
             {/* Choose */}
             {applyStep === 'choose' && (
               <div className="p-8">
-                <p className="text-base mb-8 text-center" style={{ color: '#4B5563' }}>Are you a GoGMI member? Members enjoy an exclusive discount.</p>
+                <p className="text-base mb-8 text-center" style={{ color: '#4B5563' }}>{t('modal.choose.question')}</p>
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <button onClick={() => setApplyStep('verify')} className="group p-6 rounded-2xl border-2 text-left transition-all hover:shadow-xl hover:scale-105" style={{ borderColor: '#132552' }}>
                     <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#132552' }}><Shield className="w-6 h-6 text-white" /></div>
-                    <h4 className="text-xl font-black mb-2" style={{ color: '#132552' }}>Apply as a Member</h4>
+                    <h4 className="text-xl font-black mb-2" style={{ color: '#132552' }}>{t('modal.choose.memberTitle')}</h4>
                     <div className="flex items-center gap-2 mb-3"><span className="text-2xl font-black" style={{ color: '#132552' }}>${MEMBER_PRICE}</span><span className="text-sm line-through" style={{ color: '#9CA3AF' }}>${NON_MEMBER_PRICE}</span></div>
-                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white mb-3" style={{ backgroundColor: '#16A34A' }}><Tag className="w-3 h-3" />Save ${DISCOUNT} ({DISCOUNT_PERCENT}% off)</div>
-                    <p className="text-xs" style={{ color: '#6B7280' }}>Enter your Membership ID to verify and get the discount.</p>
+                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white mb-3" style={{ backgroundColor: '#16A34A' }}><Tag className="w-3 h-3" />{t('modal.choose.memberSave', { discount: DISCOUNT, percent: DISCOUNT_PERCENT })}</div>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>{t('modal.choose.memberDesc')}</p>
                   </button>
                   <button onClick={() => setApplyStep('nonmember')} className="group p-6 rounded-2xl border-2 text-left transition-all hover:shadow-xl hover:scale-105" style={{ borderColor: '#8E3400' }}>
                     <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#8E3400' }}><User className="w-6 h-6 text-white" /></div>
-                    <h4 className="text-xl font-black mb-2" style={{ color: '#132552' }}>Apply as a Non-Member</h4>
+                    <h4 className="text-xl font-black mb-2" style={{ color: '#132552' }}>{t('modal.choose.nonMemberTitle')}</h4>
                     <div className="flex items-center gap-2 mb-3"><span className="text-2xl font-black" style={{ color: '#132552' }}>${NON_MEMBER_PRICE}</span></div>
-                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: '#FEF3C7', color: '#92400E' }}>Standard Rate</div>
-                    <p className="text-xs" style={{ color: '#6B7280' }}>You will receive a free GoGMI membership with your registration.</p>
+                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: '#FEF3C7', color: '#92400E' }}>{t('modal.choose.standardRate')}</div>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>{t('modal.choose.nonMemberDesc')}</p>
                   </button>
                 </div>
-                <p className="text-center text-sm" style={{ color: '#9CA3AF' }}>Not yet a member? <a href="/membership" className="font-bold hover:underline" style={{ color: '#8E3400' }}>Join GoGMI</a> to unlock member pricing.</p>
+                <p className="text-center text-sm" style={{ color: '#9CA3AF' }}>{t('modal.choose.joinPrompt')} <a href="/membership" className="font-bold hover:underline" style={{ color: '#8E3400' }}>{t('modal.choose.joinLink')}</a> {t('modal.choose.joinSuffix')}</p>
               </div>
             )}
 
@@ -224,18 +215,18 @@ const MarineCasualtyCourse = () => {
             {applyStep === 'verify' && (
               <div className="p-8">
                 <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#F0FDF4', border: '1px solid #BBF7D0' }}>
-                  <div><p className="text-sm font-bold" style={{ color: '#166534' }}>Member Price</p><p className="text-xs" style={{ color: '#4B5563' }}>Save ${DISCOUNT} ({DISCOUNT_PERCENT}% off)</p></div>
+                  <div><p className="text-sm font-bold" style={{ color: '#166534' }}>{t('modal.verify.memberPriceLabel')}</p><p className="text-xs" style={{ color: '#4B5563' }}>{t('modal.verify.save', { discount: DISCOUNT, percent: DISCOUNT_PERCENT })}</p></div>
                   <div className="text-right"><p className="text-2xl font-black" style={{ color: '#132552' }}>${MEMBER_PRICE}</p><p className="text-xs line-through" style={{ color: '#9CA3AF' }}>${NON_MEMBER_PRICE}</p></div>
                 </div>
                 <div className="mb-6">
-                  <label className={labelClass} style={{ color: '#132552' }}>Enter Your Membership ID <span className="text-red-500">*</span></label>
-                  <input type="text" value={memberCode} onChange={(e) => { setMemberCode(e.target.value); setMemberCodeError(''); }} className={inputClass} style={{ borderColor: memberCodeError ? '#EF4444' : '#E5E7EB' }} placeholder="e.g. GoGMI-MST2026-00001" />
+                  <label className={labelClass} style={{ color: '#132552' }}>{t('modal.verify.inputLabel')} <span className="text-red-500">*</span></label>
+                  <input type="text" value={memberCode} onChange={(e) => { setMemberCode(e.target.value); setMemberCodeError(''); }} className={inputClass} style={{ borderColor: memberCodeError ? '#EF4444' : '#E5E7EB' }} placeholder={t('modal.verify.placeholder')} />
                   {memberCodeError && <p className="text-red-500 text-sm mt-2 font-semibold">{memberCodeError}</p>}
-                  <p className="text-xs mt-2" style={{ color: '#9CA3AF' }}>Your Membership ID was sent to your email when you joined GoGMI.</p>
+                  <p className="text-xs mt-2" style={{ color: '#9CA3AF' }}>{t('modal.verify.helper')}</p>
                 </div>
                 <div className="flex gap-3">
-                  <button type="button" onClick={() => setApplyStep('choose')} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
-                  <button type="button" onClick={verifyMemberCode} disabled={isVerifying} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all hover:opacity-90 disabled:opacity-50" style={{ backgroundColor: '#132552' }}>{isVerifying ? 'Verifying...' : 'Verify & Continue'}</button>
+                  <button type="button" onClick={() => setApplyStep('choose')} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>{t('modal.verify.back')}</button>
+                  <button type="button" onClick={verifyMemberCode} disabled={isVerifying} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all hover:opacity-90 disabled:opacity-50" style={{ backgroundColor: '#132552' }}>{isVerifying ? t('modal.verify.verifying') : t('modal.verify.verifyContinue')}</button>
                 </div>
               </div>
             )}
@@ -244,20 +235,20 @@ const MarineCasualtyCourse = () => {
             {applyStep === 'member' && (
               <form onSubmit={handleMemberSubmit} className="p-8">
                 <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#F0FDF4', border: '1px solid #BBF7D0' }}>
-                  <div><p className="text-sm font-bold" style={{ color: '#166534' }}>✓ Verified — Member Price Applied</p><p className="text-xs" style={{ color: '#4B5563' }}>Save ${DISCOUNT}</p></div>
+                  <div><p className="text-sm font-bold" style={{ color: '#166534' }}>{t('modal.member.verifiedBadge')}</p><p className="text-xs" style={{ color: '#4B5563' }}>{t('modal.member.saveAmount', { discount: DISCOUNT })}</p></div>
                   <div className="text-right"><p className="text-2xl font-black" style={{ color: '#132552' }}>${MEMBER_PRICE}</p></div>
                 </div>
                 <div className="space-y-4">
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Full Name <span className="text-red-500">*</span></label><input type="text" name="fullName" value={memberForm.fullName} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Email Address <span className="text-red-500">*</span></label><input type="email" name="email" value={memberForm.email} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Country Code Plus WhatsApp Number <span className="text-red-500">*</span></label><input type="tel" name="phone" value={memberForm.phone} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="+233 XX XXX XXXX" /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Position/Title <span className="text-red-500">*</span></label><input type="text" name="position" value={memberForm.position} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span></label><input type="text" name="institution" value={memberForm.institution} onChange={handleMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Country <span className="text-red-500">*</span></label><input type="text" name="country" value={memberForm.country} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.member.fullNameLabel')} <span className="text-red-500">*</span></label><input type="text" name="fullName" value={memberForm.fullName} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.member.emailLabel')} <span className="text-red-500">*</span></label><input type="email" name="email" value={memberForm.email} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.member.phoneLabel')} <span className="text-red-500">*</span></label><input type="tel" name="phone" value={memberForm.phone} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder={t('modal.member.phonePlaceholder')} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.member.positionLabel')} <span className="text-red-500">*</span></label><input type="text" name="position" value={memberForm.position} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.member.institutionLabel')} <span className="text-slate-400 text-xs font-normal">{t('modal.member.optional')}</span></label><input type="text" name="institution" value={memberForm.institution} onChange={handleMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.member.countryLabel')} <span className="text-red-500">*</span></label><input type="text" name="country" value={memberForm.country} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
                 </div>
                 <div className="flex gap-3 mt-8">
-                  <button type="button" onClick={() => setApplyStep('verify')} disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
-                  <button type="submit" disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#132552' }}>{isProcessing ? 'Processing...' : 'Pay USD ' + MEMBER_PRICE}</button>
+                  <button type="button" onClick={() => setApplyStep('verify')} disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>{t('modal.member.back')}</button>
+                  <button type="submit" disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#132552' }}>{isProcessing ? t('modal.member.processing') : t('modal.member.pay', { amount: MEMBER_PRICE })}</button>
                 </div>
               </form>
             )}
@@ -266,30 +257,30 @@ const MarineCasualtyCourse = () => {
             {applyStep === 'nonmember' && (
               <form onSubmit={handleNonMemberSubmit} className="p-8">
                 <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#FFF7ED', border: '1px solid #FED7AA' }}>
-                  <div><p className="text-sm font-bold" style={{ color: '#92400E' }}>Standard Rate</p><p className="text-xs" style={{ color: '#4B5563' }}>You will receive a free GoGMI membership</p></div>
+                  <div><p className="text-sm font-bold" style={{ color: '#92400E' }}>{t('modal.nonmember.standardRate')}</p><p className="text-xs" style={{ color: '#4B5563' }}>{t('modal.nonmember.freeMembership')}</p></div>
                   <div className="text-right"><p className="text-2xl font-black" style={{ color: '#132552' }}>${NON_MEMBER_PRICE}</p></div>
                 </div>
                 <div className="space-y-4">
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Full Name <span className="text-red-500">*</span></label><input type="text" name="fullName" value={nonMemberForm.fullName} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="John Doe" /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Email Address <span className="text-red-500">*</span></label><input type="email" name="email" value={nonMemberForm.email} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="john@example.com" /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Country Code Plus WhatsApp Number <span className="text-red-500">*</span></label><input type="tel" name="phone" value={nonMemberForm.phone} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="+233 XX XXX XXXX" /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Position/Title <span className="text-red-500">*</span></label><input type="text" name="position" value={nonMemberForm.position} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span></label><input type="text" name="institution" value={nonMemberForm.institution} onChange={handleNonMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
-                  <div><label className={labelClass} style={{ color: '#132552' }}>Country <span className="text-red-500">*</span></label><input type="text" name="country" value={nonMemberForm.country} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Ghana" /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.nonmember.fullNameLabel')} <span className="text-red-500">*</span></label><input type="text" name="fullName" value={nonMemberForm.fullName} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder={t('modal.nonmember.fullNamePlaceholder')} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.nonmember.emailLabel')} <span className="text-red-500">*</span></label><input type="email" name="email" value={nonMemberForm.email} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder={t('modal.nonmember.emailPlaceholder')} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.nonmember.phoneLabel')} <span className="text-red-500">*</span></label><input type="tel" name="phone" value={nonMemberForm.phone} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder={t('modal.nonmember.phonePlaceholder')} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.nonmember.positionLabel')} <span className="text-red-500">*</span></label><input type="text" name="position" value={nonMemberForm.position} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.nonmember.institutionLabel')} <span className="text-slate-400 text-xs font-normal">{t('modal.nonmember.optional')}</span></label><input type="text" name="institution" value={nonMemberForm.institution} onChange={handleNonMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} /></div>
+                  <div><label className={labelClass} style={{ color: '#132552' }}>{t('modal.nonmember.countryLabel')} <span className="text-red-500">*</span></label><input type="text" name="country" value={nonMemberForm.country} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder={t('modal.nonmember.countryPlaceholder')} /></div>
                   <div>
-                    <label className={labelClass} style={{ color: '#132552' }}>Select Membership Type <span className="text-red-500">*</span></label>
+                    <label className={labelClass} style={{ color: '#132552' }}>{t('modal.nonmember.membershipTypeLabel')} <span className="text-red-500">*</span></label>
                     <select name="membershipType" value={nonMemberForm.membershipType} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }}>
-                      <option value="">-- Select your membership type --</option>
-                      <option value="student">Student Membership</option>
-                      <option value="associate">Associate Membership</option>
-                      <option value="professional">Professional Membership</option>
+                      <option value="">{t('modal.nonmember.membershipTypePlaceholder')}</option>
+                      <option value="student">{t('modal.nonmember.membershipTypeStudent')}</option>
+                      <option value="associate">{t('modal.nonmember.membershipTypeAssociate')}</option>
+                      <option value="professional">{t('modal.nonmember.membershipTypeProfessional')}</option>
                     </select>
-                    <p className="text-xs mt-2" style={{ color: '#9CA3AF' }}>You will receive a free GoGMI membership of the selected type with your course registration.</p>
+                    <p className="text-xs mt-2" style={{ color: '#9CA3AF' }}>{t('modal.nonmember.membershipTypeHelper')}</p>
                   </div>
                 </div>
                 <div className="flex gap-3 mt-8">
-                  <button type="button" onClick={() => setApplyStep('choose')} disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
-                  <button type="submit" disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#16A34A' }}>{isProcessing ? 'Processing...' : 'Pay USD ' + NON_MEMBER_PRICE}</button>
+                  <button type="button" onClick={() => setApplyStep('choose')} disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>{t('modal.nonmember.back')}</button>
+                  <button type="submit" disabled={isProcessing} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#16A34A' }}>{isProcessing ? t('modal.nonmember.processing') : t('modal.nonmember.pay', { amount: NON_MEMBER_PRICE })}</button>
                 </div>
               </form>
             )}
@@ -300,28 +291,28 @@ const MarineCasualtyCourse = () => {
       {/* HERO */}
       <section className="relative text-white py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/casualtyimage.jpg" alt="Marine Casualty Investigation" className="w-full h-full object-cover" />
+          <img src="/casualtyimage.jpg" alt={t('hero.imageAlt')} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-orange-900/95 via-orange-800/90 to-orange-900/95"></div>
         </div>
         <div className="container mx-auto max-w-6xl px-6 relative z-10">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-white/10 backdrop-blur-md border border-white/20">
-              <span className="text-sm font-bold uppercase tracking-wide">Executive Training Course</span>
+              <span className="text-sm font-bold uppercase tracking-wide">{t('hero.badge')}</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl leading-tight mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>Marine Casualty Investigation & Safety Management</h1>
-            <p className="text-xl md:text-2xl leading-relaxed mb-8 text-white/95">Enhancing Maritime and Inland Waterways Transport Safety Frameworks</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl leading-tight mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>{t('hero.title')}</h1>
+            <p className="text-xl md:text-2xl leading-relaxed mb-8 text-white/95">{t('hero.subtitle')}</p>
             <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><Clock className="w-5 h-5" /><span className="font-semibold">5 Days</span></div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><Globe className="w-5 h-5" /><span className="font-semibold">In Person</span></div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><BookOpen className="w-5 h-5" /><span className="font-semibold">6 Modules</span></div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><Clock className="w-5 h-5" /><span className="font-semibold">{t('hero.duration')}</span></div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><Globe className="w-5 h-5" /><span className="font-semibold">{t('hero.format')}</span></div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg"><BookOpen className="w-5 h-5" /><span className="font-semibold">{t('hero.moduleCount')}</span></div>
             </div>
             <div className="flex flex-wrap gap-4 mb-8">
-              <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20"><p className="text-xs font-bold uppercase tracking-wide text-white/70 mb-1">Member Price</p><p className="text-2xl font-black">${MEMBER_PRICE} <span className="text-sm font-normal line-through text-white/50">${NON_MEMBER_PRICE}</span></p></div>
-              <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20"><p className="text-xs font-bold uppercase tracking-wide text-white/70 mb-1">Standard Rate</p><p className="text-2xl font-black">${NON_MEMBER_PRICE}</p></div>
+              <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20"><p className="text-xs font-bold uppercase tracking-wide text-white/70 mb-1">{t('hero.memberPriceLabel')}</p><p className="text-2xl font-black">${MEMBER_PRICE} <span className="text-sm font-normal line-through text-white/50">${NON_MEMBER_PRICE}</span></p></div>
+              <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20"><p className="text-xs font-bold uppercase tracking-wide text-white/70 mb-1">{t('hero.standardRateLabel')}</p><p className="text-2xl font-black">${NON_MEMBER_PRICE}</p></div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={openApply} className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl" style={{ backgroundColor: '#132552', color: 'white' }}><span>Apply Now</span><ArrowRight className="w-5 h-5" /></button>
-              <button onClick={handleBrochureDownload} className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 border-2 border-white/30 hover:bg-white/10"><Download className="w-5 h-5" /><span>Download Brochure</span></button>
+              <button onClick={openApply} className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl" style={{ backgroundColor: '#132552', color: 'white' }}><span>{t('hero.applyNow')}</span><ArrowRight className="w-5 h-5" /></button>
+              <button onClick={handleBrochureDownload} className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 border-2 border-white/30 hover:bg-white/10"><Download className="w-5 h-5" /><span>{t('hero.downloadBrochure')}</span></button>
             </div>
           </div>
         </div>
@@ -332,16 +323,16 @@ const MarineCasualtyCourse = () => {
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>Course Overview</span>
-              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552' }}>Building Capacity for Maritime Safety</h2>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: '#4B5563' }}>Maritime and Inland Waterways transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods.</p>
-              <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>This executive training course builds the capacity of Maritime Administrations and related agencies to efficiently conduct investigations of marine casualties and incidents, in accordance with SOLAS regulation XI-1/6 and the IMO Casualty Investigation Code.</p>
+              <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>{t('overview.label')}</span>
+              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552' }}>{t('overview.heading')}</h2>
+              <p className="text-lg leading-relaxed mb-6" style={{ color: '#4B5563' }}>{t('overview.para1')}</p>
+              <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>{t('overview.para2')}</p>
             </div>
             <div className="relative">
-              <img src="/casualty1.png" alt="Maritime Investigation" className="rounded-2xl shadow-2xl" />
+              <img src="/casualty1.png" alt={t('overview.imageAlt')} className="rounded-2xl shadow-2xl" />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border-2" style={{ borderColor: '#8E3400' }}>
-                <div className="text-3xl font-black mb-1" style={{ color: '#8E3400' }}>IMO</div>
-                <p className="text-sm font-semibold" style={{ color: '#132552' }}>Code Compliant</p>
+                <div className="text-3xl font-black mb-1" style={{ color: '#8E3400' }}>{t('overview.imageBadgeTitle')}</div>
+                <p className="text-sm font-semibold" style={{ color: '#132552' }}>{t('overview.imageBadgeSubtitle')}</p>
               </div>
             </div>
           </div>
@@ -364,9 +355,9 @@ const MarineCasualtyCourse = () => {
             <div className="flex items-start gap-4 mb-8">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#8E3400' }}><AlertTriangle className="w-6 h-6 text-white" /></div>
               <div>
-                <h2 className="text-3xl font-black mb-4" style={{ color: '#132552' }}>Why This Training Is Critical</h2>
-                <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>Between 2020 and 2025, numerous serious incidents occurred across African waterways with hundreds of deaths.</p>
-                <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>Common causes include overloading, poor vessel maintenance, incompetent operators, absence of life-saving appliances, and human factors. National Maritime Administrations need better training to enhance safety.</p>
+                <h2 className="text-3xl font-black mb-4" style={{ color: '#132552' }}>{t('rationale.heading')}</h2>
+                <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>{t('rationale.para1')}</p>
+                <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>{t('rationale.para2')}</p>
               </div>
             </div>
           </div>
@@ -377,9 +368,9 @@ const MarineCasualtyCourse = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>Curriculum</span>
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552' }}>6 Comprehensive Modules</h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>From legal frameworks to practical case studies</p>
+            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>{t('modulesSection.label')}</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552' }}>{t('modulesSection.heading')}</h2>
+            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>{t('modulesSection.subtitle')}</p>
           </div>
           <div className="space-y-4">
             {modules.map((module, idx) => (
@@ -388,7 +379,7 @@ const MarineCasualtyCourse = () => {
                   <div className="flex items-center gap-4 flex-1">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: module.color + '15', color: module.color }}>{module.icon}</div>
                     <div className="flex-1">
-                      <span className="text-sm font-bold px-3 py-1 rounded-full mb-2 inline-block" style={{ backgroundColor: module.color + '15', color: module.color }}>Module {module.number}</span>
+                      <span className="text-sm font-bold px-3 py-1 rounded-full mb-2 inline-block" style={{ backgroundColor: module.color + '15', color: module.color }}>{t('modulesSection.moduleLabel', { number: module.number })}</span>
                       <h3 className="text-xl font-bold" style={{ color: '#132552' }}>{module.title}</h3>
                     </div>
                   </div>
@@ -398,11 +389,11 @@ const MarineCasualtyCourse = () => {
                   <div className="px-6 pb-6 border-t border-gray-100">
                     <div className="grid md:grid-cols-2 gap-8 pt-6">
                       <div>
-                        <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#6B7280' }}>Topics Covered</h4>
-                        <ul className="space-y-3">{module.topics.map((t, i) => (<li key={i} className="flex items-start gap-2"><CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: module.color }} /><span className="text-sm" style={{ color: '#4B5563' }}>{t}</span></li>))}</ul>
+                        <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#6B7280' }}>{t('modulesSection.topicsHeading')}</h4>
+                        <ul className="space-y-3">{module.topics.map((topic, i) => (<li key={i} className="flex items-start gap-2"><CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: module.color }} /><span className="text-sm" style={{ color: '#4B5563' }}>{topic}</span></li>))}</ul>
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#6B7280' }}>Learning Outcomes</h4>
+                        <h4 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: '#6B7280' }}>{t('modulesSection.outcomesHeading')}</h4>
                         <ul className="space-y-3">{module.learningOutcomes.map((o, i) => (<li key={i} className="flex items-start gap-2"><div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ backgroundColor: module.color + '15', color: module.color }}><span className="text-xs font-bold">{i+1}</span></div><span className="text-sm" style={{ color: '#4B5563' }}>{o}</span></li>))}</ul>
                       </div>
                     </div>
@@ -418,8 +409,8 @@ const MarineCasualtyCourse = () => {
       <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>Who Should Attend</span>
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552' }}>Target Participants</h2>
+            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>{t('participants.label')}</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552' }}>{t('participants.heading')}</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {targetParticipants.map((p, idx) => (
@@ -435,8 +426,8 @@ const MarineCasualtyCourse = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>What You'll Achieve</span>
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552' }}>Expected Outcomes</h2>
+            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#8E3400' }}>{t('outcomesSection.label')}</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552' }}>{t('outcomesSection.heading')}</h2>
           </div>
           <div className="max-w-4xl mx-auto space-y-4">
             {expectedOutcomes.map((o, idx) => (
@@ -456,16 +447,16 @@ const MarineCasualtyCourse = () => {
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>Course Format & Methodology</h2>
+              <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>{t('format.heading')}</h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold mb-3" style={{ color: '#8E3400' }}>Mode of Delivery</h3>
-                  <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}><strong>In-person:</strong> Participants from Ghana<br/><strong>Virtual:</strong> International Participants</p>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: '#8E3400' }}>{t('format.deliveryHeading')}</h3>
+                  <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}><strong>{t('format.deliveryInPersonLabel')}</strong> {t('format.deliveryInPersonValue')}<br/><strong>{t('format.deliveryVirtualLabel')}</strong> {t('format.deliveryVirtualValue')}</p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-3" style={{ color: '#8E3400' }}>Teaching Methods</h3>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: '#8E3400' }}>{t('format.methodsHeading')}</h3>
                   <ul className="space-y-2">
-                    {["Interactive lectures and regulatory framework analysis","Group case analysis based on real incidents","Practical use of investigation toolkits","Roleplay exercises","Report-writing and peer review sessions","Field scenario simulation","Technology integration: drones, GPS tools"].map((m, i) => (
+                    {t('format.methods', { returnObjects: true }).map((m, i) => (
                       <li key={i} className="flex items-start gap-2"><CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8E3400' }} /><span className="text-sm" style={{ color: '#4B5563' }}>{m}</span></li>
                     ))}
                   </ul>
@@ -473,21 +464,20 @@ const MarineCasualtyCourse = () => {
               </div>
             </div>
             <div>
-              <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>Framework Alignment</h2>
+              <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>{t('alignment.heading')}</h2>
               <div className="bg-white rounded-2xl p-6 shadow-lg mb-6">
-                <h3 className="text-lg font-bold mb-4" style={{ color: '#8E3400' }}>This programme aligns with:</h3>
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#8E3400' }}>{t('alignment.alignsHeading')}</h3>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3"><div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(142, 52, 0, 0.1)' }}><FileText className="w-4 h-4" style={{ color: '#8E3400' }} /></div><span className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>IMO Code of International Standards and Recommended Practices for a Safety Investigation (MSC.255(84))</span></li>
-                  <li className="flex items-start gap-3"><div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(142, 52, 0, 0.1)' }}><Shield className="w-4 h-4" style={{ color: '#8E3400' }} /></div><span className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>SOLAS Chapter XI-1 Regulation 6</span></li>
+                  <li className="flex items-start gap-3"><div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(142, 52, 0, 0.1)' }}><FileText className="w-4 h-4" style={{ color: '#8E3400' }} /></div><span className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{t('alignment.items.0')}</span></li>
+                  <li className="flex items-start gap-3"><div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(142, 52, 0, 0.1)' }}><Shield className="w-4 h-4" style={{ color: '#8E3400' }} /></div><span className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{t('alignment.items.1')}</span></li>
                 </ul>
               </div>
               <div className="bg-gradient-to-br from-orange-900 to-orange-800 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Expected Impact</h3>
+                <h3 className="text-xl font-bold mb-3">{t('alignment.impactHeading')}</h3>
                 <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2"><span>•</span><span>Strengthen regional institutional capacity for maritime safety governance</span></li>
-                  <li className="flex items-start gap-2"><span>•</span><span>Support safe, efficient, and sustainable inland water transport</span></li>
-                  <li className="flex items-start gap-2"><span>•</span><span>Build a competent pool of regional investigators</span></li>
-                  <li className="flex items-start gap-2"><span>•</span><span>Foster unified inter-agency response framework</span></li>
+                  {t('alignment.impactList', { returnObjects: true }).map((item, i) => (
+                    <li key={i} className="flex items-start gap-2"><span>•</span><span>{item}</span></li>
+                  ))}
                 </ul>
               </div>
             </div>

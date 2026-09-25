@@ -1,0 +1,81 @@
+{
+  "success": {
+    "heading": "Candidature envoyée !",
+    "body1": "Merci de l'intérêt que vous portez au Groupe de travail international sur la sûreté maritime (IMSWG). Nous vous remercions d'avoir partagé votre parcours et vos centres d'intérêt.",
+    "body2": "Notre équipe examinera votre candidature et vous contactera pour la suite. Surveillez votre boîte de réception !",
+    "signature": "GoGMI",
+    "backButton": "Retour à l'IMSWG"
+  },
+  "header": {
+    "backButton": "Retour à l'IMSWG",
+    "title": "Inscrivez-vous à notre groupe IMSWG",
+    "subtitle": "Groupe de travail international sur la sûreté maritime"
+  },
+  "intro": "Parlez-nous de vous et de la manière dont vous souhaitez vous impliquer au sein de l'IMSWG. Que vous souhaitiez être mentor, intervenant, collaborateur ou simplement rejoindre notre réseau, nous serions ravis d'échanger avec vous.",
+  "errors": {
+    "fullNameRequired": "Le nom complet est requis",
+    "emailRequired": "L'adresse e-mail est requise",
+    "emailInvalid": "L'adresse e-mail est invalide",
+    "countryRequired": "Le pays de résidence est requis",
+    "positionRequired": "Le poste ou le titre est requis",
+    "bioRequired": "Une brève biographie est requise",
+    "areasOfInterestRequired": "Veuillez sélectionner au moins un centre d'intérêt",
+    "submissionFailed": "Échec de l'envoi",
+    "submitFailedFallback": "Échec de l'envoi. Veuillez réessayer ou nous contacter à info@gogmi.org.gh",
+    "invalidImageType": "Veuillez téléverser une image au format JPG, PNG ou WEBP",
+    "imageTooLarge": "L'image doit faire moins de 5 Mo"
+  },
+  "personalInfo": {
+    "heading": "Informations personnelles",
+    "fullNameLabel": "Nom complet",
+    "fullNamePlaceholder": "John Doe",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "john@example.com",
+    "whatsappLabel": "Indicatif du pays et numéro WhatsApp",
+    "whatsappPlaceholder": "+233 XX XXX XXXX",
+    "countryLabel": "Pays de résidence",
+    "countryPlaceholder": "ex. : Ghana"
+  },
+  "professionalInfo": {
+    "heading": "Informations professionnelles",
+    "positionLabel": "Poste ou titre professionnel actuel",
+    "positionPlaceholder": "ex. : Analyste en sûreté maritime",
+    "institutionLabel": "Institution / Organisation",
+    "institutionPlaceholder": "ex. : Autorité maritime, société de sécurité, etc."
+  },
+  "aboutYou": {
+    "heading": "À propos de vous",
+    "bioLabel": "Brève biographie",
+    "bioHelper": "Parlez-nous brièvement de votre parcours, de votre expertise et de ce que vous pouvez apporter au domaine de la sûreté maritime. (500 caractères maximum)",
+    "bioPlaceholder": "ex. : Je suis un professionnel de la sûreté maritime avec plus de 10 ans d'expérience..."
+  },
+  "interests": {
+    "heading": "Centres d'intérêt",
+    "helper": "Sélectionnez toutes les options pertinentes — vous pouvez en choisir plusieurs.",
+    "options": {
+      "become_mentor": "Devenir mentor",
+      "join_panel": "Participer à un panel de discussion",
+      "speak_events": "Intervenir lors de nos événements",
+      "contribute_projects": "Contribuer à nos projets",
+      "support_fundraising": "Soutenir des projets de collecte de fonds",
+      "join_membership": "Rejoindre notre adhésion",
+      "partner_with_us": "Devenir partenaire"
+    }
+  },
+  "profilePicture": {
+    "heading": "Photo de profil",
+    "optional": "(Facultatif)",
+    "helper": "Téléversez une photo professionnelle. Formats acceptés : JPG, PNG, WEBP. Taille maximale : 5 Mo.",
+    "uploadPrompt": "Cliquez pour téléverser votre photo",
+    "uploadHint": "JPG, PNG ou WEBP jusqu'à 5 Mo",
+    "imageReady": "Image prête",
+    "removeTitle": "Supprimer la photo",
+    "previewAlt": "Aperçu de la photo de profil"
+  },
+  "optional": "(Facultatif)",
+  "submit": {
+    "button": "Soumettre ma candidature",
+    "submitting": "Envoi en cours...",
+    "consent": "En soumettant ce formulaire, vous acceptez d'être contacté(e) au sujet des activités et des opportunités de l'IMSWG."
+  }
+}

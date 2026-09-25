@@ -1,0 +1,109 @@
+{
+  "hero": {
+    "backLink": "Voltar à Capacitação",
+    "eyebrow": "Capacitação · ECOP",
+    "heading1": "Programa de Jovens Profissionais",
+    "heading2": "do Oceano",
+    "subtitle": "Uma iniciativa emblemática do GoGMI que dota os jovens africanos dos conhecimentos, competências e redes necessários para construir carreiras e negócios sustentáveis na economia azul de África — no âmbito da Década das Nações Unidas das Ciências Oceânicas 2021–2030."
+  },
+  "about": {
+    "eyebrow": "Sobre o Programa",
+    "heading1": "Uma Solução Africana",
+    "heading2": "para um Desafio Africano",
+    "para1": "O Programa de Formação de Jovens Profissionais do Oceano (ECOP) é uma iniciativa do GoGMI no âmbito da Década das Nações Unidas das Ciências Oceânicas para o Desenvolvimento Sustentável (2021–2030). Colmata uma lacuna crítica — a ausência de formação liderada por africanos e centrada em África, que ligue os jovens profissionais ao vasto potencial da economia azul do continente.",
+    "para2": "Alinhado com a Estratégia Marítima Integrada da União Africana (Estratégia AIM 2050) e o ODS 14 (Proteger a Vida Marinha), o programa reúne jovens profissionais do oceano, decisores políticos, investigadores e empreendedores para uma formação intensiva de vários dias, ministrada por destacados especialistas regionais e internacionais.",
+    "para3": "Em 2022 foram realizados dois programas, abrangendo percursos de carreira, governação oceânica, empreendedorismo na economia azul e desenvolvimento sustentável em todo o domínio marítimo africano.",
+    "imageAlt": "Formação ECOP em sessão",
+    "yearLaunched": "Ano de Lançamento"
+  },
+  "sdg": {
+    "heading": "Fundamentado em Quadros Globais",
+    "subtitle": "Todos os aspetos do ECOP foram concebidos para se alinharem com os compromissos internacionais mais importantes para a sustentabilidade oceânica.",
+    "items": [
+      {
+        "label": "ODS 14 — Proteger a Vida Marinha",
+        "desc": "Todo o conteúdo do programa assenta no Objetivo de Desenvolvimento Sustentável 14, centrado na conservação e utilização sustentável dos oceanos, mares e recursos marinhos para o desenvolvimento sustentável."
+      },
+      {
+        "label": "Conceção Liderada por Africanos",
+        "desc": "Concebido e implementado pelo GoGMI com as realidades africanas no centro — não adaptado de currículos estrangeiros, mas construído de raiz para os profissionais do oceano do continente."
+      },
+      {
+        "label": "Década das Ciências Oceânicas da ONU",
+        "desc": "O ECOP é um contributo oficial para a Década das Nações Unidas das Ciências Oceânicas para o Desenvolvimento Sustentável (2021–2030), apoiando o apelo mundial para transformar a ciência oceânica em prol de um futuro sustentável."
+      }
+    ]
+  },
+  "programmes": {
+    "eyebrow": "Programas de Formação",
+    "heading": "Explore os Programas",
+    "subtitle": "Clique em cada programa abaixo para o expandir e assistir às sessões gravadas diretamente nesta página.",
+    "fundedBy": "Financiado por",
+    "moduleLabel": "Módulo",
+    "sessionLabel": "Sessão",
+    "playLabel": "Reproduzir {{title}}",
+    "labelII": "Programa II · Novembro de 2022",
+    "labelI": "Programa I · Março de 2022",
+    "programmeII": {
+      "theme": "A Juventude na Economia Azul de África: Desenvolver Carreiras e Negócios Sustentáveis",
+      "dates": "8 – 18 de novembro de 2022",
+      "modules": [
+        {
+          "title": "O Panorama da Economia Azul em África",
+          "description": "Uma visão geral da economia azul de África, das suas oportunidades, desafios e do papel da juventude na construção de futuros oceânicos sustentáveis."
+        },
+        {
+          "title": "Percursos de Carreira na Economia Azul",
+          "description": "Explorando os diversos percursos de carreira disponíveis para os jovens africanos nas indústrias marítimas, pescas, ciências marinhas, governação oceânica e setores afins."
+        },
+        {
+          "title": "Construir Negócios Azuis Sustentáveis",
+          "description": "Quadros práticos para desenvolver e sustentar negócios da economia azul, incluindo financiamento, inovação e empreendedorismo na economia oceânica."
+        }
+      ]
+    },
+    "programmeI": {
+      "theme": "Explorar Caminhos para uma Economia Oceânica Vibrante em África",
+      "dates": "14 – 24 de março de 2022",
+      "sessions": [
+        {
+          "title": "Introdução à Economia Oceânica",
+          "description": "Conceitos fundamentais da economia oceânica e a sua importância para as nações africanas, incluindo terminologia-chave, quadros de referência e a ligação ao ODS 14."
+        },
+        {
+          "title": "O Domínio Marítimo de África e o Potencial da Economia Azul",
+          "description": "Mapeamento da extensa costa africana, das zonas económicas exclusivas e do vasto potencial por explorar nos setores das pescas, turismo, transportes e energia."
+        },
+        {
+          "title": "Segurança Marítima e Governação Oceânica",
+          "description": "Compreender os quadros de governação que sustentam a segurança oceânica, incluindo a CNUDM, a Carta de Lomé e os mecanismos de coordenação regional."
+        },
+        {
+          "title": "Pescas e Aquicultura",
+          "description": "Uma análise aprofundada da gestão sustentável das pescas, da pesca ilegal, não declarada e não regulamentada (INN), e das oportunidades na aquicultura em todo o continente."
+        }
+      ]
+    }
+  },
+  "photoStrip": {
+    "eyebrow": "Destaques do Programa",
+    "heading": "Direto da Sala de Formação",
+    "img1Alt": "Sessão do programa ECOP",
+    "img2Alt": "Participantes do programa ECOP"
+  },
+  "funders": {
+    "eyebrow": "Com o Apoio de",
+    "heading": "Os Nossos Parceiros e Financiadores",
+    "logoAlts": {
+      "gogmi": "GoGMI",
+      "norad": "Norad",
+      "un": "ONU / COI-UNESCO"
+    }
+  },
+  "cta": {
+    "heading1": "Interessado nos Próximos",
+    "heading2": "Programas ECOP?",
+    "subtitle": "Mantenha-se em contacto com o GoGMI para ser notificado sobre as próximas coortes do ECOP, os períodos de candidatura e outras oportunidades de capacitação para jovens profissionais africanos do oceano.",
+    "button": "Contacte-nos"
+  }
+}

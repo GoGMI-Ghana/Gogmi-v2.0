@@ -1,0 +1,30 @@
+{
+  "breadcrumb": {
+    "home": "Início",
+    "leadership": "Liderança"
+  },
+  "hero": {
+    "title": "A Nossa Liderança"
+  },
+  "section": {
+    "heading": "Conselho de Administração"
+  },
+  "chairman": {
+    "imageAlt": "Presidente do Conselho de Administração",
+    "flagAlt": "Marinha do Gana",
+    "credentials": "nwc(USA) psc++ nsc jdc (Nigéria) MA (USA) dpa MUSni",
+    "blog": "Blog",
+    "quote": "A estratégia não é sobre a abundância de recursos. É sobre a clareza das prioridades, o consenso entre as partes interessadas e o alinhamento disciplinado dos meios limitados com os fins vitais",
+    "quoteAttribution": "— Vice-Almirante Issah Adam Yakubu (Rfa.)",
+    "aboutHeading": "Sobre o Presidente do Conselho de Administração",
+    "bio": [
+      "O Vice-Almirante Issah Yakubu é o antigo Chefe do Estado-Maior Naval do Gana e ocupa atualmente o cargo de Presidente Executivo do Gulf of Guinea Maritime Institute (GoGMI). Com uma carreira distinta de mais de três décadas na liderança naval, dedica-se profundamente ao avanço da segurança marítima, do pensamento estratégico e da cooperação regional no Golfo da Guiné e além.",
+      "Durante o seu mandato como Chefe do Estado-Maior Naval, liderou uma ambiciosa agenda de transformação centrada na modernização da Marinha do Gana, através da renovação abrangente da frota, do desenvolvimento de infraestruturas e da integração de tecnologias avançadas. Sob a sua liderança, os esforços da Marinha do Gana em matéria de diplomacia de defesa e de inovação operacional reforçaram significativamente a posição marítima e a influência regional do Gana.",
+      "O Vice-Almirante Issah Yakubu é detentor de um Mestrado em Relações Internacionais pela Salve Regina University, EUA, e de uma Pós-Graduação em Administração Pública pelo Ghana Institute of Management and Public Administration. É um investigador dedicado e autor de numerosos artigos sobre segurança e estratégia marítimas."
+    ]
+  },
+  "members": {
+    "imageAlt": "Membro do Conselho",
+    "boardDirector": "Diretor do Conselho"
+  }
+}

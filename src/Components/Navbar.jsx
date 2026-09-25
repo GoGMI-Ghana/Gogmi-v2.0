@@ -8,6 +8,7 @@ const LANGUAGES = [
   { code: "en", label: "EN" },
   { code: "fr", label: "FR" },
   { code: "es", label: "ES" },
+  { code: "pt", label: "PT" },
 ];
 
 const Navbar = () => {

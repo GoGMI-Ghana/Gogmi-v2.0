@@ -1,0 +1,306 @@
+{
+  "modal": {
+    "titles": {
+      "choose": "Solicitar inscripción al curso",
+      "verify": "Verificar membresía",
+      "member": "Solicitud de Miembro",
+      "nonmember": "Solicitud de No Miembro"
+    },
+    "courseSubtitle": "Investigación de Accidentes Marítimos y Gestión de la Seguridad",
+    "choose": {
+      "question": "¿Es usted miembro de GoGMI? Los miembros disfrutan de un descuento exclusivo.",
+      "memberTitle": "Solicitar como Miembro",
+      "memberSave": "Ahorre ${{discount}} ({{percent}} % de descuento)",
+      "memberDesc": "Introduzca su ID de membresía para verificarlo y obtener el descuento.",
+      "nonMemberTitle": "Solicitar como No Miembro",
+      "standardRate": "Tarifa estándar",
+      "nonMemberDesc": "Recibirá una membresía gratuita de GoGMI con su inscripción.",
+      "joinPrompt": "¿Aún no es miembro?",
+      "joinLink": "Únase a GoGMI",
+      "joinSuffix": "para acceder al precio de miembro."
+    },
+    "verify": {
+      "memberPriceLabel": "Precio para miembros",
+      "save": "Ahorre ${{discount}} ({{percent}} % de descuento)",
+      "inputLabel": "Introduzca su ID de membresía",
+      "placeholder": "ej. GoGMI-MST2026-00001",
+      "helper": "Su ID de membresía se envió a su correo electrónico cuando se unió a GoGMI.",
+      "back": "Volver",
+      "verifying": "Verificando...",
+      "verifyContinue": "Verificar y continuar"
+    },
+    "member": {
+      "verifiedBadge": "✓ Verificado — Precio de miembro aplicado",
+      "saveAmount": "Ahorre ${{discount}}",
+      "fullNameLabel": "Nombre completo",
+      "emailLabel": "Correo electrónico",
+      "phoneLabel": "Código de país y número de WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Puesto/Cargo",
+      "institutionLabel": "Institución/Organización",
+      "optional": "(Opcional)",
+      "countryLabel": "País",
+      "back": "Volver",
+      "processing": "Procesando...",
+      "pay": "Pagar {{amount}} USD"
+    },
+    "nonmember": {
+      "standardRate": "Tarifa estándar",
+      "freeMembership": "Recibirá una membresía gratuita de GoGMI",
+      "fullNameLabel": "Nombre completo",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "john@example.com",
+      "phoneLabel": "Código de país y número de WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Puesto/Cargo",
+      "institutionLabel": "Institución/Organización",
+      "optional": "(Opcional)",
+      "countryLabel": "País",
+      "countryPlaceholder": "Ghana",
+      "membershipTypeLabel": "Seleccione el tipo de membresía",
+      "membershipTypePlaceholder": "-- Seleccione su tipo de membresía --",
+      "membershipTypeStudent": "Membresía de estudiante",
+      "membershipTypeAssociate": "Membresía asociada",
+      "membershipTypeProfessional": "Membresía profesional",
+      "membershipTypeHelper": "Recibirá una membresía gratuita de GoGMI del tipo seleccionado con su inscripción al curso.",
+      "back": "Volver",
+      "processing": "Procesando...",
+      "pay": "Pagar {{amount}} USD"
+    }
+  },
+  "alerts": {
+    "enterMembershipId": "Introduzca su ID de membresía",
+    "invalidMembershipId": "ID de membresía inválido",
+    "verifyError": "No se pudo verificar. Compruebe su conexión.",
+    "paymentLoading": "Cargando el sistema de pago. Espere, por favor.",
+    "paymentCancelled": "Pago cancelado.",
+    "paymentFailed": "Error en el pago: {{error}}",
+    "fillRequired": "Complete todos los campos obligatorios",
+    "selectMembershipType": "Seleccione un tipo de membresía",
+    "registrationSuccess": "¡Inscripción exitosa!\n\nAhora está inscrito en el Curso de Investigación de Accidentes Marítimos.\nReferencia: {{reference}}\n",
+    "autoMembership": "\n¡Felicidades! Ahora es miembro de GoGMI.\nID de membresía: {{membershipId}}\nUtilice este ID para iniciar sesión en gogmi.org.gh/login\n",
+    "confirmationEmail": "\nSe ha enviado un correo electrónico de confirmación a {{email}}",
+    "registrationFailed": "Error en la inscripción: {{message}}\nReferencia: {{reference}}\nContacte con info@gogmi.org.gh",
+    "registrationError": "Error de inscripción. Contacte con info@gogmi.org.gh con la referencia: {{reference}}"
+  },
+  "hero": {
+    "imageAlt": "Investigación de accidentes marítimos",
+    "badge": "Curso de formación ejecutiva",
+    "title": "Investigación de Accidentes Marítimos y Gestión de la Seguridad",
+    "subtitle": "Fortaleciendo los marcos de seguridad del transporte marítimo y por vías navegables interiores",
+    "duration": "5 días",
+    "format": "Presencial",
+    "moduleCount": "6 módulos",
+    "memberPriceLabel": "Precio para miembros",
+    "standardRateLabel": "Tarifa estándar",
+    "applyNow": "Solicitar ahora",
+    "downloadBrochure": "Descargar folleto"
+  },
+  "overview": {
+    "label": "Resumen del curso",
+    "heading": "Fortaleciendo capacidades para la seguridad marítima",
+    "para1": "La seguridad del transporte marítimo y por vías navegables interiores es fundamental para los sistemas de transporte de África, ya que sostiene el comercio, la movilidad de pasajeros, la pesca y los medios de vida.",
+    "para2": "Este curso de formación ejecutiva fortalece la capacidad de las administraciones marítimas y organismos afines para realizar de manera eficaz investigaciones de accidentes e incidentes marítimos, conforme a la regla XI-1/6 del SOLAS y al Código de Investigación de Accidentes de la OMI.",
+    "imageAlt": "Investigación marítima",
+    "imageBadgeTitle": "OMI",
+    "imageBadgeSubtitle": "Conforme al Código",
+    "highlights": [
+      { "title": "Conformidad con la OMI", "description": "Alineado con el Código de Investigación de Accidentes de la OMI (MSC.255(84)) y la regla 6 del capítulo XI-1 del SOLAS" },
+      { "title": "Profesorado experto", "description": "Expertos en seguridad marítima, investigadores certificados por la OMI y especialistas regionales" },
+      { "title": "Formato híbrido", "description": "Presencial para participantes de Ghana, virtual para asistentes internacionales" },
+      { "title": "Certificación", "description": "Certificado al completar satisfactoriamente todos los módulos y el estudio de caso" }
+    ]
+  },
+  "rationale": {
+    "heading": "Por qué esta formación es fundamental",
+    "para1": "Entre 2020 y 2025 se produjeron numerosos incidentes graves en las vías navegables africanas, con cientos de muertes.",
+    "para2": "Entre las causas más comunes se encuentran la sobrecarga, el mal mantenimiento de las embarcaciones, operadores poco competentes, la ausencia de dispositivos de salvamento y factores humanos. Las administraciones marítimas nacionales necesitan una mejor formación para mejorar la seguridad."
+  },
+  "modulesSection": {
+    "label": "Plan de estudios",
+    "heading": "6 módulos completos",
+    "subtitle": "Desde marcos jurídicos hasta estudios de caso prácticos",
+    "topicsHeading": "Temas tratados",
+    "outcomesHeading": "Resultados de aprendizaje",
+    "moduleLabel": "Módulo {{number}}"
+  },
+  "modules": [
+    {
+      "title": "Investigación de Accidentes Marítimos – Conceptos, Alcance y Marco Jurídico",
+      "topics": [
+        "Comprender la importancia de las investigaciones de accidentes marítimos",
+        "Comprender la naturaleza y los tipos de accidentes marítimos",
+        "Definición jurídica y clasificación conforme a disposiciones nacionales y regionales",
+        "Código de Investigación de Accidentes de la OMI y requisitos SOLAS relacionados",
+        "Estudio detallado de las secciones del Código de Investigación de Accidentes de la OMI",
+        "Funciones de la Administración Marítima, el Comisionado de Naufragios y los Asesores",
+        "Procedimientos para la investigación preliminar y la investigación formal",
+        "La «regla de parada»",
+        "Recursos, nueva audiencia y medidas disciplinarias sobre certificados",
+        "Coordinación entre organismos nacionales"
+      ],
+      "learningOutcomes": [
+        "Explicar la filosofía, la importancia y el contexto internacional de las investigaciones de accidentes marítimos",
+        "Identificar los principales instrumentos internacionales (Código de Investigación de Accidentes de la OMI, requisitos SOLAS)",
+        "Describir las funciones, facultades y responsabilidades de la Administración Marítima, el Comisionado de Naufragios y los Asesores",
+        "Describir la secuencia procesal completa de investigaciones preliminares, investigaciones formales y recursos",
+        "Evaluar las responsabilidades de coordinación interinstitucional en la respuesta a accidentes"
+      ]
+    },
+    {
+      "title": "Procedimientos de Investigación y Manejo de Pruebas",
+      "topics": [
+        "Proceso de investigación paso a paso",
+        "Gestión de la escena y preservación de pruebas",
+        "Entrevistas a testigos y mantenimiento de registros",
+        "Aplicación de la cadena causal y modelos de análisis de causa raíz",
+        "La técnica de los 5 porqués para llegar a las causas raíz",
+        "Diagrama de espina de pescado (Ishikawa) para categorizar factores contribuyentes",
+        "Análisis de barreras: identificación de controles fallidos o ausentes",
+        "Redacción de informes de investigación estructurados"
+      ],
+      "learningOutcomes": [
+        "Ejecutar un proceso de investigación sistemático paso a paso",
+        "Aplicar técnicas de gestión de la escena para preservar pruebas",
+        "Realizar entrevistas efectivas a testigos y mantener registros precisos",
+        "Utilizar modelos de cadena causal y análisis de causa raíz",
+        "Elaborar informes de investigación estructurados con conclusiones claras"
+      ]
+    },
+    {
+      "title": "Gestión de Datos de Seguridad e Informes",
+      "topics": [
+        "Formatos estándar para la notificación y documentación de accidentes",
+        "Integración de datos en sistemas nacionales y de la OMI (GISIS)",
+        "Resumen del Sistema Mundial Integrado de Información Marítima (GISIS)",
+        "Tipos y fuentes de datos de seguridad marítima",
+        "Registradores de datos: VDR, SVDR",
+        "Técnicas de análisis de tendencias de seguridad y visualización de datos",
+        "Matrices de riesgo y presentaciones ALARP",
+        "Desarrollo de bucles de retroalimentación para la mejora de políticas"
+      ],
+      "learningOutcomes": [
+        "Preparar informes de accidentes utilizando formatos estándar",
+        "Integrar los datos de investigación en los sistemas de notificación nacionales y de la OMI",
+        "Analizar tendencias de seguridad utilizando técnicas de visualización de datos",
+        "Desarrollar mecanismos de retroalimentación efectivos para orientar la mejora de políticas"
+      ]
+    },
+    {
+      "title": "Factores Humanos, Cultura de Seguridad y Respuesta a Crisis",
+      "topics": [
+        "Desempeño humano, cultura organizacional y causalidad de accidentes",
+        "El estrés y su impacto en el desempeño",
+        "Fatiga y disminución de la vigilancia",
+        "Deterioro por drogas y alcohol",
+        "Fallos de comunicación y modos de fallo",
+        "Factores organizativos y de gestión",
+        "Toma de decisiones bajo presión y fallos de coordinación",
+        "Comunicación y liderazgo durante la respuesta de emergencia",
+        "Gestión mediática durante la crisis",
+        "Promoción de un comportamiento de seguridad proactivo"
+      ],
+      "learningOutcomes": [
+        "Analizar los factores de desempeño humano y los elementos de la cultura organizacional",
+        "Evaluar los procesos de toma de decisiones bajo presión",
+        "Aplicar principios efectivos de comunicación y liderazgo durante la respuesta de emergencia",
+        "Desarrollar estrategias para promover un comportamiento de seguridad proactivo"
+      ]
+    },
+    {
+      "title": "Análisis Básico de Accidentes Marítimos",
+      "topics": [
+        "Comprender el propósito y los principios del análisis de accidentes",
+        "Aplicar el pensamiento crítico a los eventos de accidentes marítimos",
+        "Distinguir entre causas inmediatas, subyacentes y raíz",
+        "Identificar factores humanos, técnicos, organizativos y ambientales",
+        "Utilizar técnicas analíticas básicas para examinar pruebas",
+        "Sistema de Análisis y Clasificación de Factores Humanos",
+        "Diferenciar hechos, suposiciones e inferencias",
+        "Elaborar resúmenes lógicos de las conclusiones analíticas"
+      ],
+      "learningOutcomes": [
+        "Aplicar principios estructurados de pensamiento crítico al examinar eventos de accidentes marítimos",
+        "Identificar y categorizar causas inmediatas, subyacentes y raíz",
+        "Utilizar herramientas analíticas simples para evaluar eventos y factores contribuyentes",
+        "Distinguir entre hechos, suposiciones, inferencias y opiniones",
+        "Preparar resúmenes analíticos claros, lógicos y concisos"
+      ]
+    },
+    {
+      "title": "Estudio de Caso - Simulacro de Investigación e Informe de Accidente Marítimo",
+      "topics": [
+        "Análisis exhaustivo del escenario de accidente proporcionado",
+        "Evaluación y documentación de pruebas",
+        "Identificación y análisis de causa raíz",
+        "Visualización de la secuencia de eventos",
+        "Elaboración de conclusiones y recomendaciones",
+        "Preparación del informe de investigación formal",
+        "Aplicación práctica de todo lo aprendido en el curso"
+      ],
+      "learningOutcomes": [
+        "Integrar los aprendizajes de todo el curso en un estudio de caso temático",
+        "Producir un informe de investigación detallado y bien estructurado",
+        "Aplicar todas las técnicas de investigación a un escenario realista"
+      ]
+    }
+  ],
+  "participants": {
+    "label": "Quién debería asistir",
+    "heading": "Participantes objetivo",
+    "list": [
+      "Organismos de Aplicación de la Ley Marítima",
+      "Administraciones Marítimas",
+      "Autoridades de Transporte Nacionales y Regionales",
+      "Peritos Marítimos",
+      "Abogados Marítimos, Fiscales y Profesionales Reguladores",
+      "Operadores y Propietarios de Buques, y Responsables de Seguridad",
+      "Representantes del Ámbito Académico y de la Sociedad Civil que trabajan en Seguridad Marítima"
+    ]
+  },
+  "outcomesSection": {
+    "label": "Lo que logrará",
+    "heading": "Resultados esperados",
+    "list": [
+      "Realizar investigaciones de accidentes marítimos creíbles y conformes a los procedimientos",
+      "Aplicar el Código de Investigación de Accidentes de la OMI a casos reales de accidentes",
+      "Redactar informes de investigación claros y basados en pruebas, así como recomendaciones de seguridad",
+      "Fortalecer los mecanismos de aprendizaje institucional y prevención de accidentes",
+      "Contribuir a la creación de una base de datos nacional de accidentes para la formulación de políticas de seguridad"
+    ]
+  },
+  "format": {
+    "heading": "Formato y Metodología del Curso",
+    "deliveryHeading": "Modalidad de impartición",
+    "deliveryInPersonLabel": "Presencial:",
+    "deliveryInPersonValue": "Participantes de Ghana",
+    "deliveryVirtualLabel": "Virtual:",
+    "deliveryVirtualValue": "Participantes internacionales",
+    "methodsHeading": "Métodos de enseñanza",
+    "methods": [
+      "Clases interactivas y análisis del marco regulatorio",
+      "Análisis de casos en grupo basados en incidentes reales",
+      "Uso práctico de kits de herramientas de investigación",
+      "Ejercicios de simulación de roles",
+      "Redacción de informes y sesiones de revisión entre pares",
+      "Simulación de escenarios de campo",
+      "Integración tecnológica: drones, herramientas GPS"
+    ]
+  },
+  "alignment": {
+    "heading": "Alineación con Marcos Normativos",
+    "alignsHeading": "Este programa se alinea con:",
+    "items": [
+      "Código de Normas Internacionales y Prácticas Recomendadas de la OMI para una Investigación de Seguridad (MSC.255(84))",
+      "Regla 6 del Capítulo XI-1 del SOLAS"
+    ],
+    "impactHeading": "Impacto esperado",
+    "impactList": [
+      "Fortalecer la capacidad institucional regional para la gobernanza de la seguridad marítima",
+      "Apoyar un transporte fluvial seguro, eficiente y sostenible",
+      "Formar un grupo competente de investigadores regionales",
+      "Fomentar un marco de respuesta interinstitucional unificado"
+    ]
+  }
+}

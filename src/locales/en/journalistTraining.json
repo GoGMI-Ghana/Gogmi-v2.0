@@ -1,0 +1,95 @@
+{
+  "keyDates": [
+    { "label": "Applications Open", "date": "August 2025" },
+    { "label": "Applications Close & Selected Applicants Notified", "date": "September 2025" },
+    { "label": "Application Deadline", "date": "2 September 2025" }
+  ],
+  "whoShouldApply": [
+    "Early to mid-career journalists and senior media professionals with an interest in maritime security and blue economy development.",
+    "Applicants from government agencies and media institutions.",
+    "Students in media or communication fields with an interest in maritime journalism.",
+    "Individuals interested in advancing their careers in maritime media reporting."
+  ],
+  "programHighlights": [
+    "Hands-on training in open-source intelligence, data journalism, and multimedia storytelling.",
+    "Presentations, small group discussions, and networking opportunities with maritime security experts.",
+    "Application of the Chatham House Rule to promote open and collaborative dialogue."
+  ],
+  "applicationMaterials": [
+    "Cover Letter: Highlight your interest in maritime reporting and how participation aligns with your career goals.",
+    "Resume: Outline relevant experience.",
+    "Letter of Recommendation: Preferably from a supervisor, editor, or academic mentor."
+  ],
+  "hero": {
+    "imageAlt": "Training for Journalists",
+    "badge": "Training Course — Completed",
+    "title": "Training for Journalists & Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea",
+    "dateLocation": "Accra, Ghana · 7–9 October 2025",
+    "location": "Accra, Ghana",
+    "dates": "7–9 October 2025",
+    "free": "Free of Charge"
+  },
+  "partners": {
+    "supportedBy": "Supported by"
+  },
+  "about": {
+    "heading": "About the Programme",
+    "para1": "Applications are open for the 2025 Training for Journalists and Media Practitioners on Maritime Security, Safety, and Blue Economy in the Gulf of Guinea.",
+    "para2Prefix": "The EU-funded",
+    "para2Strong": "\"Enhanced Maritime Action in the Gulf of Guinea\" (EnMAR)",
+    "para2Suffix": "project is implemented by Expertise France. It is aimed at improving the visibility and understanding of the European Union's involvement in favour of maritime security and safety in the Gulf of Guinea, as well as increasing cooperation, and information and knowledge sharing.",
+    "para3Prefix": "To better raise awareness on maritime security issues and challenges in the region, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) are launching a call for participation for a training course on:",
+    "para3Em": "\"Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea\"",
+    "para3Suffix": ", scheduled to take place in Accra, Ghana, from 7–9 October 2025.",
+    "para4": "Facilitated by experienced maritime security practitioners, media professionals, and experts, this training offers journalists, media practitioners, and communication specialists the opportunity to explore key concepts and practical tools to enhance effective reporting on maritime activities in the Gulf of Guinea region. The training programme will cover topics including regional and global maritime security strategies, sustainable blue economy development, legal and regulatory frameworks for ocean governance, open-source intelligence techniques, and investigative and data-driven journalism.",
+    "para5": "This training programme aims at empowering participants to address challenges such as misinformation and underreporting while equipping them to contribute to public awareness, transparency, and maritime governance."
+  },
+  "whoShouldApplySection": {
+    "heading": "Who Should Apply?",
+    "specialConsiderationLabel": "Special Consideration",
+    "specialConsiderationBody": "The program will prioritise diversity and inclusivity, and female applicants are highly encouraged to apply to support gender representation in maritime journalism and communication."
+  },
+  "highlightsSection": {
+    "heading": "Programme Highlights"
+  },
+  "materialsSection": {
+    "heading": "Application Materials",
+    "languageRequirementLabel": "Language Requirement:",
+    "languageRequirementBody": "Applicants should have a working knowledge of English, as the program will be conducted in English."
+  },
+  "logistics": {
+    "heading": "Logistical Arrangements",
+    "costLabel": "Cost:",
+    "costBody": "The training is free of charge.",
+    "venueLabel": "Venue:",
+    "venueBody": "It will take place in Accra, Ghana.",
+    "internationalLabel": "International Attendees:",
+    "internationalBody": "For attendees not residing in Accra who are selected and choose to travel to Accra by their own means, it will be possible to attend online."
+  },
+  "sidebar": {
+    "statusBadge": "● COMPLETED",
+    "statusMessage": "This training has concluded.",
+    "statusSubtext": "Stay tuned for future editions.",
+    "keyDatesHeading": "Key Dates",
+    "locationHeading": "Location",
+    "locationValue": "Coconut Grove Regency Hotel",
+    "locationSubtext": "Virtual attendance available for international participants",
+    "flyerHeading": "Event Flyer",
+    "flyerSubtext": "Official training course poster",
+    "flyerAlt": "Journalist Training 2025 Flyer",
+    "downloadFlyer": "Download Flyer",
+    "flyerNotUploadedTitle": "Flyer image not yet uploaded",
+    "flyerNotUploadedPath": "Place file at:",
+    "documentHeading": "Programme Document",
+    "documentBody": "Download the full call for participation PDF for detailed information.",
+    "downloadPdf": "Download PDF Version",
+    "questionsHeading": "Questions?",
+    "questionsBody": "For enquiries about this training programme, please contact us."
+  },
+  "cta": {
+    "heading": "Interested in Future Editions?",
+    "body": "This training has concluded, but GoGMI regularly organises capacity building programmes for maritime professionals. Stay connected for upcoming opportunities.",
+    "viewAll": "View All Programmes",
+    "contact": "Contact GoGMI"
+  }
+}

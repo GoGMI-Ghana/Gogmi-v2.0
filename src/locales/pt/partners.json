@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "badge": "A Nossa Rede",
+    "title": "Os Nossos Parceiros",
+    "subtitle": "A trabalhar em conjunto com organizações de referência para promover a excelência marítima em todo o Golfo da Guiné"
+  },
+  "intro": {
+    "heading": "Parcerias Estratégicas para a Excelência Marítima",
+    "para1": "As parcerias do GoGMI representam uma rede diversificada de organizações internacionais, entidades regionais, agências governamentais, instituições académicas e organismos do setor privado, empenhados em promover a segurança marítima e o desenvolvimento sustentável da economia azul no Golfo da Guiné.",
+    "para2": "Através de colaborações estratégicas, mobilizamos conhecimento especializado, recursos e redes coletivas para responder a desafios marítimos complexos, reforçar a capacidade regional e promover a definição de políticas baseadas em evidências.",
+    "para3": "Cada parceria assenta em valores partilhados de transparência, respeito mútuo e compromisso com o avanço da economia azul."
+  },
+  "filter": {
+    "heading": "Filtrar por Categoria",
+    "partnership": "Parceria",
+    "sponsorship": "Patrocínio"
+  },
+  "grid": {
+    "showing": "A mostrar",
+    "partnersIn": "parceiros em"
+  },
+  "card": {
+    "readMore": "Ler mais",
+    "readLess": "Ler menos",
+    "visit": "Visitar"
+  },
+  "cta": {
+    "badge": "Junte-se à Nossa Rede",
+    "heading": "Torne-se Parceiro",
+    "subtitle": "Junte-se à nossa rede de organizações de referência que impulsionam a excelência marítima no Golfo da Guiné.",
+    "button": "Seja Nosso Parceiro"
+  }
+}

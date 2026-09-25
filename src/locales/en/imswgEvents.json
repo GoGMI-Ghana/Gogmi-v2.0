@@ -1,0 +1,131 @@
+{
+  "hero": {
+    "imageAlt": "IMSWG Forum",
+    "backButton": "Back to IMSWG",
+    "quarterBadge": "Quarter 3 Forum — 2026",
+    "title": "The Implications of the BBNJ Agreement for the Gulf of Guinea",
+    "subtitle": "High-Level Expert Meeting of the International Maritime Security Working Group (IMSWG), 2026",
+    "date": "16th September, 2026",
+    "time": "1:00 PM – 3:00 PM GMT",
+    "format": "Virtual",
+    "registrationClosed": "Registration Closed"
+  },
+  "executiveSummary": {
+    "eyebrow": "About This Forum",
+    "heading": "Executive Summary",
+    "para1": "IMSWG will convene a session to align practitioners, policy leaders, and researchers on the implications of the entry into force of the BBNJ Agreement for the Gulf of Guinea. The dialogue will bridge science, policy, and ocean governance in line with UNCLOS and the BBNJ Agreement's provisions on marine genetic resources, area-based management tools, environmental impact assessments, and capacity building and technology transfer.",
+    "para2": "Immediate outputs will include a meeting record and a published IMSWG report.",
+    "flyerAlt": "IMSWG 2026 Quarter 3 Forum Flyer",
+    "badgeLine": "Q3 2026 Forum",
+    "highlights": [
+      {
+        "title": "Policy Dialogue",
+        "description": "Expert reflection and critical discussion on ocean governance and the BBNJ Agreement"
+      },
+      {
+        "title": "Multi-Stakeholder",
+        "description": "Practitioners, policymakers, researchers, and regional stakeholders"
+      },
+      {
+        "title": "Regional Focus",
+        "description": "Gulf of Guinea maritime governance and BBNJ implementation"
+      },
+      {
+        "title": "Chatham House Rule",
+        "description": "Open discussion under Chatham House confidentiality principles"
+      }
+    ]
+  },
+  "background": {
+    "heading": "Background",
+    "para1": "The Agreement under the United Nations Convention on the Law of the Sea on the Conservation and Sustainable Use of Marine Biological Diversity of Areas Beyond National Jurisdiction (BBNJ Agreement) was adopted on 19 June 2023. The sixtieth instrument of ratification was deposited on 19 September 2025, triggering entry into force 120 days later, on 17 January 2026. At the point of entry into force, the Agreement had 83 parties and 145 signatories, establishing a legally binding framework covering marine genetic resources and benefit sharing, area-based management tools including marine protected areas, environmental impact assessments, and capacity building and technology transfer.",
+    "para2": "Ghana deposited its instrument of ratification on 14 January 2026, and the Agreement entered into force for Ghana on 13 February 2026. In July 2026, the Ministry of Environment, Science and Technology, in partnership with the United Nations Development Programme and with funding support from the Global Environment Facility, launched the Enabling Activities for the Biodiversity Beyond National Jurisdiction project at an inception meeting in Accra. The third and final session of the Preparatory Commission took place from 23 March to 2 April 2026 at UN Headquarters in New York, concluding with a report of recommendations to be forwarded to the first Conference of the Parties, scheduled to convene from 11 to 22 January 2027."
+  },
+  "objectives": {
+    "eyebrow": "What We Aim To Achieve",
+    "heading": "Objectives",
+    "subtitle": "To convene a high-level session of IMSWG that aligns policy makers, practitioners, and researchers on the provisions, opportunities, and governance requirements of the BBNJ Agreement for the Gulf of Guinea, and to map practical pathways for regional engagement ahead of the first Conference of the Parties.",
+    "items": [
+      "Establish a shared understanding of what the BBNJ Agreement means for the Gulf of Guinea, given that it governs the high seas rather than national waters, and how its effects still reach the region indirectly, through spillover from protected areas and environmental assessments, and through benefit sharing from marine genetic resources.",
+      "Assess the maritime security and enforcement implications of the Agreement's area-based management tools and monitoring obligations, including the monitoring, surveillance, and enforcement capacity required of regional navies and coast guards at the exclusive economic zone and areas-beyond-national-jurisdiction boundary, and linkages to illegal, unreported, and unregulated fishing.",
+      "Identify capacity building and technology transfer needs for regional implementation, drawing on Ghana's experience with the Enabling Activities for the Biodiversity Beyond National Jurisdiction project.",
+      "Approve a publication plan, an IMSWG report attributed to the presenting expert, and identify priority follow-on research or advocacy activity."
+    ]
+  },
+  "topics": {
+    "eyebrow": "Discussion Themes",
+    "heading": "Topics for Discussion",
+    "subtitle": "Discussions will centre around the following thematic areas",
+    "topicLabel": "Topic",
+    "items": [
+      {
+        "title": "BBNJ Relevance to a Predominantly Coastal Region",
+        "description": "Transboundary impacts of area-based management tools and environmental impact assessments on national waters, and eligibility for marine genetic resources benefit sharing."
+      },
+      {
+        "title": "Maritime Security & Enforcement Implications",
+        "description": "Monitoring and surveillance requirements at the exclusive economic zone and areas-beyond-national-jurisdiction boundary, and linkages to illegal, unreported, and unregulated fishing."
+      },
+      {
+        "title": "Capacity Building & Technology Transfer",
+        "description": "Needs for resource-constrained navies, coast guards, and marine agencies in the region, drawing on Ghana's experience with the Enabling Activities for the Biodiversity Beyond National Jurisdiction project."
+      },
+      {
+        "title": "Pathways to the First Conference of the Parties",
+        "description": "How Gulf of Guinea states can engage in the preparatory process toward the first Conference of the Parties, scheduled for 11–22 January 2027."
+      }
+    ]
+  },
+  "format": {
+    "eyebrow": "2-Hour Meeting",
+    "heading": "Format & Agenda",
+    "agenda": [
+      { "time": "1300 – 1305", "activity": "Welcome, objectives, operating principles" },
+      { "time": "1305 – 1320", "activity": "Opening address" },
+      { "time": "1320 – 1345", "activity": "Segment 1: The BBNJ Agreement — provisions and implications for ocean governance in the Gulf of Guinea" },
+      { "time": "1345 – 1410", "activity": "Segment 2: Capacity building, technology transfer, and regional positioning ahead of the first Conference of the Parties" },
+      { "time": "1410 – 1445", "activity": "Interactive session" },
+      { "time": "1445 – 1500", "activity": "Closing summary and confirmation of report process" }
+    ]
+  },
+  "stakeholders": {
+    "heading": "Stakeholders & Participants",
+    "cardHeading": "Who Should Participate",
+    "items": [
+      "Members of the GoGMI-hosted IMSWG",
+      "Senior representatives of navies and coast guards",
+      "Fisheries and marine environment agencies",
+      "Maritime administrations and regulators",
+      "Ministry of Environment, Science and Technology and UNDP team implementing the Enabling Activities for the BBNJ project",
+      "Officials engaged in ocean governance from relevant ministries",
+      "Academia and research institutions",
+      "Regional and international organisations",
+      "Development partners",
+      "Think tanks and non-governmental organisations"
+    ]
+  },
+  "outcomes": {
+    "eyebrow": "What This Meeting Will Produce",
+    "heading": "Expected Outcomes",
+    "items": [
+      "Shared understanding of the implications of the BBNJ Agreement for Gulf of Guinea maritime governance",
+      "An assessment of capacity building and technology transfer needs relevant to regional implementation",
+      "Identification of linkages between BBNJ provisions and existing regional maritime security and environmental governance frameworks",
+      "Priority areas for follow-on research, capacity building, or advocacy activity",
+      "A meeting record and a published IMSWG report",
+      "A validated publication plan, with a named presenting expert and delivery timeline"
+    ]
+  },
+  "conclusion": {
+    "heading": "Conclusion",
+    "para1": "The entry into force of the BBNJ Agreement marks a new phase in ocean governance with direct relevance to Gulf of Guinea maritime security and blue economy agendas. Effective regional engagement will require a clear understanding of the Agreement's provisions, identification of capacity gaps, and coordinated preparation ahead of the first Conference of the Parties.",
+    "para2": "By examining these implications at this stage, IMSWG and its partners can support informed regional positioning, strengthen ocean governance capacity, and contribute to sustainable blue economy outcomes for the Gulf of Guinea."
+  },
+  "ctaSection": {
+    "heading": "Join the Discussion",
+    "dateLine": "16th September, 2026 — 1:00 PM – 3:00 PM GMT",
+    "formatLine": "Virtual Meeting — This forum has concluded",
+    "registrationClosed": "Registration Closed",
+    "sponsorship": "For sponsorship & inquiries:"
+  }
+}

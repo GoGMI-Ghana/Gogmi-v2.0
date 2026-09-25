@@ -1,0 +1,81 @@
+{
+  "success": {
+    "heading": "¡Solicitud enviada!",
+    "body1": "Gracias por su interés en el Grupo de Trabajo Internacional sobre Seguridad Marítima (IMSWG). Le agradecemos que haya compartido su trayectoria y sus áreas de interés con nosotros.",
+    "body2": "Nuestro equipo revisará su solicitud y se pondrá en contacto con usted para indicarle los próximos pasos. ¡Esté atento a su bandeja de entrada!",
+    "signature": "GoGMI",
+    "backButton": "Volver a IMSWG"
+  },
+  "header": {
+    "backButton": "Volver a IMSWG",
+    "title": "Inscríbase en nuestro Grupo IMSWG",
+    "subtitle": "Grupo de Trabajo Internacional sobre Seguridad Marítima"
+  },
+  "intro": "Cuéntenos sobre usted y cómo le gustaría participar en el IMSWG. Ya sea que desee ser mentor, ponente, colaborador o simplemente unirse a nuestra red, nos encantaría saber de usted.",
+  "errors": {
+    "fullNameRequired": "El nombre completo es obligatorio",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "El correo electrónico no es válido",
+    "countryRequired": "El país de residencia es obligatorio",
+    "positionRequired": "El puesto o cargo es obligatorio",
+    "bioRequired": "Se requiere una breve biografía",
+    "areasOfInterestRequired": "Seleccione al menos un área de interés",
+    "submissionFailed": "Error al enviar la solicitud",
+    "submitFailedFallback": "No se pudo enviar la solicitud. Inténtelo de nuevo o contáctenos en info@gogmi.org.gh",
+    "invalidImageType": "Suba una imagen en formato JPG, PNG o WEBP",
+    "imageTooLarge": "La imagen debe pesar menos de 5 MB"
+  },
+  "personalInfo": {
+    "heading": "Información personal",
+    "fullNameLabel": "Nombre completo",
+    "fullNamePlaceholder": "John Doe",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "john@example.com",
+    "whatsappLabel": "Código de país y número de WhatsApp",
+    "whatsappPlaceholder": "+233 XX XXX XXXX",
+    "countryLabel": "País de residencia",
+    "countryPlaceholder": "ej.: Ghana"
+  },
+  "professionalInfo": {
+    "heading": "Información profesional",
+    "positionLabel": "Puesto o cargo profesional actual",
+    "positionPlaceholder": "ej.: Analista de seguridad marítima",
+    "institutionLabel": "Institución / Organización",
+    "institutionPlaceholder": "ej.: Autoridad marítima, empresa de seguridad, etc."
+  },
+  "aboutYou": {
+    "heading": "Sobre usted",
+    "bioLabel": "Breve biografía",
+    "bioHelper": "Cuéntenos brevemente sobre su trayectoria, su experiencia y lo que puede aportar al ámbito de la seguridad marítima. (Máximo 500 caracteres)",
+    "bioPlaceholder": "ej.: Soy un profesional de la seguridad marítima con más de 10 años de experiencia..."
+  },
+  "interests": {
+    "heading": "Áreas de interés",
+    "helper": "Seleccione todas las que correspondan — puede elegir más de una.",
+    "options": {
+      "become_mentor": "Ser mentor",
+      "join_panel": "Participar en un panel de debate",
+      "speak_events": "Intervenir en nuestros eventos",
+      "contribute_projects": "Contribuir a nuestros proyectos",
+      "support_fundraising": "Apoyar proyectos de recaudación de fondos",
+      "join_membership": "Unirse a nuestra membresía",
+      "partner_with_us": "Ser socio"
+    }
+  },
+  "profilePicture": {
+    "heading": "Foto de perfil",
+    "optional": "(Opcional)",
+    "helper": "Suba una fotografía profesional. Formatos aceptados: JPG, PNG, WEBP. Tamaño máximo: 5 MB.",
+    "uploadPrompt": "Haga clic para subir su foto",
+    "uploadHint": "JPG, PNG o WEBP de hasta 5 MB",
+    "imageReady": "Imagen lista",
+    "removeTitle": "Eliminar foto",
+    "previewAlt": "Vista previa de la foto de perfil"
+  },
+  "optional": "(Opcional)",
+  "submit": {
+    "button": "Enviar mi solicitud",
+    "submitting": "Enviando...",
+    "consent": "Al enviar este formulario, usted acepta ser contactado sobre las actividades y oportunidades del IMSWG."
+  }
+}

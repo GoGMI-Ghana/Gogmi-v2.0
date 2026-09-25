@@ -1,0 +1,95 @@
+{
+  "keyDates": [
+    { "label": "Apertura de solicitudes", "date": "Agosto de 2025" },
+    { "label": "Cierre de solicitudes y notificación a los seleccionados", "date": "Septiembre de 2025" },
+    { "label": "Fecha límite de solicitud", "date": "2 de septiembre de 2025" }
+  ],
+  "whoShouldApply": [
+    "Periodistas en las primeras y medias etapas de su carrera, así como profesionales de medios de comunicación con experiencia, interesados en la seguridad marítima y el desarrollo de la economía azul.",
+    "Solicitantes de organismos gubernamentales e instituciones mediáticas.",
+    "Estudiantes de periodismo o comunicación interesados en el periodismo marítimo.",
+    "Personas interesadas en avanzar en su carrera dentro del periodismo sobre asuntos marítimos."
+  ],
+  "programHighlights": [
+    "Formación práctica en inteligencia de fuentes abiertas, periodismo de datos y narración multimedia.",
+    "Presentaciones, debates en grupos reducidos y oportunidades de establecer contactos con expertos en seguridad marítima.",
+    "Aplicación de la Regla de Chatham House para fomentar un diálogo abierto y colaborativo."
+  ],
+  "applicationMaterials": [
+    "Carta de motivación: destaque su interés en el periodismo marítimo y cómo su participación se alinea con sus objetivos profesionales.",
+    "Currículum: describa su experiencia relevante.",
+    "Carta de recomendación: preferiblemente de un supervisor, editor o mentor académico."
+  ],
+  "hero": {
+    "imageAlt": "Formación para periodistas",
+    "badge": "Curso de formación — Finalizado",
+    "title": "Formación para periodistas y profesionales de los medios sobre seguridad marítima, protección y economía azul en el Golfo de Guinea",
+    "dateLocation": "Accra, Ghana · 7–9 de octubre de 2025",
+    "location": "Accra, Ghana",
+    "dates": "7–9 de octubre de 2025",
+    "free": "Gratuito"
+  },
+  "partners": {
+    "supportedBy": "Con el apoyo de"
+  },
+  "about": {
+    "heading": "Sobre el programa",
+    "para1": "Están abiertas las solicitudes para la Formación 2025 destinada a periodistas y profesionales de los medios sobre seguridad marítima, protección y economía azul en el Golfo de Guinea.",
+    "para2Prefix": "El proyecto financiado por la UE",
+    "para2Strong": "«Acción Marítima Reforzada en el Golfo de Guinea» (EnMAR)",
+    "para2Suffix": "es implementado por Expertise France. Su objetivo es mejorar la visibilidad y comprensión de la implicación de la Unión Europea en favor de la seguridad marítima y la protección en el Golfo de Guinea, así como aumentar la cooperación y el intercambio de información y conocimientos.",
+    "para3Prefix": "Para sensibilizar mejor sobre los problemas y desafíos de seguridad marítima en la región, el proyecto EnMAR y el Gulf of Guinea Maritime Institute (GoGMI) lanzan una convocatoria de participación para un curso de formación titulado:",
+    "para3Em": "«Formación para periodistas y profesionales de los medios sobre seguridad marítima, protección y economía azul en el Golfo de Guinea»",
+    "para3Suffix": ", que se llevará a cabo en Accra, Ghana, del 7 al 9 de octubre de 2025.",
+    "para4": "Facilitada por profesionales experimentados en seguridad marítima, especialistas en medios de comunicación y expertos, esta formación ofrece a periodistas, profesionales de los medios y especialistas en comunicación la oportunidad de explorar conceptos clave y herramientas prácticas para mejorar la cobertura de las actividades marítimas en la región del Golfo de Guinea. El programa de formación abarcará temas como las estrategias de seguridad marítima regionales y globales, el desarrollo sostenible de la economía azul, los marcos jurídicos y regulatorios para la gobernanza oceánica, las técnicas de inteligencia de fuentes abiertas y el periodismo de investigación basado en datos.",
+    "para5": "Este programa de formación busca capacitar a los participantes para enfrentar desafíos como la desinformación y la escasa cobertura mediática, y prepararlos para contribuir a la concienciación pública, la transparencia y la gobernanza marítima."
+  },
+  "whoShouldApplySection": {
+    "heading": "¿Quién puede postularse?",
+    "specialConsiderationLabel": "Consideración especial",
+    "specialConsiderationBody": "El programa priorizará la diversidad y la inclusión, y se anima especialmente a las mujeres a postularse para apoyar la representación de género en el periodismo y la comunicación marítima."
+  },
+  "highlightsSection": {
+    "heading": "Aspectos destacados del programa"
+  },
+  "materialsSection": {
+    "heading": "Documentos de solicitud",
+    "languageRequirementLabel": "Requisito de idioma:",
+    "languageRequirementBody": "Los solicitantes deben tener un conocimiento funcional del inglés, ya que el programa se impartirá en ese idioma."
+  },
+  "logistics": {
+    "heading": "Aspectos logísticos",
+    "costLabel": "Coste:",
+    "costBody": "La formación es gratuita.",
+    "venueLabel": "Sede:",
+    "venueBody": "Se llevará a cabo en Accra, Ghana.",
+    "internationalLabel": "Asistentes internacionales:",
+    "internationalBody": "Los asistentes seleccionados que no residan en Accra y decidan viajar por sus propios medios también podrán participar en línea."
+  },
+  "sidebar": {
+    "statusBadge": "● FINALIZADO",
+    "statusMessage": "Esta formación ha concluido.",
+    "statusSubtext": "Manténgase atento a futuras ediciones.",
+    "keyDatesHeading": "Fechas clave",
+    "locationHeading": "Ubicación",
+    "locationValue": "Coconut Grove Regency Hotel",
+    "locationSubtext": "Asistencia virtual disponible para participantes internacionales",
+    "flyerHeading": "Cartel del evento",
+    "flyerSubtext": "Cartel oficial del curso de formación",
+    "flyerAlt": "Cartel de la Formación para Periodistas 2025",
+    "downloadFlyer": "Descargar cartel",
+    "flyerNotUploadedTitle": "Imagen del cartel aún no disponible",
+    "flyerNotUploadedPath": "Colocar el archivo en:",
+    "documentHeading": "Documento del programa",
+    "documentBody": "Descargue el PDF completo de la convocatoria de participación para más información.",
+    "downloadPdf": "Descargar versión en PDF",
+    "questionsHeading": "¿Tiene preguntas?",
+    "questionsBody": "Para consultas sobre este programa de formación, póngase en contacto con nosotros."
+  },
+  "cta": {
+    "heading": "¿Interesado en futuras ediciones?",
+    "body": "Esta formación ha concluido, pero GoGMI organiza regularmente programas de fortalecimiento de capacidades para profesionales marítimos. Manténgase conectado para futuras oportunidades.",
+    "viewAll": "Ver todos los programas",
+    "contact": "Contactar con GoGMI"
+  }
+}

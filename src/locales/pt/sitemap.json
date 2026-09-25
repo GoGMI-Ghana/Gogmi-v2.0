@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "backToHome": "Voltar ao Início",
+    "eyebrow": "Navegação",
+    "title": "Mapa do Site",
+    "subtitle": "Uma visão completa de todas as páginas do site do GoGMI."
+  },
+  "sections": [
+    {
+      "title": "Páginas Principais",
+      "links": [
+        { "label": "Início" },
+        { "label": "Sobre Nós" },
+        { "label": "Serviços" },
+        { "label": "Contacto" },
+        { "label": "Blog" },
+        { "label": "Recursos" },
+        { "label": "Galeria de Media" },
+        { "label": "Testemunhos" },
+        { "label": "Carreiras e Oportunidades" }
+      ]
+    },
+    {
+      "title": "Serviços",
+      "links": [
+        { "label": "Advocacia" },
+        { "label": "Investigação" },
+        { "label": "Capacitação" }
+      ]
+    },
+    {
+      "title": "Investigação",
+      "links": [
+        { "label": "Auditoria às Intervenções de Segurança Marítima" }
+      ]
+    },
+    {
+      "title": "Capacitação e Formação",
+      "links": [
+        { "label": "Curso de Governação Marítima" },
+        { "label": "Curso de Investigação de Sinistros Marítimos" },
+        { "label": "Early Career Ocean Professionals (ECOP)" },
+        { "label": "WYTEC Blue Training" },
+        { "label": "Formação de Jornalistas" }
+      ]
+    },
+    {
+      "title": "Programas e Iniciativas",
+      "links": [
+        { "label": "IMSWG" },
+        { "label": "Fórum IMSWG" },
+        { "label": "Eventos IMSWG" },
+        { "label": "Inscrição no IMSWG" },
+        { "label": "Blue Career Expo" },
+        { "label": "Blue World Initiative" },
+        { "label": "Blue Business Directory" },
+        { "label": "SHADE" },
+        { "label": "Gulf Spectrum Podcast" }
+      ]
+    },
+    {
+      "title": "Organização",
+      "links": [
+        { "label": "Presidente do Conselho de Administração" },
+        { "label": "Gestão" },
+        { "label": "Conselho Consultivo" },
+        { "label": "Secretariado" },
+        { "label": "Parceiros" },
+        { "label": "Associação" }
+      ]
+    },
+    {
+      "title": "Legal",
+      "links": [
+        { "label": "Política de Privacidade" },
+        { "label": "Termos de Serviço" }
+      ]
+    }
+  ]
+}

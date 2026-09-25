@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Institut Maritime du Golfe de Guinée",
+  "title": "Annuaire Blue Business",
+  "subtitle": "Le registre des services commerciaux et professionnels maritimes du golfe de Guinée",
+  "searchPlaceholder": "Rechercher par nom, service ou pays…",
+  "scrollLeft": "Défiler vers la gauche",
+  "scrollRight": "Défiler vers la droite",
+  "categories": {
+    "all": "Tous",
+    "shipping": "Transport & Logistique",
+    "port": "Services Portuaires",
+    "security": "Sécurité Maritime",
+    "engineering": "Ingénierie Navale",
+    "legal": "Juridique & Assurance",
+    "energy": "Énergie Offshore",
+    "consulting": "Conseil",
+    "training": "Formation & Éducation"
+  },
+  "listingCount_one": "annonce",
+  "listingCount_other": "annonces",
+  "listYourBusiness": "Référencer votre entreprise →",
+  "listYourBusinessSubject": "Annuaire Blue Business — Référencer mon entreprise",
+  "featured": "En vedette",
+  "allListings": "Toutes les annonces",
+  "empty": {
+    "title": "Aucune annonce trouvée",
+    "subtitle": "Essayez d'ajuster votre recherche ou le filtre de catégorie"
+  },
+  "footerNote": "Pour ajouter ou mettre à jour une annonce, contactez",
+  "listings": {
+    "1": { "description": "Autorité publique gérant les opérations de conteneurs, de vrac et de marchandises générales dans les principaux ports du Ghana, notamment Tema et Takoradi." },
+    "2": { "description": "Transport maritime régional et transit de marchandises dans le golfe de Guinée, avec des services réguliers vers 14 ports." },
+    "3": { "description": "Terminal à conteneurs en eau profonde et principal hub de transbordement desservant les États d'Afrique de l'Ouest enclavés." },
+    "4": { "description": "Cabinet de droit maritime spécialisé dans le financement naval, les litiges de cargaison, les affaires P&I et les procédures d'amirauté." }
+  }
+}

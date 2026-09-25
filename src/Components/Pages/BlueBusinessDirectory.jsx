@@ -1,17 +1,8 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Search, MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 
-const CATEGORIES = [
-  { id: 'all', label: 'All' },
-  { id: 'shipping', label: 'Shipping & Logistics' },
-  { id: 'port', label: 'Port Services' },
-  { id: 'security', label: 'Maritime Security' },
-  { id: 'engineering', label: 'Marine Engineering' },
-  { id: 'legal', label: 'Legal & Insurance' },
-  { id: 'energy', label: 'Offshore Energy' },
-  { id: 'consulting', label: 'Consulting' },
-  { id: 'training', label: 'Training & Education' },
-];
+const CATEGORY_IDS = ['all', 'shipping', 'port', 'security', 'engineering', 'legal', 'energy', 'consulting', 'training'];
 
 const LISTINGS = [
   {
@@ -23,7 +14,6 @@ const LISTINGS = [
     phone: '+233 (0) 303 219120.',
     email: 'headquarters@ghanaports.gov.gh',
     website: 'https://www.ghanaports.gov.gh/',
-    description: 'State authority managing container, bulk and general cargo operations across Ghana\'s major ports including Tema and Takoradi.',
     featured: true,
   },
   {
@@ -35,7 +25,6 @@ const LISTINGS = [
     phone: '+233 302 666 501',
     email: 'ops@blackstarline.gh',
     website: 'https://www.blackstarline-inc.com/',
-    description: 'Regional shipping and freight forwarding across the Gulf of Guinea with scheduled services to 14 ports.',
     featured: true,
   },
   {
@@ -47,7 +36,6 @@ const LISTINGS = [
     phone: '+228 22 53 70 00',
     email: 'info@lct-togo.com',
     website: 'https://www.lct-togo.com/',
-    description: 'Deep-water container terminal and the primary transshipment hub serving landlocked West African states.',
   },
   {
     id: 4,
@@ -58,11 +46,12 @@ const LISTINGS = [
     phone: '(+234) 703 207 2040',
     email: 'maritime@oceaniclegal.gh',
     website: 'https://oceaniclp.com/',
-    description: 'Maritime law practice specialising in ship finance, cargo claims, P&I matters and admiralty proceedings.',
   },
 ];
 
 const BlueBusinessDirectory = () => {
+  const { t } = useTranslation('blueBusinessDirectory');
+  const CATEGORIES = CATEGORY_IDS.map(id => ({ id, label: t(`categories.${id}`) }));
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
   const catScrollRef = React.useRef(null);
@@ -77,14 +66,15 @@ const BlueBusinessDirectory = () => {
     return LISTINGS.filter(l => {
       const matchCat = activeCategory === 'all' || l.category === activeCategory;
       const q = search.toLowerCase();
+      const description = t(`listings.${l.id}.description`);
       const matchSearch = !q ||
         l.name.toLowerCase().includes(q) ||
-        l.description.toLowerCase().includes(q) ||
+        description.toLowerCase().includes(q) ||
         l.country.toLowerCase().includes(q) ||
         l.city.toLowerCase().includes(q);
       return matchCat && matchSearch;
     });
-  }, [search, activeCategory]);
+  }, [search, activeCategory, t]);
 
   const featured = filtered.filter(l => l.featured);
   const regular = filtered.filter(l => !l.featured);
@@ -106,13 +96,13 @@ const BlueBusinessDirectory = () => {
       <div style={{ backgroundColor: '#132552', borderBottom: '4px solid #8E3400' }} className="pt-28 pb-12 px-6">
         <div className="max-w-5xl mx-auto">
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#93C5FD', textTransform: 'uppercase', marginBottom: '10px' }}>
-            Gulf of Guinea Maritime Institute
+            {t('eyebrow')}
           </p>
           <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
-            Blue Business Directory
+            {t('title')}
           </h1>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 400, color: 'rgba(255,255,255,0.65)', marginBottom: '32px' }}>
-            The Gulf of Guinea's register of maritime trade &amp; professional services
+            {t('subtitle')}
           </p>
 
           {/* Search */}
@@ -122,7 +112,7 @@ const BlueBusinessDirectory = () => {
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="Search by name, service or country…"
+              placeholder={t('searchPlaceholder')}
               style={{
                 width: '100%',
                 paddingLeft: '42px',
@@ -171,7 +161,7 @@ const BlueBusinessDirectory = () => {
                 fontSize: '16px',
                 lineHeight: 1,
               }}
-              aria-label="Scroll left"
+              aria-label={t('scrollLeft')}
             >‹</button>
 
             {/* Scrollable buttons */}
@@ -220,7 +210,7 @@ const BlueBusinessDirectory = () => {
                 fontSize: '16px',
                 lineHeight: 1,
               }}
-              aria-label="Scroll right"
+              aria-label={t('scrollRight')}
             >›</button>
           </div>
         </div>
@@ -233,16 +223,16 @@ const BlueBusinessDirectory = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 400, color: '#6B7280' }}>
             <strong style={{ color: '#111827', fontWeight: 600 }}>{filtered.length}</strong>{' '}
-            {filtered.length === 1 ? 'listing' : 'listings'}
+            {t('listingCount', { count: filtered.length })}
             {activeCategory !== 'all' && (
               <> · {CATEGORIES.find(c => c.id === activeCategory)?.label}</>
             )}
           </p>
           <a
-            href="mailto:info@gogmi.org.gh?subject=Blue Business Directory — List My Business"
+            href={`mailto:info@gogmi.org.gh?subject=${encodeURIComponent(t('listYourBusinessSubject'))}`}
             style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8E3400', textDecoration: 'none' }}
           >
-            List your business →
+            {t('listYourBusiness')}
           </a>
         </div>
 
@@ -250,11 +240,11 @@ const BlueBusinessDirectory = () => {
         {featured.length > 0 && (
           <div style={{ marginBottom: '36px' }}>
             <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '12px' }}>
-              Featured
+              {t('featured')}
             </p>
             <div style={{ border: '1px solid #D1D5DB', borderRadius: '8px', overflow: 'hidden' }}>
               {featured.map((listing, i) => (
-                <ListingRow key={listing.id} listing={listing} featured isLast={i === featured.length - 1} />
+                <ListingRow key={listing.id} listing={listing} categories={CATEGORIES} t={t} featured isLast={i === featured.length - 1} />
               ))}
             </div>
           </div>
@@ -265,12 +255,12 @@ const BlueBusinessDirectory = () => {
           <div>
             {featured.length > 0 && (
               <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '12px' }}>
-                All Listings
+                {t('allListings')}
               </p>
             )}
             <div style={{ border: '1px solid #D1D5DB', borderRadius: '8px', overflow: 'hidden' }}>
               {regular.map((listing, i) => (
-                <ListingRow key={listing.id} listing={listing} isLast={i === regular.length - 1} />
+                <ListingRow key={listing.id} listing={listing} categories={CATEGORIES} t={t} isLast={i === regular.length - 1} />
               ))}
             </div>
           </div>
@@ -279,16 +269,16 @@ const BlueBusinessDirectory = () => {
         {filtered.length === 0 && (
           <div style={{ textAlign: 'center', padding: '80px 0', border: '1px solid #D1D5DB', borderRadius: '8px' }}>
             <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '20px', fontWeight: 700, color: '#132552', marginBottom: '8px' }}>
-              No listings found
+              {t('empty.title')}
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#6B7280' }}>
-              Try adjusting your search or category filter
+              {t('empty.subtitle')}
             </p>
           </div>
         )}
 
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#9CA3AF', textAlign: 'center', marginTop: '48px' }}>
-          To add or update a listing, contact{' '}
+          {t('footerNote')}{' '}
           <a href="mailto:info@gogmi.org.gh" style={{ color: '#8E3400' }}>info@gogmi.org.gh</a>
         </p>
       </div>
@@ -296,8 +286,9 @@ const BlueBusinessDirectory = () => {
   );
 };
 
-const ListingRow = ({ listing, featured, isLast }) => {
-  const catLabel = CATEGORIES.find(c => c.id === listing.category)?.label;
+const ListingRow = ({ listing, categories, t, featured, isLast }) => {
+  const catLabel = categories.find(c => c.id === listing.category)?.label;
+  const description = t(`listings.${listing.id}.description`);
 
   return (
     <div style={{
@@ -325,7 +316,7 @@ const ListingRow = ({ listing, featured, isLast }) => {
             letterSpacing: '0.05em',
             textTransform: 'uppercase',
           }}>
-            Featured
+            {t('featured')}
           </span>
         )}
       </div>
@@ -341,7 +332,7 @@ const ListingRow = ({ listing, featured, isLast }) => {
       </div>
 
       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#374151', lineHeight: 1.65, marginBottom: '16px', maxWidth: '620px' }}>
-        {listing.description}
+        {description}
       </p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>

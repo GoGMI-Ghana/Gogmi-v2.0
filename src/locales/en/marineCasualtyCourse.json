@@ -1,0 +1,306 @@
+{
+  "modal": {
+    "titles": {
+      "choose": "Apply for Course",
+      "verify": "Verify Membership",
+      "member": "Member Application",
+      "nonmember": "Non-Member Application"
+    },
+    "courseSubtitle": "Marine Casualty Investigation & Safety Management",
+    "choose": {
+      "question": "Are you a GoGMI member? Members enjoy an exclusive discount.",
+      "memberTitle": "Apply as a Member",
+      "memberSave": "Save ${{discount}} ({{percent}}% off)",
+      "memberDesc": "Enter your Membership ID to verify and get the discount.",
+      "nonMemberTitle": "Apply as a Non-Member",
+      "standardRate": "Standard Rate",
+      "nonMemberDesc": "You will receive a free GoGMI membership with your registration.",
+      "joinPrompt": "Not yet a member?",
+      "joinLink": "Join GoGMI",
+      "joinSuffix": "to unlock member pricing."
+    },
+    "verify": {
+      "memberPriceLabel": "Member Price",
+      "save": "Save ${{discount}} ({{percent}}% off)",
+      "inputLabel": "Enter Your Membership ID",
+      "placeholder": "e.g. GoGMI-MST2026-00001",
+      "helper": "Your Membership ID was sent to your email when you joined GoGMI.",
+      "back": "Back",
+      "verifying": "Verifying...",
+      "verifyContinue": "Verify & Continue"
+    },
+    "member": {
+      "verifiedBadge": "✓ Verified — Member Price Applied",
+      "saveAmount": "Save ${{discount}}",
+      "fullNameLabel": "Full Name",
+      "emailLabel": "Email Address",
+      "phoneLabel": "Country Code Plus WhatsApp Number",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Position/Title",
+      "institutionLabel": "Institution/Organisation",
+      "optional": "(Optional)",
+      "countryLabel": "Country",
+      "back": "Back",
+      "processing": "Processing...",
+      "pay": "Pay USD {{amount}}"
+    },
+    "nonmember": {
+      "standardRate": "Standard Rate",
+      "freeMembership": "You will receive a free GoGMI membership",
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "phoneLabel": "Country Code Plus WhatsApp Number",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Position/Title",
+      "institutionLabel": "Institution/Organisation",
+      "optional": "(Optional)",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Ghana",
+      "membershipTypeLabel": "Select Membership Type",
+      "membershipTypePlaceholder": "-- Select your membership type --",
+      "membershipTypeStudent": "Student Membership",
+      "membershipTypeAssociate": "Associate Membership",
+      "membershipTypeProfessional": "Professional Membership",
+      "membershipTypeHelper": "You will receive a free GoGMI membership of the selected type with your course registration.",
+      "back": "Back",
+      "processing": "Processing...",
+      "pay": "Pay USD {{amount}}"
+    }
+  },
+  "alerts": {
+    "enterMembershipId": "Please enter your Membership ID",
+    "invalidMembershipId": "Invalid Membership ID",
+    "verifyError": "Unable to verify. Please check your connection.",
+    "paymentLoading": "Payment system loading. Please wait.",
+    "paymentCancelled": "Payment cancelled.",
+    "paymentFailed": "Payment failed: {{error}}",
+    "fillRequired": "Please fill all required fields",
+    "selectMembershipType": "Please select a membership type",
+    "registrationSuccess": "Registration Successful!\n\nYou are now registered for the Marine Casualty Investigation Course.\nReference: {{reference}}\n",
+    "autoMembership": "\nCongratulations! You are now a GoGMI member.\nMembership ID: {{membershipId}}\nUse this ID to login at gogmi.org.gh/login\n",
+    "confirmationEmail": "\nA confirmation email has been sent to {{email}}",
+    "registrationFailed": "Registration failed: {{message}}\nReference: {{reference}}\nContact info@gogmi.org.gh",
+    "registrationError": "Registration error. Contact info@gogmi.org.gh with reference: {{reference}}"
+  },
+  "hero": {
+    "imageAlt": "Marine Casualty Investigation",
+    "badge": "Executive Training Course",
+    "title": "Marine Casualty Investigation & Safety Management",
+    "subtitle": "Enhancing Maritime and Inland Waterways Transport Safety Frameworks",
+    "duration": "5 Days",
+    "format": "In Person",
+    "moduleCount": "6 Modules",
+    "memberPriceLabel": "Member Price",
+    "standardRateLabel": "Standard Rate",
+    "applyNow": "Apply Now",
+    "downloadBrochure": "Download Brochure"
+  },
+  "overview": {
+    "label": "Course Overview",
+    "heading": "Building Capacity for Maritime Safety",
+    "para1": "Maritime and Inland Waterways transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods.",
+    "para2": "This executive training course builds the capacity of Maritime Administrations and related agencies to efficiently conduct investigations of marine casualties and incidents, in accordance with SOLAS regulation XI-1/6 and the IMO Casualty Investigation Code.",
+    "imageAlt": "Maritime Investigation",
+    "imageBadgeTitle": "IMO",
+    "imageBadgeSubtitle": "Code Compliant",
+    "highlights": [
+      { "title": "IMO Compliance", "description": "Aligned with IMO Casualty Investigation Code (MSC.255(84)) and SOLAS Chapter XI-1 Regulation 6" },
+      { "title": "Expert Faculty", "description": "Maritime safety experts, IMO certified investigators, and regional specialists" },
+      { "title": "Hybrid Format", "description": "In-person for Ghana participants, virtual for international attendees" },
+      { "title": "Certification", "description": "Certificate upon successful completion of all modules and case study" }
+    ]
+  },
+  "rationale": {
+    "heading": "Why This Training Is Critical",
+    "para1": "Between 2020 and 2025, numerous serious incidents occurred across African waterways with hundreds of deaths.",
+    "para2": "Common causes include overloading, poor vessel maintenance, incompetent operators, absence of life-saving appliances, and human factors. National Maritime Administrations need better training to enhance safety."
+  },
+  "modulesSection": {
+    "label": "Curriculum",
+    "heading": "6 Comprehensive Modules",
+    "subtitle": "From legal frameworks to practical case studies",
+    "topicsHeading": "Topics Covered",
+    "outcomesHeading": "Learning Outcomes",
+    "moduleLabel": "Module {{number}}"
+  },
+  "modules": [
+    {
+      "title": "Marine Casualty Investigation – Concepts, Scope and Legal Framework",
+      "topics": [
+        "Understanding the importance of marine casualty investigations",
+        "Understanding the nature and types of marine casualties",
+        "Legal definition and classification under national and regional provisions",
+        "IMO Casualty Investigation Code and related SOLAS requirements",
+        "Detailed study of Sections of the IMO Casualty Investigation Code",
+        "Roles of the Maritime Administration, Wreck Commissioner, and Assessors",
+        "Procedures for preliminary inquiry and formal investigation",
+        "The 'Stop Rule'",
+        "Appeals, rehearing, and disciplinary actions on certificates",
+        "Coordination between national agencies"
+      ],
+      "learningOutcomes": [
+        "Explain the philosophy, importance and international background of marine casualty investigations",
+        "Identify key international instruments (IMO Casualty Investigation Code, SOLAS requirements)",
+        "Describe the roles, powers and responsibilities of Maritime Administration, Wreck Commissioner and Assessors",
+        "Outline the full procedural sequence for preliminary inquiries, formal investigations, appeals",
+        "Assess inter-agency coordination responsibilities in casualty response"
+      ]
+    },
+    {
+      "title": "Investigation Procedures and Evidence Handling",
+      "topics": [
+        "Step-by-step process of investigation",
+        "Scene management and preservation of evidence",
+        "Witness interviewing and record-keeping",
+        "Application of the causal chain and root cause analysis models",
+        "The 5 Whys technique for drilling down to root causes",
+        "Fishbone (Ishikawa) diagram for categorizing contributing factors",
+        "Barrier analysis: identifying failed or missing controls",
+        "Drafting structured investigation reports"
+      ],
+      "learningOutcomes": [
+        "Execute a systematic step-by-step investigation process",
+        "Apply scene management techniques to preserve evidence",
+        "Conduct effective witness interviews and maintain accurate records",
+        "Use causal chain and root cause analysis models",
+        "Produce structured investigation reports with clear findings"
+      ]
+    },
+    {
+      "title": "Safety Data Management and Reporting",
+      "topics": [
+        "Standard formats for casualty reporting and documentation",
+        "Integration of data into national and IMO systems (GISIS)",
+        "Overview of Global Integrated Shipping Information System (GISIS)",
+        "Types and sources of maritime safety data",
+        "Data recorders: VDR, SVDR",
+        "Safety trend analysis and data visualisation techniques",
+        "Risk matrices and ALARP presentations",
+        "Developing feedback loops for policy improvement"
+      ],
+      "learningOutcomes": [
+        "Prepare casualty reports using standard formats",
+        "Integrate investigation data into national and IMO reporting systems",
+        "Analyse safety trends using data visualization techniques",
+        "Develop effective feedback mechanisms to inform policy improvements"
+      ]
+    },
+    {
+      "title": "Human Factors, Safety Culture, and Crisis Response",
+      "topics": [
+        "Human performance, organisational culture, and accident causation",
+        "Stress and its impact on performance",
+        "Fatigue and vigilance degradation",
+        "Drug and alcohol impairment",
+        "Communication breakdowns and failure modes",
+        "Organisational and management factors",
+        "Decision-making under pressure and coordination failures",
+        "Communication and leadership during emergency response",
+        "Media management during crisis",
+        "Promoting proactive safety behaviour"
+      ],
+      "learningOutcomes": [
+        "Analyse human performance factors and organizational culture elements",
+        "Evaluate decision-making processes under pressure",
+        "Apply effective communication and leadership principles during emergency response",
+        "Develop strategies to promote proactive safety behaviour"
+      ]
+    },
+    {
+      "title": "Basic Analysis of Marine Casualties",
+      "topics": [
+        "Understanding the purpose and principles of casualty analysis",
+        "Applying critical thinking to marine accident events",
+        "Distinguishing between immediate, underlying and root causes",
+        "Identifying human, technical, organisational and environmental factors",
+        "Using basic analytical techniques to examine evidence",
+        "Human Factors Analysis and Classification System",
+        "Differentiating facts, assumptions and inferences",
+        "Producing logical summaries of analytical findings"
+      ],
+      "learningOutcomes": [
+        "Apply structured critical thinking principles when examining marine casualty events",
+        "Identify and categorise immediate, underlying and root causes",
+        "Use simple analytical tools to evaluate events and contributing factors",
+        "Distinguish between facts, assumptions, inferences and opinions",
+        "Prepare clear, logical and concise analytical summaries"
+      ]
+    },
+    {
+      "title": "Case Study - Mock Marine Accident Investigation and Report",
+      "topics": [
+        "Comprehensive analysis of provided accident scenario",
+        "Evidence evaluation and documentation",
+        "Root cause identification and analysis",
+        "Sequence of events visualization",
+        "Development of findings and recommendations",
+        "Formal investigation report preparation",
+        "Practical application of all course learnings"
+      ],
+      "learningOutcomes": [
+        "Integrate learning from across the course to a topical case study",
+        "Produce a detailed and well-structured investigation report",
+        "Apply all investigation techniques to a realistic scenario"
+      ]
+    }
+  ],
+  "participants": {
+    "label": "Who Should Attend",
+    "heading": "Target Participants",
+    "list": [
+      "Maritime Law Enforcement Agencies",
+      "Maritime Administrations",
+      "National and Regional Transport Authorities",
+      "Marine Surveyors",
+      "Maritime Lawyers, Prosecutors, and Regulatory Professionals",
+      "Vessel Operators and Owners, and Safety Managers",
+      "Representatives from Academia and Civil Society working in Maritime Safety"
+    ]
+  },
+  "outcomesSection": {
+    "label": "What You'll Achieve",
+    "heading": "Expected Outcomes",
+    "list": [
+      "Conduct credible and procedurally compliant marine casualty investigations",
+      "Apply the IMO Casualty Investigation Code to real-world accident cases",
+      "Draft clear, evidence-based investigation reports and safety recommendations",
+      "Strengthen institutional learning and accident prevention mechanisms",
+      "Support in building a national accident database for safety policy formulation"
+    ]
+  },
+  "format": {
+    "heading": "Course Format & Methodology",
+    "deliveryHeading": "Mode of Delivery",
+    "deliveryInPersonLabel": "In-person:",
+    "deliveryInPersonValue": "Participants from Ghana",
+    "deliveryVirtualLabel": "Virtual:",
+    "deliveryVirtualValue": "International Participants",
+    "methodsHeading": "Teaching Methods",
+    "methods": [
+      "Interactive lectures and regulatory framework analysis",
+      "Group case analysis based on real incidents",
+      "Practical use of investigation toolkits",
+      "Roleplay exercises",
+      "Report-writing and peer review sessions",
+      "Field scenario simulation",
+      "Technology integration: drones, GPS tools"
+    ]
+  },
+  "alignment": {
+    "heading": "Framework Alignment",
+    "alignsHeading": "This programme aligns with:",
+    "items": [
+      "IMO Code of International Standards and Recommended Practices for a Safety Investigation (MSC.255(84))",
+      "SOLAS Chapter XI-1 Regulation 6"
+    ],
+    "impactHeading": "Expected Impact",
+    "impactList": [
+      "Strengthen regional institutional capacity for maritime safety governance",
+      "Support safe, efficient, and sustainable inland water transport",
+      "Build a competent pool of regional investigators",
+      "Foster unified inter-agency response framework"
+    ]
+  }
+}

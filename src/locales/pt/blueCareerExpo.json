@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "title": "Blue Career & Business Expo 2021",
+    "subtitle": "Construindo uma economia azul robusta, sem deixar ninguém para trás",
+    "imageAlt": "Blue Career Expo"
+  },
+  "images": {
+    "event": "Evento",
+    "moment1": "Momento do evento 1",
+    "moment2": "Momento do evento 2",
+    "highlights": "Destaques do evento"
+  },
+  "logos": {
+    "hostedBy": "Organizado por",
+    "inCollaboration": "Em colaboração com"
+  },
+  "stats": {
+    "heading": "Resumo do evento",
+    "labels": {
+      "workshops": "Workshops",
+      "days": "Dias",
+      "sessions": "Sessões",
+      "participants": "Participantes",
+      "hostCountries": "Países anfitriões"
+    }
+  },
+  "vision": {
+    "heading": "Construindo uma economia azul robusta, sem deixar ninguém para trás",
+    "body": "O Blue Economy and Business Expo 2021 contou com a presença de vários estudantes em representação de países ativamente envolvidos na economia oceânica. Como resultado, foram partilhadas numerosas reflexões valiosas. O envolvimento da juventude em diversos setores traduziu esse compromisso de não deixar ninguém para trás."
+  },
+  "about": {
+    "heading": "Sobre o Evento",
+    "para1": "O Gulf of Guinea Maritime Institute (GoGMI), em colaboração com os intervenientes da economia azul da África Ocidental, organizou o primeiro Blue Career and Business Expo 2021 (BCBE 2021). Este fórum único foi dedicado à promoção de soluções marítimas sustentáveis, permitindo aos jovens uma maior consciência das oportunidades de progressão de carreira na economia azul.",
+    "para2": "Este programa de 5 dias reuniu jovens intervenientes africanos para debater propostas inovadoras sobre diversos temas que destacaram questões importantes relativas à economia azul."
+  },
+  "highlights": {
+    "heading": "Destaques do Evento",
+    "body": "Reviva a energia e as ideias do Blue Career and Business Expo 2021. Jovens profissionais e estudantes africanos dialogaram com líderes da indústria marítima para explorar oportunidades na economia azul.",
+    "downloadReport": "Descarregar Relatório"
+  },
+  "themesSection": {
+    "heading": "Temas Principais"
+  },
+  "themes": [
+    "Economia oceânica e setores azuis",
+    "Carreiras azuis",
+    "Oportunidades da economia azul",
+    "Desenvolvimento de capacidades e oportunidades de formação",
+    "Advocacia, governação e processos de tomada de decisão",
+    "Soluções para PME"
+  ],
+  "impact": {
+    "heading": "Impacto do Evento",
+    "diverseHeading": "Diversidade de Painéis de Discussão",
+    "diverseBody": "Um dos principais diferenciadores do BCBE foi o alcance dos seus painéis de discussão e apresentações. A diversidade dos participantes nos debates — por nação, área de foco e cargo — distinguiu o BCBE, atraindo milhares de estudantes universitários africanos em busca de uma gestão de ideias inovadora e discursos inspiradores.",
+    "cards": [
+      "Oradores de disciplinas muito diversas falaram longamente sobre os seus temas, partilhando histórias pessoais e oferecendo conselhos para superar obstáculos.",
+      "O BCBE reuniu cerca de 200 participantes de 16 países africanos num compromisso comum: construir uma economia azul bem-sucedida.",
+      "O evento culminou com apresentações nos campus sobre soluções climáticas viáveis no espaço marítimo."
+    ],
+    "midParagraph": "Os painéis de discussão foram muito participativos, com os jovens a demonstrar grande interesse em todas as fases do debate. Os debates caracterizaram-se por uma elevada representação jovem entre os painelistas e uma grande diversidade de especialistas do governo e da indústria.",
+    "numbered": [
+      "Apresentações nos campus sobre soluções climáticas viáveis no espaço marítimo, seguidas de mesas-redondas de networking para jovens.",
+      "As mesas-redondas foram fundamentais para inspirar os jovens a promover iniciativas de economia azul centradas na juventude.",
+      "O BCBE Expo reuniu indivíduos, instituições e os setores privado e público."
+    ]
+  },
+  "speakers": {
+    "heading": "Oradores Distintos",
+    "titles": {
+      "1": "Alta-Comissária do Canadá no Gana",
+      "2": "Chefe do Estado-Maior Naval, Marinha do Gana",
+      "3": "Relatora Especial para a Pirataria e Segurança Marítima da Comissão da União Africana",
+      "4": "Orador Convidado"
+    }
+  }
+}

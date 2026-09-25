@@ -1,0 +1,96 @@
+{
+  "hero": { "imageAlt": "Blue World Initiative" },
+  "about": {
+    "badge": "Culture Océanique & Développement de Carrière",
+    "heading": "La Blue World Initiative",
+    "para1": "La Blue World Initiative est un programme transformateur du GoGMI, en partenariat avec DOTCAN (Development of Ocean Technical Capacity for African Nations), dédié à inspirer la prochaine génération de leaders océaniques et de champions de l'économie bleue dans le golfe de Guinée.",
+    "para2": "Grâce à des salons de carrières interactifs, des ressources pédagogiques et des expériences pratiques, nous donnons aux jeunes Africains les moyens d'explorer des carrières maritimes passionnantes tout en comprenant leur rôle essentiel dans la protection de notre océan et la construction d'une économie bleue durable.",
+    "imageAlt": "Activités de la Blue World Initiative"
+  },
+  "dotcan": {
+    "heading": "Partenariat avec DOTCAN",
+    "logoAlt": "Logo DOTCAN",
+    "subheading": "Development of Ocean Technical Capacity for African Nations",
+    "para1": "DOTCAN s'engage à renforcer les capacités techniques océaniques des nations africaines à travers des programmes éducatifs innovants, des initiatives de recherche et des ateliers de renforcement des capacités.",
+    "para2": "Grâce à ce partenariat stratégique, le GoGMI et DOTCAN combinent leur expertise en recherche maritime, développement de politiques et éducation de la jeunesse pour créer des expériences d'apprentissage transformatrices qui inspirent la prochaine génération de leaders océaniques.",
+    "para3": "Ensemble, nous construisons une économie bleue durable dans la région du golfe de Guinée grâce à l'éducation, l'innovation et la collaboration."
+  },
+  "careerFair": {
+    "heading": "Salon des Carrières Océaniques 2023",
+    "eventHeading": "Un Événement Novateur",
+    "para1": "Le Gulf of Guinea Maritime Institute (GoGMI), en partenariat avec le Development of Technical Capacity for African Nations (DOTCAN), a organisé un événement transformateur d'une journée réunissant des élèves du premier et du second cycle secondaire autour des principaux acteurs maritimes.",
+    "para2": "Grâce à des présentations captivantes et des sessions interactives, les élèves ont découvert les diverses opportunités de carrière dans le secteur maritime et appris comment contribuer à la conservation des océans et au développement durable.",
+    "bullets": [
+      "Sessions interactives avec des experts du secteur",
+      "Orientation sur les parcours de carrière",
+      "Éducation à la culture océanique",
+      "Activités d'apprentissage pratiques"
+    ],
+    "partnersHeading": "Organisations Partenaires",
+    "images": {
+      "img1": "Élèves au salon des carrières",
+      "img2": "Session d'apprentissage interactive",
+      "img3": "Activités du salon des carrières"
+    }
+  },
+  "concepts": {
+    "heading": "Concepts Océaniques Clés",
+    "subtitle": "Comprendre ces concepts fondamentaux est essentiel pour quiconque s'intéresse aux carrières océaniques et à l'économie bleue.",
+    "items": [
+      { "title": "Océan", "description": "La vaste étendue d'eau salée qui recouvre plus de 70 % de la surface de la Terre." },
+      { "title": "Économie Océanique", "description": "L'ensemble des activités économiques se déroulant dans et autour de l'océan, notamment la pêche, le transport maritime, le tourisme et la production d'énergie." },
+      { "title": "Économie Bleue", "description": "L'utilisation durable des ressources océaniques pour la croissance économique, la création d'emplois et la préservation de l'environnement." },
+      { "title": "Durabilité", "description": "La pratique consistant à utiliser les ressources sans les épuiser ni les endommager pour les générations futures." },
+      { "title": "Conservation Marine", "description": "La protection et la préservation des écosystèmes océaniques et de la biodiversité." },
+      { "title": "Énergie Renouvelable", "description": "Énergie produite à partir de sources qui se renouvellent naturellement, comme le vent, le soleil et les vagues." },
+      { "title": "Aquaculture", "description": "L'élevage d'organismes aquatiques tels que les poissons, les crustacés et les algues." }
+    ]
+  },
+  "careers": {
+    "heading": "Parcours de Carrière liés à l'Océan",
+    "subtitle": "Découvrez des opportunités de carrière passionnantes dans l'économie bleue et le secteur maritime.",
+    "imageAlt": "Professionnels du secteur maritime",
+    "categories": {
+      "scienceResearch": { "heading": "Sciences & Recherche", "items": ["Biologiste marin", "Océanographe", "Scientifique de l'environnement", "Analyste des politiques marines"] },
+      "maritimeOperations": { "heading": "Opérations Maritimes", "items": ["Officier de marine", "Ingénieur naval", "Aménageur du littoral", "Gestionnaire des pêches"] },
+      "blueEconomy": { "heading": "Économie Bleue", "items": ["Aquaculteur", "Ingénieur en énergies renouvelables", "Défenseur de l'océan"] },
+      "educationPolicy": { "heading": "Éducation & Politique", "items": ["Éducateur marin", "Juriste international"] }
+    },
+    "funFact": {
+      "heading": "Anecdote sur les Carrières Bleues",
+      "para1": "Saviez-vous que vous pouvez jouer un rôle crucial dans la protection de l'océan même si vous ne souhaitez pas exercer l'une des carrières citées ci-dessus ?",
+      "para2": "Les comptables et économistes peuvent contribuer aux initiatives de comptabilisation de l'économie océanique. Les médecins, techniciens de laboratoire et autres scientifiques peuvent en apprendre davantage sur l'effet du rejet de toxines dans l'océan sur la santé humaine. Même les psychologues peuvent explorer les facteurs influençant la volonté des individus d'adopter des comportements durables qui protègent l'océan et ses ressources. Dans presque tous les domaines professionnels, vous pouvez vous créer une niche unique en vous spécialisant dans une branche de ce métier qui soutient l'économie bleue !"
+    }
+  },
+  "comic": {
+    "badge": "Série de Bandes Dessinées Éducatives",
+    "heading": "MAN : Les Aventures de la Conscience du Domaine Maritime",
+    "imageAlt": "MAN - Bande dessinée sur la conscience du domaine maritime",
+    "para1": "Captivez l'imagination des jeunes grâce à une narration passionnante ! Notre série de bandes dessinées éducatives donne vie aux concepts maritimes à travers les aventures de MAN et son équipe, qui protègent l'océan et promeuvent la conscience du domaine maritime.",
+    "para2": "Grâce à des illustrations vibrantes et des récits captivants, les élèves apprennent la conservation des océans, la sécurité maritime et l'importance de protéger notre planète bleue – tout en étant divertis par des aventures pleines d'action.",
+    "bullets": [
+      "Éducatif et Divertissant",
+      "Récits Culturellement Pertinents",
+      "Inspirant l'Intendance Océanique"
+    ]
+  },
+  "gallery": {
+    "heading": "L'Initiative en Action",
+    "img1Alt": "Engagement des élèves",
+    "img2Alt": "Activités d'apprentissage"
+  },
+  "resourcesSection": {
+    "heading": "Télécharger les Ressources",
+    "subtitle": "Accédez à notre guide du salon des carrières bleues et à d'autres ressources pédagogiques pour en savoir plus sur les carrières océaniques et l'économie bleue.",
+    "handbook": {
+      "heading": "Guide du Salon des Carrières Bleues",
+      "desc": "Guide complet avec définitions océaniques, parcours de carrière et perspectives sectorielles.",
+      "download": "Télécharger le Guide"
+    },
+    "getInvolved": {
+      "heading": "S'impliquer",
+      "desc": "Vous souhaitez participer aux prochains événements de la Blue World Initiative ? Contactez-nous pour en savoir plus.",
+      "button": "Nous Contacter"
+    }
+  }
+}

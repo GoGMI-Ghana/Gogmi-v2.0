@@ -1,0 +1,174 @@
+{
+  "hero": { "imageAlt": "Bannière GoG-MCF SHADE" },
+  "modusOperandi": {
+    "heading": "Mode de fonctionnement",
+    "para1": "Le GoG-MCF/SHADE fonctionne principalement au moyen de sessions plénières, chacune destinée à générer un dialogue et à déboucher sur des mesures concrètes nécessaires pour favoriser la coordination opérationnelle entre les marines régionales et les parties prenantes de l'industrie maritime du Golfe de Guinée.",
+    "para2": "Les trois (3) groupes de travail (GT) de l'initiative ont été constitués lors de la première session plénière, autour des thématiques suivantes : coopération en mer (opérations), signalement et partage d'informations, et déconfliction aérienne.",
+    "para3": "L'objectif premier des GT est d'identifier les axes viables pour renforcer la coopération et la déconfliction, et de formuler des recommandations pertinentes à adopter lors de chaque plénière. Pour ce faire, chaque groupe de travail associe un expert du domaine et est présidé par un représentant régional. Le schéma ci-dessous présente les principaux objectifs de chacun des groupes de travail.",
+    "quote": {
+      "text": "Le modèle SHADE a déjà démontré sa capacité à soutenir l'échange d'informations entre forces militaires régionales et non régionales dans la lutte contre la piraterie somalienne dans la Corne de l'Afrique.",
+      "attribution": "— Giulio Nicolosi, Critical Maritime Routes Programme"
+    }
+  },
+  "workingGroups": [
+    {
+      "title": "Déconfliction aérienne",
+      "objectives": [
+        "Partager les questions de coordination non classifiées en matière aérienne et de renseignement, surveillance et reconnaissance (ISR)",
+        "Examiner et discuter de la révision du Plan de coordination aérienne SHADE",
+        "Communiquer les informations techniques relatives aux réponses aux incidents aériens"
+      ]
+    },
+    {
+      "title": "Coopération en mer",
+      "objectives": [
+        "Favoriser une coordination efficace des activités de réponse aux menaces",
+        "Collaborer avec les autres groupes de travail pour assurer un partage efficace de l'information",
+        "Examiner et actualiser les projets de procédures opérationnelles normalisées (POS) destinées aux parties prenantes régionales et internationales"
+      ]
+    },
+    {
+      "title": "Signalement et partage d'informations",
+      "objectives": [
+        "Promouvoir un partage efficace de l'information entre les marines régionales et internationales et l'industrie du transport maritime",
+        "Faciliter le signalement rapide des incidents via le MDAT-GoG"
+      ]
+    }
+  ],
+  "complementarities": {
+    "heading": "Complémentarités",
+    "body": "Le modèle GoG-MCF/SHADE a été conçu pour fonctionner en complément des architectures et initiatives de partage d'informations existantes dans la région du Golfe de Guinée, telles que le YCOC, le BMP-WA et le G7++ Amis du Golfe de Guinée (FoGG).",
+    "pastPlenaries": {
+      "heading": "Plénières passées",
+      "body": "Depuis sa création, le GoG-MCF/SHADE a tenu cinq sessions plénières, chacune complétée par des réunions techniques des groupes de travail, des réunions de coordination des présidents de groupes de travail et des rapports de session plénière. Les quatre premières plénières se sont tenues selon un cycle bimestriel ; toutefois, il a été décidé de désormais organiser les plénières selon un cycle trimestriel.",
+      "table": {
+        "plenary": "Plénière",
+        "date": "Date",
+        "location": "Lieu",
+        "plenaryRowLabel": "Plénière"
+      }
+    }
+  },
+  "plenaries": [
+    { "number": "1re", "date": "14 juillet 2021", "location": "Virtuel" },
+    { "number": "2e", "date": "14 septembre 2021", "location": "Virtuel" },
+    { "number": "3e", "date": "16 novembre 2021", "location": "Virtuel" },
+    { "number": "4e", "date": "19 janvier 2022", "location": "Virtuel" },
+    { "number": "5e", "date": "10 et 11 mai 2022", "location": "Abuja, Nigeria" }
+  ],
+  "fifthPlenary": {
+    "heading": "La cinquième plénière : un regard approfondi",
+    "para1": "La cinquième plénière a offert au Forum GoG-MCF/SHADE sa première occasion de se réunir en présentiel, favorisant un engagement plus actif des parties prenantes présentes. Placée sous le thème de la durabilité de la sécurité maritime dans le Golfe de Guinée, cette plénière a permis aux parties prenantes maritimes de plaider en faveur d'une collaboration efficace dans la lutte contre la criminalité maritime dans la région. Quatre-vingt-dix (90) représentants de la sous-région et d'au-delà y ont assisté, en faisant l'une des plus grandes plateformes de mobilisation des efforts des parties prenantes en matière de réponses opérationnelles à la piraterie et aux vols à main armée en mer dans le Golfe de Guinée.",
+    "venn": {
+      "heading": "Éventail des participants : 5e session plénière",
+      "groups": [
+        "Marines régionales et internationales",
+        "Représentants des architectures d'information : YCOC, Maritime Domain Awareness for Trade - Golfe de Guinée, Afrique de l'Ouest, Bureau maritime international",
+        "Industrie du transport maritime",
+        "ONG, organisations et cadres régionaux et internationaux : ONUDC, G7++FoGG"
+      ]
+    },
+    "recommendations": {
+      "intro1": "La plénière a notamment souligné le soutien crucial de l'Organisation maritime internationale (OMI) et du G7++FoGG pour faire progresser les objectifs du forum et faciliter des interactions constructives.",
+      "intro2": "L'industrie du transport maritime a également appelé à un partage d'informations et à des interactions plus efficaces entre les marines opérant dans le Golfe de Guinée, afin d'améliorer la visibilité dans les points chauds de piraterie de la région. La nécessité d'un tel partage d'informations doit être soigneusement mise en balance avec une délimitation claire des rôles et responsabilités des différentes agences nationales, tout en reconnaissant les complémentarités afin d'éviter les doublons.",
+      "lead": "Voici quelques-unes des principales recommandations issues de la plénière :",
+      "items": [
+        "Les parties prenantes nationales doivent examiner et moderniser les infrastructures et systèmes de connaissance du domaine maritime (MDA) afin d'améliorer la MDA dans le Golfe de Guinée. Les autres parties prenantes concernées doivent également envisager l'intégration des moyens aériens nationaux pour renforcer la MDA et les réponses régionales de lutte contre la piraterie.",
+        "Le forum doit élaborer une évaluation régulière des menaces pour le Golfe de Guinée, afin de faciliter la connaissance de la situation navale régionale et l'évaluation des risques par l'industrie.",
+        "Le GoG-MCF/SHADE doit être effectivement utilisé pour faciliter les communications stratégiques conjointes nécessaires afin de démontrer les progrès régionaux dans la lutte efficace contre la piraterie et les vols à main armée en mer.",
+        "Les acteurs au niveau national doivent continuer à améliorer les législations nationales afin d'assurer un aboutissement judiciaire effectif des poursuites liées à la piraterie."
+      ]
+    },
+    "quote": {
+      "text": "Le principal défi dans le Golfe de Guinée consiste à intégrer efficacement toutes les initiatives de lutte contre la piraterie, les vols à main armée et l'ensemble de la criminalité maritime, dans le cadre d'un effort ciblé et coordonné à travers le Code de conduite de Yaoundé.",
+      "body": "L'OMI continuera de jouer un rôle important dans la facilitation de cette intégration, en maintenant son soutien indéfectible à l'architecture du Code de conduite de Yaoundé et en renforçant les capacités.",
+      "attribution": "— Secrétaire général Kitack Lim, Organisation maritime internationale - 14 juillet 2021"
+    }
+  },
+  "counterPiracy": {
+    "heading": "Vers des réponses efficaces de lutte contre la piraterie",
+    "intro": "Le Golfe de Guinée se caractérise par un ensemble complexe d'interventions et d'initiatives en matière de sécurité maritime, chacune visant à lutter contre des criminalités maritimes précises telles que la piraterie et les vols à main armée en mer. Le GoG-MCF/SHADE offre une occasion concrète de coordonner les efforts du large éventail de parties prenantes de la région, autour de l'objectif commun de renforcer la sécurité maritime. Plus précisément, le forum SHADE a permis les avantages notables suivants :",
+    "closing": "Bien entendu, ce modèle ne peut réussir qu'avec la participation pleine et active des marines régionales et internationales, ainsi que des autres parties prenantes concernées, tant au sein du Golfe de Guinée qu'à l'échelle mondiale. À mesure que de nouvelles plénières se tiennent, il est impératif que les mesures prévues soient effectivement mises en œuvre et évaluées au regard des objectifs visés, afin que les enseignements tirés alimentent en continu un fonctionnement plus efficace du GoG-MCF/SHADE.",
+    "testimonials": [
+      {
+        "text": "SOLARTA est désormais en ligne, est utilisé et s'est révélé efficace pour éviter que des attaques ne se transforment en prises d'otages. C'est là une réussite majeure en l'espace de six mois.",
+        "attribution": "— Simon Church, conseiller spécial des coprésidents du Forum - 7 février 2022"
+      },
+      {
+        "text": "La création du SHADE a permis aux parties prenantes de niveau opérationnel, de la région du Golfe de Guinée comme d'ailleurs, de se mettre en relation et de discuter des meilleurs moyens de lutter contre la piraterie dans la zone, ce qui a été un catalyseur pour que des parties prenantes non régionales s'engagent davantage et initient des opérations efficaces de répression maritime.",
+        "attribution": "— Dr Bashir Jamoh, Directeur général, Agence nigériane d'administration et de sécurité maritimes - 5 mai 2022"
+      }
+    ]
+  },
+  "benefits": [
+    "Facilitation du dialogue opérationnel dans les domaines thématiques bien définis des groupes de travail (déconfliction aérienne, coopération en mer et partage d'informations), débouchant sur des dialogues plus ciblés entre groupes partageant des priorités communes en matière de sécurité maritime",
+    "Impulsion donnée aux parties prenantes externes actives pour initier des opérations efficaces de réglementation et de répression maritimes, destinées à compléter les autres efforts déployés dans la région",
+    "Mise en place de bonnes pratiques opérationnelles et de mécanismes de signalement des incidents entre marines régionales, à l'image de la réplication de la plateforme de communication Mercury utilisée dans l'océan Indien via SOLARTA"
+  ],
+  "gallery": {
+    "heading": "Galerie de l'événement",
+    "imageAlt": "Événement SHADE"
+  },
+  "inaugural": {
+    "eventImageAlt": "Événement GoG-MCF SHADE",
+    "title": "GOG - MCF / SHADE",
+    "virtualEvent": "ÉVÉNEMENT VIRTUEL",
+    "overviewLabel": "APERÇU DE L'ÉVÉNEMENT",
+    "date": "14 JUILLET 2021",
+    "session1": "PREMIÈRE SESSION : 10H00 - 12H03 GMT",
+    "session2": "DEUXIÈME SESSION : 13H00 - 15H30 GMT",
+    "invitationOnly": "STRICTEMENT SUR INVITATION !",
+    "body": "Le 26 avril 2021, l'ICC Yaoundé et le Nigeria ont annoncé la création d'un cadre international destiné à assurer une connaissance partagée de la situation et la déconfliction des activités dans le Golfe de Guinée. Cet événement constitue la réunion inaugurale de ce cadre, appelé Forum de collaboration maritime du Golfe de Guinée – SHADE (GOG MCF/SHADE). Cette réunion en ligne, organisée par l'Institut Maritime du Golfe de Guinée (GoGMI), se tient sur invitation des coprésidents du SHADE, issus de l'ICC et de la Marine nigériane."
+  },
+  "guestSpeakersSection": {
+    "heading": "Intervenants invités"
+  },
+  "guestSpeakers": [
+    "M. Kitack Lim, Secrétaire général, Organisation maritime internationale",
+    "Vice-amiral Awwal Zubairu Gambo – Chef d'état-major de la Marine, Nigeria",
+    "Contre-amiral Narciso Fastudo – Directeur exécutif, ICC Yaoundé",
+    "Dr Bashir Jamoh, Directeur général/PDG NIMASA, Nigeria",
+    "M. Guy Platten, Secrétaire général, Chambre internationale de la marine marchande"
+  ],
+  "eventFeatures": {
+    "heading": "Points forts de l'événement",
+    "session1": {
+      "heading": "SESSION I",
+      "plenarySession": "Session plénière",
+      "remarks": "Allocutions",
+      "vision": "Vision"
+    },
+    "session2": {
+      "heading": "SESSION II",
+      "plan": "Plan",
+      "presentations": "Présentations"
+    },
+    "body": "La réunion sera divisée en 2 sessions. La session matinale ouvrira officiellement ce forum historique et comprendra des allocutions de bienvenue de diplomates régionaux et internationaux. Les coprésidents de la plénière dirigeront la deuxième session en définissant la vision et le plan des objectifs que le GoG-MCF SHADE cherchera à atteindre. Trois présidents dédiés de groupes de travail, représentant la coopération en mer (opérations), le signalement et le partage d'informations, ainsi que la déconfliction aérienne, présenteront leur plan pour atteindre les objectifs fixés."
+  },
+  "targetAudienceSection": {
+    "heading": "Public cible",
+    "body": "Le GoG-MCF/SHADE est une réunion de travail visant à produire des actions et mesures concrètes se traduisant par une augmentation significative de la coopération en mer entre les marines régionales et internationales, l'industrie internationale du transport maritime et les principaux cadres de la région. Ce sera l'occasion pour l'ensemble des parties prenantes maritimes indiquées d'identifier où leur contribution peut apporter une réelle valeur ajoutée."
+  },
+  "targetAudience": [
+    "Marines et administrations maritimes des pays du Golfe de Guinée",
+    "Parties prenantes maritimes du Golfe de Guinée",
+    "Partenaires internationaux",
+    "Industrie internationale du transport maritime"
+  ],
+  "article": {
+    "title": "Renforcer les réponses de lutte contre la piraterie : le Forum de collaboration maritime du Golfe de Guinée",
+    "byline": "Un article de l'Institut Maritime du Golfe de Guinée",
+    "subheading": "Une connaissance partagée de la situation – un point de départ",
+    "para1": "Au cours de la dernière décennie, le monde a été témoin d'une évolution de la trajectoire des menaces à la sécurité maritime dans le Golfe de Guinée – une évolution qui a fait de la région la plus dangereuse au monde pour les gens de mer. En 2020, la totalité des cinquante-sept (57) incidents d'enlèvement contre rançon recensés dans le monde ont eu lieu dans le Golfe ; et au premier trimestre 2021, la région a représenté près de la moitié de tous les incidents de piraterie signalés dans le monde, en faisant le point chaud mondial de la piraterie,",
+    "para1Link": "selon le Bureau maritime international (BMI).",
+    "downloadButton": "Pour en savoir plus, téléchargez ici",
+    "contactHeading": "CONTACT",
+    "contactBody": "Pour plus d'informations, contactez-nous via",
+    "logos": {
+      "iccName": "CENTRE INTERREGIONAL DE COORDINATION (CIC)",
+      "iccNameEn": "INTER REGIONAL COORDINATION CENTRE (ICC)",
+      "iccAlt": "Logo de l'ICC",
+      "nimasaAlt": "Logo de la NIMASA"
+    }
+  }
+}

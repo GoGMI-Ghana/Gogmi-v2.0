@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Apoie o Nosso Trabalho",
+    "title": "Doar ao GoGMI",
+    "subtitle": "O seu contributo ajuda a sustentar a investigação marítima independente, a capacitação e a advocacia por um Golfo da Guiné mais seguro e sustentável."
+  },
+  "impact": {
+    "research": { "title": "Investigação Independente", "desc": "Financia notas de política, relatórios e análises estratégicas sobre segurança marítima e economia azul." },
+    "capacity": { "title": "Capacitação", "desc": "Apoia programas de formação e mentoria para a próxima geração de profissionais marítimos." },
+    "advocacy": { "title": "Advocacia Regional", "desc": "Sustenta a voz do GoGMI nos diálogos regionais que moldam a governação e as políticas marítimas." }
+  },
+  "form": {
+    "heading": "Fazer uma Doação",
+    "subheading": "Cada contributo, por maior ou menor que seja, faz a diferença.",
+    "fullNameLabel": "Nome Completo *",
+    "emailLabel": "Endereço de E-mail *",
+    "phoneLabel": "Telefone",
+    "countryLabel": "País *",
+    "amountLabel": "Valor da Doação (USD) *",
+    "amountPlaceholder": "0.00",
+    "messageLabel": "Mensagem (opcional)",
+    "messagePlaceholder": "Deixe uma nota com a sua doação",
+    "anonymousLabel": "Gostaria de doar anonimamente — não mostrar o meu nome publicamente.",
+    "anonymousSubtext": "Manteremos os seus dados registados para o seu recibo; simplesmente não serão partilhados nem exibidos.",
+    "processing": "A processar…",
+    "donateNow": "Doar Agora",
+    "securityNote": "Os pagamentos são processados de forma segura através do Paystack. O GoGMI não guarda os dados do seu cartão."
+  },
+  "success": {
+    "heading": "Obrigado!",
+    "body": "A sua doação de {{amount}} foi recebida.",
+    "reference": "Referência: {{reference}}",
+    "another": "Fazer Outra Doação"
+  },
+  "errors": {
+    "fillRequired": "Preencha o seu nome, e-mail e país.",
+    "invalidAmount": "Introduza um valor de doação superior a zero.",
+    "paymentLoading": "O sistema de pagamento ainda está a carregar. Aguarde um momento e tente novamente.",
+    "paymentInitFailed": "Falha ao iniciar o pagamento. Verifique a sua ligação à internet e tente novamente.",
+    "recordFailed": "O seu pagamento foi processado, mas encontrámos um problema ao registá-lo ({{error}}). Contacte info@gogmi.org.gh com esta referência para que possamos confirmar a sua doação: {{reference}}",
+    "recordUnconfirmed": "O seu pagamento foi processado, mas não conseguimos confirmar o seu registo. Contacte info@gogmi.org.gh com esta referência: {{reference}}"
+  }
+}

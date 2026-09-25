@@ -1,0 +1,95 @@
+{
+  "keyDates": [
+    { "label": "Abertura das candidaturas", "date": "Agosto de 2025" },
+    { "label": "Encerramento das candidaturas e notificação dos selecionados", "date": "Setembro de 2025" },
+    { "label": "Prazo de candidatura", "date": "2 de setembro de 2025" }
+  ],
+  "whoShouldApply": [
+    "Jornalistas em início ou meio de carreira e profissionais de comunicação social com experiência, interessados em segurança marítima e no desenvolvimento da economia azul.",
+    "Candidatos de agências governamentais e instituições de comunicação social.",
+    "Estudantes de comunicação social ou jornalismo interessados em jornalismo marítimo.",
+    "Pessoas interessadas em avançar nas suas carreiras na área da comunicação sobre assuntos marítimos."
+  ],
+  "programHighlights": [
+    "Formação prática em inteligência de fontes abertas, jornalismo de dados e narrativa multimédia.",
+    "Apresentações, discussões em pequenos grupos e oportunidades de networking com especialistas em segurança marítima.",
+    "Aplicação da Regra de Chatham House para promover um diálogo aberto e colaborativo."
+  ],
+  "applicationMaterials": [
+    "Carta de motivação: destaque o seu interesse pela cobertura marítima e a forma como a participação se alinha com os seus objetivos de carreira.",
+    "Curriculum vitae: descreva a sua experiência relevante.",
+    "Carta de recomendação: de preferência de um supervisor, editor ou mentor académico."
+  ],
+  "hero": {
+    "imageAlt": "Formação para jornalistas",
+    "badge": "Curso de Formação — Concluído",
+    "title": "Formação de Jornalistas e Profissionais dos Media sobre Segurança Marítima, Proteção e Economia Azul no Golfo da Guiné",
+    "dateLocation": "Acra, Gana · 7–9 de outubro de 2025",
+    "location": "Acra, Gana",
+    "dates": "7–9 de outubro de 2025",
+    "free": "Gratuito"
+  },
+  "partners": {
+    "supportedBy": "Com o apoio de"
+  },
+  "about": {
+    "heading": "Sobre o Programa",
+    "para1": "Estão abertas as candidaturas para a Formação de 2025 destinada a Jornalistas e Profissionais dos Media sobre Segurança Marítima, Proteção e Economia Azul no Golfo da Guiné.",
+    "para2Prefix": "O projeto financiado pela UE",
+    "para2Strong": "\"Ação Marítima Reforçada no Golfo da Guiné\" (EnMAR)",
+    "para2Suffix": "é implementado pela Expertise France. Tem como objetivo melhorar a visibilidade e a compreensão do envolvimento da União Europeia a favor da segurança marítima e da proteção no Golfo da Guiné, bem como reforçar a cooperação e a partilha de informação e conhecimento.",
+    "para3Prefix": "Para melhor sensibilizar sobre as questões e os desafios de segurança marítima na região, o projeto EnMAR e o Gulf of Guinea Maritime Institute (GoGMI) estão a lançar um convite à participação para um curso de formação intitulado:",
+    "para3Em": "\"Formação de Jornalistas e Profissionais dos Media sobre Segurança Marítima, Proteção e Economia Azul no Golfo da Guiné\"",
+    "para3Suffix": ", previsto para se realizar em Acra, Gana, de 7 a 9 de outubro de 2025.",
+    "para4": "Facilitada por profissionais experientes em segurança marítima, especialistas em comunicação social e outros peritos, esta formação oferece a jornalistas, profissionais dos media e especialistas em comunicação a oportunidade de explorar conceitos fundamentais e ferramentas práticas para melhorar a cobertura eficaz das atividades marítimas na região do Golfo da Guiné. O programa de formação abordará temas como estratégias regionais e globais de segurança marítima, desenvolvimento sustentável da economia azul, quadros jurídicos e regulamentares para a governação dos oceanos, técnicas de inteligência de fontes abertas e jornalismo de investigação baseado em dados.",
+    "para5": "Este programa de formação visa capacitar os participantes para enfrentarem desafios como a desinformação e a insuficiente cobertura mediática, preparando-os também para contribuir para a sensibilização pública, a transparência e a governação marítima."
+  },
+  "whoShouldApplySection": {
+    "heading": "Quem Deve Candidatar-se?",
+    "specialConsiderationLabel": "Consideração Especial",
+    "specialConsiderationBody": "O programa dará prioridade à diversidade e à inclusão, sendo as candidaturas femininas fortemente encorajadas para apoiar a representação de género no jornalismo e na comunicação sobre assuntos marítimos."
+  },
+  "highlightsSection": {
+    "heading": "Aspetos Principais do Programa"
+  },
+  "materialsSection": {
+    "heading": "Documentos de Candidatura",
+    "languageRequirementLabel": "Requisito Linguístico:",
+    "languageRequirementBody": "Os candidatos devem possuir um conhecimento funcional da língua inglesa, uma vez que o programa será ministrado em inglês."
+  },
+  "logistics": {
+    "heading": "Aspetos Logísticos",
+    "costLabel": "Custo:",
+    "costBody": "A formação é gratuita.",
+    "venueLabel": "Local:",
+    "venueBody": "Realizar-se-á em Acra, Gana.",
+    "internationalLabel": "Participantes Internacionais:",
+    "internationalBody": "Os participantes selecionados que não residam em Acra e optem por se deslocar por meios próprios poderão também assistir de forma virtual."
+  },
+  "sidebar": {
+    "statusBadge": "● CONCLUÍDO",
+    "statusMessage": "Esta formação já terminou.",
+    "statusSubtext": "Fique atento a futuras edições.",
+    "keyDatesHeading": "Datas Importantes",
+    "locationHeading": "Localização",
+    "locationValue": "Coconut Grove Regency Hotel",
+    "locationSubtext": "Participação virtual disponível para participantes internacionais",
+    "flyerHeading": "Cartaz do Evento",
+    "flyerSubtext": "Cartaz oficial do curso de formação",
+    "flyerAlt": "Cartaz da Formação de Jornalistas 2025",
+    "downloadFlyer": "Descarregar Cartaz",
+    "flyerNotUploadedTitle": "Imagem do cartaz ainda não carregada",
+    "flyerNotUploadedPath": "Colocar o ficheiro em:",
+    "documentHeading": "Documento do Programa",
+    "documentBody": "Descarregue o PDF completo do convite à participação para informação detalhada.",
+    "downloadPdf": "Descarregar Versão PDF",
+    "questionsHeading": "Perguntas?",
+    "questionsBody": "Para questões sobre este programa de formação, contacte-nos, por favor."
+  },
+  "cta": {
+    "heading": "Interessado em Futuras Edições?",
+    "body": "Esta formação já terminou, mas o GoGMI organiza regularmente programas de capacitação para profissionais do setor marítimo. Mantenha-se ligado para futuras oportunidades.",
+    "viewAll": "Ver Todos os Programas",
+    "contact": "Contactar o GoGMI"
+  }
+}

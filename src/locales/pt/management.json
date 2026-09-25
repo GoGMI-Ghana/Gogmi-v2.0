@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "badge": "Liderança",
+    "title": "Equipa de Gestão",
+    "subtitle": "Conheça os profissionais dedicados que impulsionam a missão do GoGMI"
+  },
+  "executiveDirector": {
+    "title": "Diretor Executivo",
+    "vacant": "VAGA",
+    "positionUnfilled": "Posição Atualmente Não Preenchida",
+    "positionVacant": "Posição Vaga",
+    "unfilledDescription": "Esta posição encontra-se atualmente vaga."
+  },
+  "corporateAffairsTeam": {
+    "titles": [
+      "Responsável de Finanças e Administração",
+      "Especialista em Comunicação",
+      "Analista de Investigação",
+      "Pessoal do Serviço Nacional"
+    ]
+  },
+  "extendedTeam": {
+    "titles": [
+      "Assuntos Corporativos",
+      "Bolseiro da Fundação Hamilton Shirley Amerasinghe das Nações Unidas"
+    ]
+  }
+}

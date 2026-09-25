@@ -1,0 +1,128 @@
+{
+  "hero": {
+    "backToHome": "Retour à l'accueil",
+    "badge": "Document légal",
+    "title": "Politique de confidentialité des données",
+    "orgLine": "Institut Maritime du Golfe de Guinée · Conforme au Data Protection Act, 2012 (Act 843) du Ghana",
+    "updated": "Dernière mise à jour : 2025"
+  },
+  "toc": {
+    "heading": "Sommaire",
+    "contact": "Coordonnées"
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "content": "Le GoGMI respecte votre vie privée et s'engage à protéger vos données personnelles. Cette politique décrit la manière dont nous collectons, utilisons, conservons et protégeons les informations personnelles des personnes participant à nos programmes, y compris le II MaSSDI Training Course, conformément au Data Protection Act, 2012 (Act 843) du Ghana."
+    },
+    {
+      "id": "scope",
+      "title": "Champ d'application",
+      "content": "Cette politique s'applique à l'ensemble des participants, visiteurs, employés, prestataires et à toute autre personne dont les données sont collectées, traitées ou conservées par le GoGMI."
+    },
+    {
+      "id": "legal-basis",
+      "title": "Fondement juridique du traitement",
+      "intro": "Nous collectons et traitons les données personnelles sur les bases juridiques suivantes :",
+      "bullets": [
+        { "label": "Consentement", "text": "Lorsque vous donnez une autorisation claire de traiter vos données." },
+        { "label": "Nécessité contractuelle", "text": "Pour exécuter notre accord avec vous (par exemple, l'inscription à un cours)." },
+        { "label": "Obligation légale", "text": "Pour nous conformer aux exigences légales ou réglementaires." },
+        { "label": "Intérêt légitime", "text": "Pour améliorer nos services, gérer nos activités ou assurer la sécurité." }
+      ]
+    },
+    {
+      "id": "data-collected",
+      "title": "Types de données collectées",
+      "intro": "Nous pouvons collecter les types de données suivants :",
+      "bullets": [
+        { "label": "Données d'identification personnelle", "text": "Nom, date de naissance, sexe, nationalité." },
+        { "label": "Coordonnées", "text": "Adresse e-mail, numéro de téléphone, adresse postale." },
+        { "label": "Informations professionnelles", "text": "Organisation, fonction, poste occupé." },
+        { "label": "Données relatives aux cours", "text": "Détails d'inscription, présence, statut de certification." },
+        { "label": "Contenus multimédias", "text": "Photographies, enregistrements vidéo/audio réalisés avec votre consentement." },
+        { "label": "Données techniques", "text": "Adresses IP, types de navigateurs (lors de l'utilisation de notre site web)." }
+      ]
+    },
+    {
+      "id": "purpose",
+      "title": "Finalité de la collecte des données",
+      "intro": "Vos données peuvent être utilisées pour :",
+      "list": [
+        "Vous inscrire aux cours et traiter les paiements.",
+        "Fournir des supports de cours et communiquer des mises à jour.",
+        "Délivrer des certificats et tenir à jour les registres des anciens participants.",
+        "Des communications marketing et promotionnelles (avec possibilité de désinscription).",
+        "Des analyses internes, des rapports et des audits.",
+        "Assurer la conformité aux obligations légales et réglementaires."
+      ]
+    },
+    {
+      "id": "data-sharing",
+      "title": "Partage et divulgation des données",
+      "intro": "Nous ne vendons pas vos données. Nous pouvons partager vos informations avec :",
+      "list": [
+        "Des prestataires tiers qui soutiennent nos activités (par exemple, des processeurs de paiement, des animateurs de cours).",
+        "Des organismes de régulation ou d'accréditation, si la loi l'exige.",
+        "Des organisations partenaires (par exemple, des agences de sécurité maritime) pour des événements ou initiatives conjoints — uniquement avec votre consentement."
+      ]
+    },
+    {
+      "id": "data-security",
+      "title": "Sécurité des données",
+      "intro": "Le GoGMI met en œuvre des mesures techniques et organisationnelles appropriées afin de :",
+      "list": [
+        "Protéger vos données contre tout accès non autorisé, toute perte ou tout usage abusif.",
+        "Sécuriser les registres électroniques et papier.",
+        "Limiter l'accès au seul personnel autorisé."
+      ]
+    },
+    {
+      "id": "data-retention",
+      "title": "Conservation des données",
+      "intro": "Nous ne conservons vos données personnelles que le temps nécessaire pour :",
+      "list": [
+        "Remplir les finalités décrites dans cette politique.",
+        "Nous conformer aux exigences légales, comptables ou de reporting.",
+        "Tenir à jour les registres des anciens participants, sauf demande de suppression de votre part."
+      ]
+    },
+    {
+      "id": "your-rights",
+      "title": "Vos droits en vertu du Data Protection Act du Ghana",
+      "intro": "Vous avez le droit de :",
+      "list": [
+        "Accéder à vos données personnelles.",
+        "Demander la rectification ou la suppression de données inexactes.",
+        "Retirer votre consentement à tout moment (lorsque le traitement est fondé sur le consentement).",
+        "Vous opposer au traitement dans certaines circonstances.",
+        "Déposer une plainte auprès de la Data Protection Commission (DPC) du Ghana."
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Utilisation des cookies",
+      "content": "Notre site web peut utiliser des cookies afin d'améliorer l'expérience utilisateur. Vous pouvez ajuster les paramètres de votre navigateur pour refuser les cookies ; toutefois, certaines fonctionnalités pourraient s'en trouver limitées."
+    },
+    {
+      "id": "international-transfers",
+      "title": "Transferts internationaux de données",
+      "content": "Si nous transférons des données en dehors du Ghana (par exemple, pour un hébergement en cloud), nous veillons à ce que des garanties appropriées soient mises en place afin de protéger vos informations conformément à l'Act 843."
+    },
+    {
+      "id": "policy-updates",
+      "title": "Mises à jour de la politique",
+      "content": "Cette politique peut être mise à jour périodiquement. La version la plus récente sera toujours disponible sur notre site web. La poursuite de l'utilisation de nos services vaut acceptation de toute modification."
+    }
+  ],
+  "contact": {
+    "heading": "Coordonnées",
+    "intro": "Pour toute question, préoccupation ou réclamation concernant cette politique, veuillez nous contacter :",
+    "orgName": "Institut Maritime du Golfe de Guinée"
+  },
+  "footer": {
+    "copyright": "© 2025 GoGMI · Institut Maritime du Golfe de Guinée. Tous droits réservés.",
+    "backToHome": "Retour à l'accueil"
+  }
+}

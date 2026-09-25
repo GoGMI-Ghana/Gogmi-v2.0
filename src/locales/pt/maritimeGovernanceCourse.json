@@ -1,0 +1,230 @@
+{
+  "hero": {
+    "badge": "Desenvolvimento Profissional",
+    "title": "Curso de Governação Marítima para Profissionais",
+    "subtitle": "Um Enfoque em África",
+    "applyNow": "Candidatar-se Agora",
+    "downloadBrochure": "Descarregar Brochura"
+  },
+  "tabs": {
+    "overview": "Visão Geral",
+    "format": "Formato do Programa",
+    "attend": "Quem Deve Participar",
+    "team": "Equipa Docente",
+    "modules": "Módulos do Curso"
+  },
+  "sidebar": {
+    "datesHeading": "Datas",
+    "datesValue": "7 – 18 de setembro de 2026",
+    "datesSubtext": "2 semanas, 8 módulos",
+    "statusHeading": "Estado",
+    "statusValue": "A Aceitar Candidaturas",
+    "formatHeading": "Formato",
+    "formatValue": "Virtual/Online (Sessões ao Vivo)",
+    "locationHeading": "Localização",
+    "locationValue": "Online",
+    "feesHeading": "Propinas do Curso",
+    "membersLabel": "Associados do GoGMI",
+    "saveLabel": "Poupe {{percent}}%",
+    "nonMembersLabel": "Não-Associados",
+    "applyNow": "Candidatar-se Agora",
+    "downloadBrochure": "Descarregar Brochura",
+    "questionsPrompt": "Dúvidas?",
+    "contactUs": "Contacte-nos"
+  },
+  "overview": {
+    "heading": "Domine o Desenvolvimento de Estratégia Marítima para África",
+    "intro": "Durante décadas, o continente africano tem enfrentado um vasto leque de ameaças e desafios em matéria de segurança marítima. Este curso abrangente dota os profissionais dos conhecimentos, competências e ferramentas necessárias para desenvolver e implementar estratégias marítimas eficazes no contexto africano.",
+    "objectivesHeading": "Objetivos do Curso",
+    "objectives": [
+      "Compreender de que forma a estratégia marítima reforça as prioridades nacionais e regionais",
+      "Desenvolver estratégias marítimas para os desafios únicos de África",
+      "Analisar as características que reforçam a sustentabilidade das estratégias",
+      "Explorar ferramentas para a implementação de estratégias marítimas",
+      "Capacitar os participantes para contribuir para o desenvolvimento de estratégias",
+      "Compreender as implicações dos processos de desenvolvimento de estratégias",
+      "Desenvolver competências de colaboração com as partes interessadas"
+    ],
+    "outcomesHeading": "Resultados Esperados",
+    "outcomes": [
+      { "title": "Profissionais Qualificados", "desc": "Formar intervenientes qualificados para reforçar o desenvolvimento de estratégias de segurança marítima" },
+      { "title": "Implementação Reforçada", "desc": "Reforçar a implementação das estratégias existentes" },
+      { "title": "Melhor Coordenação", "desc": "Fomentar uma coordenação interinstitucional eficaz" },
+      { "title": "Rede Profissional", "desc": "Reforçar o networking entre as partes interessadas do setor marítimo" }
+    ]
+  },
+  "format": {
+    "heading": "Formato do Programa",
+    "weeksLabel": "semanas de aprendizagem intensiva",
+    "modulesLabel": "módulos abrangentes",
+    "liveSessionsHeading": "Sessões ao Vivo/Virtuais",
+    "liveSessionsList": [
+      "Simulações interativas, apresentações e discussões em grupo",
+      "Salas de grupo para atividades em pequenos grupos",
+      "Sessões de perguntas e respostas ao vivo",
+      "Sessões gravadas para revisão posterior"
+    ]
+  },
+  "attend": {
+    "heading": "Quem Deve Participar",
+    "groups": [
+      { "title": "Organismos Governamentais", "description": "Responsáveis por políticas e governação marítima" },
+      { "title": "Marinha e Forças de Segurança", "description": "Oficiais navais e profissionais de segurança marítima" },
+      { "title": "Organizações Não-Governamentais", "description": "ONG dedicadas a questões marítimas" },
+      { "title": "Setor Privado", "description": "Indústrias com interesses marítimos" },
+      { "title": "Instituições Académicas", "description": "Estudantes e investigadores em estudos marítimos" },
+      { "title": "Público em Geral", "description": "Qualquer pessoa interessada na governação oceânica" }
+    ]
+  },
+  "team": {
+    "heading": "Equipa Docente",
+    "faculty": [
+      { "title": "Presidente do Conselho de Administração, GoGMI", "credentials": "Antigo Chefe do Estado-Maior Naval, Marinha do Gana" },
+      { "title": "CAPT, USN (Rfa.)", "credentials": "Especialista em Estratégia Marítima" },
+      { "title": "Diretor do Conselho, GoGMI", "credentials": "Especialista Marítimo" }
+    ]
+  },
+  "modules": {
+    "heading": "Módulos do Curso",
+    "moduleList": [
+      { "title": "Introdução e Teoria da Estratégia Marítima", "description": "Conceitos fundamentais de estratégia marítima, pensamento estratégico versus planeamento operacional, e o ciclo de desenvolvimento da estratégia marítima." },
+      { "title": "Avaliação dos Desafios e Oportunidades do Domínio Marítimo", "description": "Panorama de ameaças marítimas, desafios de segurança, oportunidades económicas e avaliações abrangentes do domínio marítimo." },
+      { "title": "Processo de Desenvolvimento de Estratégia", "description": "Quadro de desenvolvimento de estratégia passo a passo, definição de visão e objetivos, formulação de objetivos estratégicos e alinhamento com as políticas." },
+      { "title": "Coordenação Interinstitucional e Análise de Partes Interessadas", "description": "Mapeamento das partes interessadas do setor marítimo, mecanismos de coordenação, construção de parcerias e colaboração multissetorial." },
+      { "title": "Fins, Meios, Recursos e Risco", "description": "Alinhamento do quadro estratégico, mobilização de recursos, identificação de riscos, estratégias de mitigação e planeamento de contingência." },
+      { "title": "Implementação da Estratégia Marítima", "description": "Da estratégia à ação, planeamento da implementação, sistemas de monitorização e avaliação, e gestão adaptativa." },
+      { "title": "Planeamento Setorial – Exercício Prático em Sala", "description": "Exercício prático de planeamento setorial, aplicação de quadros de desenvolvimento de estratégia, e desenvolvimento de estratégia em equipa." },
+      { "title": "Relatórios de Estudo de Caso e Conclusão do Curso", "description": "Análise das estratégias marítimas regionais, análise comparativa de sucessos e desafios, e apresentações finais." }
+    ],
+    "weeklyBreakdownHeading": "Distribuição Semanal",
+    "weeklyBreakdown": [
+      {
+        "week": "Semana 1",
+        "title": "Teoria e Avaliação da Estratégia Marítima",
+        "sessions": [
+          "Diretivas e Instrumentos de Desenvolvimento de Estratégia",
+          "Objetivo e necessidade de desenvolver Estratégias Marítimas",
+          "Panorâmica do Processo de Desenvolvimento de Estratégia",
+          "Avaliação dos Desafios e Oportunidades do Domínio Marítimo"
+        ]
+      },
+      {
+        "week": "Semana 2",
+        "title": "Desenvolvimento de Estratégia e Análise de Partes Interessadas",
+        "sessions": [
+          "Desenvolvimento da Declaração de Visão",
+          "Compreender os papéis das partes interessadas",
+          "Coordenação Interinstitucional e boas práticas",
+          "Ferramentas e técnicas de análise de partes interessadas"
+        ]
+      },
+      {
+        "week": "Semana 3",
+        "title": "Fins, Meios, Recursos e Implementação",
+        "sessions": [
+          "Introdução aos Fins, Meios, Recursos e Risco",
+          "Sucessos e falhas na implementação",
+          "Processo de Planeamento do Setor Marítimo",
+          "Desenvolvimento do Plano de Ação"
+        ]
+      },
+      {
+        "week": "Semana 4",
+        "title": "Exercício Prático e Conclusão",
+        "sessions": [
+          "Exercício de Planeamento Setorial da Estratégia Marítima",
+          "Apresentações de Estudos de Caso em Grupo",
+          "Conclusão do Curso e Discussão",
+          "Avaliação do Curso"
+        ]
+      }
+    ],
+    "keySessionsLabel": "SESSÕES-CHAVE:"
+  },
+  "modal": {
+    "titles": {
+      "choose": "Candidatar-se ao Curso",
+      "verify": "Verificar Associado",
+      "member": "Candidatura de Associado",
+      "nonmember": "Candidatura de Não-Associado"
+    },
+    "courseSubtitle": "Curso de Governação Marítima para Profissionais — Um Enfoque em África",
+    "choose": {
+      "question": "É associado do GoGMI? Os associados usufruem de um desconto exclusivo.",
+      "memberTitle": "Candidatar-se como Associado",
+      "memberSave": "Poupe ${{discount}} ({{percent}}% de desconto)",
+      "memberDesc": "Introduza o seu ID de Associado para verificar e obter o desconto.",
+      "nonMemberTitle": "Candidatar-se como Não-Associado",
+      "standardRate": "Tarifa Padrão",
+      "nonMemberDesc": "Receberá uma associação gratuita ao GoGMI com a sua inscrição.",
+      "joinPrompt": "Ainda não é associado?",
+      "joinLink": "Junte-se ao GoGMI",
+      "joinSuffix": "para desbloquear os preços de associado."
+    },
+    "verify": {
+      "memberPriceLabel": "Preço de Associado",
+      "save": "Poupe ${{discount}} ({{percent}}% de desconto)",
+      "inputLabel": "Introduza o Seu ID de Associado",
+      "placeholder": "ex. GoGMI-MST2026-00001",
+      "helper": "O seu ID de Associado foi enviado para o seu e-mail quando se associou ao GoGMI.",
+      "back": "Voltar",
+      "verifying": "A verificar...",
+      "verifyContinue": "Verificar e Continuar"
+    },
+    "member": {
+      "verifiedBadge": "✓ Verificado — Preço de Associado Aplicado",
+      "saveAmount": "Poupe ${{discount}}",
+      "fullNameLabel": "Nome Completo",
+      "emailLabel": "Endereço de E-mail",
+      "phoneLabel": "Indicativo do País e Número de WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Cargo/Título",
+      "institutionLabel": "Instituição/Organização",
+      "countryLabel": "País",
+      "back": "Voltar",
+      "processing": "A processar...",
+      "pay": "Pagar USD {{amount}}"
+    },
+    "nonmember": {
+      "standardRate": "Tarifa Padrão",
+      "freeMembership": "Receberá uma associação gratuita ao GoGMI",
+      "fullNameLabel": "Nome Completo",
+      "fullNamePlaceholder": "João Silva",
+      "emailLabel": "Endereço de E-mail",
+      "emailPlaceholder": "joao@exemplo.com",
+      "dobLabel": "Data de Nascimento",
+      "phoneLabel": "Indicativo do País e Número de WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Cargo/Título",
+      "institutionLabel": "Instituição/Organização",
+      "optional": "(Opcional)",
+      "countryLabel": "País",
+      "countryPlaceholder": "Gana",
+      "membershipTypeLabel": "Selecione o Tipo de Associação",
+      "membershipTypePlaceholder": "-- Selecione o seu tipo de associação --",
+      "membershipTypeStudent": "Associação Estudantil",
+      "membershipTypeAssociate": "Associação Associada",
+      "membershipTypeProfessional": "Associação Profissional",
+      "membershipTypeHelper": "Receberá uma associação gratuita ao GoGMI do tipo selecionado com a sua inscrição no curso.",
+      "back": "Voltar",
+      "processing": "A processar...",
+      "pay": "Pagar USD {{amount}}"
+    }
+  },
+  "alerts": {
+    "enterMembershipId": "Introduza o seu ID de Associado",
+    "invalidMembershipId": "ID de Associado inválido",
+    "verifyError": "Não foi possível verificar. Verifique a sua ligação.",
+    "paymentLoading": "O sistema de pagamento está a carregar. Aguarde.",
+    "paymentCancelled": "Pagamento cancelado.",
+    "paymentFailed": "Falha no pagamento: {{error}}",
+    "fillRequired": "Preencha todos os campos obrigatórios",
+    "selectMembershipType": "Selecione um tipo de associação",
+    "enterDob": "Introduza a sua data de nascimento",
+    "registrationSuccess": "Inscrição Concluída com Sucesso!\n\nEstá agora inscrito no Curso de Governação Marítima.\nReferência: {{reference}}\n",
+    "autoMembership": "\nParabéns! Já é associado do GoGMI.\nID de Associado: {{membershipId}}\nUtilize este ID para iniciar sessão em gogmi.org.gh/login\n",
+    "confirmationEmail": "\nFoi enviado um e-mail de confirmação para {{email}}",
+    "registrationFailed": "Falha na inscrição: {{message}}\nReferência: {{reference}}\nContacte info@gogmi.org.gh",
+    "registrationError": "Erro na inscrição. Contacte info@gogmi.org.gh com a referência: {{reference}}"
+  }
+}

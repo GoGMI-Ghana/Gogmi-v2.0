@@ -24,7 +24,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    supportedLngs: ['en', 'fr', 'es'],
+    supportedLngs: ['en', 'fr', 'es', 'pt'],
     defaultNS: 'common',
     ns: Array.from(namespaces),
     interpolation: {

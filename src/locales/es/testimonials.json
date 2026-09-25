@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "eyebrow": "Gulf of Guinea Maritime Institute",
+    "title": "Voces de GoGMI",
+    "subtitle": "Lo que dicen sobre nuestro trabajo los socios, las instituciones y los profesionales."
+  },
+  "filters": {
+    "all": "Todos",
+    "organization": "Organizaciones",
+    "individual": "Personas",
+    "video": "Vídeos"
+  },
+  "empty": "Aún no hay testimonios en esta categoría.",
+  "badges": {
+    "featured": "Destacado",
+    "video": "Vídeo",
+    "letter": "Carta",
+    "testimonial": "Testimonio"
+  },
+  "card": {
+    "watchVideo": "Ver vídeo",
+    "fullLetterAvailable": "Carta completa disponible",
+    "signedBy": "Firmado por",
+    "downloadLetter": "Descargar carta"
+  },
+  "videoModal": {
+    "close": "Cerrar",
+    "title": "Vídeo de testimonio"
+  },
+  "cta": {
+    "heading": "Comparta su experiencia",
+    "body": "¿Ha trabajado con GoGMI? Nos encantaría saber de usted.",
+    "button": "Envíe su testimonio →"
+  },
+  "items": {
+    "1": {
+      "role": "Coordinador del Atlantic Centre",
+      "country": "Lisboa, Portugal",
+      "excerpt": "El Atlantic Centre se enorgullece de nuestra asociación con GoGMI. Desde nuestra fundación, hemos avanzado por un camino de mayor cooperación, intercambio de conocimientos y crecimiento mutuo entre ambas instituciones. Nos enorgullece dar fe, como socios, del reciente desarrollo de GoGMI. Desde su creación, GoGMI ha sido una institución fundamental en el Golfo de Guinea, investigando y formando a la sociedad civil, los gobiernos y las fuerzas militares en temas de zona gris dentro del amplio ámbito de la seguridad marítima."
+    },
+    "2": {
+      "role": "Proyecto EnMAR, Expertise France (financiado por la UE)",
+      "country": "Bruselas, Bélgica",
+      "excerpt": "El proyecto EnMAR ha tenido el placer de desarrollar una estrecha colaboración con GoGMI. A través de esta colaboración, GoGMI ha elaborado diversos análisis de seguridad marítima, informes analíticos en profundidad, y organizó una capacitación de 3 días para periodistas y profesionales de los medios sobre seguridad marítima, protección y economía azul en el Golfo de Guinea. Desde la perspectiva de EnMAR, GoGMI representa un actor regional importante en el avance del conocimiento marítimo y un socio constructivo para el fortalecimiento de capacidades. El proyecto EnMAR apoya plenamente la nominación de GoGMI al African Excellence Award."
+    },
+    "3": {
+      "role": "Titular de la Cátedra de Investigación de Canadá en Ciencia y Tecnología Oceánica, Dalhousie University",
+      "country": "Halifax, Canadá",
+      "excerpt": "GoGMI merece plenamente su nominación y el premio. Para DOTCAN, GoGMI ha sido mucho más que un colaborador: son nuestros socios más antiguos y de mayor confianza desde nuestros inicios, y han ayudado a orientar el desarrollo de nuestra propia organización y nuestros programas. Tienen un compromiso inquebrantable con el futuro marítimo de África."
+    }
+  }
+}

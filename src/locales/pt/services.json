@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "badge": "Soluções Abrangentes",
+    "title": "Os Nossos Serviços",
+    "subtitle": "O Seu Centro de Referência para a Segurança, Proteção Marítima e a Advocacia por uma Economia Azul Sustentável"
+  },
+  "categories": [
+    { "name": "Advocacia" },
+    { "name": "Investigação" },
+    { "name": "Capacitação" },
+    { "name": "Secretariado" }
+  ],
+  "items": [
+    {
+      "title": "Advocacia",
+      "shortDesc": "A defender reformas políticas e práticas marítimas sustentáveis",
+      "fullDesc": "A defender reformas políticas e práticas marítimas sustentáveis em todo o Golfo da Guiné. Servimos de voz autorizada para as partes interessadas do setor marítimo, colmatando a distância entre as realidades marítimas e a ação política através de uma advocacia baseada em evidências que molda os quadros de governação regionais e internacionais.",
+      "features": ["Advocacia em Segurança Marítima", "Promoção da Economia Azul", "Desenvolvimento de Políticas", "Colaboração Regional"]
+    },
+    {
+      "title": "Investigação",
+      "shortDesc": "Investigação marítima autóctone e análise estratégica",
+      "fullDesc": "A disponibilizar investigação marítima autóctone e análise estratégica que responde aos desafios de segurança, proteção e da economia azul. A nossa investigação informa as decisões políticas e apresenta soluções a partir de uma perspetiva da África Ocidental, colmatando a lacuna crítica nos estudos marítimos regionais e assegurando uma boa representação dos interesses locais.",
+      "features": ["Investigação Marítima Estratégica", "Aconselhamento em Políticas", "Análise de Ameaças", "Perspetivas Baseadas em Dados"]
+    },
+    {
+      "title": "Capacitação",
+      "shortDesc": "A capacitar profissionais e jovens do setor marítimo",
+      "fullDesc": "A capacitar a próxima geração de profissionais marítimos através de programas de formação abrangentes, iniciativas de mentoria e plataformas de partilha de conhecimento. Do nosso programa emblemático, o Blue Mentorship Programme, a workshops especializados, dotamos jovens, profissionais e partes interessadas das competências e do conhecimento necessários para prosperar na economia azul.",
+      "features": ["Blue Mentorship Programme", "Formação Profissional", "Envolvimento da Juventude", "Desenvolvimento de Competências"]
+    },
+    {
+      "title": "Serviços de Secretariado",
+      "shortDesc": "O pilar institucional da coordenação marítima",
+      "fullDesc": "A servir como pilar institucional para a coordenação e a colaboração marítima regional. Prestamos apoio profissional de secretariado ao International Maritime Security Working Group (IMSWG) e a outros fóruns marítimos, facilitando o diálogo, gerindo operações e assegurando a implementação eficaz de iniciativas marítimas regionais.",
+      "features": ["Coordenação do IMSWG", "Gestão de Fóruns", "Envolvimento de Partes Interessadas", "Implementação de Programas"]
+    }
+  ],
+  "learnMore": "Saiba Mais",
+  "cta": {
+    "heading": "Pronto para Começar?",
+    "subtitle": "Vamos falar sobre como os nossos serviços podem apoiar os seus objetivos marítimos",
+    "consultation": "Solicitar uma Consulta",
+    "brochure": "Descarregar Brochura"
+  }
+}

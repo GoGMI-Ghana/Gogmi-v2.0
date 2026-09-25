@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "backLink": "Voltar à Capacitação",
+    "badge": "Capacitação · Mentoria",
+    "titleLine1": "O Blue Mentorship",
+    "titleLine2": "Programme",
+    "subtitle": "Um acelerador marítimo africano que liga 30 jovens a líderes do setor, empreendedores e profissionais do oceano, preparando-os para o sucesso na economia azul de África.",
+    "statusBadge": "Programa Concluído"
+  },
+  "origin": {
+    "eyebrow": "Onde Tudo Começou",
+    "heading": "Nascido da Blue Career & Business Expo",
+    "para1": "Em novembro de 2021, o GoGMI realizou o seu evento emblemático, a Blue Career and Business Expo (BCBE) — criando plataformas de intercâmbio de múltiplas oportunidades para que os jovens pudessem aprender com líderes do setor marítimo e conhecer melhor o leque de oportunidades nos setores da economia azul do Gana. A Expo contou com mais de 200 participantes, incluindo personalidades de destaque, profissionais do setor marítimo, estudantes e outras partes interessadas.",
+    "para2": "A BCBE foi sempre concebida como a primeira de uma série de eventos destinados a envolver ativamente a juventude africana no caminho para a construção de uma economia azul resiliente. Como previsto, serviu para lançar um Programa de Mentoria pelo qual vários jovens participantes demonstraram grande interesse.",
+    "para3": "O GoGMI foi mais além, selecionando trinta jovens para o Blue Mentorship Programme — uma experiência completa de mentoria e preparação, concebida para os preparar para o sucesso na economia azul.",
+    "stats": [
+      { "label": "Jovens Mentorandos Selecionados" },
+      { "label": "Participantes na BCBE" },
+      { "label": "Ano do Programa" },
+      { "label": "Elementos do Programa" }
+    ]
+  },
+  "impacts": {
+    "eyebrow": "Sobre o Programa",
+    "heading": "Áreas de Impacto do Programa",
+    "subtitle": "O Blue Mentorship Programme foi concebido para gerar quatro impactos centrais junto dos jovens profissionais marítimos africanos.",
+    "items": [
+      {
+        "title": "Acesso a Mentoria no Setor",
+        "desc": "Proporcionar aos jovens acesso a mentoria no setor marítimo, serviços de apoio, eventos educativos e de networking, mantendo-os a par dos últimos desenvolvimentos e iniciativas na comunidade da economia azul de África."
+      },
+      {
+        "title": "Envolvimento Empresarial e Setorial",
+        "desc": "Facilitar o envolvimento dos jovens com parceiros empresariais e do setor empenhados na inovação, na diversidade e na inclusão dos jovens no desenvolvimento da economia azul de África."
+      },
+      {
+        "title": "Centro de Incubação da Economia Azul",
+        "desc": "Servir como centro de incubação para start-ups da economia azul, disponibilizando recursos, redes de contactos e apoio estruturado para ajudar jovens empreendedores a transformar ideias ligadas ao oceano em negócios viáveis."
+      },
+      {
+        "title": "Apoio à Carreira e ao Negócio",
+        "desc": "Proporcionar aprendizagem e apoio aos jovens ao longo do seu percurso profissional, empresarial ou de negócio — desde a conceção da ideia até à sua implementação e crescimento."
+      }
+    ]
+  },
+  "elements": {
+    "eyebrow": "Estrutura do Programa",
+    "heading": "Elementos do Programa",
+    "subtitle": "Três elementos estruturados que decorrem ao longo de todo o ciclo de vida do programa.",
+    "items": [
+      {
+        "title": "Emparelhamento de Mentores",
+        "desc": "No início do programa, os mentorandos são emparelhados com mentores que os orientam nos seus percursos de carreira e empreendedorismo na economia azul, abrangendo um vasto leque de áreas. Esta mentoria prossegue durante toda a duração do programa e constitui a base sobre a qual assentam todas as outras atividades.",
+        "period": "A partir do Mês 1"
+      },
+      {
+        "title": "Blue Success Speaker Series (BLUESSS) 2022",
+        "desc": "A plataforma BLUESSS cria a oportunidade de os jovens ouvirem, em primeira mão, relatos de empreendedores da economia azul, inovadores do oceano e outros profissionais bem-sucedidos do setor. Os oradores partilham as suas experiências de carreira e empreendedorismo — incluindo sucessos e fracassos notáveis. Os mentorandos são agrupados por setor para receberem aconselhamento especializado adaptado aos seus interesses.",
+        "period": "Mês 2–3"
+      },
+      {
+        "title": "Maritime Business Support Hub 2023",
+        "desc": "Após a BLUESSS, os mentorandos consolidam as aprendizagens através de um Incubador Empresarial Marítimo com a duração de um ano. As sessões realizam-se em cada trimestre: 1.º Trimestre (The Mind Map) — brainstorming orientado para identificar oportunidades na economia azul; 2.º Trimestre (The Blue Economy Innovation Challenge) — os mentorandos apresentam ideias inovadoras ligadas ao oceano a um painel; 3.º Trimestre (The Blue Platform) — uma comunidade virtual que permite aos mentorandos ligarem-se a inovadores, especialistas, potenciais parceiros e conselheiros.",
+        "period": "Mês 4–12"
+      }
+    ]
+  },
+  "incubator": {
+    "eyebrow": "A Visão de Conjunto",
+    "heading": "Um Incubador de Negócios Marítimos",
+    "para1": "Para além do Blue Mentorship Programme, o GoGMI pretende alargar o seu envolvimento com a juventude, desenvolvendo um Incubador de Negócios Marítimos (MBI) — em parceria com o setor marítimo mundial e respetivos profissionais — para disponibilizar soluções e recursos que melhorem as ligações profissionais e empresariais e o financiamento de inovações em start-ups azuis na região do Golfo da Guiné.",
+    "para2": "O MBI colaborará com o meio académico no desenvolvimento de redes de investigação conjuntas em toda a sub-região, dedicadas a aprofundar o conhecimento local dos setores da economia azul de África. Contará também com um Maritime Data Hub — um repositório único de dados destinado ao desenvolvimento e teste de novas aplicações e serviços digitais para o setor marítimo.",
+    "para3": "O envolvimento do setor privado ajudará a gerar um espírito inovador de mudança para os jovens empreendedores e para a comunidade empresarial da economia azul do Golfo da Guiné em geral.",
+    "themesHeading": "Temas do Incubador",
+    "themes": [
+      { "label": "Empreendedorismo", "desc": "Desenvolver novos negócios e iniciativas da economia azul a partir do zero." },
+      { "label": "Mentoria", "desc": "Orientação individual e em grupo por profissionais experientes do setor marítimo." },
+      { "label": "Networking e Partilha de Conhecimento", "desc": "Conferências, mesas-redondas, conversas informais e reuniões que ligam jovens talentos." },
+      { "label": "Inovação Marítima", "desc": "Tecnologia, dados e desenvolvimento de aplicações digitais para o setor marítimo." },
+      { "label": "Inovação em Capital Humano Azul", "desc": "Formar a próxima geração de profissionais qualificados do oceano para o Golfo da Guiné." }
+    ]
+  },
+  "cta": {
+    "headingLine1": "Interessado nas Próximas",
+    "headingLine2": "Edições de Mentoria?",
+    "subtitle": "Contacte o GoGMI para manifestar o seu interesse na próxima edição do Blue Mentorship Programme ou no Incubador de Negócios Marítimos.",
+    "button": "Contacte-nos"
+  }
+}

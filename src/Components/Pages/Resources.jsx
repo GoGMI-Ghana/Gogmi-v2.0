@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Download, Search, Calendar, Eye, BookOpen, Video, X, ExternalLink, Lock } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Resources = () => {
+  const { t } = useTranslation('resources');
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedType, setSelectedType] = useState('Strategic Documents');
@@ -52,7 +54,7 @@ const Resources = () => {
     return resource.type === 'Internal Reports';
   };
 
-  const resources = [
+  const resourcesRaw = [
     // ===== STRATEGIC DOCUMENTS =====
     {
       id: 5,
@@ -400,9 +402,22 @@ const Resources = () => {
 
   ];
 
+  const resources = resourcesRaw.map((r) => {
+    const content = t(`resourceContent.${r.id}`, { returnObjects: true }) || {};
+    return {
+      ...r,
+      description: content.description || r.description,
+      fullDescription: content.fullDescription || r.fullDescription,
+      keyTopics: r.keyTopics ? (content.keyTopics || r.keyTopics) : undefined
+    };
+  });
+
   const types = ['Strategic Documents', 'Academic Papers', 'Internal Reports', 'Videos'];
   const internalReportSubcategories = ['All', 'Policy Briefs', 'IMSWG Reports', 'Quarterly Highlights', 'Maritime Governance'];
   const imswgReportYears = ['All', '2020', '2021', '2022', '2023', '2024', '2025', '2026'];
+  const typeLabels = t('filters.types', { returnObjects: true });
+  const subcategoryLabels = t('filters.subcategories', { returnObjects: true });
+  const categoryLabels = t('categoryLabels', { returnObjects: true });
 
   const filteredResources = resources.filter(resource => {
     const matchesType = resource.type === selectedType;
@@ -435,7 +450,7 @@ const Resources = () => {
       document.body.removeChild(link);
 
       setTimeout(() => {
-        alert(`Download complete!\n\nFile: ${resource.title}`);
+        alert(t('downloadCompleteAlert', { title: resource.title }));
       }, 500);
       return;
     }
@@ -461,11 +476,11 @@ const Resources = () => {
       document.body.removeChild(link);
 
       setTimeout(() => {
-        alert(`Download complete!\n\nFile: ${resource.title}`);
+        alert(t('downloadCompleteAlert', { title: resource.title }));
       }, 500);
     } catch (error) {
       console.error('Download error:', error);
-      alert(`Download failed: ${error.message}`);
+      alert(t('downloadFailedAlert', { error: error.message }));
     }
   };
 
@@ -483,34 +498,24 @@ const Resources = () => {
             </div>
             
             <h2 className="text-3xl font-bold text-[#132552] mb-4" style={{ fontWeight: 900 }}>
-              Members Only Content
+              {t('membershipModal.heading')}
             </h2>
-            
+
             <p className="text-lg text-[#1F2933] mb-6" style={{ fontWeight: 400 }}>
-              Internal Reports are exclusively available to our members. Preview the document to see what you'll get, then join us to unlock full access.
+              {t('membershipModal.body')}
             </p>
 
             <div className="bg-[#F5F7FA] rounded-xl p-6 mb-8">
               <h3 className="text-lg font-bold text-[#132552] mb-3" style={{ fontWeight: 700 }}>
-                Membership Benefits
+                {t('membershipModal.benefitsHeading')}
               </h3>
               <ul className="text-left space-y-2">
-                <li className="flex items-start gap-2 text-[#1F2933]" style={{ fontWeight: 400 }}>
-                  <span className="text-[#8E3400] mt-1">✓</span>
-                  <span>Download all internal reports and analysis</span>
-                </li>
-                <li className="flex items-start gap-2 text-[#1F2933]" style={{ fontWeight: 400 }}>
-                  <span className="text-[#8E3400] mt-1">✓</span>
-                  <span>Access exclusive policy briefs and IMSWG reports</span>
-                </li>
-                <li className="flex items-start gap-2 text-[#1F2933]" style={{ fontWeight: 400 }}>
-                  <span className="text-[#8E3400] mt-1">✓</span>
-                  <span>Receive quarterly highlights and updates</span>
-                </li>
-                <li className="flex items-start gap-2 text-[#1F2933]" style={{ fontWeight: 400 }}>
-                  <span className="text-[#8E3400] mt-1">✓</span>
-                  <span>Join our maritime community network</span>
-                </li>
+                {t('membershipModal.benefits', { returnObjects: true }).map((benefit, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-[#1F2933]" style={{ fontWeight: 400 }}>
+                    <span className="text-[#8E3400] mt-1">✓</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -520,14 +525,14 @@ const Resources = () => {
                 className="flex-1 bg-gray-100 text-gray-900 px-6 py-3 rounded-xl font-bold transition-all hover:bg-gray-200"
                 style={{ fontWeight: 700 }}
               >
-                Close
+                {t('membershipModal.close')}
               </button>
               <button
                 onClick={() => navigate('/membership')}
                 className="flex-1 bg-[#8E3400] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#6B2700] shadow-lg hover:shadow-xl"
                 style={{ fontWeight: 700 }}
               >
-                Become a Member
+                {t('membershipModal.becomeMember')}
               </button>
             </div>
           </div>
@@ -562,17 +567,17 @@ const Resources = () => {
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="flex flex-wrap gap-2 mb-3">
                 <span className="bg-[#8E3400] text-white px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
-                  {resource.type}
+                  {typeLabels[resource.type] || resource.type}
                 </span>
                 <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
                   {resource.fileType}
                 </span>
                 <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
-                  {resource.category}
+                  {categoryLabels[resource.category] || resource.category}
                 </span>
                 {resource.subcategory && (
                   <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
-                    {resource.subcategory}
+                    {subcategoryLabels[resource.subcategory] || resource.subcategory}
                   </span>
                 )}
               </div>
@@ -585,21 +590,21 @@ const Resources = () => {
           <div className="p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 pb-8 border-b border-gray-200">
               <div>
-                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>Published</p>
+                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.published')}</p>
                 <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.date}</p>
               </div>
               <div>
-                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>File Size</p>
+                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.fileSize')}</p>
                 <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.size}</p>
               </div>
               {resource.pages && (
                 <div>
-                  <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>Pages</p>
+                  <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.pages')}</p>
                   <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.pages}</p>
                 </div>
               )}
               <div>
-                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>Downloads</p>
+                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.downloads')}</p>
                 <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.downloads}</p>
               </div>
             </div>
@@ -609,10 +614,10 @@ const Resources = () => {
                 <Lock className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm font-semibold text-amber-900 mb-1" style={{ fontWeight: 600 }}>
-                    Download requires membership
+                    {t('modal.membershipRequired.heading')}
                   </p>
                   <p className="text-sm text-amber-800" style={{ fontWeight: 400 }}>
-                    This Internal Report is exclusive to members. You can preview it, but membership is required to download.
+                    {t('modal.membershipRequired.body')}
                   </p>
                 </div>
               </div>
@@ -623,17 +628,17 @@ const Resources = () => {
                 <Download className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm font-semibold text-green-900 mb-1" style={{ fontWeight: 600 }}>
-                    Free Download Available
+                    {t('modal.freeDownload.heading')}
                   </p>
                   <p className="text-sm text-green-800" style={{ fontWeight: 400 }}>
-                    This resource is freely available to all visitors. Click download to get instant access.
+                    {t('modal.freeDownload.body')}
                   </p>
                 </div>
               </div>
             )}
 
             <div className="mb-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-3" style={{ fontWeight: 700 }}>Overview</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3" style={{ fontWeight: 700 }}>{t('modal.overview')}</h3>
               <p className="text-gray-600 leading-relaxed" style={{ fontWeight: 400 }}>
                 {resource.fullDescription}
               </p>
@@ -641,7 +646,7 @@ const Resources = () => {
 
             {resource.keyTopics && (
               <div className="mb-8">
-                <h3 className="text-lg font-bold text-gray-900 mb-3" style={{ fontWeight: 700 }}>What's Included</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-3" style={{ fontWeight: 700 }}>{t('modal.whatsIncluded')}</h3>
                 <ul className="space-y-2">
                   {resource.keyTopics.map((topic, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-gray-600" style={{ fontWeight: 400 }}>
@@ -662,22 +667,22 @@ const Resources = () => {
                 {needsMembership ? (
                   <>
                     <Lock className="w-5 h-5" />
-                    <span>Unlock Download</span>
+                    <span>{t('modal.unlockDownload')}</span>
                   </>
                 ) : (
                   <>
                     <Download className="w-5 h-5" />
-                    <span>Download Resource</span>
+                    <span>{t('modal.downloadResource')}</span>
                   </>
                 )}
               </button>
-              <button 
+              <button
                 onClick={() => handlePreview(resource)}
                 className="flex-1 bg-gray-100 text-gray-900 px-6 py-4 rounded-xl font-bold transition-all hover:bg-gray-200 flex items-center justify-center gap-2"
                 style={{ fontWeight: 700 }}
               >
                 <ExternalLink className="w-5 h-5" />
-                <span>Open Preview</span>
+                <span>{t('modal.openPreview')}</span>
               </button>
             </div>
           </div>
@@ -689,7 +694,7 @@ const Resources = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">Loading...</div>
+        <div className="text-xl">{t('loading')}</div>
       </div>
     );
   }
@@ -709,9 +714,9 @@ const Resources = () => {
 
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
+          <img
             src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1920&auto=format&fit=crop&q=80"
-            alt="Maritime library and resources"
+            alt={t('hero.imageAlt')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[#132552]/80"></div>
@@ -720,19 +725,19 @@ const Resources = () => {
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center space-x-2 bg-[#8E3400]/20 backdrop-blur-sm px-6 py-3 rounded-full border border-[#8E3400]/30 mb-6">
             <BookOpen className="w-5 h-5 text-[#8E3400]" />
-            <span className="text-[#F5F7FA] font-semibold text-sm" style={{ fontWeight: 600 }}>Knowledge Hub</span>
+            <span className="text-[#F5F7FA] font-semibold text-sm" style={{ fontWeight: 600 }}>{t('hero.badge')}</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-6xl font-bold text-[#F5F7FA] mb-6" style={{ fontWeight: 900 }}>
-            Resources & Publications
+            {t('hero.title')}
           </h1>
           <p className="text-xl text-[#F5F7FA]/90 max-w-3xl mx-auto mb-4" style={{ fontWeight: 400 }}>
-            Access strategic documents, academic papers, and internal reports
+            {t('hero.subtitle')}
           </p>
           <p className="text-sm text-[#F5F7FA]/70 flex items-center justify-center gap-2" style={{ fontWeight: 400 }}>
-            <span>Strategic Documents & Academic Papers: Free for all</span>
+            <span>{t('hero.noteFree')}</span>
             <span>•</span>
-            <span>Internal Reports: Members only</span>
+            <span>{t('hero.noteMembers')}</span>
           </p>
         </div>
       </section>
@@ -745,7 +750,7 @@ const Resources = () => {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#1F2933]/60" />
                 <input
                   type="text"
-                  placeholder="Search resources..."
+                  placeholder={t('search.placeholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
@@ -769,7 +774,7 @@ const Resources = () => {
                     }`}
                     style={{ fontWeight: 600 }}
                   >
-                    {type}
+                    {typeLabels[type] || type}
                   </button>
                 ))}
               </div>
@@ -792,7 +797,7 @@ const Resources = () => {
                     }`}
                     style={{ fontWeight: 600 }}
                   >
-                    {subcategory}
+                    {subcategoryLabels[subcategory] || subcategory}
                   </button>
                 ))}
               </div>
@@ -812,7 +817,7 @@ const Resources = () => {
                     }`}
                     style={{ fontWeight: 600 }}
                   >
-                    {year}
+                    {year === 'All' ? t('filters.yearAll') : year}
                   </button>
                 ))}
               </div>
@@ -826,7 +831,7 @@ const Resources = () => {
           {filteredResources.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-2xl text-[#1F2933]" style={{ fontWeight: 400 }}>
-                No resources found matching your criteria
+                {t('noResults')}
               </p>
             </div>
           ) : (
@@ -865,7 +870,7 @@ const Resources = () => {
                         <div className="absolute top-4 left-4">
                           <span className="bg-[#8E3400] text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1" style={{ fontWeight: 700 }}>
                             <Lock className="w-3 h-3" />
-                            Members Only
+                            {t('badges.membersOnly')}
                           </span>
                         </div>
                       )}
@@ -873,7 +878,7 @@ const Resources = () => {
                       {!needsMembership && (
                         <div className="absolute top-4 left-4">
                           <span className="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 700 }}>
-                            Free Access
+                            {t('badges.freeAccess')}
                           </span>
                         </div>
                       )}
@@ -895,7 +900,7 @@ const Resources = () => {
                           {resource.type === 'Videos' ? (
                             <>
                               <Eye className="w-3 h-3 mr-1" />
-                              {resource.views} views
+                              {resource.views} {t('card.viewsSuffix')}
                             </>
                           ) : (
                             <>
@@ -917,16 +922,16 @@ const Resources = () => {
                       <div className="flex items-center justify-between text-sm text-[#1F2933]/70 mb-4 pb-4 border-b border-gray-200" style={{ fontWeight: 400 }}>
                         {resource.type === 'Videos' ? (
                           <>
-                            <span className="font-medium" style={{ fontWeight: 600 }}>Duration: {resource.duration}</span>
+                            <span className="font-medium" style={{ fontWeight: 600 }}>{t('card.durationLabel')}: {resource.duration}</span>
                             <span className="flex items-center">
                               <Video className="w-3 h-3 mr-1" />
-                              Watch
+                              {t('card.watch')}
                             </span>
                           </>
                         ) : (
                           <>
                             <span className="font-medium" style={{ fontWeight: 600 }}>{resource.size}</span>
-                            {resource.pages && <span>{resource.pages} pages</span>}
+                            {resource.pages && <span>{resource.pages} {t('card.pagesSuffix')}</span>}
                           </>
                         )}
                       </div>
@@ -941,19 +946,19 @@ const Resources = () => {
                           style={{ fontWeight: 700 }}
                         >
                           <Video className="w-5 h-5" />
-                          <span>Watch Video</span>
+                          <span>{t('card.watchVideo')}</span>
                         </button>
                       ) : (
                         <div className="flex gap-2">
-                          <button 
+                          <button
                             onClick={() => setPreviewResource(resource)}
                             className="flex-1 bg-white border-2 border-[#8E3400] text-[#8E3400] py-3 rounded-lg font-semibold hover:bg-[#8E3400] hover:text-white transition-all flex items-center justify-center space-x-2"
                             style={{ fontWeight: 700 }}
                           >
                             <Eye className="w-5 h-5" />
-                            <span>Preview</span>
+                            <span>{t('card.preview')}</span>
                           </button>
-                          <button 
+                          <button
                             onClick={() => handleDownload(resource)}
                             className={`flex-1 py-3 rounded-lg font-semibold transition-all flex items-center justify-center space-x-2 shadow-lg ${
                               canDownload
@@ -963,7 +968,7 @@ const Resources = () => {
                             style={{ fontWeight: 700 }}
                           >
                             {canDownload ? <Download className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
-                            <span>{canDownload ? 'Download' : 'Locked'}</span>
+                            <span>{canDownload ? t('card.download') : t('card.locked')}</span>
                           </button>
                         </div>
                       )}
@@ -984,29 +989,29 @@ const Resources = () => {
                 <Lock className="w-8 h-8 text-[#8E3400]" />
               </div>
               <h2 className="text-4xl font-bold text-white mb-6" style={{ fontWeight: 900 }}>
-                Unlock Internal Reports
+                {t('ctaSection.unlock.heading')}
               </h2>
               <p className="text-xl text-white/90 mb-10" style={{ fontWeight: 400 }}>
-                Join our community and get access to exclusive internal reports, policy briefs, and IMSWG publications
+                {t('ctaSection.unlock.body')}
               </p>
-              <button 
+              <button
                 onClick={() => navigate('/membership')}
-                className="bg-[#8E3400] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#6B2700] transition-all shadow-lg hover:shadow-xl hover:scale-105" 
+                className="bg-[#8E3400] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#6B2700] transition-all shadow-lg hover:shadow-xl hover:scale-105"
                 style={{ fontWeight: 700 }}
               >
-                Become a Member
+                {t('ctaSection.unlock.button')}
               </button>
             </>
           ) : (
             <>
               <h2 className="text-4xl font-bold text-white mb-6" style={{ fontWeight: 900 }}>
-                Need Custom Research?
+                {t('ctaSection.customResearch.heading')}
               </h2>
               <p className="text-xl text-white/90 mb-10" style={{ fontWeight: 400 }}>
-                We offer customized research and consulting services tailored to your specific maritime needs
+                {t('ctaSection.customResearch.body')}
               </p>
               <button className="bg-[#8E3400] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#6B2700] transition-all shadow-lg hover:shadow-xl hover:scale-105" style={{ fontWeight: 700 }}>
-                Request Custom Research
+                {t('ctaSection.customResearch.button')}
               </button>
             </>
           )}

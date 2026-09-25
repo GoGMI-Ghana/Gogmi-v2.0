@@ -1,0 +1,171 @@
+{
+  "hero": {
+    "title": "Acelere o seu percurso profissional com a Associação GoGMI",
+    "subtitle": "Junte-se à nossa comunidade marítima para aceder a investigação exclusiva, interagir com líderes de opinião e expandir a sua rede em todo o setor marítimo do Golfo da Guiné.",
+    "applyNow": "Candidatar-se Agora",
+    "seeMembers": "Ver os Nossos Associados"
+  },
+  "whyJoin": {
+    "heading": "Porquê Associar-se ao GoGMI?",
+    "para1": "A associação ao GoGMI dá acesso a uma comunidade dinâmica de profissionais marítimos, investigadores, decisores políticos e líderes do setor em toda a região do Golfo da Guiné.",
+    "para2": "Ao tornar-se associado, passa a fazer parte do principal think tank marítimo do Golfo da Guiné, dedicado a promover a segurança marítima, o desenvolvimento sustentável da economia azul e a cooperação regional.",
+    "para3": "Os associados têm acesso exclusivo a investigação de ponta, notas de política, programas de formação e oportunidades de networking que os ligam a especialistas de todo o Golfo da Guiné."
+  },
+  "benefits": {
+    "heading": "Benefícios da Associação",
+    "items": [
+      { "title": "Conhecimento e Investigação", "desc": "Aceda a investigação marítima abrangente, publicações e notas de política de toda a região do Golfo da Guiné." },
+      { "title": "Rede Profissional", "desc": "Conecte-se com profissionais marítimos, investigadores e decisores políticos em todo o Golfo da Guiné." },
+      { "title": "Capacitação", "desc": "Participe em programas de formação, workshops e sessões de desenvolvimento de competências conduzidas por especialistas do setor." }
+    ]
+  },
+  "individual": {
+    "heading": "Associações Individuais",
+    "mostPopular": "MAIS POPULAR",
+    "benefitsLabel": "Benefícios",
+    "plans": {
+      "student": {
+        "name": "Associação Estudantil",
+        "description": "Concebida para estudantes de licenciatura com interesse em estudos marítimos, oceânicos, ambientais e de segurança.",
+        "features": [
+          "Certificado Oficial de Associado",
+          "Acesso aos relatórios de investigação e publicações do GoGMI",
+          "Convites para webinars e seminários dedicados a estudantes",
+          "Descontos nas formações e workshops do GoGMI",
+          "Oportunidades de mentoria estruturada com profissionais e investigadores",
+          "Apoio ao desenvolvimento de carreira (competências de investigação, workshops de redação, aconselhamento de CV)",
+          "Acesso a plataformas de networking e grupos de discussão de estudantes",
+          "Oportunidades de voluntariado ou estágio em projetos do GoGMI"
+        ]
+      },
+      "associate": {
+        "name": "Associação Associada",
+        "subtitle": "2-7 Anos de Experiência",
+        "description": "Para profissionais em início de carreira (1–5 anos de experiência) que procuram desenvolvimento de competências, visibilidade e networking.",
+        "features": [
+          "Certificado Oficial de Associado",
+          "Convites para conferências, seminários e diálogos políticos do GoGMI",
+          "Acesso com desconto a formações e workshops profissionais",
+          "Acesso a relatórios de investigação, notas e publicações de política",
+          "Programas de desenvolvimento de carreira e sessões de capacitação",
+          "Oportunidades de contribuir para os blogs, resultados de investigação e comités juniores do GoGMI",
+          "Networking com profissionais marítimos regionais e internacionais",
+          "Acesso antecipado a bolsas e chamadas de projetos do GoGMI",
+          "Newsletter Exclusiva para Associados — uma newsletter dedicada com análises de investigação selecionadas, notas de política e anúncio de próximas conferências e eventos",
+          "Representação Institucional — poderá ser selecionado para representar o GoGMI em compromissos nacionais e internacionais, incluindo conferências, workshops e fóruns"
+        ]
+      },
+      "professional": {
+        "name": "Associação Profissional",
+        "subtitle": "7 Anos de Experiência ou Mais",
+        "description": "Para profissionais de nível intermédio que procuram influência, envolvimento político e visibilidade regional.",
+        "features": [
+          "Certificado Oficial de Associado",
+          "Convites prioritários para diálogos políticos e mesas-redondas de especialistas",
+          "Acesso aos resultados de investigação e notas de política do GoGMI",
+          "Acesso com desconto a formações avançadas e conferências",
+          "Oportunidade de moderar sessões ou intervir em eventos do GoGMI",
+          "Oportunidade de orientar jovens licenciados interessados em assuntos marítimos",
+          "Perfil profissional listado no site do GoGMI",
+          "Networking executivo com especialistas e instituições regionais",
+          "Newsletter Exclusiva para Associados — uma newsletter dedicada com análises de investigação selecionadas, notas de política e anúncio de próximas conferências e eventos"
+        ]
+      },
+      "fellow": {
+        "name": "Associação Fellow",
+        "subtitle": "Especialistas Séniores",
+        "description": "Para profissionais séniores e especialistas que contribuem para a investigação marítima, as políticas e a governação.",
+        "features": []
+      }
+    }
+  },
+  "institutional": {
+    "heading": "Associações Institucionais",
+    "benefitsLabel": "Benefícios",
+    "plans": {
+      "institution": {
+        "name": "Associação Institucional",
+        "description": "Para universidades, centros de investigação e think tanks.",
+        "features": [
+          "Certificado Oficial de Associação Institucional",
+          "Acesso aos benefícios de associado do GoGMI para colaboradores e estudantes nomeados",
+          "Programas conjuntos de investigação, formação e capacitação",
+          "Resultados de investigação e publicações de política em coautoria",
+          "Oportunidades de candidaturas conjuntas a subsídios e projetos financiados",
+          "Consideração prioritária para parcerias e programas institucionais",
+          "Visibilidade institucional nas plataformas do GoGMI"
+        ]
+      },
+      "corporate": {
+        "name": "Associação Empresarial",
+        "description": "Para organizações do setor privado que operam nos setores marítimo, logístico, energético, de segurança e afins.",
+        "features": [
+          "Certificado Oficial de Associação Empresarial",
+          "Marca e visibilidade empresarial no site, redes sociais, eventos e publicações do GoGMI",
+          "Convites para eventos consultivos de alto nível e diálogos com partes interessadas",
+          "Acesso a briefings personalizados sobre questões de governação marítima e oceânica",
+          "Networking com parceiros locais, regionais e internacionais",
+          "Oportunidades de alinhar iniciativas de responsabilidade social empresarial (RSE) com os programas do GoGMI"
+        ]
+      },
+      "strategic": {
+        "name": "Parceiro Estratégico",
+        "description": "Para organizações com um alinhamento estratégico de longo prazo com a missão do GoGMI.",
+        "features": []
+      }
+    }
+  },
+  "applyNow": "Candidatar-se Agora",
+  "howToApply": {
+    "heading": "Como Candidatar-se",
+    "steps": [
+      { "title": "Escolha o Seu Plano", "description": "Selecione o nível de associação que melhor se adequa às suas necessidades e objetivos profissionais." },
+      { "title": "Complete a Candidatura", "description": "Preencha o formulário de candidatura online com os seus dados." },
+      { "title": "Pagamento", "description": "Efetue o pagamento de forma segura através do Paystack. A sua conta é criada automaticamente." },
+      { "title": "Bem-vindo a Bordo", "description": "Receba o seu ID de Associado por e-mail e utilize-o para iniciar sessão a qualquer momento." }
+    ]
+  },
+  "brochure": {
+    "heading": "Descarregar Brochura de Associação",
+    "body": "Obtenha informações detalhadas sobre todas as categorias de associação, benefícios e procedimentos de candidatura.",
+    "button": "Descarregar Brochura"
+  },
+  "modal": {
+    "close": "Fechar",
+    "fullNameLabel": "Nome Completo",
+    "fullNamePlaceholder": "Introduza o seu nome completo",
+    "emailLabel": "Endereço de E-mail",
+    "emailPlaceholder": "o.seu.email@exemplo.com",
+    "dobLabel": "Data de Nascimento",
+    "orgOptionalLabel": "Nome da Organização/Instituição",
+    "optional": "(Opcional)",
+    "orgOptionalPlaceholder": "ex.: Universidade do Gana, Autoridade Marítima",
+    "positionLabel": "Cargo/Título",
+    "positionPlaceholder": "O seu cargo atual",
+    "phoneLabel": "Indicativo do País e Número de WhatsApp",
+    "phonePlaceholder": "+233 XX XXX XXXX",
+    "orgNameLabel": "Nome da Organização",
+    "orgNamePlaceholder": "Introduza o nome da organização",
+    "orgEmailLabel": "Endereço de E-mail da Organização",
+    "orgEmailPlaceholder": "org@exemplo.com",
+    "countryLabel": "País",
+    "countryPlaceholder": "ex.: Gana",
+    "cancel": "Cancelar",
+    "processing": "A processar…",
+    "submitApplication": "Submeter Candidatura",
+    "pay": "Pagar"
+  },
+  "alerts": {
+    "fillRequired": "Preencha todos os campos obrigatórios",
+    "enterDob": "Introduza a sua data de nascimento",
+    "fillOrg": "Preencha o nome da organização e o e-mail da organização",
+    "invitationOnly": "Obrigado pelo seu interesse! A nossa equipa entrará em contacto consigo em info@gogmi.org.gh relativamente a este nível de associação.",
+    "paymentLoading": "O sistema de pagamento ainda está a carregar. Aguarde um momento e tente novamente.",
+    "paymentCancelled": "Pagamento cancelado. A janela de pagamento foi fechada.",
+    "paymentInitFailed": "Falha ao iniciar o pagamento. Verifique a sua ligação à internet e tente novamente.",
+    "welcomeSuccess": "Bem-vindo ao GoGMI!\n\nA sua associação foi ativada com sucesso.\n\nID de Associado: {{membershipId}}\nID do Certificado: {{certId}}\n\nUtilize o seu ID de Associado para iniciar sessão a qualquer momento.\nFoi enviado um e-mail de confirmação com os seus dados para {{email}}.\n\nReferência: {{reference}}",
+    "activationFailed": "Pagamento efetuado com sucesso, mas a ativação da associação falhou.\n\nContacte o apoio em info@gogmi.org.gh\nReferência: {{reference}}\n\nErro: {{error}}",
+    "activationError": "Pagamento efetuado com sucesso, mas ocorreu um erro ao ativar a sua associação.\n\nContacte o apoio em info@gogmi.org.gh\nReferência: {{reference}}",
+    "failedToLoadPayment": "Falha ao carregar o sistema de pagamento. Verifique a sua ligação à internet."
+  }
+}

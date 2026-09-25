@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "title": "Advocacia",
+    "subtitle": "Sensibilizamos para a importância crucial do setor marítimo na definição de políticas, no avanço da economia azul e na promoção de uma utilização sustentável do oceano no Golfo da Guiné.",
+    "cta": "Seja Nosso Parceiro"
+  },
+  "campaignsSection": {
+    "eyebrow": "Participe",
+    "heading": "As Nossas Campanhas",
+    "readMore": "Ler Mais"
+  },
+  "campaignStatus": {
+    "active": "Ativa",
+    "completed": "Concluída"
+  },
+  "campaigns": [
+    {
+      "title": "International Maritime Security Working Group",
+      "category": "Segurança Marítima",
+      "description": "O fórum IMSWG é uma plataforma de referência para a partilha de conhecimento e a investigação regional, com uma visão sobre as tendências internacionais.",
+      "deadline": "Contínuo"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Desenvolvimento da Juventude",
+      "description": "A BWI é um programa de literacia oceânica destinado a alunos do ensino básico e secundário, dotando-os do conhecimento e das ferramentas para se tornarem guardiões informados e empenhados do oceano.",
+      "deadline": "Contínuo"
+    },
+    {
+      "title": "Blue Career and Business Expo",
+      "category": "Desenvolvimento da Juventude",
+      "description": "A Blue Career and Business Expo é um programa anual concebido para criar plataformas dinâmicas de intercâmbio de oportunidades que permitem aos jovens interagir com líderes do setor marítimo e contribuir ativamente para a construção de uma economia azul sólida em África.",
+      "deadline": "Evento Anual"
+    },
+    {
+      "title": "Blue World Initiative",
+      "category": "Desenvolvimento da Juventude",
+      "description": "A BWI é um programa de literacia oceânica destinado a alunos do ensino básico e secundário, dotando-os do conhecimento e das ferramentas para se tornarem guardiões informados e empenhados do oceano. O nosso oceano cobre mais de 70% do planeta e desempenha um papel essencial na regulação do clima, no fornecimento de alimentos e recursos e no suporte a uma biodiversidade extraordinária.",
+      "deadline": "2023"
+    }
+  ]
+}

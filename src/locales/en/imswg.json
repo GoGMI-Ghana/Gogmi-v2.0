@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "imageAlt": "IMSWG Forum",
+    "heading1": "INTERNATIONAL MARITIME",
+    "heading2": "SECURITY WORKING GROUP",
+    "subtitle": "Driving policy innovation and dialogue on Gulf of Guinea maritime security",
+    "downloadReports": "Download Reports"
+  },
+  "about": {
+    "eyebrow": "About the Forum",
+    "heading": "About the Working Group",
+    "para1": "The International Maritime Security Working Group (IMSWG), formed by the Gulf of Guinea Maritime Institute, is the Institute's flagship forum focused on stimulating dialogue and policy innovation aimed at addressing maritime security and safety concerns in the Gulf of Guinea (GoG) region.",
+    "para2": "The IMSWG forum is notable as a knowledge exchange and research network on regional issues while keeping an eye on the pulse of international perspectives.",
+    "imageAlt": "Maritime Collaboration",
+    "cards": {
+      "expertNetwork": {
+        "heading": "Expert Network",
+        "desc": "Government, industry, private sector, universities, research institutions and diplomatic community experts in ocean governance"
+      },
+      "regionalFocus": {
+        "heading": "Regional Focus",
+        "desc": "Concentrated on Gulf of Guinea maritime security and safety challenges with international perspectives"
+      },
+      "policyInnovation": {
+        "heading": "Policy Innovation",
+        "desc": "Develops comprehensive reforms and strategy recommendations for maritime safety development"
+      }
+    }
+  },
+  "composition": {
+    "eyebrow": "How We Work",
+    "heading": "Forum Composition",
+    "para1": "Made up of experts from government, industry, private sector, universities, research institutions and diplomatic community in ocean governance practice, the forum occasionally engages in exchanging ideas and making salient recommendations for heads of organizations and policymakers to comprehensively deepen reforms and strategy development, actively promote maritime safety development, and build communal consensus for social and economic prosperity.",
+    "chathamHouse": {
+      "heading": "Chatham House Rule",
+      "desc": "IMSWG is governed by the Chatham House Rule: a rule or principle according to which information disclosed during a meeting may be reported by those present, but the source of that information may not be explicitly or implicitly identified."
+    }
+  },
+  "activities": {
+    "eyebrow": "What We Do",
+    "heading": "Forum Activities",
+    "discussionTopics": {
+      "heading": "Discussion Topics",
+      "desc": "In each forum, members and participants are engaged in in-depth discussions on a wide range of topics under the theme, and offer suggestions for the promotion and development of ocean governance and the sustainable blue economy."
+    },
+    "reports": {
+      "heading": "Reports & Recommendations",
+      "desc": "These discussions are available in reports and recommendations on the Institute's website and serve as a repository for policymakers and institutions working on maritime safety development in the Gulf of Guinea region."
+    },
+    "imageAlt": "Maritime Forum Discussion",
+    "overlayTitle": "Collaborative discussions driving maritime security innovation",
+    "overlaySubtitle": "Bringing together experts from across the maritime ecosystem"
+  },
+  "reportsEvents": {
+    "eyebrow": "Get Involved",
+    "heading": "Reports & Upcoming Events",
+    "signUp": {
+      "heading": "Sign Up",
+      "desc": "Join the IMSWG network and participate in future forums to shape maritime policy",
+      "button": "Express Your Interest"
+    },
+    "report": {
+      "heading": "2020-2026 Report",
+      "desc": "Comprehensive report of forums held from 2020 to 2026 with key insights",
+      "button": "Download Report"
+    },
+    "event": {
+      "heading": "2026 Event",
+      "desc": "View upcoming 2026 forum schedule and event details",
+      "button": "View Details"
+    }
+  },
+  "cta": {
+    "heading": "Join the Conversation",
+    "subtitle": "Be part of the premier forum driving maritime security policy innovation in the Gulf of Guinea",
+    "register": "Register for Next Forum",
+    "download": "Download Reports"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Instituto Marítimo do Golfo da Guiné",
+  "title": "Diretório Blue Business",
+  "subtitle": "O registo de comércio marítimo e serviços profissionais do Golfo da Guiné",
+  "searchPlaceholder": "Pesquisar por nome, serviço ou país…",
+  "scrollLeft": "Deslocar para a esquerda",
+  "scrollRight": "Deslocar para a direita",
+  "categories": {
+    "all": "Todos",
+    "shipping": "Transporte e Logística",
+    "port": "Serviços Portuários",
+    "security": "Segurança Marítima",
+    "engineering": "Engenharia Naval",
+    "legal": "Jurídico e Seguros",
+    "energy": "Energia Offshore",
+    "consulting": "Consultoria",
+    "training": "Formação e Educação"
+  },
+  "listingCount_one": "empresa",
+  "listingCount_other": "empresas",
+  "listYourBusiness": "Registe a sua empresa →",
+  "listYourBusinessSubject": "Diretório Blue Business — Registar a minha empresa",
+  "featured": "Destaque",
+  "allListings": "Todas as Empresas",
+  "empty": {
+    "title": "Nenhuma empresa encontrada",
+    "subtitle": "Tente ajustar a sua pesquisa ou o filtro de categoria"
+  },
+  "footerNote": "Para adicionar ou atualizar uma empresa, contacte",
+  "listings": {
+    "1": { "description": "Autoridade estatal que gere operações de contentores, granel e carga geral nos principais portos do Gana, incluindo Tema e Takoradi." },
+    "2": { "description": "Transporte marítimo regional e transitário de carga no Golfo da Guiné, com serviços programados para 14 portos." },
+    "3": { "description": "Terminal de contentores de águas profundas e principal centro de transbordo ao serviço dos estados sem litoral da África Ocidental." },
+    "4": { "description": "Escritório de direito marítimo especializado em financiamento naval, reclamações de carga, assuntos P&I e processos de almirantado." }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "hero": {
+    "backLink": "Back to Capacity Building",
+    "eyebrow": "Capacity Building · ECOP",
+    "heading1": "Early Career Ocean",
+    "heading2": "Professionals Programme",
+    "subtitle": "A flagship GoGMI initiative equipping young Africans with the knowledge, skills, and networks to build sustainable careers and businesses in Africa's blue economy — under the UN Decade of Ocean Science 2021–2030."
+  },
+  "about": {
+    "eyebrow": "About the Programme",
+    "heading1": "An African Solution",
+    "heading2": "to an African Challenge",
+    "para1": "The Early Career Ocean Professionals (ECOP) Training Programme is a GoGMI initiative under the UN Decade of Ocean Science for Sustainable Development (2021–2030). It addresses a critical gap — the absence of African-led, Africa-focused training that connects young professionals to the continent's vast blue economy potential.",
+    "para2": "Aligned with the African Union's Integrated Maritime Strategy (2050 AIM Strategy) and SDG 14 (Life Below Water), the programme brings together emerging ocean professionals, policymakers, researchers, and entrepreneurs for intensive multi-day training delivered by leading regional and international experts.",
+    "para3": "Two programmes were delivered in 2022 — covering career pathways, ocean governance, blue economy entrepreneurship, and sustainable development across Africa's maritime domain.",
+    "imageAlt": "ECOP Training in session",
+    "yearLaunched": "Year Launched"
+  },
+  "sdg": {
+    "heading": "Grounded in Global Frameworks",
+    "subtitle": "Every aspect of ECOP is designed to align with the most important international commitments for ocean sustainability.",
+    "items": [
+      {
+        "label": "SDG 14 — Life Below Water",
+        "desc": "All programme content is anchored in Sustainable Development Goal 14, focusing on conserving and sustainably using the oceans, seas, and marine resources for sustainable development."
+      },
+      {
+        "label": "African-Led Design",
+        "desc": "Conceptualised and delivered by GoGMI with African realities at the centre — not adapted from foreign curricula but built from the ground up for the continent's ocean professionals."
+      },
+      {
+        "label": "UN Ocean Science Decade",
+        "desc": "ECOP is an official contribution to the UN Decade of Ocean Science for Sustainable Development (2021–2030), supporting the global call to transform ocean science for a sustainable future."
+      }
+    ]
+  },
+  "programmes": {
+    "eyebrow": "Training Programmes",
+    "heading": "Explore the Programmes",
+    "subtitle": "Click on each programme below to expand it and watch the recorded sessions directly on this page.",
+    "fundedBy": "Funded by",
+    "moduleLabel": "Module",
+    "sessionLabel": "Session",
+    "playLabel": "Play {{title}}",
+    "labelII": "Programme II · November 2022",
+    "labelI": "Programme I · March 2022",
+    "programmeII": {
+      "theme": "Youth in Africa's Blue Economy: Developing Sustainable Careers and Businesses",
+      "dates": "8 – 18 November 2022",
+      "modules": [
+        {
+          "title": "Africa's Blue Economy Landscape",
+          "description": "An overview of Africa's blue economy, its opportunities, challenges, and the role of youth in shaping sustainable ocean futures."
+        },
+        {
+          "title": "Career Pathways in the Blue Economy",
+          "description": "Exploring diverse career pathways available to young Africans across maritime industries, fisheries, marine science, ocean governance, and related sectors."
+        },
+        {
+          "title": "Building Sustainable Blue Businesses",
+          "description": "Practical frameworks for developing and sustaining blue economy businesses, including financing, innovation, and entrepreneurship in the ocean economy."
+        }
+      ]
+    },
+    "programmeI": {
+      "theme": "Exploring Pathways to a Vibrant Ocean Economy for Africa",
+      "dates": "14 – 24 March 2022",
+      "sessions": [
+        {
+          "title": "Introduction to the Ocean Economy",
+          "description": "Foundational concepts of the ocean economy and its importance for African nations, including key terminology, frameworks, and the SDG 14 connection."
+        },
+        {
+          "title": "Africa's Maritime Domain and Blue Economy Potential",
+          "description": "Mapping Africa's extensive coastline, exclusive economic zones, and the vast untapped potential across fisheries, tourism, transport, and energy sectors."
+        },
+        {
+          "title": "Maritime Security and Ocean Governance",
+          "description": "Understanding the governance frameworks that underpin ocean security, including UNCLOS, the Lomé Charter, and regional coordination mechanisms."
+        },
+        {
+          "title": "Fisheries and Aquaculture",
+          "description": "Deep dive into sustainable fisheries management, illegal, unreported and unregulated (IUU) fishing, and opportunities in aquaculture across the continent."
+        }
+      ]
+    }
+  },
+  "photoStrip": {
+    "eyebrow": "Programme Highlights",
+    "heading": "From the Training Room",
+    "img1Alt": "ECOP Programme session",
+    "img2Alt": "ECOP Programme participants"
+  },
+  "funders": {
+    "eyebrow": "Supported By",
+    "heading": "Our Partners & Funders",
+    "logoAlts": {
+      "gogmi": "GoGMI",
+      "norad": "Norad",
+      "un": "UN / IOC-UNESCO"
+    }
+  },
+  "cta": {
+    "heading1": "Interested in Future",
+    "heading2": "ECOP Programmes?",
+    "subtitle": "Stay connected with GoGMI to be notified about upcoming ECOP cohorts, application windows, and other capacity building opportunities for young African ocean professionals.",
+    "button": "Get in Touch"
+  }
+}

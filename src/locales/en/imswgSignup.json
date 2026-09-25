@@ -1,0 +1,81 @@
+{
+  "success": {
+    "heading": "Interest Submitted!",
+    "body1": "Thank you for your interest in the International Maritime Security Working Group. We appreciate you sharing your background and areas of interest with us.",
+    "body2": "Our team will review your submission and reach out to you with next steps. Keep an eye on your inbox!",
+    "signature": "GoGMI",
+    "backButton": "Back to IMSWG"
+  },
+  "header": {
+    "backButton": "Back to IMSWG",
+    "title": "Sign Up to our IMSWG Group",
+    "subtitle": "International Maritime Security Working Group"
+  },
+  "intro": "Tell us about yourself and how you'd like to be involved with IMSWG. Whether you want to mentor, speak, collaborate, or simply join our network — we'd love to hear from you.",
+  "errors": {
+    "fullNameRequired": "Full name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Email is invalid",
+    "countryRequired": "Country of residence is required",
+    "positionRequired": "Position/Title is required",
+    "bioRequired": "A brief bio is required",
+    "areasOfInterestRequired": "Please select at least one area of interest",
+    "submissionFailed": "Submission failed",
+    "submitFailedFallback": "Failed to submit. Please try again or contact us at info@gogmi.org.gh",
+    "invalidImageType": "Please upload a JPG, PNG, or WEBP image",
+    "imageTooLarge": "Image must be smaller than 5MB"
+  },
+  "personalInfo": {
+    "heading": "Personal Information",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "John Doe",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "john@example.com",
+    "whatsappLabel": "Country Code Plus WhatsApp Number",
+    "whatsappPlaceholder": "+233 XX XXX XXXX",
+    "countryLabel": "Country of Residence",
+    "countryPlaceholder": "e.g., Ghana"
+  },
+  "professionalInfo": {
+    "heading": "Professional Information",
+    "positionLabel": "Current Professional Position / Title Held",
+    "positionPlaceholder": "e.g., Maritime Security Analyst",
+    "institutionLabel": "Institution / Organisation",
+    "institutionPlaceholder": "e.g., Maritime Authority, Security Firm, etc."
+  },
+  "aboutYou": {
+    "heading": "About You",
+    "bioLabel": "Brief Bio",
+    "bioHelper": "Tell us a little about your background, expertise, and what you bring to the maritime security space. (Max 500 characters)",
+    "bioPlaceholder": "e.g., I am a maritime security professional with over 10 years of experience..."
+  },
+  "interests": {
+    "heading": "Areas of Interest",
+    "helper": "Select all that apply — you can choose more than one.",
+    "options": {
+      "become_mentor": "Become a Mentor",
+      "join_panel": "Join a Panel for Discussions",
+      "speak_events": "Speak at Our Events",
+      "contribute_projects": "Contribute to Our Projects",
+      "support_fundraising": "Support Fundraising Projects",
+      "join_membership": "Join Our Membership",
+      "partner_with_us": "Partner with Us"
+    }
+  },
+  "profilePicture": {
+    "heading": "Profile Picture",
+    "optional": "(Optional)",
+    "helper": "Upload a professional headshot. Accepted formats: JPG, PNG, WEBP. Max size: 5MB.",
+    "uploadPrompt": "Click to upload your photo",
+    "uploadHint": "JPG, PNG or WEBP up to 5MB",
+    "imageReady": "Image ready",
+    "removeTitle": "Remove photo",
+    "previewAlt": "Profile preview"
+  },
+  "optional": "(Optional)",
+  "submit": {
+    "button": "Submit My Interest",
+    "submitting": "Submitting...",
+    "consent": "By submitting this form, you agree to be contacted regarding IMSWG activities and opportunities."
+  }
+}

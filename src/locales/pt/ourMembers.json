@@ -1,0 +1,21 @@
+{
+  "badge": "A Nossa Comunidade",
+  "hero": {
+    "title": "Conheça os profissionais que moldam a governação marítima do Golfo da Guiné",
+    "subtitle": "Os associados do GoGMI abrangem o governo, as marinhas, o meio académico e o setor empresarial, na região e além."
+  },
+  "search": {
+    "placeholder": "Pesquisar por nome, organização ou país"
+  },
+  "cta": "Junte-se a Eles",
+  "errors": {
+    "loadFailed": "Não foi possível carregar os associados.",
+    "connectionFailed": "Não foi possível ligar ao servidor. Tente novamente mais tarde."
+  },
+  "empty": {
+    "noMembers": "Ainda não há associados para mostrar.",
+    "noResults": "Nenhum associado corresponde à sua pesquisa."
+  },
+  "resultsCount_one": "{{count}} associado",
+  "resultsCount_other": "{{count}} associados"
+}

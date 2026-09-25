@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "badge": "Historias visuales",
+    "title": "Galería de medios",
+    "subtitle": "Explore fotos, vídeos, infografías y cobertura de prensa de nuestros eventos, programas e iniciativas en todo el Golfo de Guinea",
+    "imageAlt": "Portada de la galería de medios"
+  },
+  "search": {
+    "placeholder": "Buscar contenido..."
+  },
+  "categories": {
+    "all": "Todos los medios",
+    "photos": "Fotos",
+    "videos": "Vídeos",
+    "infographics": "Infografías",
+    "press": "Prensa"
+  },
+  "noResults": "No se encontraron medios que coincidan con sus criterios",
+  "labels": {
+    "downloads": "descargas",
+    "views": "visualizaciones",
+    "duration": "Duración",
+    "download": "Descargar"
+  },
+  "items": [
+    {
+      "title": "Conferencia Regional sobre Seguridad Marítima 2024",
+      "description": "Más de 200 profesionales marítimos de 15 países se reunieron en Accra para debatir los desafíos de seguridad regional."
+    },
+    {
+      "title": "Lanzamiento del Programa de Mentoría Azul",
+      "description": "Ceremonia de lanzamiento del Programa de Mentoría Azul, que conecta a jóvenes con líderes de la industria marítima."
+    },
+    {
+      "title": "Reunión Anual del IMSWG",
+      "description": "Miembros del Grupo de Trabajo Internacional sobre Seguridad Marítima durante una sesión de planificación estratégica."
+    },
+    {
+      "title": "Foro GoG-MCF/SHADE",
+      "description": "El Foro de Colaboración Marítima del Golfo de Guinea reúne a fuerzas navales y socios de la industria."
+    },
+    {
+      "title": "Taller de Formación Marítima",
+      "description": "Taller de fortalecimiento de capacidades para profesionales de la seguridad marítima de África Occidental."
+    },
+    {
+      "title": "Cumbre de Digitalización Portuaria",
+      "description": "Cumbre regional sobre la transformación digital de las operaciones portuarias y la logística."
+    },
+    {
+      "title": "GoGMI 2024: Resumen del Año",
+      "description": "Los aspectos más destacados de nuestras principales iniciativas, eventos y logros a lo largo del año."
+    },
+    {
+      "title": "Oportunidades de la Economía Azul en África Occidental",
+      "description": "Panel de expertos sobre el desarrollo sostenible de la economía azul en el Golfo de Guinea."
+    },
+    {
+      "title": "Buenas Prácticas en Seguridad Marítima",
+      "description": "Vídeo formativo sobre la implementación de medidas eficaces de seguridad marítima."
+    },
+    {
+      "title": "Estadísticas Marítimas del Golfo de Guinea 2024",
+      "description": "Datos visuales completos sobre volúmenes comerciales, incidentes de seguridad e indicadores económicos."
+    },
+    {
+      "title": "Cadena de Valor de la Economía Azul",
+      "description": "Representación visual de los sectores de la economía azul y sus interconexiones."
+    },
+    {
+      "title": "Mapa de Amenazas a la Seguridad Marítima",
+      "description": "Mapa interactivo que muestra los puntos críticos de seguridad y los mecanismos de respuesta en la región."
+    },
+    {
+      "title": "GoGMI Lanza un Revolucionario Programa de Formación Marítima",
+      "description": "Una nueva iniciativa busca formar a 500 profesionales marítimos en toda África Occidental para 2025."
+    },
+    {
+      "title": "La UE se Asocia con GoGMI en una Iniciativa de Economía Azul",
+      "description": "La Unión Europea anuncia una financiación de 2 millones de euros para un proyecto de desarrollo marítimo sostenible."
+    },
+    {
+      "title": "Informe de GoGMI Destaca el Descenso de la Piratería en el Golfo",
+      "description": "La evaluación de seguridad anual muestra una reducción del 40 % en los incidentes marítimos en la región."
+    }
+  ],
+  "cta": {
+    "title": "¿Quiere compartir su historia?",
+    "subtitle": "Comparta con nosotros sus historias de éxito marítimo, investigaciones o cobertura de eventos",
+    "button": "Enviar su contenido"
+  }
+}

@@ -1,37 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Download } from 'lucide-react';
 
 const BlueWorldInitiative = () => {
-  const oceanConcepts = [
-    {
-      title: 'Ocean',
-      description: 'The vast body of saltwater that covers over 70% of the Earth\'s surface.'
-    },
-    {
-      title: 'Ocean Economy',
-      description: 'The sum total of economic activities that take place in and around the ocean, including fishing, shipping, tourism, and energy production.'
-    },
-    {
-      title: 'Blue Economy',
-      description: 'The sustainable use of ocean resources for economic growth, job creation, and environmental preservation.'
-    },
-    {
-      title: 'Sustainability',
-      description: 'The practice of using resources in a way that does not deplete or damage them for future generations.'
-    },
-    {
-      title: 'Marine Conservation',
-      description: 'The protection and preservation of ocean ecosystems and biodiversity.'
-    },
-    {
-      title: 'Renewable Energy',
-      description: 'Energy that is generated from sources that are replenished naturally, such as wind, solar, and wave power.'
-    },
-    {
-      title: 'Aquaculture',
-      description: 'The farming of aquatic organisms such as fish, shellfish, and seaweed.'
-    }
-  ];
+  const { t } = useTranslation('blueWorldInitiative');
+  const oceanConcepts = t('concepts.items', { returnObjects: true });
 
   const partners = [
     'Eden International School',
@@ -48,7 +21,7 @@ const BlueWorldInitiative = () => {
       <section className="relative h-[600px] overflow-hidden">
         <img 
           src="/BLUE WORLD INITIATIVE.jpg"
-          alt="Blue World Initiative"
+          alt={t('hero.imageAlt')}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#132552]/90"></div>
@@ -60,26 +33,26 @@ const BlueWorldInitiative = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block px-4 py-2 rounded-full mb-6" style={{ backgroundColor: '#8E3400', color: 'white' }}>
-                <span className="font-bold text-sm">Ocean Literacy & Career Development</span>
+                <span className="font-bold text-sm">{t('about.badge')}</span>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                The Blue World Initiative
+                {t('about.heading')}
               </h2>
-              
+
               <p className="text-lg leading-relaxed mb-6 font-semibold" style={{ color: '#4B5563' }}>
-                The Blue World Initiative is a transformative program by GoGMI in partnership with DOTCAN (Development of Ocean Technical Capacity for African Nations), dedicated to inspiring the next generation of ocean leaders and blue economy champions across the Gulf of Guinea.
+                {t('about.para1')}
               </p>
 
               <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
-                Through interactive career fairs, educational resources, and hands-on experiences, we empower young Africans to explore exciting maritime careers while understanding their crucial role in protecting our ocean and building a sustainable blue economy.
+                {t('about.para2')}
               </p>
             </div>
 
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/bwi2.jpg"
-                alt="Blue World Initiative Activities"
+                alt={t('about.imageAlt')}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -92,34 +65,34 @@ const BlueWorldInitiative = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Partnership with DOTCAN
+              {t('dotcan.heading')}
             </h2>
 </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
-              <img 
+              <img
                 src="/DOTCANLOGO.png"
-                alt="DOTCAN Logo"
+                alt={t('dotcan.logoAlt')}
                 className="max-w-md w-full"
               />
             </div>
 
             <div>
               <h3 className="text-2xl font-bold mb-6" style={{ color: '#132552', fontWeight: 700 }}>
-                Development of Ocean Technical Capacity for African Nations
+                {t('dotcan.subheading')}
               </h3>
-              
+
               <p className="text-base leading-relaxed mb-4 font-semibold" style={{ color: '#4B5563' }}>
-                DOTCAN is committed to building ocean technical capacity across African nations through innovative educational programs, research initiatives, and capacity-building workshops.
+                {t('dotcan.para1')}
               </p>
 
               <p className="text-base leading-relaxed mb-4 font-semibold" style={{ color: '#4B5563' }}>
-                Through this strategic partnership, GoGMI and DOTCAN combine expertise in maritime research, policy development, and youth education to create transformative learning experiences that inspire the next generation of ocean leaders.
+                {t('dotcan.para2')}
               </p>
 
               <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
-                Together, we are building a sustainable blue economy across the Gulf of Guinea region through education, innovation, and collaboration.
+                {t('dotcan.para3')}
               </p>
             </div>
           </div>
@@ -131,7 +104,7 @@ const BlueWorldInitiative = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Ocean Career Fair 2023
+              {t('careerFair.heading')}
             </h2>
 </div>
 
@@ -139,27 +112,26 @@ const BlueWorldInitiative = () => {
             <div className="md:col-span-2">
               <div className="bg-white p-8 rounded-xl border-2 border-gray-100 h-full">
                 <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
-                  A Groundbreaking Event
+                  {t('careerFair.eventHeading')}
                 </h3>
                 <p className="text-base leading-relaxed mb-4 font-semibold" style={{ color: '#4B5563' }}>
-                  The Gulf of Guinea Maritime Institute (GoGMI) in partnership with the Development of Technical Capacity for African Nations (DOTCAN) organized a transformative one-day event that brought together students from junior high and secondary schools to interact with key maritime stakeholders.
+                  {t('careerFair.para1')}
                 </p>
                 <p className="text-base leading-relaxed mb-6 font-semibold" style={{ color: '#4B5563' }}>
-                  Through engaging presentations and interactive sessions, students discovered the diverse career opportunities in the maritime sector and learned how they can contribute to ocean conservation and sustainable development.
+                  {t('careerFair.para2')}
                 </p>
 
                 <div className="space-y-3">
-                  <p className="font-bold" style={{ color: '#132552' }}>• Interactive Sessions with Industry Experts</p>
-                  <p className="font-bold" style={{ color: '#132552' }}>• Career Pathway Guidance</p>
-                  <p className="font-bold" style={{ color: '#132552' }}>• Ocean Literacy Education</p>
-                  <p className="font-bold" style={{ color: '#132552' }}>• Hands-on Learning Activities</p>
+                  {t('careerFair.bullets', { returnObjects: true }).map((bullet, idx) => (
+                    <p key={idx} className="font-bold" style={{ color: '#132552' }}>• {bullet}</p>
+                  ))}
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-8 rounded-xl border-2 border-gray-100">
               <h4 className="text-xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
-                Partner Organizations
+                {t('careerFair.partnersHeading')}
               </h4>
               <div className="space-y-3">
                 {partners.map((partner, idx) => (
@@ -173,23 +145,23 @@ const BlueWorldInitiative = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="relative h-80 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/bwi3.jpg"
-                alt="Students at Career Fair"
+                alt={t('careerFair.images.img1')}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="relative h-80 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/bwist1.jpg"
-                alt="Interactive Learning Session"
+                alt={t('careerFair.images.img2')}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="relative h-80 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/bwist2.jpg"
-                alt="Career Fair Activities"
+                alt={t('careerFair.images.img3')}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -202,10 +174,10 @@ const BlueWorldInitiative = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Key Ocean Concepts
+              {t('concepts.heading')}
             </h2>
 <p className="text-lg max-w-3xl mx-auto font-semibold" style={{ color: '#4B5563' }}>
-              Understanding these fundamental concepts is essential for anyone interested in ocean-related careers and the blue economy.
+              {t('concepts.subtitle')}
             </p>
           </div>
 
@@ -229,79 +201,47 @@ const BlueWorldInitiative = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Ocean-Related Career Pathways
+              {t('careers.heading')}
             </h2>
 <p className="text-lg max-w-3xl mx-auto font-semibold" style={{ color: '#4B5563' }}>
-              Discover exciting career opportunities in the blue economy and maritime sector.
+              {t('careers.subtitle')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/bwi4.jpg"
-                alt="Maritime Professionals"
+                alt={t('careers.imageAlt')}
                 className="w-full h-full object-cover"
               />
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-xl border-2 border-gray-100">
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
-                  Science & Research
-                </h3>
-                <ul className="space-y-2">
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Marine Biologist</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Oceanographer</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Environmental Scientist</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Marine Policy Analyst</li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl border-2 border-gray-100">
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
-                  Maritime Operations
-                </h3>
-                <ul className="space-y-2">
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Naval Officer</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Marine Engineer</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Coastal Planner</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Fisheries Manager</li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl border-2 border-gray-100">
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
-                  Blue Economy
-                </h3>
-                <ul className="space-y-2">
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Aquaculture Farmer</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Renewable Energy Engineer</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Ocean Advocate</li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-6 rounded-xl border-2 border-gray-100">
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
-                  Education & Policy
-                </h3>
-                <ul className="space-y-2">
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>Marine Educator</li>
-                  <li className="text-sm font-semibold" style={{ color: '#4B5563' }}>International Lawyer</li>
-                </ul>
-              </div>
+              {['scienceResearch', 'maritimeOperations', 'blueEconomy', 'educationPolicy'].map((cat) => (
+                <div key={cat} className="bg-white p-6 rounded-xl border-2 border-gray-100">
+                  <h3 className="text-xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
+                    {t(`careers.categories.${cat}.heading`)}
+                  </h3>
+                  <ul className="space-y-2">
+                    {t(`careers.categories.${cat}.items`, { returnObjects: true }).map((item, idx) => (
+                      <li key={idx} className="text-sm font-semibold" style={{ color: '#4B5563' }}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="bg-white p-8 rounded-xl border-l-4" style={{ borderColor: '#8E3400' }}>
             <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552', fontWeight: 700 }}>
-              Fun Fact About Blue Careers
+              {t('careers.funFact.heading')}
             </h3>
             <p className="text-lg leading-relaxed font-semibold mb-4" style={{ color: '#4B5563' }}>
-              Did you know that you can play a crucial role in safeguarding the ocean even if you do not wish to work in the careers listed above?
+              {t('careers.funFact.para1')}
             </p>
             <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
-              Accountants and economists can contribute to initiatives on accounting for the Ocean Economy. Doctors, lab technicians and other categories of scientists can learn more about how the release of toxins into the ocean affect human health. Even psychologists can explore the factors that affect the willingness of individuals to adopt sustainable behaviours that safeguard the ocean and its resources. In almost all career fields, you can carve a unique niche for yourself by specialising in a branch of that career that supports the blue economy!
+              {t('careers.funFact.para2')}
             </p>
           </div>
         </div>
@@ -312,34 +252,34 @@ const BlueWorldInitiative = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[600px] rounded-xl overflow-hidden shadow-2xl">
-              <img 
+              <img
                 src="/adventuresbwi.jpg"
-                alt="MAN - Maritime Domain Awareness Comic"
+                alt={t('comic.imageAlt')}
                 className="w-full h-full object-cover"
               />
             </div>
 
             <div>
               <div className="inline-block px-4 py-2 rounded-full mb-6" style={{ backgroundColor: '#8E3400', color: 'white' }}>
-                <span className="font-bold text-sm">Educational Comic Series</span>
+                <span className="font-bold text-sm">{t('comic.badge')}</span>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                MAN: The Adventures of Maritime Domain Awareness
+                {t('comic.heading')}
               </h2>
 
               <p className="text-lg leading-relaxed mb-6 font-semibold" style={{ color: '#4B5563' }}>
-                Engage young minds through exciting storytelling! Our educational comic book series brings maritime concepts to life through the adventures of MAN and his team as they protect the ocean and promote maritime domain awareness.
+                {t('comic.para1')}
               </p>
 
               <p className="text-base leading-relaxed mb-8 font-semibold" style={{ color: '#4B5563' }}>
-                Through vibrant illustrations and compelling narratives, students learn about ocean conservation, maritime security, and the importance of protecting our blue planet – all while being entertained by action-packed adventures.
+                {t('comic.para2')}
               </p>
 
               <div className="space-y-3">
-                <p className="font-bold" style={{ color: '#132552' }}>• Educational & Entertaining</p>
-                <p className="font-bold" style={{ color: '#132552' }}>• Culturally Relevant Stories</p>
-                <p className="font-bold" style={{ color: '#132552' }}>• Inspiring Ocean Stewardship</p>
+                {t('comic.bullets', { returnObjects: true }).map((bullet, idx) => (
+                  <p key={idx} className="font-bold" style={{ color: '#132552' }}>• {bullet}</p>
+                ))}
               </div>
             </div>
           </div>
@@ -351,22 +291,22 @@ const BlueWorldInitiative = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Initiative in Action
+              {t('gallery.heading')}
             </h2>
 </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/bwist4.jpg"
-                alt="Student Engagement"
+                alt={t('gallery.img1Alt')}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-              <img 
+              <img
                 src="/bwi1.jpg"
-                alt="Learning Activities"
+                alt={t('gallery.img2Alt')}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -378,10 +318,10 @@ const BlueWorldInitiative = () => {
       <section className="py-20" style={{ backgroundColor: '#132552' }}>
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Download Resources
+            {t('resourcesSection.heading')}
           </h2>
           <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto font-semibold">
-            Access our Blue Career Fair Handbook and other educational materials to learn more about ocean careers and the blue economy.
+            {t('resourcesSection.subtitle')}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -390,12 +330,12 @@ const BlueWorldInitiative = () => {
                 <Download className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3" style={{ color: '#132552', fontWeight: 700 }}>
-                Blue Career Fair Handbook
+                {t('resourcesSection.handbook.heading')}
               </h3>
               <p className="text-sm mb-6 font-semibold" style={{ color: '#4B5563' }}>
-                Complete guide with ocean definitions, career pathways, and industry insights.
+                {t('resourcesSection.handbook.desc')}
               </p>
-              <button 
+              <button
                 onClick={() => {
                   const link = document.createElement('a');
                   link.href = '/bluecareerfair.handbook.pdf';
@@ -407,7 +347,7 @@ const BlueWorldInitiative = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
               >
-                Download Handbook
+                {t('resourcesSection.handbook.download')}
               </button>
             </div>
 
@@ -416,12 +356,12 @@ const BlueWorldInitiative = () => {
                 <span className="text-white text-2xl font-bold">?</span>
               </div>
               <h3 className="text-2xl font-bold mb-3" style={{ color: '#132552', fontWeight: 700 }}>
-                Get Involved
+                {t('resourcesSection.getInvolved.heading')}
               </h3>
               <p className="text-sm mb-6 font-semibold" style={{ color: '#4B5563' }}>
-                Want to participate in future Blue World Initiative events? Contact us to learn more.
+                {t('resourcesSection.getInvolved.desc')}
               </p>
-              <button 
+              <button
                 onClick={() => window.location.href = '/contact'}
                 className="px-8 py-3 rounded-lg font-bold transition-all border-2"
                 style={{ borderColor: '#132552', color: '#132552', fontWeight: 700 }}
@@ -434,7 +374,7 @@ const BlueWorldInitiative = () => {
                   e.currentTarget.style.color = '#132552';
                 }}
               >
-                Contact Us
+                {t('resourcesSection.getInvolved.button')}
               </button>
             </div>
           </div>

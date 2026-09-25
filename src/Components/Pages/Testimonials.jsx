@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Play, X, Quote, Download, FileText } from 'lucide-react';
-
-const FILTERS = [
-  { id: 'all', label: 'All' },
-  { id: 'organization', label: 'Organisations' },
-  { id: 'individual', label: 'Individuals' },
-  { id: 'video', label: 'Videos' },
-];
 
 const TESTIMONIALS = [
   {
@@ -14,12 +8,9 @@ const TESTIMONIALS = [
     type: 'organization',
     format: 'letter',
     name: 'Atlantic Centre',
-    role: 'Atlantic Centre Coordinator',
     signatory: 'Rear Admiral Nuno de Noronha Bragança',
-    country: 'Lisbon, Portugal',
     date: 'April 21, 2026',
     logo: '/AtlanticCenter.webp',
-    excerpt: 'The Atlantic Centre is proud of our partnership with GoGMI. Since our foundation that we have been trailing a path towards increased cooperation, knowledge sharing and mutual growth between both institutions. We are proud to attest, as partners, the recent development of GoGMI. Since its establishment, GoGMI has been a pivotal institution in the Gulf of Guinea, researching and training civil society, governments and military on grey zone topics within the overarching area of Maritime Security.',
     downloadUrl: '/resources/pdfs/TestimonialAtlantic.pdf',
     featured: true,
   },
@@ -28,12 +19,9 @@ const TESTIMONIALS = [
   type: 'organization',
   format: 'letter',
   name: 'EnMAR',
-  role: 'EnMAR Project, Expertise France (EU-funded)',
   signatory: 'Marie GIBRAT',
-  country: 'Brussels, Belgium',
   date: 'May 12, 2026',
   logo: '/Enmar.png',
-  excerpt: 'The EnMAR project has had the pleasure of developing a close partnership with GoGMI. Through this partnership, GoGMI has produced various maritime security analyses, in-depth analytical briefs, and organised a 3-day training for journalists and media practitioners on maritime security, safety, and blue economy in the Gulf of Guinea. From EnMAR\'s perspective, GoGMI represents an important regional actor in advancing maritime knowledge and a constructive partner for capacity building. The EnMAR project fully supports the nomination of GoGMI for the African Excellence Award.',
   downloadUrl: '/resources/pdfs/enmarletter.pdf',
   featured: true,
 },
@@ -42,12 +30,9 @@ const TESTIMONIALS = [
     type: 'organization',
     format: 'video',
     name: 'DOTCAN Institute',
-    role: 'Canada Research Chair in Ocean Science and Technology, Dalhousie University',
     signatory: 'Dr. Douglas Wallace',
-    country: 'Halifax, Canada',
     date: 'April 2026',
     logo: '/DOTCANLOGO.png',
-    excerpt: 'GoGMI is highly deserving of its nomination and the award. For DOTCAN, GoGMI has been much more than a collaborator — they are our oldest and most trusted partners since our inception, and they\'ve helped guide our own organisation\'s development and programs. They have an unwavering commitment to Africa\'s maritime future.',
     videoUrl: 'https://drive.google.com/file/d/1Uh_biTMvKIwyUyxhmMWz0tf7KDvsN_QJ/preview',
     thumbnail: null,
     downloadUrl: null,
@@ -97,13 +82,21 @@ const TESTIMONIALS = [
 ];
 
 const Testimonials = () => {
+  const { t } = useTranslation('testimonials');
   const [activeFilter, setActiveFilter] = useState('all');
   const [videoModal, setVideoModal] = useState(null);
 
-  const filtered = TESTIMONIALS.filter(t => {
+  const FILTERS = [
+    { id: 'all', label: t('filters.all') },
+    { id: 'organization', label: t('filters.organization') },
+    { id: 'individual', label: t('filters.individual') },
+    { id: 'video', label: t('filters.video') },
+  ];
+
+  const filtered = TESTIMONIALS.filter(item => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'video') return t.format === 'video';
-    return t.type === activeFilter;
+    if (activeFilter === 'video') return item.format === 'video';
+    return item.type === activeFilter;
   });
 
   return (
@@ -113,13 +106,13 @@ const Testimonials = () => {
       <div style={{ backgroundColor: '#132552', borderBottom: '4px solid #8E3400' }} className="pt-28 pb-14 px-6">
         <div className="max-w-4xl mx-auto">
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#93C5FD', textTransform: 'uppercase', marginBottom: '10px' }}>
-            Gulf of Guinea Maritime Institute
+            {t('hero.eyebrow')}
           </p>
           <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '12px' }}>
-            Voices of GoGMI
+            {t('hero.title')}
           </h1>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 400, color: 'rgba(255,255,255,0.6)', maxWidth: '500px' }}>
-            What partners, institutions and professionals say about our work.
+            {t('hero.subtitle')}
           </p>
         </div>
       </div>
@@ -158,15 +151,15 @@ const Testimonials = () => {
       {/* Listings */}
       <div className="max-w-4xl mx-auto px-6 py-10">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {filtered.map(t => (
-            <TestimonialCard key={t.id} t={t} onPlay={setVideoModal} />
+          {filtered.map(item => (
+            <TestimonialCard key={item.id} t={item} onPlay={setVideoModal} tr={t} />
           ))}
         </div>
 
         {filtered.length === 0 && (
           <div style={{ textAlign: 'center', padding: '80px 0' }}>
             <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '18px', fontWeight: 700, color: '#132552' }}>
-              No testimonials in this category yet.
+              {t('empty')}
             </p>
           </div>
         )}
@@ -174,10 +167,10 @@ const Testimonials = () => {
         {/* Submit CTA */}
         <div style={{ marginTop: '52px', padding: '32px', backgroundColor: '#132552', borderRadius: '8px', textAlign: 'center' }}>
           <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '18px', fontWeight: 700, color: 'white', marginBottom: '6px' }}>
-            Share Your Experience
+            {t('cta.heading')}
           </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: 'rgba(255,255,255,0.6)', marginBottom: '18px' }}>
-            Have you worked with GoGMI? We'd love to hear from you.
+            {t('cta.body')}
           </p>
           <a
             href="mailto:info@gogmi.org.gh?subject=My GoGMI Testimonial"
@@ -193,7 +186,7 @@ const Testimonials = () => {
               textDecoration: 'none',
             }}
           >
-            Send Your Testimonial →
+            {t('cta.button')}
           </a>
         </div>
       </div>
@@ -214,12 +207,12 @@ const Testimonials = () => {
               onClick={() => setVideoModal(null)}
               style={{ position: 'absolute', top: '-40px', right: 0, background: 'none', border: 'none', cursor: 'pointer', color: 'white', display: 'flex', alignItems: 'center', gap: '6px', fontFamily: "'Inter', sans-serif", fontSize: '13px' }}
             >
-              <X style={{ width: '16px', height: '16px' }} /> Close
+              <X style={{ width: '16px', height: '16px' }} /> {t('videoModal.close')}
             </button>
             <div style={{ paddingBottom: '56.25%', position: 'relative', borderRadius: '8px', overflow: 'hidden' }}>
               <iframe
                 src={videoModal}
-                title="Testimonial video"
+                title={t('videoModal.title')}
                 allow="autoplay; fullscreen"
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
               />
@@ -231,9 +224,12 @@ const Testimonials = () => {
   );
 };
 
-const TestimonialCard = ({ t, onPlay }) => {
+const TestimonialCard = ({ t, onPlay, tr }) => {
   const isVideo = t.format === 'video';
   const isLetter = t.format === 'letter';
+  const role = tr(`items.${t.id}.role`);
+  const country = tr(`items.${t.id}.country`);
+  const excerpt = tr(`items.${t.id}.excerpt`);
 
   return (
     <div style={{
@@ -268,7 +264,7 @@ const TestimonialCard = ({ t, onPlay }) => {
               {t.name}
             </p>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#6B7280', margin: 0 }}>
-              {t.role} · {t.country}
+              {role} · {country}
             </p>
             {t.signatory && (
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#9CA3AF', margin: 0, marginTop: '2px' }}>
@@ -281,7 +277,7 @@ const TestimonialCard = ({ t, onPlay }) => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           {t.featured && (
             <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600, backgroundColor: '#8E3400', color: 'white', padding: '2px 8px', borderRadius: '3px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Featured
+              {tr('badges.featured')}
             </span>
           )}
           <span style={{
@@ -291,7 +287,7 @@ const TestimonialCard = ({ t, onPlay }) => {
             padding: '2px 8px', borderRadius: '3px',
             textTransform: 'uppercase', letterSpacing: '0.05em',
           }}>
-            {isVideo ? 'Video' : isLetter ? 'Letter' : 'Testimonial'}
+            {isVideo ? tr('badges.video') : isLetter ? tr('badges.letter') : tr('badges.testimonial')}
           </span>
         </div>
       </div>
@@ -303,7 +299,7 @@ const TestimonialCard = ({ t, onPlay }) => {
 
       {/* Excerpt */}
       <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#374151', lineHeight: 1.75, marginBottom: '16px' }}>
-        "{t.excerpt}"
+        "{excerpt}"
       </p>
 
       {/* Video watch button */}
@@ -323,7 +319,7 @@ const TestimonialCard = ({ t, onPlay }) => {
             onMouseLeave={e => e.currentTarget.style.backgroundColor = '#132552'}
           >
             <Play style={{ width: '13px', height: '13px' }} />
-            Watch Video
+            {tr('card.watchVideo')}
           </button>
         </div>
       )}
@@ -333,8 +329,8 @@ const TestimonialCard = ({ t, onPlay }) => {
         <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #E5E7EB', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#9CA3AF', margin: 0 }}>
             <FileText style={{ width: '12px', height: '12px', display: 'inline', marginRight: '4px', verticalAlign: 'middle' }} />
-            Full letter available · {t.date}
-            {t.signatory && <> · Signed by {t.signatory}</>}
+            {tr('card.fullLetterAvailable')} · {t.date}
+            {t.signatory && <> · {tr('card.signedBy')} {t.signatory}</>}
           </p>
           <a
             href={t.downloadUrl}
@@ -351,7 +347,7 @@ const TestimonialCard = ({ t, onPlay }) => {
             onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#132552'; }}
           >
             <Download style={{ width: '13px', height: '13px' }} />
-            Download Letter
+            {tr('card.downloadLetter')}
           </a>
         </div>
       )}

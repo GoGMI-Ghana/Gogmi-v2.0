@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "backToBlog": "Voltar a Notícias e Blog",
+    "openOriginal": "Abrir original"
+  },
+  "loading": "A carregar boletim…",
+  "badge": "Boletim Informativo",
+  "errors": {
+    "notFound": "Boletim não encontrado",
+    "loadFailed": "Não foi possível carregar este boletim. Tente novamente.",
+    "backToBlog": "Voltar ao Blog"
+  },
+  "fallback": {
+    "title": "Não foi possível carregar o conteúdo em linha.",
+    "subtitle": "Este boletim poderá ainda não ter uma versão web pública.",
+    "readOnHubspot": "Ler no HubSpot"
+  }
+}

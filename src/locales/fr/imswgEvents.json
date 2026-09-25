@@ -1,0 +1,131 @@
+{
+  "hero": {
+    "imageAlt": "Forum IMSWG",
+    "backButton": "Retour à l'IMSWG",
+    "quarterBadge": "Forum du Troisième Trimestre — 2026",
+    "title": "Les Implications de l'Accord BBNJ pour le Golfe de Guinée",
+    "subtitle": "Réunion d'Experts de Haut Niveau du Groupe de Travail International sur la Sûreté Maritime (IMSWG), 2026",
+    "date": "16 septembre 2026",
+    "time": "13h00 – 15h00 GMT",
+    "format": "Virtuel",
+    "registrationClosed": "Inscriptions Closes"
+  },
+  "executiveSummary": {
+    "eyebrow": "À Propos de ce Forum",
+    "heading": "Résumé Exécutif",
+    "para1": "L'IMSWG organisera une session visant à aligner praticiens, décideurs politiques et chercheurs sur les implications de l'entrée en vigueur de l'Accord BBNJ pour le golfe de Guinée. Le dialogue fera le lien entre science, politique et gouvernance des océans, conformément à la CNUDM et aux dispositions de l'Accord BBNJ relatives aux ressources génétiques marines, aux outils de gestion par zone, aux évaluations d'impact environnemental, ainsi qu'au renforcement des capacités et au transfert de technologie.",
+    "para2": "Les résultats immédiats comprendront un compte rendu de la réunion et un rapport de l'IMSWG publié.",
+    "flyerAlt": "Affiche du forum IMSWG du troisième trimestre 2026",
+    "badgeLine": "Forum T3 2026",
+    "highlights": [
+      {
+        "title": "Dialogue Politique",
+        "description": "Réflexion d'experts et discussion critique sur la gouvernance des océans et l'Accord BBNJ"
+      },
+      {
+        "title": "Multi-Parties Prenantes",
+        "description": "Praticiens, décideurs politiques, chercheurs et parties prenantes régionales"
+      },
+      {
+        "title": "Focus Régional",
+        "description": "Gouvernance maritime du golfe de Guinée et mise en œuvre de l'Accord BBNJ"
+      },
+      {
+        "title": "Règle de Chatham House",
+        "description": "Discussion ouverte selon les principes de confidentialité de Chatham House"
+      }
+    ]
+  },
+  "background": {
+    "heading": "Contexte",
+    "para1": "L'Accord relatif à la Convention des Nations Unies sur le droit de la mer sur la conservation et l'utilisation durable de la biodiversité marine des zones ne relevant pas de la juridiction nationale (Accord BBNJ) a été adopté le 19 juin 2023. Le soixantième instrument de ratification a été déposé le 19 septembre 2025, déclenchant l'entrée en vigueur 120 jours plus tard, le 17 janvier 2026. Au moment de son entrée en vigueur, l'Accord comptait 83 parties et 145 signataires, établissant un cadre juridiquement contraignant couvrant les ressources génétiques marines et le partage des avantages, les outils de gestion par zone y compris les aires marines protégées, les évaluations d'impact environnemental, ainsi que le renforcement des capacités et le transfert de technologie.",
+    "para2": "Le Ghana a déposé son instrument de ratification le 14 janvier 2026, et l'Accord est entré en vigueur pour le Ghana le 13 février 2026. En juillet 2026, le ministère de l'Environnement, de la Science et de la Technologie, en partenariat avec le Programme des Nations Unies pour le développement et avec le soutien financier du Fonds pour l'environnement mondial, a lancé le projet d'Activités habilitantes pour la biodiversité au-delà des zones de juridiction nationale lors d'une réunion de lancement à Accra. La troisième et dernière session de la Commission préparatoire s'est tenue du 23 mars au 2 avril 2026 au siège des Nations Unies à New York, se concluant par un rapport de recommandations devant être transmis à la première Conférence des Parties, prévue du 11 au 22 janvier 2027."
+  },
+  "objectives": {
+    "eyebrow": "Ce Que Nous Visons à Accomplir",
+    "heading": "Objectifs",
+    "subtitle": "Organiser une session de haut niveau de l'IMSWG qui aligne décideurs politiques, praticiens et chercheurs sur les dispositions, opportunités et exigences de gouvernance de l'Accord BBNJ pour le golfe de Guinée, et définir des voies concrètes d'engagement régional avant la première Conférence des Parties.",
+    "items": [
+      "Établir une compréhension commune de ce que signifie l'Accord BBNJ pour le golfe de Guinée, étant donné qu'il régit la haute mer plutôt que les eaux nationales, et comment ses effets atteignent néanmoins la région indirectement, par le biais des répercussions des zones protégées et des évaluations environnementales, ainsi que du partage des avantages tirés des ressources génétiques marines.",
+      "Évaluer les implications en matière de sécurité maritime et d'application des lois des outils de gestion par zone et des obligations de surveillance de l'Accord, y compris la capacité de surveillance, de contrôle et d'application requise des marines et gardes-côtes régionaux à la frontière de la zone économique exclusive et des zones ne relevant pas de la juridiction nationale, ainsi que les liens avec la pêche illicite, non déclarée et non réglementée.",
+      "Identifier les besoins en renforcement des capacités et en transfert de technologie pour la mise en œuvre régionale, en s'appuyant sur l'expérience du Ghana avec le projet d'Activités habilitantes pour la biodiversité au-delà des zones de juridiction nationale.",
+      "Approuver un plan de publication, un rapport de l'IMSWG attribué à l'expert présentateur, et identifier les activités prioritaires de recherche ou de plaidoyer à mener par la suite."
+    ]
+  },
+  "topics": {
+    "eyebrow": "Thèmes de Discussion",
+    "heading": "Sujets de Discussion",
+    "subtitle": "Les discussions s'articuleront autour des domaines thématiques suivants",
+    "topicLabel": "Sujet",
+    "items": [
+      {
+        "title": "Pertinence du BBNJ pour une Région à Dominante Côtière",
+        "description": "Impacts transfrontaliers des outils de gestion par zone et des évaluations d'impact environnemental sur les eaux nationales, et éligibilité au partage des avantages des ressources génétiques marines."
+      },
+      {
+        "title": "Implications en Matière de Sécurité Maritime et d'Application des Lois",
+        "description": "Exigences de surveillance et de contrôle à la frontière de la zone économique exclusive et des zones ne relevant pas de la juridiction nationale, et liens avec la pêche illicite, non déclarée et non réglementée."
+      },
+      {
+        "title": "Renforcement des Capacités et Transfert de Technologie",
+        "description": "Besoins des marines, gardes-côtes et agences maritimes de la région disposant de ressources limitées, en s'appuyant sur l'expérience du Ghana avec le projet d'Activités habilitantes pour la biodiversité au-delà des zones de juridiction nationale."
+      },
+      {
+        "title": "Voies vers la Première Conférence des Parties",
+        "description": "Comment les États du golfe de Guinée peuvent s'engager dans le processus préparatoire vers la première Conférence des Parties, prévue du 11 au 22 janvier 2027."
+      }
+    ]
+  },
+  "format": {
+    "eyebrow": "Réunion de 2 Heures",
+    "heading": "Format et Programme",
+    "agenda": [
+      { "time": "13h00 – 13h05", "activity": "Mot de bienvenue, objectifs, principes de fonctionnement" },
+      { "time": "13h05 – 13h20", "activity": "Allocution d'ouverture" },
+      { "time": "13h20 – 13h45", "activity": "Segment 1 : L'Accord BBNJ — dispositions et implications pour la gouvernance des océans dans le golfe de Guinée" },
+      { "time": "13h45 – 14h10", "activity": "Segment 2 : Renforcement des capacités, transfert de technologie et positionnement régional avant la première Conférence des Parties" },
+      { "time": "14h10 – 14h45", "activity": "Session interactive" },
+      { "time": "14h45 – 15h00", "activity": "Résumé de clôture et confirmation du processus de rapport" }
+    ]
+  },
+  "stakeholders": {
+    "heading": "Parties Prenantes et Participants",
+    "cardHeading": "Qui Devrait Participer",
+    "items": [
+      "Membres de l'IMSWG hébergé par le GoGMI",
+      "Hauts représentants des marines et des gardes-côtes",
+      "Agences des pêches et de l'environnement marin",
+      "Administrations et régulateurs maritimes",
+      "Ministère de l'Environnement, de la Science et de la Technologie et équipe du PNUD mettant en œuvre les Activités habilitantes pour le projet BBNJ",
+      "Fonctionnaires impliqués dans la gouvernance des océans issus des ministères concernés",
+      "Milieu universitaire et institutions de recherche",
+      "Organisations régionales et internationales",
+      "Partenaires au développement",
+      "Groupes de réflexion et organisations non gouvernementales"
+    ]
+  },
+  "outcomes": {
+    "eyebrow": "Ce que Produira Cette Réunion",
+    "heading": "Résultats Attendus",
+    "items": [
+      "Compréhension commune des implications de l'Accord BBNJ pour la gouvernance maritime du golfe de Guinée",
+      "Une évaluation des besoins en renforcement des capacités et en transfert de technologie pertinents pour la mise en œuvre régionale",
+      "Identification des liens entre les dispositions du BBNJ et les cadres régionaux existants de sécurité maritime et de gouvernance environnementale",
+      "Domaines prioritaires pour la recherche, le renforcement des capacités ou les activités de plaidoyer à mener par la suite",
+      "Un compte rendu de la réunion et un rapport de l'IMSWG publié",
+      "Un plan de publication validé, avec un expert présentateur désigné et un calendrier de remise"
+    ]
+  },
+  "conclusion": {
+    "heading": "Conclusion",
+    "para1": "L'entrée en vigueur de l'Accord BBNJ marque une nouvelle phase dans la gouvernance des océans, avec une pertinence directe pour la sécurité maritime et les programmes d'économie bleue du golfe de Guinée. Un engagement régional efficace nécessitera une compréhension claire des dispositions de l'Accord, l'identification des lacunes en matière de capacités et une préparation coordonnée avant la première Conférence des Parties.",
+    "para2": "En examinant ces implications à ce stade, l'IMSWG et ses partenaires peuvent soutenir un positionnement régional éclairé, renforcer les capacités de gouvernance des océans et contribuer à des résultats durables pour l'économie bleue du golfe de Guinée."
+  },
+  "ctaSection": {
+    "heading": "Rejoignez la Discussion",
+    "dateLine": "16 septembre 2026 — 13h00 – 15h00 GMT",
+    "formatLine": "Réunion Virtuelle — Ce forum s'est achevé",
+    "registrationClosed": "Inscriptions Closes",
+    "sponsorship": "Pour le parrainage et les demandes de renseignements :"
+  }
+}

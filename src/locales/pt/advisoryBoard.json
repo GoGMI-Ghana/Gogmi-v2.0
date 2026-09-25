@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "badge": "Liderança",
+    "title": "Conselho Consultivo",
+    "subtitle": "Especialistas de renome que oferecem orientação estratégica e liderança de pensamento para promover a excelência marítima no Golfo da Guiné"
+  },
+  "section": {
+    "heading": "Membros do Conselho Consultivo"
+  },
+  "chair": {
+    "imageAlt": "Presidente do Conselho Consultivo",
+    "flagAlt": "Bandeira do Gana",
+    "role": "Antigo Chefe do Estado-Maior da Força Aérea do Gana",
+    "badge": "Presidente do Conselho Consultivo",
+    "aboutHeading": "Sobre o Presidente do Conselho Consultivo",
+    "bio": [
+      "O AVM Frank Hanson foi Chefe do Estado-Maior da Força Aérea do Gana entre janeiro de 2019 e janeiro de 2023. É detentor de um Mestrado em Estudos Estratégicos com especialização em Grande Estratégia e, como pacificador dedicado, serviu junto das Nações Unidas e da União Africana como planificador estratégico militar e de aviação.",
+      "É especialista em segurança nacional e internacional, além de instrutor militar de aviação altamente experiente e perspicaz. O AVM Hanson trabalhou com os principais fabricantes de aeronaves no desenvolvimento do conceito de \"porta-aviões estático\" para o Apoio Aéreo Tático a Operações Marítimas (TASMO), bem como para operações offshore de forças especiais. Durante o seu mandato à frente da Força Aérea do Gana, promoveu uma interoperabilidade abrangente entre a Marinha do Gana e a Força Aérea do Gana. Participou ainda em várias missões da UA e da ONU por todo o continente, integrando a equipa consultiva que trabalhou na Estratégia Marítima Integrada Nacional do Gana.",
+      "É antigo aluno da Universidade de Harvard, da US Air University, do US Air War College, do Command and Staff College do Gana e do Command Staff College da Nigéria, trazendo ao Instituto mais de 30 anos de experiência e um profundo conhecimento de diplomacia, de assuntos geopolíticos globais, de aviação, de segurança nacional e de liderança estratégica."
+    ]
+  },
+  "grid": {
+    "imageFallback": "Imagem",
+    "members": [
+      {
+        "role": "Antigo Comissário da Comissão da União Africana para o Direito Internacional e Relator Especial da UA para a Pirataria e a Segurança Marítima",
+        "flagAlt": "Bandeira do Gana"
+      },
+      {
+        "role": "Antigo Chefe de Formação e Operações da Marinha da Nigéria, e Copresidente pioneiro do GoG-SHADE",
+        "flagAlt": "Bandeira da Nigéria"
+      },
+      {
+        "role": "Prof. Jeffrey Landsman, antigo Capitão da Marinha dos EUA e Professor Associado do U.S. Naval War College",
+        "flagAlt": "Bandeira dos Estados Unidos"
+      },
+      {
+        "role": "Antigo Conselheiro de Defesa do Gana junto da Nigéria",
+        "flagAlt": "Bandeira do Gana"
+      }
+    ]
+  }
+}

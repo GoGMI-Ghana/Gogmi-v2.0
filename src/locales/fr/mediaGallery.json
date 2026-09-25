@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "badge": "Récits en images",
+    "title": "Galerie médias",
+    "subtitle": "Découvrez des photos, vidéos, infographies et articles de presse issus de nos événements, programmes et initiatives à travers le Golfe de Guinée",
+    "imageAlt": "Bannière de la galerie médias"
+  },
+  "search": {
+    "placeholder": "Rechercher un média..."
+  },
+  "categories": {
+    "all": "Tous les médias",
+    "photos": "Photos",
+    "videos": "Vidéos",
+    "infographics": "Infographies",
+    "press": "Presse"
+  },
+  "noResults": "Aucun média ne correspond à vos critères",
+  "labels": {
+    "downloads": "téléchargements",
+    "views": "vues",
+    "duration": "Durée",
+    "download": "Télécharger"
+  },
+  "items": [
+    {
+      "title": "Conférence régionale sur la sécurité maritime 2024",
+      "description": "Plus de 200 professionnels du secteur maritime venus de 15 pays se sont réunis à Accra pour discuter des enjeux de sécurité régionale."
+    },
+    {
+      "title": "Lancement du programme de mentorat bleu",
+      "description": "Cérémonie de lancement du programme de mentorat bleu, qui met en relation les jeunes avec des dirigeants de l'industrie maritime."
+    },
+    {
+      "title": "Réunion annuelle de l'IMSWG",
+      "description": "Les membres du Groupe de travail international sur la sécurité maritime lors d'une séance de planification stratégique."
+    },
+    {
+      "title": "Forum GoG-MCF/SHADE",
+      "description": "Le Forum de collaboration maritime du Golfe de Guinée réunit forces navales et partenaires de l'industrie."
+    },
+    {
+      "title": "Atelier de formation maritime",
+      "description": "Atelier de renforcement des capacités destiné aux professionnels de la sécurité maritime d'Afrique de l'Ouest."
+    },
+    {
+      "title": "Sommet sur la digitalisation portuaire",
+      "description": "Sommet régional sur la transformation numérique des opérations portuaires et de la logistique."
+    },
+    {
+      "title": "GoGMI - Bilan de l'année 2024",
+      "description": "Les temps forts de nos principales initiatives, événements et réalisations tout au long de l'année."
+    },
+    {
+      "title": "Opportunités de l'économie bleue en Afrique de l'Ouest",
+      "description": "Table ronde d'experts sur le développement durable de l'économie bleue dans le Golfe de Guinée."
+    },
+    {
+      "title": "Bonnes pratiques en matière de sécurité maritime",
+      "description": "Vidéo de formation sur la mise en œuvre de mesures efficaces de sécurité maritime."
+    },
+    {
+      "title": "Statistiques maritimes du Golfe de Guinée 2024",
+      "description": "Données visuelles complètes sur les volumes d'échanges, les incidents de sécurité et les indicateurs économiques."
+    },
+    {
+      "title": "Chaîne de valeur de l'économie bleue",
+      "description": "Représentation visuelle des secteurs de l'économie bleue et de leurs interconnexions."
+    },
+    {
+      "title": "Carte des menaces à la sécurité maritime",
+      "description": "Carte interactive présentant les points chauds sécuritaires et les mécanismes de réponse dans la région."
+    },
+    {
+      "title": "GoGMI lance un programme de formation maritime novateur",
+      "description": "Une nouvelle initiative vise à former 500 professionnels du secteur maritime à travers l'Afrique de l'Ouest d'ici 2025."
+    },
+    {
+      "title": "L'Union européenne s'associe à GoGMI pour une initiative sur l'économie bleue",
+      "description": "L'Union européenne annonce un financement de 2 millions d'euros pour un projet de développement maritime durable."
+    },
+    {
+      "title": "Un rapport de GoGMI souligne le recul de la piraterie dans le Golfe",
+      "description": "L'évaluation sécuritaire annuelle montre une réduction de 40 % des incidents maritimes dans la région."
+    }
+  ],
+  "cta": {
+    "title": "Envie de partager votre histoire ?",
+    "subtitle": "Partagez avec nous vos réussites maritimes, vos recherches ou la couverture de vos événements",
+    "button": "Soumettre votre contenu"
+  }
+}

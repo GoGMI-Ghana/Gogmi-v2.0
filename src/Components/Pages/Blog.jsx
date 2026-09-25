@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Calendar, User, ArrowRight, Search, Loader2, Mail } from 'lucide-react';
 
 const API_URL = 'https://api.gogmi.org.gh/api';
 const LIMIT = 12;
 
 const Blog = () => {
+  const { t } = useTranslation('blog');
   const [tab, setTab] = useState('blog'); // 'blog' | 'newsletter'
 
   // Blog state
@@ -40,10 +42,10 @@ const Blog = () => {
         setPostsHasMore(data.data.hasMore);
         setPostsOffset(newOffset);
       } else {
-        setPostsError(data.message || 'Failed to load posts');
+        setPostsError(data.message || t('errors.loadPostsFailed'));
       }
     } catch {
-      setPostsError('Unable to load blog posts. Please try again later.');
+      setPostsError(t('errors.loadPostsFailedFallback'));
     } finally {
       setPostsLoading(false);
     }
@@ -63,10 +65,10 @@ const Blog = () => {
         setNlOffset(newOffset);
         setNlFetched(true);
       } else {
-        setNlError(data.message || 'Failed to load newsletters');
+        setNlError(data.message || t('errors.loadNewslettersFailed'));
       }
     } catch {
-      setNlError('Unable to load newsletters. Please try again later.');
+      setNlError(t('errors.loadNewslettersFailedFallback'));
     } finally {
       setNlLoading(false);
     }
@@ -113,12 +115,12 @@ const Blog = () => {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #132552 0%, #1A336C 50%, #8E3400 100%)' }} />
         <div className="container mx-auto max-w-6xl px-6 relative z-10">
           <div className="max-w-3xl">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>News & Insights</span>
+            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>{t('eyebrow')}</span>
             <h1 className="text-5xl sm:text-6xl md:text-7xl leading-tight mt-4 mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-              News & Blog
+              {t('title')}
             </h1>
             <p className="text-xl leading-relaxed" style={{ fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>
-              Insights, analysis, and updates on maritime security, blue economy, and governance in the Gulf of Guinea.
+              {t('subtitle')}
             </p>
           </div>
         </div>
@@ -132,8 +134,8 @@ const Blog = () => {
             {/* Tabs */}
             <div className="flex gap-1 p-1 rounded-xl" style={{ backgroundColor: '#F3F4F6' }}>
               {[
-                { key: 'blog', label: 'Blog Posts' },
-                { key: 'newsletter', label: 'Newsletters' },
+                { key: 'blog', label: t('tabs.blogPosts') },
+                { key: 'newsletter', label: t('tabs.newsletters') },
               ].map(({ key, label }) => (
                 <button
                   key={key}
@@ -157,7 +159,7 @@ const Blog = () => {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#9CA3AF' }} />
                 <input
                   type="text"
-                  placeholder={`Search ${tab === 'blog' ? 'posts' : 'newsletters'}...`}
+                  placeholder={tab === 'blog' ? t('search.postsPlaceholder') : t('search.newslettersPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-9 pr-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent"
@@ -165,7 +167,7 @@ const Blog = () => {
                 />
               </div>
               <span className="text-sm whitespace-nowrap" style={{ color: '#6B7280', fontWeight: 500 }}>
-                {currentTotal} {tab === 'blog' ? 'posts' : 'newsletters'}
+                {currentTotal} {tab === 'blog' ? t('count.posts') : t('count.newsletters')}
               </span>
             </div>
 
@@ -181,7 +183,7 @@ const Blog = () => {
           {isLoading && (tab === 'blog' ? posts.length === 0 : newsletters.length === 0) && (
             <div className="flex items-center justify-center py-20">
               <Loader2 className="w-8 h-8 animate-spin" style={{ color: '#8E3400' }} />
-              <span className="ml-3 text-lg" style={{ color: '#6B7280', fontWeight: 500 }}>Loading…</span>
+              <span className="ml-3 text-lg" style={{ color: '#6B7280', fontWeight: 500 }}>{t('loading')}</span>
             </div>
           )}
 
@@ -194,7 +196,7 @@ const Blog = () => {
                 className="px-6 py-3 rounded-lg text-white font-bold"
                 style={{ backgroundColor: '#8E3400' }}
               >
-                Try Again
+                {t('tryAgain')}
               </button>
             </div>
           )}
@@ -205,10 +207,10 @@ const Blog = () => {
               {filteredPosts.length === 0 ? (
                 <div className="text-center py-20">
                   <p className="text-2xl font-bold mb-2" style={{ color: '#132552' }}>
-                    {searchQuery ? 'No posts match your search' : 'No blog posts yet'}
+                    {searchQuery ? t('posts.noMatch') : t('posts.empty')}
                   </p>
                   <p className="text-base" style={{ color: '#6B7280' }}>
-                    {searchQuery ? 'Try a different search term.' : 'Check back soon for new content.'}
+                    {searchQuery ? t('posts.tryDifferent') : t('posts.checkBack')}
                   </p>
                 </div>
               ) : (
@@ -253,7 +255,7 @@ const Blog = () => {
                           {post.metaDescription || post.postSummary || ''}
                         </p>
                         <div className="flex items-center gap-2 text-sm group-hover:gap-3 transition-all" style={{ fontWeight: 600, color: '#8E3400' }}>
-                          <span>Read More</span>
+                          <span>{t('readMore')}</span>
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>
@@ -270,7 +272,7 @@ const Blog = () => {
                     className="px-8 py-3 rounded-lg font-bold transition-all disabled:opacity-50"
                     style={{ backgroundColor: '#132552', color: 'white' }}
                   >
-                    {postsLoading ? 'Loading…' : 'Load More Posts'}
+                    {postsLoading ? t('loading') : t('loadMorePosts')}
                   </button>
                 </div>
               )}
@@ -283,10 +285,10 @@ const Blog = () => {
               {filteredNewsletters.length === 0 ? (
                 <div className="text-center py-20">
                   <p className="text-2xl font-bold mb-2" style={{ color: '#132552' }}>
-                    {searchQuery ? 'No newsletters match your search' : 'No newsletters yet'}
+                    {searchQuery ? t('newslettersEmpty.noMatch') : t('newslettersEmpty.empty')}
                   </p>
                   <p className="text-base" style={{ color: '#6B7280' }}>
-                    {searchQuery ? 'Try a different search term.' : 'Check back soon.'}
+                    {searchQuery ? t('newslettersEmpty.tryDifferent') : t('newslettersEmpty.checkBack')}
                   </p>
                 </div>
               ) : (
@@ -309,7 +311,7 @@ const Blog = () => {
                         ) : (
                           <div className="w-full h-full flex flex-col items-center justify-center gap-2" style={{ backgroundColor: '#132552' }}>
                             <Mail className="w-10 h-10" style={{ color: 'rgba(255,255,255,0.2)' }} />
-                            <span className="text-sm font-bold" style={{ color: 'rgba(255,255,255,0.2)' }}>Newsletter</span>
+                            <span className="text-sm font-bold" style={{ color: 'rgba(255,255,255,0.2)' }}>{t('newsletterFallback')}</span>
                           </div>
                         )}
                       </div>
@@ -331,7 +333,7 @@ const Blog = () => {
                         )}
 
                         <div className="inline-flex items-center gap-2 text-sm group-hover:gap-3 transition-all" style={{ fontWeight: 600, color: '#8E3400' }}>
-                          Read Newsletter
+                          {t('readNewsletter')}
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>
@@ -348,7 +350,7 @@ const Blog = () => {
                     className="px-8 py-3 rounded-lg font-bold transition-all disabled:opacity-50"
                     style={{ backgroundColor: '#132552', color: 'white' }}
                   >
-                    {nlLoading ? 'Loading…' : 'Load More Newsletters'}
+                    {nlLoading ? t('loading') : t('loadMoreNewsletters')}
                   </button>
                 </div>
               )}

@@ -1,0 +1,128 @@
+{
+  "hero": {
+    "backToHome": "Voltar ao Início",
+    "badge": "Documento Legal",
+    "title": "Política de Privacidade de Dados",
+    "orgLine": "Gulf of Guinea Maritime Institute · Em conformidade com a Data Protection Act, 2012 (Act 843) do Gana",
+    "updated": "Última atualização: 2025"
+  },
+  "toc": {
+    "heading": "Índice",
+    "contact": "Informações de Contacto"
+  },
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introdução",
+      "content": "O GoGMI respeita a sua privacidade e compromete-se a proteger os seus dados pessoais. Esta política descreve como recolhemos, utilizamos, armazenamos e protegemos os dados pessoais das pessoas que participam nos nossos programas, incluindo o II MaSSDI Training Course, em conformidade com a Data Protection Act, 2012 (Act 843) do Gana."
+    },
+    {
+      "id": "scope",
+      "title": "Âmbito de Aplicação",
+      "content": "Esta política aplica-se a todos os participantes, visitantes, colaboradores, prestadores de serviços e a qualquer outra pessoa cujos dados sejam recolhidos, tratados ou armazenados pelo GoGMI."
+    },
+    {
+      "id": "legal-basis",
+      "title": "Fundamento Jurídico do Tratamento",
+      "intro": "Recolhemos e tratamos dados pessoais com base nos seguintes fundamentos legais:",
+      "bullets": [
+        { "label": "Consentimento", "text": "Quando dá uma autorização clara para o tratamento dos seus dados." },
+        { "label": "Necessidade contratual", "text": "Para cumprir o nosso acordo consigo (por exemplo, a inscrição num curso)." },
+        { "label": "Obrigação legal", "text": "Para cumprir requisitos legais ou regulamentares." },
+        { "label": "Interesse legítimo", "text": "Para melhorar os nossos serviços, gerir operações ou manter a segurança." }
+      ]
+    },
+    {
+      "id": "data-collected",
+      "title": "Tipos de Dados Recolhidos",
+      "intro": "Podemos recolher os seguintes tipos de dados:",
+      "bullets": [
+        { "label": "Dados de Identificação Pessoal", "text": "Nome, data de nascimento, género, nacionalidade." },
+        { "label": "Informações de Contacto", "text": "Endereço de e-mail, número de telefone, morada." },
+        { "label": "Informações Profissionais", "text": "Organização, cargo, função." },
+        { "label": "Dados Relacionados com Cursos", "text": "Detalhes de inscrição, assiduidade, estado de certificação." },
+        { "label": "Conteúdos Multimédia", "text": "Fotografias, gravações de vídeo/áudio realizadas com o seu consentimento." },
+        { "label": "Dados Técnicos", "text": "Endereços IP, tipos de navegador (ao utilizar o nosso site)." }
+      ]
+    },
+    {
+      "id": "purpose",
+      "title": "Finalidade da Recolha de Dados",
+      "intro": "Os seus dados podem ser utilizados para:",
+      "list": [
+        "Inscrevê-lo em cursos e processar pagamentos.",
+        "Fornecer materiais de curso e comunicar atualizações.",
+        "Emitir certificados e manter registos de antigos participantes.",
+        "Comunicações de marketing e promocionais (com opção de recusa).",
+        "Análises internas, relatórios e auditorias.",
+        "Cumprir obrigações legais e regulamentares."
+      ]
+    },
+    {
+      "id": "data-sharing",
+      "title": "Partilha e Divulgação de Dados",
+      "intro": "Não vendemos os seus dados. Podemos partilhar as suas informações com:",
+      "list": [
+        "Prestadores de serviços terceiros que apoiam as nossas operações (por exemplo, processadores de pagamentos, facilitadores de cursos).",
+        "Organismos reguladores ou entidades de acreditação, quando exigido por lei.",
+        "Organizações parceiras (por exemplo, agências de segurança marítima) para eventos ou iniciativas conjuntas — apenas com o seu consentimento."
+      ]
+    },
+    {
+      "id": "data-security",
+      "title": "Segurança dos Dados",
+      "intro": "O GoGMI implementa medidas técnicas e organizacionais adequadas para:",
+      "list": [
+        "Proteger os seus dados contra acessos não autorizados, perda ou utilização indevida.",
+        "Proteger os registos eletrónicos e em papel.",
+        "Limitar o acesso apenas a pessoal autorizado."
+      ]
+    },
+    {
+      "id": "data-retention",
+      "title": "Conservação de Dados",
+      "intro": "Conservamos os seus dados pessoais apenas durante o tempo necessário para:",
+      "list": [
+        "Cumprir as finalidades descritas nesta política.",
+        "Cumprir requisitos legais, contabilísticos ou de reporte.",
+        "Manter registos de antigos participantes, salvo se solicitar a sua eliminação."
+      ]
+    },
+    {
+      "id": "your-rights",
+      "title": "Os Seus Direitos ao Abrigo da Data Protection Act do Gana",
+      "intro": "Tem o direito de:",
+      "list": [
+        "Aceder aos seus dados pessoais.",
+        "Solicitar a correção ou eliminação de dados inexatos.",
+        "Retirar o seu consentimento a qualquer momento (quando o tratamento se baseie no consentimento).",
+        "Opor-se ao tratamento em determinadas circunstâncias.",
+        "Apresentar uma reclamação junto da Data Protection Commission (DPC) do Gana."
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Utilização de Cookies",
+      "content": "O nosso site pode utilizar cookies para melhorar a experiência do utilizador. Pode ajustar as definições do seu navegador para recusar cookies; contudo, algumas funcionalidades poderão ficar limitadas."
+    },
+    {
+      "id": "international-transfers",
+      "title": "Transferências Internacionais de Dados",
+      "content": "Caso transfiramos dados para fora do Gana (por exemplo, para alojamento em cloud), asseguramos que estão em vigor salvaguardas adequadas para proteger as suas informações em conformidade com a Act 843."
+    },
+    {
+      "id": "policy-updates",
+      "title": "Atualizações da Política",
+      "content": "Esta política pode ser atualizada periodicamente. A versão mais recente estará sempre disponível no nosso site. A utilização continuada dos nossos serviços indica a aceitação de quaisquer alterações."
+    }
+  ],
+  "contact": {
+    "heading": "Informações de Contacto",
+    "intro": "Se tiver alguma questão, preocupação ou reclamação sobre esta política, contacte-nos através de:",
+    "orgName": "Gulf of Guinea Maritime Institute"
+  },
+  "footer": {
+    "copyright": "© 2025 GoGMI · Gulf of Guinea Maritime Institute. Todos os direitos reservados.",
+    "backToHome": "Voltar ao Início"
+  }
+}

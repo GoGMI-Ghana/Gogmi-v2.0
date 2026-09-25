@@ -1,0 +1,16 @@
+{
+  "loading": "A carregar artigo...",
+  "backToBlog": "Voltar ao Blog",
+  "share": "Partilhar",
+  "errors": {
+    "notFoundTitle": "Artigo Não Encontrado",
+    "notFoundMessage": "Este artigo não pôde ser encontrado.",
+    "notFoundFallback": "Artigo não encontrado",
+    "loadFailed": "Não foi possível carregar este artigo. Tente novamente."
+  },
+  "linkCopied": "Link copiado para a área de transferência!",
+  "bottomNav": {
+    "allPosts": "Todos os Artigos",
+    "sharePost": "Partilhar Artigo"
+  }
+}

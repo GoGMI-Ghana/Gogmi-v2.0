@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Instituto Marítimo del Golfo de Guinea",
+  "title": "Directorio Blue Business",
+  "subtitle": "El registro de comercio marítimo y servicios profesionales del Golfo de Guinea",
+  "searchPlaceholder": "Buscar por nombre, servicio o país…",
+  "scrollLeft": "Desplazar a la izquierda",
+  "scrollRight": "Desplazar a la derecha",
+  "categories": {
+    "all": "Todos",
+    "shipping": "Transporte y Logística",
+    "port": "Servicios Portuarios",
+    "security": "Seguridad Marítima",
+    "engineering": "Ingeniería Naval",
+    "legal": "Legal y Seguros",
+    "energy": "Energía Offshore",
+    "consulting": "Consultoría",
+    "training": "Formación y Educación"
+  },
+  "listingCount_one": "empresa",
+  "listingCount_other": "empresas",
+  "listYourBusiness": "Registra tu empresa →",
+  "listYourBusinessSubject": "Directorio Blue Business — Registrar mi empresa",
+  "featured": "Destacado",
+  "allListings": "Todas las Empresas",
+  "empty": {
+    "title": "No se encontraron empresas",
+    "subtitle": "Intenta ajustar tu búsqueda o el filtro de categoría"
+  },
+  "footerNote": "Para añadir o actualizar una empresa, contacta a",
+  "listings": {
+    "1": { "description": "Autoridad estatal que gestiona operaciones de contenedores, carga a granel y carga general en los principales puertos de Ghana, incluidos Tema y Takoradi." },
+    "2": { "description": "Transporte marítimo regional y transitario de carga en el Golfo de Guinea, con servicios programados a 14 puertos." },
+    "3": { "description": "Terminal de contenedores de aguas profundas y principal centro de transbordo que da servicio a los estados de África Occidental sin salida al mar." },
+    "4": { "description": "Bufete de derecho marítimo especializado en financiación naval, reclamaciones de carga, asuntos P&I y procedimientos de almirantazgo." }
+  }
+}

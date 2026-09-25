@@ -1,0 +1,148 @@
+{
+  "hero": {
+    "heading": "Fortalecimiento de Capacidades",
+    "subtitle": "Nos especializamos en programas de formación e iniciativas de mentoría para profesionales del mar, partes interesadas, mujeres y jóvenes de la economía azul, así como en seguridad y protección marítimas.",
+    "cta": "Explora Nuestro Sistema de Gestión del Aprendizaje"
+  },
+  "impact": {
+    "heading": "Nuestro Impacto",
+    "since": "Desde 2020",
+    "metrics": {
+      "trainingPrograms": "Programas de Formación",
+      "professionalsTrained": "Profesionales Formados",
+      "partnerOrganizations": "Organizaciones Asociadas"
+    }
+  },
+  "featured": {
+    "eyebrow": "Curso Destacado",
+    "headingPrefix": "Inscripciones Abiertas",
+    "subtitle": "Desarrollo profesional en estrategia de seguridad marítima para profesionales africanos",
+    "stats": {
+      "duration": "Duración",
+      "format": "Formato",
+      "modules": "Módulos",
+      "level": "Nivel"
+    },
+    "viewProgram": "Ver Programa Completo",
+    "applyNow": "Inscribirse Ahora",
+    "nextIntake": "Próxima Convocatoria",
+    "courses": {
+      "maritime-governance": {
+        "status": "Activo",
+        "badge": "¡ALERTA DE CURSO DE FORMACIÓN 2026!",
+        "comingSoon": "PRÓXIMAMENTE",
+        "title": "GOBERNANZA MARÍTIMA PARA PROFESIONALES:",
+        "subtitle": "ENFOQUE EN ÁFRICA",
+        "tagline": "Enfoque en África",
+        "fullTitle": "GOBERNANZA MARÍTIMA PARA PROFESIONALES",
+        "description": "Curso virtual integral de dos semanas que dota a los profesionales de la experiencia necesaria para desarrollar e implementar estrategias de seguridad marítima en todo el continente africano.",
+        "duration": "2 semanas",
+        "format": "Virtual",
+        "modules": "8 módulos",
+        "level": "Profesional",
+        "nextIntake": "7 – 18 de septiembre de 2026"
+      },
+      "marine-casualty": {
+        "status": "Activo",
+        "badge": "¡FORMACIÓN EJECUTIVA 2026!",
+        "comingSoon": "INSCRIPCIONES ABIERTAS",
+        "title": "INVESTIGACIÓN DE SINIESTROS MARÍTIMOS:",
+        "subtitle": "GESTIÓN DE LA SEGURIDAD",
+        "tagline": "Gestión de la Seguridad",
+        "fullTitle": "INVESTIGACIÓN DE SINIESTROS MARÍTIMOS Y GESTIÓN DE LA SEGURIDAD",
+        "description": "Formación ejecutiva sobre la realización de investigaciones creíbles de siniestros marítimos, alineada con el Código de Investigación de Siniestros de la OMI y los requisitos del SOLAS para administraciones marítimas.",
+        "duration": "5 días",
+        "format": "Presencial",
+        "modules": "6 módulos",
+        "level": "Ejecutivo",
+        "nextIntake": "15 – 19 de junio de 2026"
+      }
+    }
+  },
+  "programs": {
+    "eyebrow": "Todos los Programas",
+    "heading": "Portafolio de Formación Integral",
+    "subtitle": "Programas completos para cada etapa de tu carrera marítima",
+    "learnMore": "Saber Más",
+    "status": {
+      "Active": "Activo",
+      "Completed": "Finalizado"
+    },
+    "items": {
+      "marineCasualty": {
+        "title": "INVESTIGACIÓN DE SINIESTROS MARÍTIMOS Y GESTIÓN DE LA SEGURIDAD",
+        "description": "La seguridad del transporte marítimo y por vías navegables interiores (IWW) es fundamental para los sistemas de transporte de África, ya que sustenta el comercio, la movilidad de pasajeros, la pesca y los medios de vida en las comunidades costeras y ribereñas. Entre las causas más comunes se encuentran la sobrecarga, el mal mantenimiento de las embarcaciones, operadores incompetentes o sin licencia, la ausencia de equipos de salvamento, el mal tiempo, la débil aplicación de la normativa, ayudas a la navegación inadecuadas y factores humanos como la fatiga y la embriaguez. Estos incidentes ponen de manifiesto carencias críticas: un control de cumplimiento insuficiente, un mal mantenimiento de las embarcaciones y la falta de investigaciones normalizadas que generen datos para el análisis de tendencias y la prevención de accidentes.",
+        "duration": "5 días",
+        "format": "Presencial",
+        "level": "Todos los Niveles",
+        "features": ["Cumplimiento OMI", "Cuerpo Docente Experto", "Formato Híbrido", "Certificación"],
+        "nextIntake": "15 – 19 de junio de 2026"
+      },
+      "maritimeGovernance": {
+        "title": "CURSO DE GOBERNANZA MARÍTIMA: ENFOQUE EN ÁFRICA",
+        "description": "Durante décadas, el continente africano ha enfrentado una amplia gama de amenazas y desafíos de seguridad marítima, ninguno de los cuales puede abordarse plenamente sin una orientación estratégica. En consecuencia, el continente presenció una proliferación de documentos estratégicos, incluida la Estrategia Marítima Integrada de África para 2050 en 2012, la Carta de Lomé en 2016 y la Estrategia de Economía Azul de África en 2019. Este curso integral dota a profesionales, partes interesadas y tomadores de decisiones de los conocimientos, habilidades y herramientas necesarios para desarrollar e implementar estrategias marítimas efectivas en el contexto africano.",
+        "duration": "2 semanas",
+        "format": "Virtual/En línea",
+        "level": "Principiante–Intermedio",
+        "features": ["8 Módulos de Formación", "Talleres por Zoom", "Certificado"],
+        "nextIntake": "Trimestral"
+      },
+      "journalistTraining": {
+        "title": "FORMACIÓN 2025 PARA PERIODISTAS Y PROFESIONALES DE LOS MEDIOS SOBRE SEGURIDAD MARÍTIMA, PROTECCIÓN Y ECONOMÍA AZUL EN EL GOLFO DE GUINEA",
+        "description": "Para sensibilizar mejor sobre los problemas y desafíos de la seguridad marítima, el proyecto EnMAR y el Gulf of Guinea Maritime Institute (GoGMI) lanzaron una convocatoria de participación para un curso de formación titulado: «Formación para Periodistas y Profesionales de los Medios sobre Seguridad Marítima, Protección y Economía Azul en el Golfo de Guinea».",
+        "duration": "3 días",
+        "format": "Híbrido",
+        "level": "Todos los Niveles",
+        "features": ["Formación práctica en inteligencia de fuentes abiertas", "Periodismo de datos", "Narración multimedia"],
+        "nextIntake": "7 – 9 de octubre de 2025"
+      },
+      "massdi": {
+        "title": "CURSO DE FORMACIÓN MaSSDI",
+        "description": "Plataforma que conecta a los jóvenes con líderes de la industria marítima para explorar carreras y oportunidades.",
+        "duration": "2 meses",
+        "format": "Virtual/En línea",
+        "level": "Todos los Niveles",
+        "features": ["Teoría de Estrategia de Seguridad Marítima", "Evaluación de Desafíos y Oportunidades de Seguridad Marítima I y II", "Coordinación Interinstitucional y Análisis de Partes Interesadas I y II"],
+        "nextIntake": "6 de octubre – 30 de noviembre de 2025"
+      },
+      "blueMentorship": {
+        "title": "EL PROGRAMA DE MENTORÍA AZUL",
+        "description": "Un acelerador marítimo africano que selecciona a 30 jóvenes para una experiencia completa de mentoría y preparación, conectando a la juventud con líderes de la industria, emprendedores y profesionales del océano para prepararlos hacia el éxito en la economía azul.",
+        "duration": "12 meses",
+        "format": "Híbrido",
+        "level": "Todos los Niveles",
+        "features": ["Emparejamiento Individual con Mentor", "Serie de Conferencias Blue Success (BLUESSS)", "Centro de Apoyo a Negocios Marítimos"],
+        "nextIntake": "Cohorte Finalizada"
+      },
+      "ecop": {
+        "title": "ECOP",
+        "description": "Un acelerador marítimo africano diseñado para animar a los jóvenes a involucrarse en carreras sostenibles de la economía azul.",
+        "duration": "12 meses",
+        "format": "Híbrido",
+        "level": "Todos los Niveles",
+        "features": ["Mentoría Individual", "Redes de la Industria", "Orientación Profesional"],
+        "nextIntake": "Marzo de 2025"
+      },
+      "wytec": {
+        "title": "WYTEC",
+        "description": "El Curso de Formación ECOP se celebró dos veces ese año, en marzo y noviembre de 2022, como un evento de 9 días para dotar a los jóvenes de conocimiento directo sobre la economía azul de África y exponer a los participantes a diversas oportunidades de carrera y negocio en la industria azul.",
+        "duration": "4 semanas",
+        "format": "En línea",
+        "level": "Principiante–Intermedio",
+        "features": ["4 Módulos de Formación", "Talleres por Zoom", "Certificado"],
+        "nextIntake": "Trimestral"
+      }
+    }
+  },
+  "alumni": {
+    "heading1": "Egresados",
+    "heading2": "que Marcan la Diferencia",
+    "subtitle": "Los egresados del GoGMI están construyendo carreras e impulsando el cambio en la economía azul de África.",
+    "programTag": "WYTEC Blue Project",
+    "linkedinLabel": "Perfil de LinkedIn",
+    "roles": {
+      "thomasLartey": "Seguridad Marítima y Gestión de Riesgos",
+      "clementKwara": "Graduado en Ciencias Marinas y Geociencias"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "eyebrow": "Notícias e análises",
+  "title": "Notícias e blog",
+  "subtitle": "Análises, perspetivas e novidades sobre segurança marítima, economia azul e governação no Golfo da Guiné.",
+  "tabs": {
+    "blogPosts": "Artigos do blog",
+    "newsletters": "Boletins informativos"
+  },
+  "search": {
+    "postsPlaceholder": "Pesquisar artigos...",
+    "newslettersPlaceholder": "Pesquisar boletins..."
+  },
+  "count": {
+    "posts": "artigos",
+    "newsletters": "boletins"
+  },
+  "loading": "A carregar…",
+  "tryAgain": "Tentar novamente",
+  "errors": {
+    "loadPostsFailed": "Falha ao carregar os artigos",
+    "loadPostsFailedFallback": "Não foi possível carregar os artigos do blog. Tente novamente mais tarde.",
+    "loadNewslettersFailed": "Falha ao carregar os boletins",
+    "loadNewslettersFailedFallback": "Não foi possível carregar os boletins. Tente novamente mais tarde."
+  },
+  "posts": {
+    "noMatch": "Nenhum artigo corresponde à sua pesquisa",
+    "empty": "Ainda não há artigos no blog",
+    "tryDifferent": "Tente um termo de pesquisa diferente.",
+    "checkBack": "Volte em breve para novos conteúdos."
+  },
+  "newslettersEmpty": {
+    "noMatch": "Nenhum boletim corresponde à sua pesquisa",
+    "empty": "Ainda não há boletins",
+    "tryDifferent": "Tente um termo de pesquisa diferente.",
+    "checkBack": "Volte em breve."
+  },
+  "readMore": "Ler mais",
+  "readNewsletter": "Ler boletim",
+  "loadMorePosts": "Carregar mais artigos",
+  "loadMoreNewsletters": "Carregar mais boletins",
+  "newsletterFallback": "Boletim"
+}

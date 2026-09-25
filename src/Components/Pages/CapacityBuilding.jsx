@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   ArrowRight,
   Users,
@@ -20,6 +21,7 @@ import {
 } from 'lucide-react';
 
 const CapacityBuilding = () => {
+  const { t } = useTranslation('capacityBuilding');
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -28,19 +30,19 @@ const CapacityBuilding = () => {
   const featuredCourses = [
     {
       id: 'maritime-governance',
-      status: 'Active',
-      badge: '2026 TRAINING COURSE ALERT!',
-      comingSoon: 'COMING SOON',
-      title: 'MARITIME GOVERNANGE FOR PRACTITIONERS:',
-      subtitle: 'A FOCUS ON AFRICA',
-      tagline: 'A Focus on Africa',
-      fullTitle: 'MARITIME GOVERNANCE FOR PRACTITIONERS',
-      description: 'Comprehensive 2-week virtual course equipping professionals with expertise to develop and implement maritime security strategies across the African continent.',
-      duration: '2 weeks',
-      format: 'Virtual',
-      modules: '8 modules',
-      level: 'Professional',
-      nextIntake: 'Septemeber 7 - 18, 2026',
+      status: t('featured.courses.maritime-governance.status'),
+      badge: t('featured.courses.maritime-governance.badge'),
+      comingSoon: t('featured.courses.maritime-governance.comingSoon'),
+      title: t('featured.courses.maritime-governance.title'),
+      subtitle: t('featured.courses.maritime-governance.subtitle'),
+      tagline: t('featured.courses.maritime-governance.tagline'),
+      fullTitle: t('featured.courses.maritime-governance.fullTitle'),
+      description: t('featured.courses.maritime-governance.description'),
+      duration: t('featured.courses.maritime-governance.duration'),
+      format: t('featured.courses.maritime-governance.format'),
+      modules: t('featured.courses.maritime-governance.modules'),
+      level: t('featured.courses.maritime-governance.level'),
+      nextIntake: t('featured.courses.maritime-governance.nextIntake'),
       image: '/margov-coh2.jpeg',
       bgColor: '#132552',
       accentColor: '#17A2B8',
@@ -49,21 +51,21 @@ const CapacityBuilding = () => {
     },
     {
       id: 'marine-casualty',
-      status: 'Active',
-      badge: '2026 EXECUTIVE TRAINING!',
-      comingSoon: 'ENROLLING NOW',
-      title: 'MARINE CASUALTY INVESTIGATION:',
-      subtitle: 'SAFETY MANAGEMENT',
-      tagline: 'Safety Management',
-      fullTitle: 'MARINE CASUALTY INVESTIGATION & SAFETY MANAGEMENT',
-      description: 'Executive training on conducting credible marine casualty investigations aligned with IMO Casualty Investigation Code and SOLAS requirements for maritime administrators.',
-      duration: '5-Days',
-      format: 'In-Person ',
-      modules: '6 modules',
-      level: 'Executive',
+      status: t('featured.courses.marine-casualty.status'),
+      badge: t('featured.courses.marine-casualty.badge'),
+      comingSoon: t('featured.courses.marine-casualty.comingSoon'),
+      title: t('featured.courses.marine-casualty.title'),
+      subtitle: t('featured.courses.marine-casualty.subtitle'),
+      tagline: t('featured.courses.marine-casualty.tagline'),
+      fullTitle: t('featured.courses.marine-casualty.fullTitle'),
+      description: t('featured.courses.marine-casualty.description'),
+      duration: t('featured.courses.marine-casualty.duration'),
+      format: t('featured.courses.marine-casualty.format'),
+      modules: t('featured.courses.marine-casualty.modules'),
+      level: t('featured.courses.marine-casualty.level'),
       faculty: ['Maritime Safety Experts', 'IMO Certified Investigators', 'Regional Specialists'],
-      nextIntake: 'JUNE 15-19 2026',
-      image: '/marinecasualtylatest.jpeg', 
+      nextIntake: t('featured.courses.marine-casualty.nextIntake'),
+      image: '/marinecasualtylatest.jpeg',
       bgColor: '#8E3400',
       accentColor: '#FF6B35',
       buttonColor: '#132552',
@@ -76,92 +78,92 @@ const CapacityBuilding = () => {
     {
       category: 'Hybrid',
       status: 'Active',
-      title: 'MARINE CASUALTY INVESTIGATION & SAFETY MANAGEMENT',
-      description: "Maritime and Inland Waterways (IWW) transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods in coastal and riverine communities.Common causes include overloading, poor vessel maintenance, incompetent or unlicensed operators, absence of life-saving appliances, bad weather, weak enforcement of regulations, inadequate navigational aids, and human factors such as fatigue and drunkenness.These incidents highlight critical gaps: inadequate compliance monitoring, poor vessel maintenance, lack of standardized investigations to produce data for trend analysis and accident prevention.",
-      duration: '5 days',
-      format: 'In Person',
-      level: 'All Levels',
+      title: t('programs.items.marineCasualty.title'),
+      description: t('programs.items.marineCasualty.description'),
+      duration: t('programs.items.marineCasualty.duration'),
+      format: t('programs.items.marineCasualty.format'),
+      level: t('programs.items.marineCasualty.level'),
       image: '/maricourse.jpeg',
-      features: ['IMO Compliance', 'Expert Faculty', 'Hybrid Format','Certification'],
-      nextIntake: '15-19 JUNE,2026',
+      features: t('programs.items.marineCasualty.features', { returnObjects: true }),
+      nextIntake: t('programs.items.marineCasualty.nextIntake'),
       link: '/marine-casualty-course'
     },
     {
       category: 'Virtual',
       status: 'Active',
-      title: 'MARITIME GOVERNANCE COURSE: A FOCUS ON AFRICA ',
-      description: `For decades, the African continent has faced a wide range of maritime security threats and challenges, none of which can be fully addressed without strategic guidance. Consequently, the continent witnessed a proliferation of strategy documents, including the 2050 Africa's Integrated Maritime Strategy in 2012, the Lomé Charter in 2016, and the Africa Blue Economy Strategy in 2019.This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.`,
-      duration: '2 weeks',
-      format: 'Virtual/Online',
-      level: 'Beginner-Intermediate',
+      title: t('programs.items.maritimeGovernance.title'),
+      description: t('programs.items.maritimeGovernance.description'),
+      duration: t('programs.items.maritimeGovernance.duration'),
+      format: t('programs.items.maritimeGovernance.format'),
+      level: t('programs.items.maritimeGovernance.level'),
       image: '/maritmegovvvv.jpeg',
-      features: ['8 Training Modules', 'Zoom Workshops', 'Certificate'],
-      nextIntake: 'Quarterly',
+      features: t('programs.items.maritimeGovernance.features', { returnObjects: true }),
+      nextIntake: t('programs.items.maritimeGovernance.nextIntake'),
       link: '/maritime-governance-course'
     },
     {
       category: 'Onsite',
       status: 'Completed',
-      title: '2025 TRAINING FOR JOURNALIST AND MEDIA PRACTIONERS ON MARITIME SECURITY, SAFETY AND BLUE ECONOMY IN THE GULF OF GUINEA',
-      description: 'To better raise awareness on maritime security issues and challenges, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) are launching a call for participation for a training course on: "Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
-      duration: '3 days',
-      format: 'Hybrid',
-      level: 'All Levels',
+      title: t('programs.items.journalistTraining.title'),
+      description: t('programs.items.journalistTraining.description'),
+      duration: t('programs.items.journalistTraining.duration'),
+      format: t('programs.items.journalistTraining.format'),
+      level: t('programs.items.journalistTraining.level'),
       image: '/journalist.training.webp',
-      features: ['Hands-on training in open-source intelligence', 'data journalism', ' multimedia storytelling'],
-      nextIntake: '7-9 October 2025',
+      features: t('programs.items.journalistTraining.features', { returnObjects: true }),
+      nextIntake: t('programs.items.journalistTraining.nextIntake'),
       link: '/journalist-training'
     },
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'MaSSDI TRAINING COURSE',
-      description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
-      duration: '2 months',
-      format: 'Virtual/Online',
-      level: 'All Levels',
+      title: t('programs.items.massdi.title'),
+      description: t('programs.items.massdi.description'),
+      duration: t('programs.items.massdi.duration'),
+      format: t('programs.items.massdi.format'),
+      level: t('programs.items.massdi.level'),
       image: '/maritmegovvvv.jpeg',
-      features: ['Maritime Security Strategy Theory', 'Assessing Maritime Security Challenges & Opportunities I & II', 'Interagency Coordination and Stakeholder Analysis I & II'],
-      nextIntake: '6th oct - 30th Nov 2025',
+      features: t('programs.items.massdi.features', { returnObjects: true }),
+      nextIntake: t('programs.items.massdi.nextIntake'),
       link: '/massdi'
     },
     {
       category: 'Hybrid',
       status: 'Completed',
-      title: 'THE BLUE MENTORSHIP PROGRAMME',
-      description: 'An African maritime accelerator selecting 30 young individuals for a full mentorship and grooming experience — connecting youth with industry leaders, entrepreneurs, and ocean professionals to prime them for blue success.',
-      duration: '12 months',
-      format: 'Hybrid',
-      level: 'All Levels',
+      title: t('programs.items.blueMentorship.title'),
+      description: t('programs.items.blueMentorship.description'),
+      duration: t('programs.items.blueMentorship.duration'),
+      format: t('programs.items.blueMentorship.format'),
+      level: t('programs.items.blueMentorship.level'),
       image: '/bluementorshipimage.png',
-      features: ['1-on-1 Mentor Pairing', 'Blue Success Speaker Series (BLUESSS)', 'Maritime Business Support Hub'],
-      nextIntake: 'Cohort Completed',
+      features: t('programs.items.blueMentorship.features', { returnObjects: true }),
+      nextIntake: t('programs.items.blueMentorship.nextIntake'),
       link: '/blue-mentorship'
     },
     {
       category: 'Hybrid',
       status: 'Active',
-      title: 'ECOP',
-      description: 'An African maritime accelerator designed to encourage youth to engage in sustainable blue economy careers.',
-      duration: '12 months',
-      format: 'Hybrid',
-      level: 'All Levels',
+      title: t('programs.items.ecop.title'),
+      description: t('programs.items.ecop.description'),
+      duration: t('programs.items.ecop.duration'),
+      format: t('programs.items.ecop.format'),
+      level: t('programs.items.ecop.level'),
       image: '/bluementorshipimage.png',
-      features: ['1-on-1 Mentorship', 'Industry Networks', 'Career Guidance'],
-      nextIntake: 'March 2025',
+      features: t('programs.items.ecop.features', { returnObjects: true }),
+      nextIntake: t('programs.items.ecop.nextIntake'),
       link: '/ecop'
     },
     {
       category: 'Virtual',
       status: 'Active',
-      title: 'WYTEC',
-      description: `The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa's blue economy and expose participants to various career and business opportunities in the blue industry.`,
-      duration: '4 weeks',
-      format: 'Online',
-      level: 'Beginner-Intermediate',
+      title: t('programs.items.wytec.title'),
+      description: t('programs.items.wytec.description'),
+      duration: t('programs.items.wytec.duration'),
+      format: t('programs.items.wytec.format'),
+      level: t('programs.items.wytec.level'),
       image: '/ecop.png',
-      features: ['4 Training Modules', 'Zoom Workshops', 'Certificate'],
-      nextIntake: 'Quarterly',
+      features: t('programs.items.wytec.features', { returnObjects: true }),
+      nextIntake: t('programs.items.wytec.nextIntake'),
       link: '/wytec'
     }
   ];
@@ -169,22 +171,22 @@ const CapacityBuilding = () => {
   const successStories = [
     {
       name: 'Thomas Lartey',
-      role: 'Maritime Safety and Risk Management',
+      role: t('alumni.roles.thomasLartey'),
       program: 'WYTEC Blue Project',
       linkedin: 'https://www.linkedin.com/in/thomas-lartey-739a85223',
     },
     {
       name: 'Clement Kwara',
-      role: 'Marine and Geoscience Graduate',
+      role: t('alumni.roles.clementKwara'),
       program: 'WYTEC Blue Project',
       linkedin: 'https://www.linkedin.com/in/clement-k-aa859211b',
     },
   ];
 
   const impactMetrics = [
-    { label: 'Training Programs', value: '5+', icon: <BookOpen className="w-6 h-6" /> },
-    { label: 'Professionals Trained', value: '100+', icon: <Award className="w-6 h-6" /> },
-    { label: 'Partner Organizations', value: '15+', icon: <Building2 className="w-6 h-6" /> }
+    { label: t('impact.metrics.trainingPrograms'), value: '5+', icon: <BookOpen className="w-6 h-6" /> },
+    { label: t('impact.metrics.professionalsTrained'), value: '100+', icon: <Award className="w-6 h-6" /> },
+    { label: t('impact.metrics.partnerOrganizations'), value: '15+', icon: <Building2 className="w-6 h-6" /> }
   ];
 
   const filteredPrograms = activeCategory === 'all' 
@@ -229,8 +231,8 @@ const CapacityBuilding = () => {
       <section className="relative text-white py-24 md:py-40 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&fit=crop&q=90" 
-            alt="Capacity Building"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&fit=crop&q=90"
+            alt={t('hero.heading')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(19, 37, 82, 0.92) 0%, rgba(26, 51, 108, 0.88) 100%)' }}></div>
@@ -240,12 +242,11 @@ const CapacityBuilding = () => {
           <div className="max-w-4xl">
             <h1 className="text-5xl sm:text-6xl md:text-7xl leading-tight mb-8"
                 style={{ fontWeight: 900, letterSpacing: '-0.03em' }}>
-             Capacity Building 
+             {t('hero.heading')}
             </h1>
 
             <p className="text-xl md:text-2xl leading-relaxed mb-10" style={{ fontWeight: 400, color: 'rgba(255, 255, 255, 0.95)' }}>
-            We specialize in training programs and mentoring initiatives for marine professionals, stakeholders, women,
-             and youth in the blue economy, as well as maritime safety and security.
+            {t('hero.subtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -258,7 +259,7 @@ const CapacityBuilding = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
               >
-                <span>Explore Our Learning Management System</span>
+                <span>{t('hero.cta')}</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
@@ -274,10 +275,10 @@ const CapacityBuilding = () => {
               <div className="flex items-center gap-3">
                 <Sparkles className="w-6 h-6" style={{ color: '#8E3400' }} />
                 <h3 className="text-2xl" style={{ fontWeight: 900, color: '#132552' }}>
-                  Our Impact
+                  {t('impact.heading')}
                 </h3>
               </div>
-              <span className="text-sm" style={{ fontWeight: 600, color: '#4B5563' }}>Since 2020</span>
+              <span className="text-sm" style={{ fontWeight: 600, color: '#4B5563' }}>{t('impact.since')}</span>
             </div>
             
             <div className="flex justify-center">
@@ -304,13 +305,13 @@ const CapacityBuilding = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>FEATURED COURSE</span>
+            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>{t('featured.eyebrow')}</span>
             <h2 className="text-4xl md:text-5xl mt-4 mb-4"
                 style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              Now Enrolling: {featuredCourses[currentSlide].title.split(':')[0]}
+              {t('featured.headingPrefix')}: {featuredCourses[currentSlide].title.split(':')[0]}
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563' }}>
-              Professional development in maritime security strategy for African practitioners
+              {t('featured.subtitle')}
             </p>
           </div>
 
@@ -376,17 +377,17 @@ const CapacityBuilding = () => {
                             <div>
                               <div className="flex items-center gap-2 text-sm mb-1" style={{ color: '#6B7280' }}>
                                 <Clock className="w-4 h-4" />
-                                <span className="font-semibold">Duration</span>
+                                <span className="font-semibold">{t('featured.stats.duration')}</span>
                               </div>
                               <p className="text-base font-bold" style={{ color: '#132552' }}>
                                 {course.duration}
                               </p>
                             </div>
-                            
+
                             <div>
                               <div className="flex items-center gap-2 text-sm mb-1" style={{ color: '#6B7280' }}>
                                 <Monitor className="w-4 h-4" />
-                                <span className="font-semibold">Format</span>
+                                <span className="font-semibold">{t('featured.stats.format')}</span>
                               </div>
                               <p className="text-base font-bold" style={{ color: '#132552' }}>
                                 {course.format}
@@ -396,7 +397,7 @@ const CapacityBuilding = () => {
                             <div>
                               <div className="flex items-center gap-2 text-sm mb-1" style={{ color: '#6B7280' }}>
                                 <BookOpen className="w-4 h-4" />
-                                <span className="font-semibold">Modules</span>
+                                <span className="font-semibold">{t('featured.stats.modules')}</span>
                               </div>
                               <p className="text-base font-bold" style={{ color: '#132552' }}>
                                 {course.modules}
@@ -406,7 +407,7 @@ const CapacityBuilding = () => {
                             <div>
                               <div className="flex items-center gap-2 text-sm mb-1" style={{ color: '#6B7280' }}>
                                 <GraduationCap className="w-4 h-4" />
-                                <span className="font-semibold">Level</span>
+                                <span className="font-semibold">{t('featured.stats.level')}</span>
                               </div>
                               <p className="text-base font-bold" style={{ color: '#132552' }}>
                                 {course.level}
@@ -438,21 +439,21 @@ const CapacityBuilding = () => {
                               className="flex-1 text-center px-6 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-lg text-white"
                               style={{ backgroundColor: course.buttonColor }}
                             >
-                              View Full Program →
+                              {t('featured.viewProgram')} →
                             </button>
                             <button
                               onClick={() => handleCourseNavigation(course)}
                               className="flex-1 text-center px-6 py-4 rounded-xl font-bold transition-all hover:scale-105 border-2 bg-white"
                               style={{ borderColor: '#132552', color: '#132552' }}
                             >
-                              Apply Now
+                              {t('featured.applyNow')}
                             </button>
                           </div>
 
                           {/* Next Intake */}
                           <div className="flex items-center gap-2 text-sm" style={{ color: '#8E3400' }}>
                             <Calendar className="w-4 h-4" />
-                            <span className="font-bold">Next Intake: {course.nextIntake}</span>
+                            <span className="font-bold">{t('featured.nextIntake')}: {course.nextIntake}</span>
                           </div>
                         </div>
                       </div>
@@ -501,13 +502,13 @@ const CapacityBuilding = () => {
       <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
         <div className="container mx-auto max-w-7xl px-6">
           <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>All Programs</span>
+            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>{t('programs.eyebrow')}</span>
             <h2 className="text-4xl md:text-5xl mt-4 mb-4"
                 style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              Comprehensive Training Portfolio
+              {t('programs.heading')}
             </h2>
             <p className="text-lg max-w-2xl mx-auto" style={{ color: '#4B5563' }}>
-              Comprehensive programs for every stage of your maritime career
+              {t('programs.subtitle')}
             </p>
           </div>
 
@@ -530,7 +531,7 @@ const CapacityBuilding = () => {
                           style={{ 
                             backgroundColor: program.status === 'Active' ? '#16A34A' : '#6B7280'
                           }}>
-                      {program.status}
+                      {t(`programs.status.${program.status}`)}
                     </span>
                   </div>
 
@@ -572,7 +573,7 @@ const CapacityBuilding = () => {
                     className="w-full px-4 py-2.5 rounded-xl transition-all hover:scale-105"
                     style={{ fontWeight: 700, backgroundColor: '#132552', color: 'white', fontSize: '0.875rem' }}
                   >
-                    Learn More
+                    {t('programs.learnMore')}
                   </button>
                 </div>
               </div>
@@ -590,10 +591,10 @@ const CapacityBuilding = () => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14"
              style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '48px' }}>
           <h2 className="text-5xl md:text-6xl font-black text-white" style={{ letterSpacing: '-0.03em', lineHeight: 1.05 }}>
-            Alumni<br />Making Waves
+            {t('alumni.heading1')}<br />{t('alumni.heading2')}
           </h2>
           <p className="md:max-w-xs text-sm leading-relaxed md:text-right" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            GoGMI alumni are building careers and driving change across Africa's blue economy.
+            {t('alumni.subtitle')}
           </p>
         </div>
 
@@ -629,7 +630,7 @@ const CapacityBuilding = () => {
                   >
                     {s.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                   </div>
-                  <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.35)' }}>WYTEC Blue Project</span>
+                  <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.35)' }}>{t('alumni.programTag')}</span>
                 </div>
                 <a
                   href={s.linkedin}
@@ -638,7 +639,7 @@ const CapacityBuilding = () => {
                   className="inline-flex items-center gap-1.5 text-xs font-bold transition-opacity hover:opacity-60"
                   style={{ color: '#C4501A' }}
                 >
-                  LinkedIn Profile
+                  {t('alumni.linkedinLabel')}
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>

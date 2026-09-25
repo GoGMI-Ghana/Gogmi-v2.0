@@ -1,0 +1,258 @@
+{
+  "loading": "Chargement...",
+  "hero": {
+    "badge": "Centre de ressources",
+    "title": "Ressources et publications",
+    "subtitle": "Accédez à des documents stratégiques, des articles universitaires et des rapports internes",
+    "noteFree": "Documents stratégiques et articles universitaires : accès libre pour tous",
+    "noteMembers": "Rapports internes : réservés aux membres",
+    "imageAlt": "Bibliothèque et ressources maritimes"
+  },
+  "search": { "placeholder": "Rechercher des ressources..." },
+  "filters": {
+    "types": {
+      "Strategic Documents": "Documents stratégiques",
+      "Academic Papers": "Articles universitaires",
+      "Internal Reports": "Rapports internes",
+      "Videos": "Vidéos"
+    },
+    "subcategories": {
+      "All": "Tous",
+      "Policy Briefs": "Notes de politique",
+      "IMSWG Reports": "Rapports IMSWG",
+      "Quarterly Highlights": "Temps forts trimestriels",
+      "Maritime Governance": "Gouvernance maritime"
+    },
+    "yearAll": "Toutes"
+  },
+  "categoryLabels": {
+    "Policy": "Politique",
+    "Research": "Recherche",
+    "Security": "Sécurité",
+    "Development": "Développement",
+    "Events": "Événements",
+    "Analysis": "Analyse",
+    "Assessment": "Évaluation",
+    "IMSWG": "IMSWG",
+    "Educational": "Éducatif"
+  },
+  "noResults": "Aucune ressource ne correspond à vos critères",
+  "badges": {
+    "membersOnly": "Réservé aux membres",
+    "freeAccess": "Accès libre"
+  },
+  "card": {
+    "viewsSuffix": "vues",
+    "durationLabel": "Durée",
+    "watch": "Regarder",
+    "watchVideo": "Regarder la vidéo",
+    "pagesSuffix": "pages",
+    "preview": "Aperçu",
+    "download": "Télécharger",
+    "locked": "Verrouillé"
+  },
+  "modal": {
+    "published": "Publié",
+    "fileSize": "Taille du fichier",
+    "pages": "Pages",
+    "downloads": "Téléchargements",
+    "membershipRequired": {
+      "heading": "Le téléchargement nécessite une adhésion",
+      "body": "Ce rapport interne est réservé aux membres. Vous pouvez le prévisualiser, mais une adhésion est nécessaire pour le télécharger."
+    },
+    "freeDownload": {
+      "heading": "Téléchargement gratuit disponible",
+      "body": "Cette ressource est disponible gratuitement pour tous les visiteurs. Cliquez sur télécharger pour y accéder instantanément."
+    },
+    "overview": "Aperçu général",
+    "whatsIncluded": "Contenu inclus",
+    "unlockDownload": "Débloquer le téléchargement",
+    "downloadResource": "Télécharger la ressource",
+    "openPreview": "Ouvrir l'aperçu"
+  },
+  "membershipModal": {
+    "heading": "Contenu réservé aux membres",
+    "body": "Les rapports internes sont réservés exclusivement à nos membres. Prévisualisez le document pour voir ce que vous obtiendrez, puis rejoignez-nous pour débloquer l'accès complet.",
+    "benefitsHeading": "Avantages de l'adhésion",
+    "benefits": [
+      "Téléchargez tous les rapports internes et analyses",
+      "Accédez aux notes de politique et rapports IMSWG exclusifs",
+      "Recevez les temps forts trimestriels et les actualités",
+      "Rejoignez notre réseau de la communauté maritime"
+    ],
+    "close": "Fermer",
+    "becomeMember": "Devenir membre"
+  },
+  "downloadCompleteAlert": "Téléchargement terminé !\n\nFichier : {{title}}",
+  "downloadFailedAlert": "Échec du téléchargement : {{error}}",
+  "ctaSection": {
+    "unlock": {
+      "heading": "Débloquez les rapports internes",
+      "body": "Rejoignez notre communauté et accédez à des rapports internes, notes de politique et publications IMSWG exclusifs",
+      "button": "Devenir membre"
+    },
+    "customResearch": {
+      "heading": "Besoin d'une recherche sur mesure ?",
+      "body": "Nous proposons des services de recherche et de conseil personnalisés, adaptés à vos besoins maritimes spécifiques",
+      "button": "Demander une recherche sur mesure"
+    }
+  },
+  "resourceContent": {
+    "5": {
+      "description": "Cadre global de l'Union africaine pour transformer les secteurs maritimes en moteurs de croissance durable et d'intégration régionale.",
+      "fullDescription": "La Stratégie maritime intégrée de l'Afrique (Stratégie AIM 2050) est le cadre global à long terme de l'Union africaine visant à transformer le secteur maritime du continent en moteur de croissance économique durable et d'intégration régionale. Élaborée à l'issue de vastes consultations avec des experts africains, des États membres et des partenaires internationaux, cette stratégie propose une feuille de route coordonnée pour protéger et exploiter les vastes ressources maritimes de l'Afrique, tout en répondant aux menaces sécuritaires, en renforçant la coopération régionale et en développant les capacités nécessaires pour libérer tout le potentiel de l'économie bleue sur le continent.",
+      "keyTopics": [
+        "Création de la Zone maritime exclusive combinée de l'Afrique (CEMZA)",
+        "Renforcement de la sûreté et de la sécurité maritimes par la coopération régionale",
+        "Gestion durable des pêches et développement de l'économie bleue",
+        "Développement des infrastructures maritimes et compétitivité commerciale",
+        "Renforcement des capacités et développement des ressources humaines pour les secteurs maritimes"
+      ]
+    },
+    "6": {
+      "description": "La Stratégie maritime intégrée de la CEDEAO (2014) est un cadre régional global qui traite de la sécurité maritime, de la gouvernance, de la protection de l'environnement et du développement économique le long des 2 868 milles nautiques de littoral de l'Afrique de l'Ouest.",
+      "fullDescription": "La Stratégie maritime intégrée de la CEDEAO (EIMS), adoptée en août 2014, est un cadre politique global conçu pour relever les défis maritimes et libérer les opportunités économiques dans le domaine maritime de l'Afrique de l'Ouest. La stratégie couvre 11 États membres côtiers de la CEDEAO, totalisant 2 868 milles nautiques de littoral sur l'océan Atlantique, ainsi que trois pays enclavés reliés par des voies navigables intérieures. Elle établit une vision d'un domaine maritime prospère, sûr et pacifique pour l'ensemble de ses populations, permettant un développement écologiquement durable et une création de richesse fondée sur une gestion efficace et une bonne gouvernance.",
+      "keyTopics": [
+        "Gouvernance maritime et cadre réglementaire",
+        "Sûreté et sécurité maritimes",
+        "Protection de l'environnement et durabilité",
+        "Développement économique maritime",
+        "Renforcement des capacités et sensibilisation maritime"
+      ]
+    },
+    "9": {
+      "description": "Le Cadre de Yaoundé (2013) est une architecture multinationale de coopération en matière de sécurité maritime pour l'Afrique de l'Ouest et centrale, qui traite 12 types de crimes maritimes transnationaux organisés, notamment la piraterie, la pêche INN, le vol de pétrole et les trafics.",
+      "fullDescription": "Le Cadre de Yaoundé, instauré par le Code de conduite de Yaoundé de 2013 et les accords qui ont suivi, constitue une architecture multinationale globale de coopération en matière de sécurité maritime pour l'Afrique de l'Ouest et centrale. Il met en place une structure opérationnelle avec le Centre interrégional de coordination (CIC) à Yaoundé, au Cameroun, supervisant des centres de coordination régionaux et cinq zones maritimes (A, D, E, F, G) qui traitent 12 types de crimes maritimes transnationaux organisés dans 25 pays participants, de l'Angola au Cap-Vert.",
+      "keyTopics": [
+        "Structure opérationnelle et coordination zonale",
+        "Approche globale des crimes au-delà de la piraterie",
+        "Harmonisation juridique et réglementaire",
+        "Exigences de mise en œuvre au niveau national",
+        "Partenariat international et renforcement des capacités"
+      ]
+    },
+    "10": {
+      "description": "Le Code de conduite de Yaoundé (2013) est un accord multilatéral signé par 25 nations d'Afrique de l'Ouest et centrale, établissant un cadre global de lutte contre la piraterie, les vols à main armée en mer et 10 autres types de crimes maritimes transnationaux.",
+      "fullDescription": "Le Code de conduite de Yaoundé, signé en 2013, est un accord multilatéral entre 25 nations d'Afrique de l'Ouest et centrale établissant un cadre global de lutte contre la piraterie, les vols à main armée en mer, la pêche INN, le vol de pétrole, la traite des êtres humains, le terrorisme maritime et d'autres crimes maritimes transnationaux. Il met en place des mécanismes de coordination via des points focaux nationaux, des centres régionaux de partage d'informations, et engage les signataires à des mesures d'application coopératives, notamment des programmes d'officiers embarqués et des opérations conjointes.",
+      "keyTopics": [
+        "Définition globale des crimes maritimes",
+        "Obligations de mise en œuvre au niveau national",
+        "Architecture de coordination et de partage d'informations",
+        "Officiers embarqués et opérations transfrontalières",
+        "Cadre juridique pour l'interdiction et les poursuites"
+      ]
+    },
+    "2": {
+      "description": "Le monde bleu de l'Afrique se compose de vastes lacs, de fleuves et d'une importante base de ressources océaniques. Trente-huit des cinquante-quatre États africains sont des États côtiers.",
+      "fullDescription": "Ce guide pratique complet sert de référence stratégique pour aider les nations africaines à exploiter le potentiel économique de leurs ressources océaniques et côtières. Il propose des cadres concrets destinés aux décideurs politiques, aux responsables gouvernementaux et aux parties prenantes pour développer des initiatives d'économie bleue durable, conciliant croissance économique, préservation de l'environnement et inclusion sociale à l'échelle du continent.",
+      "keyTopics": [
+        "Cadres politiques et réglementaires pour le développement de l'économie bleue",
+        "Gestion durable des pêches et de l'aquaculture",
+        "Conservation marine et protection de la biodiversité",
+        "Développement du tourisme côtier et des infrastructures",
+        "Stratégies de coopération régionale et de renforcement des capacités"
+      ]
+    },
+    "7": {
+      "description": "Examen des implications environnementales et économiques de l'exploitation minière des grands fonds marins, dans le contexte d'une gestion durable de l'océan.",
+      "fullDescription": "L'exploitation minière des grands fonds marins est de plus en plus présentée comme une solution à la demande croissante de minéraux utilisés dans les technologies d'énergie propre. Le document souligne toutefois que l'exploitation du fond océanique fait peser des menaces graves et potentiellement irréversibles sur des écosystèmes marins fragiles. Il insiste sur le fait que les perturbations liées à l'extraction pourraient durer des siècles et affecter des espèces que nous commençons à peine à comprendre. La note appelle à donner la priorité à la protection de l'océan face à l'urgence climatique et souligne le mouvement mondial croissant en faveur de la préservation environnementale plutôt que des intérêts miniers.",
+      "keyTopics": [
+        "Demande croissante de minéraux dans la transition vers l'énergie propre",
+        "Risques environnementaux pour les écosystèmes des grands fonds",
+        "Perturbations écologiques durables",
+        "Appels mondiaux à la protection de l'océan",
+        "Résistance internationale et action politique"
+      ]
+    },
+    "11": {
+      "description": "Évaluation approfondie de la mise en œuvre et de l'efficacité du Code de conduite de Yaoundé face aux enjeux de sécurité maritime.",
+      "fullDescription": "Cette évaluation propose une analyse approfondie de la mise en œuvre et de l'efficacité de l'architecture de Yaoundé face aux enjeux de sécurité maritime en Afrique de l'Ouest et centrale. Elle examine la structure opérationnelle, les mécanismes de coordination et l'impact du cadre dans la lutte contre les crimes maritimes transnationaux, tout en identifiant les lacunes et en formulant des recommandations d'amélioration.",
+      "keyTopics": [
+        "Définition globale des crimes maritimes",
+        "Obligations de mise en œuvre au niveau national",
+        "Architecture de coordination et de partage d'informations",
+        "Officiers embarqués et opérations transfrontalières",
+        "Cadre juridique pour l'interdiction et les poursuites"
+      ]
+    },
+    "12": {
+      "description": "Une note synthétisant les discussions d'experts sur l'avancement, les difficultés et les recommandations pour renforcer l'architecture du Code de conduite de Yaoundé.",
+      "fullDescription": "Cette note présente les conclusions des réunions du Groupe de discussion virtuel de niveau expert tenues entre janvier et avril 2021 sur l'état de mise en œuvre du Code de conduite de Yaoundé dans le Golfe de Guinée. Organisées par le GoGMI et soutenues par l'OMI, ces réunions ont rassemblé des parties prenantes régionales, internationales, académiques et industrielles afin d'évaluer les progrès, de traiter les lacunes de mise en œuvre et de recommander des stratégies pour renforcer la sûreté et la sécurité maritimes.",
+      "keyTopics": [
+        "Renforcement de l'architecture de mise en œuvre du CCoC",
+        "Coopération renforcée entre États et partenaires internationaux",
+        "Intégration des institutions régionales clés",
+        "Le rôle du monde académique et des institutions de recherche",
+        "Définir le rôle de l'industrie maritime"
+      ]
+    },
+    "13": {
+      "description": "Un rapport sur le développement des carrières bleues pour stimuler une croissance économique durable dans le Golfe de Guinée, en renforçant le capital humain et les compétences maritimes.",
+      "fullDescription": "Ce document présente les enseignements de l'événement en ligne GoGMI–Groupe de travail international sur la sécurité maritime, tenu le 25 février 2021, consacré au développement des carrières bleues pour soutenir la croissance stratégique des économies maritimes du Golfe de Guinée. Les échanges ont mis en lumière l'immense potentiel de l'économie bleue africaine, le besoin urgent de capital humain qualifié, ainsi que le rôle de l'innovation, de l'éducation et des partenariats pour libérer les opportunités économiques.",
+      "keyTopics": [
+        "Le potentiel de l'économie bleue en Afrique",
+        "Importance du capital humain et du développement des compétences",
+        "Partenariats régionaux et internationaux",
+        "Efforts nationaux : études de cas du Nigeria et du Ghana",
+        "Recommandations pour renforcer les carrières bleues en Afrique"
+      ]
+    },
+    "14": {
+      "description": "Rapport détaillé sur la plénière du G7++ Amis du Golfe de Guinée 2022, présentant les principaux échanges sur la sécurité maritime et la coopération régionale.",
+      "fullDescription": "Ce rapport rend compte des principales présentations, discussions et conclusions de la plénière du G7++FoGG tenue à Abidjan du 1er au 2 décembre 2022. Plateforme multilatérale de soutien au Code de conduite de Yaoundé, la plénière a réuni plus de 150 délégués, dont des responsables gouvernementaux, des chefs de marine, des groupes de la société civile, des acteurs du secteur privé et des partenaires internationaux.",
+      "keyTopics": [
+        "Renforcer l'architecture de Yaoundé à l'occasion de son 10e anniversaire",
+        "Élargir le rôle de la société civile dans la gouvernance maritime",
+        "Les femmes dans la sécurité maritime et la prévention de la criminalité",
+        "Collaboration régionale et internationale",
+        "Lutter contre la piraterie, le vol de pétrole et la criminalité transnationale"
+      ]
+    },
+    "15": {
+      "description": "Rapport de séminaire complet examinant les interventions et la gouvernance en matière de sécurité maritime dans la région du Golfe de Guinée.",
+      "fullDescription": "Le 21 octobre 2022, le GoGMI et l'Atlantic Centre ont coorganisé un séminaire virtuel réunissant plus de 40 participants du monde entier pour examiner l'interventionnisme et la gouvernance de la sécurité maritime dans le Golfe de Guinée. Le séminaire a réuni des panélistes experts explorant l'efficacité des principales initiatives de sécurité maritime, notamment l'architecture de Yaoundé, le système d'information YARIS, le GoG-MCF SHADE, et les exercices multilatéraux.",
+      "keyTopics": [
+        "Évolution des menaces à la sécurité maritime dans le Golfe de Guinée",
+        "Principales interventions et cadres de sécurité maritime",
+        "Le rôle crucial du YARIS dans le partage d'informations",
+        "Défis de la coordination régionale et du renforcement des capacités",
+        "Naviguer entre des relations d'acteurs complexes et des intérêts concurrents"
+      ]
+    },
+    "16": {
+      "description": "Analyse approfondie de l'initiative GoG-MCF/SHADE, une plateforme portée par la région pour harmoniser les efforts de lutte contre la piraterie dans le Golfe de Guinée.",
+      "fullDescription": "L'initiative GoG-MCF/SHADE représente une approche novatrice de la sécurité maritime dans le Golfe de Guinée, née d'un protocole d'accord entre le gouvernement du Nigeria et le Centre interrégional de coordination représentant 21 pays. Fonctionnant à travers des sessions plénières structurées et trois groupes de travail spécialisés, le SHADE constitue une plateforme essentielle permettant aux marines, aux partenaires de l'industrie et aux parties prenantes maritimes de coordonner leurs réponses en matière de lutte contre la piraterie.",
+      "keyTopics": [
+        "La crise de la piraterie dans le Golfe de Guinée et la réponse apportée",
+        "La structure opérationnelle et les groupes de travail du SHADE",
+        "Évolution à travers cinq sessions plénières",
+        "Réalisations concrètes et innovations",
+        "Recommandations stratégiques pour la pérennité"
+      ]
+    },
+    "17": {
+      "description": "Analyse de la nature interconnectée des crimes maritimes, notamment le trafic de drogue, la piraterie et le terrorisme dans l'espace atlantique.",
+      "fullDescription": "Cette note de politique examine les moteurs complexes du nexus de la criminalité bleue, mêlant drogue, piraterie et terrorisme dans l'espace atlantique. Elle analyse les causes profondes, les interconnexions et les approches stratégiques nécessaires pour faire face de manière globale à ces menaces transnationales à la sécurité maritime.",
+      "keyTopics": [
+        "Causes profondes de la criminalité maritime",
+        "Interconnexions entre trafic de drogue et piraterie",
+        "Réseaux terroristes et opérations maritimes",
+        "Coopération régionale en matière de sécurité",
+        "Recommandations politiques pour l'intervention"
+      ]
+    },
+    "22": {
+      "description": "Rapport consolidé sur cinq ans regroupant l'ensemble des forums IMSWG 2020-2024.",
+      "fullDescription": "Rapport complet consolidant les enseignements de l'ensemble des forums IMSWG tenus entre 2020 et 2024.",
+      "keyTopics": ["Tendances sur cinq ans", "Évolution des politiques", "Impact régional"]
+    },
+    "18": {
+      "description": "L'édition du premier trimestre 2026 a présenté une intervention du Commandant Duodu sur l'optimisation de la sécurité maritime au service d'un développement durable de l'économie bleue.",
+      "fullDescription": "Cette vidéo propose une introduction complète à la sécurité maritime dans le Golfe de Guinée, abordant les principaux défis, les initiatives régionales et les efforts de collaboration visant à garantir des opérations maritimes sûres et sécurisées."
+    },
+    "19": {
+      "description": "Réunion d'experts de haut niveau du Groupe de travail international sur la sécurité maritime (IMSWG), édition de septembre 2026, consacrée à l'Accord BBNJ et à ses implications pour le Golfe de Guinée.",
+      "fullDescription": "Le Golfe de Guinée entre dans une nouvelle phase de gouvernance des océans, l'Accord BBNJ apportant de nouvelles opportunités et responsabilités aux États et aux parties prenantes maritimes. Modérée par le Commandant Ayo Olusola Pacheco (Marine nigériane, doctorant, World Maritime University), avec les intervenants Kome Adhekpukoli (avocat, ministère fédéral de la Justice, Nigeria) et le Dr Godwin Djokoto (maître de conférences, University of Ghana School of Law)."
+    }
+  }
+}

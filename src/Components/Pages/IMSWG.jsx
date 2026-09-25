@@ -1,8 +1,10 @@
 import React from 'react';
 import { Download, Users, Globe, FileText, Calendar, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const IMSWG = () => {
+  const { t } = useTranslation('imswg');
   const navigate = useNavigate();
 
   const goToReports = () => {
@@ -15,9 +17,9 @@ const IMSWG = () => {
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img 
+          <img
             src="/imswg4.jpg"
-            alt="IMSWG Forum"
+            alt={t('hero.imageAlt')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/75 via-slate-800/70 to-slate-900/75"></div>
@@ -26,21 +28,21 @@ const IMSWG = () => {
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white mb-6 leading-tight"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}>
-            INTERNATIONAL MARITIME<br/>SECURITY WORKING GROUP
+            {t('hero.heading1')}<br/>{t('hero.heading2')}
           </h1>
 
           <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-8"
              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            Driving policy innovation and dialogue on Gulf of Guinea maritime security
+            {t('hero.subtitle')}
           </p>
 
-          <button 
+          <button
             onClick={goToReports}
             className="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 rounded-lg text-base font-semibold transition-all hover:scale-105 shadow-xl cursor-pointer"
             style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
           >
             <Download className="w-5 h-5" />
-            <span>Download Reports</span>
+            <span>{t('hero.downloadReports')}</span>
           </button>
         </div>
       </section>
@@ -52,27 +54,27 @@ const IMSWG = () => {
             <div>
               <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
                     style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                About the Forum
+                {t('about.eyebrow')}
               </span>
               <h2 className="text-4xl md:text-5xl font-black mb-6"
                   style={{ color: '#132552', fontFamily: 'Inter, sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                About the Working Group
+                {t('about.heading')}
               </h2>
 <p className="text-base leading-relaxed mb-6"
                  style={{ color: '#475569', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                The International Maritime Security Working Group (IMSWG), formed by the Gulf of Guinea Maritime Institute, is the Institute's flagship forum focused on stimulating dialogue and policy innovation aimed at addressing maritime security and safety concerns in the Gulf of Guinea (GoG) region.
+                {t('about.para1')}
               </p>
 
               <p className="text-base leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                The IMSWG forum is notable as a knowledge exchange and research network on regional issues while keeping an eye on the pulse of international perspectives.
+                {t('about.para2')}
               </p>
             </div>
 
             <div className="relative">
-              <img 
+              <img
                 src="/imswg2.jpg"
-                alt="Maritime Collaboration"
+                alt={t('about.imageAlt')}
                 className="rounded-xl shadow-2xl w-full"
               />
             </div>
@@ -85,10 +87,10 @@ const IMSWG = () => {
                 <Users className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>Expert Network</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('about.cards.expertNetwork.heading')}</h3>
               <p className="text-sm leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                Government, industry, private sector, universities, research institutions and diplomatic community experts in ocean governance
+                {t('about.cards.expertNetwork.desc')}
               </p>
             </div>
 
@@ -97,10 +99,10 @@ const IMSWG = () => {
                 <Globe className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>Regional Focus</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('about.cards.regionalFocus.heading')}</h3>
               <p className="text-sm leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                Concentrated on Gulf of Guinea maritime security and safety challenges with international perspectives
+                {t('about.cards.regionalFocus.desc')}
               </p>
             </div>
 
@@ -109,10 +111,10 @@ const IMSWG = () => {
                 <FileText className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>Policy Innovation</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('about.cards.policyInnovation.heading')}</h3>
               <p className="text-sm leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                Develops comprehensive reforms and strategy recommendations for maritime safety development
+                {t('about.cards.policyInnovation.desc')}
               </p>
             </div>
           </div>
@@ -125,18 +127,18 @@ const IMSWG = () => {
           <div className="text-center mb-12">
             <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
                   style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              How We Work
+              {t('composition.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-6"
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
-              Forum Composition
+              {t('composition.heading')}
             </h2>
 </div>
 
           <div className="bg-white rounded-2xl p-10 md:p-12 shadow-lg mb-10">
             <p className="text-base leading-relaxed mb-8 text-center"
                style={{ color: '#475569', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-              Made up of experts from government, industry, private sector, universities, research institutions and diplomatic community in ocean governance practice, the forum occasionally engages in exchanging ideas and making salient recommendations for heads of organizations and policymakers to comprehensively deepen reforms and strategy development, actively promote maritime safety development, and build communal consensus for social and economic prosperity.
+              {t('composition.para1')}
             </p>
 
             <div className="bg-slate-50 rounded-xl p-8 border-l-4 border-slate-900">
@@ -146,10 +148,10 @@ const IMSWG = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-base mb-2"
-                      style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>Chatham House Rule</h4>
+                      style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('composition.chathamHouse.heading')}</h4>
                   <p className="text-sm leading-relaxed italic"
                      style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                    IMSWG is governed by the Chatham House Rule: a rule or principle according to which information disclosed during a meeting may be reported by those present, but the source of that information may not be explicitly or implicitly identified.
+                    {t('composition.chathamHouse.desc')}
                   </p>
                 </div>
               </div>
@@ -164,49 +166,49 @@ const IMSWG = () => {
           <div className="text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
                   style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              What We Do
+              {t('activities.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-6"
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
-              Forum Activities
+              {t('activities.heading')}
             </h2>
 </div>
 
           <div className="grid md:grid-cols-2 gap-10 mb-16">
             <div>
               <h3 className="text-2xl font-bold mb-4"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>Discussion Topics</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('activities.discussionTopics.heading')}</h3>
               <p className="text-base leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                In each forum, members and participants are engaged in in-depth discussions on a wide range of topics under the theme, and offer suggestions for the promotion and development of ocean governance and the sustainable blue economy.
+                {t('activities.discussionTopics.desc')}
               </p>
             </div>
 
             <div>
               <h3 className="text-2xl font-bold mb-4"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>Reports & Recommendations</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('activities.reports.heading')}</h3>
               <p className="text-base leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                These discussions are available in reports and recommendations on the Institute's website and serve as a repository for policymakers and institutions working on maritime safety development in the Gulf of Guinea region.
+                {t('activities.reports.desc')}
               </p>
             </div>
           </div>
 
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img 
+            <img
               src="/imswg3.jpg"
-              alt="Maritime Forum Discussion"
+              alt={t('activities.imageAlt')}
               className="w-full h-96 object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end">
               <div className="p-10 text-white">
                 <p className="text-2xl font-semibold mb-2"
                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                  Collaborative discussions driving maritime security innovation
+                  {t('activities.overlayTitle')}
                 </p>
                 <p className="text-slate-300"
                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  Bringing together experts from across the maritime ecosystem
+                  {t('activities.overlaySubtitle')}
                 </p>
               </div>
             </div>
@@ -220,11 +222,11 @@ const IMSWG = () => {
           <div className="text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
                   style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              Get Involved
+              {t('reportsEvents.eyebrow')}
             </span>
             <h2 className="text-4xl md:text-5xl font-black mb-6"
                 style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
-              Reports & Upcoming Events
+              {t('reportsEvents.heading')}
             </h2>
 </div>
 
@@ -235,17 +237,17 @@ const IMSWG = () => {
                 <Users className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>Sign Up</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('reportsEvents.signUp.heading')}</h3>
               <p className="text-sm mb-6 leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                Join the IMSWG network and participate in future forums to shape maritime policy
+                {t('reportsEvents.signUp.desc')}
               </p>
-              <button 
+              <button
                 onClick={() => navigate('/imswg-signup')}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 bg-slate-900 hover:bg-slate-800 text-white cursor-pointer"
                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
               >
-                <span>Express Your Interest</span>
+                <span>{t('reportsEvents.signUp.button')}</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -256,17 +258,17 @@ const IMSWG = () => {
                 <FileText className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>2020-2026 Report</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('reportsEvents.report.heading')}</h3>
               <p className="text-sm mb-6 leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                Comprehensive report of forums held from 2020 to 2026 with key insights
+                {t('reportsEvents.report.desc')}
               </p>
-              <button 
+              <button
                 onClick={goToReports}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 border-2 border-slate-900 text-slate-900 hover:bg-slate-50 cursor-pointer"
                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
               >
-                <span>Download Report</span>
+                <span>{t('reportsEvents.report.button')}</span>
                 <Download className="w-5 h-5" />
               </button>
             </div>
@@ -277,17 +279,17 @@ const IMSWG = () => {
                 <Calendar className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>2026 Event</h3>
+                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('reportsEvents.event.heading')}</h3>
               <p className="text-sm mb-6 leading-relaxed"
                  style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                View upcoming 2026 forum schedule and event details
+                {t('reportsEvents.event.desc')}
               </p>
-              <button 
+              <button
                 onClick={() => navigate('/imswg-events')}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 border-2 border-slate-900 text-slate-900 hover:bg-slate-50 cursor-pointer"
                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
               >
-                <span>View Details</span>
+                <span>{t('reportsEvents.event.button')}</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -300,26 +302,26 @@ const IMSWG = () => {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Join the Conversation
+            {t('cta.heading')}
           </h2>
           <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            Be part of the premier forum driving maritime security policy innovation in the Gulf of Guinea
+            {t('cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
               onClick={() => navigate('/imswg-forum-q3')}
               className="px-10 py-4 rounded-xl font-semibold transition-all hover:scale-105 bg-white text-slate-900 shadow-xl cursor-pointer"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
             >
-              Register for Next Forum
+              {t('cta.register')}
             </button>
-            <button 
+            <button
               onClick={goToReports}
               className="px-10 py-4 rounded-xl font-semibold transition-all hover:scale-105 border-2 border-white/30 text-white hover:bg-white/10 cursor-pointer"
               style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
             >
-              Download Reports
+              {t('cta.download')}
             </button>
           </div>
         </div>

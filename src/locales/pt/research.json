@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "badge": "Investigação e Inovação",
+    "title": "A Responder às Grandes Questões da Segurança Marítima",
+    "subtitle": "Concentramo-nos em investigação marítima estratégica que responde aos desafios de segurança, proteção e ambientais no Golfo da Guiné.",
+    "cta": "Explore o Nosso Gulf Spectrum Journal"
+  },
+  "dashboard": {
+    "title": "Painel de Investigação",
+    "updated": "Atualizado há 2 min",
+    "stats": ["Projetos de Investigação Ativos", "Pontos de Dados Recolhidos", "Instituições Parceiras"]
+  },
+  "themes": {
+    "eyebrow": "Temas de Investigação",
+    "heading": "O Nosso Foco de Investigação",
+    "subtitle": "Investigação ambiciosa que responde a desafios prementes na segurança marítima do Golfo da Guiné",
+    "themeLabel": "Tema de Investigação {{number}}",
+    "learnMore": "Saiba Mais Sobre Esta Investigação",
+    "items": [
+      {
+        "question": "AUDITORIA ÀS INTERVENÇÕES DE SEGURANÇA MARÍTIMA",
+        "description": "Auditoria abrangente que mapeia as intervenções de segurança marítima em todo o Golfo da Guiné, analisando a sua evolução, eficácia e a complexa interação entre os intervenientes regionais e internacionais na resposta às ameaças marítimas."
+      },
+      {
+        "question": "ÍNDICE DE GOVERNAÇÃO MARÍTIMA DO GOG",
+        "description": "Mapeamento das oportunidades por explorar da economia azul nas áreas das pescas, do turismo, das energias renováveis e da biotecnologia marinha."
+      }
+    ]
+  }
+}

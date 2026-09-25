@@ -1,0 +1,148 @@
+{
+  "hero": {
+    "heading": "Capacity Building",
+    "subtitle": "We specialize in training programs and mentoring initiatives for marine professionals, stakeholders, women, and youth in the blue economy, as well as maritime safety and security.",
+    "cta": "Explore Our Learning Management System"
+  },
+  "impact": {
+    "heading": "Our Impact",
+    "since": "Since 2020",
+    "metrics": {
+      "trainingPrograms": "Training Programs",
+      "professionalsTrained": "Professionals Trained",
+      "partnerOrganizations": "Partner Organizations"
+    }
+  },
+  "featured": {
+    "eyebrow": "Featured Course",
+    "headingPrefix": "Now Enrolling",
+    "subtitle": "Professional development in maritime security strategy for African practitioners",
+    "stats": {
+      "duration": "Duration",
+      "format": "Format",
+      "modules": "Modules",
+      "level": "Level"
+    },
+    "viewProgram": "View Full Program",
+    "applyNow": "Apply Now",
+    "nextIntake": "Next Intake",
+    "courses": {
+      "maritime-governance": {
+        "status": "Active",
+        "badge": "2026 TRAINING COURSE ALERT!",
+        "comingSoon": "COMING SOON",
+        "title": "MARITIME GOVERNANCE FOR PRACTITIONERS:",
+        "subtitle": "A FOCUS ON AFRICA",
+        "tagline": "A Focus on Africa",
+        "fullTitle": "MARITIME GOVERNANCE FOR PRACTITIONERS",
+        "description": "Comprehensive 2-week virtual course equipping professionals with expertise to develop and implement maritime security strategies across the African continent.",
+        "duration": "2 weeks",
+        "format": "Virtual",
+        "modules": "8 modules",
+        "level": "Professional",
+        "nextIntake": "September 7 – 18, 2026"
+      },
+      "marine-casualty": {
+        "status": "Active",
+        "badge": "2026 EXECUTIVE TRAINING!",
+        "comingSoon": "ENROLLING NOW",
+        "title": "MARINE CASUALTY INVESTIGATION:",
+        "subtitle": "SAFETY MANAGEMENT",
+        "tagline": "Safety Management",
+        "fullTitle": "MARINE CASUALTY INVESTIGATION & SAFETY MANAGEMENT",
+        "description": "Executive training on conducting credible marine casualty investigations aligned with the IMO Casualty Investigation Code and SOLAS requirements for maritime administrators.",
+        "duration": "5 days",
+        "format": "In-Person",
+        "modules": "6 modules",
+        "level": "Executive",
+        "nextIntake": "June 15 – 19, 2026"
+      }
+    }
+  },
+  "programs": {
+    "eyebrow": "All Programs",
+    "heading": "Comprehensive Training Portfolio",
+    "subtitle": "Comprehensive programs for every stage of your maritime career",
+    "learnMore": "Learn More",
+    "status": {
+      "Active": "Active",
+      "Completed": "Completed"
+    },
+    "items": {
+      "marineCasualty": {
+        "title": "MARINE CASUALTY INVESTIGATION & SAFETY MANAGEMENT",
+        "description": "Maritime and inland waterways (IWW) transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods in coastal and riverine communities. Common causes include overloading, poor vessel maintenance, incompetent or unlicensed operators, absence of life-saving appliances, bad weather, weak enforcement of regulations, inadequate navigational aids, and human factors such as fatigue and drunkenness. These incidents highlight critical gaps: inadequate compliance monitoring, poor vessel maintenance, and a lack of standardised investigations to produce data for trend analysis and accident prevention.",
+        "duration": "5 days",
+        "format": "In Person",
+        "level": "All Levels",
+        "features": ["IMO Compliance", "Expert Faculty", "Hybrid Format", "Certification"],
+        "nextIntake": "15–19 June, 2026"
+      },
+      "maritimeGovernance": {
+        "title": "MARITIME GOVERNANCE COURSE: A FOCUS ON AFRICA",
+        "description": "For decades, the African continent has faced a wide range of maritime security threats and challenges, none of which can be fully addressed without strategic guidance. Consequently, the continent witnessed a proliferation of strategy documents, including the 2050 Africa's Integrated Maritime Strategy in 2012, the Lomé Charter in 2016, and the Africa Blue Economy Strategy in 2019. This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.",
+        "duration": "2 weeks",
+        "format": "Virtual/Online",
+        "level": "Beginner–Intermediate",
+        "features": ["8 Training Modules", "Zoom Workshops", "Certificate"],
+        "nextIntake": "Quarterly"
+      },
+      "journalistTraining": {
+        "title": "2025 TRAINING FOR JOURNALISTS AND MEDIA PRACTITIONERS ON MARITIME SECURITY, SAFETY AND BLUE ECONOMY IN THE GULF OF GUINEA",
+        "description": "To better raise awareness of maritime security issues and challenges, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) launched a call for participation for a training course on: \"Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea.\"",
+        "duration": "3 days",
+        "format": "Hybrid",
+        "level": "All Levels",
+        "features": ["Hands-on training in open-source intelligence", "Data journalism", "Multimedia storytelling"],
+        "nextIntake": "7–9 October 2025"
+      },
+      "massdi": {
+        "title": "MaSSDI TRAINING COURSE",
+        "description": "Platform connecting young people with maritime industry leaders to explore careers and opportunities.",
+        "duration": "2 months",
+        "format": "Virtual/Online",
+        "level": "All Levels",
+        "features": ["Maritime Security Strategy Theory", "Assessing Maritime Security Challenges & Opportunities I & II", "Interagency Coordination and Stakeholder Analysis I & II"],
+        "nextIntake": "6 October – 30 November 2025"
+      },
+      "blueMentorship": {
+        "title": "THE BLUE MENTORSHIP PROGRAMME",
+        "description": "An African maritime accelerator selecting 30 young individuals for a full mentorship and grooming experience — connecting youth with industry leaders, entrepreneurs, and ocean professionals to prime them for blue success.",
+        "duration": "12 months",
+        "format": "Hybrid",
+        "level": "All Levels",
+        "features": ["1-on-1 Mentor Pairing", "Blue Success Speaker Series (BLUESSS)", "Maritime Business Support Hub"],
+        "nextIntake": "Cohort Completed"
+      },
+      "ecop": {
+        "title": "ECOP",
+        "description": "An African maritime accelerator designed to encourage youth to engage in sustainable blue economy careers.",
+        "duration": "12 months",
+        "format": "Hybrid",
+        "level": "All Levels",
+        "features": ["1-on-1 Mentorship", "Industry Networks", "Career Guidance"],
+        "nextIntake": "March 2025"
+      },
+      "wytec": {
+        "title": "WYTEC",
+        "description": "The ECOP Training Course was held twice this year, in March and November 2022, as a 9-day event to equip youth with first-hand knowledge of Africa's blue economy and expose participants to various career and business opportunities in the blue industry.",
+        "duration": "4 weeks",
+        "format": "Online",
+        "level": "Beginner–Intermediate",
+        "features": ["4 Training Modules", "Zoom Workshops", "Certificate"],
+        "nextIntake": "Quarterly"
+      }
+    }
+  },
+  "alumni": {
+    "heading1": "Alumni",
+    "heading2": "Making Waves",
+    "subtitle": "GoGMI alumni are building careers and driving change across Africa's blue economy.",
+    "programTag": "WYTEC Blue Project",
+    "linkedinLabel": "LinkedIn Profile",
+    "roles": {
+      "thomasLartey": "Maritime Safety and Risk Management",
+      "clementKwara": "Marine and Geoscience Graduate"
+    }
+  }
+}

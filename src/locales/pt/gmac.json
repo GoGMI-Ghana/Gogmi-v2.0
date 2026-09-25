@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "backLink": "Voltar aos Serviços de Secretariado",
+    "badge": "Secretariado · 2023",
+    "titleLine1": "Green Maritime",
+    "titleLine2": "Africa Coalition",
+    "theme": "Tema: Promover Emissões Líquidas Zero e a Resiliência Marítima em África através da Colaboração Continental",
+    "date": "Novembro de 2023",
+    "stakeholders": "37 Partes Interessadas Envolvidas"
+  },
+  "overview": {
+    "eyebrow": "Sobre a GMAC",
+    "heading": "Uma Iniciativa Continental para a Transição Energética Verde",
+    "para1": "O GoGMI colabora com a Nigerian Maritime Administration and Safety Agency para acolher a Green Maritime Africa Coalition (GMAC). A missão da GMAC é uma iniciativa continental partilhada com o objetivo de liderar a transição energética global. Até 2030, a GMAC pretende disponibilizar combustíveis de emissões zero para o setor marítimo e implementá-los tanto no transporte marítimo internacional como doméstico em toda a África.",
+    "para2": "Durante o lançamento em novembro de 2023, organizado pelo GoGMI, 37 partes interessadas do setor do transporte marítimo — incluindo o setor privado, operadores de navios e portos, operadores de combustíveis e fretadores — uniram forças para avançar com a missão. O objetivo principal é amplificar a voz coletiva de África nos esforços globais de redução das emissões de gases com efeito de estufa (GEE). A GMAC visa promover a sensibilização, criar oportunidades e implementar ações concretas a curto e longo prazo para o continente.",
+    "para3": "A coligação coloca uma ênfase estratégica na política marítima, na capacitação, na tecnologia, no financiamento e no desenvolvimento de competências. O objetivo global é colaborar com os governos anfitriões e as instituições regionais, reforçando as políticas marítimas, simplificando processos e alinhando-se com as prioridades de África para o desenvolvimento sustentável e o crescimento económico.",
+    "imageAlt": "Lançamento da Green Maritime Africa Coalition"
+  },
+  "highlightsSection": {
+    "eyebrow": "Destaques do Evento",
+    "heading": "Principais Destaques"
+  },
+  "highlights": [
+    "Reflexões estimulantes de líderes, especialistas e influenciadores do setor",
+    "As partes interessadas tiveram a oportunidade de se relacionar com os seus pares, forjar novas parcerias e alargar as suas redes profissionais"
+  ],
+  "focusSection": {
+    "eyebrow": "Direção Estratégica",
+    "heading": "Áreas de Foco Estratégico",
+    "subtitle": "A abordagem multifacetada da GMAC reflete o seu compromisso em promover mudanças de impacto no setor marítimo africano."
+  },
+  "focusAreas": [
+    { "label": "Política Marítima", "desc": "Colaborar com os governos anfitriões e as instituições regionais para reforçar as políticas marítimas." },
+    { "label": "Capacitação", "desc": "Desenvolver competências e conhecimento em toda a força de trabalho marítima de África." },
+    { "label": "Tecnologia", "desc": "Impulsionar a adoção de tecnologias de emissões zero no transporte marítimo." },
+    { "label": "Financiamento", "desc": "Criar vias para o financiamento sustentável da transição energética verde." },
+    { "label": "Desenvolvimento de Competências", "desc": "Construir o capital humano necessário para liderar a transição energética marítima de África." }
+  ],
+  "testimonial": {
+    "quote": "Aplaudo os organizadores, o GoGMI e a Nigerian Maritime Administration and Safety Agency, por terem promovido um evento que estabeleceu um novo padrão de colaboração, inovação e compromisso com a sustentabilidade. A cimeira da GMAC não foi apenas um encontro; foi um catalisador de mudança, e estou entusiasmada por ver o impacto positivo que terá no setor marítimo africano nos próximos anos.",
+    "name": "Emb.ª Nancy Karigithu",
+    "title": "Enviada Especial e Conselheira do Gabinete do Presidente para a Economia Azul e os Assuntos Marítimos, Quénia"
+  },
+  "cta": {
+    "headingLine1": "Interessado em Estabelecer",
+    "headingLine2": "uma Parceria com o GoGMI?",
+    "subtitle": "Contacte-nos para saber mais sobre a Green Maritime Africa Coalition ou explorar os serviços de secretariado para a sua próxima iniciativa marítima.",
+    "button": "Contacte-nos"
+  }
+}

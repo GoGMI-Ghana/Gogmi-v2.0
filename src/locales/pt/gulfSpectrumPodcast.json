@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "badge": "Conversas Marítimas",
+    "subtitle": "A Explorar o Futuro da Excelência Marítima no Golfo da Guiné e Além",
+    "cta": "Ver Episódios"
+  },
+  "about": {
+    "eyebrow": "Sobre o Podcast",
+    "heading": "Uma Plataforma para a Excelência Marítima",
+    "para1": "O Gulf Spectrum Podcast, produzido pelo Gulf of Guinea Maritime Institute, é uma plataforma essencial para explorar o futuro da excelência marítima na região do Golfo da Guiné e além.",
+    "para2": "O GSP explora inovações de ponta, desafios prementes e oportunidades emergentes que moldam o setor marítimo, desde práticas de transporte marítimo sustentável e tecnologias avançadas até à intrincada dinâmica do comércio global."
+  },
+  "episodes": {
+    "heading": "Episódios em Destaque",
+    "with": "com",
+    "watchNow": "Ver Agora",
+    "items": [
+      { "title": "Future of Maritime Excellence I", "description": "Uma análise aprofundada das estratégias, parcerias e inovações que moldam o setor marítimo e a economia azul do Gana." },
+      { "title": "Future of Maritime Excellence II", "description": "A continuação da conversa sobre o equilíbrio entre ambições globais e desafios domésticos e regionais." },
+      { "title": "Renewing the Gulf of Guinea Region IUU Fishing Agenda", "description": "Uma reflexão sobre os progressos alcançados no panorama das pescas no Golfo da Guiné nos últimos anos." }
+    ]
+  },
+  "subscribe": {
+    "heading": "Subscreva e Mantenha-se Atualizado",
+    "subtitle": "Junte-se à conversa sobre o futuro da excelência marítima"
+  }
+}

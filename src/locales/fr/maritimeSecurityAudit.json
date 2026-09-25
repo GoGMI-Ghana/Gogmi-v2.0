@@ -1,0 +1,148 @@
+{
+  "phases": [
+    {
+      "id": "A",
+      "title": "CARTOGRAPHIE",
+      "description": "Une cartographie complète de l'éventail des initiatives et cadres importants en matière de sûreté maritime dans la région, et une détermination des complexités qui en résultent"
+    },
+    {
+      "id": "B",
+      "title": "ÉVOLUTION",
+      "description": "Une exploration de l'évolution de l'éventail des initiatives et interventions en matière de sûreté maritime dans le golfe de Guinée, et un examen de la manière dont celles-ci se sont cristallisées dans l'architecture de sûreté maritime existante de la région"
+    },
+    {
+      "id": "C",
+      "title": "RÉSULTATS ET RÉPONSES",
+      "description": "Une analyse des succès et des échecs enregistrés par les initiatives, ainsi que de la manière dont différents niveaux d'acteurs ont réagi aux complexités émergentes résultant de la prolifération des interventions dans la région"
+    },
+    {
+      "id": "D",
+      "title": "OPPORTUNITÉS",
+      "description": "Un examen des perspectives de réduction des complexités de la gouvernance maritime dans le golfe de Guinée et/ou d'harmonisation des efforts de gouvernance maritime dans la région en vue de renforcer la sûreté maritime"
+    }
+  ],
+  "explorationAreas": [
+    {
+      "title": "Initiatives/cadres de sûreté maritime existants dans la région",
+      "questions": [
+        "Quel est l'éventail des initiatives de sûreté maritime existantes dans la région et quelle est leur orientation, notamment en termes de focalisation sur les menaces ?",
+        "Dans quelle mesure ces interventions ont-elles réussi à endiguer les incidents de criminalité maritime dans la région ?"
+      ]
+    },
+    {
+      "title": "Évolution des initiatives/cadres de sûreté maritime dans la région",
+      "questions": [
+        "Quelles sont les principales raisons de la diversité des initiatives de sûreté maritime dans le golfe de Guinée ?",
+        "Quelle a été la trajectoire évolutive de l'éventail des initiatives dans la région ?",
+        "Comment les complexités ont-elles évolué au fil du temps ?",
+        "Comment les discours et pratiques des acteurs ont-ils façonné les approches de la sûreté maritime dans la région au fil du temps ?"
+      ]
+    },
+    {
+      "title": "Relations entre acteurs et réponses",
+      "questions": [
+        "Quelles sont les relations de pouvoir imprégnant l'ensemble des interventions dans la région ?",
+        "Comment les complexités qui en résultent sont-elles gérées par les acteurs étatiques et non étatiques aux intérêts divergents dans la région ?",
+        "Comment le discours et les pratiques des différents acteurs ont-ils façonné l'architecture de sûreté maritime de la région ?",
+        "Existe-t-il des mécanismes permettant de réduire les complexités ou de faciliter la coordination entre les initiatives, interventions ou cadres existants ?",
+        "Quelles sont les perspectives d'harmonisation de ce mélange complexe d'efforts dans la région, dans le but ultime de renforcer la sûreté maritime ?"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "number": "1",
+      "title": "Brèves notes analytiques sur les principales interventions",
+      "description": "Avant la publication du rapport d'étude détaillé, de brèves notes analytiques sur certaines interventions en matière de sûreté maritime seront diffusées par l'Institut sous forme de publications distinctes. Chaque note présentera un bref contexte historique de l'intervention concernée, en explorera la portée, examinera si l'intervention atteint ou non ses objectifs premiers, et étudiera des pistes concrètes pour renforcer la capacité de ces interventions à atteindre leurs objectifs ultimes."
+    },
+    {
+      "number": "2",
+      "title": "Notes de politique",
+      "description": "Les actions politiques utiles destinées à figurer dans le rapport détaillé seront partagées sous forme de notes de politique trimestrielles pendant toute la durée de l'Audit. Ces notes trimestrielles fourniront des recommandations politiques directes pour combler les lacunes de l'architecture de sûreté maritime de la région."
+    },
+    {
+      "number": "3",
+      "title": "Rapport détaillé",
+      "description": "Le principal résultat de l'étude sera un rapport détaillé présentant les constats, conclusions et recommandations, intitulé « The Gulf Complex: An Audit of the Range of Maritime Security Interventions in the Gulf of Guinea ». Ce rapport structuré servira de document de référence utile pour toutes les parties prenantes souhaitant avoir une vision complète de l'ensemble des interventions en matière de sûreté maritime dans le golfe de Guinée. Étayé par des infographies et des représentations schématiques, le rapport offrira une image claire des liens entre les interventions dans la région, ainsi qu'une analyse des succès et des échecs enregistrés par ces interventions."
+    },
+    {
+      "number": "4",
+      "title": "Atelier de diffusion",
+      "description": "Après la publication du rapport détaillé, l'Institut organisera un atelier régional pour diffuser les résultats de l'étude auprès d'un large éventail de parties prenantes dans la région. Cet atelier visera notamment à renforcer le dialogue de haut niveau entre les décideurs politiques de la région et les acteurs clés jouant un rôle dans la mise en œuvre de la myriade d'initiatives dans le golfe de Guinée, sur les moyens de coordonner les efforts vers des intérêts et objectifs régionaux partagés."
+    },
+    {
+      "number": "5",
+      "title": "Édition de revue : The Gulf Spectrum",
+      "description": "L'Institut a entamé les démarches en vue de la publication du premier numéro de la Gulf Spectrum, une revue phare destinée à offrir aux parties prenantes du golfe de Guinée et au-delà des perspectives locales uniques sur les enjeux critiques entourant la gouvernance, la sécurité et la sûreté maritimes dans le golfe de Guinée. Le premier numéro de la revue sera publié sous le thème des Interventions de sûreté maritime dans le golfe de Guinée et offrira un cadre pour rassembler recherches et voix régionales sur le MSIA autour de trois axes thématiques : l'évolution des initiatives de sûreté maritime dans le golfe de Guinée, l'éventail des initiatives existantes dans la région, et les relations entre acteurs et leurs réponses."
+    }
+  ],
+  "shortTermOutcomes": [
+    "Publication d'une série de notes analytiques et de notes de politique afin de mieux comprendre l'état des interventions dans la région, ainsi que les moyens de favoriser la coordination des activités au sein de cet éventail d'initiatives",
+    "Stimulation d'un dialogue utile sur la complexité, l'informalité et l'expérimentation dans la gouvernance maritime du golfe de Guinée",
+    "Mise à disposition d'un répertoire ou d'une référence utile sur le nombre et la portée des interventions dans la région"
+  ],
+  "longTermImpacts": [
+    "Restructuration des initiatives existantes ou création de nouvelles pour combler les lacunes majeures de l'architecture de sûreté maritime de la région",
+    "Création de plateformes viables pour la coordination des actions et le partage d'informations entre interventions et initiatives",
+    "Élimination des doublons d'efforts dans l'exécution des interventions à travers la région"
+  ],
+  "hero": {
+    "imageAlt": "Sûreté maritime",
+    "badge": "Projet de recherche en cours",
+    "titleLine1": "AUDIT DES INTERVENTIONS",
+    "titleLine2": "DE SÛRETÉ MARITIME",
+    "subtitle": "Un examen approfondi des complexités de la gouvernance de la sûreté maritime dans le golfe de Guinée",
+    "downloadReport": "Télécharger le rapport complet"
+  },
+  "exploration": {
+    "label": "Axe de recherche",
+    "heading": "Axes d'exploration",
+    "intro": "Cette étude vise à contribuer à la recherche limitée sur la complexité des interventions de sûreté maritime dans le golfe de Guinée, dans le but ultime d'éclairer des voies viables pour harmoniser les efforts collectifs en vue de renforcer des objectifs communs. Les questions de recherche sont classées en trois axes thématiques, comme indiqué ci-dessous :"
+  },
+  "phasesSection": {
+    "label": "Méthodologie de recherche",
+    "heading": "Phases de l'Audit",
+    "intro": "L'objectif fondamental de cette étude est de cartographier l'éventail des initiatives et interventions en matière de sûreté maritime dans le golfe de Guinée, d'évaluer les complexités que celles-ci ont posées à la gouvernance de la sûreté maritime, d'examiner les réponses des acteurs face à ces complexités, et de déterminer si les efforts ont été fructueux et peuvent, à terme, être harmonisés en vue de renforcer la sûreté maritime de la région. Pour ce faire, l'audit sera mené selon quatre phases distinctes, présentées dans la figure ci-dessous.",
+    "figureCaption": "Figure 1 : Phases de l'Audit"
+  },
+  "outputsSection": {
+    "label": "Livrables",
+    "heading": "Principaux résultats",
+    "intro": "L'Audit a été structuré par l'Institut de manière à produire un certain nombre de résultats notables, chacun apportant une contribution substantielle à l'avancement de la gouvernance de la sûreté maritime dans le golfe de Guinée et au-delà."
+  },
+  "outcomesSection": {
+    "label": "Résultats attendus",
+    "heading": "Résultats et impacts de l'Audit",
+    "intro": "L'Audit constitue une première étape essentielle pour démystifier les complexités résultant du mélange complexe d'interventions en matière de sûreté maritime dans le golfe de Guinée. Il vise à produire un ensemble de résultats à court terme et d'impacts à long terme, comme illustré ci-dessous.",
+    "shortTermHeading": "Résultats à court terme",
+    "longTermHeading": "Impacts à long terme",
+    "impactImageAlt": "Opérations maritimes collaboratives",
+    "impactImageTitle": "Construire un avenir maritime plus sûr",
+    "impactImageSubtitle": "Grâce à une recherche approfondie et à un engagement stratégique des parties prenantes"
+  },
+  "methodology": {
+    "label": "Approche de recherche",
+    "heading": "Méthodologie",
+    "intro": "La recherche devrait être menée à l'aide d'une combinaison de méthodes, allant d'approches qualitatives et quantitatives ouvertes et exploratoires à des revues documentaires, des entretiens, des discussions de groupes de réflexion et des enquêtes auprès des parties prenantes. Chacune de ces approches sera segmentée selon les différentes phases de la recherche, comme indiqué dans la figure ci-dessous.",
+    "phaseLabels": ["Phase 1", "Phase 2", "Phase 3", "Phase 4"],
+    "phaseMethods": [
+      ["Recherche documentaire", "Revues de documents"],
+      ["Revues de documents", "Entretiens avec des experts", "Enquêtes auprès des parties prenantes"],
+      ["Recherche documentaire", "Revues de documents", "Entretiens avec des experts", "Enquêtes auprès des parties prenantes", "Discussions de groupes de réflexion"],
+      ["Entretiens avec des experts", "Discussions de groupes de réflexion", "Triangulation et analyse de l'ensemble des données"]
+    ],
+    "sourcesHeading": "Liste hétéroclite des sources documentaires",
+    "sourcesIntro": "Certains des documents à examiner dans le cadre de l'exécution de l'Audit sont énumérés ci-dessous :"
+  },
+  "documentarySources": [
+    "Yaoundé Code of Conduct",
+    "G7++ FoGG Ministerial Session Reports",
+    "EU Coordinated Maritime Presences Concept Documents",
+    "Interregional Coordination Centre Founding & Organizational Documents",
+    "ICC Piracy & Armed Robbery Reports",
+    "2050 AIM Strategy Documents",
+    "Maritime Collaboration Forum (SHADE) Plenary Documents",
+    "IMO Resolution MSC 483 (103)",
+    "UN Security Council Resolutions"
+  ]
+}

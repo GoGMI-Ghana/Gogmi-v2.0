@@ -1,0 +1,42 @@
+{
+  "eyebrow": "News & Insights",
+  "title": "News & Blog",
+  "subtitle": "Insights, analysis, and updates on maritime security, blue economy, and governance in the Gulf of Guinea.",
+  "tabs": {
+    "blogPosts": "Blog Posts",
+    "newsletters": "Newsletters"
+  },
+  "search": {
+    "postsPlaceholder": "Search posts...",
+    "newslettersPlaceholder": "Search newsletters..."
+  },
+  "count": {
+    "posts": "posts",
+    "newsletters": "newsletters"
+  },
+  "loading": "Loading…",
+  "tryAgain": "Try Again",
+  "errors": {
+    "loadPostsFailed": "Failed to load posts",
+    "loadPostsFailedFallback": "Unable to load blog posts. Please try again later.",
+    "loadNewslettersFailed": "Failed to load newsletters",
+    "loadNewslettersFailedFallback": "Unable to load newsletters. Please try again later."
+  },
+  "posts": {
+    "noMatch": "No posts match your search",
+    "empty": "No blog posts yet",
+    "tryDifferent": "Try a different search term.",
+    "checkBack": "Check back soon for new content."
+  },
+  "newslettersEmpty": {
+    "noMatch": "No newsletters match your search",
+    "empty": "No newsletters yet",
+    "tryDifferent": "Try a different search term.",
+    "checkBack": "Check back soon."
+  },
+  "readMore": "Read More",
+  "readNewsletter": "Read Newsletter",
+  "loadMorePosts": "Load More Posts",
+  "loadMoreNewsletters": "Load More Newsletters",
+  "newsletterFallback": "Newsletter"
+}

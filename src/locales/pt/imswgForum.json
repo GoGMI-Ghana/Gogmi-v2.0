@@ -1,0 +1,52 @@
+{
+  "closed": {
+    "heading": "Inscrições Encerradas",
+    "body": "As inscrições para o Fórum IMSWG 2026 do 1.º Trimestre estão agora encerradas.",
+    "enquiryPrefix": "Para questões, contacte-nos através de",
+    "backButton": "Voltar ao IMSWG"
+  },
+  "success": {
+    "heading": "Candidatura Submetida",
+    "body1": "Obrigado por se inscrever no nosso próximo evento IMSWG do 1.º trimestre de 2026. Agradecemos sinceramente o seu interesse e aguardamos com expectativa a sua participação.",
+    "body2": "Verifique o seu e-mail para outras informações e o link do evento.",
+    "signature": "GoGMI.",
+    "backButton": "Voltar ao IMSWG"
+  },
+  "errors": {
+    "fullNameRequired": "O nome completo é obrigatório",
+    "emailRequired": "O e-mail é obrigatório",
+    "emailInvalid": "O e-mail é inválido",
+    "countryRequired": "O país de residência é obrigatório",
+    "positionRequired": "O cargo/título é obrigatório",
+    "submitFailed": "Falha ao submeter a candidatura",
+    "submitFailedFallback": "Falha ao submeter a candidatura. Tente novamente ou contacte-nos através de info@gogmi.org.gh"
+  },
+  "form": {
+    "backButton": "Voltar ao IMSWG",
+    "title": "IMSWG 2026 - Fórum do 1.º Trimestre",
+    "subtitle": "International Maritime Security Working Group",
+    "intro": "Preencha o formulário abaixo para se inscrever no fórum IMSWG do 1.º trimestre de 2026.",
+    "personalInfo": {
+      "heading": "Informações Pessoais",
+      "fullNameLabel": "Nome Completo",
+      "fullNamePlaceholder": "João Silva",
+      "emailLabel": "Endereço de E-mail",
+      "emailPlaceholder": "joao@exemplo.com",
+      "whatsappLabel": "Indicativo do País e Número de WhatsApp",
+      "whatsappPlaceholder": "+233 XX XXX XXXX",
+      "countryLabel": "País de Residência",
+      "countryPlaceholder": "ex.: Gana"
+    },
+    "professionalInfo": {
+      "heading": "Informações Profissionais",
+      "positionLabel": "Cargo ou Título Profissional Atual",
+      "positionPlaceholder": "ex.: Analista de Segurança Marítima",
+      "institutionLabel": "Instituição/Organização",
+      "institutionPlaceholder": "ex.: Autoridade Marítima, Empresa de Segurança, etc."
+    },
+    "optional": "(Opcional)",
+    "submitButton": "Submeter Candidatura",
+    "submitting": "A Submeter Candidatura...",
+    "consent": "Ao submeter este formulário, concorda em ser contactado sobre as atividades do IMSWG"
+  }
+}

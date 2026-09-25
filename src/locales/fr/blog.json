@@ -1,0 +1,42 @@
+{
+  "eyebrow": "Actualités et analyses",
+  "title": "Actualités et blog",
+  "subtitle": "Analyses, perspectives et actualités sur la sécurité maritime, l'économie bleue et la gouvernance dans le golfe de Guinée.",
+  "tabs": {
+    "blogPosts": "Articles de blog",
+    "newsletters": "Bulletins d'information"
+  },
+  "search": {
+    "postsPlaceholder": "Rechercher des articles...",
+    "newslettersPlaceholder": "Rechercher des bulletins..."
+  },
+  "count": {
+    "posts": "articles",
+    "newsletters": "bulletins"
+  },
+  "loading": "Chargement…",
+  "tryAgain": "Réessayer",
+  "errors": {
+    "loadPostsFailed": "Échec du chargement des articles",
+    "loadPostsFailedFallback": "Impossible de charger les articles de blog. Veuillez réessayer plus tard.",
+    "loadNewslettersFailed": "Échec du chargement des bulletins",
+    "loadNewslettersFailedFallback": "Impossible de charger les bulletins. Veuillez réessayer plus tard."
+  },
+  "posts": {
+    "noMatch": "Aucun article ne correspond à votre recherche",
+    "empty": "Aucun article de blog pour le moment",
+    "tryDifferent": "Essayez un autre terme de recherche.",
+    "checkBack": "Revenez bientôt pour du nouveau contenu."
+  },
+  "newslettersEmpty": {
+    "noMatch": "Aucun bulletin ne correspond à votre recherche",
+    "empty": "Aucun bulletin pour le moment",
+    "tryDifferent": "Essayez un autre terme de recherche.",
+    "checkBack": "Revenez bientôt."
+  },
+  "readMore": "Lire la suite",
+  "readNewsletter": "Lire le bulletin",
+  "loadMorePosts": "Charger plus d'articles",
+  "loadMoreNewsletters": "Charger plus de bulletins",
+  "newsletterFallback": "Bulletin"
+}

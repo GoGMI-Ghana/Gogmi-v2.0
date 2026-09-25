@@ -1,0 +1,96 @@
+{
+  "hero": { "imageAlt": "Blue World Initiative" },
+  "about": {
+    "badge": "Literacia Oceânica e Desenvolvimento de Carreira",
+    "heading": "A Blue World Initiative",
+    "para1": "A Blue World Initiative é um programa transformador do GoGMI em parceria com a DOTCAN (Development of Ocean Technical Capacity for African Nations), dedicado a inspirar a próxima geração de líderes oceânicos e defensores da economia azul em todo o Golfo da Guiné.",
+    "para2": "Através de feiras de carreiras interativas, recursos educativos e experiências práticas, capacitamos os jovens africanos a explorar carreiras marítimas empolgantes, ao mesmo tempo que compreendem o seu papel crucial na proteção do nosso oceano e na construção de uma economia azul sustentável.",
+    "imageAlt": "Atividades da Blue World Initiative"
+  },
+  "dotcan": {
+    "heading": "Parceria com a DOTCAN",
+    "logoAlt": "Logótipo da DOTCAN",
+    "subheading": "Development of Ocean Technical Capacity for African Nations",
+    "para1": "A DOTCAN está empenhada em desenvolver capacidades técnicas oceânicas nas nações africanas através de programas educativos inovadores, iniciativas de investigação e workshops de capacitação.",
+    "para2": "Através desta parceria estratégica, o GoGMI e a DOTCAN combinam conhecimentos em investigação marítima, desenvolvimento de políticas e educação juvenil para criar experiências de aprendizagem transformadoras que inspiram a próxima geração de líderes oceânicos.",
+    "para3": "Juntos, estamos a construir uma economia azul sustentável na região do Golfo da Guiné através da educação, inovação e colaboração."
+  },
+  "careerFair": {
+    "heading": "Feira de Carreiras Oceânicas 2023",
+    "eventHeading": "Um Evento Inovador",
+    "para1": "O Gulf of Guinea Maritime Institute (GoGMI), em parceria com a Development of Technical Capacity for African Nations (DOTCAN), organizou um evento transformador de um dia que reuniu estudantes do ensino básico e secundário para interagir com os principais intervenientes marítimos.",
+    "para2": "Através de apresentações envolventes e sessões interativas, os estudantes descobriram as diversas oportunidades de carreira no setor marítimo e aprenderam como podem contribuir para a conservação oceânica e o desenvolvimento sustentável.",
+    "bullets": [
+      "Sessões interativas com especialistas do setor",
+      "Orientação sobre percursos de carreira",
+      "Educação em literacia oceânica",
+      "Atividades de aprendizagem prática"
+    ],
+    "partnersHeading": "Organizações Parceiras",
+    "images": {
+      "img1": "Estudantes na feira de carreiras",
+      "img2": "Sessão de aprendizagem interativa",
+      "img3": "Atividades da feira de carreiras"
+    }
+  },
+  "concepts": {
+    "heading": "Conceitos Oceânicos Fundamentais",
+    "subtitle": "Compreender estes conceitos fundamentais é essencial para quem se interessa por carreiras relacionadas com o oceano e a economia azul.",
+    "items": [
+      { "title": "Oceano", "description": "A vasta massa de água salgada que cobre mais de 70% da superfície da Terra." },
+      { "title": "Economia Oceânica", "description": "O conjunto das atividades económicas que ocorrem no oceano e à sua volta, incluindo pesca, transporte marítimo, turismo e produção de energia." },
+      { "title": "Economia Azul", "description": "O uso sustentável dos recursos oceânicos para o crescimento económico, a criação de emprego e a preservação ambiental." },
+      { "title": "Sustentabilidade", "description": "A prática de utilizar recursos de forma a não os esgotar nem danificar para as gerações futuras." },
+      { "title": "Conservação Marinha", "description": "A proteção e preservação dos ecossistemas oceânicos e da biodiversidade." },
+      { "title": "Energia Renovável", "description": "Energia gerada a partir de fontes que se renovam naturalmente, como o vento, o sol e as ondas." },
+      { "title": "Aquacultura", "description": "A criação de organismos aquáticos como peixes, mariscos e algas." }
+    ]
+  },
+  "careers": {
+    "heading": "Percursos de Carreira Relacionados com o Oceano",
+    "subtitle": "Descubra oportunidades de carreira empolgantes na economia azul e no setor marítimo.",
+    "imageAlt": "Profissionais marítimos",
+    "categories": {
+      "scienceResearch": { "heading": "Ciência e Investigação", "items": ["Biólogo marinho", "Oceanógrafo", "Cientista ambiental", "Analista de políticas marinhas"] },
+      "maritimeOperations": { "heading": "Operações Marítimas", "items": ["Oficial da marinha", "Engenheiro naval", "Planeador costeiro", "Gestor de pescas"] },
+      "blueEconomy": { "heading": "Economia Azul", "items": ["Aquacultor", "Engenheiro de energias renováveis", "Defensor do oceano"] },
+      "educationPolicy": { "heading": "Educação e Políticas", "items": ["Educador marinho", "Jurista internacional"] }
+    },
+    "funFact": {
+      "heading": "Curiosidade sobre Carreiras Azuis",
+      "para1": "Sabia que pode desempenhar um papel crucial na proteção do oceano mesmo que não deseje trabalhar nas carreiras listadas acima?",
+      "para2": "Contabilistas e economistas podem contribuir para iniciativas de contabilização da economia oceânica. Médicos, técnicos de laboratório e outros cientistas podem aprender mais sobre como a libertação de toxinas no oceano afeta a saúde humana. Até os psicólogos podem explorar os fatores que influenciam a disposição das pessoas para adotar comportamentos sustentáveis que protejam o oceano e os seus recursos. Em quase todas as áreas profissionais, pode criar um nicho único especializando-se num ramo dessa carreira que apoie a economia azul!"
+    }
+  },
+  "comic": {
+    "badge": "Série de Banda Desenhada Educativa",
+    "heading": "MAN: As Aventuras da Consciência do Domínio Marítimo",
+    "imageAlt": "MAN - Banda desenhada sobre consciência do domínio marítimo",
+    "para1": "Cative as mentes jovens através de uma narrativa envolvente! A nossa série de banda desenhada educativa dá vida aos conceitos marítimos através das aventuras de MAN e da sua equipa, enquanto protegem o oceano e promovem a consciência do domínio marítimo.",
+    "para2": "Através de ilustrações vibrantes e narrativas cativantes, os estudantes aprendem sobre conservação oceânica, segurança marítima e a importância de proteger o nosso planeta azul – tudo isto enquanto se divertem com aventuras cheias de ação.",
+    "bullets": [
+      "Educativo e Divertido",
+      "Histórias Culturalmente Relevantes",
+      "A Inspirar a Proteção do Oceano"
+    ]
+  },
+  "gallery": {
+    "heading": "A Iniciativa em Ação",
+    "img1Alt": "Envolvimento dos estudantes",
+    "img2Alt": "Atividades de aprendizagem"
+  },
+  "resourcesSection": {
+    "heading": "Descarregar Recursos",
+    "subtitle": "Aceda ao nosso Manual da Feira de Carreiras Azuis e a outros materiais educativos para saber mais sobre carreiras oceânicas e a economia azul.",
+    "handbook": {
+      "heading": "Manual da Feira de Carreiras Azuis",
+      "desc": "Guia completo com definições oceânicas, percursos de carreira e perspetivas do setor.",
+      "download": "Descarregar Manual"
+    },
+    "getInvolved": {
+      "heading": "Participe",
+      "desc": "Quer participar em futuros eventos da Blue World Initiative? Contacte-nos para saber mais.",
+      "button": "Contacte-nos"
+    }
+  }
+}

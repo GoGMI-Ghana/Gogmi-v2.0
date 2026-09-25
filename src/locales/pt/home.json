@@ -1,0 +1,95 @@
+{
+  "festiveClose": "Fechar banner festivo",
+  "clickToContinue": "Clique em qualquer lugar para continuar",
+  "hero": {
+    "badge": "A Liderar o Futuro Marítimo do Golfo da Guiné",
+    "titleLine1": "A Moldar a Economia Azul",
+    "titleLine2": "do Golfo da Guiné",
+    "subtitle": "Pioneiros em iniciativas marítimas sustentáveis que impulsionam o crescimento económico e a proteção ambiental em todo o Golfo da Guiné"
+  },
+  "about": {
+    "eyebrow": "Quem Somos",
+    "heading": "A Promover a Excelência Marítima no Golfo da Guiné",
+    "body": "Fundado em 2010, o Gulf of Guinea Maritime Institute (GoGMI) é uma organização de reflexão estratégica (think-tank) constituída no Gana. O Instituto oferece uma plataforma única para que pensadores estratégicos, profissionais, especialistas e aliados do setor marítimo interajam, partilhem ideias e investiguem os assuntos marítimos estratégicos que afetam a região do Golfo da Guiné (GoG). O mandato principal do Instituto é a investigação marítima estratégica, a advocacia e a capacitação nas áreas da segurança marítima, da proteção e da promoção de uma Economia Azul sustentável no Gana e no espaço marítimo do Golfo da Guiné (GoG) em geral.",
+    "link": "Saiba Mais Sobre Nós"
+  },
+  "services": {
+    "eyebrow": "As Nossas Áreas de Atuação",
+    "heading": "O Que Fazemos",
+    "subtitle": "Soluções marítimas abrangentes que respondem às necessidades essenciais da região do Golfo da Guiné",
+    "items": [
+      { "title": "Investigação em Segurança Marítima", "desc": "Facilitação de parcerias regionais e internacionais para promover a proteção e a segurança marítimas na região do Golfo da Guiné" },
+      { "title": "Advocacia Política", "desc": "Análise de políticas nacionais, regionais e internacionais sobre governação oceânica e segurança marítima." },
+      { "title": "Capacitação", "desc": "Desenvolvimento, auditoria e validação de planos de segurança marítima empresarial." },
+      { "title": "Colaboração Internacional", "desc": "Organização de conferências e exposições internacionais sobre governação oceânica e segurança marítima" },
+      { "title": "Desenvolvimento da Economia Azul", "desc": "Análise das atividades no domínio marítimo do Golfo da Guiné" },
+      { "title": "Mentoria da Juventude", "desc": "Elaboração de notas de política, artigos e outras publicações relevantes" }
+    ]
+  },
+  "region": {
+    "eyebrow": "A Nossa Região",
+    "heading": "O Golfo da Guiné",
+    "para1": "O Golfo da Guiné é uma das regiões marítimas mais críticas do mundo, estendendo-se do Senegal até Angola e abrangendo mais de 6.000 quilómetros de litoral.",
+    "para2": "Esta região é vital para o comércio global, a segurança energética e o desenvolvimento económico, mas enfrenta desafios significativos, incluindo a insegurança marítima, a pesca ilegal e a degradação ambiental.",
+    "countriesHeading": "Países do Golfo da Guiné:",
+    "statCountries": "Países Costeiros",
+    "statPeople": "Pessoas"
+  },
+  "partners": {
+    "eyebrow": "Confiam em Nós",
+    "heading": "Os Nossos Parceiros Estratégicos",
+    "subtitle": "A trabalhar lado a lado com organizações de referência para promover a excelência marítima em todo o Golfo da Guiné",
+    "viewAll": "Ver Todos os Parceiros"
+  },
+  "news": {
+    "eyebrow": "Mantenha-se Informado",
+    "heading": "Últimas Notícias e Atualizações",
+    "subtitle": "Análises, resultados de investigação e desenvolvimentos marítimos de todo o Golfo da Guiné",
+    "readMore": "Ler Mais",
+    "items": [
+      {
+        "category": "Notícias e Blogs",
+        "title": "GoGMI Contribui para a Conferência Histórica do Republic Day da GAFCSCS",
+        "excerpt": "O GoGMI deu um contributo significativo para a conferência histórica do Republic Day da GAFCSCS, reafirmando o seu compromisso com o avanço da segurança marítima, da governação e da economia azul em toda a região do Golfo da Guiné.",
+        "date": "3 de julho de 2026"
+      },
+      {
+        "category": "Notícias e Blogs",
+        "title": "Antigo Chefe Naval Apoia a Decisão de Arbitragem do Gana sobre a Fronteira Marítima",
+        "excerpt": "O Vice-Almirante Issah Adam Yakubu (Rfa.), antigo Chefe do Estado-Maior Naval da Marinha do Gana, apoiou fortemente a decisão do governo do Gana de submeter o antigo litígio de fronteira marítima com o Togo a arbitragem internacional.",
+        "date": "25 de fevereiro de 2026"
+      },
+      {
+        "category": "Formação",
+        "title": "Curso de Governação Marítima para Profissionais: Um Enfoque em África",
+        "excerpt": "Este curso abrangente dota profissionais, partes interessadas e decisores das competências, conhecimentos e ferramentas necessárias para desenvolver e implementar estratégias marítimas eficazes no contexto africano.",
+        "date": "7 – 18 de setembro de 2026"
+      }
+    ]
+  },
+  "events": {
+    "heading": "Eventos em Destaque",
+    "subtitle": "Descubra os nossos fóruns, conferências, formações e outras atividades essenciais"
+  },
+  "countries": {
+    "Senegal": "Senegal",
+    "Guinea-Bissau": "Guiné-Bissau",
+    "Guinea": "Guiné",
+    "Sierra Leone": "Serra Leoa",
+    "Liberia": "Libéria",
+    "Côte d'Ivoire": "Costa do Marfim",
+    "Ghana": "Gana",
+    "Togo": "Togo",
+    "Benin": "Benim",
+    "Nigeria": "Nigéria",
+    "Cameroon": "Camarões",
+    "Equatorial Guinea": "Guiné Equatorial",
+    "Gabon": "Gabão",
+    "Congo": "Congo",
+    "Gambia": "Gâmbia",
+    "DR Congo": "RD Congo",
+    "Angola": "Angola",
+    "Cape Verde": "Cabo Verde",
+    "São Tomé and Príncipe": "São Tomé e Príncipe"
+  }
+}

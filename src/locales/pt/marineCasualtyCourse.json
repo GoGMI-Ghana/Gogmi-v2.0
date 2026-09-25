@@ -1,0 +1,306 @@
+{
+  "modal": {
+    "titles": {
+      "choose": "Candidatar-se ao Curso",
+      "verify": "Verificar Associação",
+      "member": "Candidatura de Membro",
+      "nonmember": "Candidatura de Não Membro"
+    },
+    "courseSubtitle": "Investigação de Sinistros Marítimos e Gestão da Segurança",
+    "choose": {
+      "question": "É membro do GoGMI? Os membros usufruem de um desconto exclusivo.",
+      "memberTitle": "Candidatar-se como Membro",
+      "memberSave": "Poupe ${{discount}} ({{percent}} % de desconto)",
+      "memberDesc": "Introduza o seu ID de Associado para verificar e obter o desconto.",
+      "nonMemberTitle": "Candidatar-se como Não Membro",
+      "standardRate": "Tarifa Normal",
+      "nonMemberDesc": "Receberá uma associação gratuita ao GoGMI com a sua inscrição.",
+      "joinPrompt": "Ainda não é membro?",
+      "joinLink": "Adira ao GoGMI",
+      "joinSuffix": "para beneficiar do preço de membro."
+    },
+    "verify": {
+      "memberPriceLabel": "Preço para Membros",
+      "save": "Poupe ${{discount}} ({{percent}} % de desconto)",
+      "inputLabel": "Introduza o Seu ID de Associado",
+      "placeholder": "ex. GoGMI-MST2026-00001",
+      "helper": "O seu ID de Associado foi enviado para o seu e-mail quando aderiu ao GoGMI.",
+      "back": "Voltar",
+      "verifying": "A verificar...",
+      "verifyContinue": "Verificar e Continuar"
+    },
+    "member": {
+      "verifiedBadge": "✓ Verificado — Preço de Membro Aplicado",
+      "saveAmount": "Poupe ${{discount}}",
+      "fullNameLabel": "Nome Completo",
+      "emailLabel": "Endereço de E-mail",
+      "phoneLabel": "Indicativo do País e Número de WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Cargo/Título",
+      "institutionLabel": "Instituição/Organização",
+      "optional": "(Opcional)",
+      "countryLabel": "País",
+      "back": "Voltar",
+      "processing": "A processar...",
+      "pay": "Pagar {{amount}} USD"
+    },
+    "nonmember": {
+      "standardRate": "Tarifa Normal",
+      "freeMembership": "Receberá uma associação gratuita ao GoGMI",
+      "fullNameLabel": "Nome Completo",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Endereço de E-mail",
+      "emailPlaceholder": "john@example.com",
+      "phoneLabel": "Indicativo do País e Número de WhatsApp",
+      "phonePlaceholder": "+233 XX XXX XXXX",
+      "positionLabel": "Cargo/Título",
+      "institutionLabel": "Instituição/Organização",
+      "optional": "(Opcional)",
+      "countryLabel": "País",
+      "countryPlaceholder": "Gana",
+      "membershipTypeLabel": "Selecione o Tipo de Associação",
+      "membershipTypePlaceholder": "-- Selecione o seu tipo de associação --",
+      "membershipTypeStudent": "Associação de Estudante",
+      "membershipTypeAssociate": "Associação Associada",
+      "membershipTypeProfessional": "Associação Profissional",
+      "membershipTypeHelper": "Receberá uma associação gratuita ao GoGMI do tipo selecionado com a sua inscrição no curso.",
+      "back": "Voltar",
+      "processing": "A processar...",
+      "pay": "Pagar {{amount}} USD"
+    }
+  },
+  "alerts": {
+    "enterMembershipId": "Introduza o seu ID de Associado",
+    "invalidMembershipId": "ID de Associado inválido",
+    "verifyError": "Não foi possível verificar. Verifique a sua ligação.",
+    "paymentLoading": "A carregar o sistema de pagamento. Aguarde, por favor.",
+    "paymentCancelled": "Pagamento cancelado.",
+    "paymentFailed": "Falha no pagamento: {{error}}",
+    "fillRequired": "Preencha todos os campos obrigatórios",
+    "selectMembershipType": "Selecione um tipo de associação",
+    "registrationSuccess": "Inscrição efetuada com sucesso!\n\nEstá agora inscrito(a) no Curso de Investigação de Sinistros Marítimos.\nReferência: {{reference}}\n",
+    "autoMembership": "\nParabéns! É agora membro do GoGMI.\nID de Associado: {{membershipId}}\nUtilize este ID para iniciar sessão em gogmi.org.gh/login\n",
+    "confirmationEmail": "\nFoi enviado um e-mail de confirmação para {{email}}",
+    "registrationFailed": "Falha na inscrição: {{message}}\nReferência: {{reference}}\nContacte info@gogmi.org.gh",
+    "registrationError": "Erro na inscrição. Contacte info@gogmi.org.gh com a referência: {{reference}}"
+  },
+  "hero": {
+    "imageAlt": "Investigação de Sinistros Marítimos",
+    "badge": "Curso de Formação Executiva",
+    "title": "Investigação de Sinistros Marítimos e Gestão da Segurança",
+    "subtitle": "Reforçar os Quadros de Segurança do Transporte Marítimo e das Vias Navegáveis Interiores",
+    "duration": "5 Dias",
+    "format": "Presencial",
+    "moduleCount": "6 Módulos",
+    "memberPriceLabel": "Preço para Membros",
+    "standardRateLabel": "Tarifa Normal",
+    "applyNow": "Candidatar-se Agora",
+    "downloadBrochure": "Descarregar Brochura"
+  },
+  "overview": {
+    "label": "Visão Geral do Curso",
+    "heading": "Reforçar a Capacidade para a Segurança Marítima",
+    "para1": "A segurança do transporte marítimo e das vias navegáveis interiores é central para os sistemas de transporte de África, apoiando o comércio, a mobilidade de passageiros, a pesca e os meios de subsistência.",
+    "para2": "Este curso de formação executiva reforça a capacidade das Administrações Marítimas e organismos afins para conduzir eficazmente investigações de sinistros e incidentes marítimos, em conformidade com a regra SOLAS XI-1/6 e o Código de Investigação de Sinistros da OMI.",
+    "imageAlt": "Investigação Marítima",
+    "imageBadgeTitle": "OMI",
+    "imageBadgeSubtitle": "Conforme ao Código",
+    "highlights": [
+      { "title": "Conformidade com a OMI", "description": "Alinhado com o Código de Investigação de Sinistros da OMI (MSC.255(84)) e a Regra 6 do Capítulo XI-1 do SOLAS" },
+      { "title": "Corpo Docente Especializado", "description": "Especialistas em segurança marítima, investigadores certificados pela OMI e especialistas regionais" },
+      { "title": "Formato Híbrido", "description": "Presencial para participantes do Gana, virtual para participantes internacionais" },
+      { "title": "Certificação", "description": "Certificado após a conclusão bem-sucedida de todos os módulos e do estudo de caso" }
+    ]
+  },
+  "rationale": {
+    "heading": "Por Que Esta Formação É Fundamental",
+    "para1": "Entre 2020 e 2025, ocorreram numerosos incidentes graves nas vias navegáveis africanas, com centenas de mortes.",
+    "para2": "As causas comuns incluem sobrecarga, má manutenção das embarcações, operadores incompetentes, ausência de equipamentos de salvamento e fatores humanos. As Administrações Marítimas nacionais necessitam de melhor formação para reforçar a segurança."
+  },
+  "modulesSection": {
+    "label": "Currículo",
+    "heading": "6 Módulos Abrangentes",
+    "subtitle": "Desde quadros jurídicos até estudos de caso práticos",
+    "topicsHeading": "Tópicos Abordados",
+    "outcomesHeading": "Resultados de Aprendizagem",
+    "moduleLabel": "Módulo {{number}}"
+  },
+  "modules": [
+    {
+      "title": "Investigação de Sinistros Marítimos – Conceitos, Âmbito e Quadro Jurídico",
+      "topics": [
+        "Compreender a importância das investigações de sinistros marítimos",
+        "Compreender a natureza e os tipos de sinistros marítimos",
+        "Definição jurídica e classificação segundo disposições nacionais e regionais",
+        "Código de Investigação de Sinistros da OMI e requisitos SOLAS relacionados",
+        "Estudo detalhado das secções do Código de Investigação de Sinistros da OMI",
+        "Funções da Administração Marítima, do Comissário de Naufrágios e dos Assessores",
+        "Procedimentos para investigação preliminar e investigação formal",
+        "A \"Regra de Paragem\"",
+        "Recursos, nova audiência e ações disciplinares sobre certificados",
+        "Coordenação entre agências nacionais"
+      ],
+      "learningOutcomes": [
+        "Explicar a filosofia, importância e contexto internacional das investigações de sinistros marítimos",
+        "Identificar os principais instrumentos internacionais (Código de Investigação de Sinistros da OMI, requisitos SOLAS)",
+        "Descrever as funções, poderes e responsabilidades da Administração Marítima, do Comissário de Naufrágios e dos Assessores",
+        "Delinear a sequência processual completa das investigações preliminares, investigações formais e recursos",
+        "Avaliar as responsabilidades de coordenação interagências na resposta a sinistros"
+      ]
+    },
+    {
+      "title": "Procedimentos de Investigação e Tratamento de Provas",
+      "topics": [
+        "Processo de investigação passo a passo",
+        "Gestão do local e preservação de provas",
+        "Entrevistas a testemunhas e manutenção de registos",
+        "Aplicação da cadeia causal e de modelos de análise de causa raiz",
+        "A técnica dos 5 Porquês para chegar às causas raiz",
+        "Diagrama de espinha de peixe (Ishikawa) para categorizar fatores contribuintes",
+        "Análise de barreiras: identificação de controlos falhados ou ausentes",
+        "Elaboração de relatórios de investigação estruturados"
+      ],
+      "learningOutcomes": [
+        "Executar um processo de investigação sistemático passo a passo",
+        "Aplicar técnicas de gestão do local para preservar provas",
+        "Conduzir entrevistas eficazes a testemunhas e manter registos precisos",
+        "Utilizar modelos de cadeia causal e análise de causa raiz",
+        "Produzir relatórios de investigação estruturados com conclusões claras"
+      ]
+    },
+    {
+      "title": "Gestão de Dados de Segurança e Relatórios",
+      "topics": [
+        "Formatos padrão para comunicação e documentação de sinistros",
+        "Integração de dados em sistemas nacionais e da OMI (GISIS)",
+        "Visão geral do Sistema Global Integrado de Informação Marítima (GISIS)",
+        "Tipos e fontes de dados de segurança marítima",
+        "Registadores de dados: VDR, SVDR",
+        "Técnicas de análise de tendências de segurança e visualização de dados",
+        "Matrizes de risco e apresentações ALARP",
+        "Desenvolvimento de ciclos de retroação para melhoria de políticas"
+      ],
+      "learningOutcomes": [
+        "Preparar relatórios de sinistros utilizando formatos padrão",
+        "Integrar dados de investigação nos sistemas de comunicação nacionais e da OMI",
+        "Analisar tendências de segurança utilizando técnicas de visualização de dados",
+        "Desenvolver mecanismos de retroação eficazes para informar a melhoria de políticas"
+      ]
+    },
+    {
+      "title": "Fatores Humanos, Cultura de Segurança e Resposta a Crises",
+      "topics": [
+        "Desempenho humano, cultura organizacional e causalidade de acidentes",
+        "O stress e o seu impacto no desempenho",
+        "Fadiga e degradação da vigilância",
+        "Comprometimento por drogas e álcool",
+        "Falhas de comunicação e modos de falha",
+        "Fatores organizacionais e de gestão",
+        "Tomada de decisão sob pressão e falhas de coordenação",
+        "Comunicação e liderança durante a resposta a emergências",
+        "Gestão de meios de comunicação durante crises",
+        "Promoção de um comportamento de segurança proativo"
+      ],
+      "learningOutcomes": [
+        "Analisar fatores de desempenho humano e elementos de cultura organizacional",
+        "Avaliar processos de tomada de decisão sob pressão",
+        "Aplicar princípios eficazes de comunicação e liderança durante a resposta a emergências",
+        "Desenvolver estratégias para promover um comportamento de segurança proativo"
+      ]
+    },
+    {
+      "title": "Análise Básica de Sinistros Marítimos",
+      "topics": [
+        "Compreender a finalidade e os princípios da análise de sinistros",
+        "Aplicar o pensamento crítico a eventos de acidentes marítimos",
+        "Distinguir entre causas imediatas, subjacentes e raiz",
+        "Identificar fatores humanos, técnicos, organizacionais e ambientais",
+        "Utilizar técnicas analíticas básicas para examinar provas",
+        "Sistema de Análise e Classificação de Fatores Humanos",
+        "Diferenciar factos, pressupostos e inferências",
+        "Elaborar sínteses lógicas das conclusões analíticas"
+      ],
+      "learningOutcomes": [
+        "Aplicar princípios estruturados de pensamento crítico ao examinar eventos de sinistros marítimos",
+        "Identificar e categorizar causas imediatas, subjacentes e raiz",
+        "Utilizar ferramentas analíticas simples para avaliar eventos e fatores contribuintes",
+        "Distinguir entre factos, pressupostos, inferências e opiniões",
+        "Preparar sínteses analíticas claras, lógicas e concisas"
+      ]
+    },
+    {
+      "title": "Estudo de Caso - Simulação de Investigação e Relatório de Acidente Marítimo",
+      "topics": [
+        "Análise abrangente do cenário de acidente fornecido",
+        "Avaliação e documentação de provas",
+        "Identificação e análise de causa raiz",
+        "Visualização da sequência de eventos",
+        "Elaboração de conclusões e recomendações",
+        "Preparação do relatório de investigação formal",
+        "Aplicação prática de todos os conhecimentos do curso"
+      ],
+      "learningOutcomes": [
+        "Integrar a aprendizagem de todo o curso num estudo de caso temático",
+        "Produzir um relatório de investigação detalhado e bem estruturado",
+        "Aplicar todas as técnicas de investigação a um cenário realista"
+      ]
+    }
+  ],
+  "participants": {
+    "label": "Quem Deve Participar",
+    "heading": "Participantes-Alvo",
+    "list": [
+      "Agências de Aplicação da Lei Marítima",
+      "Administrações Marítimas",
+      "Autoridades de Transporte Nacionais e Regionais",
+      "Peritos Marítimos",
+      "Advogados Marítimos, Procuradores e Profissionais Reguladores",
+      "Operadores e Proprietários de Navios, e Gestores de Segurança",
+      "Representantes do Meio Académico e da Sociedade Civil que trabalham em Segurança Marítima"
+    ]
+  },
+  "outcomesSection": {
+    "label": "O Que Irá Alcançar",
+    "heading": "Resultados Esperados",
+    "list": [
+      "Conduzir investigações de sinistros marítimos credíveis e conformes com os procedimentos",
+      "Aplicar o Código de Investigação de Sinistros da OMI a casos reais de acidentes",
+      "Redigir relatórios de investigação claros e baseados em provas, bem como recomendações de segurança",
+      "Reforçar os mecanismos de aprendizagem institucional e de prevenção de acidentes",
+      "Apoiar a criação de uma base de dados nacional de acidentes para a formulação de políticas de segurança"
+    ]
+  },
+  "format": {
+    "heading": "Formato e Metodologia do Curso",
+    "deliveryHeading": "Modo de Ministração",
+    "deliveryInPersonLabel": "Presencial:",
+    "deliveryInPersonValue": "Participantes do Gana",
+    "deliveryVirtualLabel": "Virtual:",
+    "deliveryVirtualValue": "Participantes Internacionais",
+    "methodsHeading": "Métodos de Ensino",
+    "methods": [
+      "Aulas interativas e análise do quadro regulamentar",
+      "Análise de casos em grupo baseada em incidentes reais",
+      "Utilização prática de kits de ferramentas de investigação",
+      "Exercícios de dramatização (roleplay)",
+      "Sessões de redação de relatórios e revisão pelos pares",
+      "Simulação de cenários de campo",
+      "Integração tecnológica: drones, ferramentas de GPS"
+    ]
+  },
+  "alignment": {
+    "heading": "Alinhamento com Quadros de Referência",
+    "alignsHeading": "Este programa alinha-se com:",
+    "items": [
+      "Código de Normas Internacionais e Práticas Recomendadas da OMI para uma Investigação de Segurança (MSC.255(84))",
+      "Regra 6 do Capítulo XI-1 do SOLAS"
+    ],
+    "impactHeading": "Impacto Esperado",
+    "impactList": [
+      "Reforçar a capacidade institucional regional para a governação da segurança marítima",
+      "Apoiar um transporte fluvial seguro, eficiente e sustentável",
+      "Formar um grupo competente de investigadores regionais",
+      "Fomentar um quadro de resposta interagências unificado"
+    ]
+  }
+}
