@@ -353,7 +353,7 @@ const ListingRow = ({ listing, featured, isLast }) => {
           <Mail style={{ width: '13px', height: '13px', color: '#6B7280' }} />
           {listing.email}
         </a>
-        <a href={`https://${listing.website}`} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8E3400', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
+        <a href={listing.website} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8E3400', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
           <ExternalLink style={{ width: '13px', height: '13px' }} />
           {listing.website}
         </a>
