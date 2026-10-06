@@ -370,6 +370,31 @@ const Resources = () => {
       downloadUrl: '/resources/pdfs/IMSWG-2020-2024-Report.pdf',
       keyTopics: ['Five-Year Trends', 'Policy Evolution', 'Regional Impact']
     },
+    {
+      id: 23,
+      title: 'THE IMPLICATIONS OF THE BBNJ AGREEMENT FOR THE GULF OF GUINEA',
+      description: "Report of the IMSWG high-level expert meeting on what the BBNJ Agreement, in force since January 2026, means for Gulf of Guinea states.",
+      fullDescription: "On 16 September 2026, GoGMI convened a high-level expert meeting of the International Maritime Security Working Group (IMSWG) to examine what the BBNJ Agreement means for the Gulf of Guinea. Held under the Chatham House Rule, the session covered the Agreement's four core elements: marine genetic resources and benefit sharing, area-based management tools including marine protected areas, environmental impact assessments, and capacity building and marine technology transfer. The report also addresses the institutional and jurisdictional questions facing the region and sets out six policy recommendations, from ratification to the designation of a Particularly Sensitive Sea Area in the Gulf of Guinea.",
+      type: 'Internal Reports',
+      subcategory: 'IMSWG Reports',
+      category: 'IMSWG',
+      size: '1.1 MB',
+      pages: 11,
+      date: 'September 2026',
+      downloads: 0,
+      thumbnail: '/IMSWG-BBNJ-newdate.jpeg',
+      fileType: 'PDF',
+      downloadUrl: '/resources/pdfs/IMSWG-BBNJ-Publication-2026.pdf',
+      keyTopics: [
+        'Understanding the BBNJ Agreement',
+        'Area-Based Management Tools and a Regional Marine Protected Area',
+        'Marine Genetic Resources and the Global Commons',
+        'Capacity Building and Marine Technology Transfer',
+        'Environmental Impact Assessment and Sectoral Implications',
+        'Institutional and Jurisdictional Questions for the Region',
+        'Policy Recommendations'
+      ]
+    },
 
     // ===== VIDEOS =====
     {
