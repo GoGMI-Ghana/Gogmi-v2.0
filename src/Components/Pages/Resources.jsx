@@ -246,13 +246,13 @@ const Resources = () => {
       type: 'Internal Reports',
       subcategory: 'IMSWG Reports',
       category: 'Development',
-      size: '5.6 MB',
+      size: '0.7 MB',
       pages: 8,
       date: 'FEBRUARY 2021',
       downloads: 1580,
       thumbnail: '/blue-careers-dev.png',
       fileType: 'PDF',
-      downloadUrl: '/resources/pdfs/Developing-Blue-Careers.pdf',
+      downloadUrl: '/resources/pdfs/Developing-Blue-Careers-to-Foster-Strategic-Development-of-Gulf-of-Guinea-Maritime-Economies..pdf',
       keyTopics: [
         'Africa\'s Blue Economy Potential',
         'Importance of Human Capital and Skills Development',
@@ -352,23 +352,6 @@ const Resources = () => {
         'Regional Security Cooperation',
         'Policy Recommendations for Intervention'
       ]
-    },
-    {
-      id: 22,
-      title: 'IMSWG 2020-2024 CONSOLIDATED REPORT',
-      description: "Five-year consolidated report from all IMSWG forums 2020-2024.",
-      fullDescription: "Comprehensive report consolidating insights from all IMSWG forums between 2020 and 2024.",
-      type: 'Internal Reports',
-      subcategory: 'IMSWG Reports',
-      category: 'IMSWG',
-      size: '8.5 MB',
-      pages: 120,
-      date: 'December 2024',
-      downloads: 567,
-      thumbnail: '/conf3.jpg',
-      fileType: 'PDF',
-      downloadUrl: '/resources/pdfs/IMSWG-2020-2024-Report.pdf',
-      keyTopics: ['Five-Year Trends', 'Policy Evolution', 'Regional Impact']
     },
     {
       id: 23,
