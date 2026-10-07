@@ -21,6 +21,7 @@
   },
   "grid": {
     "imageFallback": "Image",
+    "memberBadge": "Advisory Board Member / Distinguished Fellow",
     "members": [
       {
         "role": "Former Commissioner, African Union Commission on International Law and AU Special Rapporteur on Piracy and Maritime Security",

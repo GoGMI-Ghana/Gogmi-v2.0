@@ -174,6 +174,9 @@ const AdvisoryBoard = () => {
                   <p className="text-xs leading-tight" style={{ fontWeight: 400, color: '#4B5563' }}>
                     {member.role}
                   </p>
+                  <p className="text-xs font-semibold leading-tight mt-2" style={{ fontWeight: 600, color: '#8E3400' }}>
+                    {t('grid.memberBadge')}
+                  </p>
                 </div>
               </div>
             ))}
