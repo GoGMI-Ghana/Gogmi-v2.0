@@ -9,8 +9,8 @@
 return [
     'code'             => 'GOGMI50-MZRK7',
     'discount_percent' => 50,
-    'duration_hours'   => 48,
-    'starts_at'        => null,
+    'duration_hours'   => 72,
+    'starts_at'        => '2026-10-12 13:13:16',
     'expires_at'       => null,
     // Plans the code applies to.
     'plans'            => ['student', 'associate', 'professional', 'institution', 'corporate'],
