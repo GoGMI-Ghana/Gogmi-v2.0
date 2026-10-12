@@ -4,6 +4,14 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
+const API_URL = 'https://api.gogmi.org.gh/api';
+
+const getPlanAmountUSD = (plan) => {
+  const priceMatch = plan?.price?.match(/[\d,]+/g);
+  return priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
+};
+
+const formatUSD = (amount) => 'USD ' + amount.toLocaleString('en-US', { maximumFractionDigits: 2 });
 
 const Membership = () => {
   const { t } = useTranslation('membership');
@@ -11,6 +19,9 @@ const Membership = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [promoInput, setPromoInput] = useState('');
+  const [promo, setPromo] = useState(null);
+  const [promoStatus, setPromoStatus] = useState('idle');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -52,7 +63,53 @@ const Membership = () => {
     return ['student', 'associate', 'professional'].includes(planId);
   };
 
+  const resetPromo = () => {
+    setPromoInput('');
+    setPromo(null);
+    setPromoStatus('idle');
+  };
+
+  // Promo codes are validated by the server, which owns the code and its expiry.
+  const checkPromoCode = async (code, planId) => {
+    const result = await fetch(`${API_URL}/membership/promo.php`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code, planId })
+    });
+    return result.json();
+  };
+
+  const applyPromoCode = async () => {
+    const code = promoInput.trim();
+    if (!code) {
+      setPromoStatus('empty');
+      return;
+    }
+
+    setPromoStatus('checking');
+    try {
+      const data = await checkPromoCode(code, selectedPlan.id);
+      if (data.success && data.valid) {
+        setPromo({ code: data.code, discountPercent: data.discountPercent });
+        setPromoStatus('applied');
+      } else {
+        setPromo(null);
+        setPromoStatus(data.reason === 'expired' ? 'expired' : 'invalid');
+      }
+    } catch (error) {
+      console.error('Promo code check failed:', error);
+      setPromo(null);
+      setPromoStatus('error');
+    }
+  };
+
+  const getFinalAmountUSD = (plan) => {
+    const amount = getPlanAmountUSD(plan);
+    return promo ? Math.round(amount * (100 - promo.discountPercent)) / 100 : amount;
+  };
+
   const openMembershipModal = (plan) => {
+    resetPromo();
     setSelectedPlan(plan);
     setFormData({
       ...formData,
@@ -66,6 +123,7 @@ const Membership = () => {
     if (isProcessing) return;
     setShowModal(false);
     setSelectedPlan(null);
+    resetPromo();
     setFormData({
       fullName: '',
       email: '',
@@ -82,10 +140,7 @@ const Membership = () => {
 
   const activateMembership = async (paymentReference) => {
     try {
-      const priceMatch = selectedPlan.price.match(/[\d,]+/g);
-      const amount = priceMatch
-        ? parseFloat(priceMatch.join('').replace(',', ''))
-        : 0;
+      const amount = getFinalAmountUSD(selectedPlan);
 
       const applicationData = {
         fullName:          formData.fullName,
@@ -101,12 +156,13 @@ const Membership = () => {
         membershipType:    formData.membershipType,
         amount,
         currency:          'USD',
+        promoCode:         promo ? promo.code : '',
+        discountPercent:   promo ? promo.discountPercent : 0,
+        originalAmount:    getPlanAmountUSD(selectedPlan),
         paymentReference
       };
 
-      const apiUrl = 'https://api.gogmi.org.gh/api';
-
-      const result = await fetch(`${apiUrl}/membership/apply.php`, {
+      const result = await fetch(`${API_URL}/membership/apply.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(applicationData)
@@ -169,10 +225,7 @@ const Membership = () => {
       return;
     }
 
-    const priceMatch = selectedPlan.price.match(/[\d,]+/g);
-    const amountUSD  = priceMatch ? parseFloat(priceMatch.join('').replace(',', '')) : 0;
-
-    if (amountUSD === 0) {
+    if (getPlanAmountUSD(selectedPlan) === 0) {
       alert(t('alerts.invitationOnly'));
       closeMembershipModal();
       return;
@@ -182,6 +235,28 @@ const Membership = () => {
       alert(t('alerts.paymentLoading'));
       return;
     }
+
+    // The offer may have ended since the code was applied, so confirm it before charging.
+    if (promo) {
+      setIsProcessing(true);
+      let stillValid = false;
+      try {
+        const data = await checkPromoCode(promo.code, selectedPlan.id);
+        stillValid = Boolean(data.success && data.valid);
+      } catch (error) {
+        console.error('Promo code check failed:', error);
+      }
+      setIsProcessing(false);
+
+      if (!stillValid) {
+        setPromo(null);
+        setPromoStatus('expired');
+        alert(t('alerts.promoNoLongerValid'));
+        return;
+      }
+    }
+
+    const amountUSD = getFinalAmountUSD(selectedPlan);
 
     const USD_TO_GHS   = 10.88;
     const amountGHS    = amountUSD * USD_TO_GHS;
@@ -207,6 +282,7 @@ const Membership = () => {
             { display_name: 'Membership Plan', variable_name: 'membership_plan', value: selectedPlan.name },
             { display_name: 'Plan ID',         variable_name: 'plan_id',         value: selectedPlan.id },
             { display_name: 'USD Amount',      variable_name: 'usd_amount',      value: '$' + amountUSD },
+            { display_name: 'Promo Code',      variable_name: 'promo_code',      value: promo ? `${promo.code} (${promo.discountPercent}% off)` : 'None' },
             { display_name: 'Organization',    variable_name: 'organization',    value: formData.organization || 'N/A' },
             { display_name: 'Country',         variable_name: 'country',         value: formData.country },
             { display_name: 'Position',        variable_name: 'position',        value: formData.position || 'N/A' }
@@ -288,7 +364,14 @@ const Membership = () => {
                     {selectedPlan.name}
                   </h3>
                   <p className="text-lg mt-1" style={{ color: '#8E3400', fontWeight: 600 }}>
-                    {selectedPlan.price}{selectedPlan.period}
+                    {promo ? (
+                      <>
+                        <span className="line-through text-gray-400 font-normal mr-2">{selectedPlan.price}</span>
+                        {formatUSD(getFinalAmountUSD(selectedPlan))}{selectedPlan.period}
+                      </>
+                    ) : (
+                      <>{selectedPlan.price}{selectedPlan.period}</>
+                    )}
                   </p>
                 </div>
                 <button
@@ -462,6 +545,70 @@ const Membership = () => {
                     placeholder={t('modal.countryPlaceholder')}
                   />
                 </div>
+
+                {getPlanAmountUSD(selectedPlan) > 0 && (
+                  <div>
+                    <label htmlFor="promoCode" className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
+                      {t('modal.promoLabel')} <span className="text-slate-400 text-xs font-normal">{t('modal.optional')}</span>
+                    </label>
+                    <div className="flex gap-2">
+                      <input
+                        id="promoCode"
+                        type="text"
+                        value={promoInput}
+                        onChange={(e) => {
+                          setPromoInput(e.target.value);
+                          if (!promo) setPromoStatus('idle');
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            if (!promo) applyPromoCode();
+                          }
+                        }}
+                        disabled={Boolean(promo) || promoStatus === 'checking' || isProcessing}
+                        autoComplete="off"
+                        className="flex-1 min-w-0 px-4 py-3 border border-gray-300 rounded-lg uppercase focus:outline-none focus:ring-2 focus:ring-[#8E3400] disabled:bg-gray-100"
+                        placeholder={t('modal.promoPlaceholder')}
+                      />
+                      {promo ? (
+                        <button
+                          type="button"
+                          onClick={resetPromo}
+                          disabled={isProcessing}
+                          className="px-5 py-3 rounded-lg font-bold border-2 transition-all disabled:opacity-40"
+                          style={{ borderColor: '#132552', color: '#132552', fontWeight: 700 }}
+                        >
+                          {t('modal.promoRemove')}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={applyPromoCode}
+                          disabled={promoStatus === 'checking' || isProcessing}
+                          className="px-5 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-60"
+                          style={{ backgroundColor: '#132552', fontWeight: 700 }}
+                        >
+                          {promoStatus === 'checking' ? t('modal.promoChecking') : t('modal.promoApply')}
+                        </button>
+                      )}
+                    </div>
+                    {promo && (
+                      <p className="text-sm mt-2 font-semibold" style={{ color: '#15803D' }} role="status">
+                        {t('modal.promoApplied', {
+                          percent: promo.discountPercent,
+                          price: formatUSD(getFinalAmountUSD(selectedPlan)),
+                          original: selectedPlan.price
+                        })}
+                      </p>
+                    )}
+                    {['empty', 'invalid', 'expired', 'error'].includes(promoStatus) && (
+                      <p className="text-sm mt-2 text-red-600" role="alert">
+                        {t(`modal.promoStatus.${promoStatus}`)}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="flex gap-3 mt-6">
@@ -486,7 +633,7 @@ const Membership = () => {
                     ? t('modal.processing')
                     : selectedPlan.price === 'By Invitation Only'
                       ? t('modal.submitApplication')
-                      : t('modal.pay') + ' ' + selectedPlan.price}
+                      : t('modal.pay') + ' ' + (promo ? formatUSD(getFinalAmountUSD(selectedPlan)) : selectedPlan.price)}
                 </button>
               </div>
             </form>

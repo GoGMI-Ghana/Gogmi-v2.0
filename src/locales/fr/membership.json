@@ -14,9 +14,18 @@
   "benefits": {
     "heading": "Avantages de l'adhésion",
     "items": [
-      { "title": "Connaissances et recherche", "desc": "Accédez à des recherches maritimes complètes, des publications et des notes de politique de toute la région du Golfe de Guinée." },
-      { "title": "Réseau professionnel", "desc": "Connectez-vous avec des professionnels maritimes, chercheurs et décideurs politiques de tout le Golfe de Guinée." },
-      { "title": "Renforcement des capacités", "desc": "Participez à des programmes de formation, des ateliers et des séances de développement des compétences animés par des experts du secteur." }
+      {
+        "title": "Connaissances et recherche",
+        "desc": "Accédez à des recherches maritimes complètes, des publications et des notes de politique de toute la région du Golfe de Guinée."
+      },
+      {
+        "title": "Réseau professionnel",
+        "desc": "Connectez-vous avec des professionnels maritimes, chercheurs et décideurs politiques de tout le Golfe de Guinée."
+      },
+      {
+        "title": "Renforcement des capacités",
+        "desc": "Participez à des programmes de formation, des ateliers et des séances de développement des compétences animés par des experts du secteur."
+      }
     ]
   },
   "individual": {
@@ -119,10 +128,22 @@
   "howToApply": {
     "heading": "Comment postuler",
     "steps": [
-      { "title": "Choisissez votre formule", "description": "Sélectionnez le niveau d'adhésion qui correspond le mieux à vos besoins et objectifs professionnels." },
-      { "title": "Complétez la candidature", "description": "Remplissez le formulaire de candidature en ligne avec vos coordonnées." },
-      { "title": "Paiement", "description": "Effectuez le paiement en toute sécurité via Paystack. Votre compte est créé automatiquement." },
-      { "title": "Bienvenue à bord", "description": "Recevez votre identifiant de membre par e-mail et utilisez-le pour vous connecter à tout moment." }
+      {
+        "title": "Choisissez votre formule",
+        "description": "Sélectionnez le niveau d'adhésion qui correspond le mieux à vos besoins et objectifs professionnels."
+      },
+      {
+        "title": "Complétez la candidature",
+        "description": "Remplissez le formulaire de candidature en ligne avec vos coordonnées."
+      },
+      {
+        "title": "Paiement",
+        "description": "Effectuez le paiement en toute sécurité via Paystack. Votre compte est créé automatiquement."
+      },
+      {
+        "title": "Bienvenue à bord",
+        "description": "Recevez votre identifiant de membre par e-mail et utilisez-le pour vous connecter à tout moment."
+      }
     ]
   },
   "brochure": {
@@ -153,7 +174,19 @@
     "cancel": "Annuler",
     "processing": "Traitement en cours…",
     "submitApplication": "Soumettre la candidature",
-    "pay": "Payer"
+    "pay": "Payer",
+    "promoLabel": "Code promo",
+    "promoPlaceholder": "Saisissez le code promo",
+    "promoApply": "Appliquer",
+    "promoChecking": "Vérification…",
+    "promoRemove": "Retirer",
+    "promoApplied": "Réduction de {{percent}} % appliquée. Vous payez {{price}} au lieu de {{original}}.",
+    "promoStatus": {
+      "empty": "Veuillez saisir un code promo.",
+      "invalid": "Ce code promo n'est pas valide.",
+      "expired": "Ce code promo a expiré.",
+      "error": "Nous n'avons pas pu vérifier le code promo. Veuillez réessayer."
+    }
   },
   "alerts": {
     "fillRequired": "Veuillez remplir tous les champs obligatoires",
@@ -166,6 +199,7 @@
     "welcomeSuccess": "Bienvenue au GoGMI !\n\nVotre adhésion a été activée avec succès.\n\nIdentifiant de membre : {{membershipId}}\nIdentifiant du certificat : {{certId}}\n\nUtilisez votre identifiant de membre pour vous connecter à tout moment.\nUn e-mail de confirmation avec vos informations a été envoyé à {{email}}.\n\nRéférence : {{reference}}",
     "activationFailed": "Paiement réussi mais l'activation de l'adhésion a échoué.\n\nVeuillez contacter le support à info@gogmi.org.gh\nRéférence : {{reference}}\n\nErreur : {{error}}",
     "activationError": "Paiement réussi mais une erreur s'est produite lors de l'activation de votre adhésion.\n\nVeuillez contacter le support à info@gogmi.org.gh\nRéférence : {{reference}}",
-    "failedToLoadPayment": "Échec du chargement du système de paiement. Veuillez vérifier votre connexion internet."
+    "failedToLoadPayment": "Échec du chargement du système de paiement. Veuillez vérifier votre connexion internet.",
+    "promoNoLongerValid": "Ce code promo n'est plus valide ; la réduction a donc été retirée. Veuillez vérifier le prix complet avant de payer."
   }
 }

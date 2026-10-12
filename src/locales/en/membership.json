@@ -14,9 +14,18 @@
   "benefits": {
     "heading": "Membership Benefits",
     "items": [
-      { "title": "Knowledge & Research", "desc": "Access comprehensive maritime research, publications, and policy briefs from across the Gulf of Guinea region." },
-      { "title": "Professional Network", "desc": "Connect with maritime professionals, researchers, and policymakers across the Gulf of Guinea." },
-      { "title": "Capacity Building", "desc": "Participate in training programs, workshops, and skill development sessions led by industry experts." }
+      {
+        "title": "Knowledge & Research",
+        "desc": "Access comprehensive maritime research, publications, and policy briefs from across the Gulf of Guinea region."
+      },
+      {
+        "title": "Professional Network",
+        "desc": "Connect with maritime professionals, researchers, and policymakers across the Gulf of Guinea."
+      },
+      {
+        "title": "Capacity Building",
+        "desc": "Participate in training programs, workshops, and skill development sessions led by industry experts."
+      }
     ]
   },
   "individual": {
@@ -119,10 +128,22 @@
   "howToApply": {
     "heading": "How to Apply",
     "steps": [
-      { "title": "Choose Your Plan", "description": "Select the membership tier that best fits your needs and professional goals." },
-      { "title": "Complete Application", "description": "Fill out the online application form with your details." },
-      { "title": "Payment", "description": "Complete payment securely via Paystack. Your account is automatically created." },
-      { "title": "Welcome Aboard", "description": "Receive your Membership ID via email and use it to login anytime." }
+      {
+        "title": "Choose Your Plan",
+        "description": "Select the membership tier that best fits your needs and professional goals."
+      },
+      {
+        "title": "Complete Application",
+        "description": "Fill out the online application form with your details."
+      },
+      {
+        "title": "Payment",
+        "description": "Complete payment securely via Paystack. Your account is automatically created."
+      },
+      {
+        "title": "Welcome Aboard",
+        "description": "Receive your Membership ID via email and use it to login anytime."
+      }
     ]
   },
   "brochure": {
@@ -153,7 +174,19 @@
     "cancel": "Cancel",
     "processing": "Processing…",
     "submitApplication": "Submit Application",
-    "pay": "Pay"
+    "pay": "Pay",
+    "promoLabel": "Promo Code",
+    "promoPlaceholder": "Enter promo code",
+    "promoApply": "Apply",
+    "promoChecking": "Checking…",
+    "promoRemove": "Remove",
+    "promoApplied": "{{percent}}% discount applied. You pay {{price}} instead of {{original}}.",
+    "promoStatus": {
+      "empty": "Please enter a promo code.",
+      "invalid": "This promo code is not valid.",
+      "expired": "This promo code has expired.",
+      "error": "We could not check the promo code. Please try again."
+    }
   },
   "alerts": {
     "fillRequired": "Please fill in all required fields",
@@ -166,6 +199,7 @@
     "welcomeSuccess": "Welcome to GoGMI!\n\nYour membership has been activated successfully.\n\nMembership ID: {{membershipId}}\nCertificate ID: {{certId}}\n\nUse your Membership ID to login at any time.\nA confirmation email with your details has been sent to {{email}}.\n\nReference: {{reference}}",
     "activationFailed": "Payment successful but membership activation failed.\n\nPlease contact support at info@gogmi.org.gh\nReference: {{reference}}\n\nError: {{error}}",
     "activationError": "Payment successful but there was an error activating your membership.\n\nPlease contact support at info@gogmi.org.gh\nReference: {{reference}}",
-    "failedToLoadPayment": "Failed to load payment system. Please check your internet connection."
+    "failedToLoadPayment": "Failed to load payment system. Please check your internet connection.",
+    "promoNoLongerValid": "This promo code is no longer valid, so the discount has been removed. Please review the full price before paying."
   }
 }

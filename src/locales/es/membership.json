@@ -14,9 +14,18 @@
   "benefits": {
     "heading": "Beneficios de la membresía",
     "items": [
-      { "title": "Conocimiento e investigación", "desc": "Accede a investigaciones marítimas integrales, publicaciones y notas de política de toda la región del Golfo de Guinea." },
-      { "title": "Red profesional", "desc": "Conéctate con profesionales marítimos, investigadores y responsables de políticas de todo el Golfo de Guinea." },
-      { "title": "Fortalecimiento de capacidades", "desc": "Participa en programas de formación, talleres y sesiones de desarrollo de habilidades dirigidas por expertos del sector." }
+      {
+        "title": "Conocimiento e investigación",
+        "desc": "Accede a investigaciones marítimas integrales, publicaciones y notas de política de toda la región del Golfo de Guinea."
+      },
+      {
+        "title": "Red profesional",
+        "desc": "Conéctate con profesionales marítimos, investigadores y responsables de políticas de todo el Golfo de Guinea."
+      },
+      {
+        "title": "Fortalecimiento de capacidades",
+        "desc": "Participa en programas de formación, talleres y sesiones de desarrollo de habilidades dirigidas por expertos del sector."
+      }
     ]
   },
   "individual": {
@@ -119,10 +128,22 @@
   "howToApply": {
     "heading": "Cómo solicitar",
     "steps": [
-      { "title": "Elige tu plan", "description": "Selecciona el nivel de membresía que mejor se adapte a tus necesidades y objetivos profesionales." },
-      { "title": "Completa la solicitud", "description": "Completa el formulario de solicitud en línea con tus datos." },
-      { "title": "Pago", "description": "Completa el pago de forma segura a través de Paystack. Tu cuenta se crea automáticamente." },
-      { "title": "Bienvenido a bordo", "description": "Recibe tu ID de membresía por correo electrónico y úsalo para iniciar sesión en cualquier momento." }
+      {
+        "title": "Elige tu plan",
+        "description": "Selecciona el nivel de membresía que mejor se adapte a tus necesidades y objetivos profesionales."
+      },
+      {
+        "title": "Completa la solicitud",
+        "description": "Completa el formulario de solicitud en línea con tus datos."
+      },
+      {
+        "title": "Pago",
+        "description": "Completa el pago de forma segura a través de Paystack. Tu cuenta se crea automáticamente."
+      },
+      {
+        "title": "Bienvenido a bordo",
+        "description": "Recibe tu ID de membresía por correo electrónico y úsalo para iniciar sesión en cualquier momento."
+      }
     ]
   },
   "brochure": {
@@ -153,7 +174,19 @@
     "cancel": "Cancelar",
     "processing": "Procesando…",
     "submitApplication": "Enviar solicitud",
-    "pay": "Pagar"
+    "pay": "Pagar",
+    "promoLabel": "Código promocional",
+    "promoPlaceholder": "Introduzca el código promocional",
+    "promoApply": "Aplicar",
+    "promoChecking": "Comprobando…",
+    "promoRemove": "Quitar",
+    "promoApplied": "Descuento del {{percent}} % aplicado. Paga {{price}} en lugar de {{original}}.",
+    "promoStatus": {
+      "empty": "Introduzca un código promocional.",
+      "invalid": "Este código promocional no es válido.",
+      "expired": "Este código promocional ha caducado.",
+      "error": "No pudimos comprobar el código promocional. Inténtelo de nuevo."
+    }
   },
   "alerts": {
     "fillRequired": "Por favor completa todos los campos obligatorios",
@@ -166,6 +199,7 @@
     "welcomeSuccess": "¡Bienvenido a GoGMI!\n\nTu membresía ha sido activada con éxito.\n\nID de membresía: {{membershipId}}\nID de certificado: {{certId}}\n\nUsa tu ID de membresía para iniciar sesión en cualquier momento.\nSe ha enviado un correo de confirmación con tus datos a {{email}}.\n\nReferencia: {{reference}}",
     "activationFailed": "El pago fue exitoso pero la activación de la membresía falló.\n\nPor favor contacta al soporte en info@gogmi.org.gh\nReferencia: {{reference}}\n\nError: {{error}}",
     "activationError": "El pago fue exitoso pero ocurrió un error al activar tu membresía.\n\nPor favor contacta al soporte en info@gogmi.org.gh\nReferencia: {{reference}}",
-    "failedToLoadPayment": "Error al cargar el sistema de pago. Por favor verifica tu conexión a internet."
+    "failedToLoadPayment": "Error al cargar el sistema de pago. Por favor verifica tu conexión a internet.",
+    "promoNoLongerValid": "Este código promocional ya no es válido, por lo que se ha retirado el descuento. Revise el precio completo antes de pagar."
   }
 }
