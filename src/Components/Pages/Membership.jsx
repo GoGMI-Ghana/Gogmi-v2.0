@@ -312,7 +312,7 @@ const Membership = () => {
   };
 
   const handleBrochureDownload = () => {
-    const brochureUrl = '/resources/pdfs/GoGMI-Membership-2026-new.pdf';
+    const brochureUrl = '/resources/pdfs/GoGMI-Membership-2026.pdf';
     const link = document.createElement('a');
     link.href = brochureUrl;
     link.download = 'GoGMI-Membership-2026.pdf';
@@ -746,7 +746,7 @@ const Membership = () => {
                     </div>
                   </div>
                   <p className="text-xs leading-relaxed font-semibold mb-4" style={{ color: '#4B5563' }}>{plan.description}</p>
-                  {plan.id !== 'fellow' && (
+                  {plan.features.length > 0 && (
                     <>
                       <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>{t('individual.benefitsLabel')}</p></div>
                       <ul className="space-y-2 mb-6">
@@ -757,6 +757,10 @@ const Membership = () => {
                           </li>
                         ))}
                       </ul>
+                    </>
+                  )}
+                  {plan.id !== 'fellow' && (
+                    <>
                       <button
                         onClick={() => openMembershipModal(plan)}
                         className="w-full py-2.5 rounded-lg font-bold transition-all text-sm"
@@ -793,7 +797,7 @@ const Membership = () => {
                     </div>
                   </div>
                   <p className="text-sm leading-relaxed font-semibold mb-4" style={{ color: '#4B5563' }}>{plan.description}</p>
-                  {plan.id !== 'strategic' && (
+                  {plan.features.length > 0 && (
                     <>
                       <div className="mb-3"><p className="text-xs font-bold mb-2" style={{ color: '#132552' }}>{t('institutional.benefitsLabel')}</p></div>
                       <ul className="space-y-2 mb-6">
@@ -804,6 +808,10 @@ const Membership = () => {
                           </li>
                         ))}
                       </ul>
+                    </>
+                  )}
+                  {plan.id !== 'strategic' && (
+                    <>
                       <button
                         onClick={() => openMembershipModal(plan)}
                         className="w-full py-2.5 rounded-lg font-bold transition-all text-sm"

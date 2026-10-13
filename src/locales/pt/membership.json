@@ -35,7 +35,7 @@
     "plans": {
       "student": {
         "name": "Associação Estudantil",
-        "description": "Concebida para estudantes de licenciatura com interesse em estudos marítimos, oceânicos, ambientais e de segurança.",
+        "description": "Concebida para estudantes de licenciatura e de pós-graduação com interesse em estudos marítimos, oceânicos, ambientais e de segurança.",
         "features": [
           "Certificado Oficial de Associado",
           "Acesso aos relatórios de investigação e publicações do GoGMI",
@@ -49,8 +49,8 @@
       },
       "associate": {
         "name": "Associação Associada",
-        "subtitle": "2-7 Anos de Experiência",
-        "description": "Para profissionais em início de carreira (1–5 anos de experiência) que procuram desenvolvimento de competências, visibilidade e networking.",
+        "subtitle": "Início de Carreira",
+        "description": "Para profissionais em início de carreira (1–7 anos de experiência) que procuram desenvolvimento de competências, visibilidade e networking.",
         "features": [
           "Certificado Oficial de Associado",
           "Convites para conferências, seminários e diálogos políticos do GoGMI",
@@ -66,8 +66,8 @@
       },
       "professional": {
         "name": "Associação Profissional",
-        "subtitle": "7 Anos de Experiência ou Mais",
-        "description": "Para profissionais de nível intermédio que procuram influência, envolvimento político e visibilidade regional.",
+        "subtitle": "Mais de 8 Anos de Experiência",
+        "description": "Para profissionais experientes que procuram um envolvimento político mais profundo, liderança de pensamento, visibilidade profissional e oportunidades de networking regional e internacional.",
         "features": [
           "Certificado Oficial de Associado",
           "Convites prioritários para diálogos políticos e mesas-redondas de especialistas",
@@ -77,14 +77,25 @@
           "Oportunidade de orientar jovens licenciados interessados em assuntos marítimos",
           "Perfil profissional listado no site do GoGMI",
           "Networking executivo com especialistas e instituições regionais",
-          "Newsletter Exclusiva para Associados — uma newsletter dedicada com análises de investigação selecionadas, notas de política e anúncio de próximas conferências e eventos"
+          "Newsletter Exclusiva para Associados — uma newsletter dedicada com análises de investigação selecionadas, notas de política e anúncio de próximas conferências e eventos",
+          "Sessão virtual com o Conselho de Administração e os membros do Conselho Consultivo uma vez por ano"
         ]
       },
       "fellow": {
         "name": "Associação Fellow",
-        "subtitle": "Especialistas Séniores",
-        "description": "Para profissionais séniores e especialistas que contribuem para a investigação marítima, as políticas e a governação.",
-        "features": []
+        "subtitle": "Especialistas Séniores de Distinção",
+        "description": "Esta comunidade de distinção destina-se a profissionais séniores e especialistas de referência que contribuem para a investigação marítima, as políticas e a governação. Os seus membros promovem a liderança de pensamento, fomentam o diálogo estratégico e moldam o futuro do domínio marítimo.",
+        "features": [
+          "Certificado Oficial de Fellow",
+          "Convites prioritários para diálogos políticos e mesas-redondas de especialistas",
+          "Participação e liderança em grupos de trabalho sobre políticas",
+          "Oportunidade de moderar sessões ou intervir em eventos do GoGMI",
+          "Oportunidade de orientar jovens licenciados interessados em assuntos marítimos",
+          "Reconhecimento como Fellow do GoGMI (site e publicações)",
+          "Participação em discussões de aconselhamento estratégico e de segurança marítima",
+          "Newsletter Exclusiva para Associados — uma newsletter dedicada com análises de investigação selecionadas, notas de política e anúncio de próximas conferências e eventos",
+          "Representação Institucional — poderá ser selecionado para representar o GoGMI em compromissos nacionais e internacionais, incluindo conferências, workshops e fóruns"
+        ]
       }
     }
   },
@@ -94,7 +105,7 @@
     "plans": {
       "institution": {
         "name": "Associação Institucional",
-        "description": "Para universidades, centros de investigação e think tanks.",
+        "description": "Para universidades, centros de investigação e think tanks. Benefícios de associação para até cinco (5) representantes nomeados.",
         "features": [
           "Certificado Oficial de Associação Institucional",
           "Acesso aos benefícios de associado do GoGMI para colaboradores e estudantes nomeados",
@@ -102,25 +113,34 @@
           "Resultados de investigação e publicações de política em coautoria",
           "Oportunidades de candidaturas conjuntas a subsídios e projetos financiados",
           "Consideração prioritária para parcerias e programas institucionais",
-          "Visibilidade institucional nas plataformas do GoGMI"
+          "Visibilidade institucional nas plataformas do GoGMI",
+          "Sessão virtual com o Conselho de Administração e os membros do Conselho Consultivo uma vez por ano"
         ]
       },
       "corporate": {
         "name": "Associação Empresarial",
-        "description": "Para organizações do setor privado que operam nos setores marítimo, logístico, energético, de segurança e afins.",
+        "description": "Para organizações do setor privado que operam nos setores marítimo, logístico, energético, de segurança e afins. Benefícios de associação para até dez (10) representantes nomeados.",
         "features": [
           "Certificado Oficial de Associação Empresarial",
+          "Pacotes de eventos gratuitos ou com desconto",
           "Marca e visibilidade empresarial no site, redes sociais, eventos e publicações do GoGMI",
-          "Convites para eventos consultivos de alto nível e diálogos com partes interessadas",
-          "Acesso a briefings personalizados sobre questões de governação marítima e oceânica",
+          "Convites prioritários para eventos consultivos de alto nível e diálogos com partes interessadas",
+          "Acesso a briefings anuais personalizados sobre questões de governação marítima e oceânica",
           "Networking com parceiros locais, regionais e internacionais",
-          "Oportunidades de alinhar iniciativas de responsabilidade social empresarial (RSE) com os programas do GoGMI"
+          "Oportunidades de alinhar iniciativas de responsabilidade social empresarial (RSE) com os programas do GoGMI",
+          "Sessão virtual com o Conselho de Administração e os membros do Conselho Consultivo uma vez por ano"
         ]
       },
       "strategic": {
         "name": "Parceiro Estratégico",
         "description": "Para organizações com um alinhamento estratégico de longo prazo com a missão do GoGMI.",
-        "features": []
+        "features": [
+          "Reconhecimento como Parceiro Estratégico do GoGMI",
+          "Cocriação e implementação de iniciativas emblemáticas",
+          "Participação no planeamento estratégico e na influência sobre políticas",
+          "Colaboração prioritária em programas regionais e internacionais",
+          "Marca e visibilidade empresarial no site, redes sociais, eventos e publicações do GoGMI"
+        ]
       }
     }
   },

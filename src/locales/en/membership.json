@@ -35,7 +35,7 @@
     "plans": {
       "student": {
         "name": "Student Membership",
-        "description": "Designed for undergraduate students with an interest in maritime, ocean, environmental, and security studies.",
+        "description": "Designed for undergraduate and postgraduate students with an interest in maritime, ocean, environmental, and security studies.",
         "features": [
           "Official Certificate of Membership",
           "Access to GoGMI research reports and publications",
@@ -49,8 +49,8 @@
       },
       "associate": {
         "name": "Associate Membership",
-        "subtitle": "2-7 Years Experience",
-        "description": "For early-career professionals (1–5 years of experience) seeking skills development, visibility, and networking.",
+        "subtitle": "Early Career",
+        "description": "For early-career professionals (1–7 years of experience) seeking skills development, visibility, and networking.",
         "features": [
           "Official Certificate of Membership",
           "Invitations to GoGMI conferences, seminars, and policy dialogues",
@@ -66,8 +66,8 @@
       },
       "professional": {
         "name": "Professional Membership",
-        "subtitle": "7 Years upwards Experience",
-        "description": "For mid-level professionals seeking influence, policy engagement, and regional visibility.",
+        "subtitle": "8+ Years' Experience",
+        "description": "For experienced professionals seeking deeper policy engagement, thought leadership, professional visibility and regional and international networking opportunities.",
         "features": [
           "Official Certificate of Membership",
           "Priority invitations to policy dialogues and expert roundtables",
@@ -77,14 +77,25 @@
           "Opportunity to mentor young graduates interested in Maritime affairs",
           "Professional profile listing on the GoGMI website",
           "Executive networking with regional experts and institutions",
-          "Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events"
+          "Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events",
+          "Virtual session with Board of Directors and Advisory Board Members once a year"
         ]
       },
       "fellow": {
         "name": "Fellow Membership",
-        "subtitle": "Senior Experts",
-        "description": "For senior professionals and experts contributing to maritime research, policy, and governance.",
-        "features": []
+        "subtitle": "Distinguished Senior Experts",
+        "description": "This distinguished community is for senior professionals and leading experts contributing to maritime research, policy, and governance. Members advance thought leadership, fostering strategic dialogue, and shaping the future of the maritime domain.",
+        "features": [
+          "Official Certificate of Fellowship",
+          "Priority invitations to policy dialogues and expert roundtables",
+          "Participation and leadership in policy working groups",
+          "Opportunity to moderate sessions or speak at GoGMI events",
+          "Opportunity to mentor young graduates interested in Maritime affairs",
+          "Recognition as a GoGMI Fellow (website and publications)",
+          "Engagement in strategic advisory and maritime security discussions",
+          "Exclusive Member Newsletter — a dedicated newsletter with curated research insights, policy briefs, and notice of upcoming conferences and events",
+          "Institutional Representation — may be selected to represent GoGMI at national and international engagements, including conferences, workshops, and forums"
+        ]
       }
     }
   },
@@ -94,7 +105,7 @@
     "plans": {
       "institution": {
         "name": "Institutional Membership",
-        "description": "For universities, research centres, and think tanks.",
+        "description": "For universities, research centres, and think tanks. Membership benefits for up to five (5) nominated representatives.",
         "features": [
           "Official Institutional Membership Certificate",
           "Access to GoGMI membership benefits for nominated staff and students",
@@ -102,25 +113,34 @@
           "Co-branded research outputs and policy publications",
           "Opportunities for joint grant proposals and funded projects",
           "Priority consideration for institutional partnerships and programmes",
-          "Institutional visibility on GoGMI platforms"
+          "Institutional visibility on GoGMI platforms",
+          "Virtual session with Board of Directors and Advisory Board Members once a year"
         ]
       },
       "corporate": {
         "name": "Corporate Membership",
-        "description": "For private sector organisations operating in maritime, logistics, energy, security, and related sectors.",
+        "description": "For private-sector organisations operating in maritime, logistics, energy, security, and related sectors. Membership benefits for up to ten (10) nominated representatives.",
         "features": [
           "Official Corporate Membership Certificate",
+          "Complimentary or discounted event packages",
           "Corporate branding and visibility at GoGMI website, social media, events and publications",
-          "Invitations to high-level advisory events and stakeholder dialogues",
-          "Access to customised briefings on maritime and ocean governance issues",
+          "Priority invitations to high-level advisory events and stakeholder dialogues",
+          "Access to annual customised briefings on maritime and ocean governance issues",
           "Networking with local, regional and international partners",
-          "Opportunities to align corporate social responsibility (CSR) initiatives with GoGMI programmes"
+          "Opportunities to align corporate social responsibility (CSR) initiatives with GoGMI programmes",
+          "Virtual session with Board of Directors and Advisory Board Members once a year"
         ]
       },
       "strategic": {
         "name": "Strategic Partner",
         "description": "For organisations with long-term strategic alignment with GoGMI mission.",
-        "features": []
+        "features": [
+          "Recognition as a GoGMI Strategic Partner",
+          "Co-creation and implementation of flagship initiatives",
+          "Engagement in strategic planning and policy influence",
+          "Priority collaboration on regional and international programmes",
+          "Corporate branding and visibility at GoGMI website, social media, events and publications"
+        ]
       }
     }
   },
