@@ -1,5 +1,17 @@
 import React from 'react';
-import { Target, Eye, Heart } from 'lucide-react';
+import { Target, Eye, Users, BookOpen, Share2, Globe, ArrowRight } from 'lucide-react';
+
+// Official UN colours for the goals the Institute's work supports, in the order listed in about.json.
+const SDG_META = [
+  { number: '14', color: '#0A97D9' },
+  { number: '8', color: '#A21942' },
+  { number: '4', color: '#C5192D' },
+  { number: '13', color: '#3F7E44' },
+  { number: '16', color: '#00689D' },
+  { number: '17', color: '#19486A' }
+];
+
+const CYCLE_ICONS = [Users, BookOpen, Share2, Globe];
 import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
@@ -11,7 +23,7 @@ const AboutUs = () => {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="public\aboutus.enoch.jpg"
+            src="/aboutus.enoch.jpg"
             alt="Maritime vessel in the Gulf of Guinea"
             className="w-full h-full object-cover"
           />
@@ -64,115 +76,162 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Vision, Mission & Business Model */}
-      <section className="py-24 bg-white">
-     <div className="space-y-16">
-  {/* VISION */}
-  <div className="text-center">
-    <div className="flex items-center justify-center gap-6 mb-6">
-      <h3 className="text-3xl font-bold" style={{ color: '#132552', fontWeight: 700 }}>
-        {t('vision.heading')}
-      </h3>
-      <div style={{ color: '#8E3400' }}>
-        <Eye className="w-16 h-16" />
-      </div>
-    </div>
-    <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-      {t('vision.body')}
-    </p>
-  </div>
+      {/* Vision & Mission */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="max-w-3xl mb-14">
+            <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4"
+                  style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
+              {t('purpose.eyebrow')}
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight"
+                style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
+              {t('purpose.heading')}
+            </h2>
+          </div>
 
-  {/* MISSION */}
-  <div className="text-center">
-    <div className="flex items-center justify-center gap-6 mb-6">
-      <h3 className="text-3xl font-bold" style={{ color: '#132552', fontWeight: 700 }}>
-        {t('mission.heading')}
-      </h3>
-      <div style={{ color: '#8E3400' }}>
-        <Target className="w-16 h-16" />
-      </div>
-    </div>
-    <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-      {t('mission.body')}
-    </p>
-  </div>
+          <div className="grid lg:grid-cols-5 gap-8">
+            {/* Vision */}
+            <article className="lg:col-span-2 rounded-2xl p-10 md:p-12 flex flex-col relative overflow-hidden"
+                     style={{ backgroundColor: '#132552' }}>
+              <div className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full opacity-10"
+                   style={{ backgroundColor: '#8E3400' }} aria-hidden="true"></div>
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-8"
+                   style={{ backgroundColor: 'rgba(142, 52, 0, 0.9)' }}>
+                <Eye className="w-7 h-7 text-white" strokeWidth={2} />
+              </div>
+              <h3 className="text-sm uppercase tracking-wider mb-5 text-white/70" style={{ fontWeight: 700, letterSpacing: '0.1em' }}>
+                {t('vision.heading')}
+              </h3>
+              <p className="relative text-2xl md:text-3xl leading-snug text-white" style={{ fontWeight: 600 }}>
+                {t('vision.body')}
+              </p>
+            </article>
 
-  {/* BUSINESS MODEL */}
-  <div className="text-center">
-    <div className="flex items-center justify-center gap-6 mb-6">
-      <h3 className="text-3xl font-bold" style={{ color: '#132552', fontWeight: 700 }}>
-        {t('businessModel.heading')}
-      </h3>
-      <div style={{ color: '#8E3400' }}>
-        <Heart className="w-16 h-16" />
-      </div>
-    </div>
-    <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-      {t('businessModel.body')}
-    </p>
-  </div>
-</div>
+            {/* Mission */}
+            <article className="lg:col-span-3 rounded-2xl p-10 md:p-12 flex flex-col"
+                     style={{ backgroundColor: '#F5F7FA', borderTop: '4px solid #8E3400' }}>
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-8"
+                   style={{ backgroundColor: '#132552' }}>
+                <Target className="w-7 h-7 text-white" strokeWidth={2} />
+              </div>
+              <h3 className="text-sm uppercase tracking-wider mb-5" style={{ color: '#8E3400', fontWeight: 700, letterSpacing: '0.1em' }}>
+                {t('mission.heading')}
+              </h3>
+              <p className="text-lg leading-relaxed mb-8" style={{ color: '#374151', fontWeight: 400 }}>
+                {t('mission.body')}
+              </p>
+              <div className="mt-auto pt-6 border-t border-gray-200">
+                <p className="text-xs uppercase tracking-wider mb-3" style={{ color: '#6B7280', fontWeight: 700, letterSpacing: '0.1em' }}>
+                  {t('mission.valuesLabel')}
+                </p>
+                <ul className="flex flex-wrap gap-3">
+                  {t('mission.values', { returnObjects: true }).map((value) => (
+                    <li key={value} className="px-4 py-2 rounded-full text-sm bg-white"
+                        style={{ color: '#132552', fontWeight: 600, border: '1px solid #D1D5DB' }}>
+                      {value}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Model */}
+      <section className="py-24 md:py-32" style={{ backgroundColor: '#F5F7FA' }}>
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
+            <div className="lg:col-span-5">
+              <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4"
+                    style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
+                {t('businessModel.eyebrow')}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight"
+                  style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
+                {t('businessModel.heading')}
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
+                {t('businessModel.body')}
+              </p>
+            </div>
+          </div>
+
+          <h3 className="text-sm uppercase tracking-wider mb-6" style={{ color: '#132552', fontWeight: 700, letterSpacing: '0.1em' }}>
+            {t('businessModel.cycleHeading')}
+          </h3>
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {t('businessModel.steps', { returnObjects: true }).map((step, idx, steps) => {
+              const Icon = CYCLE_ICONS[idx];
+              return (
+                <li key={step.title} className="relative bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#132552' }}>
+                      <Icon className="w-6 h-6 text-white" strokeWidth={2} />
+                    </div>
+                    <span className="text-3xl font-black" style={{ color: '#E5E7EB', fontWeight: 900 }}>
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h4 className="text-lg font-bold mb-2" style={{ color: '#132552', fontWeight: 700 }}>{step.title}</h4>
+                  <p className="text-sm leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>{step.desc}</p>
+                  {idx < steps.length - 1 && (
+                    <div className="hidden lg:flex absolute top-1/2 -right-5 w-8 h-8 -translate-y-1/2 rounded-full items-center justify-center z-10"
+                         style={{ backgroundColor: '#8E3400' }} aria-hidden="true">
+                      <ArrowRight className="w-4 h-4 text-white" strokeWidth={2.5} />
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </section>
 
       {/* SDG Section */}
-      <section className="py-32 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%)' }}>
+      <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4" 
-                  style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
-              {t('sdg.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl mt-4 mb-6"
-                style={{ fontWeight: 900, letterSpacing: '-0.02em', lineHeight: '1.1', color: '#132552' }}>
-              {t('sdg.headingLine1')}<br />{t('sdg.headingLine2')}
-            </h2>
-<p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-               style={{ color: '#4B5563', fontWeight: 400 }}>
+          <div className="grid lg:grid-cols-12 gap-8 items-end mb-14">
+            <div className="lg:col-span-7">
+              <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4"
+                    style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
+                {t('sdg.eyebrow')}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black leading-tight"
+                  style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
+                {t('sdg.headingLine1')} {t('sdg.headingLine2')}
+              </h2>
+            </div>
+            <p className="lg:col-span-5 text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
               {t('sdg.subtitle')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-gray-200"
+               style={{ backgroundColor: '#E5E7EB' }}>
             {t('sdg.items', { returnObjects: true }).map((sdg, idx) => {
-              const meta = [
-                { number: '14', bgColor: '#1F8DD6' },
-                { number: '8', bgColor: '#A21942' },
-                { number: '4', bgColor: '#C5192D' },
-                { number: '13', bgColor: '#3F7E44' },
-                { number: '16', bgColor: '#00689D' },
-                { number: '17', bgColor: '#19486A' }
-              ];
-              return { ...sdg, ...meta[idx] };
-            }).map((sdg, idx) => (
-              <div key={idx} className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group"
-                style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb' }}>
-                <div className="h-2" style={{ backgroundColor: sdg.bgColor }}></div>
-                <div className="p-8">
-                  <div className="mb-6">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl text-white font-black text-2xl transition-transform duration-300 group-hover:scale-110"
-                      style={{ backgroundColor: sdg.bgColor, fontWeight: 900 }}>
-                      {sdg.number}
-                    </div>
+              const meta = SDG_META[idx];
+              return (
+                <div key={meta.number} className="bg-white p-8 flex gap-5 transition-colors duration-200 hover:bg-gray-50">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-lg flex flex-col items-center justify-center text-white"
+                       style={{ backgroundColor: meta.color }}>
+                    <span className="text-[10px] uppercase tracking-wider leading-none" style={{ fontWeight: 700 }}>SDG</span>
+                    <span className="text-2xl leading-none mt-1" style={{ fontWeight: 900 }}>{meta.number}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3" style={{ fontWeight: 700, lineHeight: '1.3', color: '#132552' }}>
-                    {sdg.title}
-                  </h3>
-                  <p className="text-base leading-relaxed" style={{ fontWeight: 400, color: '#4B5563' }}>
-                    {sdg.desc}
-                  </p>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2" style={{ fontWeight: 700, lineHeight: '1.3', color: '#132552' }}>
+                      {sdg.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ fontWeight: 400, color: '#4B5563' }}>
+                      {sdg.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-16">
-            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full"
-                 style={{ backgroundColor: '#fef3e2', border: '2px solid #8E3400' }}>
-              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#8E3400' }}></span>
-              <span className="font-semibold text-base" style={{ color: '#8E3400', fontWeight: 600 }}>
-                {t('sdg.footer')}
-              </span>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
