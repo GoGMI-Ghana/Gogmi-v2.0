@@ -30,26 +30,7 @@
   "businessModel": {
     "eyebrow": "Notre fonctionnement",
     "heading": "Modèle économique",
-    "body": "La force motrice du GoGMI est la recherche de l'excellence dans la recherche maritime stratégique, l'éducation, les médias et les services de conseil. Le GoGMI est une organisation interdisciplinaire pionnière qui vise à fournir des connaissances pour tous, en utilisant une variété de supports pour surmonter les barrières traditionnelles. En tant qu'organisation de recherche à but non lucratif, le modèle économique du GoGMI est unique en ce sens qu'il repose sur sa communauté virtuelle pour générer les revenus nécessaires à la production de solutions de recherche et d'éducation. Ce modèle constitue un cycle autoentretenu qui garantit l'indépendance de l'Institut et sa capacité à répondre aux besoins de la région. Les contributeurs de l'Institut et de son réseau d'experts créent le contenu, ensuite diffusé par divers canaux, notamment des publications périodiques, des livres, des séminaires, des conférences et internet, et mis à la disposition de la communauté des personnes intéressées par l'étude du domaine maritime de la région.",
-    "cycleHeading": "Un cycle autonome",
-    "steps": [
-      {
-        "title": "Les experts produisent",
-        "desc": "Les chercheurs de l’Institut et de son réseau d’experts produisent des recherches et des analyses sur le domaine maritime de la région."
-      },
-      {
-        "title": "Le savoir est partagé",
-        "desc": "Les résultats sont diffusés par des publications, des ouvrages, des séminaires, des conférences et des canaux en ligne."
-      },
-      {
-        "title": "La communauté s’engage",
-        "desc": "Une communauté de praticiens, de décideurs et d’étudiants utilise ces connaissances et participe aux travaux de l’Institut."
-      },
-      {
-        "title": "La recherche est pérennisée",
-        "desc": "Le soutien de cette communauté finance de nouvelles recherches et préserve l’indépendance de l’Institut et sa capacité à répondre aux besoins de la région."
-      }
-    ]
+    "body": "La force motrice du GoGMI est la recherche de l'excellence dans la recherche maritime stratégique, l'éducation, les médias et les services de conseil. Le GoGMI est une organisation interdisciplinaire pionnière qui vise à fournir des connaissances pour tous, en utilisant une variété de supports pour surmonter les barrières traditionnelles. En tant qu'organisation de recherche à but non lucratif, le modèle économique du GoGMI est unique en ce sens qu'il repose sur sa communauté virtuelle pour générer les revenus nécessaires à la production de solutions de recherche et d'éducation. Ce modèle constitue un cycle autoentretenu qui garantit l'indépendance de l'Institut et sa capacité à répondre aux besoins de la région. Les contributeurs de l'Institut et de son réseau d'experts créent le contenu, ensuite diffusé par divers canaux, notamment des publications périodiques, des livres, des séminaires, des conférences et internet, et mis à la disposition de la communauté des personnes intéressées par l'étude du domaine maritime de la région."
   },
   "sdg": {
     "eyebrow": "Notre engagement",
