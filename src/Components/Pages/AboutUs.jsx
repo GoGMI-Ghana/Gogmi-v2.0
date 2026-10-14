@@ -1,5 +1,6 @@
 import React from 'react';
-import { Target, Eye, Users, BookOpen, Share2, Globe, ArrowRight } from 'lucide-react';
+import { Users, BookOpen, Share2, Globe, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 // Official UN colours for the goals the Institute's work supports, in the order listed in about.json.
 const SDG_META = [
@@ -12,7 +13,58 @@ const SDG_META = [
 ];
 
 const CYCLE_ICONS = [Users, BookOpen, Share2, Globe];
-import { useTranslation } from 'react-i18next';
+
+const RING_COLORS = { vision: '#132552', mission: '#8E3400', values: '#0F766E' };
+
+// Point on a circle, with angles in degrees measured clockwise from 12 o'clock.
+const polar = (c, r, deg) => {
+  const a = (deg * Math.PI) / 180;
+  return [c + r * Math.sin(a), c - r * Math.cos(a)];
+};
+
+// An open ring drawn as an arc, optionally ending in an arrowhead that points the way the arc travels.
+const Ring = ({ size, color, start, sweep, arrow = false }) => {
+  const stroke = Math.round(size * 0.075);
+  const c = size / 2;
+  const r = c - stroke * 1.2;
+  const arrowLength = stroke * 1.6;
+  const dir = Math.sign(sweep);
+  // Stop the arc a little early so the arrowhead sits on its end.
+  const arcEnd = arrow ? start + sweep - dir * ((arrowLength * 0.35) / r) * (180 / Math.PI) : start + sweep;
+  const [x0, y0] = polar(c, r, start);
+  const [x1, y1] = polar(c, r, arcEnd);
+  const largeArc = Math.abs(arcEnd - start) > 180 ? 1 : 0;
+  const sweepFlag = dir > 0 ? 1 : 0;
+
+  let head = null;
+  if (arrow) {
+    const a = (arcEnd * Math.PI) / 180;
+    const tx = Math.cos(a) * dir;
+    const ty = Math.sin(a) * dir;
+    const nx = Math.sin(a);
+    const ny = -Math.cos(a);
+    const w = stroke * 1.15;
+    const points = [
+      [x1 + tx * arrowLength, y1 + ty * arrowLength],
+      [x1 + nx * w, y1 + ny * w],
+      [x1 - nx * w, y1 - ny * w]
+    ].map((p) => p.join(',')).join(' ');
+    head = <polygon points={points} fill={color} />;
+  }
+
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size} className="absolute inset-0 overflow-visible" aria-hidden="true">
+      <path
+        d={`M ${x0} ${y0} A ${r} ${r} 0 ${largeArc} ${sweepFlag} ${x1} ${y1}`}
+        fill="none"
+        stroke={color}
+        strokeWidth={stroke}
+        strokeLinecap="butt"
+      />
+      {head}
+    </svg>
+  );
+};
 
 const AboutUs = () => {
   const { t } = useTranslation('about');
@@ -76,10 +128,10 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl mb-14">
+      {/* Vision, Mission & Values: three linked rings, each leading into the next */}
+      <section className="py-24 md:py-32 bg-white overflow-hidden">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4"
                   style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
               {t('purpose.eyebrow')}
@@ -90,51 +142,86 @@ const AboutUs = () => {
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-8">
+          {/* Large screens: the ring diagram */}
+          <div className="hidden lg:block relative mx-auto" style={{ width: 960, height: 1190 }}>
             {/* Vision */}
-            <article className="lg:col-span-2 rounded-2xl p-10 md:p-12 flex flex-col relative overflow-hidden"
-                     style={{ backgroundColor: '#132552' }}>
-              <div className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full opacity-10"
-                   style={{ backgroundColor: '#8E3400' }} aria-hidden="true"></div>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-8"
-                   style={{ backgroundColor: 'rgba(142, 52, 0, 0.9)' }}>
-                <Eye className="w-7 h-7 text-white" strokeWidth={2} />
+            <div className="absolute" style={{ left: 500, top: 0, width: 400, height: 400 }}>
+              <Ring size={400} color={RING_COLORS.vision} start={210} sweep={-280} arrow />
+              <div className="absolute inset-0 flex items-center justify-center px-24">
+                <p className="text-lg leading-snug text-center" style={{ color: '#132552', fontWeight: 600 }}>
+                  {t('vision.body')}
+                </p>
               </div>
-              <h3 className="text-sm uppercase tracking-wider mb-5 text-white/70" style={{ fontWeight: 700, letterSpacing: '0.1em' }}>
-                {t('vision.heading')}
-              </h3>
-              <p className="relative text-2xl md:text-3xl leading-snug text-white" style={{ fontWeight: 600 }}>
-                {t('vision.body')}
-              </p>
-            </article>
+            </div>
+            <h3 className="absolute text-right uppercase"
+                style={{ left: 40, top: 160, width: 420, color: RING_COLORS.vision, fontWeight: 900, fontSize: 56, lineHeight: 1, letterSpacing: '-0.02em' }}>
+              {t('vision.heading')}
+            </h3>
 
             {/* Mission */}
-            <article className="lg:col-span-3 rounded-2xl p-10 md:p-12 flex flex-col"
-                     style={{ backgroundColor: '#F5F7FA', borderTop: '4px solid #8E3400' }}>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-8"
-                   style={{ backgroundColor: '#132552' }}>
-                <Target className="w-7 h-7 text-white" strokeWidth={2} />
-              </div>
-              <h3 className="text-sm uppercase tracking-wider mb-5" style={{ color: '#8E3400', fontWeight: 700, letterSpacing: '0.1em' }}>
-                {t('mission.heading')}
-              </h3>
-              <p className="text-lg leading-relaxed mb-8" style={{ color: '#374151', fontWeight: 400 }}>
-                {t('mission.body')}
-              </p>
-              <div className="mt-auto pt-6 border-t border-gray-200">
-                <p className="text-xs uppercase tracking-wider mb-3" style={{ color: '#6B7280', fontWeight: 700, letterSpacing: '0.1em' }}>
-                  {t('mission.valuesLabel')}
+            <div className="absolute" style={{ left: 40, top: 300, width: 580, height: 580 }}>
+              <Ring size={580} color={RING_COLORS.mission} start={150} sweep={280} arrow />
+              <div className="absolute inset-0 flex items-center justify-center" style={{ padding: '0 136px' }}>
+                <p className="text-sm leading-normal text-center" style={{ color: '#374151', fontWeight: 500 }}>
+                  {t('mission.body')}
                 </p>
-                <ul className="flex flex-wrap gap-3">
+              </div>
+            </div>
+            <h3 className="absolute uppercase"
+                style={{ left: 650, top: 540, width: 310, color: RING_COLORS.mission, fontWeight: 900, fontSize: 56, lineHeight: 1, letterSpacing: '-0.02em' }}>
+              {t('mission.heading')}
+            </h3>
+
+            {/* Values */}
+            <div className="absolute" style={{ left: 520, top: 790, width: 400, height: 400 }}>
+              <Ring size={400} color={RING_COLORS.values} start={340} sweep={310} />
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <ul className="space-y-3 text-center">
                   {t('mission.values', { returnObjects: true }).map((value) => (
-                    <li key={value} className="px-4 py-2 rounded-full text-sm bg-white"
-                        style={{ color: '#132552', fontWeight: 600, border: '1px solid #D1D5DB' }}>
+                    <li key={value} className="text-2xl" style={{ color: '#0F766E', fontWeight: 800 }}>
                       {value}
                     </li>
                   ))}
                 </ul>
               </div>
-            </article>
+            </div>
+            <h3 className="absolute text-right uppercase"
+                style={{ left: 40, top: 960, width: 440, color: RING_COLORS.values, fontWeight: 900, fontSize: 56, lineHeight: 1, letterSpacing: '-0.02em' }}>
+              {t('mission.valuesLabel')}
+            </h3>
+          </div>
+
+          {/* Small screens: the same three steps stacked, joined by a line */}
+          <div className="lg:hidden relative max-w-xl mx-auto">
+            <div className="absolute top-8 bottom-8 w-1 rounded-full" style={{ left: 26, background: `linear-gradient(${RING_COLORS.vision}, ${RING_COLORS.mission}, ${RING_COLORS.values})` }} aria-hidden="true"></div>
+            <ol className="relative space-y-12">
+            {[
+              { key: 'vision', heading: t('vision.heading'), body: <p className="text-lg leading-snug" style={{ color: '#132552', fontWeight: 600 }}>{t('vision.body')}</p> },
+              { key: 'mission', heading: t('mission.heading'), body: <p className="text-base leading-relaxed" style={{ color: '#374151' }}>{t('mission.body')}</p> },
+              {
+                key: 'values',
+                heading: t('mission.valuesLabel'),
+                body: (
+                  <ul className="flex flex-wrap gap-x-6 gap-y-2">
+                    {t('mission.values', { returnObjects: true }).map((value) => (
+                      <li key={value} className="text-xl" style={{ color: RING_COLORS.values, fontWeight: 800 }}>{value}</li>
+                    ))}
+                  </ul>
+                )
+              }
+            ].map((item) => (
+              <li key={item.key} className="relative flex gap-6">
+                <div className="relative flex-shrink-0 w-14 h-14 rounded-full bg-white"
+                     style={{ border: `8px solid ${RING_COLORS[item.key]}` }} aria-hidden="true"></div>
+                <div className="pt-2">
+                  <h3 className="uppercase mb-3" style={{ color: RING_COLORS[item.key], fontWeight: 900, fontSize: 28, lineHeight: 1.1, letterSpacing: '-0.01em' }}>
+                    {item.heading}
+                  </h3>
+                  {item.body}
+                </div>
+              </li>
+            ))}
+            </ol>
           </div>
         </div>
       </section>
