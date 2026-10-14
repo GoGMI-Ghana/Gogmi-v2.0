@@ -13,97 +13,28 @@ import {
   X
 } from 'lucide-react';
 
-const HERO_VIDEO_ID = 'XgzCbENPQn0';
-// A frame from the hero video, shown until the video is actually playing.
+// The hero video is hosted with the site: a 720p file for phones and tablets, 1080p for larger screens.
+const HERO_VIDEO_SMALL = '/videos/hero-720.mp4';
+const HERO_VIDEO_LARGE = '/videos/hero-1080.mp4';
+// The video's first frame, shown until the video is actually playing.
 const HERO_POSTER = '/hero-poster.jpg';
-
-// Loads the YouTube IFrame API once and resolves with window.YT.
-const loadYouTubeApi = () => new Promise((resolve) => {
-  if (window.YT && window.YT.Player) {
-    resolve(window.YT);
-    return;
-  }
-  const previousCallback = window.onYouTubeIframeAPIReady;
-  window.onYouTubeIframeAPIReady = () => {
-    if (previousCallback) previousCallback();
-    resolve(window.YT);
-  };
-  if (!document.getElementById('youtube-iframe-api')) {
-    const script = document.createElement('script');
-    script.id = 'youtube-iframe-api';
-    script.src = 'https://www.youtube.com/iframe_api';
-    script.async = true;
-    document.body.appendChild(script);
-  }
-});
 
 const Home = () => {
   const { t } = useTranslation('home');
-  const heroPlayerRef = useRef(null);
+  const heroVideoRef = useRef(null);
   const [videoReady, setVideoReady] = useState(false);
+  const [reduceMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
 
-  // The video stays hidden behind the poster until YouTube reports it is playing,
-  // so visitors never see the loading spinner, title bar or player controls.
+  // React does not reliably set the muted attribute, and browsers only autoplay muted video,
+  // so set it directly and start playback. If autoplay is blocked the poster simply stays.
   useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    let player;
-    let revealTimer;
-    let hasPlayed = false;
-    let cancelled = false;
-
-    loadYouTubeApi().then((YT) => {
-      if (cancelled || !heroPlayerRef.current) return;
-
-      // YouTube replaces the element it is given, so hand it a child React does not manage.
-      const mountPoint = document.createElement('div');
-      heroPlayerRef.current.appendChild(mountPoint);
-
-      player = new YT.Player(mountPoint, {
-        videoId: HERO_VIDEO_ID,
-        width: '100%',
-        height: '100%',
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          iv_load_policy: 3,
-          modestbranding: 1,
-          playsinline: 1,
-          rel: 0
-        },
-        events: {
-          onReady: (event) => {
-            event.target.mute();
-            event.target.playVideo();
-          },
-          onStateChange: (event) => {
-            clearTimeout(revealTimer);
-            if (event.data === YT.PlayerState.PLAYING) {
-              // YouTube briefly overlays its title when playback first starts; reveal after it clears.
-              revealTimer = setTimeout(() => {
-                if (!cancelled) setVideoReady(true);
-              }, hasPlayed ? 300 : 1500);
-              hasPlayed = true;
-            } else if (event.data === YT.PlayerState.ENDED) {
-              // Loop by seeking back rather than reloading, which avoids a flash of YouTube's UI.
-              event.target.seekTo(0);
-              event.target.playVideo();
-            } else {
-              setVideoReady(false);
-            }
-          }
-        }
-      });
-    });
-
-    return () => {
-      cancelled = true;
-      clearTimeout(revealTimer);
-      if (player && player.destroy) player.destroy();
-    };
+    const video = heroVideoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const playAttempt = video.play();
+    if (playAttempt && playAttempt.catch) playAttempt.catch(() => {});
   }, []);
 
   const eventBanners = [
@@ -358,9 +289,9 @@ const Home = () => {
 
       {/* HERO */}
       <header className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-        {/* YouTube Video Background */}
+        {/* Video Background */}
         <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: '#132552' }}>
-          {/* Poster: a frame from the video, shown while it loads or if it cannot play */}
+          {/* Poster: the video's first frame, shown while it loads or if it cannot play */}
           <img
             src={HERO_POSTER}
             alt=""
@@ -369,26 +300,25 @@ const Home = () => {
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          {/* The player is oversized and cropped so YouTube's edges never show */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              width: '100vw',
-              height: '56.25vw',
-              minHeight: '100vh',
-              minWidth: '177.77vh',
-              transform: 'translate(-50%, -50%) scale(1.15)',
-              pointerEvents: 'none',
-              zIndex: 1,
-              opacity: videoReady ? 1 : 0,
-              transition: 'opacity 1s ease-in-out',
-            }}
-          >
-            <div ref={heroPlayerRef} className="w-full h-full" />
-          </div>
+          {!reduceMotion && (
+            <video
+              ref={heroVideoRef}
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+              style={{ zIndex: 1, opacity: videoReady ? 1 : 0, transition: 'opacity 0.6s ease-in-out' }}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              disablePictureInPicture
+              aria-hidden="true"
+              tabIndex={-1}
+              onPlaying={() => setVideoReady(true)}
+            >
+              <source src={HERO_VIDEO_SMALL} type="video/mp4" media="(max-width: 1024px)" />
+              <source src={HERO_VIDEO_LARGE} type="video/mp4" />
+            </video>
+          )}
 
           {/* Opacity Overlays */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, rgba(19, 37, 82, 0.05), rgba(26, 51, 108, 0.05))', zIndex: 2 }}></div>
