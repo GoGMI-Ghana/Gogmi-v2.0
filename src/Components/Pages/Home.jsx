@@ -13,16 +13,97 @@ import {
   X
 } from 'lucide-react';
 
+const HERO_VIDEO_ID = 'XgzCbENPQn0';
+// A frame from the hero video, shown until the video is actually playing.
+const HERO_POSTER = '/hero-poster.jpg';
+
+// Loads the YouTube IFrame API once and resolves with window.YT.
+const loadYouTubeApi = () => new Promise((resolve) => {
+  if (window.YT && window.YT.Player) {
+    resolve(window.YT);
+    return;
+  }
+  const previousCallback = window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady = () => {
+    if (previousCallback) previousCallback();
+    resolve(window.YT);
+  };
+  if (!document.getElementById('youtube-iframe-api')) {
+    const script = document.createElement('script');
+    script.id = 'youtube-iframe-api';
+    script.src = 'https://www.youtube.com/iframe_api';
+    script.async = true;
+    document.body.appendChild(script);
+  }
+});
+
 const Home = () => {
   const { t } = useTranslation('home');
-  // YouTube Video ID
-  const youtubeVideoId = 'XgzCbENPQn0';
+  const heroPlayerRef = useRef(null);
   const [videoReady, setVideoReady] = useState(false);
 
+  // The video stays hidden behind the poster until YouTube reports it is playing,
+  // so visitors never see the loading spinner, title bar or player controls.
   useEffect(() => {
-    // Give YouTube enough time to load and start playing before fading in
-    const t = setTimeout(() => setVideoReady(true), 3000);
-    return () => clearTimeout(t);
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let player;
+    let revealTimer;
+    let hasPlayed = false;
+    let cancelled = false;
+
+    loadYouTubeApi().then((YT) => {
+      if (cancelled || !heroPlayerRef.current) return;
+
+      // YouTube replaces the element it is given, so hand it a child React does not manage.
+      const mountPoint = document.createElement('div');
+      heroPlayerRef.current.appendChild(mountPoint);
+
+      player = new YT.Player(mountPoint, {
+        videoId: HERO_VIDEO_ID,
+        width: '100%',
+        height: '100%',
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          iv_load_policy: 3,
+          modestbranding: 1,
+          playsinline: 1,
+          rel: 0
+        },
+        events: {
+          onReady: (event) => {
+            event.target.mute();
+            event.target.playVideo();
+          },
+          onStateChange: (event) => {
+            clearTimeout(revealTimer);
+            if (event.data === YT.PlayerState.PLAYING) {
+              // YouTube briefly overlays its title when playback first starts; reveal after it clears.
+              revealTimer = setTimeout(() => {
+                if (!cancelled) setVideoReady(true);
+              }, hasPlayed ? 300 : 1500);
+              hasPlayed = true;
+            } else if (event.data === YT.PlayerState.ENDED) {
+              // Loop by seeking back rather than reloading, which avoids a flash of YouTube's UI.
+              event.target.seekTo(0);
+              event.target.playVideo();
+            } else {
+              setVideoReady(false);
+            }
+          }
+        }
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      clearTimeout(revealTimer);
+      if (player && player.destroy) player.destroy();
+    };
   }, []);
 
   const eventBanners = [
@@ -225,22 +306,6 @@ const Home = () => {
       .animate-festive-zoom {
         animation: festive-zoom 0.4s ease-out;
       }
-      /* Hide YouTube loading spinner and branding */
-      iframe[src*="youtube"] {
-        opacity: 1;
-        transition: opacity 0.3s ease-in;
-      }
-      .ytp-spinner,
-      .ytp-large-play-button,
-      .ytp-title,
-      .ytp-watermark,
-      .ytp-chrome-top,
-      .ytp-show-cards-title,
-      .ytp-pause-overlay {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-      }
       /* Hide scrollbar for slideshow */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
@@ -294,15 +359,19 @@ const Home = () => {
       {/* HERO */}
       <header className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         {/* YouTube Video Background */}
-        <div className="absolute inset-0">
-          {/* Fallback Background Image */}
-          <div className="absolute inset-0 bg-cover bg-center" 
-               style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&fit=crop&q=90)' }}>
-          </div>
-          
-          {/* YouTube Video Overlay */}
-          <iframe
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&disablekb=1&fs=0&iv_load_policy=3&start=0&vq=hd720`}
+        <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: '#132552' }}>
+          {/* Poster: a frame from the video, shown while it loads or if it cannot play */}
+          <img
+            src={HERO_POSTER}
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* The player is oversized and cropped so YouTube's edges never show */}
+          <div
+            aria-hidden="true"
             style={{
               position: 'absolute',
               top: '50%',
@@ -311,33 +380,22 @@ const Home = () => {
               height: '56.25vw',
               minHeight: '100vh',
               minWidth: '177.77vh',
-              transform: 'translate(-50%, -50%)',
+              transform: 'translate(-50%, -50%) scale(1.15)',
               pointerEvents: 'none',
               zIndex: 1,
-              border: 'none',
-              overflow: 'hidden',
               opacity: videoReady ? 1 : 0,
-              transition: 'opacity 1.2s ease-in-out',
+              transition: 'opacity 1s ease-in-out',
             }}
-            allow="autoplay; fullscreen"
-            frameBorder="0"
-            title="Hero Background Video"
-          />
-          
+          >
+            <div ref={heroPlayerRef} className="w-full h-full" />
+          </div>
+
           {/* Opacity Overlays */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, rgba(19, 37, 82, 0.05), rgba(26, 51, 108, 0.05))', zIndex: 2 }}></div>
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(19, 37, 82, 0.1), transparent)', zIndex: 2 }}></div>
         </div>
 
         <div className="relative container mx-auto max-w-6xl px-6 py-20 flex flex-col items-center text-center text-white" style={{ zIndex: 10 }}>
-          <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border mb-6 animate-fade-in"
-               style={{ backgroundColor: 'rgba(142, 52, 0, 0.2)', borderColor: 'rgba(142, 52, 0, 0.3)', backdropFilter: 'blur(8px)' }}>
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: '#8E3400' }}></span>
-            <span className="font-semibold text-sm" style={{ color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              {t('hero.badge')}
-            </span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-slide-up"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 900 }}>
             {t('hero.titleLine1')}
