@@ -162,7 +162,7 @@ const AboutUs = () => {
             <div className="absolute" style={{ left: 40, top: 300, width: 580, height: 580 }}>
               <Ring size={580} color={RING_COLORS.mission} start={150} sweep={280} arrow />
               <div className="absolute inset-0 flex items-center justify-center" style={{ padding: '0 136px' }}>
-                <p className="text-sm leading-normal text-center" style={{ color: '#374151', fontWeight: 500 }}>
+                <p className="text-sm leading-normal text-center" style={{ color: '#374151', fontWeight: 700 }}>
                   {t('mission.body')}
                 </p>
               </div>
@@ -197,7 +197,7 @@ const AboutUs = () => {
             <ol className="relative space-y-12">
             {[
               { key: 'vision', heading: t('vision.heading'), body: <p className="text-lg leading-snug" style={{ color: '#132552', fontWeight: 600 }}>{t('vision.body')}</p> },
-              { key: 'mission', heading: t('mission.heading'), body: <p className="text-base leading-relaxed" style={{ color: '#374151' }}>{t('mission.body')}</p> },
+              { key: 'mission', heading: t('mission.heading'), body: <p className="text-base leading-relaxed" style={{ color: '#374151', fontWeight: 700 }}>{t('mission.body')}</p> },
               {
                 key: 'values',
                 heading: t('mission.valuesLabel'),
