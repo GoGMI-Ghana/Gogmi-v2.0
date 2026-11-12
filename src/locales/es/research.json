@@ -1,4 +1,5 @@
 {
+  "breadcrumb": "Áreas de trabajo",
   "hero": {
     "badge": "Investigación e Innovación",
     "title": "Respondiendo a las grandes preguntas de la seguridad marítima",
@@ -6,9 +7,12 @@
     "cta": "Explora nuestro Gulf Spectrum Journal"
   },
   "dashboard": {
-    "title": "Panel de investigación",
-    "updated": "Actualizado hace 2 min",
-    "stats": ["Proyectos de investigación activos", "Puntos de datos recopilados", "Instituciones asociadas"]
+    "title": "La investigación en cifras",
+    "stats": [
+      "Proyectos de investigación activos",
+      "Puntos de datos recopilados",
+      "Instituciones asociadas"
+    ]
   },
   "themes": {
     "eyebrow": "Temas de investigación",
@@ -18,11 +22,11 @@
     "learnMore": "Más información sobre esta investigación",
     "items": [
       {
-        "question": "AUDITORÍA DE INTERVENCIONES DE SEGURIDAD MARÍTIMA",
+        "question": "Auditoría de intervenciones de seguridad marítima",
         "description": "Auditoría integral que mapea las intervenciones de seguridad marítima en el Golfo de Guinea, analizando su evolución, eficacia y la compleja interacción de actores regionales e internacionales frente a las amenazas marítimas."
       },
       {
-        "question": "ÍNDICE DE GOBERNANZA MARÍTIMA DEL GOLFO DE GUINEA",
+        "question": "Índice de gobernanza marítima del golfo de Guinea",
         "description": "Mapeo de oportunidades sin explotar de la economía azul en los sectores de pesca, turismo, energías renovables y biotecnología marina."
       }
     ]

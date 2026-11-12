@@ -1,4 +1,5 @@
 {
+  "breadcrumb": "Areas of Work",
   "hero": {
     "badge": "Research & Innovation",
     "title": "Answering the Big Questions in Maritime Security",
@@ -6,9 +7,12 @@
     "cta": "Explore Our Gulf Spectrum Journal"
   },
   "dashboard": {
-    "title": "Research Dashboard",
-    "updated": "Updated 2 min ago",
-    "stats": ["Active Research Projects", "Data Points Collected", "Partner Institutions"]
+    "title": "Research in figures",
+    "stats": [
+      "Active Research Projects",
+      "Data Points Collected",
+      "Partner Institutions"
+    ]
   },
   "themes": {
     "eyebrow": "Research Themes",
@@ -18,11 +22,11 @@
     "learnMore": "Learn More About This Research",
     "items": [
       {
-        "question": "MARITIME SECURITY INTERVENTIONS AUDIT",
+        "question": "Maritime Security Interventions Audit",
         "description": "Comprehensive audit mapping maritime security interventions across the Gulf of Guinea, analyzing their evolution, effectiveness, and the complex interplay of regional and international actors in addressing maritime threats."
       },
       {
-        "question": "GOG MARITIME GOVERNANCE INDEX",
+        "question": "GoG Maritime Governance Index",
         "description": "Mapping untapped blue economy opportunities across fisheries, tourism, renewable energy, and marine biotechnology."
       }
     ]
