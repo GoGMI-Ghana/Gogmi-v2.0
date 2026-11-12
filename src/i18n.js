@@ -18,6 +18,11 @@ for (const path in localeModules) {
   namespaces.add(ns);
 }
 
+// Keep <html lang> in step with the chosen language so screen readers pronounce it correctly.
+i18n.on('languageChanged', (lng) => {
+  if (typeof document !== 'undefined') document.documentElement.lang = (lng || 'en').split('-')[0];
+});
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)

@@ -31,7 +31,11 @@
     "activeMember": "Active Member",
     "myDashboard": "My Dashboard",
     "myResources": "My Resources",
-    "logout": "Logout"
+    "logout": "Logout",
+    "skipToContent": "Skip to main content",
+    "mainNavLabel": "Main",
+    "toggleMenu": "Menu",
+    "changeLanguage": "Change language"
   },
   "language": {
     "en": "English",

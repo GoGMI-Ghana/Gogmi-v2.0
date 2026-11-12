@@ -31,7 +31,11 @@
     "activeMember": "Membre actif",
     "myDashboard": "Mon tableau de bord",
     "myResources": "Mes ressources",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "skipToContent": "Aller au contenu principal",
+    "mainNavLabel": "Principale",
+    "toggleMenu": "Menu",
+    "changeLanguage": "Changer de langue"
   },
   "language": {
     "en": "Anglais",

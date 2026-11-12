@@ -31,7 +31,11 @@
     "activeMember": "Miembro activo",
     "myDashboard": "Mi panel",
     "myResources": "Mis recursos",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "skipToContent": "Saltar al contenido principal",
+    "mainNavLabel": "Principal",
+    "toggleMenu": "Menú",
+    "changeLanguage": "Cambiar idioma"
   },
   "language": {
     "en": "Inglés",

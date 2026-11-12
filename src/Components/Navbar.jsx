@@ -107,13 +107,31 @@ const Navbar = () => {
     setCloseTimeout(timeout);
   };
 
-  const handleNavClick = (path) => {
-    if (path && path !== currentPath) {
-      navigate(path);
-    }
+  const closeMenus = () => {
     setMobileMenuOpen(false);
     setDropdownOpen(null);
     setUserDropdownOpen(false);
+    setLangDropdownOpen(false);
+  };
+
+  // Keyboard support for the pop-out menus (WAI-ARIA disclosure pattern):
+  // Escape closes the menu and returns focus to its button, and tabbing out of it closes it.
+  const menuKeys = (close) => ({
+    onKeyDown: (e) => {
+      if (e.key === 'Escape') {
+        close();
+        e.currentTarget.querySelector('button')?.focus();
+      }
+    },
+    onBlur: (e) => {
+      if (!e.currentTarget.contains(e.relatedTarget)) close();
+    }
+  });
+
+  // A mouse click on a menu button keeps the hover-opened menu open; a keyboard press toggles it.
+  const toggleFromButton = (e, isOpen, open, close) => {
+    if (e.detail === 0 && isOpen) close();
+    else open();
   };
 
   const handleLogout = () => {
@@ -125,6 +143,7 @@ const Navbar = () => {
 
   return (
     <nav
+      aria-label={t("nav.mainNavLabel")}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-[#F5F7FA]/95 backdrop-blur-lg shadow-lg py-3"
@@ -134,8 +153,8 @@ const Navbar = () => {
     >
       <div className="w-full flex items-center justify-between px-12">
         {/* Logo */}
-        <button
-          onClick={() => handleNavClick("/")}
+        <Link
+          to="/" onClick={closeMenus} aria-current={isActive("/") ? 'page' : undefined}
           className="flex items-center space-x-3 group flex-shrink-0"
           aria-label="Go to home"
         >
@@ -162,7 +181,7 @@ const Navbar = () => {
               {t("brand.tagline")}
             </div>
           </div>
-        </button>
+        </Link>
 
         {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center flex-1 justify-center">
@@ -174,9 +193,13 @@ const Navbar = () => {
                   className="relative"
                   onMouseEnter={() => handleDropdownEnter(item.id)}
                   onMouseLeave={handleDropdownLeave}
+                  {...menuKeys(() => setDropdownOpen(null))}
                 >
                   <button
                     type="button"
+                    aria-expanded={dropdownOpen === item.id}
+                    aria-controls={`menu-${item.id}`}
+                    onClick={(e) => toggleFromButton(e, dropdownOpen === item.id, () => handleDropdownEnter(item.id), () => setDropdownOpen(null))}
                     className={`px-4 py-2 cursor-pointer rounded-lg transition-all flex items-center gap-1 hover:-translate-y-0.5 whitespace-nowrap ${
                       isActive(item.path) || currentPath.startsWith(item.path)
                         ? scrolled
@@ -189,28 +212,28 @@ const Navbar = () => {
                     style={{ fontWeight: 600 }}
                   >
                     <span>{item.name}</span>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen === item.id ? 'rotate-180' : ''}`} aria-hidden="true" />
                   </button>
 
                   {dropdownOpen === item.id && (
-                    <div className="absolute top-full left-0 mt-2 w-64 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
+                    <div id={`menu-${item.id}`} className="absolute top-full left-0 mt-2 w-64 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
                       {item.dropdown.map((subItem) => (
-                        <button
+                        <Link
                           key={subItem.path}
-                          onClick={() => handleNavClick(subItem.path)}
+                          to={subItem.path} onClick={closeMenus} aria-current={isActive(subItem.path) ? 'page' : undefined}
                           className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors whitespace-nowrap"
                           style={{ fontWeight: 400 }}
                         >
                           {subItem.name}
-                        </button>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </div>
               ) : (
-                <button
+                <Link
                   key={item.path}
-                  onClick={() => handleNavClick(item.path)}
+                  to={item.path} onClick={closeMenus} aria-current={isActive(item.path) ? 'page' : undefined}
                   className={`px-4 py-2 rounded-lg cursor-pointer transition-all hover:-translate-y-0.5 whitespace-nowrap ${
                     isActive(item.path)
                       ? scrolled
@@ -223,7 +246,7 @@ const Navbar = () => {
                   style={{ fontWeight: 600 }}
                 >
                   {item.name}
-                </button>
+                </Link>
               )
             )}
           </div>
@@ -235,24 +258,30 @@ const Navbar = () => {
             className="relative"
             onMouseEnter={() => setLangDropdownOpen(true)}
             onMouseLeave={() => setLangDropdownOpen(false)}
+            {...menuKeys(() => setLangDropdownOpen(false))}
           >
             <button
               type="button"
+              aria-expanded={langDropdownOpen}
+              aria-controls="menu-language"
+              onClick={(e) => toggleFromButton(e, langDropdownOpen, () => setLangDropdownOpen(true), () => setLangDropdownOpen(false))}
               className={`flex items-center gap-1 px-3 py-2.5 rounded-lg transition-all whitespace-nowrap ${
                 scrolled ? "text-[#1F2933] hover:bg-[#8E3400]/10" : "text-[#F5F7FA] hover:bg-[#F5F7FA]/20"
               }`}
               style={{ fontWeight: 600 }}
-              aria-label="Change language"
+              aria-label={`${t("nav.changeLanguage")}: ${t(`language.${i18n.resolvedLanguage || 'en'}`)}`}
             >
               <Globe className="w-4 h-4" />
               {LANGUAGES.find((l) => l.code === i18n.resolvedLanguage)?.label || "EN"}
             </button>
             {langDropdownOpen && (
-              <div className="absolute top-full right-0 mt-2 w-32 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
+              <div id="menu-language" className="absolute top-full right-0 mt-2 w-32 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
                 {LANGUAGES.map((lng) => (
                   <button
                     key={lng.code}
                     onClick={() => changeLanguage(lng.code)}
+                    lang={lng.code}
+                    aria-current={i18n.resolvedLanguage === lng.code ? 'true' : undefined}
                     className={`block w-full text-left px-4 py-2 text-sm transition-colors ${
                       i18n.resolvedLanguage === lng.code
                         ? "text-white bg-[#8E3400]/40"
@@ -266,8 +295,8 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <button
-            onClick={() => handleNavClick("/donate")}
+          <Link
+            to="/donate" onClick={closeMenus} aria-current={isActive("/donate") ? 'page' : undefined}
             className="flex items-center gap-2 px-5 py-2.5 rounded-lg border-2 transition-all hover:scale-105 whitespace-nowrap"
             style={{
               borderColor: '#8E3400',
@@ -277,18 +306,21 @@ const Navbar = () => {
           >
             <Heart className="w-4 h-4" />
             {t("nav.donate")}
-          </button>
+          </Link>
           {!isAuthenticated ? (
-            <button
-              onClick={() => handleNavClick("/login")}
+            <Link
+              to="/login" onClick={closeMenus} aria-current={isActive("/login") ? 'page' : undefined}
               className="bg-[#8E3400] text-white px-6 py-2.5 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg hover:scale-105 whitespace-nowrap"
               style={{ fontWeight: 600 }}
             >
               {t("nav.memberLogin")}
-            </button>
+            </Link>
           ) : (
-            <div className="relative">
+            <div className="relative" {...menuKeys(() => setUserDropdownOpen(false))}>
               <button
+                type="button"
+                aria-expanded={userDropdownOpen}
+                aria-controls="menu-account"
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
                   scrolled
@@ -309,7 +341,7 @@ const Navbar = () => {
               </button>
 
               {userDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-56 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
+                <div id="menu-account" className="absolute top-full right-0 mt-2 w-56 bg-[#132552] rounded-xl shadow-2xl py-2 border border-[#8E3400]/30 z-50">
                   <div className="px-4 py-3 border-b border-[#F5F7FA]/10">
                     <p className="text-sm text-[#F5F7FA] font-semibold truncate" style={{ fontWeight: 600 }}>
                       {user?.full_name}
@@ -325,22 +357,22 @@ const Navbar = () => {
                     )}
                   </div>
 
-                  <button
-                    onClick={() => handleNavClick('/dashboard')}
+                  <Link
+                    to='/dashboard' onClick={closeMenus} aria-current={isActive('/dashboard') ? 'page' : undefined}
                     className="flex items-center gap-2 w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors"
                     style={{ fontWeight: 400 }}
                   >
                     <LayoutDashboard className="w-4 h-4" />
                     {t("nav.myDashboard")}
-                  </button>
+                  </Link>
 
-                  <button
-                    onClick={() => handleNavClick('/resources')}
+                  <Link
+                    to='/resources' onClick={closeMenus} aria-current={isActive('/resources') ? 'page' : undefined}
                     className="block w-full text-left px-4 py-2.5 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white transition-colors"
                     style={{ fontWeight: 400 }}
                   >
                     {t("nav.myResources")}
-                  </button>
+                  </Link>
 
                   <button
                     onClick={handleLogout}
@@ -362,7 +394,9 @@ const Navbar = () => {
             scrolled ? "text-[#132552]" : "text-[#F5F7FA]"
           }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={t("nav.toggleMenu")}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -370,7 +404,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#F5F7FA]/98 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
+        <div id="mobile-menu" className="lg:hidden bg-[#F5F7FA]/98 backdrop-blur-xl border-t border-gray-200 shadow-2xl">
           <div className="px-6 py-4 space-y-2">
             {navItems.map((item) =>
               item.dropdown ? (
@@ -378,6 +412,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={() => setDropdownOpen(dropdownOpen === item.id ? null : item.id)}
+                    aria-expanded={dropdownOpen === item.id}
                     className="flex items-center justify-between w-full text-left py-3 px-4 text-[#1F2933] rounded-lg hover:bg-[#8E3400]/10"
                     style={{ fontWeight: 600 }}
                   >
@@ -387,22 +422,22 @@ const Navbar = () => {
                   {dropdownOpen === item.id && (
                     <div className="pl-4 space-y-1 mt-2 bg-[#132552] rounded-lg p-2">
                       {item.dropdown.map((subItem) => (
-                        <button
+                        <Link
                           key={subItem.path}
-                          onClick={() => handleNavClick(subItem.path)}
+                          to={subItem.path} onClick={closeMenus} aria-current={isActive(subItem.path) ? 'page' : undefined}
                           className="block w-full text-left py-2.5 px-4 text-[#F5F7FA] hover:bg-[#8E3400] hover:text-white text-sm rounded-lg transition-colors"
                           style={{ fontWeight: 400 }}
                         >
                           {subItem.name}
-                        </button>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </div>
               ) : (
-                <button
+                <Link
                   key={item.path}
-                  onClick={() => handleNavClick(item.path)}
+                  to={item.path} onClick={closeMenus} aria-current={isActive(item.path) ? 'page' : undefined}
                   className={`block w-full text-left py-3 px-4 rounded-lg transition-all ${
                     isActive(item.path)
                       ? "bg-[#132552] text-[#F5F7FA]"
@@ -411,7 +446,7 @@ const Navbar = () => {
                   style={{ fontWeight: 600 }}
                 >
                   {item.name}
-                </button>
+                </Link>
               )
             )}
 
@@ -425,6 +460,8 @@ const Navbar = () => {
                   <button
                     key={lng.code}
                     onClick={() => changeLanguage(lng.code)}
+                    lang={lng.code}
+                    aria-pressed={i18n.resolvedLanguage === lng.code}
                     className={`flex-1 py-2 rounded-lg text-sm transition-colors ${
                       i18n.resolvedLanguage === lng.code
                         ? "bg-[#132552] text-[#F5F7FA]"
@@ -438,23 +475,23 @@ const Navbar = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => handleNavClick("/donate")}
+            <Link
+              to="/donate" onClick={closeMenus} aria-current={isActive("/donate") ? 'page' : undefined}
               className="flex items-center justify-center gap-2 w-full text-center border-2 px-6 py-3 rounded-lg transition-all"
               style={{ borderColor: '#8E3400', color: '#8E3400', fontWeight: 600 }}
             >
               <Heart className="w-4 h-4" />
               {t("nav.donate")}
-            </button>
+            </Link>
 
             {!isAuthenticated ? (
-              <button
-                onClick={() => handleNavClick("/login")}
+              <Link
+                to="/login" onClick={closeMenus} aria-current={isActive("/login") ? 'page' : undefined}
                 className="block w-full text-center bg-[#8E3400] text-white px-6 py-3 rounded-lg hover:bg-[#6B2700] transition-all shadow-lg"
                 style={{ fontWeight: 600 }}
               >
                 {t("nav.memberLogin")}
-              </button>
+              </Link>
             ) : (
               <>
                 <div className="bg-[#132552] rounded-lg p-4 mt-4">
@@ -475,22 +512,22 @@ const Navbar = () => {
                   )}
                 </div>
 
-                <button
-                  onClick={() => handleNavClick('/dashboard')}
+                <Link
+                  to='/dashboard' onClick={closeMenus} aria-current={isActive('/dashboard') ? 'page' : undefined}
                   className="flex items-center gap-2 w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
                   style={{ fontWeight: 600 }}
                 >
                   <LayoutDashboard className="w-4 h-4" />
                   {t("nav.myDashboard")}
-                </button>
+                </Link>
 
-                <button
-                  onClick={() => handleNavClick('/resources')}
+                <Link
+                  to='/resources' onClick={closeMenus} aria-current={isActive('/resources') ? 'page' : undefined}
                   className="block w-full text-left py-3 px-4 text-[#1F2933] hover:bg-[#8E3400]/10 rounded-lg transition-all"
                   style={{ fontWeight: 600 }}
                 >
                   {t("nav.myResources")}
-                </button>
+                </Link>
 
                 <button
                   onClick={handleLogout}

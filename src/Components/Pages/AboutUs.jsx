@@ -50,7 +50,7 @@ const segmentPath = (i) => {
 const RIGHT_SEGMENTS = [0, 1, 2];
 const LEFT_SEGMENTS = [5, 4, 3];
 
-const RING_COLORS = { vision: '#132552', mission: '#8E3400', values: '#0F766E' };
+const RING_COLORS = { vision: '#132552', mission: '#8E3400' };
 
 // Point on a circle, with angles in degrees measured clockwise from 12 o'clock.
 const polar = (c, r, deg) => {
@@ -261,7 +261,7 @@ const AboutUs = () => {
           </div>
 
           {/* Large screens: the ring diagram */}
-          <div className="hidden lg:block relative mx-auto" style={{ width: 960, height: 1190 }}>
+          <div className="hidden lg:block relative mx-auto" style={{ width: 960, height: 880 }}>
             {/* Vision */}
             <div className="absolute" style={{ left: 500, top: 0, width: 400, height: 400 }}>
               <Ring size={400} color={RING_COLORS.vision} start={210} sweep={-280} arrow />
@@ -278,7 +278,7 @@ const AboutUs = () => {
 
             {/* Mission */}
             <div className="absolute" style={{ left: 40, top: 300, width: 580, height: 580 }}>
-              <Ring size={580} color={RING_COLORS.mission} start={150} sweep={280} arrow />
+              <Ring size={580} color={RING_COLORS.mission} start={150} sweep={280} />
               <div className="absolute inset-0 flex items-center justify-center" style={{ padding: '0 136px' }}>
                 <p className="text-sm leading-normal text-center" style={{ color: '#374151', fontWeight: 700 }}>
                   {t('mission.body')}
@@ -289,44 +289,15 @@ const AboutUs = () => {
                 style={{ left: 650, top: 540, width: 310, color: RING_COLORS.mission, fontWeight: 900, fontSize: 56, lineHeight: 1, letterSpacing: '-0.02em' }}>
               {t('mission.heading')}
             </h3>
-
-            {/* Values */}
-            <div className="absolute" style={{ left: 520, top: 790, width: 400, height: 400 }}>
-              <Ring size={400} color={RING_COLORS.values} start={340} sweep={310} />
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <ul className="space-y-3 text-center">
-                  {t('mission.values', { returnObjects: true }).map((value) => (
-                    <li key={value} className="text-2xl" style={{ color: '#0F766E', fontWeight: 800 }}>
-                      {value}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <h3 className="absolute text-right uppercase"
-                style={{ left: 40, top: 960, width: 440, color: RING_COLORS.values, fontWeight: 900, fontSize: 56, lineHeight: 1, letterSpacing: '-0.02em' }}>
-              {t('mission.valuesLabel')}
-            </h3>
           </div>
 
-          {/* Small screens: the same three steps stacked, joined by a line */}
+          {/* Small screens: the same two steps stacked, joined by a line */}
           <div className="lg:hidden relative max-w-xl mx-auto">
-            <div className="absolute top-8 bottom-8 w-1 rounded-full" style={{ left: 26, background: `linear-gradient(${RING_COLORS.vision}, ${RING_COLORS.mission}, ${RING_COLORS.values})` }} aria-hidden="true"></div>
+            <div className="absolute top-8 bottom-8 w-1 rounded-full" style={{ left: 26, background: `linear-gradient(${RING_COLORS.vision}, ${RING_COLORS.mission})` }} aria-hidden="true"></div>
             <ol className="relative space-y-12">
             {[
               { key: 'vision', heading: t('vision.heading'), body: <p className="text-lg leading-snug" style={{ color: '#132552', fontWeight: 600 }}>{t('vision.body')}</p> },
-              { key: 'mission', heading: t('mission.heading'), body: <p className="text-base leading-relaxed" style={{ color: '#374151', fontWeight: 700 }}>{t('mission.body')}</p> },
-              {
-                key: 'values',
-                heading: t('mission.valuesLabel'),
-                body: (
-                  <ul className="flex flex-wrap gap-x-6 gap-y-2">
-                    {t('mission.values', { returnObjects: true }).map((value) => (
-                      <li key={value} className="text-xl" style={{ color: RING_COLORS.values, fontWeight: 800 }}>{value}</li>
-                    ))}
-                  </ul>
-                )
-              }
+              { key: 'mission', heading: t('mission.heading'), body: <p className="text-base leading-relaxed" style={{ color: '#374151', fontWeight: 700 }}>{t('mission.body')}</p> }
             ].map((item) => (
               <li key={item.key} className="relative flex gap-6">
                 <div className="relative flex-shrink-0 w-14 h-14 rounded-full bg-white"

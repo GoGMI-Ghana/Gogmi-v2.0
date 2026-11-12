@@ -42,6 +42,7 @@ import BlueBusinessDirectory from './Components/Pages/BlueBusinessDirectory';
 import { Analytics } from '@vercel/analytics/react';
 import Testimonials from './Components/Pages/Testimonials';
 import ScrollToTopOnNavigate from './Components/ScrollToTopOnNavigate';
+import SkipLink from './Components/SkipLink';
 import Privacy from './Components/Pages/Privacy';
 import Terms from './Components/Pages/Terms';
 import ECOP from './Components/Pages/ECOP';
@@ -63,9 +64,10 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="min-h-screen flex flex-col">
+          <SkipLink />
           <Navbar />
           <ScrollToTopOnNavigate />
-          <main className="">
+          <main id="main-content" tabIndex={-1} className="focus:outline-none">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutUs />} />

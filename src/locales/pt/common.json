@@ -31,7 +31,11 @@
     "activeMember": "Membro Ativo",
     "myDashboard": "Meu Painel",
     "myResources": "Meus Recursos",
-    "logout": "Sair"
+    "logout": "Sair",
+    "skipToContent": "Ir para o conteúdo principal",
+    "mainNavLabel": "Principal",
+    "toggleMenu": "Menu",
+    "changeLanguage": "Mudar idioma"
   },
   "language": {
     "en": "Inglês",

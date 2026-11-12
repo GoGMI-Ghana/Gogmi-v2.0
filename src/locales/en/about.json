@@ -19,13 +19,7 @@
   },
   "mission": {
     "heading": "Our Mission",
-    "body": "The mission of the GoGMI is to provide an intellectual base to governments, organizations, corporate bodies and individuals whose activities impinge upon the maritime domain of the GoG Region to ensure a sustainable use of the sea. We will do that by research and advocacy in strategic maritime issues affecting the Region in order to influence policies and activities affecting the maritime environment of the Region. In conducting our business we shall uphold the values of independence, accuracy and fairness.",
-    "valuesLabel": "Our Values",
-    "values": [
-      "Independence",
-      "Accuracy",
-      "Fairness"
-    ]
+    "body": "The mission of the GoGMI is to provide an intellectual base to governments, organizations, corporate bodies and individuals whose activities impinge upon the maritime domain of the GoG Region to ensure a sustainable use of the sea. We will do that by research and advocacy in strategic maritime issues affecting the Region in order to influence policies and activities affecting the maritime environment of the Region. In conducting our business we shall uphold the values of independence, accuracy and fairness."
   },
   "businessModel": {
     "eyebrow": "How We Work",
