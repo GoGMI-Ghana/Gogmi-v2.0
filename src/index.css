@@ -21,8 +21,8 @@
      font-display, ...) instead of hard-coded hex values.
      --------------------------------------------------------------- */
 
-  /* Typefaces: serif for headings, a plain public-service sans for text. */
-  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  /* Typefaces: one plain public-service sans for headings and text. */
+  --font-display: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Colour roles. Contrast against paper/white noted where it matters. */
@@ -48,11 +48,10 @@
   }
   .heading-display {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.012em;
-    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    line-height: 1.1;
     color: var(--color-ink);
-    font-optical-sizing: auto;
   }
   .link-editorial {
     color: var(--color-rust);
