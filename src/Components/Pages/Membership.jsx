@@ -623,24 +623,8 @@ const Membership = () => {
         </Container>
       </section>
 
-      {/* BENEFITS: three numbered columns */}
-      <section className="bg-paper py-20 md:py-24" aria-labelledby="memb-benefits">
-        <Container>
-          <SectionHeader id="memb-benefits" title={t('benefits.heading')} />
-          <ol className="mt-12 grid gap-px border-y border-line bg-line md:grid-cols-3">
-            {t('benefits.items', { returnObjects: true }).map((item, idx) => (
-              <li key={item.title} className="bg-paper py-8 md:px-8 md:first:pl-0">
-                <span className="text-sm font-semibold tabular-nums text-rust">{String(idx + 1).padStart(2, '0')}</span>
-                <h3 className="mt-2 text-[1.375rem] font-bold leading-snug text-ink">{item.title}</h3>
-                <p className="mt-2 leading-relaxed text-muted">{item.desc}</p>
-              </li>
-            ))}
-          </ol>
-        </Container>
-      </section>
-
       {/* PLANS: side-by-side comparison */}
-      <section id="plans" className="scroll-mt-20 bg-white py-20 md:py-28" aria-labelledby="memb-individual">
+      <section id="plans" className="scroll-mt-20 bg-paper py-20 md:py-28" aria-labelledby="memb-individual">
         <Container>
           <SectionHeader id="memb-individual" title={t('individual.heading')} />
           <ul className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
@@ -659,7 +643,7 @@ const Membership = () => {
         </Container>
       </section>
 
-      <section className="bg-paper py-20 md:py-28" aria-labelledby="memb-institutional">
+      <section className="bg-white py-20 md:py-28" aria-labelledby="memb-institutional">
         <Container>
           <SectionHeader id="memb-institutional" title={t('institutional.heading')} />
           <ul className="mt-12 grid gap-px border border-line bg-line md:grid-cols-3">
@@ -678,7 +662,7 @@ const Membership = () => {
       </section>
 
       {/* HOW TO APPLY: numbered steps joined by a line */}
-      <section className="bg-white py-20 md:py-28" aria-labelledby="memb-how">
+      <section className="bg-paper py-20 md:py-28" aria-labelledby="memb-how">
         <Container>
           <SectionHeader id="memb-how" title={t('howToApply.heading')} />
           <ol className="relative mt-12 grid gap-10 md:grid-cols-4 md:gap-8">
@@ -699,7 +683,7 @@ const Membership = () => {
       </section>
 
       {/* BROCHURE */}
-      <section className="bg-paper py-20 md:py-24" aria-labelledby="memb-brochure">
+      <section className="bg-white py-20 md:py-24" aria-labelledby="memb-brochure">
         <Container>
           <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10">
             <div className="md:col-span-5">
