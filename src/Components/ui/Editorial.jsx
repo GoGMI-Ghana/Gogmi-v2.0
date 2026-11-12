@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 /*
   Shared building blocks for the editorial redesign.
   Rules of the system:
-  - Headings use the serif (font-display); everything else uses Public Sans (font-body).
+  - Headings and text both use Public Sans (font-display / font-body).
   - Corners are 2px, borders are 1px hairlines (border-line); no drop shadows or hover scaling.
   - Colours come from the tokens in index.css, never hard-coded hex values.
   - Interactive elements always show a visible focus outline.
@@ -82,4 +82,33 @@ export const TextLink = ({ to, children, className = '', ...props }) => (
     <span>{children}</span>
     <ArrowRight className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
   </SmartLink>
+);
+
+/*
+  Photo page hero: a full-width photograph under a navy scrim, with the
+  title, introduction and actions in white on the left.
+*/
+export const PageHero = ({ image, alt = '', position = '50% 50%', eyebrow, title, subtitle, children }) => (
+  <header className="relative overflow-hidden bg-ink-deep text-white">
+    <img
+      src={image}
+      alt={alt}
+      className="absolute inset-0 h-full w-full object-cover"
+      style={{ objectPosition: position }}
+    />
+    <div className="absolute inset-0 bg-ink-deep/75 md:hidden" aria-hidden="true"></div>
+    <div
+      className="absolute inset-0 hidden md:block"
+      style={{ background: 'linear-gradient(90deg, rgba(12,25,56,0.9) 0%, rgba(12,25,56,0.7) 50%, rgba(12,25,56,0.25) 100%)' }}
+      aria-hidden="true"
+    ></div>
+    <Container className="relative pb-16 pt-[140px] md:pb-24 md:pt-[180px]">
+      <div className="max-w-3xl">
+        {eyebrow && <div className="text-sm font-semibold text-sand">{eyebrow}</div>}
+        <h1 className="heading-display mt-3 !text-white text-[2.75rem] md:text-[4rem]">{title}</h1>
+        {subtitle && <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">{subtitle}</p>}
+        {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
+      </div>
+    </Container>
+  </header>
 );

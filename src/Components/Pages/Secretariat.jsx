@@ -1,287 +1,126 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  ArrowRight,
-  Users,
-  Calendar,
-  FileText,
-  Target,
-  CheckCircle,
-  Award,
-  Globe,
-  Briefcase,
-  MessageSquare,
-  Settings
-} from 'lucide-react';
+import { ArrowRight, Calendar, Users, FileText, Target } from 'lucide-react';
+import { Container, Button, SectionHeader, PageHero } from '../ui/Editorial';
+
+// Icons for secretariat.json `services.items`, in the same order.
+const SERVICE_ICONS = [Calendar, Users, FileText, Target];
+
+// Portfolio projects; text comes from secretariat.json `portfolio.<key>`.
+const PROJECTS = [
+  { key: 'gmac', year: '2023', image: '/gmacpic.jpg', alt: 'Green Maritime Africa Coalition launch', link: '/gmac' },
+  { key: 'shade', year: '2023', image: '/Banner.webp', alt: 'GoG-MCF SHADE forum event banner', position: '100% 50%', link: '/shade' }
+];
 
 const Secretariat = () => {
   const { t } = useTranslation('secretariat');
-  const servicesMeta = [
-    { icon: <Calendar className="w-8 h-8" />, color: '#132552' },
-    { icon: <Users className="w-8 h-8" />, color: '#8E3400' },
-    { icon: <FileText className="w-8 h-8" />, color: '#1A336C' },
-    { icon: <Target className="w-8 h-8" />, color: '#8E3400' }
-  ];
-  const services = t('services.items', { returnObjects: true }).map((service, idx) => ({
-    ...service,
-    ...servicesMeta[idx]
-  }));
-
-  const portfolioItems = [
-    {
-      year: '2023',
-      title: 'Green Maritime Africa Coalition',
-      theme: 'Advancing Net-Zero Emissions and Maritime Resilience in Africa through Continental Collaboration',
-      overview: 'GoGMI collaborates with the Nigerian Maritime Administration and Safety Agency to host the Green Maritime Africa Coalition (GMAC). GMAC\'s mission is a shared continental initiative aimed at leading the global energy transition. By 2030, GMAC intends to provide zero-emission fuels for the maritime industry and implement them in both international and domestic shipping throughout Africa.',
-      details: 'During the launch in November 2023, hosted by GoGMI, 37 stakeholders from the shipping industry, including the private sector, ship and port operators, fuel operators, and charterers, joined forces to advance the mission. The primary objective is to amplify Africa\'s collective voice in global greenhouse gas (GHG) emissions reduction efforts. GMAC aims to foster awareness, create opportunities, and implement concrete near and long-term actions for the continent.',
-      focus: 'The coalition places a strategic focus on maritime policy, capacity building, technology, financing, and skill development. The overarching goal is to collaborate with host governments and regional institutions, strengthening maritime policies, streamlining processes, and aligning with Africa\'s priorities for sustainable development and economic growth. This multi-faceted approach reflects GMAC\'s commitment to driving impactful change in the maritime sector across the continent.',
-      highlights: [
-        'Thought-provoking insights from industry leaders, experts, and influencers',
-        'Stakeholders had the chance to connect with peers, forge new partnerships, and expand their professional networks'
-      ],
-      impact: '37 stakeholders engaged',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&fit=crop'
-    },
-    {
-      year: '2023',
-      title: 'Gulf of Guinea Maritime Collaboration Forum - Shared Awareness and Deconfliction (GoG-MCF SHADE)',
-      overview: 'The Gulf of Guinea Maritime Collaboration Forum - Shared Awareness and Deconfliction (GoG-MCF SHADE) was a dynamic forum designed and implemented by GoGMI in collaboration with the Nigerian Maritime Administration and Safety Agency (NIMASA) as a viable platform for regional and international navies, maritime industry partners and relevant stakeholders from across the GoG and beyond to harmonise counter-piracy efforts and communication in the GoG region under the existing information sharing architecture provided by both the Yaoundé Code of Conduct and the Best Management Practices to Deter Piracy and Enhance Maritime Security off the Coast of West Africa (BMP-WA).',
-      highlights: [
-        'Dynamic discussions on counter-piracy efforts and communication',
-        'Working group discussions on industry disruptions and collaboration',
-        'Networking opportunities among stakeholders',
-        'Regional coordination strengthening'
-      ],
-      impact: 'Enhanced regional security',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&fit=crop'
-    }
-  ];
+  const services = t('services.items', { returnObjects: true });
 
   return (
-    <div className="w-full overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-      
-      {/* HERO SECTION - Advocacy-inspired */}
-      <section className="relative text-white py-24 md:py-40 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600&fit=crop"
-            alt="Secretariat Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(19, 37, 82, 0.7) 0%, rgba(26, 51, 108, 0.65) 100%)' }}></div>
-        </div>
+    <div className="w-full overflow-x-hidden font-body text-text">
+      {/* PAGE HEADER: photograph hero */}
+      <PageHero
+        image="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600&fit=crop"
+        eyebrow={<Link to="/services" className="focus-ring hover:underline hover:underline-offset-4">{t('breadcrumb')}</Link>}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      >
+        <Button to="/contact" variant="onDark">
+          <span>{t('hero.cta')}</span>
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Button>
+      </PageHero>
 
-        <div className="container mx-auto max-w-6xl px-6 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl leading-tight mb-8"
-                style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-             {t('hero.title')}
-            </h1>
+      {/* SERVICES: a numbered two-by-two grid with hairlines */}
+      <section className="bg-white py-20 md:py-28" aria-labelledby="sec-services">
+        <Container>
+          <SectionHeader id="sec-services" title={t('services.heading')} intro={t('services.subtitle')} />
 
-             <p className="text-5xl sm:text-2xl md:text-2xl leading-tight mb-8"
-                style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            {t('hero.subtitle')}
-            </p>
-
-           
-
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl transition-all shadow-xl hover:scale-105"
-                style={{ fontWeight: 700, backgroundColor: '#8E3400', color: 'white' }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-              >
-                <span>{t('hero.cta')}</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
-        </div>
+          <ol className="mt-12 grid gap-px border-y border-line bg-line md:grid-cols-2">
+            {services.map((service, idx) => {
+              const Icon = SERVICE_ICONS[idx] || Target;
+              return (
+                <li key={service.title} className="flex gap-6 bg-white py-10 md:px-10 md:odd:pl-0">
+                  <span className="text-[2.5rem] font-bold leading-none tracking-[-0.03em] tabular-nums text-sand" aria-hidden="true">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <Icon className="h-6 w-6 text-rust" aria-hidden="true" />
+                    <h3 className="mt-3 text-[1.375rem] font-bold leading-snug tracking-[-0.01em] text-ink">{service.title}</h3>
+                    <p className="mt-2 leading-relaxed text-muted">{service.description}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </Container>
       </section>
 
-      {/* OUR SERVICES - Similar to Advocacy's Policy Areas */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>{t('services.eyebrow')}</span>
-            <h2 className="text-5xl md:text-6xl mt-4 mb-6"
-                style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              {t('services.heading')}
-            </h2>
-            <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-              {t('services.subtitle')}
-            </p>
-          </div>
+      {/* PORTFOLIO: large photographs with an overlapping text panel */}
+      <section className="bg-paper py-20 md:py-28" aria-labelledby="sec-portfolio">
+        <Container>
+          <SectionHeader id="sec-portfolio" title={t('portfolio.heading')} intro={t('portfolio.subtitle')} />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {services.map((service, idx) => (
-              <div
-                key={idx}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                style={{ border: '2px solid #F5F7FA' }}
-              >
-                <div className="mb-4 p-4 rounded-xl inline-block" style={{ backgroundColor: `${service.color}15`, color: service.color }}>
-                  {service.icon}
-                </div>
-                <h3 className="text-xl mb-3" style={{ fontWeight: 900, color: '#132552' }}>
-                  {service.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ fontWeight: 400, color: '#4B5563' }}>
-                  {service.description}
-                </p>
-              </div>
-            ))}
-          </div>
+          <div className="mt-14 space-y-16 md:space-y-24">
+            {PROJECTS.map((project, idx) => {
+              const flip = idx % 2 === 1;
+              const data = t(`portfolio.${project.key}`, { returnObjects: true });
+              return (
+                <article key={project.key} className="relative grid lg:grid-cols-12 lg:items-center">
+                  <div className={`lg:col-span-8 lg:row-start-1 ${flip ? 'lg:col-start-5' : 'lg:col-start-1'}`}>
+                    <img
+                      src={project.image}
+                      alt={project.alt}
+                      loading="lazy"
+                      className="aspect-[16/10] w-full rounded-[2px] object-cover"
+                      style={{ objectPosition: project.position || '50% 50%' }}
+                    />
+                  </div>
 
-          {/* Key Message Box */}
-          
-        </div>
+                  <div
+                    className={`relative -mt-12 mx-4 border border-line bg-white p-7 sm:mx-8 md:p-10 lg:row-start-1 lg:mx-0 lg:mt-0 lg:col-span-6 ${
+                      flip ? 'lg:col-start-1' : 'lg:col-start-7'
+                    }`}
+                  >
+                    <p className="text-sm text-muted">
+                      <span className="font-semibold text-rust">{project.year}</span>
+                      <span aria-hidden="true"> · </span>
+                      <span>{data.badge}</span>
+                    </p>
+                    <h3 className="mt-2 text-[1.5rem] font-bold leading-tight tracking-[-0.015em] text-ink md:text-[1.75rem]">
+                      <Link to={project.link} className="focus-ring hover:underline hover:decoration-2 hover:underline-offset-4">
+                        {data.title}
+                      </Link>
+                    </h3>
+                    {data.theme && <p className="mt-3 text-[0.9375rem] font-semibold leading-snug text-ink">{data.theme}</p>}
+                    <p className="mt-4 line-clamp-4 leading-relaxed text-muted">{data.overview}</p>
+
+                    {Array.isArray(data.highlights) && data.highlights.length > 0 && (
+                      <>
+                        <h4 className="mt-6 text-sm font-semibold text-ink">{t('portfolio.highlightsLabel')}</h4>
+                        <ul className="mt-2 space-y-1.5">
+                          {data.highlights.map((highlight) => (
+                            <li key={highlight} className="flex items-start gap-3 text-[0.9375rem] text-text">
+                              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-rust" aria-hidden="true"></span>
+                              <span>{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+
+                    <Link to={project.link} className="link-editorial focus-ring mt-7 inline-flex items-center gap-2 font-semibold" tabIndex={-1} aria-hidden="true">
+                      <span>{t('portfolio.viewProject')}</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </Container>
       </section>
-
-     
-{/* PORTFOLIO - Clickable Projects */}
-<section className="py-20 md:py-32" style={{ backgroundColor: '#F5F7FA' }}>
-  <div className="container mx-auto max-w-7xl px-6">
-    <div className="text-center mb-16">
-      <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>{t('portfolio.eyebrow')}</span>
-      <h2 className="text-5xl md:text-6xl mt-4 mb-6"
-          style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-        {t('portfolio.heading')}
-      </h2>
-      <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontWeight: 400 }}>
-        {t('portfolio.subtitle')}
-      </p>
-    </div>
-
-    <div className="space-y-6">
-      {/* GMAC Project */}
-      <Link
-        to="/gmac"
-        className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 block"
-      >
-        <div className="grid md:grid-cols-5 gap-0">
-          {/* Image section */}
-          <div className="md:col-span-2 relative h-64 md:h-auto">
-            <img
-              src="/gmacpic.jpg"
-              alt="Green Maritime Africa Coalition"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-          </div>
-
-          <div className="md:col-span-3 p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="px-4 py-1.5 rounded-full text-white text-sm"
-                   style={{ fontWeight: 700, backgroundColor: '#132552' }}>
-                2023
-              </div>
-              <div className="px-4 py-1.5 rounded-full text-sm"
-                   style={{ fontWeight: 600, backgroundColor: '#F5F7FA', color: '#8E3400' }}>
-                {t('portfolio.gmac.badge')}
-              </div>
-            </div>
-
-            <h3 className="text-xl md:text-2xl mb-3 group-hover:text-[#8E3400] transition-colors"
-                style={{ fontWeight: 900, color: '#132552' }}>
-              {t('portfolio.gmac.title')}
-            </h3>
-
-            <p className="text-sm font-bold mb-4 uppercase tracking-wide" style={{ color: '#8E3400' }}>
-              {t('portfolio.gmac.theme')}
-            </p>
-
-            <p className="text-base leading-relaxed mb-4 line-clamp-3" style={{ fontWeight: 400, color: '#4B5563' }}>
-              {t('portfolio.gmac.overview')}
-            </p>
-
-            {/* Highlights */}
-            <div className="mt-4">
-              <p className="text-sm font-bold mb-2" style={{ color: '#132552' }}>{t('portfolio.highlightsLabel')}</p>
-              <ul className="space-y-1">
-                {t('portfolio.gmac.highlights', { returnObjects: true }).map((highlight, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
-                    <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex items-center gap-2 mt-6 text-sm font-semibold group-hover:gap-3 transition-all" style={{ color: '#8E3400' }}>
-              <span>{t('portfolio.viewProject')}</span>
-              <ArrowRight className="w-4 h-4" />
-            </div>
-          </div>
-        </div>
-      </Link>
-
-      {/* SHADE Project */}
-      <Link
-        to="/shade"
-        className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 block"
-      >
-        <div className="grid md:grid-cols-5 gap-0">
-          {/* Image section */}
-          <div className="md:col-span-2 relative h-64 md:h-auto">
-            <img
-              src="/shade.png"
-              alt="GoG-MCF SHADE"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-          </div>
-
-          <div className="md:col-span-3 p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="px-4 py-1.5 rounded-full text-white text-sm"
-                   style={{ fontWeight: 700, backgroundColor: '#132552' }}>
-                2023
-              </div>
-              <div className="px-4 py-1.5 rounded-full text-sm"
-                   style={{ fontWeight: 600, backgroundColor: '#F5F7FA', color: '#8E3400' }}>
-                {t('portfolio.shade.badge')}
-              </div>
-            </div>
-
-            <h3 className="text-xl md:text-2xl mb-3 group-hover:text-[#8E3400] transition-colors"
-                style={{ fontWeight: 900, color: '#132552' }}>
-              {t('portfolio.shade.title')}
-            </h3>
-
-            <p className="text-base leading-relaxed mb-4 line-clamp-3" style={{ fontWeight: 400, color: '#4B5563' }}>
-              {t('portfolio.shade.overview')}
-            </p>
-
-            {/* Highlights */}
-            <div className="mt-4">
-              <p className="text-sm font-bold mb-2" style={{ color: '#132552' }}>{t('portfolio.highlightsLabel')}</p>
-              <ul className="space-y-1">
-                {t('portfolio.shade.highlights', { returnObjects: true }).map((highlight, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: '#4B5563' }}>
-                    <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex items-center gap-2 mt-6 text-sm font-semibold group-hover:gap-3 transition-all" style={{ color: '#8E3400' }}>
-              <span>{t('portfolio.viewProject')}</span>
-              <ArrowRight className="w-4 h-4" />
-            </div>
-          </div>
-        </div>
-      </Link>
-    </div>
-  </div>
-</section>
-
-     
 
     </div>
   );

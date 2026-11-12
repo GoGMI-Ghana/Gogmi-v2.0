@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import { Container, Button, SectionHeader } from '../ui/Editorial';
+import { Container, Button, SectionHeader, PageHero } from '../ui/Editorial';
 
 // One entry per item in advocacy.json `campaigns`, in the same order.
 const CAMPAIGNS = [
@@ -22,31 +22,15 @@ const Advocacy = () => {
 
   return (
     <div className="w-full font-body text-text">
-      {/* PAGE HEADER: text, then a wide photograph */}
-      <header className="bg-white pt-[124px] md:pt-[148px]">
-        <Container>
-          <div className="grid gap-8 pb-12 md:pb-16 lg:grid-cols-12 lg:items-end lg:gap-10">
-            <div className="lg:col-span-7">
-              <p className="text-sm font-semibold text-rust">
-                <Link to="/services" className="focus-ring hover:underline hover:underline-offset-4">{t('breadcrumb')}</Link>
-              </p>
-              <h1 className="heading-display mt-3 text-[2.75rem] md:text-[4rem]">{t('hero.title')}</h1>
-            </div>
-            <div className="lg:col-span-5">
-              <p className="text-lg leading-relaxed text-muted">{t('hero.subtitle')}</p>
-              <div className="mt-6">
-                <Button to="/contact">{t('hero.cta')}</Button>
-              </div>
-            </div>
-          </div>
-        </Container>
-        <img
-          src="/advocacy-hero-1600.jpg"
-          alt="Delegates and naval officers at a GoGMI maritime conference"
-          className="h-[260px] w-full object-cover md:h-[420px] lg:h-[480px]"
-          style={{ objectPosition: '50% 70%' }}
-        />
-      </header>
+      {/* PAGE HEADER: photograph hero */}
+      <PageHero
+        image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&fit=crop&q=90"
+        eyebrow={<Link to="/services" className="focus-ring hover:underline hover:underline-offset-4">{t('breadcrumb')}</Link>}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      >
+        <Button to="/contact" variant="onDark">{t('hero.cta')}</Button>
+      </PageHero>
 
       {/* CAMPAIGNS: three ruled columns */}
       <section id="campaigns" className="scroll-mt-20 bg-white py-20 md:py-28" aria-labelledby="advocacy-campaigns">

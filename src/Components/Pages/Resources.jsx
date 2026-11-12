@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Download, Search, X, ExternalLink, Lock, Play, FileText } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Container, Button } from '../ui/Editorial';
+import { Container, Button, PageHero } from '../ui/Editorial';
 
 const BTN_BASE = 'focus-ring inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[2px] px-4 py-2.5 text-[0.9375rem] font-semibold transition-colors';
 const BTN_PRIMARY = `${BTN_BASE} bg-ink text-white hover:bg-ink-deep`;
@@ -696,28 +696,25 @@ const Resources = () => {
       {showMembershipModal && <MembershipModal onClose={() => setShowMembershipModal(false)} />}
       {previewResource && <PreviewModal resource={previewResource} onClose={() => setPreviewResource(null)} />}
 
-      {/* PAGE HEADER */}
-      <header className="border-b border-line bg-paper pb-12 pt-[124px] md:pb-16 md:pt-[148px]">
-        <Container>
-          <div className="grid gap-8 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-7">
-              <p className="text-sm font-semibold text-rust">{t('hero.badge')}</p>
-              <h1 className="heading-display mt-3 text-[2.5rem] md:text-[3.5rem]">{t('hero.title')}</h1>
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">{t('hero.subtitle')}</p>
-            </div>
-            <ul className="space-y-3 self-end border-l-2 border-ink pl-5 text-[0.9375rem] text-text md:col-span-4 md:col-start-9">
-              <li className="flex items-start gap-2">
-                <Download className="mt-1 h-4 w-4 flex-shrink-0 text-ink" aria-hidden="true" />
-                <span>{t('hero.noteFree')}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Lock className="mt-1 h-4 w-4 flex-shrink-0 text-rust" aria-hidden="true" />
-                <span>{t('hero.noteMembers')}</span>
-              </li>
-            </ul>
-          </div>
-        </Container>
-      </header>
+      {/* PAGE HEADER: photograph hero */}
+      <PageHero
+        image="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1920&auto=format&fit=crop&q=80"
+        alt={t('hero.imageAlt')}
+        eyebrow={t('hero.badge')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      >
+        <ul className="space-y-2 border-l-2 border-sand pl-4 text-[0.9375rem] text-white/90">
+          <li className="flex items-start gap-2">
+            <Download className="mt-1 h-4 w-4 flex-shrink-0 text-sand" aria-hidden="true" />
+            <span>{t('hero.noteFree')}</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <Lock className="mt-1 h-4 w-4 flex-shrink-0 text-sand" aria-hidden="true" />
+            <span>{t('hero.noteMembers')}</span>
+          </li>
+        </ul>
+      </PageHero>
 
       {/* FILTERS: collection tabs, search and (for internal reports) series and year */}
       <section className="sticky top-[61px] z-30 border-b border-line bg-white/95 backdrop-blur" aria-label={t('search.placeholder')}>

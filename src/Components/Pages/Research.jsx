@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Container, Button, SectionHeader } from '../ui/Editorial';
+import { Container, Button, SectionHeader, PageHero } from '../ui/Editorial';
 
 // One entry per item in research.json `themes.items`, in the same order.
 // A theme without a `link` has no detail page yet.
@@ -34,21 +34,15 @@ const Research = () => {
 
   return (
     <div className="w-full font-body text-text">
-      {/* PAGE HEADER on navy */}
-      <header className="bg-ink-deep pb-16 pt-[124px] text-white md:pb-24 md:pt-[160px]">
-        <Container>
-          <p className="text-sm font-semibold text-sand">
-            <Link to="/services" className="focus-ring hover:underline hover:underline-offset-4">{t('breadcrumb')}</Link>
-          </p>
-          <h1 className="heading-display mt-4 max-w-4xl !text-white text-[2.5rem] md:text-[4rem]">{t('hero.title')}</h1>
-          <div className="mt-8 grid gap-8 md:grid-cols-12 md:items-end">
-            <p className="text-lg leading-relaxed text-on-dark md:col-span-7 md:text-xl">{t('hero.subtitle')}</p>
-            <div className="md:col-span-5 md:text-right">
-              <Button to="https://www.gulfspectrumjournal.com/" variant="onDark">{t('hero.cta')}</Button>
-            </div>
-          </div>
-        </Container>
-      </header>
+      {/* PAGE HEADER: photograph hero */}
+      <PageHero
+        image="/researchimage.jpg"
+        eyebrow={<Link to="/services" className="focus-ring hover:underline hover:underline-offset-4">{t('breadcrumb')}</Link>}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      >
+        <Button to="https://www.gulfspectrumjournal.com/" variant="onDark">{t('hero.cta')}</Button>
+      </PageHero>
 
       {/* KEY FIGURES */}
       <section className="border-b border-line bg-paper" aria-label={t('dashboard.title')}>
