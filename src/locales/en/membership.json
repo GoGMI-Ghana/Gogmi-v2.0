@@ -30,7 +30,7 @@
   },
   "individual": {
     "heading": "Individual Memberships",
-    "mostPopular": "MOST POPULAR",
+    "mostPopular": "Most popular",
     "benefitsLabel": "Benefits",
     "plans": {
       "student": {
@@ -206,6 +206,22 @@
       "invalid": "This promo code is not valid.",
       "expired": "This promo code has expired.",
       "error": "We could not check the promo code. Please try again."
+    },
+    "yourDetails": "Your details",
+    "orgDetails": "Organisation details",
+    "errorSummary": "There is a problem",
+    "errorPrefix": "Error:",
+    "dobHint": "For example, 27 March 1995",
+    "errors": {
+      "fullName": "Enter your full name",
+      "email": "Enter your email address",
+      "emailInvalid": "Enter an email address in the correct format, like name@example.com",
+      "phone": "Enter your phone number, including the country code",
+      "country": "Enter your country",
+      "dateOfBirth": "Enter your date of birth",
+      "organization": "Enter your organisation's name",
+      "organizationEmail": "Enter your organisation's email address",
+      "organizationEmailInvalid": "Enter the organisation email address in the correct format, like info@example.org"
     }
   },
   "alerts": {
@@ -221,5 +237,7 @@
     "activationError": "Payment successful but there was an error activating your membership.\n\nPlease contact support at info@gogmi.org.gh\nReference: {{reference}}",
     "failedToLoadPayment": "Failed to load payment system. Please check your internet connection.",
     "promoNoLongerValid": "This promo code is no longer valid, so the discount has been removed. Please review the full price before paying."
-  }
+  },
+  "showAllBenefits": "Show all {{count}} benefits",
+  "inviteContact": "Contact us about this membership"
 }

@@ -30,7 +30,7 @@
   },
   "individual": {
     "heading": "Associações Individuais",
-    "mostPopular": "MAIS POPULAR",
+    "mostPopular": "Mais popular",
     "benefitsLabel": "Benefícios",
     "plans": {
       "student": {
@@ -206,6 +206,22 @@
       "invalid": "Este código promocional não é válido.",
       "expired": "Este código promocional expirou.",
       "error": "Não foi possível verificar o código promocional. Tente novamente."
+    },
+    "yourDetails": "Os seus dados",
+    "orgDetails": "Dados da organização",
+    "errorSummary": "Existe um problema",
+    "errorPrefix": "Erro:",
+    "dobHint": "Por exemplo, 27 de março de 1995",
+    "errors": {
+      "fullName": "Introduza o seu nome completo",
+      "email": "Introduza o seu endereço de e-mail",
+      "emailInvalid": "Introduza um e-mail no formato correto, como nome@exemplo.com",
+      "phone": "Introduza o seu número de telefone com o indicativo do país",
+      "country": "Introduza o seu país",
+      "dateOfBirth": "Introduza a sua data de nascimento",
+      "organization": "Introduza o nome da sua organização",
+      "organizationEmail": "Introduza o e-mail da sua organização",
+      "organizationEmailInvalid": "Introduza o e-mail da organização no formato correto, como info@exemplo.org"
     }
   },
   "alerts": {
@@ -221,5 +237,7 @@
     "activationError": "Pagamento efetuado com sucesso, mas ocorreu um erro ao ativar a sua associação.\n\nContacte o apoio em info@gogmi.org.gh\nReferência: {{reference}}",
     "failedToLoadPayment": "Falha ao carregar o sistema de pagamento. Verifique a sua ligação à internet.",
     "promoNoLongerValid": "Este código promocional já não é válido, pelo que o desconto foi removido. Verifique o preço total antes de pagar."
-  }
+  },
+  "showAllBenefits": "Ver os {{count}} benefícios",
+  "inviteContact": "Contacte-nos sobre esta adesão"
 }

@@ -30,7 +30,7 @@
   },
   "individual": {
     "heading": "Adhésions individuelles",
-    "mostPopular": "LE PLUS POPULAIRE",
+    "mostPopular": "Le plus populaire",
     "benefitsLabel": "Avantages",
     "plans": {
       "student": {
@@ -206,6 +206,22 @@
       "invalid": "Ce code promo n'est pas valide.",
       "expired": "Ce code promo a expiré.",
       "error": "Nous n'avons pas pu vérifier le code promo. Veuillez réessayer."
+    },
+    "yourDetails": "Vos informations",
+    "orgDetails": "Informations sur l'organisation",
+    "errorSummary": "Il y a un problème",
+    "errorPrefix": "Erreur :",
+    "dobHint": "Par exemple, 27 mars 1995",
+    "errors": {
+      "fullName": "Saisissez votre nom complet",
+      "email": "Saisissez votre adresse e-mail",
+      "emailInvalid": "Saisissez une adresse e-mail au bon format, par exemple nom@exemple.com",
+      "phone": "Saisissez votre numéro de téléphone avec l'indicatif du pays",
+      "country": "Saisissez votre pays",
+      "dateOfBirth": "Saisissez votre date de naissance",
+      "organization": "Saisissez le nom de votre organisation",
+      "organizationEmail": "Saisissez l'adresse e-mail de votre organisation",
+      "organizationEmailInvalid": "Saisissez l'adresse e-mail de l'organisation au bon format, par exemple info@exemple.org"
     }
   },
   "alerts": {
@@ -221,5 +237,7 @@
     "activationError": "Paiement réussi mais une erreur s'est produite lors de l'activation de votre adhésion.\n\nVeuillez contacter le support à info@gogmi.org.gh\nRéférence : {{reference}}",
     "failedToLoadPayment": "Échec du chargement du système de paiement. Veuillez vérifier votre connexion internet.",
     "promoNoLongerValid": "Ce code promo n'est plus valide ; la réduction a donc été retirée. Veuillez vérifier le prix complet avant de payer."
-  }
+  },
+  "showAllBenefits": "Afficher les {{count}} avantages",
+  "inviteContact": "Nous contacter au sujet de cette adhésion"
 }
