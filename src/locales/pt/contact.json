@@ -8,6 +8,12 @@
     "visit": { "title": "Visite-nos", "info": "GL-108-0038, No. 4 Obodai link street", "subinfo": "Tse Addo La Dade Kotopon, Gr Accra" }
   },
   "form": {
+    "optional": "(opcional)",
+    "errorSummary": "Existe um problema",
+    "errorPrefix": "Erro:",
+    "messageHint": "Inclua datas, nomes de programas ou números de referência que nos ajudem a responder.",
+    "successHeading": "Mensagem enviada",
+    "mapTitle": "Mapa com o escritório do GoGMI em Acra",
     "eyebrow": "Formulário de Contacto",
     "heading": "Envie-nos uma Mensagem",
     "description": "Preencha o formulário abaixo e entraremos em contacto o mais brevemente possível.",

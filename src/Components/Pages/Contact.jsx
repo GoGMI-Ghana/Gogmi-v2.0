@@ -1,488 +1,361 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, Linkedin, Twitter, Facebook, CheckCircle, Youtube, MessageCircle } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Container, SectionHeader, PageHero } from '../ui/Editorial';
+
+/*
+  Contact form follows the GOV.UK form pattern:
+  labels above fields, optional fields marked instead of required ones,
+  an error summary that links to each problem, and inline errors on the fields.
+*/
+
+const EMPTY = { name: '', email: '', phone: '', subject: '', message: '' };
+const SUBJECTS = ['general', 'partnership', 'training', 'research', 'membership', 'other'];
+
+const SOCIAL = [
+  { label: 'LinkedIn', href: 'https://gh.linkedin.com/company/gulf-of-guinea-maritime-institute', Icon: Linkedin },
+  { label: 'Twitter', href: 'https://twitter.com/GoGMI_Official', Icon: Twitter },
+  { label: 'Facebook', href: 'https://www.facebook.com/GoGMIofficial/', Icon: Facebook },
+  { label: 'YouTube', href: 'https://www.youtube.com/@GoGMI_Official', Icon: Youtube }
+];
+
+// Field order, used for the error summary.
+const FIELD_ORDER = ['name', 'email', 'subject', 'message'];
+
+const INPUT =
+  'block w-full rounded-[2px] border-2 bg-white px-3 py-2.5 text-[1.0625rem] text-text ' +
+  'focus:border-text focus:outline focus:outline-[3px] focus:outline-offset-0 focus:outline-sand';
+
+// Labels in the locale files end with " *"; GOV.UK marks optional fields instead.
+const plainLabel = (label) => label.replace(/\s*\*\s*$/, '');
+
+const Field = ({ id, label, hint, optionalText, error, errorPrefix, children }) => (
+  <div className={`${error ? 'border-l-[5px] border-error pl-4' : ''}`}>
+    <label htmlFor={id} className="block text-[1.0625rem] font-bold text-text">
+      {label}
+      {optionalText && <span className="font-normal text-muted"> {optionalText}</span>}
+    </label>
+    {hint && <p id={`${id}-hint`} className="mt-1 text-[0.9375rem] text-muted">{hint}</p>}
+    {error && (
+      <p id={`${id}-error`} className="mt-1 text-[1.0625rem] font-bold text-error">
+        <span className="sr-only">{errorPrefix} </span>{error}
+      </p>
+    )}
+    <div className="mt-2">{children}</div>
+  </div>
+);
 
 const Contact = () => {
   const { t } = useTranslation('contact');
-  // Initialize formData state - THIS MUST BE AT THE TOP
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  
+  const [formData, setFormData] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const summaryRef = useRef(null);
+  const successRef = useRef(null);
 
-  // Validation function
+  // Move focus to the error summary or success banner when either appears.
+  useEffect(() => {
+    if (Object.keys(errors).length) summaryRef.current?.focus();
+  }, [errors]);
+  useEffect(() => {
+    if (submitted) successRef.current?.focus();
+  }, [submitted]);
+
   const validateForm = () => {
-    const newErrors = {};
-    
-    if (!formData.name || !formData.name.trim()) {
-      newErrors.name = t('form.errors.name');
-    }
-
-    if (!formData.email || !formData.email.trim()) {
-      newErrors.email = t('form.errors.emailRequired');
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = t('form.errors.emailInvalid');
-    }
-
-    if (!formData.subject) {
-      newErrors.subject = t('form.errors.subject');
-    }
-
-    if (!formData.message || !formData.message.trim()) {
-      newErrors.message = t('form.errors.messageRequired');
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = t('form.errors.messageTooShort');
-    }
-    
-    return newErrors;
+    const e = {};
+    if (!formData.name.trim()) e.name = t('form.errors.name');
+    if (!formData.email.trim()) e.email = t('form.errors.emailRequired');
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) e.email = t('form.errors.emailInvalid');
+    if (!formData.subject) e.subject = t('form.errors.subject');
+    if (!formData.message.trim()) e.message = t('form.errors.messageRequired');
+    else if (formData.message.trim().length < 10) e.message = t('form.errors.messageTooShort');
+    return e;
   };
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
-    
-    // Clear error for this field when user types
-    if (errors[name]) {
-      setErrors(prevErrors => ({
-        ...prevErrors,
-        [name]: ''
-      }));
-    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (submitted) setSubmitted(false);
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validate form
     const formErrors = validateForm();
-    
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
       return;
     }
-    
+
     setIsSubmitting(true);
-    setErrors({}); // Clear any previous errors
-    
+    setErrors({});
     try {
-      // ✅ FIXED: Using the correct Hostinger domain
-      // Change this to 'https://gogmi.org.gh/api/contact-handler.php' once DNS is configured
       const response = await fetch('https://gogmi.org.gh/api/contact-handler.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
-
-      // Check if response is ok
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const result = await response.json();
+      if (!result.success) throw new Error(result.message || 'Failed to send message');
 
-      if (!result.success) {
-        throw new Error(result.message || 'Failed to send message');
-      }
-
-      // Success! Clear form and show success message
       setSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-      });
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-      
+      setFormData(EMPTY);
     } catch (error) {
       console.error('Error submitting form:', error);
-      setErrors({
-        submit: error.message || t('form.errors.submitFallback')
-      });
+      setErrors({ submit: t('form.errors.submitFallback') });
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const focusField = (event, field) => {
+    event.preventDefault();
+    const el = document.getElementById(`contact-${field}`);
+    if (el) {
+      el.scrollIntoView({ block: 'center' });
+      el.focus();
+    }
+  };
+
+  const describedBy = (field, hint) =>
+    [hint && `contact-${field}-hint`, errors[field] && `contact-${field}-error`].filter(Boolean).join(' ') || undefined;
+
+  const fieldClass = (field) => `${INPUT} ${errors[field] ? 'border-error' : 'border-text'}`;
+
+  const methods = [
+    { key: 'call', Icon: Phone, href: `tel:${t('cards.call.info').replace(/\s+/g, '')}` },
+    { key: 'email', Icon: Mail, href: `mailto:${t('cards.email.info')}` },
+    { key: 'visit', Icon: MapPin, href: '#contact-map' }
+  ];
+
+  const fieldErrors = FIELD_ORDER.filter((f) => errors[f]);
+
   return (
-    <div className="w-full" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/contactus.jpg" 
-            alt="Contact Background"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#132552]/20 via-[#1A336C]/15 to-[#132552]/20"></div>
-        </div>
+    <div className="w-full font-body text-text">
+      {/* PAGE HEADER: photograph hero */}
+      <PageHero image="/contactus.jpg" eyebrow={t('badge')} title={t('title')} subtitle={t('subtitle')} />
 
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute w-96 h-96 bg-[#8E3400] rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
-          <div className="absolute w-96 h-96 bg-[#8E3400] rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 bg-[#8E3400]/20 backdrop-blur-sm px-6 py-3 rounded-full border border-[#8E3400]/30 mb-6">
-            <Mail className="w-5 h-5 text-[#8E3400]" />
-            <span className="text-[#F5F7FA] text-sm" style={{ fontWeight: 600 }}>{t('badge')}</span>
-          </div>
-
-          <h1 className="text-5xl md:text-6xl text-[#F5F7FA] mb-6" style={{ fontWeight: 900 }}>
-            {t('title')}
-          </h1>
-          <p className="text-xl text-[#F5F7FA]/90 max-w-3xl mx-auto" style={{ fontWeight: 400 }}>
-            {t('subtitle')}
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Info Cards */}
-      <section className="relative -mt-16 z-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Phone className="w-8 h-8" />,
-                title: t('cards.call.title'),
-                info: t('cards.call.info'),
-                subinfo: t('cards.call.subinfo'),
-                color: 'from-[#132552] to-[#1A336C]'
-              },
-              {
-                icon: <Mail className="w-8 h-8" />,
-                title: t('cards.email.title'),
-                info: t('cards.email.info'),
-                subinfo: t('cards.email.subinfo'),
-                color: 'from-[#8E3400] to-[#6B2700]'
-              },
-              {
-                icon: <MapPin className="w-8 h-8" />,
-                title: t('cards.visit.title'),
-                info: t('cards.visit.info'),
-                subinfo: t('cards.visit.subinfo'),
-                color: 'from-[#1A336C] to-[#132552]'
-              }
-            ].map((item, idx) => (
-              <div key={idx} className={`bg-gradient-to-br ${item.color} rounded-2xl p-8 text-[#F5F7FA] shadow-xl hover:shadow-2xl transition-all hover:-translate-y-2`}>
-                <div className="mb-4">{item.icon}</div>
-                <h3 className="text-xl mb-2" style={{ fontWeight: 900 }}>{item.title}</h3>
-                <p className="text-lg mb-1" style={{ fontWeight: 600 }}>{item.info}</p>
-                <p className="text-sm text-[#F5F7FA]/80" style={{ fontWeight: 400 }}>{item.subinfo}</p>
-              </div>
+      {/* WAYS TO REACH US */}
+      <section className="border-b border-line bg-white" aria-label={t('badge')}>
+        <Container>
+          <ul className="grid divide-y divide-line md:grid-cols-3 md:divide-x md:divide-y-0">
+            {methods.map(({ key, Icon, href }) => (
+              <li key={key} className="py-8 md:px-8 md:first:pl-0">
+                <Icon className="h-6 w-6 text-rust" aria-hidden="true" />
+                <h2 className="mt-3 text-sm font-semibold text-muted">{t(`cards.${key}.title`)}</h2>
+                <a href={href} className="link-editorial focus-ring mt-1 inline-block text-[1.125rem] font-semibold">
+                  {t(`cards.${key}.info`)}
+                </a>
+                <p className="mt-1 text-[0.9375rem] text-muted">{t(`cards.${key}.subinfo`)}</p>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </Container>
       </section>
 
-      {/* Main Contact Section */}
-      <section className="py-24 bg-[#F5F7FA]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-1 bg-[#8E3400] rounded-full"></div>
-                <span className="text-[#8E3400] tracking-wider text-sm uppercase" style={{ fontWeight: 600 }}>{t('form.eyebrow')}</span>
-              </div>
-              <h2 className="text-4xl text-[#132552] mb-4" style={{ fontWeight: 900 }}>{t('form.heading')}</h2>
-              <p className="text-lg text-[#132552]/70 mb-8" style={{ fontWeight: 400 }}>
-                {t('form.description')}
-              </p>
+      {/* FORM beside office details */}
+      <section className="bg-white py-16 md:py-24">
+        <Container>
+          <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-7">
+              <h2 className="heading-display text-[2rem] md:text-[2.5rem]">{t('form.heading')}</h2>
+              <p className="mt-3 max-w-xl text-lg leading-relaxed text-muted">{t('form.description')}</p>
 
-              {/* Success Message */}
               {submitted && (
-                <div className="mb-6 bg-green-50 border-2 border-green-200 rounded-xl p-4 flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
-                  <p className="text-green-800" style={{ fontWeight: 600 }}>
-                    {t('form.successMessage')}
-                  </p>
+                <div
+                  ref={successRef}
+                  tabIndex={-1}
+                  role="status"
+                  className="mt-8 border-[5px] border-success focus:outline focus:outline-[3px] focus:outline-sand"
+                >
+                  <p className="bg-success px-4 py-2 font-bold text-white">{t('form.successHeading')}</p>
+                  <p className="px-4 py-4 text-[1.0625rem] text-text">{t('form.successMessage')}</p>
                 </div>
               )}
 
-              {/* Error Message */}
-              {errors.submit && (
-                <div className="mb-6 bg-red-50 border-2 border-red-200 rounded-xl p-4">
-                  <p className="text-red-800" style={{ fontWeight: 600 }}>{errors.submit}</p>
+              {(fieldErrors.length > 0 || errors.submit) && (
+                <div
+                  ref={summaryRef}
+                  tabIndex={-1}
+                  role="alert"
+                  aria-labelledby="contact-error-summary"
+                  className="mt-8 border-[5px] border-error p-5 focus:outline focus:outline-[3px] focus:outline-sand"
+                >
+                  <h3 id="contact-error-summary" className="text-[1.25rem] font-bold text-text">{t('form.errorSummary')}</h3>
+                  <ul className="mt-3 space-y-1.5">
+                    {fieldErrors.map((field) => (
+                      <li key={field}>
+                        <a
+                          href={`#contact-${field}`}
+                          onClick={(e) => focusField(e, field)}
+                          className="font-bold text-error underline underline-offset-2 hover:decoration-2"
+                        >
+                          {errors[field]}
+                        </a>
+                      </li>
+                    ))}
+                    {errors.submit && <li className="font-bold text-error">{errors.submit}</li>}
+                  </ul>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* Name Field */}
-                  <div>
-                    <label className="block text-sm text-[#132552] mb-2" style={{ fontWeight: 600 }}>
-                      {t('form.nameLabel')}
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent text-[#132552] ${
-                        errors.name ? 'border-red-300' : 'border-[#8E3400]/30'
-                      }`}
-                      placeholder={t('form.namePlaceholder')}
-                      style={{ fontWeight: 400 }}
-                    />
-                    {errors.name && (
-                      <p className="text-red-600 text-sm mt-1" style={{ fontWeight: 600 }}>
-                        {errors.name}
-                      </p>
-                    )}
-                  </div>
+              <form onSubmit={handleSubmit} noValidate className="mt-10 space-y-8">
+                <Field id="contact-name" label={plainLabel(t('form.nameLabel'))} error={errors.name} errorPrefix={t('form.errorPrefix')}>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    spellCheck="false"
+                    value={formData.name}
+                    onChange={handleChange}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={describedBy('name')}
+                    className={`${fieldClass('name')} max-w-xl`}
+                  />
+                </Field>
 
-                  {/* Email Field */}
-                  <div>
-                    <label className="block text-sm text-[#132552] mb-2" style={{ fontWeight: 600 }}>
-                      {t('form.emailLabel')}
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent text-[#132552] ${
-                        errors.email ? 'border-red-300' : 'border-[#8E3400]/30'
-                      }`}
-                      placeholder={t('form.emailPlaceholder')}
-                      style={{ fontWeight: 400 }}
-                    />
-                    {errors.email && (
-                      <p className="text-red-600 text-sm mt-1" style={{ fontWeight: 600 }}>
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-                </div>
+                <Field id="contact-email" label={plainLabel(t('form.emailLabel'))} error={errors.email} errorPrefix={t('form.errorPrefix')}>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    spellCheck="false"
+                    value={formData.email}
+                    onChange={handleChange}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={describedBy('email')}
+                    className={`${fieldClass('email')} max-w-md`}
+                  />
+                </Field>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* Phone Field */}
-                  <div>
-                    <label className="block text-sm text-[#132552] mb-2" style={{ fontWeight: 600 }}>
-                      {t('form.phoneLabel')}
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border-2 border-[#8E3400]/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent text-[#132552]"
-                      placeholder={t('form.phonePlaceholder')}
-                      style={{ fontWeight: 400 }}
-                    />
-                  </div>
+                <Field id="contact-phone" label={plainLabel(t('form.phoneLabel'))} optionalText={t('form.optional')}>
+                  <input
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={`${fieldClass('phone')} max-w-xs`}
+                  />
+                </Field>
 
-                  {/* Subject Field */}
-                  <div>
-                    <label className="block text-sm text-[#132552] mb-2" style={{ fontWeight: 600 }}>
-                      {t('form.subjectLabel')}
-                    </label>
+                <Field id="contact-subject" label={plainLabel(t('form.subjectLabel'))} error={errors.subject} errorPrefix={t('form.errorPrefix')}>
+                  <div className="relative max-w-md">
                     <select
+                      id="contact-subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent text-[#132552] ${
-                        errors.subject ? 'border-red-300' : 'border-[#8E3400]/30'
-                      }`}
-                      style={{ fontWeight: 400 }}
+                      aria-invalid={!!errors.subject}
+                      aria-describedby={describedBy('subject')}
+                      className={`${fieldClass('subject')} appearance-none pr-10`}
                     >
                       <option value="">{t('form.subjectPlaceholder')}</option>
-                      <option value="general">{t('form.subjectOptions.general')}</option>
-                      <option value="partnership">{t('form.subjectOptions.partnership')}</option>
-                      <option value="training">{t('form.subjectOptions.training')}</option>
-                      <option value="research">{t('form.subjectOptions.research')}</option>
-                      <option value="membership">{t('form.subjectOptions.membership')}</option>
-                      <option value="other">{t('form.subjectOptions.other')}</option>
+                      {SUBJECTS.map((s) => (
+                        <option key={s} value={s}>{t(`form.subjectOptions.${s}`)}</option>
+                      ))}
                     </select>
-                    {errors.subject && (
-                      <p className="text-red-600 text-sm mt-1" style={{ fontWeight: 600 }}>
-                        {errors.subject}
-                      </p>
-                    )}
+                    <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-text" aria-hidden="true" />
                   </div>
-                </div>
+                </Field>
 
-                {/* Message Field */}
-                <div>
-                  <label className="block text-sm text-[#132552] mb-2" style={{ fontWeight: 600 }}>
-                    {t('form.messageLabel')}
-                  </label>
+                <Field
+                  id="contact-message"
+                  label={plainLabel(t('form.messageLabel'))}
+                  hint={t('form.messageHint')}
+                  error={errors.message}
+                  errorPrefix={t('form.errorPrefix')}
+                >
                   <textarea
+                    id="contact-message"
                     name="message"
+                    rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    rows="6"
-                    className={`w-full px-4 py-3 bg-white border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent resize-none text-[#132552] ${
-                      errors.message ? 'border-red-300' : 'border-[#8E3400]/30'
-                    }`}
-                    placeholder={t('form.messagePlaceholder')}
-                    style={{ fontWeight: 400 }}
+                    aria-invalid={!!errors.message}
+                    aria-describedby={describedBy('message', true)}
+                    className={`${fieldClass('message')} max-w-2xl resize-y`}
                   ></textarea>
-                  {errors.message && (
-                    <p className="text-red-600 text-sm mt-1" style={{ fontWeight: 600 }}>
-                      {errors.message}
-                    </p>
-                  )}
-                </div>
+                </Field>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#8E3400] text-white py-4 rounded-xl text-lg hover:bg-[#6B2700] transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{ fontWeight: 700 }}
+                  className="focus-ring inline-flex items-center gap-2 rounded-[2px] border-b-2 border-ink-deep bg-ink px-6 py-3 text-[1.0625rem] font-semibold text-white transition-colors hover:bg-rust disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  <span>{isSubmitting ? t('form.sending') : t('form.send')}</span>
-                  {!isSubmitting && <Send className="w-5 h-5" />}
+                  {isSubmitting ? t('form.sending') : t('form.send')}
                 </button>
               </form>
             </div>
 
-            {/* Office Info & Map */}
-            <div className="space-y-8">
-              {/* Office Hours */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-[#8E3400]/20">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-1 bg-[#8E3400] rounded-full"></div>
-                  <h3 className="text-2xl text-[#132552]" style={{ fontWeight: 900 }}>{t('officeHours.heading')}</h3>
-                </div>
-                <div className="space-y-4">
-                  {t('officeHours.schedule', { returnObjects: true }).map((schedule, idx) => (
-                    <div key={idx} className="flex items-center justify-between py-3 border-b border-[#8E3400]/20 last:border-b-0">
-                      <div className="flex items-center space-x-3">
-                        <Clock className="w-5 h-5 text-[#8E3400]" />
-                        <span className="text-[#132552]" style={{ fontWeight: 600 }}>{schedule.days}</span>
-                      </div>
-                      <span className="text-[#132552]/70" style={{ fontWeight: 400 }}>{schedule.hours}</span>
+            {/* Office details */}
+            <aside className="space-y-12 lg:col-span-4 lg:col-start-9">
+              <div>
+                <h2 className="border-b-2 border-ink pb-3 text-[1.25rem] font-bold text-ink">{t('officeHours.heading')}</h2>
+                <dl>
+                  {t('officeHours.schedule', { returnObjects: true }).map((row) => (
+                    <div key={row.days} className="flex justify-between gap-4 border-b border-line py-3">
+                      <dt className="font-semibold text-text">{row.days}</dt>
+                      <dd className="text-right text-muted">{row.hours}</dd>
                     </div>
                   ))}
-                </div>
+                </dl>
               </div>
 
-              {/* Google Map */}
-              <div className="bg-gray-100 rounded-2xl overflow-hidden h-80 shadow-lg border-2 border-[#8E3400]/20">
-                <iframe 
+              <div id="contact-map" className="scroll-mt-24">
+                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.8267995654284!2d-0.1969654!3d5.6037168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sus!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
+                  className="h-72 w-full rounded-[2px] border border-line"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="GOGMI Location"
+                  title={t('form.mapTitle')}
                 ></iframe>
+                <p className="mt-3 text-[0.9375rem] text-muted">
+                  {t('cards.visit.info')}, {t('cards.visit.subinfo')}
+                </p>
               </div>
 
-              {/* Social Media */}
-              <div className="bg-gradient-to-br from-[#132552] to-[#1A336C] rounded-2xl p-8 text-[#F5F7FA] shadow-lg">
-                <h3 className="text-2xl mb-4" style={{ fontWeight: 900 }}>{t('social.heading')}</h3>
-                <p className="text-[#F5F7FA]/80 mb-6" style={{ fontWeight: 400 }}>
-                  {t('social.subtitle')}
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  {[
-                    { icon: <Linkedin className="w-5 h-5" />, link: 'https://gh.linkedin.com/company/gulf-of-guinea-maritime-institute', name: 'LinkedIn' },
-                    { icon: <Twitter className="w-5 h-5" />, link: '#', name: 'Twitter' },
-                    { icon: <Facebook className="w-5 h-5" />, link: 'https://www.facebook.com/GoGMIofficial/', name: 'Facebook' },
-                    { icon: <Youtube className="w-5 h-5" />, link: '#', name: 'YouTube' },
-                    { icon: <MessageCircle className="w-5 h-5" />, link: '#', name: 'WhatsApp' }
-                  ].map((social, idx) => (
-                    <a
-                      key={idx}
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-[#F5F7FA]/10 rounded-xl flex items-center justify-center hover:bg-[#8E3400] transition-all hover:scale-110 group relative"
-                      title={social.name}
-                    >
-                      {social.icon}
-                      <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#132552] text-[#F5F7FA] text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap" style={{ fontWeight: 600 }}>
-                        {social.name}
-                      </span>
-                    </a>
+              <div>
+                <h2 className="border-b-2 border-ink pb-3 text-[1.25rem] font-bold text-ink">{t('social.heading')}</h2>
+                <p className="mt-3 text-muted">{t('social.subtitle')}</p>
+                <ul className="mt-4 space-y-2">
+                  {SOCIAL.map(({ label, href, Icon }) => (
+                    <li key={label}>
+                      <a href={href} target="_blank" rel="noopener noreferrer" className="link-editorial focus-ring inline-flex items-center gap-3 font-semibold">
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                        <span>{label}</span>
+                      </a>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-            </div>
+            </aside>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-1 bg-[#8E3400] rounded-full"></div>
-                <span className="text-[#8E3400] tracking-wider text-sm uppercase" style={{ fontWeight: 600 }}>{t('faq.eyebrow')}</span>
-                <div className="w-12 h-1 bg-[#8E3400] rounded-full"></div>
-              </div>
-            </div>
-            <h2 className="text-4xl text-[#132552] mb-4" style={{ fontWeight: 900 }}>
-              {t('faq.heading')}
-            </h2>
-            <p className="text-lg text-[#132552]/70" style={{ fontWeight: 400 }}>
-              {t('faq.subtitle')}
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {t('faq.items', { returnObjects: true }).map((faq, idx) => (
-              <div key={idx} className="bg-[#F5F7FA] rounded-xl p-6 shadow-sm hover:shadow-lg transition-all border-2 border-[#8E3400]/20 hover:border-[#8E3400]/40">
-                <h4 className="text-lg text-[#132552] mb-2" style={{ fontWeight: 900 }}>
-                  {faq.q}
-                </h4>
-                <p className="text-[#132552]/70" style={{ fontWeight: 400 }}>
-                  {faq.a}
-                </p>
-              </div>
+      {/* FAQ: GOV.UK-style expandable answers */}
+      <section className="bg-paper py-16 md:py-24" aria-labelledby="contact-faq">
+        <Container>
+          <SectionHeader id="contact-faq" title={t('faq.heading')} intro={t('faq.subtitle')} />
+          <div className="mt-10 max-w-3xl border-t border-line">
+            {t('faq.items', { returnObjects: true }).map((faq) => (
+              <details key={faq.q} className="group border-b border-line">
+                <summary className="focus-ring flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.125rem] font-bold text-ink hover:text-rust [&::-webkit-details-marker]:hidden">
+                  <span>{faq.q}</span>
+                  <ChevronDown className="mt-1 h-5 w-5 flex-shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
+                </summary>
+                <p className="max-w-2xl pb-6 text-[1.0625rem] leading-relaxed text-text">{faq.a}</p>
+              </details>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
-
-      <style>{`
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(1.05);
-          }
-        }
-        
-        .animate-pulse {
-          animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        .delay-1000 {
-          animation-delay: 1000ms;
-        }
-      `}</style>
     </div>
   );
 };

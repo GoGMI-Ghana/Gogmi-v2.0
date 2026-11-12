@@ -36,6 +36,8 @@
   --color-line: #D9D4CA;       /* hairline rules and borders */
   --color-sand: #D7C39A;       /* accent on dark backgrounds only */
   --color-on-dark: #C9D0DD;    /* secondary text on navy (8.9:1) */
+  --color-error: #B3261E;      /* form errors (6.2:1 on white) */
+  --color-success: #1E6B3A;    /* confirmation messages (6.7:1 on white) */
 }
 
 /* Shared editorial type styles. */
