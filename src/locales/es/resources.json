@@ -1,4 +1,6 @@
 {
+  "resultsCount_one": "{{count}} recurso",
+  "resultsCount_other": "{{count}} recursos",
   "loading": "Cargando...",
   "hero": {
     "badge": "Centro de Conocimiento",

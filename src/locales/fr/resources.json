@@ -1,4 +1,6 @@
 {
+  "resultsCount_one": "{{count}} ressource",
+  "resultsCount_other": "{{count}} ressources",
   "loading": "Chargement...",
   "hero": {
     "badge": "Centre de ressources",

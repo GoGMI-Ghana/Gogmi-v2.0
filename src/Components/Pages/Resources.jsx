@@ -1,7 +1,89 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Download, Search, Calendar, Eye, BookOpen, Video, X, ExternalLink, Lock } from 'lucide-react';
+import { Download, Search, X, ExternalLink, Lock, Play, FileText } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Container, Button } from '../ui/Editorial';
+
+const BTN_BASE = 'focus-ring inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[2px] px-4 py-2.5 text-[0.9375rem] font-semibold transition-colors';
+const BTN_PRIMARY = `${BTN_BASE} bg-ink text-white hover:bg-ink-deep`;
+const BTN_SECONDARY = `${BTN_BASE} border border-ink text-ink hover:bg-paper`;
+
+// Modal shell: dialog role, Escape and backdrop close, focus moved in and restored on close.
+const Dialog = ({ onClose, labelledBy, className = '', children }) => {
+  const closeRef = useRef(null);
+
+  useEffect(() => {
+    const previous = document.activeElement;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = overflow;
+      if (previous && previous.focus) previous.focus();
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[60] flex justify-center overflow-y-auto bg-ink-deep/70 p-4 md:p-8"
+      onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div role="dialog" aria-modal="true" aria-labelledby={labelledBy}
+           className={`relative my-auto w-full rounded-[2px] bg-white font-body text-text ${className}`}>
+        <button
+          ref={closeRef}
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="focus-ring absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-[2px] text-muted transition-colors hover:bg-paper hover:text-ink"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+// Cover image; documents are portrait, videos 16:9. A plain block stands in when the image is missing.
+const Cover = ({ resource, className = '' }) => {
+  const [failed, setFailed] = useState(false);
+  const isVideo = resource.fileType === 'VIDEO';
+  const shape = isVideo ? 'aspect-video' : 'aspect-[3/4]';
+
+  if (failed || !resource.thumbnail) {
+    return (
+      <div className={`${shape} flex w-full items-center justify-center rounded-[2px] border border-line bg-paper ${className}`} aria-hidden="true">
+        <FileText className="h-8 w-8 text-muted" />
+      </div>
+    );
+  }
+  return (
+    <img
+      src={resource.thumbnail}
+      alt=""
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className={`${shape} w-full rounded-[2px] border border-line bg-paper object-cover ${className}`}
+    />
+  );
+};
+
+const FilterChip = ({ active, onClick, children }) => (
+  <button
+    type="button"
+    aria-pressed={active}
+    onClick={onClick}
+    className={`focus-ring rounded-[2px] border px-3 py-1.5 text-sm font-semibold transition-colors ${
+      active ? 'border-ink bg-ink text-white' : 'border-line bg-white text-text hover:border-ink'
+    }`}
+  >
+    {children}
+  </button>
+);
 
 const Resources = () => {
   const { t } = useTranslation('resources');
@@ -447,45 +529,33 @@ const Resources = () => {
   });
 
   const handleDownload = async (resource) => {
-    // Check if resource requires membership
-    if (!requiresMembership(resource)) {
-      // Free download for Strategic Documents and Academic Papers
+    const startDownload = () => {
       const link = document.createElement('a');
       link.href = resource.downloadUrl;
       link.download = resource.downloadUrl.split('/').pop();
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    };
 
-      setTimeout(() => {
-        alert(t('downloadCompleteAlert', { title: resource.title }));
-      }, 500);
+    // Strategic Documents and Academic Papers are free for everyone.
+    if (!requiresMembership(resource)) {
+      startDownload();
       return;
     }
 
-    // For Internal Reports, check membership
+    // Internal Reports need a signed-in member.
     if (!isAuthenticated) {
       navigate('/membership');
       return;
     }
-
     if (!isMember) {
       setShowMembershipModal(true);
       return;
     }
 
-    // Member download
     try {
-      const link = document.createElement('a');
-      link.href = resource.downloadUrl;
-      link.download = resource.downloadUrl.split('/').pop();
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      setTimeout(() => {
-        alert(t('downloadCompleteAlert', { title: resource.title }));
-      }, 500);
+      startDownload();
     } catch (error) {
       console.error('Download error:', error);
       alert(t('downloadFailedAlert', { error: error.message }));
@@ -493,537 +563,354 @@ const Resources = () => {
   };
 
   const handlePreview = (resource) => {
-    window.open(resource.downloadUrl, '_blank');
+    window.open(resource.downloadUrl, '_blank', 'noopener');
   };
 
-  const MembershipModal = ({ onClose }) => {
-    return (
-      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl" style={{ fontFamily: 'Inter, sans-serif' }}>
-          <div className="p-8 text-center">
-            <div className="bg-[#8E3400]/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Lock className="w-10 h-10 text-[#8E3400]" />
-            </div>
-            
-            <h2 className="text-3xl font-bold text-[#132552] mb-4" style={{ fontWeight: 900 }}>
-              {t('membershipModal.heading')}
-            </h2>
+  const MembershipModal = ({ onClose }) => (
+    <Dialog onClose={onClose} labelledBy="membership-modal-title" className="max-w-lg">
+      <div className="p-8">
+        <Lock className="h-6 w-6 text-rust" aria-hidden="true" />
+        <h2 id="membership-modal-title" className="heading-display mt-4 text-[1.75rem]">
+          {t('membershipModal.heading')}
+        </h2>
+        <p className="mt-3 leading-relaxed text-muted">{t('membershipModal.body')}</p>
 
-            <p className="text-lg text-[#1F2933] mb-6" style={{ fontWeight: 400 }}>
-              {t('membershipModal.body')}
-            </p>
+        <h3 className="mt-8 text-sm font-semibold text-ink">{t('membershipModal.benefitsHeading')}</h3>
+        <ul className="mt-3 space-y-2 border-t border-line pt-3">
+          {t('membershipModal.benefits', { returnObjects: true }).map((benefit) => (
+            <li key={benefit} className="flex items-start gap-3 text-[0.9375rem] text-text">
+              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-rust" aria-hidden="true"></span>
+              <span>{benefit}</span>
+            </li>
+          ))}
+        </ul>
 
-            <div className="bg-[#F5F7FA] rounded-xl p-6 mb-8">
-              <h3 className="text-lg font-bold text-[#132552] mb-3" style={{ fontWeight: 700 }}>
-                {t('membershipModal.benefitsHeading')}
-              </h3>
-              <ul className="text-left space-y-2">
-                {t('membershipModal.benefits', { returnObjects: true }).map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-[#1F2933]" style={{ fontWeight: 400 }}>
-                    <span className="text-[#8E3400] mt-1">✓</span>
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={onClose}
-                className="flex-1 bg-gray-100 text-gray-900 px-6 py-3 rounded-xl font-bold transition-all hover:bg-gray-200"
-                style={{ fontWeight: 700 }}
-              >
-                {t('membershipModal.close')}
-              </button>
-              <button
-                onClick={() => navigate('/membership')}
-                className="flex-1 bg-[#8E3400] text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-[#6B2700] shadow-lg hover:shadow-xl"
-                style={{ fontWeight: 700 }}
-              >
-                {t('membershipModal.becomeMember')}
-              </button>
-            </div>
-          </div>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row-reverse">
+          <button type="button" onClick={() => navigate('/membership')} className={`${BTN_PRIMARY} flex-1`}>
+            {t('membershipModal.becomeMember')}
+          </button>
+          <button type="button" onClick={onClose} className={`${BTN_SECONDARY} flex-1`}>
+            {t('membershipModal.close')}
+          </button>
         </div>
       </div>
-    );
-  };
+    </Dialog>
+  );
 
   const PreviewModal = ({ resource, onClose }) => {
     if (!resource) return null;
-
     const needsMembership = requiresMembership(resource) && !isMember;
 
-    return (
-      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-        <div className="bg-white rounded-2xl max-w-4xl w-full my-8 shadow-2xl" style={{ fontFamily: 'Inter, sans-serif' }}>
-          <div className="relative">
-            <img 
-              src={resource.thumbnail} 
-              alt={resource.title}
-              className="w-full h-64 object-cover rounded-t-2xl"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-t-2xl"></div>
-            
-            <button 
-              onClick={onClose}
-              className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 transition-all hover:scale-110"
-            >
-              <X className="w-6 h-6" />
-            </button>
+    const facts = [
+      { label: t('modal.published'), value: resource.date },
+      { label: t('modal.fileSize'), value: resource.size },
+      resource.pages ? { label: t('modal.pages'), value: resource.pages } : null,
+      { label: t('modal.downloads'), value: resource.downloads }
+    ].filter((fact) => fact && fact.value);
 
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="bg-[#8E3400] text-white px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
-                  {typeLabels[resource.type] || resource.type}
-                </span>
-                <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
-                  {resource.fileType}
-                </span>
-                <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
-                  {categoryLabels[resource.category] || resource.category}
-                </span>
-                {resource.subcategory && (
-                  <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 600 }}>
-                    {subcategoryLabels[resource.subcategory] || resource.subcategory}
-                  </span>
-                )}
-              </div>
-              <h2 className="text-3xl font-black text-white mb-2" style={{ fontWeight: 900 }}>
-                {resource.title}
-              </h2>
-            </div>
+    return (
+      <Dialog onClose={onClose} labelledBy="preview-modal-title" className="max-w-4xl">
+        <div className="grid md:grid-cols-[15rem_1fr]">
+          <div className="border-b border-line bg-paper p-6 md:border-b-0 md:border-r">
+            <Cover resource={resource} className="mx-auto w-40 md:w-full" />
           </div>
 
-          <div className="p-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 pb-8 border-b border-gray-200">
-              <div>
-                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.published')}</p>
-                <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.date}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.fileSize')}</p>
-                <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.size}</p>
-              </div>
-              {resource.pages && (
-                <div>
-                  <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.pages')}</p>
-                  <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.pages}</p>
-                </div>
-              )}
-              <div>
-                <p className="text-xs text-gray-500 mb-1" style={{ fontWeight: 600 }}>{t('modal.downloads')}</p>
-                <p className="text-sm font-bold text-gray-900" style={{ fontWeight: 700 }}>{resource.downloads}</p>
-              </div>
-            </div>
+          <div className="p-6 md:p-8">
+            <p className="pr-10 text-sm text-muted">
+              <span className="font-semibold text-rust">{typeLabels[resource.type] || resource.type}</span>
+              {resource.subcategory && <> · {subcategoryLabels[resource.subcategory] || resource.subcategory}</>}
+              {' · '}{resource.fileType}
+            </p>
+            <h2 id="preview-modal-title" className="heading-display mt-2 text-[1.625rem] md:text-[1.875rem]">
+              {resource.title}
+            </h2>
 
-            {needsMembership && (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-                <Lock className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-amber-900 mb-1" style={{ fontWeight: 600 }}>
-                    {t('modal.membershipRequired.heading')}
-                  </p>
-                  <p className="text-sm text-amber-800" style={{ fontWeight: 400 }}>
-                    {t('modal.membershipRequired.body')}
-                  </p>
+            <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-y border-line py-5 sm:grid-cols-4">
+              {facts.map((fact) => (
+                <div key={fact.label} className="flex flex-col">
+                  <dt className="text-xs text-muted">{fact.label}</dt>
+                  <dd className="order-first text-[0.9375rem] font-semibold text-ink">{fact.value}</dd>
                 </div>
-              </div>
-            )}
+              ))}
+            </dl>
 
-            {!needsMembership && requiresMembership(resource) === false && (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-                <Download className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-green-900 mb-1" style={{ fontWeight: 600 }}>
-                    {t('modal.freeDownload.heading')}
-                  </p>
-                  <p className="text-sm text-green-800" style={{ fontWeight: 400 }}>
-                    {t('modal.freeDownload.body')}
-                  </p>
-                </div>
-              </div>
-            )}
+            <p className="mt-5 flex items-start gap-2 text-sm text-muted">
+              {needsMembership ? (
+                <>
+                  <Lock className="mt-0.5 h-4 w-4 flex-shrink-0 text-rust" aria-hidden="true" />
+                  <span><strong className="font-semibold text-ink">{t('modal.membershipRequired.heading')}.</strong> {t('modal.membershipRequired.body')}</span>
+                </>
+              ) : !requiresMembership(resource) ? (
+                <>
+                  <Download className="mt-0.5 h-4 w-4 flex-shrink-0 text-ink" aria-hidden="true" />
+                  <span><strong className="font-semibold text-ink">{t('modal.freeDownload.heading')}.</strong> {t('modal.freeDownload.body')}</span>
+                </>
+              ) : null}
+            </p>
 
-            <div className="mb-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-3" style={{ fontWeight: 700 }}>{t('modal.overview')}</h3>
-              <p className="text-gray-600 leading-relaxed" style={{ fontWeight: 400 }}>
-                {resource.fullDescription}
-              </p>
-            </div>
+            <h3 className="mt-7 text-sm font-semibold text-ink">{t('modal.overview')}</h3>
+            <p className="mt-2 leading-relaxed text-text">{resource.fullDescription}</p>
 
             {resource.keyTopics && (
-              <div className="mb-8">
-                <h3 className="text-lg font-bold text-gray-900 mb-3" style={{ fontWeight: 700 }}>{t('modal.whatsIncluded')}</h3>
-                <ul className="space-y-2">
-                  {resource.keyTopics.map((topic, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-gray-600" style={{ fontWeight: 400 }}>
-                      <span className="text-[#8E3400] mt-1 text-lg">•</span>
+              <>
+                <h3 className="mt-7 text-sm font-semibold text-ink">{t('modal.whatsIncluded')}</h3>
+                <ul className="mt-2 space-y-1.5">
+                  {resource.keyTopics.map((topic) => (
+                    <li key={topic} className="flex items-start gap-3 text-[0.9375rem] text-text">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-rust" aria-hidden="true"></span>
                       <span>{topic}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </>
             )}
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200">
-              <button 
-                onClick={() => handleDownload(resource)}
-                className="flex-1 bg-[#8E3400] text-white px-6 py-4 rounded-xl font-bold transition-all hover:bg-[#6B2700] flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
-                style={{ fontWeight: 700 }}
-              >
-                {needsMembership ? (
-                  <>
-                    <Lock className="w-5 h-5" />
-                    <span>{t('modal.unlockDownload')}</span>
-                  </>
-                ) : (
-                  <>
-                    <Download className="w-5 h-5" />
-                    <span>{t('modal.downloadResource')}</span>
-                  </>
-                )}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <button type="button" onClick={() => handleDownload(resource)} className={BTN_PRIMARY}>
+                {needsMembership ? <Lock className="h-4 w-4" aria-hidden="true" /> : <Download className="h-4 w-4" aria-hidden="true" />}
+                <span>{needsMembership ? t('modal.unlockDownload') : t('modal.downloadResource')}</span>
               </button>
-              <button
-                onClick={() => handlePreview(resource)}
-                className="flex-1 bg-gray-100 text-gray-900 px-6 py-4 rounded-xl font-bold transition-all hover:bg-gray-200 flex items-center justify-center gap-2"
-                style={{ fontWeight: 700 }}
-              >
-                <ExternalLink className="w-5 h-5" />
+              <button type="button" onClick={() => handlePreview(resource)} className={BTN_SECONDARY}>
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 <span>{t('modal.openPreview')}</span>
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </Dialog>
     );
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">{t('loading')}</div>
+      <div className="flex min-h-screen items-center justify-center font-body text-muted">
+        {t('loading')}
       </div>
     );
   }
 
+  const isVideo = selectedType === 'Videos';
+
   return (
-    <div className="w-full pt-20" style={{ fontFamily: 'Inter, sans-serif' }}>
-      {showMembershipModal && (
-        <MembershipModal onClose={() => setShowMembershipModal(false)} />
-      )}
+    <div className="w-full font-body text-text">
+      {showMembershipModal && <MembershipModal onClose={() => setShowMembershipModal(false)} />}
+      {previewResource && <PreviewModal resource={previewResource} onClose={() => setPreviewResource(null)} />}
 
-      {previewResource && (
-        <PreviewModal 
-          resource={previewResource} 
-          onClose={() => setPreviewResource(null)} 
-        />
-      )}
-
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1920&auto=format&fit=crop&q=80"
-            alt={t('hero.imageAlt')}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[#132552]/80"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 bg-[#8E3400]/20 backdrop-blur-sm px-6 py-3 rounded-full border border-[#8E3400]/30 mb-6">
-            <BookOpen className="w-5 h-5 text-[#8E3400]" />
-            <span className="text-[#F5F7FA] font-semibold text-sm" style={{ fontWeight: 600 }}>{t('hero.badge')}</span>
+      {/* PAGE HEADER */}
+      <header className="border-b border-line bg-paper pb-12 pt-[124px] md:pb-16 md:pt-[148px]">
+        <Container>
+          <div className="grid gap-8 md:grid-cols-12 md:gap-10">
+            <div className="md:col-span-7">
+              <p className="text-sm font-semibold text-rust">{t('hero.badge')}</p>
+              <h1 className="heading-display mt-3 text-[2.5rem] md:text-[3.5rem]">{t('hero.title')}</h1>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">{t('hero.subtitle')}</p>
+            </div>
+            <ul className="space-y-3 self-end border-l-2 border-ink pl-5 text-[0.9375rem] text-text md:col-span-4 md:col-start-9">
+              <li className="flex items-start gap-2">
+                <Download className="mt-1 h-4 w-4 flex-shrink-0 text-ink" aria-hidden="true" />
+                <span>{t('hero.noteFree')}</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Lock className="mt-1 h-4 w-4 flex-shrink-0 text-rust" aria-hidden="true" />
+                <span>{t('hero.noteMembers')}</span>
+              </li>
+            </ul>
           </div>
+        </Container>
+      </header>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-[#F5F7FA] mb-6" style={{ fontWeight: 900 }}>
-            {t('hero.title')}
-          </h1>
-          <p className="text-xl text-[#F5F7FA]/90 max-w-3xl mx-auto mb-4" style={{ fontWeight: 400 }}>
-            {t('hero.subtitle')}
-          </p>
-          <p className="text-sm text-[#F5F7FA]/70 flex items-center justify-center gap-2" style={{ fontWeight: 400 }}>
-            <span>{t('hero.noteFree')}</span>
-            <span>•</span>
-            <span>{t('hero.noteMembers')}</span>
-          </p>
-        </div>
-      </section>
-
-      <section className="py-12 bg-[#F5F7FA] border-b sticky top-20 z-30">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-              <div className="relative w-full md:w-96">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#1F2933]/60" />
-                <input
-                  type="text"
-                  placeholder={t('search.placeholder')}
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
-                  style={{ fontWeight: 400 }}
-                />
-              </div>
-
-              <div className="flex flex-wrap gap-2 justify-center">
-                {types.map((type) => (
-                  <button
-                    key={type}
-                    onClick={() => {
-                      setSelectedType(type);
-                      setSelectedSubcategory('All');
-                      setSelectedYear('All');
-                    }}
-                    className={`px-5 py-2 rounded-lg font-medium transition-all ${
-                      selectedType === type
-                        ? 'bg-[#8E3400] text-[#F5F7FA] shadow-lg'
-                        : 'bg-white text-[#1F2933] hover:bg-[#8E3400]/10 border border-gray-200'
-                    }`}
-                    style={{ fontWeight: 600 }}
-                  >
-                    {typeLabels[type] || type}
-                  </button>
-                ))}
-              </div>
+      {/* FILTERS: collection tabs, search and (for internal reports) series and year */}
+      <section className="sticky top-[61px] z-30 border-b border-line bg-white/95 backdrop-blur" aria-label={t('search.placeholder')}>
+        <Container>
+          <div className="flex flex-col-reverse gap-4 py-4 lg:flex-row lg:items-end lg:justify-between lg:py-0">
+            <div className="-mb-px flex gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group">
+              {types.map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  aria-pressed={selectedType === type}
+                  onClick={() => {
+                    setSelectedType(type);
+                    setSelectedSubcategory('All');
+                    setSelectedYear('All');
+                  }}
+                  className={`focus-ring whitespace-nowrap border-b-2 py-4 text-[0.9375rem] font-semibold transition-colors ${
+                    selectedType === type ? 'border-rust text-ink' : 'border-transparent text-muted hover:text-ink'
+                  }`}
+                >
+                  {typeLabels[type] || type}
+                </button>
+              ))}
             </div>
 
-            {/* Subcategory filters for Internal Reports */}
-            {selectedType === 'Internal Reports' && (
-              <div className="flex flex-wrap gap-2 justify-center pt-4 border-t border-gray-200">
-                {internalReportSubcategories.map((subcategory) => (
-                  <button
-                    key={subcategory}
-                    onClick={() => {
-                      setSelectedSubcategory(subcategory);
-                      setSelectedYear('All');
-                    }}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                      selectedSubcategory === subcategory
-                        ? 'bg-[#132552] text-white shadow-lg'
-                        : 'bg-white text-[#1F2933] hover:bg-[#132552]/10 border border-gray-200'
-                    }`}
-                    style={{ fontWeight: 600 }}
-                  >
-                    {subcategoryLabels[subcategory] || subcategory}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Year filters for IMSWG Reports */}
-            {selectedType === 'Internal Reports' && selectedSubcategory === 'IMSWG Reports' && (
-              <div className="flex flex-wrap gap-2 justify-center pt-4 border-t border-gray-200">
-                {imswgReportYears.map((year) => (
-                  <button
-                    key={year}
-                    onClick={() => setSelectedYear(year)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                      selectedYear === year
-                        ? 'bg-[#8E3400] text-white shadow-lg'
-                        : 'bg-white text-[#1F2933] hover:bg-[#8E3400]/10 border border-gray-200'
-                    }`}
-                    style={{ fontWeight: 600 }}
-                  >
-                    {year === 'All' ? t('filters.yearAll') : year}
-                  </button>
-                ))}
-              </div>
-            )}
+            <div className="relative w-full lg:mb-2.5 lg:w-80">
+              <label htmlFor="resource-search" className="sr-only">{t('search.placeholder')}</label>
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden="true" />
+              <input
+                id="resource-search"
+                type="search"
+                placeholder={t('search.placeholder')}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full rounded-[2px] border border-line bg-white py-2.5 pl-9 pr-3 text-[0.9375rem] text-text placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/20"
+              />
+            </div>
           </div>
-        </div>
+
+          {selectedType === 'Internal Reports' && (
+            <div className="flex flex-wrap items-center gap-2 border-t border-line py-3">
+              {internalReportSubcategories.map((subcategory) => (
+                <FilterChip
+                  key={subcategory}
+                  active={selectedSubcategory === subcategory}
+                  onClick={() => {
+                    setSelectedSubcategory(subcategory);
+                    setSelectedYear('All');
+                  }}
+                >
+                  {subcategoryLabels[subcategory] || subcategory}
+                </FilterChip>
+              ))}
+            </div>
+          )}
+
+          {selectedType === 'Internal Reports' && selectedSubcategory === 'IMSWG Reports' && (
+            <div className="flex flex-wrap items-center gap-2 border-t border-line py-3">
+              {imswgReportYears.map((year) => (
+                <FilterChip key={year} active={selectedYear === year} onClick={() => setSelectedYear(year)}>
+                  {year === 'All' ? t('filters.yearAll') : year}
+                </FilterChip>
+              ))}
+            </div>
+          )}
+        </Container>
       </section>
 
-      <section id="internal-reports" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* RESULTS: a catalogue list */}
+      <section id="internal-reports" className="scroll-mt-40 bg-white py-12 md:py-16">
+        <Container>
+          <p className="text-sm text-muted" role="status" aria-live="polite">
+            {t('resultsCount', { count: filteredResources.length })}
+          </p>
+
           {filteredResources.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-2xl text-[#1F2933]" style={{ fontWeight: 400 }}>
-                {t('noResults')}
-              </p>
-            </div>
+            <p className="mt-6 border-t border-line py-16 text-center text-lg text-muted">{t('noResults')}</p>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ul className="mt-4 border-t border-line">
               {filteredResources.map((resource) => {
                 const needsMembership = requiresMembership(resource);
-                const canDownload = !needsMembership || isMember;
+                const locked = needsMembership && !isMember;
 
                 return (
-                  <div 
-                    key={resource.id} 
-                    className={`group bg-[#F5F7FA] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100 ${resource.type === 'Videos' ? 'cursor-pointer' : ''}`}
-                    onClick={() => {
-                      if (resource.type === 'Videos' && resource.videoUrl) {
-                        window.open(resource.videoUrl, '_blank');
-                      }
-                    }}
-                  >
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#132552]/10 to-[#8E3400]/10">
-                      <img 
-                        src={resource.thumbnail} 
-                        alt={resource.title}
-                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                      
-                      {resource.type === 'Videos' && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="bg-[#8E3400]/90 rounded-full p-4 group-hover:scale-110 transition-transform">
-                            <Video className="w-8 h-8 text-white" />
-                          </div>
-                        </div>
-                      )}
-                      
-                      {needsMembership && !isMember && (
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-[#8E3400] text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1" style={{ fontWeight: 700 }}>
-                            <Lock className="w-3 h-3" />
-                            {t('badges.membersOnly')}
+                  <li key={resource.id} className="grid gap-5 border-b border-line py-8 sm:grid-cols-[8rem_1fr] md:gap-8 lg:grid-cols-[9rem_1fr_auto]">
+                    {isVideo ? (
+                      <a href={resource.videoUrl} target="_blank" rel="noopener noreferrer" className="focus-ring group relative block w-40 sm:w-full" tabIndex={-1} aria-hidden="true">
+                        <Cover resource={resource} />
+                        <span className="absolute inset-0 flex items-center justify-center">
+                          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-ink-deep/85 text-white transition-colors group-hover:bg-rust">
+                            <Play className="ml-0.5 h-5 w-5" />
                           </span>
-                        </div>
-                      )}
+                        </span>
+                      </a>
+                    ) : (
+                      <button type="button" onClick={() => setPreviewResource(resource)} className="focus-ring block w-28 sm:w-full" tabIndex={-1} aria-hidden="true">
+                        <Cover resource={resource} />
+                      </button>
+                    )}
 
-                      {!needsMembership && (
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 700 }}>
-                            {t('badges.freeAccess')}
+                    <div className="min-w-0">
+                      <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
+                        {resource.subcategory && (
+                          <span className="font-semibold text-rust">{subcategoryLabels[resource.subcategory] || resource.subcategory}</span>
+                        )}
+                        {!resource.subcategory && resource.category && (
+                          <span className="font-semibold text-rust">{categoryLabels[resource.category] || resource.category}</span>
+                        )}
+                        <span aria-hidden="true">·</span>
+                        <span>{resource.date}</span>
+                        <span aria-hidden="true">·</span>
+                        {isVideo ? (
+                          <span>{resource.duration}</span>
+                        ) : (
+                          <span>
+                            {resource.fileType} {resource.size}
+                            {resource.pages ? `, ${resource.pages} ${t('card.pagesSuffix')}` : ''}
                           </span>
-                        </div>
-                      )}
-                      
-                      <div className="absolute top-4 right-4">
-                        <span className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-xs font-bold" style={{ fontWeight: 700 }}>
-                          {resource.fileType}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-6">
-                      <div className="flex items-center text-xs text-[#1F2933]/70 mb-3 space-x-4" style={{ fontWeight: 400 }}>
-                        <span className="flex items-center">
-                          <Calendar className="w-3 h-3 mr-1" />
-                          {resource.date}
-                        </span>
-                        <span className="flex items-center">
-                          {resource.type === 'Videos' ? (
-                            <>
-                              <Eye className="w-3 h-3 mr-1" />
-                              {resource.views} {t('card.viewsSuffix')}
-                            </>
-                          ) : (
-                            <>
-                              <Download className="w-3 h-3 mr-1" />
-                              {resource.downloads}
-                            </>
-                          )}
-                        </span>
-                      </div>
-
-                      <h3 className="text-lg font-bold text-[#132552] mb-3 group-hover:text-[#8E3400] transition-colors line-clamp-2" style={{ fontWeight: 700 }}>
-                        {resource.title}
-                      </h3>
-                      
-                      <p className="text-[#1F2933] text-sm mb-4 line-clamp-3" style={{ fontWeight: 400 }}>
-                        {resource.description}
+                        )}
                       </p>
 
-                      <div className="flex items-center justify-between text-sm text-[#1F2933]/70 mb-4 pb-4 border-b border-gray-200" style={{ fontWeight: 400 }}>
-                        {resource.type === 'Videos' ? (
-                          <>
-                            <span className="font-medium" style={{ fontWeight: 600 }}>{t('card.durationLabel')}: {resource.duration}</span>
-                            <span className="flex items-center">
-                              <Video className="w-3 h-3 mr-1" />
-                              {t('card.watch')}
-                            </span>
-                          </>
+                      <h2 className="mt-2 font-display text-[1.375rem] font-semibold leading-snug text-ink md:text-[1.5rem]">
+                        {isVideo ? (
+                          <a href={resource.videoUrl} target="_blank" rel="noopener noreferrer" className="focus-ring hover:underline hover:decoration-1 hover:underline-offset-4">
+                            {resource.title}
+                          </a>
                         ) : (
-                          <>
-                            <span className="font-medium" style={{ fontWeight: 600 }}>{resource.size}</span>
-                            {resource.pages && <span>{resource.pages} {t('card.pagesSuffix')}</span>}
-                          </>
+                          <button type="button" onClick={() => setPreviewResource(resource)} className="focus-ring text-left hover:underline hover:decoration-1 hover:underline-offset-4">
+                            {resource.title}
+                          </button>
                         )}
-                      </div>
+                      </h2>
 
-                      {resource.type === 'Videos' ? (
-                        <button 
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(resource.videoUrl, '_blank');
-                          }}
-                          className="w-full bg-[#8E3400] text-white py-3 rounded-lg font-semibold hover:bg-[#6B2700] transition-all flex items-center justify-center space-x-2 shadow-lg"
-                          style={{ fontWeight: 700 }}
-                        >
-                          <Video className="w-5 h-5" />
+                      <p className="mt-2 line-clamp-3 max-w-3xl leading-relaxed text-muted">{resource.description}</p>
+
+                      <p className="mt-3 flex items-center gap-1.5 text-sm font-semibold">
+                        {locked ? (
+                          <><Lock className="h-3.5 w-3.5 text-rust" aria-hidden="true" /><span className="text-rust">{t('badges.membersOnly')}</span></>
+                        ) : !needsMembership && !isVideo ? (
+                          <span className="text-ink">{t('badges.freeAccess')}</span>
+                        ) : null}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3 sm:col-start-2 lg:col-start-3 lg:flex-col lg:items-stretch lg:justify-start">
+                      {isVideo ? (
+                        <a href={resource.videoUrl} target="_blank" rel="noopener noreferrer" className={BTN_PRIMARY}>
+                          <Play className="h-4 w-4" aria-hidden="true" />
                           <span>{t('card.watchVideo')}</span>
-                        </button>
+                        </a>
                       ) : (
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => setPreviewResource(resource)}
-                            className="flex-1 bg-white border-2 border-[#8E3400] text-[#8E3400] py-3 rounded-lg font-semibold hover:bg-[#8E3400] hover:text-white transition-all flex items-center justify-center space-x-2"
-                            style={{ fontWeight: 700 }}
-                          >
-                            <Eye className="w-5 h-5" />
+                        <>
+                          <button type="button" onClick={() => handleDownload(resource)} className={BTN_PRIMARY}>
+                            {locked ? <Lock className="h-4 w-4" aria-hidden="true" /> : <Download className="h-4 w-4" aria-hidden="true" />}
+                            <span>{locked ? t('card.locked') : t('card.download')}</span>
+                            <span className="sr-only">: {resource.title}</span>
+                          </button>
+                          <button type="button" onClick={() => setPreviewResource(resource)} className={BTN_SECONDARY}>
                             <span>{t('card.preview')}</span>
+                            <span className="sr-only">: {resource.title}</span>
                           </button>
-                          <button
-                            onClick={() => handleDownload(resource)}
-                            className={`flex-1 py-3 rounded-lg font-semibold transition-all flex items-center justify-center space-x-2 shadow-lg ${
-                              canDownload
-                                ? 'bg-[#8E3400] text-white hover:bg-[#6B2700]'
-                                : 'bg-gray-400 text-white cursor-not-allowed hover:bg-gray-500'
-                            }`}
-                            style={{ fontWeight: 700 }}
-                          >
-                            {canDownload ? <Download className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
-                            <span>{canDownload ? t('card.download') : t('card.locked')}</span>
-                          </button>
-                        </div>
+                        </>
                       )}
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           )}
-        </div>
+        </Container>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-[#132552] to-[#1e3a7a]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          {!isMember ? (
-            <>
-              <div className="bg-[#8E3400]/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Lock className="w-8 h-8 text-[#8E3400]" />
-              </div>
-              <h2 className="text-4xl font-bold text-white mb-6" style={{ fontWeight: 900 }}>
-                {t('ctaSection.unlock.heading')}
+      {/* CALL TO ACTION */}
+      <section className="bg-ink-deep py-16 text-white md:py-20">
+        <Container>
+          <div className="grid items-end gap-8 md:grid-cols-12 md:gap-10">
+            <div className="md:col-span-7">
+              <h2 className="heading-display !text-white text-[2rem] md:text-[2.5rem]">
+                {isMember ? t('ctaSection.customResearch.heading') : t('ctaSection.unlock.heading')}
               </h2>
-              <p className="text-xl text-white/90 mb-10" style={{ fontWeight: 400 }}>
-                {t('ctaSection.unlock.body')}
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-on-dark">
+                {isMember ? t('ctaSection.customResearch.body') : t('ctaSection.unlock.body')}
               </p>
-              <button
-                onClick={() => navigate('/membership')}
-                className="bg-[#8E3400] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#6B2700] transition-all shadow-lg hover:shadow-xl hover:scale-105"
-                style={{ fontWeight: 700 }}
-              >
-                {t('ctaSection.unlock.button')}
-              </button>
-            </>
-          ) : (
-            <>
-              <h2 className="text-4xl font-bold text-white mb-6" style={{ fontWeight: 900 }}>
-                {t('ctaSection.customResearch.heading')}
-              </h2>
-              <p className="text-xl text-white/90 mb-10" style={{ fontWeight: 400 }}>
-                {t('ctaSection.customResearch.body')}
-              </p>
-              <button className="bg-[#8E3400] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#6B2700] transition-all shadow-lg hover:shadow-xl hover:scale-105" style={{ fontWeight: 700 }}>
-                {t('ctaSection.customResearch.button')}
-              </button>
-            </>
-          )}
-        </div>
+            </div>
+            <div className="md:col-span-4 md:col-start-9 md:text-right">
+              {isMember ? (
+                <Button to="/contact" variant="onDark">{t('ctaSection.customResearch.button')}</Button>
+              ) : (
+                <Button to="/membership" variant="onDark">{t('ctaSection.unlock.button')}</Button>
+              )}
+            </div>
+          </div>
+        </Container>
       </section>
     </div>
   );

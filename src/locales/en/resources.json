@@ -1,4 +1,6 @@
 {
+  "resultsCount_one": "{{count}} resource",
+  "resultsCount_other": "{{count}} resources",
   "loading": "Loading...",
   "hero": {
     "badge": "Knowledge Hub",
