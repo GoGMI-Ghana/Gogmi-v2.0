@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Official UN colours for the goals the Institute's work supports, in the order listed in about.json.
+// ink is the label colour on the goal colour and text the heading colour on white; both meet WCAG AA.
+// SDG 14's light blue is too pale for small white text or blue-on-white headings, so it gets darker ones.
 const SDG_META = [
-  { number: '14', color: '#0A97D9' },
+  { number: '14', color: '#0A97D9', ink: '#132552', text: '#0B6E9E' },
   { number: '8', color: '#A21942' },
   { number: '4', color: '#C5192D' },
   { number: '13', color: '#3F7E44' },
@@ -105,17 +107,15 @@ const SdgCallout = ({ sdg, meta, align, active, onActivate }) => (
     className={`flex gap-4 items-start rounded-xl p-4 transition-all duration-200 cursor-default ${align === 'right' ? 'lg:flex-row-reverse lg:text-right' : ''}`}
     style={{ backgroundColor: active ? `${meta.color}12` : 'transparent' }}
     onMouseEnter={onActivate}
-    onFocus={onActivate}
-    tabIndex={0}
   >
-    <div className="flex-shrink-0 w-14 h-14 rounded-lg flex flex-col items-center justify-center text-white shadow-sm"
-         style={{ backgroundColor: meta.color }}>
+    <div className="flex-shrink-0 w-14 h-14 rounded-lg flex flex-col items-center justify-center shadow-sm"
+         style={{ backgroundColor: meta.color, color: meta.ink || '#fff' }} aria-hidden="true">
       <span className="text-[9px] uppercase tracking-wider leading-none" style={{ fontWeight: 700 }}>SDG</span>
       <span className="text-xl leading-none mt-1" style={{ fontWeight: 900 }}>{meta.number}</span>
     </div>
     <div>
-      <h3 className="text-base font-bold mb-1" style={{ color: active ? meta.color : '#132552', fontWeight: 800, lineHeight: 1.3 }}>
-        {sdg.title}
+      <h3 className="text-base font-bold mb-1" style={{ color: active ? meta.text || meta.color : '#132552', fontWeight: 800, lineHeight: 1.3 }}>
+        <span className="sr-only">SDG {meta.number}: </span>{sdg.title}
       </h3>
       <p className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{sdg.desc}</p>
     </div>
@@ -149,8 +149,7 @@ const SdgWheel = ({ items }) => {
           aria-hidden="true"
         ></div>
 
-        <svg viewBox={`0 0 ${WHEEL.size} ${WHEEL.size}`} className="relative w-full h-auto drop-shadow-xl" role="img"
-             aria-label={items.map((item, idx) => `SDG ${SDG_META[idx].number}: ${item.title}`).join(', ')}>
+        <svg viewBox={`0 0 ${WHEEL.size} ${WHEEL.size}`} className="relative w-full h-auto drop-shadow-xl" aria-hidden="true">
           {SDG_META.map((meta, idx) => {
             const [nx, ny] = wheelPoint((WHEEL.outer + WHEEL.inner) / 2, idx * 60 + 30);
             const dimmed = active !== null && active !== idx;
@@ -167,8 +166,8 @@ const SdgWheel = ({ items }) => {
                     transition: 'opacity 0.2s, transform 0.2s'
                   }}
                 />
-                <text x={nx} y={ny - 6} textAnchor="middle" fill="#fff" style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', opacity: dimmed ? 0.5 : 1 }}>SDG</text>
-                <text x={nx} y={ny + 22} textAnchor="middle" fill="#fff" style={{ fontSize: 30, fontWeight: 900, opacity: dimmed ? 0.5 : 1 }}>{meta.number}</text>
+                <text x={nx} y={ny - 6} textAnchor="middle" fill={meta.ink || '#fff'} style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', opacity: dimmed ? 0.5 : 1 }}>SDG</text>
+                <text x={nx} y={ny + 22} textAnchor="middle" fill={meta.ink || '#fff'} style={{ fontSize: 30, fontWeight: 900, opacity: dimmed ? 0.5 : 1 }}>{meta.number}</text>
               </g>
             );
           })}
