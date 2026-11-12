@@ -1,23 +1,65 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  ArrowRight,
-  Users,
-  TrendingUp,
-  Globe,
-  BookOpen,
-  Image as ImageIcon,
-  Video,
-  Play,
-  X
-} from 'lucide-react';
+import { X } from 'lucide-react';
+import { Container, SectionHeader, Button, TextLink, SmartLink } from '../ui/Editorial';
 
 // The hero video is hosted with the site: a 720p file for phones and tablets, 1080p for larger screens.
 const HERO_VIDEO_SMALL = '/videos/hero-720.mp4';
 const HERO_VIDEO_LARGE = '/videos/hero-1080.mp4';
 // The video's first frame, shown until the video is actually playing.
 const HERO_POSTER = '/hero-poster.jpg';
+
+const COUNTRIES = [
+  'Senegal', 'Gambia', 'Guinea-Bissau', 'Guinea', 'Sierra Leone', 'Liberia', 'Côte d\'Ivoire',
+  'Ghana', 'Togo', 'Benin', 'Nigeria', 'Cameroon', 'Equatorial Guinea', 'São Tomé and Príncipe',
+  'Gabon', 'Congo', 'DR Congo', 'Angola', 'Cape Verde'
+];
+
+const NEWS_EXTRAS = [
+  { image: '/admiral-gafcscs.jpeg', link: 'https://www.gogmi.org.gh/blog/gogmi-blog/gogmi-contributes-to-gafcscs-landmark-republic-day-lecture' },
+  { image: '/thumbnail.jpeg', link: 'https://www.gogmiconsult.com/post/why-the-ghana-togo-maritime-boundary-delimitation-must-go-for-international-arbitration' },
+  { image: '/margov-coh2.jpeg', link: '/services/CapacityBuilding' }
+];
+
+const EVENT_BANNERS = [
+  { id: 1, image: '/member.gogmi.jpeg', alt: 'GoGMI membership' },
+  { id: 2, image: '/margov-coh2.jpeg', alt: 'Maritime Governance Course' },
+  { id: 3, image: '/partnerbanner.jpeg', alt: 'GoGMI partners' }
+];
+
+const PARTNERS = [
+  { name: 'ENMAR', logo: '/Enmar.png', website: 'https://www.linkedin.com/company/enmar-enhanced-maritime-action-in-the-gulf-of-guinea/' },
+  { name: 'DOTCAN', logo: '/DOTCANLOGO.png', website: 'https://dotcan.institute/' },
+  { name: 'Great Minds Event Management', logo: '/GM-logo.webp', website: 'https://www.ecowas.int/' },
+  { name: 'Atlantic Centre', logo: '/AtlanticCenter.webp', website: 'https://www.defesa.gov.pt/pt/pdefesa/ac/about' },
+  { name: 'Ghana Navy', logo: '/ghananavy.png', website: 'https://navyonline.mil.gh/' },
+  { name: 'KAIPTC', logo: '/kaiptc.jpg', website: 'https://www.kaiptc.org/' }
+];
+
+const festiveOverlays = [
+  {
+    enabled: true,                          // Turn on/off
+    scheduledDate: '2026-09-18',            // When to show (YYYY-MM-DD)
+    image: '/gulf-spectrum-flyer.jpeg',     // Image path (in /public)
+    displayDuration: 30,                    // How long to show (seconds)
+    name: 'Gulf Spectrum Journal Launch',   // Internal reference name
+    testing: true                           // TRUE bypasses localStorage
+  },
+  {
+    enabled: false,
+    scheduledDate: '2026-04-05',
+    image: '/govcourse.jpeg',
+    displayDuration: 5,
+    name: 'Easter 2026'
+  },
+  {
+    enabled: false,
+    scheduledDate: '2024-12-31',
+    image: '/newyear-eve-2024.jpg',
+    displayDuration: 4,
+    name: 'New Year Eve 2024'
+  }
+];
 
 const Home = () => {
   const { t } = useTranslation('home');
@@ -37,281 +79,119 @@ const Home = () => {
     if (playAttempt && playAttempt.catch) playAttempt.catch(() => {});
   }, []);
 
-  const eventBanners = [
-    {
-      id: 1,
-      image: '/member.gogmi.jpeg', 
-      alt: 'Maritime Membership'
-    },
+  // ============================================================
+  // FESTIVE OVERLAY
+  // ============================================================
+  const [showFestiveOverlay, setShowFestiveOverlay] = useState(false);
+  const [activeFestiveImage, setActiveFestiveImage] = useState(null);
+  const closeButtonRef = useRef(null);
 
-    {
-      id: 2,
-      image: '/margov-coh2.jpeg',
-      alt: 'Maritime gov Course'
-    },
-    {
-      id: 4,
-      image: '/partnerbanner.jpeg',
-      alt: 'Partner Banner'
-    },
-  ];
-
-  
-  const scrollContainerRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false);
-
-  
   useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    if (!scrollContainer || isPaused) return;
-
-    const scrollStep = 1; // Pixels per frame
-    const scrollInterval = 20; // Milliseconds per frame
-
-    const autoScroll = setInterval(() => {
-      if (scrollContainer && !isPaused) {
-        
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          
-          scrollContainer.scrollLeft = 0;
-        } else {
-          scrollContainer.scrollLeft += scrollStep;
-        }
-      }
-    }, scrollInterval);
-
-    return () => clearInterval(autoScroll);
-  }, [isPaused]);
-
-  // Pause on hover
-  const handleMouseEnter = () => setIsPaused(true);
-  const handleMouseLeave = () => setIsPaused(false);
-
-  const festiveOverlays = [
-    {
-      enabled: true,                          // Turn on/off
-      scheduledDate: '2026-09-18',            // When to show (YYYY-MM-DD) - UPDATED TO TODAY
-      image: '/gulf-spectrum-flyer.jpeg',        // Image path (upload to /public folder)
-      displayDuration: 30,                     // How long to show (seconds)
-      name: 'Gulf Spectrum Journal Launch',                  // Internal reference name
-      testing: true                           // SET TO TRUE FOR TESTING (bypasses localStorage)
-    },
-    {
-      enabled: false,
-      scheduledDate: '2026-04-05',
-      image: '/govcourse.jpeg',
-      displayDuration: 5,
-      name: 'Easter 2026'
-    },
-    {
-      enabled: false,                         // Example: disabled overlay
-      scheduledDate: '2024-12-31',
-      image: '/newyear-eve-2024.jpg',
-      displayDuration: 4,
-      name: 'New Year Eve 2024'
-    }
-    // Add more festive overlays as needed
-  ];
-
-  // State for overlay visibility
-  const [showFestiveOverlay, setShowFestiveOverlay] = React.useState(false);
-  const [activeFestiveImage, setActiveFestiveImage] = React.useState(null);
-  const [overlayDuration, setOverlayDuration] = React.useState(5);
-
-  // Check if there's a scheduled overlay for today
-  React.useEffect(() => {
-    // ============================================================
-    // PERMANENT DISPLAY MODE FOR TESTING/REVIEW
-    // ============================================================
-    // Find the first enabled overlay for permanent display
-    const permanentOverlay = festiveOverlays.find(overlay => overlay.enabled);
+    // PERMANENT DISPLAY MODE FOR TESTING/REVIEW:
+    // shows the first enabled overlay on every visit.
+    const permanentOverlay = festiveOverlays.find((overlay) => overlay.enabled);
 
     if (permanentOverlay) {
       setActiveFestiveImage(permanentOverlay.image);
-      setOverlayDuration(permanentOverlay.displayDuration);
       setShowFestiveOverlay(true);
-
-      // Auto-hide after specified duration
-      const timer = setTimeout(() => {
-        setShowFestiveOverlay(false);
-      }, permanentOverlay.displayDuration * 1000);
-
+      const timer = setTimeout(() => setShowFestiveOverlay(false), permanentOverlay.displayDuration * 1000);
       return () => clearTimeout(timer);
     }
 
-    /* ============================================================
-    // ORIGINAL DATE-BASED LOGIC (USE THIS FOR PRODUCTION)
-    // ============================================================
-    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-    
-    // Find if any overlay is scheduled for today
-    const todaysOverlay = festiveOverlays.find(
-      overlay => overlay.enabled && overlay.scheduledDate === today
-    );
-
+    /* ORIGINAL DATE-BASED LOGIC (USE THIS FOR PRODUCTION)
+    const today = new Date().toISOString().split('T')[0];
+    const todaysOverlay = festiveOverlays.find((overlay) => overlay.enabled && overlay.scheduledDate === today);
     if (todaysOverlay) {
-      // Check localStorage to see if user has already seen it today
       const overlaySeenKey = `festive-overlay-seen-${todaysOverlay.scheduledDate}`;
       const hasSeenToday = localStorage.getItem(overlaySeenKey);
-
-      // If testing mode is on, always show the overlay (bypass localStorage)
       if (!hasSeenToday || todaysOverlay.testing) {
         setActiveFestiveImage(todaysOverlay.image);
-        setOverlayDuration(todaysOverlay.displayDuration);
         setShowFestiveOverlay(true);
-
-        // Auto-hide after specified duration
         const timer = setTimeout(() => {
           setShowFestiveOverlay(false);
-          // Only mark as seen if NOT in testing mode
-          if (!todaysOverlay.testing) {
-            localStorage.setItem(overlaySeenKey, 'true');
-          }
+          if (!todaysOverlay.testing) localStorage.setItem(overlaySeenKey, 'true');
         }, todaysOverlay.displayDuration * 1000);
-
         return () => clearTimeout(timer);
       }
     }
-    */ // END ORIGINAL LOGIC
+    */
   }, []);
 
-  // Manual close function (X button)
   const closeFestiveOverlay = () => {
     setShowFestiveOverlay(false);
     const today = new Date().toISOString().split('T')[0];
-    localStorage.setItem(`festive-overlay-seen-${today}`, 'true');
+    try {
+      localStorage.setItem(`festive-overlay-seen-${today}`, 'true');
+    } catch {
+      // Storage can be unavailable (private mode); closing still works.
+    }
   };
 
-  // ============================================================
-  // END FESTIVE OVERLAY CONFIGURATION
-  // ============================================================
-
-  // Add animations
+  // While the overlay is open: focus its close button and let Escape close it.
   useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes fade-in {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      @keyframes slide-up {
-        from { 
-          opacity: 0; 
-          transform: translateY(20px); 
-        }
-        to { 
-          opacity: 1; 
-          transform: translateY(0); 
-        }
-      }
-      @keyframes float {
-        0%, 100% { 
-          transform: translateY(0px) translateX(0px); 
-        }
-        25% { 
-          transform: translateY(-20px) translateX(10px); 
-        }
-        50% { 
-          transform: translateY(-10px) translateX(-10px); 
-        }
-        75% { 
-          transform: translateY(-15px) translateX(5px); 
-        }
-      }
-      @keyframes festive-zoom {
-        from {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-      .animate-fade-in {
-        animation: fade-in 1s ease-out;
-      }
-      .animate-slide-up {
-        animation: slide-up 1s ease-out;
-      }
-      .animate-festive-zoom {
-        animation: festive-zoom 0.4s ease-out;
-      }
-      /* Hide scrollbar for slideshow */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    `;
-    document.head.appendChild(style);
-    return () => document.head.removeChild(style);
-  }, []);
+    if (!showFestiveOverlay) return;
+    closeButtonRef.current?.focus();
+    const onKey = (e) => { if (e.key === 'Escape') closeFestiveOverlay(); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [showFestiveOverlay]);
+
+  const services = t('services.items', { returnObjects: true });
+  const news = t('news.items', { returnObjects: true }).map((item, idx) => ({ ...item, ...NEWS_EXTRAS[idx] }));
+  const [featured, ...moreNews] = news;
 
   return (
-    <div className="w-full overflow-x-hidden scroll-smooth" style={{ fontFamily: "Inter, sans-serif" }}>
+    <div className="w-full overflow-x-hidden font-body text-text">
 
-      {/* FESTIVE OVERLAY - CENTERED WITH SEMI-TRANSPARENT BACKGROUND */}
+      {/* FESTIVE OVERLAY */}
       {showFestiveOverlay && activeFestiveImage && (
-        <div 
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 animate-fade-in"
-          style={{ width: '100vw', height: '100vh' }}
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-ink-deep/80 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('festiveClose')}
+          onClick={closeFestiveOverlay}
         >
-          {/* Close Button */}
           <button
+            ref={closeButtonRef}
+            type="button"
             onClick={closeFestiveOverlay}
-            className="absolute top-8 right-8 z-[10000] p-3 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md transition-all hover:scale-110 group shadow-2xl"
+            className="focus-ring absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-[2px] border border-white/60 text-white transition-colors hover:bg-white hover:text-ink"
             aria-label={t('festiveClose')}
           >
-            <X className="w-7 h-7 text-white group-hover:rotate-90 transition-transform" strokeWidth={2.5} />
+            <X className="h-6 w-6" aria-hidden="true" />
           </button>
-
-          {/* Festive Image/Flyer - SMALLER CENTERED (max-w-3xl = 768px) */}
-          <div 
-            className="relative max-w-3xl w-full mx-4 animate-festive-zoom cursor-pointer"
-            onClick={closeFestiveOverlay}
-          >
-            <img
-              src={activeFestiveImage}
-              alt="Festive Season Greeting"
-              className="w-full h-auto rounded-2xl shadow-2xl"
-            />
-          </div>
-
-          {/* Auto-close timer indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white text-sm font-bold bg-black/60 px-6 py-3 rounded-full backdrop-blur-md shadow-xl border border-white/20">
+          <img
+            src={activeFestiveImage}
+            alt=""
+            className="max-h-[85vh] w-auto max-w-3xl rounded-[2px]"
+          />
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-on-dark">
             {t('clickToContinue')}
-          </div>
+          </p>
         </div>
       )}
 
-      {/* HERO */}
-      <header className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: '#132552' }}>
-          {/* Poster: the video's first frame, shown while it loads or if it cannot play */}
+      {/* HERO: video with a left-weighted scrim so the headline always stays legible */}
+      <header className="relative flex min-h-[88vh] items-end overflow-hidden bg-ink-deep">
+        <div className="absolute inset-0" aria-hidden="true">
           <img
             src={HERO_POSTER}
             alt=""
-            aria-hidden="true"
             fetchPriority="high"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-
           {!reduceMotion && (
             <video
               ref={heroVideoRef}
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-              style={{ zIndex: 1, opacity: videoReady ? 1 : 0, transition: 'opacity 0.6s ease-in-out' }}
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+              style={{ opacity: videoReady ? 1 : 0, transition: 'opacity 0.6s ease-in-out' }}
               autoPlay
               muted
               loop
               playsInline
               preload="auto"
               disablePictureInPicture
-              aria-hidden="true"
               tabIndex={-1}
               onPlaying={() => setVideoReady(true)}
             >
@@ -319,423 +199,226 @@ const Home = () => {
               <source src={HERO_VIDEO_LARGE} type="video/mp4" />
             </video>
           )}
-
-          {/* Opacity Overlays */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, rgba(19, 37, 82, 0.05), rgba(26, 51, 108, 0.05))', zIndex: 2 }}></div>
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(19, 37, 82, 0.1), transparent)', zIndex: 2 }}></div>
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(90deg, rgba(12,25,56,0.88) 0%, rgba(12,25,56,0.62) 45%, rgba(12,25,56,0.15) 100%)' }}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: 'linear-gradient(0deg, rgba(12,25,56,0.6), transparent)' }} />
         </div>
 
-        <div className="relative container mx-auto max-w-6xl px-6 py-20 flex flex-col items-center text-center text-white" style={{ zIndex: 10 }}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-slide-up"
-              style={{ fontFamily: "Inter, sans-serif", fontWeight: 900 }}>
-            {t('hero.titleLine1')}
-            <span className="block mt-3 drop-shadow-lg" style={{ color: '#8E3400' }}>
-              {t('hero.titleLine2')}
-            </span>
-          </h1>
-
-          <p className="mt-2 text-lg sm:text-xl md:text-2xl max-w-3xl leading-relaxed drop-shadow-md" style={{ color: 'rgba(255, 255, 255, 0.95)', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            {t('hero.subtitle')}
-          </p>
-        </div>
+        <Container className="relative pb-20 pt-40 md:pb-28">
+          <div className="max-w-3xl">
+            <h1 className="heading-display !text-white text-[2.5rem] sm:text-[3.25rem] lg:text-[4.25rem]" style={{ lineHeight: 1.05 }}>
+              {t('hero.titleLine1')}{' '}
+              <span className="text-sand">{t('hero.titleLine2')}</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+              {t('hero.subtitle')}
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button to="/resources" variant="onDark">{t('hero.ctaPrimary')}</Button>
+              <Button to="/about" variant="outlineOnDark">{t('hero.ctaSecondary')}</Button>
+            </div>
+          </div>
+        </Container>
       </header>
 
-      {/* ABOUT / WELCOME  */}
-      <section className="py-32 md:py-40" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="container mx-auto max-w-[1400px] px-8">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            {/* Content - 5 columns */}
-            <div className="space-y-8 lg:col-span-5">
-              <div>
-                <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-6" 
-                      style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                  {t('about.eyebrow')}
-                </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8"
-                    style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-                  {t('about.heading')}
-                </h2>
-</div>
-
-              <div className="space-y-6">
-                <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  {t('about.body')}
-                </p>
-
-              </div>
-
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-3 font-bold hover:gap-5 transition-all text-lg mt-8 group"
-                style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-              >
-                <span>{t('about.link')}</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+      {/* WHO WE ARE: split heading and lead paragraph, then a wide image */}
+      <section className="bg-paper py-20 md:py-28" aria-labelledby="home-about">
+        <Container>
+          <div className="grid gap-8 md:grid-cols-12 md:gap-10">
+            <div className="md:col-span-5">
+              <p className="text-sm font-semibold text-rust">{t('about.eyebrow')}</p>
+              <h2 id="home-about" className="heading-display mt-3 text-[2.25rem] md:text-[3rem]">
+                {t('about.heading')}
+              </h2>
             </div>
-
-      
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-[450px] lg:col-span-7 lg:-mt-60">
-              <img 
-                src="/whoweare.ad.jpg" 
-                alt="Maritime professionals at work"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-     
-          
-        </div>
-      </section>
-
-     {/* SERVICES / WHAT WE DO */}
-<section className="py-20 md:py-28 bg-white">
-  <div className="container mx-auto max-w-7xl px-6">
-    <div className="text-center mb-16">
-      <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('services.eyebrow')}</span>
-      <h2 className="text-5xl md:text-6xl font-black mt-4 mb-6"
-          style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-        {t('services.heading')}
-      </h2>
-      <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-        {t('services.subtitle')}
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-3 gap-8">
-      {t('services.items', { returnObjects: true }).map((service, idx) => {
-        const colors = ['#132552', '#8E3400', '#1A336C', '#6B2700', '#132552', '#8E3400'];
-        const color = colors[idx % colors.length];
-        return { ...service, color };
-      }).map((service, idx) => (
-        <div
-          key={idx}
-          className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
-          style={{ border: '1px solid rgba(19, 37, 82, 0.1)' }}
-        >
-          {/* Accent bar on top */}
-          <div 
-            className="absolute top-0 left-0 right-0 h-1 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-            style={{ backgroundColor: service.color }}
-          ></div>
-          
-          <h3 className="text-2xl font-bold mb-4" 
-              style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, color: '#132552' }}>
-            {service.title}
-          </h3>
-          <p className="leading-relaxed text-base" style={{ color: '#374151', fontFamily: 'Inter, sans-serif', fontWeight: 500 }}>{service.desc}</p>
-        </div>
-      ))}
-    </div>
-
-   
-  </div>
-</section>
-
-      
-      {/* ABOUT THE GULF OF GUINEA - PROFESSIONAL LAYOUT */}
-      <section className="py-32 md:py-40 bg-white">
-        <div className="container mx-auto max-w-[1400px] px-8">
-          <div className="text-center mb-20">
-            <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-6" 
-                  style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              {t('region.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8"
-                style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              {t('region.heading')}
-            </h2>
-</div>
-
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            {/* Professional Image - 7 columns, on the left */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-[800px] order-2 lg:order-1 lg:col-span-7">
-              <img 
-                src="/MapChart_Map (4).png" 
-                alt="Gulf of Guinea maritime view"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Content - 5 columns, on the right */}
-            <div className="space-y-8 order-1 lg:order-2 lg:col-span-5">
-              <div className="space-y-6">
-                <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  {t('region.para1')}
-                </p>
-                <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  {t('region.para2')}
-                </p>
-              </div>
-
-              {/* Countries List */}
-              <div className="pt-4">
-                <h3 className="text-lg font-bold mb-6" style={{ color: '#132552', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>
-                  {t('region.countriesHeading')}
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    'Senegal', 'Guinea-Bissau', 'Guinea', 'Sierra Leone', 'Liberia',
-                    'Côte d\'Ivoire', 'Ghana', 'Togo', 'Benin', 'Nigeria',
-                    'Cameroon', 'Equatorial Guinea', 'Gabon', 'Congo','Gambia',
-                    'DR Congo', 'Angola','Cape Verde','São Tomé and Príncipe'
-                  ].map((country, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-2 text-sm"
-                      style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#8E3400' }}></span>
-                      <span style={{ color: '#4B5563' }}>{t(`countries.${country}`, country)}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 pt-6">
-                <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
-                     style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 100%)' }}>
-                  <div className="text-3xl font-black mb-2"
-                       style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>19</div>
-                  <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('region.statCountries')}</p>
-                </div>
-                <div className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
-                     style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 100%)' }}>
-                  <div className="text-3xl font-black mb-2"
-                       style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552' }}>400M+</div>
-                  <p className="font-semibold text-sm" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('region.statPeople')}</p>
-                </div>
+            <div className="md:col-span-6 md:col-start-7 md:pt-9">
+              <p className="prose-lead">{t('about.body')}</p>
+              <div className="mt-8">
+                <TextLink to="/about">{t('about.link')}</TextLink>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-    
-      {/* PARTNERS SECTION */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('partners.eyebrow')}</span>
-            <h2 className="text-5xl md:text-6xl font-black mt-4 mb-6"
-                style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              {t('partners.heading')}
-            </h2>
-            <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-              {t('partners.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-  {[
-    { name: 'ENMAR', logo: '/Enmar.png', website: 'https://www.linkedin.com/company/enmar-enhanced-maritime-action-in-the-gulf-of-guinea/' },
-    { name: 'DOTCAN', logo: '/DOTCANLOGO.png', website: 'https://dotcan.institute/' },
-
-
-    { name: 'GREAT MINDS EVENT MANAGEMENT', logo: '/GM-logo.webp', website: 'https://www.ecowas.int/' },
-    { name: 'ATLANTIC CENTRE', logo: '/AtlanticCenter.webp', website: 'https://www.defesa.gov.pt/pt/pdefesa/ac/about' },
-    { name: 'GHANA NAVY', logo: '/ghananavy.png', website: 'https://navyonline.mil.gh/' },
-    { name: 'KAIPTC', logo: '/kaiptc.jpg', website: 'https://www.kaiptc.org/' },
-    
-   
-  ].map((partner, idx) => (
-    <a 
-      key={idx} 
-      href={partner.website} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="flex items-center justify-center p-6 rounded-2xl transition-all duration-500 hover:shadow-xl group cursor-pointer bg-white border border-gray-100"
-      style={{ minHeight: '140px' }}
-    >
-      <div className="text-center w-full">
-        {/* Logo Image Container */}
-        <div className="flex items-center justify-center h-20 mb-3 px-4">
-          <img 
-            src={partner.logo} 
-            alt={`${partner.name} logo`}
-            className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
-            onError={(e) => {
-              // Fallback if image doesn't load
-              e.target.style.display = 'none';
-              e.target.nextElementSibling.style.display = 'flex';
-            }}
+          <img
+            src="/whoweare-1800.jpg"
+            alt="Maritime professionals at work"
+            loading="lazy"
+            className="mt-14 aspect-[16/9] w-full rounded-[2px] object-cover md:aspect-[21/9]"
           />
-          {/* Fallback text - hidden by default */}
-          <div className="hidden w-full h-20 rounded-xl items-center justify-center text-white font-bold text-sm"
-               style={{ background: 'linear-gradient(135deg, #132552 0%, #1A336C 100%)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>
-            {partner.name}
-          </div>
-        </div>
-        <p className="text-xs font-semibold" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{partner.name}</p>
-      </div>
-    </a>
-  ))}
-</div>
-
-
-          <div className="text-center mt-12">
-            <Link
-              to="/partners"
-              className="font-semibold transition-colors inline-flex items-center gap-2"
-              style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#6B2700'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#8E3400'}
-            >
-              <span>{t('partners.viewAll')}</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
+        </Container>
       </section>
 
-      {/* LATEST NEWS SECTION */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: '#F5F7FA' }}>
-  <div className="container mx-auto max-w-7xl px-6">
-    <div className="text-center mb-16">
-      <span className="font-semibold text-sm uppercase tracking-wider" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>{t('news.eyebrow')}</span>
-      <h2 className="text-5xl md:text-6xl font-black mt-4 mb-6"
-          style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-        {t('news.heading')}
-      </h2>
-      <p className="text-lg max-w-3xl mx-auto" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-        {t('news.subtitle')}
-      </p>
-    </div>
+      {/* WHAT WE DO: a numbered index on a navy band */}
+      <section className="bg-ink-deep py-20 text-white md:py-28" aria-labelledby="home-services">
+        <Container>
+          <SectionHeader
+            id="home-services"
+            tone="dark"
+            title={t('services.heading')}
+            intro={t('services.subtitle')}
+            action={<TextLink to="/services" className="text-sand">{t('services.link')}</TextLink>}
+          />
+          <ol className="mt-14 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, idx) => (
+              <li key={service.title} className="border-t border-white/20 pb-10 pt-6">
+                <span className="font-display text-lg text-sand" aria-hidden="true">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-3 font-display text-[1.5rem] font-semibold leading-snug text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-on-dark">{service.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
 
-    <div className="grid md:grid-cols-3 gap-8">
-      {t('news.items', { returnObjects: true }).map((newsItem, idx) => {
-        const extras = [
-          { image: '/admiral-gafcscs.jpeg', link: 'https://www.gogmi.org.gh/blog/gogmi-blog/gogmi-contributes-to-gafcscs-landmark-republic-day-lecture' },
-          { image: '/thumbnail.jpeg', link: 'https://www.gogmiconsult.com/post/why-the-ghana-togo-maritime-boundary-delimitation-must-go-for-international-arbitration' },
-          { image: '/margov-coh2.jpeg', link: '/services/CapacityBuilding' }
-        ];
-        return { ...newsItem, ...extras[idx] };
-      }).map((news, idx) => (
-        <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
-          <div className="relative h-56 overflow-hidden">
-            <img 
-              src={news.image} 
-              alt={news.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
-            <div className="absolute top-4 left-4">
-              <span className="px-4 py-2 rounded-full text-xs font-bold text-white shadow-lg"
-                    style={{ backgroundColor: '#132552' }}>
-                {news.category}
-              </span>
-            </div>
-          </div>
-          <div className="p-8">
-            <p className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#8E3400' }}></span>
-              {news.date}
-            </p>
-            <h3 className="text-xl font-bold mb-3 transition-colors leading-tight"
-                style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, color: '#132552' }}>
-              {news.title}
-            </h3>
-            <p className="mb-6 text-base leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>{news.excerpt}</p>
-            
-            {/*  CONDITIONAL LINK - If news has link property, use it, otherwise go to blog */}
-            {news.link ? (
-              <Link to={news.link} className="font-semibold flex items-center group-hover:gap-3 transition-all"
-                    style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                <span>{t('news.readMore')}</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            ) : (
-              <Link to="/blog" className="font-semibold flex items-center group-hover:gap-3 transition-all"
-                    style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                <span>{t('news.readMore')}</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
+      {/* LATEST NEWS: one featured story and two shorter ones */}
+      <section className="bg-white py-20 md:py-28" aria-labelledby="home-news">
+        <Container>
+          <SectionHeader
+            id="home-news"
+            title={t('news.heading')}
+            intro={t('news.subtitle')}
+            action={<TextLink to="/blog">{t('news.viewAll')}</TextLink>}
+          />
+
+          <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-10">
+            {featured && (
+              <article className="group relative lg:col-span-7">
+                <img
+                  src={featured.image}
+                  alt=""
+                  loading="lazy"
+                  className="aspect-[16/10] w-full rounded-[2px] object-cover"
+                />
+                <p className="mt-6 text-sm text-muted">
+                  <span className="font-semibold text-rust">{featured.category}</span>
+                  <span aria-hidden="true"> · </span>
+                  {featured.date}
+                </p>
+                <h3 className="heading-display mt-3 text-[1.75rem] md:text-[2rem]">
+                  <SmartLink to={featured.link} className="focus-ring after:absolute after:inset-0 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+                    {featured.title}
+                  </SmartLink>
+                </h3>
+                <p className="mt-4 text-lg leading-relaxed text-muted">{featured.excerpt}</p>
+              </article>
             )}
-          </div>
-        </div>
-      ))}
-    </div>
 
-    <div className="text-center mt-12">
-      {/* Optional: View All News button */}
-    </div>
-  </div>
-</section>
-
-     {/* EVENTS BANNER SLIDESHOW */}
-<section className="py-20 md:py-28 relative overflow-hidden" 
-         style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
-  {/* Subtle decorative elements */}
-<div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
-       style={{ backgroundColor: '#132552' }}></div>
-       
-  {/* FIXED: Added the missing container div */}
-  <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
-    <h2 className="text-5xl md:text-6xl font-black mb-6"
-        style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-      {t('events.heading')}
-    </h2>
-    <p className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-      {t('events.subtitle')}
-    </p>
-    
-    {/* Horizontal Continuous Autoscroll Slideshow - 2 images at a time */}
-    <div 
-      className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div 
-        ref={scrollContainerRef}
-        className="flex gap-6 overflow-x-auto no-scrollbar py-4 px-2"
-        style={{ 
-          scrollBehavior: 'auto',
-          cursor: 'grab',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none'
-        }}
-      >
-        {/* banners array*/}
-        {[...eventBanners, ...eventBanners].map((banner, index) => (
-          <Link
-            key={`${banner.id}-${index}`}
-            to={banner.link || '#'}
-            className="flex-shrink-0 w-[calc(50%-12px)] md:w-[calc(50%-12px)] group"
-            onClick={() => setIsPaused(false)} 
-          >
-            <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] bg-gray-50">
-              <img 
-                src={banner.image} 
-                alt={banner.alt}
-                className="w-full h-auto object-contain aspect-auto"
-                style={{ maxHeight: '400px' }} // Adjust this value as needed
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/800x450?text=Event+Banner';
-                }}
-              />
-              {/* Overlay with gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center">
-              </div>
+            <div className="lg:col-span-5">
+              {moreNews.map((item) => (
+                <article key={item.title} className="group relative grid grid-cols-[1fr_7.5rem] gap-5 border-t border-line py-7 first:border-t-0 first:pt-0 lg:first:border-t lg:first:pt-7">
+                  <div>
+                    <p className="text-sm text-muted">
+                      <span className="font-semibold text-rust">{item.category}</span>
+                      <span aria-hidden="true"> · </span>
+                      {item.date}
+                    </p>
+                    <h3 className="mt-2 font-display text-[1.3125rem] font-semibold leading-snug text-ink">
+                      <SmartLink to={item.link} className="focus-ring after:absolute after:inset-0 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+                        {item.title}
+                      </SmartLink>
+                    </h3>
+                    <p className="mt-2 line-clamp-3 text-[0.9375rem] leading-relaxed text-muted">{item.excerpt}</p>
+                  </div>
+                  <img src={item.image} alt="" loading="lazy" className="aspect-square w-full rounded-[2px] object-cover" />
+                </article>
+              ))}
             </div>
-          </Link>
-        ))}
-      </div>
-      
-      {/* Gradient fade on edges for visual effect */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none"></div>
-    </div>
-    
-    {/* Play/Pause */}
-    <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
-      {isPaused ? '' : ''}
-    </div>
-  </div>
-</section>
+          </div>
+        </Container>
+      </section>
 
+      {/* THE REGION: map as a framed figure beside the text and two key figures */}
+      <section className="bg-paper py-20 md:py-28" aria-labelledby="home-region">
+        <Container>
+          <SectionHeader id="home-region" title={t('region.heading')} />
+          <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-10">
+            <figure className="self-start lg:col-span-6">
+              <img
+                src="/gulf-of-guinea-map-1400.jpg"
+                alt="Map of West and Central Africa highlighting the coastal states of the Gulf of Guinea, from Senegal to Angola"
+                loading="lazy"
+                className="w-full rounded-[2px] border border-line bg-white"
+              />
+              <figcaption className="mt-3 text-xs text-muted">Map created with mapchart.net</figcaption>
+            </figure>
+
+            <div className="lg:col-span-5 lg:col-start-8">
+              <p className="prose-lead">{t('region.para1')}</p>
+              <p className="mt-5 leading-relaxed text-muted">{t('region.para2')}</p>
+
+              <dl className="mt-10 grid grid-cols-2 gap-8">
+                <div className="flex flex-col border-t-2 border-ink pt-4">
+                  <dt className="text-sm text-muted">{t('region.statCountries')}</dt>
+                  <dd className="order-first font-display text-[2.75rem] font-semibold leading-none text-ink">19</dd>
+                </div>
+                <div className="flex flex-col border-t-2 border-ink pt-4">
+                  <dt className="text-sm text-muted">{t('region.statPeople')}</dt>
+                  <dd className="order-first font-display text-[2.75rem] font-semibold leading-none text-ink">400M+</dd>
+                </div>
+              </dl>
+
+              <h3 className="mt-10 text-base font-semibold text-ink">{t('region.countriesHeading').replace(/:\s*$/, '')}</h3>
+              <ul className="mt-3 columns-2 gap-8 text-[0.9375rem] leading-7 text-muted">
+                {COUNTRIES.map((country) => (
+                  <li key={country}>{t(`countries.${country}`, country)}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* FEATURED EVENTS */}
+      <section className="bg-white py-20 md:py-28" aria-labelledby="home-events">
+        <Container>
+          <SectionHeader id="home-events" title={t('events.heading')} intro={t('events.subtitle')} />
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {EVENT_BANNERS.map((banner) => (
+              <img
+                key={banner.id}
+                src={banner.image}
+                alt={banner.alt}
+                loading="lazy"
+                className="aspect-square w-full rounded-[2px] border border-line object-cover"
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* PARTNERS: a ruled logo grid */}
+      <section className="bg-paper py-20 md:py-28" aria-labelledby="home-partners">
+        <Container>
+          <SectionHeader
+            id="home-partners"
+            title={t('partners.heading')}
+            intro={t('partners.subtitle')}
+            action={<TextLink to="/partners">{t('partners.viewAll')}</TextLink>}
+          />
+          <ul className="mt-14 grid grid-cols-2 border-l border-t border-line md:grid-cols-3 lg:grid-cols-6">
+            {PARTNERS.map((partner) => (
+              <li key={partner.name} className="border-b border-r border-line bg-white">
+                <a
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring group flex h-full flex-col items-center justify-center gap-4 px-5 py-8"
+                >
+                  <img src={partner.logo} alt="" loading="lazy" className="h-16 w-full object-contain" />
+                  <span className="text-center text-xs font-semibold text-muted group-hover:text-ink group-hover:underline">
+                    {partner.name}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
     </div>
   );
 };

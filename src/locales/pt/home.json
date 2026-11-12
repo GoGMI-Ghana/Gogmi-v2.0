@@ -5,7 +5,9 @@
     "badge": "A Liderar o Futuro Marítimo do Golfo da Guiné",
     "titleLine1": "A Moldar a Economia Azul",
     "titleLine2": "do Golfo da Guiné",
-    "subtitle": "Pioneiros em iniciativas marítimas sustentáveis que impulsionam o crescimento económico e a proteção ambiental em todo o Golfo da Guiné"
+    "subtitle": "Pioneiros em iniciativas marítimas sustentáveis que impulsionam o crescimento económico e a proteção ambiental em todo o Golfo da Guiné",
+    "ctaPrimary": "Ler as nossas pesquisas",
+    "ctaSecondary": "Sobre o Instituto"
   },
   "about": {
     "eyebrow": "Quem Somos",
@@ -18,13 +20,32 @@
     "heading": "O Que Fazemos",
     "subtitle": "Soluções marítimas abrangentes que respondem às necessidades essenciais da região do Golfo da Guiné",
     "items": [
-      { "title": "Investigação em Segurança Marítima", "desc": "Facilitação de parcerias regionais e internacionais para promover a proteção e a segurança marítimas na região do Golfo da Guiné" },
-      { "title": "Advocacia Política", "desc": "Análise de políticas nacionais, regionais e internacionais sobre governação oceânica e segurança marítima." },
-      { "title": "Capacitação", "desc": "Desenvolvimento, auditoria e validação de planos de segurança marítima empresarial." },
-      { "title": "Colaboração Internacional", "desc": "Organização de conferências e exposições internacionais sobre governação oceânica e segurança marítima" },
-      { "title": "Desenvolvimento da Economia Azul", "desc": "Análise das atividades no domínio marítimo do Golfo da Guiné" },
-      { "title": "Mentoria da Juventude", "desc": "Elaboração de notas de política, artigos e outras publicações relevantes" }
-    ]
+      {
+        "title": "Investigação em Segurança Marítima",
+        "desc": "Facilitação de parcerias regionais e internacionais para promover a proteção e a segurança marítimas na região do Golfo da Guiné"
+      },
+      {
+        "title": "Advocacia Política",
+        "desc": "Análise de políticas nacionais, regionais e internacionais sobre governação oceânica e segurança marítima."
+      },
+      {
+        "title": "Capacitação",
+        "desc": "Desenvolvimento, auditoria e validação de planos de segurança marítima empresarial."
+      },
+      {
+        "title": "Colaboração Internacional",
+        "desc": "Organização de conferências e exposições internacionais sobre governação oceânica e segurança marítima"
+      },
+      {
+        "title": "Desenvolvimento da Economia Azul",
+        "desc": "Análise das atividades no domínio marítimo do Golfo da Guiné"
+      },
+      {
+        "title": "Mentoria da Juventude",
+        "desc": "Elaboração de notas de política, artigos e outras publicações relevantes"
+      }
+    ],
+    "link": "Conhecer as nossas áreas de trabalho"
   },
   "region": {
     "eyebrow": "A Nossa Região",
@@ -65,7 +86,8 @@
         "excerpt": "Este curso abrangente dota profissionais, partes interessadas e decisores das competências, conhecimentos e ferramentas necessárias para desenvolver e implementar estratégias marítimas eficazes no contexto africano.",
         "date": "7 – 18 de setembro de 2026"
       }
-    ]
+    ],
+    "viewAll": "Todas as notícias e blogues"
   },
   "events": {
     "heading": "Eventos em Destaque",

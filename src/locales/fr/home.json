@@ -5,7 +5,9 @@
     "badge": "À l'avant-garde de l'avenir maritime du Golfe de Guinée",
     "titleLine1": "Façonner l'économie bleue",
     "titleLine2": "du Golfe de Guinée",
-    "subtitle": "Pionniers d'initiatives maritimes durables qui stimulent la croissance économique et la gestion environnementale dans tout le Golfe de Guinée"
+    "subtitle": "Pionniers d'initiatives maritimes durables qui stimulent la croissance économique et la gestion environnementale dans tout le Golfe de Guinée",
+    "ctaPrimary": "Lire nos recherches",
+    "ctaSecondary": "À propos de l'Institut"
   },
   "about": {
     "eyebrow": "Qui sommes-nous",
@@ -18,13 +20,32 @@
     "heading": "Ce que nous faisons",
     "subtitle": "Des solutions maritimes globales répondant aux besoins essentiels de la région du Golfe de Guinée",
     "items": [
-      { "title": "Recherche sur la sécurité maritime", "desc": "Facilitation de partenariats régionaux et internationaux pour promouvoir la sûreté et la sécurité maritimes dans la région du Golfe de Guinée" },
-      { "title": "Plaidoyer politique", "desc": "Analyse des politiques nationales, régionales et internationales relatives à la gouvernance des océans et à la sécurité maritime." },
-      { "title": "Renforcement des capacités", "desc": "Élaboration, audit et validation des plans de sécurité maritime des entreprises." },
-      { "title": "Collaboration internationale", "desc": "Organisation de conférences et d'expositions internationales sur la gouvernance des océans et la sécurité maritime" },
-      { "title": "Développement de l'économie bleue", "desc": "Analyse des activités dans le domaine maritime du Golfe de Guinée" },
-      { "title": "Mentorat des jeunes", "desc": "Élaboration de notes de politique, d'articles et d'autres publications pertinentes" }
-    ]
+      {
+        "title": "Recherche sur la sécurité maritime",
+        "desc": "Facilitation de partenariats régionaux et internationaux pour promouvoir la sûreté et la sécurité maritimes dans la région du Golfe de Guinée"
+      },
+      {
+        "title": "Plaidoyer politique",
+        "desc": "Analyse des politiques nationales, régionales et internationales relatives à la gouvernance des océans et à la sécurité maritime."
+      },
+      {
+        "title": "Renforcement des capacités",
+        "desc": "Élaboration, audit et validation des plans de sécurité maritime des entreprises."
+      },
+      {
+        "title": "Collaboration internationale",
+        "desc": "Organisation de conférences et d'expositions internationales sur la gouvernance des océans et la sécurité maritime"
+      },
+      {
+        "title": "Développement de l'économie bleue",
+        "desc": "Analyse des activités dans le domaine maritime du Golfe de Guinée"
+      },
+      {
+        "title": "Mentorat des jeunes",
+        "desc": "Élaboration de notes de politique, d'articles et d'autres publications pertinentes"
+      }
+    ],
+    "link": "Découvrir nos domaines d'activité"
   },
   "region": {
     "eyebrow": "Notre région",
@@ -65,7 +86,8 @@
         "excerpt": "Ce cours complet dote les professionnels, les parties prenantes et les décideurs des connaissances, compétences et outils nécessaires pour élaborer et mettre en œuvre des stratégies maritimes efficaces dans le contexte africain.",
         "date": "7 – 18 septembre 2026"
       }
-    ]
+    ],
+    "viewAll": "Toutes les actualités et blogs"
   },
   "events": {
     "heading": "Événements à la une",

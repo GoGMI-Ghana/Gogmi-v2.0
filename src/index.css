@@ -14,17 +14,87 @@
   --font-family-poppins: 'Poppins', sans-serif;
   --font-family-inter: 'Inter', sans-serif;
   --font-family-montserrat: 'Montserrat', sans-serif;
+
+  /* ---------------------------------------------------------------
+     GoGMI design tokens (editorial style).
+     Use these through Tailwind classes (text-ink, bg-paper, border-line,
+     font-display, ...) instead of hard-coded hex values.
+     --------------------------------------------------------------- */
+
+  /* Typefaces: serif for headings, a plain public-service sans for text. */
+  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Colour roles. Contrast against paper/white noted where it matters. */
+  --color-ink: #132552;        /* brand navy: headings, primary buttons (13.6:1 on white) */
+  --color-ink-deep: #0C1938;   /* footer and dark bands */
+  --color-rust: #8E3400;       /* brand accent: links, highlights (7.6:1 on white) */
+  --color-rust-deep: #6B2700;  /* hover state for rust */
+  --color-text: #1F2933;       /* body copy */
+  --color-muted: #4A5263;      /* secondary copy (7.5:1 on white) */
+  --color-paper: #F6F4EF;      /* warm off-white section background */
+  --color-line: #D9D4CA;       /* hairline rules and borders */
+  --color-sand: #D7C39A;       /* accent on dark backgrounds only */
+  --color-on-dark: #C9D0DD;    /* secondary text on navy (8.9:1) */
+}
+
+/* Shared editorial type styles. */
+@layer components {
+  .prose-lead {
+    font-family: var(--font-body);
+    font-size: 1.1875rem;
+    line-height: 1.65;
+    color: var(--color-text);
+  }
+  .heading-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    line-height: 1.12;
+    color: var(--color-ink);
+    font-optical-sizing: auto;
+  }
+  .link-editorial {
+    color: var(--color-rust);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    transition: color 0.15s, text-decoration-thickness 0.15s;
+  }
+  .link-editorial:hover {
+    color: var(--color-rust-deep);
+    text-decoration-thickness: 2px;
+  }
+  .focus-ring:focus-visible,
+  .link-editorial:focus-visible {
+    outline: 3px solid var(--color-rust);
+    outline-offset: 3px;
+  }
+}
+
+/* Respect the reduced-motion setting everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 
-body {
-  font-family: var(--font-family-inter);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* Kept in the base layer so utility classes such as font-display can override them. */
+@layer base {
+  body {
+    font-family: var(--font-family-inter);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-poppins);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-poppins);
+  }
 }
 
 
@@ -189,13 +259,13 @@ html {
 
 /* Selection color */
 ::selection {
-  background-color: #DAA520;
-  color: #1e293b;
+  background-color: #D7C39A;
+  color: #132552;
 }
 
 ::-moz-selection {
-  background-color: #DAA520;
-  color: #1e293b;
+  background-color: #D7C39A;
+  color: #132552;
 }
 
 /* Custom scrollbar */
@@ -208,10 +278,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #003366;
+  background: #132552;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #DAA520;
+  background: #8E3400;
 }

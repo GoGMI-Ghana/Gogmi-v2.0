@@ -5,7 +5,9 @@
     "badge": "Leading The Gulf Of Guinea Maritime Future",
     "titleLine1": "Shaping The Gulf of Guinea",
     "titleLine2": "Blue Economy",
-    "subtitle": "Pioneering sustainable maritime initiatives that drive economic growth and environmental stewardship across the Gulf of Guinea"
+    "subtitle": "Pioneering sustainable maritime initiatives that drive economic growth and environmental stewardship across the Gulf of Guinea",
+    "ctaPrimary": "Read our research",
+    "ctaSecondary": "About the Institute"
   },
   "about": {
     "eyebrow": "Who We Are",
@@ -18,13 +20,32 @@
     "heading": "What We Do",
     "subtitle": "Comprehensive maritime solutions addressing the critical needs of the Gulf of Guinea region",
     "items": [
-      { "title": "Maritime Security Research", "desc": "Facilitation of Regional and International Partnerships Foster Maritime Safety and Security in the Gulf of Guinea Region" },
-      { "title": "Policy Advocacy", "desc": "Analysis of National, Regional and International Policies On Ocean Governance and Maritime Security." },
-      { "title": "Capacity Building", "desc": "Development, Audit and Validation Of Corporate Maritime Security Plans." },
-      { "title": "International Collaboration", "desc": "Organization of International Ocean Governance And Maritime Security Conferences and Exhibitions" },
-      { "title": "Blue Economy Development", "desc": "Analysis of Activities In the Gulf of Guinea Maritime Domain" },
-      { "title": "Youth Mentorship", "desc": "Development of Policy Briefs Articles and Other Relevant Publications" }
-    ]
+      {
+        "title": "Maritime Security Research",
+        "desc": "Facilitation of Regional and International Partnerships Foster Maritime Safety and Security in the Gulf of Guinea Region"
+      },
+      {
+        "title": "Policy Advocacy",
+        "desc": "Analysis of National, Regional and International Policies On Ocean Governance and Maritime Security."
+      },
+      {
+        "title": "Capacity Building",
+        "desc": "Development, Audit and Validation Of Corporate Maritime Security Plans."
+      },
+      {
+        "title": "International Collaboration",
+        "desc": "Organization of International Ocean Governance And Maritime Security Conferences and Exhibitions"
+      },
+      {
+        "title": "Blue Economy Development",
+        "desc": "Analysis of Activities In the Gulf of Guinea Maritime Domain"
+      },
+      {
+        "title": "Youth Mentorship",
+        "desc": "Development of Policy Briefs Articles and Other Relevant Publications"
+      }
+    ],
+    "link": "Explore our areas of work"
   },
   "region": {
     "eyebrow": "Our Region",
@@ -65,7 +86,8 @@
         "excerpt": "This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.",
         "date": "September 7 – 18, 2026"
       }
-    ]
+    ],
+    "viewAll": "All news and blogs"
   },
   "events": {
     "heading": "Featured Events",

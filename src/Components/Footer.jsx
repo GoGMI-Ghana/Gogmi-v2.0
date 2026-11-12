@@ -1,9 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Waves, MapPin, Mail, Phone, Linkedin, Twitter, Facebook, ArrowRight, Youtube, MessageCircle } from 'lucide-react';
+import { Linkedin, Twitter, Facebook, Youtube, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Container } from './ui/Editorial';
 
 const API_URL = 'https://api.gogmi.org.gh/api';
+
+const SOCIAL_LINKS = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/gulf-of-guinea-maritime-institute/', Icon: Linkedin },
+  { label: 'Twitter', href: 'https://twitter.com/GoGMI_Official', Icon: Twitter },
+  { label: 'Facebook', href: 'https://www.facebook.com/GoGMI.Official', Icon: Facebook },
+  { label: 'YouTube', href: 'https://www.youtube.com/@GoGMI_Official', Icon: Youtube },
+  { label: 'WhatsApp', href: 'https://www.youtube.com/@gulfofguineamaritimeinstitute', Icon: MessageCircle }
+];
+
+const FooterLinks = ({ title, links }) => (
+  <div>
+    <h3 className="text-sm font-semibold text-white">{title}</h3>
+    <ul className="mt-4 space-y-3">
+      {links.map((item) => (
+        <li key={item.path}>
+          <Link
+            to={item.path}
+            className="focus-ring text-[0.9375rem] text-on-dark underline-offset-4 transition-colors hover:text-white hover:underline"
+          >
+            {item.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 const Footer = () => {
   const { t } = useTranslation('common');
@@ -36,186 +63,115 @@ const Footer = () => {
     }
   };
 
-  return (
-    <footer className="bg-gray-900 text-white" style={{ fontFamily: 'Inter, sans-serif' }}>
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Column 1 - About */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              {/* GoGMI Logo - Upload logo to /public/GoGMI_PNG.png */}
-              <img 
-                src="/GoGMI_PNG.png" 
-                alt="GoGMI Logo" 
-                className="w-12 h-12 object-contain"
-                onError={(e) => {
-                  // Fallback if logo image doesn't load
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'flex';
-                }}
-              />
-              {/* Fallback Icon (hidden by default) */}
-              <div className="hidden w-12 h-12 bg-gradient-to-br from-[#132552] to-[#1A336C] rounded-xl items-center justify-center">
-                <Waves className="w-6 h-6 text-[#8E3400]" />
-              </div>
-              <div>
-                <div className="font-bold text-xl" style={{ fontWeight: 700 }}>{t('brand.name')}</div>
-                <div className="text-sm text-gray-400" style={{ fontWeight: 400 }}>{t('footer.tagline')}</div>
-              </div>
-            </div>
+  const year = new Date().getFullYear();
 
+  return (
+    <footer className="bg-ink-deep font-body text-white">
+      <Container className="py-16 md:py-20">
+        {/* Brand and newsletter */}
+        <div className="grid gap-12 border-b border-white/15 pb-12 md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-6">
+            <Link to="/" className="focus-ring inline-flex items-center gap-4">
+              <img src="/GoGMI_PNG.png" alt="" className="h-14 w-14 object-contain" />
+              <span>
+                <span className="block font-display text-[1.625rem] font-semibold leading-tight">{t('brand.name')}</span>
+                <span className="block text-sm text-on-dark">{t('footer.tagline')}</span>
+              </span>
+            </Link>
           </div>
 
-          {/* Column 2 - Quick Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>{t('footer.quickLinks')}</h3>
-            <ul className="space-y-3">
-              {[
+          <div className="md:col-span-5 md:col-start-8">
+            <h3 className="font-display text-xl font-semibold">{t('footer.subscribeNewsletter')}</h3>
+            {subStatus === 'success' ? (
+              <p className="mt-4 text-sm font-semibold text-sand" role="status">{subMsg}</p>
+            ) : (
+              <form onSubmit={handleSubscribe} className="mt-4">
+                <label htmlFor="footer-newsletter-email" className="mb-2 block text-sm text-on-dark">
+                  {t('footer.emailPlaceholder')}
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    id="footer-newsletter-email"
+                    type="email"
+                    autoComplete="email"
+                    value={subEmail}
+                    onChange={(e) => setSubEmail(e.target.value)}
+                    required
+                    disabled={subStatus === 'loading'}
+                    aria-describedby={subStatus === 'error' ? 'footer-newsletter-error' : undefined}
+                    className="min-w-0 flex-1 rounded-[2px] border border-white/40 bg-transparent px-4 py-3 text-[0.9375rem] text-white placeholder:text-on-dark focus:border-white focus:outline-none focus:ring-2 focus:ring-sand"
+                  />
+                  <button
+                    type="submit"
+                    disabled={subStatus === 'loading'}
+                    className="focus-ring whitespace-nowrap rounded-[2px] border border-white bg-white px-5 py-3 text-[0.9375rem] font-semibold text-ink transition-colors hover:border-sand hover:bg-sand disabled:opacity-60"
+                  >
+                    {subStatus === 'loading' ? t('footer.subscribing') : t('footer.subscribe')}
+                  </button>
+                </div>
+                {subStatus === 'error' && (
+                  <p id="footer-newsletter-error" className="mt-2 text-sm text-[#FCA5A5]" role="alert">{subMsg}</p>
+                )}
+              </form>
+            )}
+          </div>
+        </div>
+
+        {/* Link columns */}
+        <div className="grid gap-10 py-12 sm:grid-cols-2 md:grid-cols-12">
+          <div className="md:col-span-3">
+            <FooterLinks
+              title={t('footer.quickLinks')}
+              links={[
                 { name: t('footer.home'), path: '/' },
                 { name: t('footer.aboutUs'), path: '/about' },
                 { name: t('footer.membership'), path: '/Membership' },
-                { name: t('footer.blueBusinessDirectory'), path: '/blue-business-directory' },
-
-              ].map((item) => (
-                <li key={item.path}>
-                  <Link 
-                    to={item.path} 
-                    className="text-gray-400 hover:text-[#8E3400] transition-colors flex items-center group"
-                    style={{ fontWeight: 400 }}
-                  >
-                    <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                { name: t('footer.blueBusinessDirectory'), path: '/blue-business-directory' }
+              ]}
+            />
           </div>
-
-          {/* Column 3 - Resources */}
-          <div>
-            <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>{t('footer.resources')}</h3>
-            <ul className="space-y-3">
-              {[
+          <div className="md:col-span-3">
+            <FooterLinks
+              title={t('footer.resources')}
+              links={[
                 { name: t('footer.library'), path: '/Resources' },
                 { name: t('footer.newsBlogs'), path: '/blog' },
                 { name: t('footer.contact'), path: '/contact' },
                 { name: t('footer.careers'), path: '/CareersOpportunities' },
                 { name: t('footer.partners'), path: '/partners' }
-              ].map((item) => (
-                <li key={item.path}>
-                  <Link 
-                    to={item.path} 
-                    className="text-gray-400 hover:text-[#8E3400] transition-colors flex items-center group"
-                    style={{ fontWeight: 400 }}
+              ]}
+            />
+          </div>
+          <div className="md:col-span-5 md:col-start-8">
+            <h3 className="text-sm font-semibold text-white">{t('footer.connectWithUs')}</h3>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="focus-ring flex h-11 w-11 items-center justify-center rounded-[2px] border border-white/25 text-on-dark transition-colors hover:border-white hover:text-white"
                   >
-                    <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                    {item.name}
-                  </Link>
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Social Media */}
-        <div className="border-t border-gray-800 pt-8 mb-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h3 className="font-bold text-lg mb-4" style={{ fontWeight: 700 }}>{t('footer.connectWithUs')}</h3>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/company/gulf-of-guinea-maritime-institute/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover:scale-110"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://twitter.com/GoGMI_Official" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all hover:scale-110"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://www.facebook.com/GoGMI.Official" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-700 hover:text-white transition-all hover:scale-110"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://www.youtube.com/@GoGMI_Official" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-600 hover:text-white transition-all hover:scale-110"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://www.youtube.com/@gulfofguineamaritimeinstitute" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition-all hover:scale-110"
-                  aria-label="WhatsApp"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Newsletter */}
-            <div>
-              <h3 className="font-bold text-lg mb-3 text-center md:text-left" style={{ fontWeight: 700 }}>{t('footer.subscribeNewsletter')}</h3>
-              {subStatus === 'success' ? (
-                <p className="text-sm font-semibold" style={{ color: '#4ADE80' }}>{subMsg}</p>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex gap-2">
-                  <input
-                    type="email"
-                    placeholder={t('footer.emailPlaceholder')}
-                    value={subEmail}
-                    onChange={e => setSubEmail(e.target.value)}
-                    required
-                    disabled={subStatus === 'loading'}
-                    className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#8E3400] text-sm flex-1"
-                    style={{ fontWeight: 400 }}
-                  />
-                  <button
-                    type="submit"
-                    disabled={subStatus === 'loading'}
-                    className="bg-[#8E3400] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#6B2700] transition-all text-sm disabled:opacity-60 whitespace-nowrap"
-                    style={{ fontWeight: 600 }}
-                  >
-                    {subStatus === 'loading' ? t('footer.subscribing') : t('footer.subscribe')}
-                  </button>
-                </form>
-              )}
-              {subStatus === 'error' && (
-                <p className="text-xs mt-2" style={{ color: '#F87171' }}>{subMsg}</p>
-              )}
-            </div>
-          </div>
+        {/* Legal */}
+        <div className="flex flex-col gap-4 border-t border-white/15 pt-8 text-sm text-on-dark md:flex-row md:items-center md:justify-between">
+          <p>{t('footer.copyright').replace(/\b20\d\d\b/, String(year))}</p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            <li><Link to="/privacy" className="focus-ring hover:text-white hover:underline">{t('footer.privacyPolicy')}</Link></li>
+            <li><Link to="/terms" className="focus-ring hover:text-white hover:underline">{t('footer.termsOfService')}</Link></li>
+            <li><Link to="/sitemap" className="focus-ring hover:text-white hover:underline">{t('footer.sitemap')}</Link></li>
+          </ul>
         </div>
-
-        {/* Copyright */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p style={{ fontWeight: 400 }}>{t('footer.copyright')}</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>{t('footer.privacyPolicy')}</Link>
-
-            <Link to="/terms" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>{t('footer.termsOfService')}</Link>
-            <Link to="/sitemap" className="hover:text-[#8E3400] transition-colors" style={{ fontWeight: 400 }}>{t('footer.sitemap')}</Link>
-          </div>
-        </div>
-      </div>
+      </Container>
     </footer>
   );
 };
