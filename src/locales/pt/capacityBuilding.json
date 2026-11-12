@@ -1,4 +1,5 @@
 {
+  "breadcrumb": "Áreas de Atuação",
   "hero": {
     "heading": "Capacitação",
     "subtitle": "Somos especializados em programas de formação e iniciativas de mentoria para profissionais do mar, partes interessadas, mulheres e jovens na economia azul, bem como na segurança e proteção marítimas.",
@@ -34,7 +35,7 @@
         "title": "GOVERNAÇÃO MARÍTIMA PARA PROFISSIONAIS:",
         "subtitle": "UM ENFOQUE EM ÁFRICA",
         "tagline": "Um Enfoque em África",
-        "fullTitle": "GOVERNAÇÃO MARÍTIMA PARA PROFISSIONAIS",
+        "fullTitle": "Governação marítima para profissionais",
         "description": "Curso virtual abrangente de duas semanas que dota os profissionais de competências para desenvolver e implementar estratégias de segurança marítima em todo o continente africano.",
         "duration": "2 semanas",
         "format": "Virtual",
@@ -49,7 +50,7 @@
         "title": "INVESTIGAÇÃO DE SINISTROS MARÍTIMOS:",
         "subtitle": "GESTÃO DA SEGURANÇA",
         "tagline": "Gestão da Segurança",
-        "fullTitle": "INVESTIGAÇÃO DE SINISTROS MARÍTIMOS E GESTÃO DA SEGURANÇA",
+        "fullTitle": "Investigação de sinistros marítimos e gestão da segurança",
         "description": "Formação executiva sobre a condução de investigações credíveis de sinistros marítimos, alinhada com o Código de Investigação de Sinistros da OMI e os requisitos SOLAS para administrações marítimas.",
         "duration": "5 dias",
         "format": "Presencial",
@@ -57,7 +58,8 @@
         "level": "Executivo",
         "nextIntake": "15 – 19 de junho de 2026"
       }
-    }
+    },
+    "heading": "Cursos de referência"
   },
   "programs": {
     "eyebrow": "Todos os Programas",
@@ -70,48 +72,69 @@
     },
     "items": {
       "marineCasualty": {
-        "title": "INVESTIGAÇÃO DE SINISTROS MARÍTIMOS E GESTÃO DA SEGURANÇA",
+        "title": "Investigação de sinistros marítimos e gestão da segurança",
         "description": "A segurança do transporte marítimo e por vias navegáveis interiores (IWW) é central para os sistemas de transporte de África, apoiando o comércio, a mobilidade de passageiros, a pesca e os meios de subsistência nas comunidades costeiras e ribeirinhas. As causas comuns incluem sobrecarga, mau estado de conservação das embarcações, operadores incompetentes ou sem licença, ausência de equipamento de salvamento, mau tempo, fraca aplicação da regulamentação, auxílios à navegação inadequados e fatores humanos como a fadiga e a embriaguez. Estes incidentes evidenciam lacunas críticas: monitorização de conformidade insuficiente, mau estado de conservação das embarcações e falta de investigações normalizadas que produzam dados para a análise de tendências e a prevenção de acidentes.",
         "duration": "5 dias",
         "format": "Presencial",
         "level": "Todos os Níveis",
-        "features": ["Conformidade OMI", "Corpo Docente Especializado", "Formato Híbrido", "Certificação"],
+        "features": [
+          "Conformidade OMI",
+          "Corpo Docente Especializado",
+          "Formato Híbrido",
+          "Certificação"
+        ],
         "nextIntake": "15 – 19 de junho de 2026"
       },
       "maritimeGovernance": {
-        "title": "CURSO DE GOVERNAÇÃO MARÍTIMA: UM ENFOQUE EM ÁFRICA",
+        "title": "Curso de governação marítima: um enfoque em África",
         "description": "Ao longo de décadas, o continente africano tem enfrentado um vasto leque de ameaças e desafios de segurança marítima, nenhum dos quais pode ser plenamente resolvido sem orientação estratégica. Por conseguinte, o continente assistiu a uma proliferação de documentos estratégicos, incluindo a Estratégia Marítima Integrada de África para 2050 em 2012, a Carta de Lomé em 2016 e a Estratégia da Economia Azul de África em 2019. Este curso abrangente dota profissionais, partes interessadas e decisores dos conhecimentos, competências e ferramentas necessárias para desenvolver e implementar estratégias marítimas eficazes no contexto africano.",
         "duration": "2 semanas",
         "format": "Virtual/Em linha",
         "level": "Iniciante–Intermédio",
-        "features": ["8 Módulos de Formação", "Workshops via Zoom", "Certificado"],
+        "features": [
+          "8 Módulos de Formação",
+          "Workshops via Zoom",
+          "Certificado"
+        ],
         "nextIntake": "Trimestral"
       },
       "journalistTraining": {
-        "title": "FORMAÇÃO 2025 PARA JORNALISTAS E PROFISSIONAIS DOS MEDIA SOBRE SEGURANÇA MARÍTIMA, PROTEÇÃO E ECONOMIA AZUL NO GOLFO DA GUINÉ",
+        "title": "Formação 2025 para jornalistas e profissionais dos media sobre segurança marítima, proteção e economia azul no Golfo da Guiné",
         "description": "Para melhor sensibilizar sobre as questões e desafios da segurança marítima, o projeto EnMAR e o Gulf of Guinea Maritime Institute (GoGMI) lançaram um convite à participação num curso de formação intitulado: «Formação para Jornalistas e Profissionais dos Media sobre Segurança Marítima, Proteção e Economia Azul no Golfo da Guiné».",
         "duration": "3 dias",
         "format": "Híbrido",
         "level": "Todos os Níveis",
-        "features": ["Formação prática em informação de fontes abertas", "Jornalismo de dados", "Narrativa multimédia"],
+        "features": [
+          "Formação prática em informação de fontes abertas",
+          "Jornalismo de dados",
+          "Narrativa multimédia"
+        ],
         "nextIntake": "7 – 9 de outubro de 2025"
       },
       "massdi": {
-        "title": "CURSO DE FORMAÇÃO MaSSDI",
+        "title": "Curso de formação MaSSDI",
         "description": "Plataforma que liga os jovens a líderes da indústria marítima para explorar carreiras e oportunidades.",
         "duration": "2 meses",
         "format": "Virtual/Em linha",
         "level": "Todos os Níveis",
-        "features": ["Teoria da Estratégia de Segurança Marítima", "Avaliação de Desafios e Oportunidades de Segurança Marítima I e II", "Coordenação Interinstitucional e Análise de Partes Interessadas I e II"],
+        "features": [
+          "Teoria da Estratégia de Segurança Marítima",
+          "Avaliação de Desafios e Oportunidades de Segurança Marítima I e II",
+          "Coordenação Interinstitucional e Análise de Partes Interessadas I e II"
+        ],
         "nextIntake": "6 de outubro – 30 de novembro de 2025"
       },
       "blueMentorship": {
-        "title": "O PROGRAMA DE MENTORIA AZUL",
+        "title": "O programa de mentoria azul",
         "description": "Um acelerador marítimo africano que seleciona 30 jovens para uma experiência completa de mentoria e preparação — ligando os jovens a líderes da indústria, empreendedores e profissionais do oceano para os preparar para o sucesso na economia azul.",
         "duration": "12 meses",
         "format": "Híbrido",
         "level": "Todos os Níveis",
-        "features": ["Emparelhamento Individual com Mentor", "Série de Palestras Blue Success (BLUESSS)", "Centro de Apoio a Negócios Marítimos"],
+        "features": [
+          "Emparelhamento Individual com Mentor",
+          "Série de Palestras Blue Success (BLUESSS)",
+          "Centro de Apoio a Negócios Marítimos"
+        ],
         "nextIntake": "Coorte Concluída"
       },
       "ecop": {
@@ -120,7 +143,11 @@
         "duration": "12 meses",
         "format": "Híbrido",
         "level": "Todos os Níveis",
-        "features": ["Mentoria Individual", "Redes da Indústria", "Orientação de Carreira"],
+        "features": [
+          "Mentoria Individual",
+          "Redes da Indústria",
+          "Orientação de Carreira"
+        ],
         "nextIntake": "Março de 2025"
       },
       "wytec": {
@@ -129,9 +156,17 @@
         "duration": "4 semanas",
         "format": "Em linha",
         "level": "Iniciante–Intermédio",
-        "features": ["4 Módulos de Formação", "Workshops via Zoom", "Certificado"],
+        "features": [
+          "4 Módulos de Formação",
+          "Workshops via Zoom",
+          "Certificado"
+        ],
         "nextIntake": "Trimestral"
       }
+    },
+    "groups": {
+      "open": "Programas em curso",
+      "past": "Programas anteriores"
     }
   },
   "alumni": {
