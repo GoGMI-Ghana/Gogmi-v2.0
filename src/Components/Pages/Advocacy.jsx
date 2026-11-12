@@ -1,222 +1,103 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  ArrowRight,
-  Scale,
-  Users,
-  FileText,
-  Target,
-  TrendingUp,
-  Globe,
-  CheckCircle,
-  Award,
-  BookOpen,
-  MessageSquare,
-  ExternalLink,
-  Download,
-  Calendar,
-  Shield,
-  Anchor,
-  Waves
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Container, Button, SectionHeader } from '../ui/Editorial';
+
+// One entry per item in advocacy.json `campaigns`, in the same order.
+const CAMPAIGNS = [
+  { status: 'active', logo: '/IMSWG LOGO WHITE BG.jpg', link: '/imswg' },
+  { status: 'active', logo: '/GoGMI_PNG.png', link: '/blue-world-initiative' },
+  { status: 'completed', logo: '/bluecareer.webp', link: '/bluecareerexpo' }
+];
 
 const Advocacy = () => {
   const { t } = useTranslation('advocacy');
-  const [activeTab, setActiveTab] = useState('all');
-
-  const policyAreas = [
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: 'Maritime Security',
-      description: 'Advocating for enhanced regional cooperation and capacity building to combat piracy and maritime crime.',
-      color: '#132552',
-      initiatives: ['Regional Information Sharing', 'Naval Cooperation Frameworks', 'Port Security Standards']
-    },
-    {
-      icon: <Waves className="w-8 h-8" />,
-      title: 'Blue Economy',
-      description: 'Promoting sustainable utilization of ocean resources for economic growth and marine conservation.',
-      color: '#8E3400',
-      initiatives: ['Sustainable Fisheries', 'Marine Tourism', 'Ocean Conservation']
-    },
-    {
-      icon: <Scale className="w-8 h-8" />,
-      title: 'Maritime Governance',
-      description: 'Strengthening legal frameworks and institutional capacity for effective maritime management.',
-      color: '#1A336C',
-      initiatives: ['Legal Harmonization', 'Institutional Development', 'Compliance Monitoring']
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: 'Capacity Building',
-      description: 'Developing human resource capabilities across maritime institutions and communities.',
-      color: '#8E3400',
-      initiatives: ['Professional Training', 'Youth Programs', 'Technical Assistance']
-    }
-  ];
-
-
-
-const campaignsMeta = [
-    {
-      status: 'active',
-      supporters: 2450,
-      logo: '/IMSWG LOGO WHITE BG.jpg',
-      link: '/imswg'
-    },
-    {
-      status: 'active',
-      supporters: 1250,
-      logo: '/GoGMI_PNG.png',
-      link: '/blue-world-initiative'
-    },
-    {
-      status: 'completed',
-      supporters: 3200,
-      logo: '/bluecareer.webp',
-      link: '/bluecareerexpo'
-    },
-    {
-      status: 'completed',
-      supporters: 1250,
-      logo: '/GoGMI_PNG.png',
-      link: '/blue-world-initiative'
-    }
-  ];
 
   const campaigns = t('campaigns', { returnObjects: true }).map((campaign, idx) => ({
     ...campaign,
-    ...campaignsMeta[idx],
-    statusLabel: t(`campaignStatus.${campaignsMeta[idx].status}`)
+    ...CAMPAIGNS[idx],
+    statusLabel: t(`campaignStatus.${CAMPAIGNS[idx].status}`)
   }));
+
   return (
-    <div className="w-full overflow-x-hidden" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-      
-      {/* HERO SECTION */}
-      <section className="relative text-white py-24 md:py-40 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&fit=crop&q=90" 
-            alt="Advocacy Hero"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(19, 37, 82, 0.7) 0%, rgba(26, 51, 108, 0.65) 100%)' }}></div>
-        </div>
-
-        <div className="container mx-auto max-w-6xl px-6 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl leading-tight mb-8"
-                style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-             {t('hero.title')}
-            </h1>
-
-            <p className="text-xl md:text-2xl leading-relaxed mb-10" style={{ fontWeight: 400, color: 'rgba(255, 255, 255, 0.95)' }}>
-             {t('hero.subtitle')}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl transition-all shadow-xl hover:scale-105"
-                style={{ fontWeight: 700, backgroundColor: '#8E3400', color: 'white' }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6B2700'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#8E3400'}
-              >
-                <span>{t('hero.cta')}</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+    <div className="w-full font-body text-text">
+      {/* PAGE HEADER: text, then a wide photograph */}
+      <header className="bg-white pt-[124px] md:pt-[148px]">
+        <Container>
+          <div className="grid gap-8 pb-12 md:pb-16 lg:grid-cols-12 lg:items-end lg:gap-10">
+            <div className="lg:col-span-7">
+              <p className="text-sm font-semibold text-rust">
+                <Link to="/services" className="focus-ring hover:underline hover:underline-offset-4">{t('breadcrumb')}</Link>
+              </p>
+              <h1 className="heading-display mt-3 text-[2.75rem] md:text-[4rem]">{t('hero.title')}</h1>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-lg leading-relaxed text-muted">{t('hero.subtitle')}</p>
+              <div className="mt-6">
+                <Button to="/contact">{t('hero.cta')}</Button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+        <img
+          src="/advocacy-hero-1600.jpg"
+          alt="Delegates and naval officers at a GoGMI maritime conference"
+          className="h-[260px] w-full object-cover md:h-[420px] lg:h-[480px]"
+          style={{ objectPosition: '50% 70%' }}
+        />
+      </header>
 
-      {/* ACTIVE CAMPAIGNS */}
-      <section id="campaigns" className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>{t('campaignsSection.eyebrow')}</span>
-            <h2 className="text-5xl md:text-6xl mt-4 mb-6"
-                style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              {t('campaignsSection.heading')}
-            </h2>
-          </div>
+      {/* CAMPAIGNS: three ruled columns */}
+      <section id="campaigns" className="scroll-mt-20 bg-white py-20 md:py-28" aria-labelledby="advocacy-campaigns">
+        <Container>
+          <SectionHeader id="advocacy-campaigns" title={t('campaignsSection.heading')} />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ul className="mt-12 grid border-t border-line md:grid-cols-3">
             {campaigns.map((campaign, idx) => (
-              <div
-                key={idx}
-                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-                style={{ border: '2px solid #F5F7FA' }}
+              <li
+                key={campaign.title}
+                className={`flex flex-col border-b border-line py-10 md:border-b-0 md:px-8 ${idx === 0 ? 'md:pl-0' : 'md:border-l'} ${idx === campaigns.length - 1 ? 'md:pr-0' : ''}`}
               >
-                {/* Logo Section */}
-                <div className="flex items-center justify-center mb-4 h-20">
-                  <img 
-                    src={campaign.logo} 
-                    alt={campaign.title}
-                    className="max-h-full max-w-full object-contain"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-300 text-sm">Logo</div>';
-                    }}
-                  />
+                <div className="flex h-20 w-20 items-center justify-center rounded-[2px] border border-line bg-white p-2">
+                  <img src={campaign.logo} alt="" className="max-h-full max-w-full object-contain" />
                 </div>
 
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1.5 rounded-full text-xs uppercase"
-                        style={{ 
-                          fontWeight: 700, 
-                          backgroundColor: campaign.status === 'active' ? '#10B981' : '#6B7280', 
-                          color: 'white'
-                        }}>
-                    {campaign.statusLabel}
-                  </span>
-                  <span className="text-sm" style={{ fontWeight: 600, color: '#4B5563' }}>
-                    {campaign.category}
-                  </span>
-                </div>
-
-                <h3 className="text-xl mb-3"
-                    style={{ fontWeight: 900, color: '#132552' }}>
-                  {campaign.title}
-                </h3>
-
-                <p className="text-sm leading-relaxed mb-4" style={{ fontWeight: 400, color: '#4B5563' }}>
-                  {campaign.description}
+                <p className="mt-6 text-sm text-muted">
+                  <span className="font-semibold text-rust">{campaign.category}</span>
+                  <span aria-hidden="true"> · </span>
+                  <span>{campaign.statusLabel}</span>
+                  <span aria-hidden="true"> · </span>
+                  <span>{campaign.deadline}</span>
                 </p>
 
-                <div className="flex items-center justify-between pt-4 mb-4" style={{ borderTop: '1px solid #F5F7FA' }}>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" style={{ color: '#8E3400' }} />
-                    <span className="text-xs" style={{ fontWeight: 600, color: '#4B5563' }}>
-                      {campaign.supporters}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" style={{ color: '#8E3400' }} />
-                    <span className="text-xs" style={{ fontWeight: 600, color: '#4B5563' }}>
-                      {campaign.deadline}
-                    </span>
-                  </div>
-                </div>
+                <h3 className="mt-2 text-[1.375rem] font-bold leading-snug tracking-[-0.01em] text-ink">{campaign.title}</h3>
+                <p className="mt-3 flex-1 leading-relaxed text-muted">{campaign.description}</p>
 
-                <Link
-                  to={campaign.link}
-                  className="block w-full px-5 py-2.5 rounded-xl text-center text-sm transition-all hover:scale-105"
-                  style={{ fontWeight: 700, backgroundColor: '#132552', color: 'white' }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1A336C'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#132552'}
-                >
-                  {t('campaignsSection.readMore')}
+                <Link to={campaign.link} className="link-editorial focus-ring mt-6 inline-flex items-center gap-2 self-start font-semibold">
+                  <span>{t('campaignsSection.readMore')}<span className="sr-only">: {campaign.title}</span></span>
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
-              </div>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </Container>
       </section>
 
-   
-
+      {/* CALL TO ACTION */}
+      <section className="bg-ink-deep py-16 text-white md:py-20">
+        <Container>
+          <div className="grid items-end gap-8 md:grid-cols-12 md:gap-10">
+            <div className="md:col-span-8">
+              <h2 className="heading-display !text-white text-[2rem] md:text-[2.5rem]">{t('ctaBand.heading')}</h2>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-on-dark">{t('ctaBand.body')}</p>
+            </div>
+            <div className="md:col-span-4 md:text-right">
+              <Button to="/contact" variant="onDark">{t('ctaBand.button')}</Button>
+            </div>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 };

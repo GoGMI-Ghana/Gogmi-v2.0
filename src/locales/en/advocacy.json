@@ -31,12 +31,12 @@
       "category": "Youth Development",
       "description": "The Blue Career and Business Expo is a yearly programme designed to create dynamic opportunity-exchange platforms that enable young people to engage with maritime industry leaders and actively contribute to building a robust blue economy in Africa.",
       "deadline": "Annual Event"
-    },
-    {
-      "title": "Blue World Initiative",
-      "category": "Youth Development",
-      "description": "BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards. Our ocean covers over 70% of our planet and plays an essential role in regulating climate, providing food and resources, and supporting incredible biodiversity.",
-      "deadline": "2023"
     }
-  ]
+  ],
+  "breadcrumb": "Areas of Work",
+  "ctaBand": {
+    "heading": "Work with us on maritime policy",
+    "body": "Partner with GoGMI to bring evidence and regional voices into maritime policy across the Gulf of Guinea.",
+    "button": "Get in touch"
+  }
 }

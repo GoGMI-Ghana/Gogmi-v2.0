@@ -31,12 +31,12 @@
       "category": "Desenvolvimento da Juventude",
       "description": "A Blue Career and Business Expo é um programa anual concebido para criar plataformas dinâmicas de intercâmbio de oportunidades que permitem aos jovens interagir com líderes do setor marítimo e contribuir ativamente para a construção de uma economia azul sólida em África.",
       "deadline": "Evento Anual"
-    },
-    {
-      "title": "Blue World Initiative",
-      "category": "Desenvolvimento da Juventude",
-      "description": "A BWI é um programa de literacia oceânica destinado a alunos do ensino básico e secundário, dotando-os do conhecimento e das ferramentas para se tornarem guardiões informados e empenhados do oceano. O nosso oceano cobre mais de 70% do planeta e desempenha um papel essencial na regulação do clima, no fornecimento de alimentos e recursos e no suporte a uma biodiversidade extraordinária.",
-      "deadline": "2023"
     }
-  ]
+  ],
+  "breadcrumb": "Áreas de Atuação",
+  "ctaBand": {
+    "heading": "Trabalhe connosco na política marítima",
+    "body": "Seja parceiro do GoGMI para levar evidências e vozes da região às políticas marítimas do Golfo da Guiné.",
+    "button": "Contacte-nos"
+  }
 }
