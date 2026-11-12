@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Container, SectionHeader } from '../ui/Editorial';
 
 // Official UN colours for the goals the Institute's work supports, in the order listed in about.json.
 // ink is the label colour on the goal colour and text the heading colour on white; both meet WCAG AA.
@@ -104,20 +105,20 @@ const Ring = ({ size, color, start, sweep, arrow = false }) => {
 
 const SdgCallout = ({ sdg, meta, align, active, onActivate }) => (
   <li
-    className={`flex gap-4 items-start rounded-xl p-4 transition-all duration-200 cursor-default ${align === 'right' ? 'lg:flex-row-reverse lg:text-right' : ''}`}
+    className={`flex cursor-default items-start gap-4 rounded-[2px] p-4 transition-colors duration-200 ${align === 'right' ? 'lg:flex-row-reverse lg:text-right' : ''}`}
     style={{ backgroundColor: active ? `${meta.color}12` : 'transparent' }}
     onMouseEnter={onActivate}
   >
-    <div className="flex-shrink-0 w-14 h-14 rounded-lg flex flex-col items-center justify-center shadow-sm"
+    <div className="flex h-14 w-14 flex-shrink-0 flex-col items-center justify-center rounded-[2px]"
          style={{ backgroundColor: meta.color, color: meta.ink || '#fff' }} aria-hidden="true">
-      <span className="text-[9px] uppercase tracking-wider leading-none" style={{ fontWeight: 700 }}>SDG</span>
-      <span className="text-xl leading-none mt-1" style={{ fontWeight: 900 }}>{meta.number}</span>
+      <span className="text-[9px] font-bold uppercase leading-none tracking-wider">SDG</span>
+      <span className="mt-1 text-xl font-bold leading-none">{meta.number}</span>
     </div>
     <div>
-      <h3 className="text-base font-bold mb-1" style={{ color: active ? meta.text || meta.color : '#132552', fontWeight: 800, lineHeight: 1.3 }}>
+      <h3 className="mb-1 font-display text-[1.125rem] font-semibold leading-snug" style={{ color: active ? meta.text || meta.color : 'var(--color-ink)' }}>
         <span className="sr-only">SDG {meta.number}: </span>{sdg.title}
       </h3>
-      <p className="text-sm leading-relaxed" style={{ color: '#4B5563' }}>{sdg.desc}</p>
+      <p className="text-sm leading-relaxed text-muted">{sdg.desc}</p>
     </div>
   </li>
 );
@@ -132,13 +133,13 @@ const SdgWheel = ({ items }) => {
   );
 
   return (
-    <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-10 lg:gap-8 items-center" onMouseLeave={() => setActive(null)}>
-      <ul className="hidden lg:block lg:order-1 space-y-4">{LEFT_SEGMENTS.map((idx) => callout(idx, 'right'))}</ul>
+    <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-8" onMouseLeave={() => setActive(null)}>
+      <ul className="hidden space-y-4 lg:order-1 lg:block">{LEFT_SEGMENTS.map((idx) => callout(idx, 'right'))}</ul>
 
-      <div className="order-1 lg:order-2 relative mx-auto w-full" style={{ maxWidth: WHEEL.size }}>
+      <div className="relative order-1 mx-auto w-full lg:order-2" style={{ maxWidth: WHEEL.size }}>
         {/* Faint sunburst of all 17 goals */}
         <div
-          className="absolute rounded-full pointer-events-none"
+          className="pointer-events-none absolute rounded-full"
           style={{
             inset: '-22%',
             background: sunburst,
@@ -149,7 +150,7 @@ const SdgWheel = ({ items }) => {
           aria-hidden="true"
         ></div>
 
-        <svg viewBox={`0 0 ${WHEEL.size} ${WHEEL.size}`} className="relative w-full h-auto drop-shadow-xl" aria-hidden="true">
+        <svg viewBox={`0 0 ${WHEEL.size} ${WHEEL.size}`} className="relative h-auto w-full font-body" aria-hidden="true">
           {SDG_META.map((meta, idx) => {
             const [nx, ny] = wheelPoint((WHEEL.outer + WHEEL.inner) / 2, idx * 60 + 30);
             const dimmed = active !== null && active !== idx;
@@ -167,7 +168,7 @@ const SdgWheel = ({ items }) => {
                   }}
                 />
                 <text x={nx} y={ny - 6} textAnchor="middle" fill={meta.ink || '#fff'} style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', opacity: dimmed ? 0.5 : 1 }}>SDG</text>
-                <text x={nx} y={ny + 22} textAnchor="middle" fill={meta.ink || '#fff'} style={{ fontSize: 30, fontWeight: 900, opacity: dimmed ? 0.5 : 1 }}>{meta.number}</text>
+                <text x={nx} y={ny + 22} textAnchor="middle" fill={meta.ink || '#fff'} style={{ fontSize: 30, fontWeight: 700, opacity: dimmed ? 0.5 : 1 }}>{meta.number}</text>
               </g>
             );
           })}
@@ -176,190 +177,146 @@ const SdgWheel = ({ items }) => {
         </svg>
       </div>
 
-      <ul className="hidden lg:block lg:order-3 space-y-4">{RIGHT_SEGMENTS.map((idx) => callout(idx, 'left'))}</ul>
+      <ul className="hidden space-y-4 lg:order-3 lg:block">{RIGHT_SEGMENTS.map((idx) => callout(idx, 'left'))}</ul>
 
       {/* Small screens: one list in goal order below the wheel */}
-      <ul className="order-2 lg:hidden space-y-2">{SDG_META.map((_, idx) => callout(idx, 'left'))}</ul>
+      <ul className="order-2 space-y-2 lg:hidden">{SDG_META.map((_, idx) => callout(idx, 'left'))}</ul>
     </div>
   );
 };
 
+// Large serif heading used beside each ring.
+const RING_HEADING = 'absolute font-display font-semibold leading-none';
+
 const AboutUs = () => {
   const { t } = useTranslation('about');
   return (
-    <div className="w-full overflow-x-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/aboutus.enoch.jpg"
-            alt="Maritime vessel in the Gulf of Guinea"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#132552]/90 to-[#132552]/70"></div>
-        </div>
-        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6"
-              style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            {t('hero.title')}
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
-             style={{ fontWeight: 400 }}>
-            {t('hero.subtitle')}
-          </p>
-        </div>
-      </section>
+    <div className="w-full overflow-x-hidden font-body text-text">
 
-      {/* Our Story Section */}
-      <section className="py-32 md:py-40" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="container mx-auto max-w-[1400px] px-8">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            <div className="space-y-8 lg:col-span-6">
-              <div>
-                <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-6" 
-                      style={{ color: '#8E3400', fontWeight: 600 }}>
-                  {t('story.eyebrow')}
-                </span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8"
-                    style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-                  {t('story.heading')}
-                </h2>
-</div>
-              <div className="space-y-6">
-                <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-                 {t('story.para1')}
-                </p>
-                <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-                {t('story.para2')}
-                </p>
-              </div>
+      {/* PAGE HEADER: title on navy beside the photograph */}
+      <header className="bg-ink-deep pt-[84px]">
+        <div className="grid lg:grid-cols-2">
+          {/* The text column lines up with the site container's left edge on wide screens */}
+          <div className="flex items-end lg:justify-end">
+            <div className="w-full px-6 py-16 md:px-10 md:py-24 lg:max-w-[600px] lg:pr-16">
+              <h1 className="heading-display !text-white text-[2.75rem] md:text-[4rem]">{t('hero.title')}</h1>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-on-dark md:text-xl">{t('hero.subtitle')}</p>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-[550px] lg:col-span-6">
-              <img 
-                src="/fav11.jpg" 
-                alt="Maritime operations in the Gulf of Guinea"
-                className="w-full h-full object-cover"
+          </div>
+          <img
+            src="/about-hero-1600.jpg"
+            alt="A participant taking notes at a GoGMI training session"
+            className="h-64 w-full object-cover md:h-80 lg:h-full lg:min-h-[420px]"
+          />
+        </div>
+      </header>
+
+      {/* WHO WE ARE: portrait photograph beside the story */}
+      <section className="bg-white py-20 md:py-28" aria-labelledby="about-story">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:sticky lg:top-28 lg:col-span-6 lg:self-start">
+              <img
+                src="/about-story-1600.jpg"
+                alt="Two GoGMI colleagues in conversation"
+                loading="lazy"
+                className="aspect-[4/3] w-full rounded-[2px] object-cover"
               />
             </div>
+            <div className="lg:col-span-5 lg:col-start-8">
+              <p className="text-sm font-semibold text-rust">{t('story.eyebrow')}</p>
+              <h2 id="about-story" className="heading-display mt-3 text-[2.25rem] md:text-[3rem]">{t('story.heading')}</h2>
+              <p className="prose-lead mt-8">{t('story.para1')}</p>
+              <p className="mt-6 text-[1.0625rem] leading-relaxed text-muted">{t('story.para2')}</p>
+            </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Vision, Mission & Values: three linked rings, each leading into the next */}
-      <section className="py-24 md:py-32 bg-white overflow-hidden">
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4"
-                  style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
-              {t('purpose.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight"
-                style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              {t('purpose.heading')}
-            </h2>
-          </div>
+      {/* VISION AND MISSION: two linked rings */}
+      <section className="overflow-hidden bg-paper py-20 md:py-28" aria-labelledby="about-purpose">
+        <Container>
+          <SectionHeader id="about-purpose" title={t('purpose.heading')} />
 
           {/* Large screens: the ring diagram */}
-          <div className="hidden lg:block relative mx-auto" style={{ width: 960, height: 880 }}>
+          <div className="relative mx-auto mt-16 hidden lg:block" style={{ width: 960, height: 880 }}>
             {/* Vision */}
             <div className="absolute" style={{ left: 500, top: 0, width: 400, height: 400 }}>
               <Ring size={400} color={RING_COLORS.vision} start={210} sweep={-280} arrow />
               <div className="absolute inset-0 flex items-center justify-center px-24">
-                <p className="text-lg leading-snug text-center" style={{ color: '#132552', fontWeight: 600 }}>
+                <p className="text-center font-display text-[1.25rem] font-medium leading-snug text-ink">
                   {t('vision.body')}
                 </p>
               </div>
             </div>
-            <h3 className="absolute text-right uppercase"
-                style={{ left: 40, top: 160, width: 420, color: RING_COLORS.vision, fontWeight: 900, fontSize: 56, lineHeight: 1, letterSpacing: '-0.02em' }}>
+            <h3 className={`${RING_HEADING} text-right`} style={{ left: 40, top: 170, width: 420, color: RING_COLORS.vision, fontSize: 56 }}>
               {t('vision.heading')}
             </h3>
 
             {/* Mission */}
             <div className="absolute" style={{ left: 40, top: 300, width: 580, height: 580 }}>
               <Ring size={580} color={RING_COLORS.mission} start={150} sweep={280} />
-              <div className="absolute inset-0 flex items-center justify-center" style={{ padding: '0 136px' }}>
-                <p className="text-sm leading-normal text-center" style={{ color: '#374151', fontWeight: 700 }}>
+              <div className="absolute inset-0 flex items-center justify-center" style={{ padding: '0 132px' }}>
+                <p className="text-center text-[0.875rem] font-bold leading-normal text-text">
                   {t('mission.body')}
                 </p>
               </div>
             </div>
-            <h3 className="absolute uppercase"
-                style={{ left: 650, top: 540, width: 310, color: RING_COLORS.mission, fontWeight: 900, fontSize: 56, lineHeight: 1, letterSpacing: '-0.02em' }}>
+            <h3 className={RING_HEADING} style={{ left: 650, top: 560, width: 310, color: RING_COLORS.mission, fontSize: 56 }}>
               {t('mission.heading')}
             </h3>
           </div>
 
           {/* Small screens: the same two steps stacked, joined by a line */}
-          <div className="lg:hidden relative max-w-xl mx-auto">
-            <div className="absolute top-8 bottom-8 w-1 rounded-full" style={{ left: 26, background: `linear-gradient(${RING_COLORS.vision}, ${RING_COLORS.mission})` }} aria-hidden="true"></div>
+          <div className="relative mx-auto mt-12 max-w-xl lg:hidden">
+            <div className="absolute bottom-8 top-8 w-0.5" style={{ left: 27, background: `linear-gradient(${RING_COLORS.vision}, ${RING_COLORS.mission})` }} aria-hidden="true"></div>
             <ol className="relative space-y-12">
-            {[
-              { key: 'vision', heading: t('vision.heading'), body: <p className="text-lg leading-snug" style={{ color: '#132552', fontWeight: 600 }}>{t('vision.body')}</p> },
-              { key: 'mission', heading: t('mission.heading'), body: <p className="text-base leading-relaxed" style={{ color: '#374151', fontWeight: 700 }}>{t('mission.body')}</p> }
-            ].map((item) => (
-              <li key={item.key} className="relative flex gap-6">
-                <div className="relative flex-shrink-0 w-14 h-14 rounded-full bg-white"
-                     style={{ border: `8px solid ${RING_COLORS[item.key]}` }} aria-hidden="true"></div>
-                <div className="pt-2">
-                  <h3 className="uppercase mb-3" style={{ color: RING_COLORS[item.key], fontWeight: 900, fontSize: 28, lineHeight: 1.1, letterSpacing: '-0.01em' }}>
-                    {item.heading}
-                  </h3>
-                  {item.body}
-                </div>
-              </li>
-            ))}
+              {[
+                { key: 'vision', heading: t('vision.heading'), body: <p className="font-display text-lg font-medium leading-snug text-ink">{t('vision.body')}</p> },
+                { key: 'mission', heading: t('mission.heading'), body: <p className="text-base font-bold leading-relaxed text-text">{t('mission.body')}</p> }
+              ].map((item) => (
+                <li key={item.key} className="relative flex gap-6">
+                  <div className="relative h-14 w-14 flex-shrink-0 rounded-full bg-paper"
+                       style={{ border: `7px solid ${RING_COLORS[item.key]}` }} aria-hidden="true"></div>
+                  <div className="pt-2">
+                    <h3 className="mb-3 font-display text-[1.75rem] font-semibold leading-tight" style={{ color: RING_COLORS[item.key] }}>
+                      {item.heading}
+                    </h3>
+                    {item.body}
+                  </div>
+                </li>
+              ))}
             </ol>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Business Model */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4"
-                    style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
-                {t('businessModel.eyebrow')}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-black leading-tight"
-                  style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-                {t('businessModel.heading')}
-              </h2>
-            </div>
-            <div className="lg:col-span-7">
-              <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-                {t('businessModel.body')}
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* SDG Section: a six-goal wheel over a faint SDG sunburst */}
-      <section className="py-24 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
-        <div className="container mx-auto max-w-7xl px-6 relative">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4"
-                  style={{ color: '#8E3400', fontWeight: 600, letterSpacing: '0.1em' }}>
-              {t('sdg.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6"
-                style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              {t('sdg.headingLine1')} {t('sdg.headingLine2')}
-            </h2>
-            <p className="text-lg leading-relaxed" style={{ color: '#4B5563', fontWeight: 400 }}>
-              {t('sdg.subtitle')}
+      {/* BUSINESS MODEL: a single reading column with a drop capital */}
+      <section className="bg-white py-20 md:py-28" aria-labelledby="about-model">
+        <Container>
+          <div className="mx-auto max-w-[44rem]">
+            <p className="text-sm font-semibold text-rust">{t('businessModel.eyebrow')}</p>
+            <h2 id="about-model" className="heading-display mt-3 text-[2.25rem] md:text-[3rem]">{t('businessModel.heading')}</h2>
+            <p className="prose-lead mt-8 first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-display first-letter:text-[4.25rem] first-letter:font-semibold first-letter:leading-[0.8] first-letter:text-rust">
+              {t('businessModel.body')}
             </p>
           </div>
-
-          <SdgWheel items={t('sdg.items', { returnObjects: true })} />
-        </div>
+        </Container>
       </section>
 
+      {/* SDGs: six-goal wheel over a faint SDG sunburst */}
+      <section className="relative overflow-hidden bg-paper py-20 md:py-28" aria-labelledby="about-sdg">
+        <Container>
+          <SectionHeader
+            id="about-sdg"
+            title={`${t('sdg.headingLine1')} ${t('sdg.headingLine2')}`}
+            intro={t('sdg.subtitle')}
+          />
+          <div className="mt-16">
+            <SdgWheel items={t('sdg.items', { returnObjects: true })} />
+          </div>
+        </Container>
+      </section>
     </div>
   );
 };
