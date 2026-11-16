@@ -28,9 +28,29 @@
   },
   "footerNote": "To add or update a listing, contact",
   "listings": {
-    "1": { "description": "State authority managing container, bulk and general cargo operations across Ghana's major ports including Tema and Takoradi." },
-    "2": { "description": "Regional shipping and freight forwarding across the Gulf of Guinea with scheduled services to 14 ports." },
-    "3": { "description": "Deep-water container terminal and the primary transshipment hub serving landlocked West African states." },
-    "4": { "description": "Maritime law practice specialising in ship finance, cargo claims, P&I matters and admiralty proceedings." }
+    "1": {
+      "description": "State authority managing container, bulk and general cargo operations across Ghana's major ports including Tema and Takoradi."
+    },
+    "2": {
+      "description": "Regional shipping and freight forwarding across the Gulf of Guinea with scheduled services to 14 ports."
+    },
+    "3": {
+      "description": "Deep-water container terminal and the primary transshipment hub serving landlocked West African states."
+    },
+    "4": {
+      "description": "Maritime law practice specialising in ship finance, cargo claims, P&I matters and admiralty proceedings."
+    }
+  },
+  "searchLabel": "Search the directory",
+  "categoryLabel": "Category",
+  "listCta": "List your business",
+  "clearFilters": "Clear filters",
+  "resultsCount_one": "Showing {{count}} listing",
+  "resultsCount_other": "Showing {{count}} listings",
+  "table": {
+    "organisation": "Organisation",
+    "category": "Category",
+    "location": "Location",
+    "contact": "Contact"
   }
 }

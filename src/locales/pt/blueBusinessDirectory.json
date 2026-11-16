@@ -28,9 +28,29 @@
   },
   "footerNote": "Para adicionar ou atualizar uma empresa, contacte",
   "listings": {
-    "1": { "description": "Autoridade estatal que gere operações de contentores, granel e carga geral nos principais portos do Gana, incluindo Tema e Takoradi." },
-    "2": { "description": "Transporte marítimo regional e transitário de carga no Golfo da Guiné, com serviços programados para 14 portos." },
-    "3": { "description": "Terminal de contentores de águas profundas e principal centro de transbordo ao serviço dos estados sem litoral da África Ocidental." },
-    "4": { "description": "Escritório de direito marítimo especializado em financiamento naval, reclamações de carga, assuntos P&I e processos de almirantado." }
+    "1": {
+      "description": "Autoridade estatal que gere operações de contentores, granel e carga geral nos principais portos do Gana, incluindo Tema e Takoradi."
+    },
+    "2": {
+      "description": "Transporte marítimo regional e transitário de carga no Golfo da Guiné, com serviços programados para 14 portos."
+    },
+    "3": {
+      "description": "Terminal de contentores de águas profundas e principal centro de transbordo ao serviço dos estados sem litoral da África Ocidental."
+    },
+    "4": {
+      "description": "Escritório de direito marítimo especializado em financiamento naval, reclamações de carga, assuntos P&I e processos de almirantado."
+    }
+  },
+  "searchLabel": "Pesquisar no diretório",
+  "categoryLabel": "Categoria",
+  "listCta": "Registar a sua empresa",
+  "clearFilters": "Limpar filtros",
+  "resultsCount_one": "A mostrar {{count}} empresa",
+  "resultsCount_other": "A mostrar {{count}} empresas",
+  "table": {
+    "organisation": "Organização",
+    "category": "Categoria",
+    "location": "Localização",
+    "contact": "Contacto"
   }
 }

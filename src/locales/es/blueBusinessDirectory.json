@@ -28,9 +28,29 @@
   },
   "footerNote": "Para añadir o actualizar una empresa, contacta a",
   "listings": {
-    "1": { "description": "Autoridad estatal que gestiona operaciones de contenedores, carga a granel y carga general en los principales puertos de Ghana, incluidos Tema y Takoradi." },
-    "2": { "description": "Transporte marítimo regional y transitario de carga en el Golfo de Guinea, con servicios programados a 14 puertos." },
-    "3": { "description": "Terminal de contenedores de aguas profundas y principal centro de transbordo que da servicio a los estados de África Occidental sin salida al mar." },
-    "4": { "description": "Bufete de derecho marítimo especializado en financiación naval, reclamaciones de carga, asuntos P&I y procedimientos de almirantazgo." }
+    "1": {
+      "description": "Autoridad estatal que gestiona operaciones de contenedores, carga a granel y carga general en los principales puertos de Ghana, incluidos Tema y Takoradi."
+    },
+    "2": {
+      "description": "Transporte marítimo regional y transitario de carga en el Golfo de Guinea, con servicios programados a 14 puertos."
+    },
+    "3": {
+      "description": "Terminal de contenedores de aguas profundas y principal centro de transbordo que da servicio a los estados de África Occidental sin salida al mar."
+    },
+    "4": {
+      "description": "Bufete de derecho marítimo especializado en financiación naval, reclamaciones de carga, asuntos P&I y procedimientos de almirantazgo."
+    }
+  },
+  "searchLabel": "Buscar en el directorio",
+  "categoryLabel": "Categoría",
+  "listCta": "Registrar su empresa",
+  "clearFilters": "Borrar filtros",
+  "resultsCount_one": "Mostrando {{count}} empresa",
+  "resultsCount_other": "Mostrando {{count}} empresas",
+  "table": {
+    "organisation": "Organización",
+    "category": "Categoría",
+    "location": "Ubicación",
+    "contact": "Contacto"
   }
 }

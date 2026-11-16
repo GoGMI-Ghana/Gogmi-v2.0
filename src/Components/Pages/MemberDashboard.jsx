@@ -46,7 +46,7 @@ const daysRemaining = (expiry) => {
 // Structured list: one row per field, label column on the left.
 const StructuredList = ({ id, title, rows }) => (
   <section aria-labelledby={id} className="border border-line bg-white">
-    <h2 id={id} className="border-b border-line px-5 py-4 text-lg font-bold text-ink">{title}</h2>
+    <h2 id={id} className="border-b border-line px-5 py-4 font-display text-lg font-bold text-ink">{title}</h2>
     <dl>
       {rows.map(({ label, value }) => (
         <div key={label} className="grid gap-1 border-b border-line px-5 py-3.5 last:border-b-0 sm:grid-cols-[11rem_1fr] sm:gap-4">
@@ -153,7 +153,7 @@ const MemberDashboard = () => {
   ];
 
   return (
-    <div className="bg-paper">
+    <div className="bg-paper font-body text-text">
       {/* Page header */}
       <header className="border-b border-line bg-white">
         <Container className="pb-8 pt-[120px] md:pb-10 md:pt-[150px]">
@@ -196,7 +196,7 @@ const MemberDashboard = () => {
             <div className="flex items-start gap-4">
               <Award className={`mt-1 h-6 w-6 flex-shrink-0 ${certUrl ? 'text-rust' : 'text-muted'}`} aria-hidden="true" />
               <div>
-                <h2 id="certificate-heading" className="text-lg font-bold text-ink">{t('certificate.heading')}</h2>
+                <h2 id="certificate-heading" className="font-display text-lg font-bold text-ink">{t('certificate.heading')}</h2>
                 <p className="mt-1 max-w-xl text-muted">
                   {certUrl ? t('certificate.readyDescription') : t('certificate.pendingDescription')}
                 </p>

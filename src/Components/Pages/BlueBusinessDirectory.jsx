@@ -1,6 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Search, MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
+import { Search, X } from 'lucide-react';
+import { Container } from '../ui/Editorial';
+
+/*
+  Blue Business Directory, laid out with IBM Carbon patterns: a plain page
+  header, a table toolbar (search and category filter), then a data table
+  on wide screens and a structured list on small ones.
+*/
 
 const CATEGORY_IDS = ['all', 'shipping', 'port', 'security', 'engineering', 'legal', 'energy', 'consulting', 'training'];
 
@@ -11,7 +18,7 @@ const LISTINGS = [
     category: 'port',
     country: 'Ghana',
     city: 'Tema',
-    phone: '+233 (0) 303 219120.',
+    phone: '+233 (0) 303 219120',
     email: 'headquarters@ghanaports.gov.gh',
     website: 'https://www.ghanaports.gov.gh/',
     featured: true,
@@ -49,306 +56,209 @@ const LISTINGS = [
   },
 ];
 
+// "+233 (0) 303 219120" -> "+233303219120" for tel: links.
+const telHref = (phone) => `tel:${phone.replace(/\(0\)/g, '').replace(/[^\d+]/g, '')}`;
+// "https://www.example.com/" -> "www.example.com"
+const displayUrl = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
+const FeaturedTag = ({ children }) => (
+  <span className="inline-flex items-center rounded-[2px] bg-[#F6E4D6] px-2 py-0.5 text-xs font-semibold text-rust-deep">
+    {children}
+  </span>
+);
+
+const ContactLinks = ({ listing, className = '' }) => (
+  <ul className={`space-y-1 text-[0.9375rem] ${className}`}>
+    <li><a href={telHref(listing.phone)} className="focus-ring text-text hover:text-rust hover:underline">{listing.phone}</a></li>
+    <li><a href={`mailto:${listing.email}`} className="focus-ring break-all text-text hover:text-rust hover:underline">{listing.email}</a></li>
+    <li>
+      <a href={listing.website} target="_blank" rel="noopener noreferrer" className="link-editorial focus-ring break-all">
+        {displayUrl(listing.website)}
+      </a>
+    </li>
+  </ul>
+);
+
 const BlueBusinessDirectory = () => {
   const { t } = useTranslation('blueBusinessDirectory');
-  const CATEGORIES = CATEGORY_IDS.map(id => ({ id, label: t(`categories.${id}`) }));
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
-  const catScrollRef = React.useRef(null);
 
-  const scrollCats = (dir) => {
-    if (catScrollRef.current) {
-      catScrollRef.current.scrollBy({ left: dir * 200, behavior: 'smooth' });
-    }
-  };
+  const catLabel = (id) => t(`categories.${id}`);
+  const countFor = (id) => (id === 'all' ? LISTINGS.length : LISTINGS.filter((l) => l.category === id).length);
 
   const filtered = useMemo(() => {
-    return LISTINGS.filter(l => {
+    const q = search.trim().toLowerCase();
+    return LISTINGS.filter((l) => {
       const matchCat = activeCategory === 'all' || l.category === activeCategory;
-      const q = search.toLowerCase();
       const description = t(`listings.${l.id}.description`);
       const matchSearch = !q ||
         l.name.toLowerCase().includes(q) ||
         description.toLowerCase().includes(q) ||
+        t(`categories.${l.category}`).toLowerCase().includes(q) ||
         l.country.toLowerCase().includes(q) ||
         l.city.toLowerCase().includes(q);
       return matchCat && matchSearch;
-    });
+    }).sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
   }, [search, activeCategory, t]);
 
-  const featured = filtered.filter(l => l.featured);
-  const regular = filtered.filter(l => !l.featured);
+  const hasFilters = search.trim() !== '' || activeCategory !== 'all';
+  const clearFilters = () => {
+    setSearch('');
+    setActiveCategory('all');
+  };
+
+  const listMailto = `mailto:info@gogmi.org.gh?subject=${encodeURIComponent(t('listYourBusinessSubject'))}`;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F5F7FA' }}>
+    <div className="bg-paper font-body text-text">
+      {/* Page header */}
+      <header className="border-b border-line bg-white">
+        <Container className="pb-10 pt-[120px] md:pb-12 md:pt-[150px]">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold text-rust">{t('eyebrow')}</p>
+              <h1 className="heading-display mt-2 text-[2.5rem] md:text-[3.25rem]">{t('title')}</h1>
+              <p className="mt-4 text-lg leading-relaxed text-muted">{t('subtitle')}</p>
+            </div>
+            <a
+              href={listMailto}
+              className="focus-ring inline-flex items-center gap-2 self-start whitespace-nowrap rounded-[2px] border border-ink px-5 py-3 text-[0.9375rem] font-semibold text-ink transition-colors duration-150 hover:bg-ink hover:text-white md:self-auto"
+            >
+              {t('listCta')}
+            </a>
+          </div>
+        </Container>
+      </header>
 
-      <style>{`
-        .cat-scrollbar {
-          overflow-x: auto;
-          scrollbar-width: none;
-        }
-        .cat-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+      <Container className="py-10 md:py-14">
+        <div className="border border-line bg-white">
+          {/* Table toolbar */}
+          <div className="flex flex-col gap-4 border-b border-line p-4 md:flex-row md:items-end md:p-5">
+            <div className="flex-1">
+              <label htmlFor="directory-search" className="mb-1.5 block text-sm font-semibold text-text">
+                {t('searchLabel')}
+              </label>
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden="true" />
+                <input
+                  id="directory-search"
+                  type="search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder={t('searchPlaceholder')}
+                  className="w-full rounded-[2px] border border-line bg-white py-2.5 pl-9 pr-3 text-[0.9375rem] text-text placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/20"
+                />
+              </div>
+            </div>
+            <div className="md:w-72">
+              <label htmlFor="directory-category" className="mb-1.5 block text-sm font-semibold text-text">
+                {t('categoryLabel')}
+              </label>
+              <select
+                id="directory-category"
+                value={activeCategory}
+                onChange={(e) => setActiveCategory(e.target.value)}
+                className="w-full rounded-[2px] border border-line bg-white px-3 py-2.5 text-[0.9375rem] text-text focus:border-ink focus:outline-none focus:ring-2 focus:ring-ink/20"
+              >
+                {CATEGORY_IDS.map((id) => (
+                  <option key={id} value={id}>
+                    {catLabel(id)} ({countFor(id)})
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
 
-      {/* Header */}
-      <div style={{ backgroundColor: '#132552', borderBottom: '4px solid #8E3400' }} className="pt-28 pb-12 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '11px', fontWeight: 600, letterSpacing: '0.2em', color: '#93C5FD', textTransform: 'uppercase', marginBottom: '10px' }}>
-            {t('eyebrow')}
-          </p>
-          <h1 style={{ fontFamily: "'Poppins', sans-serif", fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '10px' }}>
-            {t('title')}
-          </h1>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '15px', fontWeight: 400, color: 'rgba(255,255,255,0.65)', marginBottom: '32px' }}>
-            {t('subtitle')}
-          </p>
-
-          {/* Search */}
-          <div style={{ position: 'relative', maxWidth: '520px' }}>
-            <Search style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', width: '16px', height: '16px', color: 'rgba(255,255,255,0.35)' }} />
-            <input
-              type="text"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              placeholder={t('searchPlaceholder')}
-              style={{
-                width: '100%',
-                paddingLeft: '42px',
-                paddingRight: search ? '36px' : '16px',
-                paddingTop: '13px',
-                paddingBottom: '13px',
-                backgroundColor: 'rgba(255,255,255,0.09)',
-                border: '1px solid rgba(255,255,255,0.18)',
-                borderRadius: '6px',
-                color: 'white',
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '14px',
-                fontWeight: 400,
-                outline: 'none',
-              }}
-            />
-            {search && (
+          {/* Result count and clear */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-paper/60 px-4 py-3 md:px-5">
+            <p className="text-sm text-muted" role="status" aria-live="polite">
+              {t('resultsCount', { count: filtered.length })}
+              {activeCategory !== 'all' && <> · {catLabel(activeCategory)}</>}
+            </p>
+            {hasFilters && (
               <button
-                onClick={() => setSearch('')}
-                style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)', fontSize: '20px', lineHeight: 1, background: 'none', border: 'none', cursor: 'pointer' }}
-              >×</button>
+                type="button"
+                onClick={clearFilters}
+                className="focus-ring inline-flex items-center gap-1.5 text-sm font-semibold text-rust hover:text-rust-deep hover:underline"
+              >
+                <X className="h-4 w-4" aria-hidden="true" />
+                {t('clearFilters')}
+              </button>
             )}
           </div>
-        </div>
-      </div>
 
-      {/* Category filter */}
-      <div style={{ backgroundColor: '#EBEDF0', borderBottom: '1px solid #D1D5DB' }}>
-        <div className="max-w-5xl mx-auto px-6">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '12px', paddingBottom: '12px' }}>
-            {/* Left arrow */}
-            <button
-              onClick={() => scrollCats(-1)}
-              style={{
-                flexShrink: 0,
-                width: '32px',
-                height: '32px',
-                borderRadius: '6px',
-                border: '1px solid #C4C9D4',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#374151',
-                fontSize: '16px',
-                lineHeight: 1,
-              }}
-              aria-label={t('scrollLeft')}
-            >‹</button>
-
-            {/* Scrollable buttons */}
-            <div ref={catScrollRef} className="cat-scrollbar" style={{ display: 'flex', gap: '6px', flex: 1 }}>
-              {CATEGORIES.map(cat => {
-                const isActive = activeCategory === cat.id;
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
-                    style={{
-                      flexShrink: 0,
-                      padding: '6px 16px',
-                      borderRadius: '4px',
-                      border: isActive ? '1px solid #132552' : '1px solid #C4C9D4',
-                      backgroundColor: isActive ? '#132552' : 'white',
-                      color: isActive ? 'white' : '#374151',
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: '13px',
-                      fontWeight: isActive ? 600 : 400,
-                      cursor: 'pointer',
-                      transition: 'all 0.15s',
-                    }}
-                  >
-                    {cat.label}
-                  </button>
-                );
-              })}
+          {filtered.length === 0 ? (
+            <div className="px-5 py-16 text-center">
+              <p className="text-lg font-bold text-ink">{t('empty.title')}</p>
+              <p className="mt-1 text-muted">{t('empty.subtitle')}</p>
             </div>
+          ) : (
+            <>
+              {/* Data table (wide screens) */}
+              <table className="hidden w-full text-left lg:table">
+                <caption className="sr-only">{t('title')}</caption>
+                <thead className="bg-[#EEF0F5] text-sm text-ink">
+                  <tr>
+                    <th scope="col" className="w-[42%] px-5 py-3 font-semibold">{t('table.organisation')}</th>
+                    <th scope="col" className="px-5 py-3 font-semibold">{t('table.category')}</th>
+                    <th scope="col" className="px-5 py-3 font-semibold">{t('table.location')}</th>
+                    <th scope="col" className="px-5 py-3 font-semibold">{t('table.contact')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filtered.map((l) => (
+                    <tr key={l.id} className="border-t border-line align-top transition-colors hover:bg-paper/60">
+                      <th scope="row" className="px-5 py-5 font-normal">
+                        <span className="flex flex-wrap items-center gap-2">
+                          <span className="text-[1.0625rem] font-bold text-ink">{l.name}</span>
+                          {l.featured && <FeaturedTag>{t('featured')}</FeaturedTag>}
+                        </span>
+                        <span className="mt-1.5 block leading-relaxed text-muted">{t(`listings.${l.id}.description`)}</span>
+                      </th>
+                      <td className="px-5 py-5 text-text">{catLabel(l.category)}</td>
+                      <td className="whitespace-nowrap px-5 py-5 text-text">{l.city}, {l.country}</td>
+                      <td className="px-5 py-5"><ContactLinks listing={l} /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
 
-            {/* Right arrow */}
-            <button
-              onClick={() => scrollCats(1)}
-              style={{
-                flexShrink: 0,
-                width: '32px',
-                height: '32px',
-                borderRadius: '6px',
-                border: '1px solid #C4C9D4',
-                backgroundColor: 'white',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#374151',
-                fontSize: '16px',
-                lineHeight: 1,
-              }}
-              aria-label={t('scrollRight')}
-            >›</button>
-          </div>
-        </div>
-      </div>
-
-      {/* Main content */}
-      <div className="max-w-5xl mx-auto px-6 py-10">
-
-        {/* Meta row */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 400, color: '#6B7280' }}>
-            <strong style={{ color: '#111827', fontWeight: 600 }}>{filtered.length}</strong>{' '}
-            {t('listingCount', { count: filtered.length })}
-            {activeCategory !== 'all' && (
-              <> · {CATEGORIES.find(c => c.id === activeCategory)?.label}</>
-            )}
-          </p>
-          <a
-            href={`mailto:info@gogmi.org.gh?subject=${encodeURIComponent(t('listYourBusinessSubject'))}`}
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8E3400', textDecoration: 'none' }}
-          >
-            {t('listYourBusiness')}
-          </a>
+              {/* Structured list (small screens) */}
+              <ul className="lg:hidden">
+                {filtered.map((l) => (
+                  <li key={l.id} className="border-t border-line p-4 first:border-t-0 md:p-5">
+                    <h2 className="flex flex-wrap items-center gap-2 font-display">
+                      <span className="text-[1.0625rem] font-bold text-ink">{l.name}</span>
+                      {l.featured && <FeaturedTag>{t('featured')}</FeaturedTag>}
+                    </h2>
+                    <p className="mt-1.5 leading-relaxed text-muted">{t(`listings.${l.id}.description`)}</p>
+                    <dl className="mt-4 grid gap-x-6 gap-y-3 text-[0.9375rem] sm:grid-cols-2">
+                      <div>
+                        <dt className="text-sm text-muted">{t('table.category')}</dt>
+                        <dd className="text-text">{catLabel(l.category)}</dd>
+                      </div>
+                      <div>
+                        <dt className="text-sm text-muted">{t('table.location')}</dt>
+                        <dd className="text-text">{l.city}, {l.country}</dd>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <dt className="text-sm text-muted">{t('table.contact')}</dt>
+                        <dd><ContactLinks listing={l} /></dd>
+                      </div>
+                    </dl>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
 
-        {/* Featured */}
-        {featured.length > 0 && (
-          <div style={{ marginBottom: '36px' }}>
-            <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '12px' }}>
-              {t('featured')}
-            </p>
-            <div style={{ border: '1px solid #D1D5DB', borderRadius: '8px', overflow: 'hidden' }}>
-              {featured.map((listing, i) => (
-                <ListingRow key={listing.id} listing={listing} categories={CATEGORIES} t={t} featured isLast={i === featured.length - 1} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* All listings */}
-        {regular.length > 0 && (
-          <div>
-            {featured.length > 0 && (
-              <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#6B7280', marginBottom: '12px' }}>
-                {t('allListings')}
-              </p>
-            )}
-            <div style={{ border: '1px solid #D1D5DB', borderRadius: '8px', overflow: 'hidden' }}>
-              {regular.map((listing, i) => (
-                <ListingRow key={listing.id} listing={listing} categories={CATEGORIES} t={t} isLast={i === regular.length - 1} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {filtered.length === 0 && (
-          <div style={{ textAlign: 'center', padding: '80px 0', border: '1px solid #D1D5DB', borderRadius: '8px' }}>
-            <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '20px', fontWeight: 700, color: '#132552', marginBottom: '8px' }}>
-              {t('empty.title')}
-            </p>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', color: '#6B7280' }}>
-              {t('empty.subtitle')}
-            </p>
-          </div>
-        )}
-
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '12px', color: '#9CA3AF', textAlign: 'center', marginTop: '48px' }}>
+        <p className="mt-8 text-muted">
           {t('footerNote')}{' '}
-          <a href="mailto:info@gogmi.org.gh" style={{ color: '#8E3400' }}>info@gogmi.org.gh</a>
+          <a href="mailto:info@gogmi.org.gh" className="link-editorial focus-ring">info@gogmi.org.gh</a>
         </p>
-      </div>
-    </div>
-  );
-};
-
-const ListingRow = ({ listing, categories, t, featured, isLast }) => {
-  const catLabel = categories.find(c => c.id === listing.category)?.label;
-  const description = t(`listings.${listing.id}.description`);
-
-  return (
-    <div style={{
-      padding: '24px 28px',
-      backgroundColor: featured ? '#FFFBEB' : 'white',
-      borderBottom: isLast ? 'none' : '1px solid #E5E7EB',
-      transition: 'background-color 0.15s',
-    }}
-      onMouseEnter={e => e.currentTarget.style.backgroundColor = featured ? '#FEF3C7' : '#F9FAFB'}
-      onMouseLeave={e => e.currentTarget.style.backgroundColor = featured ? '#FFFBEB' : 'white'}
-    >
-      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-        <h3 style={{ fontFamily: "'Poppins', sans-serif", fontSize: '17px', fontWeight: 700, color: '#111827', margin: 0 }}>
-          {listing.name}
-        </h3>
-        {featured && (
-          <span style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: '11px',
-            fontWeight: 600,
-            backgroundColor: '#8E3400',
-            color: 'white',
-            padding: '2px 8px',
-            borderRadius: '3px',
-            letterSpacing: '0.05em',
-            textTransform: 'uppercase',
-          }}>
-            {t('featured')}
-          </span>
-        )}
-      </div>
-
-      <div style={{ display: 'flex', gap: '16px', marginBottom: '12px', flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#4B5563', display: 'flex', alignItems: 'center', gap: '4px' }}>
-          <MapPin style={{ width: '12px', height: '12px', color: '#9CA3AF' }} />
-          {listing.city}, {listing.country}
-        </span>
-        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#4B5563', paddingLeft: '16px', borderLeft: '1px solid #D1D5DB' }}>
-          {catLabel}
-        </span>
-      </div>
-
-      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '14px', fontWeight: 400, color: '#374151', lineHeight: 1.65, marginBottom: '16px', maxWidth: '620px' }}>
-        {description}
-      </p>
-
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-        <a href={`tel:${listing.phone}`} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
-          <Phone style={{ width: '13px', height: '13px', color: '#6B7280' }} />
-          {listing.phone}
-        </a>
-        <a href={`mailto:${listing.email}`} style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 500, color: '#1F2937', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
-          <Mail style={{ width: '13px', height: '13px', color: '#6B7280' }} />
-          {listing.email}
-        </a>
-        <a href={listing.website} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "'Inter', sans-serif", fontSize: '13px', fontWeight: 600, color: '#8E3400', display: 'flex', alignItems: 'center', gap: '5px', textDecoration: 'none' }}>
-          <ExternalLink style={{ width: '13px', height: '13px' }} />
-          {listing.website}
-        </a>
-      </div>
+      </Container>
     </div>
   );
 };
