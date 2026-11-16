@@ -20,7 +20,22 @@
     "downloads": "descargas",
     "views": "visualizaciones",
     "duration": "Duración",
-    "download": "Descargar"
+    "download": "Descargar",
+    "tabs": "Tipo de contenido",
+    "searchLabel": "Buscar contenido",
+    "resultsCount_one": "{{count}} elemento",
+    "resultsCount_other": "{{count}} elementos",
+    "seeAll": "Ver todo",
+    "play": "Reproducir vídeo",
+    "view": "Ver",
+    "readArticle": "Leer el artículo",
+    "date": "Fecha",
+    "location": "Lugar",
+    "close": "Cerrar",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "counter": "{{current}} de {{total}}",
+    "viewFull": "Ver a tamaño completo"
   },
   "items": [
     {
@@ -87,6 +102,7 @@
   "cta": {
     "title": "¿Quiere compartir su historia?",
     "subtitle": "Comparta con nosotros sus historias de éxito marítimo, investigaciones o cobertura de eventos",
-    "button": "Enviar su contenido"
+    "button": "Enviar su contenido",
+    "subject": "Propuesta para la galería multimedia"
   }
 }

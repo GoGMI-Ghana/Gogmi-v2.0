@@ -20,7 +20,22 @@
     "downloads": "transferências",
     "views": "visualizações",
     "duration": "Duração",
-    "download": "Transferir"
+    "download": "Transferir",
+    "tabs": "Tipo de conteúdo",
+    "searchLabel": "Pesquisar conteúdos",
+    "resultsCount_one": "{{count}} item",
+    "resultsCount_other": "{{count}} itens",
+    "seeAll": "Ver tudo",
+    "play": "Reproduzir vídeo",
+    "view": "Ver",
+    "readArticle": "Ler o artigo",
+    "date": "Data",
+    "location": "Local",
+    "close": "Fechar",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "counter": "{{current}} de {{total}}",
+    "viewFull": "Ver em tamanho real"
   },
   "items": [
     {
@@ -87,6 +102,7 @@
   "cta": {
     "title": "Quer partilhar a sua história?",
     "subtitle": "Partilhe connosco as suas histórias de sucesso marítimo, investigações ou cobertura de eventos",
-    "button": "Submeter o seu conteúdo"
+    "button": "Submeter o seu conteúdo",
+    "subject": "Proposta para a galeria multimédia"
   }
 }

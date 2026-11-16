@@ -20,7 +20,22 @@
     "downloads": "downloads",
     "views": "views",
     "duration": "Duration",
-    "download": "Download"
+    "download": "Download",
+    "tabs": "Media type",
+    "searchLabel": "Search media",
+    "resultsCount_one": "{{count}} item",
+    "resultsCount_other": "{{count}} items",
+    "seeAll": "See all",
+    "play": "Play video",
+    "view": "View",
+    "readArticle": "Read the article",
+    "date": "Date",
+    "location": "Location",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next",
+    "counter": "{{current}} of {{total}}",
+    "viewFull": "View full size"
   },
   "items": [
     {
@@ -87,6 +102,7 @@
   "cta": {
     "title": "Want to Feature Your Story?",
     "subtitle": "Share your maritime success stories, research, or event coverage with us",
-    "button": "Submit Your Content"
+    "button": "Submit Your Content",
+    "subject": "Media gallery submission"
   }
 }

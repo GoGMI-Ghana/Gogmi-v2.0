@@ -20,7 +20,22 @@
     "downloads": "téléchargements",
     "views": "vues",
     "duration": "Durée",
-    "download": "Télécharger"
+    "download": "Télécharger",
+    "tabs": "Type de média",
+    "searchLabel": "Rechercher un média",
+    "resultsCount_one": "{{count}} élément",
+    "resultsCount_other": "{{count}} éléments",
+    "seeAll": "Tout voir",
+    "play": "Lire la vidéo",
+    "view": "Voir",
+    "readArticle": "Lire l’article",
+    "date": "Date",
+    "location": "Lieu",
+    "close": "Fermer",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "counter": "{{current}} sur {{total}}",
+    "viewFull": "Voir en taille réelle"
   },
   "items": [
     {
@@ -87,6 +102,7 @@
   "cta": {
     "title": "Envie de partager votre histoire ?",
     "subtitle": "Partagez avec nous vos réussites maritimes, vos recherches ou la couverture de vos événements",
-    "button": "Soumettre votre contenu"
+    "button": "Soumettre votre contenu",
+    "subject": "Proposition pour la médiathèque"
   }
 }
