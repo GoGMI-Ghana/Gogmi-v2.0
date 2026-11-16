@@ -5,8 +5,8 @@
     "enterCode": "Introduzca el código de 6 dígitos enviado a {{email}}"
   },
   "errors": {
-    "membershipIdRequired": "Por favor, introduzca su ID de miembro",
-    "otpIncomplete": "Por favor, introduzca el código completo de 6 dígitos"
+    "membershipIdRequired": "Introduzca su ID de miembro",
+    "otpIncomplete": "Introduzca el código de seguridad de 6 dígitos"
   },
   "step1": {
     "label": "ID de miembro",
@@ -21,10 +21,21 @@
     "verifyLoading": "Verificando…",
     "changeId": "Cambiar ID",
     "resendIdle": "Reenviar código",
-    "resendCooldown": "Reenviar en {{seconds}}s"
+    "resendCooldown": "Reenviar en {{seconds}}s",
+    "title": "Revise su correo electrónico",
+    "codeLabel": "Código de seguridad",
+    "codeHint": "El código tiene 6 dígitos. Si no ve el correo, revise su carpeta de spam o correo no deseado."
   },
   "footer": {
     "notAMember": "¿Aún no eres miembro?",
-    "joinLink": "Únete a GoGMI"
+    "joinLink": "Únete a GoGMI",
+    "intro": "La membresía le da acceso a investigaciones, eventos y al panel de miembros."
+  },
+  "errorSummary": "Hay un problema",
+  "errorPrefix": "Error:",
+  "help": {
+    "summary": "¿Problemas para iniciar sesión?",
+    "body": "Su ID de miembro está en el correo de bienvenida que le enviamos al unirse. Si no lo encuentra, o el código no llega, contáctenos y le ayudaremos.",
+    "contact": "Contáctenos"
   }
 }

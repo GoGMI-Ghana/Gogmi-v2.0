@@ -6,7 +6,7 @@
   },
   "errors": {
     "membershipIdRequired": "Introduza o seu ID de Associado",
-    "otpIncomplete": "Introduza o código completo de 6 dígitos"
+    "otpIncomplete": "Introduza o código de segurança de 6 dígitos"
   },
   "step1": {
     "label": "ID de Associado",
@@ -21,10 +21,21 @@
     "verifyLoading": "A verificar…",
     "changeId": "Alterar ID",
     "resendIdle": "Reenviar código",
-    "resendCooldown": "Reenviar em {{seconds}}s"
+    "resendCooldown": "Reenviar em {{seconds}}s",
+    "title": "Verifique o seu e-mail",
+    "codeLabel": "Código de segurança",
+    "codeHint": "O código tem 6 dígitos. Se não encontrar o e-mail, verifique a pasta de spam ou lixo."
   },
   "footer": {
     "notAMember": "Ainda não é associado?",
-    "joinLink": "Junte-se ao GoGMI"
+    "joinLink": "Junte-se ao GoGMI",
+    "intro": "A adesão dá-lhe acesso a investigação, eventos e ao painel de associado."
+  },
+  "errorSummary": "Existe um problema",
+  "errorPrefix": "Erro:",
+  "help": {
+    "summary": "Problemas ao entrar?",
+    "body": "O seu ID de Associado está no e-mail de boas-vindas que enviámos quando aderiu. Se não o encontrar, ou se o código não chegar, contacte-nos e ajudaremos.",
+    "contact": "Contacte-nos"
   }
 }

@@ -5,8 +5,8 @@
     "enterCode": "Saisissez le code à 6 chiffres envoyé à {{email}}"
   },
   "errors": {
-    "membershipIdRequired": "Veuillez saisir votre identifiant de membre",
-    "otpIncomplete": "Veuillez saisir le code complet à 6 chiffres"
+    "membershipIdRequired": "Saisissez votre identifiant de membre",
+    "otpIncomplete": "Saisissez le code de sécurité à 6 chiffres"
   },
   "step1": {
     "label": "Identifiant de membre",
@@ -21,10 +21,21 @@
     "verifyLoading": "Vérification…",
     "changeId": "Changer d'identifiant",
     "resendIdle": "Renvoyer le code",
-    "resendCooldown": "Renvoi dans {{seconds}}s"
+    "resendCooldown": "Renvoi dans {{seconds}}s",
+    "title": "Consultez vos e-mails",
+    "codeLabel": "Code de sécurité",
+    "codeHint": "Le code comporte 6 chiffres. Si vous ne voyez pas l’e-mail, vérifiez votre dossier de courrier indésirable."
   },
   "footer": {
     "notAMember": "Vous n'êtes pas encore membre ?",
-    "joinLink": "Rejoindre GoGMI"
+    "joinLink": "Rejoindre GoGMI",
+    "intro": "L’adhésion vous donne accès aux recherches, aux événements et à l’espace membre."
+  },
+  "errorSummary": "Il y a un problème",
+  "errorPrefix": "Erreur :",
+  "help": {
+    "summary": "Des difficultés à vous connecter ?",
+    "body": "Votre identifiant de membre figure dans l’e-mail de bienvenue envoyé lors de votre adhésion. Si vous ne le trouvez pas, ou si le code n’arrive pas, contactez-nous et nous vous aiderons.",
+    "contact": "Nous contacter"
   }
 }

@@ -5,8 +5,8 @@
     "enterCode": "Enter the 6-digit code sent to {{email}}"
   },
   "errors": {
-    "membershipIdRequired": "Please enter your Membership ID",
-    "otpIncomplete": "Please enter the full 6-digit code"
+    "membershipIdRequired": "Enter your Membership ID",
+    "otpIncomplete": "Enter the 6-digit security code"
   },
   "step1": {
     "label": "Membership ID",
@@ -21,10 +21,21 @@
     "verifyLoading": "Verifying…",
     "changeId": "Change ID",
     "resendIdle": "Resend code",
-    "resendCooldown": "Resend in {{seconds}}s"
+    "resendCooldown": "Resend in {{seconds}}s",
+    "title": "Check your email",
+    "codeLabel": "Security code",
+    "codeHint": "The code is 6 digits. If you cannot see the email, check your spam or junk folder."
   },
   "footer": {
     "notAMember": "Not a member yet?",
-    "joinLink": "Join GoGMI"
+    "joinLink": "Join GoGMI",
+    "intro": "Membership gives you access to research, events and the member dashboard."
+  },
+  "errorSummary": "There is a problem",
+  "errorPrefix": "Error:",
+  "help": {
+    "summary": "Problems signing in?",
+    "body": "Your Membership ID is in the welcome email we sent when you joined. If you cannot find it, or the code does not arrive, contact us and we will help.",
+    "contact": "Contact us"
   }
 }

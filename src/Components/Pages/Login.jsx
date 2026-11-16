@@ -1,9 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { CreditCard, AlertCircle, Mail, ArrowLeft, RefreshCw } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Container, TextLink } from '../ui/Editorial';
+import { Field, ErrorSummary, inputClass, describedBy } from '../ui/Form';
 
+/*
+  GOV.UK-style two-step sign-in: Membership ID, then a 6-digit security code
+  in a single field (so phones can autofill it from the email or SMS).
+*/
 const Login = () => {
   const { t } = useTranslation('login');
   const navigate = useNavigate();
@@ -13,19 +18,19 @@ const Login = () => {
   const [step, setStep] = useState('id'); // 'id' | 'otp'
   const [membershipId, setMembershipId] = useState('');
   const [maskedEmail, setMaskedEmail] = useState('');
-  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [resendCooldown, setResendCooldown] = useState(0);
 
-  const otpRefs = useRef([]);
+  const otpRef = useRef(null);
   const from = location.state?.from?.pathname || '/dashboard';
 
   // Countdown timer for resend
   useEffect(() => {
     if (resendCooldown <= 0) return;
-    const t = setTimeout(() => setResendCooldown(c => c - 1), 1000);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setResendCooldown((c) => c - 1), 1000);
+    return () => clearTimeout(timer);
   }, [resendCooldown]);
 
   const handleSendOTP = async (e) => {
@@ -39,186 +44,166 @@ const Login = () => {
       setMaskedEmail(result.maskedEmail);
       setStep('otp');
       setResendCooldown(60);
-      setTimeout(() => otpRefs.current[0]?.focus(), 100);
+      setTimeout(() => otpRef.current?.focus(), 100);
     } else {
       setError(result.error);
     }
   };
 
-  const handleOtpChange = (idx, val) => {
-    if (!/^\d*$/.test(val)) return;
-    const next = [...otp];
-    next[idx] = val.slice(-1);
-    setOtp(next);
+  const handleOtpChange = (e) => {
+    setOtp(e.target.value.replace(/\D/g, '').slice(0, 6));
     setError('');
-    if (val && idx < 5) otpRefs.current[idx + 1]?.focus();
-  };
-
-  const handleOtpKeyDown = (idx, e) => {
-    if (e.key === 'Backspace' && !otp[idx] && idx > 0) {
-      otpRefs.current[idx - 1]?.focus();
-    }
-  };
-
-  const handleOtpPaste = (e) => {
-    const pasted = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
-    if (pasted.length === 6) {
-      setOtp(pasted.split(''));
-      otpRefs.current[5]?.focus();
-    }
   };
 
   const handleVerifyOTP = async (e) => {
     e?.preventDefault();
-    const code = otp.join('');
-    if (code.length < 6) { setError(t('errors.otpIncomplete')); return; }
+    if (otp.length < 6) { setError(t('errors.otpIncomplete')); return; }
     setLoading(true);
     setError('');
-    const result = await login({ membershipId: membershipId.trim(), otp: code });
+    const result = await login({ membershipId: membershipId.trim(), otp });
     setLoading(false);
     if (result.success) {
       navigate(from, { replace: true });
     } else {
       setError(result.error);
-      setOtp(['', '', '', '', '', '']);
-      setTimeout(() => otpRefs.current[0]?.focus(), 50);
+      setOtp('');
     }
   };
 
+  const changeId = () => {
+    setStep('id');
+    setOtp('');
+    setError('');
+    setTimeout(() => document.getElementById('login-membershipId')?.focus(), 50);
+  };
+
+  // Each step has one field, so any error belongs to that field.
+  const fieldId = step === 'id' ? 'login-membershipId' : 'login-otp';
+  const errPrefix = t('errorPrefix');
+
+  const primaryButton =
+    'focus-ring inline-flex items-center justify-center rounded-[2px] border-b-2 border-ink-deep bg-ink px-6 py-3 text-[1.0625rem] font-semibold text-white transition-colors hover:bg-rust disabled:cursor-not-allowed disabled:opacity-60';
+
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
-         style={{ fontFamily: "'Inter', sans-serif" }}>
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="flex justify-center mb-4">
-          <img src="/GoGMI_PNG.png" alt="GoGMI" className="h-14 object-contain" />
-        </div>
-        <h2 className="text-center text-3xl font-black" style={{ color: '#132552' }}>
-          {t('heading')}
-        </h2>
-        <p className="mt-2 text-center text-sm text-gray-500">
-          {step === 'id' ? t('subtitle.enterId') : t('subtitle.enterCode', { email: maskedEmail })}
-        </p>
-      </div>
+    <div className="w-full bg-paper font-body text-text">
+      <Container className="pb-20 pt-[120px] md:pb-28 md:pt-[150px]">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-7">
+            <div className="max-w-xl border border-line bg-white px-6 py-8 md:px-10 md:py-10">
+              {error && (
+                <div className="mb-8">
+                  <ErrorSummary title={t('errorSummary')} items={[{ id: fieldId, message: error }]} />
+                </div>
+              )}
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow-lg sm:rounded-2xl sm:px-10">
+              {step === 'id' && (
+                <form onSubmit={handleSendOTP} noValidate>
+                  <h1 className="heading-display text-[2.25rem] md:text-[2.75rem]">{t('heading')}</h1>
+                  <p className="mt-3 text-[1.1875rem] leading-relaxed text-muted">{t('subtitle.enterId')}</p>
 
-          {error && (
-            <div className="mb-5 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-start gap-2">
-              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-              <span className="text-sm">{error}</span>
+                  <div className="mt-8">
+                    <Field id="login-membershipId" label={t('step1.label')} hint={t('step1.helpText')} error={error || undefined} errorPrefix={errPrefix}>
+                      <input
+                        id="login-membershipId"
+                        type="text"
+                        value={membershipId}
+                        onChange={(e) => { setMembershipId(e.target.value); setError(''); }}
+                        placeholder={t('step1.placeholder')}
+                        autoComplete="username"
+                        autoCapitalize="characters"
+                        spellCheck="false"
+                        disabled={loading}
+                        aria-invalid={!!error}
+                        aria-describedby={describedBy('login-membershipId', { hint: true, error })}
+                        className={inputClass(!!error, 'max-w-sm font-mono tracking-wide placeholder:font-body placeholder:tracking-normal placeholder:text-muted/70')}
+                      />
+                    </Field>
+                  </div>
+
+                  <button type="submit" disabled={loading} className={`${primaryButton} mt-8`}>
+                    {loading ? t('step1.submitLoading') : t('step1.submitIdle')}
+                  </button>
+                </form>
+              )}
+
+              {step === 'otp' && (
+                <form onSubmit={handleVerifyOTP} noValidate>
+                  <h1 className="heading-display text-[2.25rem] md:text-[2.75rem]">{t('step2.title')}</h1>
+                  <p className="mt-3 text-[1.1875rem] leading-relaxed text-text">
+                    {t('step2.codeSentToPrefix')} <strong className="font-bold">{maskedEmail}</strong>
+                  </p>
+
+                  <div className="mt-8">
+                    <Field id="login-otp" label={t('step2.codeLabel')} hint={t('step2.codeHint')} error={error || undefined} errorPrefix={errPrefix}>
+                      <input
+                        ref={otpRef}
+                        id="login-otp"
+                        type="text"
+                        inputMode="numeric"
+                        autoComplete="one-time-code"
+                        pattern="[0-9]*"
+                        maxLength={6}
+                        value={otp}
+                        onChange={handleOtpChange}
+                        disabled={loading}
+                        spellCheck="false"
+                        aria-invalid={!!error}
+                        aria-describedby={describedBy('login-otp', { hint: true, error })}
+                        className={inputClass(!!error, 'max-w-[11rem] font-mono text-[1.5rem] tracking-[0.35em]')}
+                      />
+                    </Field>
+                  </div>
+
+                  <button type="submit" disabled={loading} className={`${primaryButton} mt-8`}>
+                    {loading ? t('step2.verifyLoading') : t('step2.verifyIdle')}
+                  </button>
+
+                  <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-6 text-[1.0625rem]">
+                    <li>
+                      <button
+                        type="button"
+                        onClick={handleSendOTP}
+                        disabled={resendCooldown > 0 || loading}
+                        className="focus-ring font-semibold text-ink underline underline-offset-4 hover:text-rust disabled:cursor-not-allowed disabled:text-muted disabled:no-underline"
+                      >
+                        {resendCooldown > 0 ? t('step2.resendCooldown', { seconds: resendCooldown }) : t('step2.resendIdle')}
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        onClick={changeId}
+                        className="focus-ring font-semibold text-ink underline underline-offset-4 hover:text-rust"
+                      >
+                        {t('step2.changeId')}
+                      </button>
+                    </li>
+                  </ul>
+                </form>
+              )}
+
+              <details className="mt-10 border-t border-line pt-6">
+                <summary className="focus-ring cursor-pointer text-[1.0625rem] font-semibold text-ink underline underline-offset-4 hover:text-rust">
+                  {t('help.summary')}
+                </summary>
+                <div className="mt-4 border-l-[5px] border-line pl-4">
+                  <p className="leading-relaxed text-text">{t('help.body')}</p>
+                  <TextLink to="/contact" className="mt-3 font-semibold">{t('help.contact')}</TextLink>
+                </div>
+              </details>
             </div>
-          )}
-
-          {/* ── STEP 1: Membership ID ── */}
-          {step === 'id' && (
-            <form onSubmit={handleSendOTP} className="space-y-6">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">
-                  {t('step1.label')}
-                </label>
-                <div className="relative">
-                  <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    required
-                    value={membershipId}
-                    onChange={e => { setMembershipId(e.target.value); setError(''); }}
-                    placeholder={t('step1.placeholder')}
-                    className="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400] text-sm"
-                  />
-                </div>
-                <p className="mt-2 text-xs text-gray-400">
-                  {t('step1.helpText')}
-                </p>
-              </div>
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-3 px-4 rounded-lg text-sm font-bold text-white transition-all disabled:opacity-50"
-                style={{ backgroundColor: '#8E3400' }}
-              >
-                {loading ? t('step1.submitLoading') : t('step1.submitIdle')}
-              </button>
-            </form>
-          )}
-
-          {/* ── STEP 2: OTP ── */}
-          {step === 'otp' && (
-            <form onSubmit={handleVerifyOTP} className="space-y-6">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-3"
-                     style={{ backgroundColor: '#FEF3EC' }}>
-                  <Mail className="w-7 h-7" style={{ color: '#8E3400' }} />
-                </div>
-                <p className="text-sm text-gray-500">
-                  {t('step2.codeSentToPrefix')} <span className="font-semibold text-gray-700">{maskedEmail}</span>
-                </p>
-              </div>
-
-              {/* OTP boxes */}
-              <div className="flex justify-center gap-3" onPaste={handleOtpPaste}>
-                {otp.map((digit, idx) => (
-                  <input
-                    key={idx}
-                    ref={el => otpRefs.current[idx] = el}
-                    type="text"
-                    inputMode="numeric"
-                    maxLength={1}
-                    value={digit}
-                    onChange={e => handleOtpChange(idx, e.target.value)}
-                    onKeyDown={e => handleOtpKeyDown(idx, e)}
-                    className="w-12 h-14 text-center text-2xl font-bold border-2 rounded-xl focus:outline-none transition-all"
-                    style={{
-                      borderColor: digit ? '#8E3400' : '#D1D5DB',
-                      color: '#132552',
-                      fontSize: '1.5rem',
-                    }}
-                  />
-                ))}
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading || otp.join('').length < 6}
-                className="w-full py-3 px-4 rounded-lg text-sm font-bold text-white transition-all disabled:opacity-50"
-                style={{ backgroundColor: '#132552' }}
-              >
-                {loading ? t('step2.verifyLoading') : t('step2.verifyIdle')}
-              </button>
-
-              <div className="flex items-center justify-between text-sm">
-                <button
-                  type="button"
-                  onClick={() => { setStep('id'); setOtp(['','','','','','']); setError(''); }}
-                  className="flex items-center gap-1 text-gray-500 hover:text-gray-700"
-                >
-                  <ArrowLeft className="w-4 h-4" /> {t('step2.changeId')}
-                </button>
-                <button
-                  type="button"
-                  onClick={handleSendOTP}
-                  disabled={resendCooldown > 0 || loading}
-                  className="flex items-center gap-1 font-semibold disabled:opacity-40"
-                  style={{ color: '#8E3400' }}
-                >
-                  <RefreshCw className="w-4 h-4" />
-                  {resendCooldown > 0 ? t('step2.resendCooldown', { seconds: resendCooldown }) : t('step2.resendIdle')}
-                </button>
-              </div>
-            </form>
-          )}
-
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-500">
-              {t('footer.notAMember')}{' '}
-              <Link to="/membership" className="font-semibold hover:underline" style={{ color: '#8E3400' }}>
-                {t('footer.joinLink')}
-              </Link>
-            </p>
           </div>
+
+          {/* Not a member yet */}
+          <aside className="lg:col-span-4 lg:col-start-9" aria-labelledby="login-join">
+            <div className="border-t-4 border-ink pt-6">
+              <h2 id="login-join" className="text-[1.375rem] font-bold leading-snug text-ink">{t('footer.notAMember')}</h2>
+              <p className="mt-3 leading-relaxed text-muted">{t('footer.intro')}</p>
+              <TextLink to="/membership" className="mt-5 font-semibold">{t('footer.joinLink')}</TextLink>
+            </div>
+          </aside>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };
