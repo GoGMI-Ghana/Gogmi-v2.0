@@ -5,11 +5,20 @@
     "subtitle": "O seu contributo ajuda a sustentar a investigação marítima independente, a capacitação e a advocacia por um Golfo da Guiné mais seguro e sustentável."
   },
   "impact": {
+    "heading": "Para onde vai a sua doação",
     "research": { "title": "Investigação Independente", "desc": "Financia notas de política, relatórios e análises estratégicas sobre segurança marítima e economia azul." },
     "capacity": { "title": "Capacitação", "desc": "Apoia programas de formação e mentoria para a próxima geração de profissionais marítimos." },
     "advocacy": { "title": "Advocacia Regional", "desc": "Sustenta a voz do GoGMI nos diálogos regionais que moldam a governação e as políticas marítimas." }
   },
   "form": {
+    "optional": "(opcional)",
+    "errorSummary": "Existe um problema",
+    "errorPrefix": "Erro:",
+    "quickAmounts": "Escolha um valor",
+    "amountHint": "Escolha um valor acima ou introduza o seu. O Paystack cobra o equivalente em cedis ganeses (GHS).",
+    "phoneHint": "Inclua o indicativo do país, por exemplo +233",
+    "questions": "Tem dúvidas sobre doações?",
+    "contactUs": "Contacte-nos",
     "heading": "Fazer uma Doação",
     "subheading": "Cada contributo, por maior ou menor que seja, faz a diferença.",
     "fullNameLabel": "Nome Completo *",
@@ -33,6 +42,12 @@
     "another": "Fazer Outra Doação"
   },
   "errors": {
+    "fullName": "Introduza o seu nome completo",
+    "email": "Introduza o seu endereço de e-mail",
+    "emailInvalid": "Introduza um e-mail no formato correto, como nome@exemplo.com",
+    "country": "Introduza o seu país",
+    "amount": "Introduza um valor de doação superior a zero",
+    "submit": "Não foi possível iniciar a sua doação",
     "fillRequired": "Preencha o seu nome, e-mail e país.",
     "invalidAmount": "Introduza um valor de doação superior a zero.",
     "paymentLoading": "O sistema de pagamento ainda está a carregar. Aguarde um momento e tente novamente.",

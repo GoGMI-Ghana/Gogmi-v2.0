@@ -1,24 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { Heart, ShieldCheck, BookOpen, Users, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Lock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Container, PageHero, TextLink } from '../ui/Editorial';
+import { Field, ErrorSummary, inputClass, describedBy } from '../ui/Form';
 
 const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
 const USD_TO_GHS = 10.88;
 
+// Suggested amounts in USD; the donor can still type any amount.
+const QUICK_AMOUNTS = [25, 50, 100, 250];
+const EMAIL_PATTERN = /^\S+@\S+\.\S+$/;
+const FIELD_ORDER = ['fullName', 'email', 'country', 'amount'];
+const EMPTY_FORM = { fullName: '', email: '', phone: '', country: '', amount: '', message: '', isAnonymous: false };
+
+// Labels in the locale files end with " *"; GOV.UK marks optional fields instead.
+const plainLabel = (label) => label.replace(/\s*\*\s*$/, '');
+
+const IMPACT = ['research', 'capacity', 'advocacy'];
+
 const Donate = () => {
   const { t } = useTranslation('donate');
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    country: '',
-    amount: '',
-    message: '',
-    isAnonymous: false,
-  });
+  const [formData, setFormData] = useState(EMPTY_FORM);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({});
+  // Problems after the form is valid (payment set-up or recording), shown in the error summary.
+  const [notice, setNotice] = useState('');
   const [success, setSuccess] = useState(null);
+  const successRef = useRef(null);
 
   useEffect(() => {
     if (!document.getElementById('paystack-script')) {
@@ -29,6 +37,10 @@ const Donate = () => {
       document.body.appendChild(script);
     }
   }, []);
+
+  useEffect(() => {
+    if (success) successRef.current?.focus();
+  }, [success]);
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
@@ -55,14 +67,14 @@ const Donate = () => {
       const data = await result.json();
       if (data.success) {
         setSuccess({ amount: amountUSD, reference: paymentReference });
-        setFormData({ fullName: '', email: '', phone: '', country: '', amount: '', message: '', isAnonymous: false });
+        setFormData(EMPTY_FORM);
       } else {
-        setError(
+        setNotice(
           t('errors.recordFailed', { error: data.message || 'unknown error', reference: paymentReference })
         );
       }
     } catch (err) {
-      setError(
+      setNotice(
         t('errors.recordUnconfirmed', { reference: paymentReference })
       );
     } finally {
@@ -70,23 +82,29 @@ const Donate = () => {
     }
   };
 
+  const validate = () => {
+    const e = {};
+    if (!formData.fullName.trim()) e.fullName = t('errors.fullName');
+    if (!formData.email.trim()) e.email = t('errors.email');
+    else if (!EMAIL_PATTERN.test(formData.email.trim())) e.email = t('errors.emailInvalid');
+    if (!formData.country.trim()) e.country = t('errors.country');
+    const amount = parseFloat(formData.amount);
+    if (!amount || amount <= 0) e.amount = t('errors.amount');
+    return e;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
+    setNotice('');
 
-    if (!formData.fullName || !formData.email || !formData.country) {
-      setError(t('errors.fillRequired'));
-      return;
-    }
+    const fieldErrors = validate();
+    setErrors(fieldErrors);
+    if (Object.keys(fieldErrors).length > 0) return;
 
     const amountUSD = parseFloat(formData.amount);
-    if (!amountUSD || amountUSD <= 0) {
-      setError(t('errors.invalidAmount'));
-      return;
-    }
 
     if (typeof window.PaystackPop === 'undefined') {
-      setError(t('errors.paymentLoading'));
+      setNotice(t('errors.paymentLoading'));
       return;
     }
 
@@ -124,218 +142,210 @@ const Donate = () => {
       handler.openIframe();
     } catch (err) {
       setIsProcessing(false);
-      setError(t('errors.paymentInitFailed'));
+      setNotice(t('errors.paymentInitFailed'));
     }
   };
 
+  const errPrefix = t('form.errorPrefix');
+  const optional = t('form.optional');
+  const summaryItems = FIELD_ORDER.filter((f) => errors[f]).map((f) => ({ id: `donate-${f}`, message: errors[f] }));
+
+  const textField = ({ name, label, type = 'text', autoComplete, hint, isOptional, width = '' }) => {
+    const id = `donate-${name}`;
+    return (
+      <Field id={id} label={label} hint={hint} optionalText={isOptional ? optional : undefined} error={errors[name]} errorPrefix={errPrefix}>
+        <input
+          id={id}
+          name={name}
+          type={type}
+          autoComplete={autoComplete}
+          value={formData[name]}
+          onChange={handleChange}
+          disabled={isProcessing}
+          aria-invalid={!!errors[name]}
+          aria-describedby={describedBy(id, { hint, error: errors[name] })}
+          className={inputClass(!!errors[name], width)}
+        />
+      </Field>
+    );
+  };
+
   return (
-    <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1600&fit=crop"
-            alt="Gulf of Guinea coastline"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#132552]/90 to-[#132552]/75" />
-        </div>
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-          <span
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4"
-            style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 600 }}
-          >
-            <Heart className="w-4 h-4" />
-            {t('hero.badge')}
-          </span>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            {t('hero.title')}
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed" style={{ fontWeight: 400 }}>
-            {t('hero.subtitle')}
-          </p>
-        </div>
-      </section>
+    <div className="w-full font-body text-text">
+      <PageHero
+        image="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1600&fit=crop"
+        alt=""
+        eyebrow={t('hero.badge')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      />
 
-      {/* Impact */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#FEF3EC' }}>
-                <BookOpen className="w-7 h-7" style={{ color: '#8E3400' }} />
-              </div>
-              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>{t('impact.research.title')}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                {t('impact.research.desc')}
+      <section className="bg-paper py-16 md:py-24">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+            {/* Where the money goes */}
+            <div className="order-2 lg:order-none lg:col-span-4">
+              <h2 id="donate-impact" className="heading-display text-[1.75rem] md:text-[2rem]">{t('impact.heading')}</h2>
+              <ol className="mt-8 border-t border-line" aria-labelledby="donate-impact">
+                {IMPACT.map((key, idx) => (
+                  <li key={key} className="grid grid-cols-[2.25rem_1fr] border-b border-line py-6">
+                    <span className="text-sm font-semibold tabular-nums text-rust" aria-hidden="true">{String(idx + 1).padStart(2, '0')}</span>
+                    <div>
+                      <h3 className="text-[1.125rem] font-bold leading-snug text-ink">{t(`impact.${key}.title`)}</h3>
+                      <p className="mt-1.5 leading-relaxed text-muted">{t(`impact.${key}.desc`)}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-8 flex items-start gap-3 text-[0.9375rem] leading-relaxed text-muted">
+                <Lock className="mt-1 h-4 w-4 flex-shrink-0 text-ink" aria-hidden="true" />
+                <span>{t('form.securityNote')}</span>
+              </p>
+              <p className="mt-6 text-[0.9375rem] text-muted">
+                {t('form.questions')}{' '}
+                <TextLink to="/contact" className="font-semibold">{t('form.contactUs')}</TextLink>
               </p>
             </div>
-            <div>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#FEF3EC' }}>
-                <Users className="w-7 h-7" style={{ color: '#8E3400' }} />
-              </div>
-              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>{t('impact.capacity.title')}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                {t('impact.capacity.desc')}
-              </p>
-            </div>
-            <div>
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#FEF3EC' }}>
-                <ShieldCheck className="w-7 h-7" style={{ color: '#8E3400' }} />
-              </div>
-              <h3 className="font-bold text-lg mb-2" style={{ color: '#132552' }}>{t('impact.advocacy.title')}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                {t('impact.advocacy.desc')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Donation form */}
-      <section className="py-16" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="max-w-xl mx-auto px-6">
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-            {success ? (
-              <div className="text-center py-6">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: '#ECFDF5' }}>
-                  <CheckCircle className="w-8 h-8 text-emerald-600" />
-                </div>
-                <h2 className="text-2xl font-bold mb-2" style={{ color: '#132552' }}>{t('success.heading')}</h2>
-                <p className="text-gray-500 mb-1">
-                  {t('success.body', { amount: '$' + success.amount })}
-                </p>
-                <p className="text-xs text-gray-400">{t('success.reference', { reference: success.reference })}</p>
-                <button
-                  onClick={() => setSuccess(null)}
-                  className="mt-6 px-6 py-2.5 rounded-lg font-bold text-sm"
-                  style={{ backgroundColor: '#8E3400', color: 'white' }}
-                >
-                  {t('success.another')}
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <h2 className="text-2xl font-bold mb-1" style={{ color: '#132552' }}>{t('form.heading')}</h2>
-                <p className="text-sm text-gray-500 mb-4">{t('form.subheading')}</p>
-
-                {error && (
-                  <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg text-sm">
-                    {error}
+            {/* Form */}
+            <div className="lg:col-span-7 lg:col-start-6">
+              <div className="border border-line bg-white px-6 py-8 md:px-10 md:py-10">
+                {success ? (
+                  <div ref={successRef} tabIndex={-1} className="focus:outline focus:outline-[3px] focus:outline-sand">
+                    <div className="bg-success px-6 py-8 text-center text-white">
+                      <h2 className="text-[2rem] font-bold leading-tight">{t('success.heading')}</h2>
+                      <p className="mt-3 text-[1.1875rem]">{t('success.body', { amount: '$' + success.amount })}</p>
+                      <p className="mt-4 text-[1.0625rem]">
+                        {t('success.reference', { reference: '' })}
+                        <strong className="block break-all font-bold">{success.reference}</strong>
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setSuccess(null)}
+                      className="focus-ring mt-8 rounded-[2px] border-b-2 border-ink-deep bg-ink px-6 py-3 text-[1.0625rem] font-semibold text-white transition-colors hover:bg-rust"
+                    >
+                      {t('success.another')}
+                    </button>
                   </div>
+                ) : (
+                  <form onSubmit={handleSubmit} noValidate>
+                    <h2 className="text-[1.75rem] font-bold leading-tight text-ink">{t('form.heading')}</h2>
+                    <p className="mt-2 text-[1.0625rem] text-muted">{t('form.subheading')}</p>
+
+                    {(summaryItems.length > 0 || notice) && (
+                      <div className="mt-8">
+                        {summaryItems.length > 0 ? (
+                          <ErrorSummary title={t('form.errorSummary')} items={summaryItems} />
+                        ) : (
+                          <div role="alert" className="border-[5px] border-error p-5">
+                            <h3 className="text-[1.25rem] font-bold text-text">{t('errors.submit')}</h3>
+                            <p className="mt-2 text-[1.0625rem] text-text">{notice}</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Amount first: it is what the donor came to decide */}
+                    <div className="mt-8">
+                      <Field
+                        id="donate-amount"
+                        label={plainLabel(t('form.amountLabel'))}
+                        hint={t('form.amountHint')}
+                        error={errors.amount}
+                        errorPrefix={errPrefix}
+                      >
+                        <div role="group" aria-label={t('form.quickAmounts')} className="mb-3 flex flex-wrap gap-2">
+                          {QUICK_AMOUNTS.map((amount) => {
+                            const selected = parseFloat(formData.amount) === amount;
+                            return (
+                              <button
+                                key={amount}
+                                type="button"
+                                aria-pressed={selected}
+                                disabled={isProcessing}
+                                onClick={() => setFormData({ ...formData, amount: String(amount) })}
+                                className={`focus-ring min-w-[5rem] rounded-[2px] border-2 px-4 py-2.5 text-[1.0625rem] font-semibold tabular-nums transition-colors ${
+                                  selected ? 'border-ink bg-ink text-white' : 'border-text bg-white text-ink hover:bg-paper'
+                                }`}
+                              >
+                                ${amount}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        <div className="flex max-w-[14rem] items-stretch">
+                          <span className="flex items-center rounded-l-[2px] border-2 border-r-0 border-text bg-paper px-3 text-[1.0625rem] font-semibold text-text" aria-hidden="true">$</span>
+                          <input
+                            id="donate-amount"
+                            name="amount"
+                            type="text"
+                            inputMode="decimal"
+                            value={formData.amount}
+                            onChange={handleChange}
+                            disabled={isProcessing}
+                            placeholder={t('form.amountPlaceholder')}
+                            aria-invalid={!!errors.amount}
+                            aria-describedby={describedBy('donate-amount', { hint: true, error: errors.amount })}
+                            className={inputClass(!!errors.amount, 'rounded-l-none tabular-nums')}
+                          />
+                        </div>
+                      </Field>
+                    </div>
+
+                    <div className="mt-10 space-y-6 border-t border-line pt-8">
+                      {textField({ name: 'fullName', label: plainLabel(t('form.fullNameLabel')), autoComplete: 'name' })}
+                      {textField({ name: 'email', label: plainLabel(t('form.emailLabel')), type: 'email', autoComplete: 'email', width: 'max-w-md' })}
+                      {textField({ name: 'phone', label: t('form.phoneLabel'), type: 'tel', autoComplete: 'tel', hint: t('form.phoneHint'), isOptional: true, width: 'max-w-xs' })}
+                      {textField({ name: 'country', label: plainLabel(t('form.countryLabel')), autoComplete: 'country-name', width: 'max-w-xs' })}
+
+                      <Field id="donate-message" label={t('form.messageLabel')}>
+                        <textarea
+                          id="donate-message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          disabled={isProcessing}
+                          rows={3}
+                          className={inputClass(false, 'resize-y')}
+                        />
+                      </Field>
+
+                      <div className="flex items-start gap-3">
+                        <input
+                          id="donate-anonymous"
+                          type="checkbox"
+                          name="isAnonymous"
+                          checked={formData.isAnonymous}
+                          onChange={handleChange}
+                          disabled={isProcessing}
+                          aria-describedby="donate-anonymous-hint"
+                          className="focus-ring mt-0.5 h-6 w-6 flex-shrink-0 cursor-pointer accent-ink"
+                        />
+                        <div>
+                          <label htmlFor="donate-anonymous" className="cursor-pointer text-[1.0625rem] text-text">{t('form.anonymousLabel')}</label>
+                          <p id="donate-anonymous-hint" className="mt-1 text-[0.9375rem] text-muted">{t('form.anonymousSubtext')}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isProcessing}
+                      className="focus-ring mt-10 inline-flex items-center justify-center gap-2 rounded-[2px] border-b-2 border-rust-deep bg-rust px-6 py-3 text-[1.0625rem] font-semibold text-white transition-colors hover:bg-rust-deep disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {isProcessing
+                        ? t('form.processing')
+                        : parseFloat(formData.amount) > 0
+                          ? `${t('form.donateNow')} ($${parseFloat(formData.amount).toLocaleString('en-US', { maximumFractionDigits: 2 })})`
+                          : t('form.donateNow')}
+                    </button>
+                  </form>
                 )}
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.fullNameLabel')}</label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.emailLabel')}</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.phoneLabel')}</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.countryLabel')}</label>
-                    <input
-                      type="text"
-                      name="country"
-                      value={formData.country}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.amountLabel')}</label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">$</span>
-                    <input
-                      type="number"
-                      name="amount"
-                      value={formData.amount}
-                      onChange={handleChange}
-                      min="1"
-                      step="0.01"
-                      required
-                      placeholder={t('form.amountPlaceholder')}
-                      className="w-full pl-7 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">{t('form.messageLabel')}</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={3}
-                    placeholder={t('form.messagePlaceholder')}
-                    className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-[#8E3400] resize-none"
-                  />
-                </div>
-
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="isAnonymous"
-                    checked={formData.isAnonymous}
-                    onChange={handleChange}
-                    className="mt-0.5 w-4 h-4 rounded border-gray-300 focus:ring-2"
-                    style={{ accentColor: '#8E3400' }}
-                  />
-                  <span className="text-sm text-gray-600">
-                    {t('form.anonymousLabel')}
-                    <span className="block text-xs text-gray-400 mt-0.5">
-                      {t('form.anonymousSubtext')}
-                    </span>
-                  </span>
-                </label>
-
-                <button
-                  type="submit"
-                  disabled={isProcessing}
-                  className="w-full py-3.5 rounded-lg font-bold text-white transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
-                  style={{ backgroundColor: '#8E3400' }}
-                >
-                  {isProcessing ? t('form.processing') : t('form.donateNow')}
-                </button>
-
-                <p className="text-xs text-gray-400 text-center">
-                  {t('form.securityNote')}
-                </p>
-              </form>
-            )}
+              </div>
+            </div>
           </div>
-        </div>
+        </Container>
       </section>
     </div>
   );

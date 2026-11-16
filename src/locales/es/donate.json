@@ -5,11 +5,20 @@
     "subtitle": "Tu contribución ayuda a sostener la investigación marítima independiente, el fortalecimiento de capacidades y la incidencia por un Golfo de Guinea más seguro y sostenible."
   },
   "impact": {
+    "heading": "A dónde va tu donación",
     "research": { "title": "Investigación independiente", "desc": "Financia notas de política, informes y análisis estratégicos sobre seguridad marítima y economía azul." },
     "capacity": { "title": "Fortalecimiento de capacidades", "desc": "Apoya programas de formación y mentoría para la próxima generación de profesionales marítimos." },
     "advocacy": { "title": "Incidencia regional", "desc": "Sostiene la voz de GoGMI en los diálogos regionales que dan forma a la gobernanza y las políticas marítimas." }
   },
   "form": {
+    "optional": "(opcional)",
+    "errorSummary": "Hay un problema",
+    "errorPrefix": "Error:",
+    "quickAmounts": "Elige un monto",
+    "amountHint": "Elige un monto arriba o introduce el tuyo. Paystack cobra el equivalente en cedis ghaneses (GHS).",
+    "phoneHint": "Incluye el código de país, por ejemplo +233",
+    "questions": "¿Preguntas sobre las donaciones?",
+    "contactUs": "Contáctanos",
     "heading": "Hacer una donación",
     "subheading": "Cada contribución, grande o pequeña, marca la diferencia.",
     "fullNameLabel": "Nombre completo *",
@@ -33,6 +42,12 @@
     "another": "Hacer otra donación"
   },
   "errors": {
+    "fullName": "Introduce tu nombre completo",
+    "email": "Introduce tu correo electrónico",
+    "emailInvalid": "Introduce un correo electrónico con el formato correcto, como nombre@ejemplo.com",
+    "country": "Introduce tu país",
+    "amount": "Introduce un monto de donación mayor que cero",
+    "submit": "No se pudo iniciar tu donación",
     "fillRequired": "Por favor completa tu nombre, correo electrónico y país.",
     "invalidAmount": "Por favor ingresa un monto de donación mayor que cero.",
     "paymentLoading": "El sistema de pago aún se está cargando. Por favor espera un momento e inténtalo de nuevo.",

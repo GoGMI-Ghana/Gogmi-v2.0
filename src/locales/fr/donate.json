@@ -5,11 +5,20 @@
     "subtitle": "Votre contribution aide à soutenir la recherche maritime indépendante, le renforcement des capacités et le plaidoyer pour un Golfe de Guinée plus sûr et plus durable."
   },
   "impact": {
+    "heading": "À quoi sert votre don",
     "research": { "title": "Recherche indépendante", "desc": "Finance des notes de politique, des rapports et des analyses stratégiques sur la sécurité maritime et l'économie bleue." },
     "capacity": { "title": "Renforcement des capacités", "desc": "Soutient les programmes de formation et le mentorat pour la prochaine génération de professionnels maritimes." },
     "advocacy": { "title": "Plaidoyer régional", "desc": "Soutient la voix du GoGMI dans les dialogues régionaux qui façonnent la gouvernance et les politiques maritimes." }
   },
   "form": {
+    "optional": "(facultatif)",
+    "errorSummary": "Il y a un problème",
+    "errorPrefix": "Erreur :",
+    "quickAmounts": "Choisissez un montant",
+    "amountHint": "Choisissez un montant ci-dessus ou saisissez le vôtre. Paystack prélève l’équivalent en cedis ghanéens (GHS).",
+    "phoneHint": "Indiquez l’indicatif du pays, par exemple +233",
+    "questions": "Des questions sur les dons ?",
+    "contactUs": "Nous contacter",
     "heading": "Faire un don",
     "subheading": "Chaque contribution, grande ou petite, fait la différence.",
     "fullNameLabel": "Nom complet *",
@@ -33,6 +42,12 @@
     "another": "Faire un autre don"
   },
   "errors": {
+    "fullName": "Saisissez votre nom complet",
+    "email": "Saisissez votre adresse e-mail",
+    "emailInvalid": "Saisissez une adresse e-mail au bon format, par exemple nom@exemple.com",
+    "country": "Saisissez votre pays",
+    "amount": "Saisissez un montant de don supérieur à zéro",
+    "submit": "Votre don n’a pas pu être lancé",
     "fillRequired": "Veuillez indiquer votre nom, votre e-mail et votre pays.",
     "invalidAmount": "Veuillez saisir un montant de don supérieur à zéro.",
     "paymentLoading": "Le système de paiement est en cours de chargement. Veuillez patienter un instant et réessayer.",

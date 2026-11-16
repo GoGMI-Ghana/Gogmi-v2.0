@@ -5,11 +5,20 @@
     "subtitle": "Your contribution helps sustain independent maritime research, capacity building, and advocacy for a safer, more sustainable Gulf of Guinea."
   },
   "impact": {
+    "heading": "Where your donation goes",
     "research": { "title": "Independent Research", "desc": "Funds policy briefs, reports, and strategic analysis on maritime security and the blue economy." },
     "capacity": { "title": "Capacity Building", "desc": "Supports training programmes and mentorship for the next generation of maritime professionals." },
     "advocacy": { "title": "Regional Advocacy", "desc": "Sustains GoGMI's voice in regional dialogues shaping maritime governance and policy." }
   },
   "form": {
+    "optional": "(optional)",
+    "errorSummary": "There is a problem",
+    "errorPrefix": "Error:",
+    "quickAmounts": "Choose an amount",
+    "amountHint": "Choose an amount above or enter your own. Paystack charges the equivalent in Ghana cedis (GHS).",
+    "phoneHint": "Include the country code, for example +233",
+    "questions": "Questions about giving?",
+    "contactUs": "Contact us",
     "heading": "Make a Donation",
     "subheading": "Every contribution, large or small, makes a difference.",
     "fullNameLabel": "Full Name *",
@@ -33,6 +42,12 @@
     "another": "Make Another Donation"
   },
   "errors": {
+    "fullName": "Enter your full name",
+    "email": "Enter your email address",
+    "emailInvalid": "Enter an email address in the correct format, like name@example.com",
+    "country": "Enter your country",
+    "amount": "Enter a donation amount greater than zero",
+    "submit": "Your donation could not be started",
     "fillRequired": "Please fill in your name, email, and country.",
     "invalidAmount": "Please enter a donation amount greater than zero.",
     "paymentLoading": "Payment system is still loading. Please wait a moment and try again.",
