@@ -6,7 +6,8 @@
     "cancelled": "Membre annulé"
   },
   "header": {
-    "defaultPlanName": "Membre GoGMI"
+    "defaultPlanName": "Membre GoGMI",
+    "eyebrow": "Espace membre"
   },
   "profile": {
     "heading": "Profil",
@@ -24,7 +25,8 @@
     "timeRemaining": "Temps restant",
     "expired": "Expiré",
     "daysLeft_one": "{{count}} jour restant",
-    "daysLeft_other": "{{count}} jours restants"
+    "daysLeft_other": "{{count}} jours restants",
+    "status": "Statut"
   },
   "certificate": {
     "heading": "Certificat d'adhésion",
@@ -43,6 +45,23 @@
     "membership": {
       "title": "Gérer mon adhésion",
       "description": "Consultez les formules, renouvelez ou améliorez votre adhésion"
+    },
+    "label": "Étapes suivantes"
+  },
+  "notice": {
+    "renew": "Renouveler votre adhésion",
+    "expired": {
+      "title": "Votre adhésion a expiré",
+      "body": "Renouvelez-la pour conserver l’accès aux ressources et événements réservés aux membres."
+    },
+    "pending": {
+      "title": "Votre adhésion est en cours de traitement",
+      "body": "Nous vous confirmerons par e-mail une fois votre paiement et vos informations vérifiés."
+    },
+    "expiring": {
+      "title": "Votre adhésion expire bientôt",
+      "body_one": "Elle expire dans {{count}} jour. Renouvelez-la dès maintenant pour éviter une interruption.",
+      "body_other": "Elle expire dans {{count}} jours. Renouvelez-la dès maintenant pour éviter une interruption."
     }
   }
 }

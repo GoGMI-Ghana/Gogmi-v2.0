@@ -6,7 +6,8 @@
     "cancelled": "Associado Cancelado"
   },
   "header": {
-    "defaultPlanName": "Associado do GoGMI"
+    "defaultPlanName": "Associado do GoGMI",
+    "eyebrow": "Painel do membro"
   },
   "profile": {
     "heading": "Perfil",
@@ -24,7 +25,8 @@
     "timeRemaining": "Tempo Restante",
     "expired": "Expirada",
     "daysLeft_one": "falta {{count}} dia",
-    "daysLeft_other": "faltam {{count}} dias"
+    "daysLeft_other": "faltam {{count}} dias",
+    "status": "Estado"
   },
   "certificate": {
     "heading": "Certificado de Associado",
@@ -43,6 +45,23 @@
     "membership": {
       "title": "Gerir Associação",
       "description": "Consulte os planos, renove ou faça upgrade da sua associação"
+    },
+    "label": "Próximos passos"
+  },
+  "notice": {
+    "renew": "Renovar a sua adesão",
+    "expired": {
+      "title": "A sua adesão expirou",
+      "body": "Renove para manter o acesso aos recursos e eventos exclusivos para membros."
+    },
+    "pending": {
+      "title": "A sua adesão está a ser processada",
+      "body": "Confirmaremos por e-mail assim que o pagamento e os seus dados forem verificados."
+    },
+    "expiring": {
+      "title": "A sua adesão expira em breve",
+      "body_one": "Expira dentro de {{count}} dia. Renove agora para não perder o acesso.",
+      "body_other": "Expira dentro de {{count}} dias. Renove agora para não perder o acesso."
     }
   }
 }

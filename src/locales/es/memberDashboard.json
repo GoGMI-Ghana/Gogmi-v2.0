@@ -6,7 +6,8 @@
     "cancelled": "Miembro cancelado"
   },
   "header": {
-    "defaultPlanName": "Miembro de GoGMI"
+    "defaultPlanName": "Miembro de GoGMI",
+    "eyebrow": "Panel de miembro"
   },
   "profile": {
     "heading": "Perfil",
@@ -24,7 +25,8 @@
     "timeRemaining": "Tiempo restante",
     "expired": "Vencida",
     "daysLeft_one": "{{count}} día restante",
-    "daysLeft_other": "{{count}} días restantes"
+    "daysLeft_other": "{{count}} días restantes",
+    "status": "Estado"
   },
   "certificate": {
     "heading": "Certificado de membresía",
@@ -43,6 +45,23 @@
     "membership": {
       "title": "Gestionar membresía",
       "description": "Consulte los planes, renueve o mejore su membresía"
+    },
+    "label": "Próximos pasos"
+  },
+  "notice": {
+    "renew": "Renovar su membresía",
+    "expired": {
+      "title": "Su membresía ha vencido",
+      "body": "Renuévela para mantener el acceso a los recursos y eventos exclusivos para miembros."
+    },
+    "pending": {
+      "title": "Su membresía se está procesando",
+      "body": "Le confirmaremos por correo electrónico cuando hayamos verificado su pago y sus datos."
+    },
+    "expiring": {
+      "title": "Su membresía vence pronto",
+      "body_one": "Vence en {{count}} día. Renuévela ahora para no perder el acceso.",
+      "body_other": "Vence en {{count}} días. Renuévela ahora para no perder el acceso."
     }
   }
 }

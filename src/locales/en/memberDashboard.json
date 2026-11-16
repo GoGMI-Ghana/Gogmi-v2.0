@@ -6,7 +6,8 @@
     "cancelled": "Cancelled Member"
   },
   "header": {
-    "defaultPlanName": "GoGMI Member"
+    "defaultPlanName": "GoGMI Member",
+    "eyebrow": "Member dashboard"
   },
   "profile": {
     "heading": "Profile",
@@ -24,7 +25,8 @@
     "timeRemaining": "Time Remaining",
     "expired": "Expired",
     "daysLeft_one": "{{count}} day left",
-    "daysLeft_other": "{{count}} days left"
+    "daysLeft_other": "{{count}} days left",
+    "status": "Status"
   },
   "certificate": {
     "heading": "Membership Certificate",
@@ -43,6 +45,23 @@
     "membership": {
       "title": "Manage Membership",
       "description": "View plans, renew, or upgrade your membership"
+    },
+    "label": "Next steps"
+  },
+  "notice": {
+    "renew": "Renew your membership",
+    "expired": {
+      "title": "Your membership has expired",
+      "body": "Renew to keep access to member-only resources and events."
+    },
+    "pending": {
+      "title": "Your membership is being processed",
+      "body": "We will confirm by email once your payment and details have been checked."
+    },
+    "expiring": {
+      "title": "Your membership expires soon",
+      "body_one": "It expires in {{count}} day. Renew now to avoid a gap in access.",
+      "body_other": "It expires in {{count}} days. Renew now to avoid a gap in access."
     }
   }
 }
