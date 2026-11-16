@@ -1,0 +1,46 @@
+{
+  "errorSummary": "Hay un problema",
+  "errorPrefix": "Error:",
+  "optional": "(opcional)",
+  "close": "Cerrar",
+  "continue": "Continuar",
+  "back": "Atrás",
+  "courseFee": "Tarifa del curso",
+  "choose": {
+    "legend": "¿Es miembro de GoGMI?",
+    "yes": "Sí, soy miembro",
+    "yesHint": "Pague el precio de miembro de USD {{price}} y ahorre USD {{discount}}. Necesitará su ID de miembro.",
+    "no": "No, todavía no soy miembro",
+    "noHint": "Pague USD {{price}}. Su inscripción incluye una membresía gratuita de GoGMI."
+  },
+  "sections": {
+    "you": "Sus datos",
+    "work": "Su trabajo",
+    "membership": "Su membresía gratuita"
+  },
+  "phoneHint": "Incluya el código de país, por ejemplo +233 24 123 4567",
+  "dobHint": "Por ejemplo, 27 de marzo de 1995",
+  "errors": {
+    "choose": "Indique si es miembro de GoGMI",
+    "membershipId": "Introduzca su ID de miembro",
+    "fullName": "Introduzca su nombre completo",
+    "email": "Introduzca su correo electrónico",
+    "emailInvalid": "Introduzca un correo electrónico con el formato correcto, como nombre@ejemplo.com",
+    "phone": "Introduzca su número de WhatsApp con el código de país",
+    "position": "Introduzca su cargo o puesto",
+    "country": "Introduzca su país",
+    "dateOfBirth": "Introduzca su fecha de nacimiento",
+    "membershipType": "Seleccione el tipo de membresía que desea"
+  },
+  "noticeTitle": "Su inscripción no está completa",
+  "success": {
+    "title": "Inscripción completada",
+    "body": "Está inscrito en {{course}}.",
+    "reference": "Referencia del pago",
+    "membershipId": "Su nuevo ID de miembro de GoGMI",
+    "membershipHint": "Use este ID para acceder al área de miembros.",
+    "signIn": "Iniciar sesión",
+    "email": "Hemos enviado un correo de confirmación a {{email}}.",
+    "done": "Cerrar"
+  }
+}
