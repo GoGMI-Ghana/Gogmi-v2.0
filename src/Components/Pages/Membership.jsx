@@ -661,19 +661,17 @@ const Membership = () => {
         </Container>
       </section>
 
-      {/* HOW TO APPLY: numbered steps joined by a line */}
+      {/* HOW TO APPLY: steps joined by a line */}
       <section className="bg-paper py-20 md:py-28" aria-labelledby="memb-how">
         <Container>
           <SectionHeader id="memb-how" title={t('howToApply.heading')} />
           <ol className="relative mt-12 grid gap-10 md:grid-cols-4 md:gap-8">
             <span className="absolute left-0 right-0 top-5 hidden h-px bg-line md:block" aria-hidden="true"></span>
-            {t('howToApply.steps', { returnObjects: true }).map((step, idx) => (
+            {t('howToApply.steps', { returnObjects: true }).map((step) => (
               <li key={step.title} className="relative">
-                <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-ink text-[1.0625rem] font-bold text-white" aria-hidden="true">
-                  {idx + 1}
-                </span>
+                <span className="relative mt-[14px] block h-3 w-3 rounded-full bg-rust" aria-hidden="true"></span>
                 <h3 className="mt-5 text-[1.125rem] font-bold text-ink">
-                  <span className="sr-only">{idx + 1}. </span>{step.title}
+                  {step.title}
                 </h3>
                 <p className="mt-2 leading-relaxed text-muted">{step.description}</p>
               </li>

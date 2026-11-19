@@ -231,12 +231,6 @@ const MaritimeSecurityAudit = () => {
               <div key={idx}
                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#8E3400]/50">
                 <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl font-black"
-                         style={{ backgroundColor: '#8E3400', fontFamily: '"SF Pro Display", sans-serif' }}>
-                      {output.number}
-                    </div>
-                  </div>
                   <div>
                     <h3 className="text-xl font-black text-white mb-4" style={{ fontFamily: 'system-ui, sans-serif', letterSpacing: '-0.01em' }}>
                       {output.title}

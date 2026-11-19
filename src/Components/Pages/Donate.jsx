@@ -187,9 +187,9 @@ const Donate = () => {
             <div className="order-2 lg:order-none lg:col-span-4">
               <h2 id="donate-impact" className="heading-display text-[1.75rem] md:text-[2rem]">{t('impact.heading')}</h2>
               <ol className="mt-8 border-t border-line" aria-labelledby="donate-impact">
-                {IMPACT.map((key, idx) => (
+                {IMPACT.map((key) => (
                   <li key={key} className="grid grid-cols-[2.25rem_1fr] border-b border-line py-6">
-                    <span className="text-sm font-semibold tabular-nums text-rust" aria-hidden="true">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="mt-[0.6rem] h-2 w-2 flex-shrink-0 bg-rust" aria-hidden="true"></span>
                     <div>
                       <h3 className="text-[1.125rem] font-bold leading-snug text-ink">{t(`impact.${key}.title`)}</h3>
                       <p className="mt-1.5 leading-relaxed text-muted">{t(`impact.${key}.desc`)}</p>

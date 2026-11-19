@@ -150,12 +150,9 @@ const BlueCareerExpo = () => {
           </div>
 
           <ol className="mt-14 grid gap-8 md:mt-20 md:grid-cols-3 md:gap-10">
-            {list('impact.numbered').map((item, i) => (
+            {list('impact.numbered').map((item) => (
               <li key={item} className="border-t-2 border-ink pt-5">
-                <span className="font-display text-[2rem] font-bold leading-none text-rust" aria-hidden="true">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="mt-4 text-lg leading-relaxed">{item}</p>
+                <p className="text-lg leading-relaxed">{item}</p>
               </li>
             ))}
           </ol>

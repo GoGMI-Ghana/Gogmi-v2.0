@@ -20,9 +20,9 @@ const initials = (name) => {
   return (words[0][0] + (words.length > 1 ? words[words.length - 1][0] : '')).toUpperCase();
 };
 
-// Two-digit number marker used in the ruled lists.
-const Num = ({ n }) => (
-  <span className="text-sm font-semibold tabular-nums text-rust" aria-hidden="true">{String(n).padStart(2, '0')}</span>
+// Small square marker used in the ruled lists.
+const Num = () => (
+  <span className="mt-[0.6rem] h-2 w-2 bg-rust" aria-hidden="true"></span>
 );
 
 const MaritimeGovernanceCourse = () => {
@@ -231,7 +231,7 @@ const MaritimeGovernanceCourse = () => {
                           <Num n={i + 1} />
                           <div>
                             <h3 className="text-[1.125rem] font-bold text-ink">
-                              <span className="sr-only">{i + 1}. </span>{module.title}
+                              {module.title}
                             </h3>
                             <p className="mt-1 leading-relaxed text-muted">{module.description}</p>
                           </div>

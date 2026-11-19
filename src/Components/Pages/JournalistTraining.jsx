@@ -155,10 +155,7 @@ const JournalistTraining = () => {
               <ul className="space-y-4">
                 {applicationMaterials.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-white text-xs font-bold"
-                         style={{ backgroundColor: '#132552' }}>
-                      {i + 1}
-                    </div>
+                    <span className="mt-2.5 h-2 w-2 flex-shrink-0 bg-rust" aria-hidden="true"></span>
                     <span className="text-base leading-relaxed" style={{ color: '#4B5563' }}>{item}</span>
                   </li>
                 ))}

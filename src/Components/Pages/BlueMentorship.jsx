@@ -5,12 +5,10 @@ import { useTranslation } from 'react-i18next';
 
 const FONT = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
-const elementNumbers = ['01', '02', '03'];
-
 const BlueMentorship = () => {
   const { t } = useTranslation('blueMentorship');
   const impacts = t('impacts.items', { returnObjects: true });
-  const elements = t('elements.items', { returnObjects: true }).map((el, i) => ({ ...el, number: elementNumbers[i] }));
+  const elements = t('elements.items', { returnObjects: true });
   const incubatorThemes = t('incubator.themes', { returnObjects: true });
   return (
     <div className="w-full min-h-screen" style={{ fontFamily: FONT, backgroundColor: '#F9FAFB' }}>
@@ -136,13 +134,7 @@ const BlueMentorship = () => {
 
           <div className="space-y-6">
             {elements.map((el) => (
-              <div key={el.number} className="rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 flex gap-8 items-start">
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black flex-shrink-0"
-                  style={{ backgroundColor: '#132552', color: 'white' }}
-                >
-                  {el.number}
-                </div>
+              <div key={el.title} className="rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 flex gap-8 items-start">
                 <div className="flex-1">
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                     <h3 className="text-xl md:text-2xl font-bold" style={{ color: '#132552' }}>{el.title}</h3>
@@ -190,12 +182,7 @@ const BlueMentorship = () => {
               <div className="space-y-4">
                 {incubatorThemes.map((theme, i) => (
                   <div key={i} className="rounded-2xl p-6 bg-white shadow-sm border border-gray-100 flex gap-4 items-start">
-                    <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 text-sm font-black"
-                      style={{ backgroundColor: '#132552', color: 'white' }}
-                    >
-                      {i + 1}
-                    </div>
+                    <span className="mt-2 h-2 w-2 flex-shrink-0 bg-rust" aria-hidden="true"></span>
                     <div>
                       <div className="text-base font-bold mb-1" style={{ color: '#132552' }}>{theme.label}</div>
                       <div className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>{theme.desc}</div>

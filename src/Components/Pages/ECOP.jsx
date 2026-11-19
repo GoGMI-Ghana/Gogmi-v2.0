@@ -16,7 +16,7 @@ const programmeIData = {
   videoIds: ['6b6iSxtEG0A', 'Ad_gQXJeHfs', 'ngDvvWALkXI', '63EtiBewwMs'],
 };
 
-const VideoCard = ({ videoId, title, number, label, t }) => {
+const VideoCard = ({ videoId, title, label, t }) => {
   const [playing, setPlaying] = useState(false);
   const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
@@ -49,7 +49,7 @@ const VideoCard = ({ videoId, title, number, label, t }) => {
       </div>
       <div className="p-6 flex flex-col flex-1">
         <span className="text-xs uppercase tracking-widest font-bold block mb-2" style={{ color: '#8E3400' }}>
-          {label} {number}
+          {label}
         </span>
         <h4 className="text-lg font-bold leading-snug" style={{ color: '#132552' }}>{title}</h4>
       </div>

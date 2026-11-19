@@ -127,7 +127,6 @@ const MarineCasualtyCourse = () => {
             {modules.map((module, idx) => (
               <details key={module.title} className="group border-b border-line">
                 <summary className="focus-ring flex cursor-pointer list-none items-start gap-5 py-6 hover:bg-paper md:px-4 [&::-webkit-details-marker]:hidden">
-                  <span className="w-10 flex-shrink-0 pt-1 text-sm font-semibold tabular-nums text-rust" aria-hidden="true">{String(idx + 1).padStart(2, '0')}</span>
                   <span className="min-w-0 flex-1">
                     <span className="sr-only">{t('modulesSection.moduleLabel', { number: idx + 1 })}: </span>
                     <span className="block text-[1.25rem] font-bold leading-snug text-ink">{module.title}</span>
@@ -146,9 +145,9 @@ const MarineCasualtyCourse = () => {
                   <div>
                     <h3 className="text-sm font-semibold text-muted">{t('modulesSection.outcomesHeading')}</h3>
                     <ol className="mt-3 space-y-2">
-                      {module.learningOutcomes.map((o, i) => (
+                      {module.learningOutcomes.map((o) => (
                         <li key={o} className="grid grid-cols-[1.75rem_1fr] leading-relaxed">
-                          <span className="font-semibold tabular-nums text-ink">{i + 1}.</span>
+                          <span className="mt-[0.6rem] h-2 w-2 flex-shrink-0 bg-rust" aria-hidden="true"></span>
                           <span>{o}</span>
                         </li>
                       ))}
@@ -181,9 +180,8 @@ const MarineCasualtyCourse = () => {
               <h2 id="mcc-outcomes" className="heading-display text-[2.25rem] md:text-[2.75rem]">{t('outcomesSection.heading')}</h2>
             </div>
             <ol className="lg:col-span-8">
-              {outcomes.map((o, idx) => (
-                <li key={o} className="grid grid-cols-[3.5rem_1fr] items-baseline border-t border-line py-6 last:border-b">
-                  <span className="text-[2rem] font-bold leading-none tabular-nums text-rust" aria-hidden="true">{idx + 1}</span>
+              {outcomes.map((o) => (
+                <li key={o} className="border-t border-line py-6 last:border-b">
                   <p className="text-[1.25rem] font-semibold leading-snug text-ink">{o}</p>
                 </li>
               ))}

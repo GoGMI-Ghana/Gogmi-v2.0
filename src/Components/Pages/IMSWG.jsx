@@ -92,19 +92,16 @@ const IMSWG = () => {
       <section aria-labelledby="imswg-activities" className="py-16 md:py-24">
         <Container>
           <SectionHeader id="imswg-activities" title={t('activities.heading')} />
-          <ol className="mt-10 grid gap-10 md:grid-cols-2 md:gap-14">
-            {activities.map((key, i) => (
-              <li key={key} className="grid grid-cols-[auto_1fr] gap-5">
-                <span className="font-display text-[2.5rem] font-bold leading-none text-rust" aria-hidden="true">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+          <ul className="mt-10 grid gap-10 md:grid-cols-2 md:gap-14">
+            {activities.map((key) => (
+              <li key={key} className="border-t-2 border-ink pt-5">
                 <div>
                   <h3 className="font-display text-[1.375rem] font-bold text-ink">{t(`activities.${key}.heading`)}</h3>
                   <p className="mt-2 text-lg leading-relaxed text-muted">{t(`activities.${key}.desc`)}</p>
                 </div>
               </li>
             ))}
-          </ol>
+          </ul>
 
           <figure className="mt-14 md:mt-20">
             <img src="/imswg3.jpg" alt={t('activities.imageAlt')} loading="lazy" className="aspect-[16/9] w-full object-cover md:aspect-[21/9]" />

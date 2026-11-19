@@ -244,9 +244,6 @@ const SHADE = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {benefits.map((benefit, idx) => (
               <div key={idx} className="bg-white rounded-xl p-8 shadow-lg border-2" style={{ borderColor: '#132552' }}>
-                <div className="text-6xl font-black mb-4" style={{ color: '#8E3400' }}>
-                  {idx + 1}
-                </div>
                 <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
                   {benefit}
                 </p>

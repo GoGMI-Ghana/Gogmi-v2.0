@@ -5,14 +5,6 @@ import { ArrowLeft, Calendar, Clock, Globe, Users, CheckCircle, BookOpen } from 
 
 const FONT = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
-const modulesMeta = [
-  { number: '01' },
-  { number: '02' },
-  { number: '03' },
-  { number: '04' },
-  { number: '05' },
-];
-
 const participantsMeta = [
   { name: 'Lt Cdr Emilio Okyere-Dadzie', image: '/emilio.jpg' },
   { name: 'Lt Cdr Kwame Yelbuor', image: '/yelbour.jpg' },
@@ -32,10 +24,7 @@ const quickFactsMeta = [
 const MASSDI = () => {
   const { t } = useTranslation('massdi');
 
-  const modules = t('modulesSection.items', { returnObjects: true }).map((mod, idx) => ({
-    ...mod,
-    ...modulesMeta[idx],
-  }));
+  const modules = t('modulesSection.items', { returnObjects: true });
 
   const participants = t('participantsSection.items', { returnObjects: true }).map((participant, idx) => ({
     ...participant,
@@ -182,13 +171,7 @@ const MASSDI = () => {
 
           <div className="space-y-5">
             {modules.map((mod) => (
-              <div key={mod.number} className="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 flex gap-8 items-start">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-black flex-shrink-0"
-                  style={{ backgroundColor: '#132552', color: 'white' }}
-                >
-                  {mod.number}
-                </div>
+              <div key={mod.title} className="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 flex gap-8 items-start">
                 <div>
                   <h3 className="text-xl font-bold mb-3" style={{ color: '#132552' }}>{mod.title}</h3>
                   <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>{mod.description}</p>

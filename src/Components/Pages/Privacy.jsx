@@ -63,7 +63,7 @@ const Privacy = () => {
                   {t('toc.heading')}
                 </p>
                 <nav className="space-y-1">
-                  {sections.map((s, i) => (
+                  {sections.map((s) => (
                     <a
                       key={s.id}
                       href={`#${s.id}`}
@@ -72,9 +72,6 @@ const Privacy = () => {
                       onMouseEnter={e => e.currentTarget.style.backgroundColor = '#132552'}
                       onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
-                      <span className="text-xs font-bold w-5 flex-shrink-0" style={{ color: '#8E3400' }}>
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
                       <span>{s.title}</span>
                     </a>
                   ))}
@@ -85,7 +82,6 @@ const Privacy = () => {
                     onMouseEnter={e => e.currentTarget.style.backgroundColor = '#132552'}
                     onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    <span className="text-xs font-bold w-5 flex-shrink-0" style={{ color: '#8E3400' }}>13</span>
                     <span>{t('toc.contact')}</span>
                   </a>
                 </nav>
@@ -95,7 +91,7 @@ const Privacy = () => {
             {/* Policy sections */}
             <div className="flex-1 min-w-0">
               <div className="space-y-10">
-                {sections.map((section, i) => (
+                {sections.map((section) => (
                   <div
                     key={section.id}
                     id={section.id}
@@ -104,10 +100,6 @@ const Privacy = () => {
                   >
                     {/* Section header */}
                     <div className="flex items-start gap-4 mb-4">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black text-white"
-                            style={{ backgroundColor: '#8E3400' }}>
-                        {i + 1}
-                      </span>
                       <h2 className="text-xl pt-0.5" style={{ fontWeight: 800, color: '#132552' }}>
                         {section.title}
                       </h2>
@@ -162,10 +154,6 @@ const Privacy = () => {
                 >
                   <div className="px-7 py-5" style={{ backgroundColor: '#132552' }}>
                     <div className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black"
-                            style={{ backgroundColor: '#8E3400', color: 'white' }}>
-                        13
-                      </span>
                       <h2 className="text-xl font-black text-white">{t('contact.heading')}</h2>
                     </div>
                   </div>

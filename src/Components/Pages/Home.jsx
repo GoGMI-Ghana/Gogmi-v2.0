@@ -260,12 +260,9 @@ const Home = () => {
             action={<TextLink to="/services" className="text-sand">{t('services.link')}</TextLink>}
           />
           <ol className="mt-14 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, idx) => (
+            {services.map((service) => (
               <li key={service.title} className="border-t border-white/20 pb-10 pt-6">
-                <span className="font-display text-lg text-sand" aria-hidden="true">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-3 font-display text-[1.5rem] font-semibold leading-snug text-white">
+                <h3 className="font-display text-[1.5rem] font-semibold leading-snug text-white">
                   {service.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-on-dark">{service.desc}</p>

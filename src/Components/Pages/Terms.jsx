@@ -41,19 +41,13 @@ const Terms = () => {
       <section className="py-16">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="space-y-6">
-            {sections.map((section, idx) => (
+            {sections.map((section) => (
               <div
                 key={section.id}
                 id={section.id}
                 className="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 scroll-mt-24"
               >
                 <div className="flex items-center gap-4 mb-5">
-                  <span
-                    className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black flex-shrink-0"
-                    style={{ backgroundColor: '#132552', color: 'white' }}
-                  >
-                    {idx + 1}
-                  </span>
                   <h2 className="text-xl font-bold" style={{ color: '#132552' }}>{section.title}</h2>
                 </div>
 

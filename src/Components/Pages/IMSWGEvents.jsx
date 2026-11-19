@@ -106,10 +106,8 @@ const IMSWGEvents = () => {
           <SectionHeader id="ev-objectives" title={t('objectives.heading')} intro={t('objectives.subtitle')} />
           <ol className="mt-10 border-t border-line">
             {list('objectives.items').map((item, i) => (
-              <li key={i} className="grid gap-4 border-b border-line py-7 md:grid-cols-[6rem_1fr] md:gap-8">
-                <span className="font-display text-[2.5rem] font-bold leading-none text-rust" aria-hidden="true">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+              <li key={i} className="flex gap-4 border-b border-line py-7">
+                <span className="mt-[0.6rem] h-2 w-2 flex-shrink-0 bg-rust" aria-hidden="true"></span>
                 <p className="max-w-3xl text-lg leading-relaxed">{item}</p>
               </li>
             ))}
@@ -122,14 +120,13 @@ const IMSWGEvents = () => {
         <Container>
           <SectionHeader id="ev-topics" title={t('topics.heading')} intro={t('topics.subtitle')} />
           <div className="mt-10 border-t border-line">
-            {list('topics.items').map((topic, i) => (
+            {list('topics.items').map((topic) => (
               <details key={topic.title} className="group border-b border-line">
                 <summary className="focus-ring flex cursor-pointer list-none items-start gap-4 py-6 [&::-webkit-details-marker]:hidden">
                   <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-semibold text-rust">{t('topics.topicLabel')} {i + 1}</span>
-                    <span className="mt-1 block font-display text-[1.25rem] font-bold text-ink md:text-[1.375rem]">{topic.title}</span>
+                    <span className="block font-display text-[1.25rem] font-bold text-ink md:text-[1.375rem]">{topic.title}</span>
                   </span>
-                  <ChevronDown className="mt-6 h-5 w-5 flex-shrink-0 text-ink transition-transform group-open:rotate-180" aria-hidden="true" />
+                  <ChevronDown className="mt-1.5 h-5 w-5 flex-shrink-0 text-ink transition-transform group-open:rotate-180" aria-hidden="true" />
                 </summary>
                 <p className="max-w-3xl pb-7 text-lg leading-relaxed text-muted">{topic.description}</p>
               </details>

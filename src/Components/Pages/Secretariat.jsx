@@ -42,9 +42,6 @@ const Secretariat = () => {
               const Icon = SERVICE_ICONS[idx] || Target;
               return (
                 <li key={service.title} className="flex gap-6 bg-white py-10 md:px-10 md:odd:pl-0">
-                  <span className="text-[2.5rem] font-bold leading-none tracking-[-0.03em] tabular-nums text-sand" aria-hidden="true">
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
                   <div>
                     <Icon className="h-6 w-6 text-rust" aria-hidden="true" />
                     <h3 className="mt-3 text-[1.375rem] font-bold leading-snug tracking-[-0.01em] text-ink">{service.title}</h3>

@@ -52,10 +52,9 @@ const Services = () => {
 
           <nav aria-label={t('onThisPage')}>
             <ol className="grid gap-px border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-              {areas.map((area, idx) => (
+              {areas.map((area) => (
                 <li key={area.id} className="bg-white">
                   <a href={`#area-${area.id}`} className="focus-ring group flex h-full items-baseline gap-3 px-1 py-5 transition-colors hover:bg-paper sm:px-5">
-                    <span className="text-sm font-semibold tabular-nums text-rust">{String(idx + 1).padStart(2, '0')}</span>
                     <span>
                       <span className="block text-[1.0625rem] font-semibold text-ink group-hover:underline group-hover:underline-offset-4">{area.title}</span>
                       <span className="mt-1 block text-sm leading-snug text-muted">{area.shortDesc}</span>
@@ -91,8 +90,7 @@ const Services = () => {
                 </div>
 
                 <div className={`lg:col-span-5 ${flip ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-8'}`}>
-                  <p className="text-sm font-semibold tabular-nums text-rust">{String(idx + 1).padStart(2, '0')}</p>
-                  <h2 id={`area-${area.id}-title`} className="heading-display mt-2 text-[2rem] md:text-[2.5rem]">{area.title}</h2>
+                  <h2 id={`area-${area.id}-title`} className="heading-display text-[2rem] md:text-[2.5rem]">{area.title}</h2>
                   <p className="mt-5 text-[1.0625rem] leading-relaxed text-text">{area.fullDesc}</p>
 
                   <ul className="mt-7 grid border-t border-line sm:grid-cols-2 sm:gap-x-8">
