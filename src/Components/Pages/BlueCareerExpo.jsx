@@ -11,13 +11,6 @@ const BlueCareerExpo = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const eventStats = [
-    { number: '10', label: t('stats.labels.workshops') },
-    { number: '5', label: t('stats.labels.days') },
-    { number: '16', label: t('stats.labels.sessions') },
-    { number: '200+', label: t('stats.labels.participants') },
-    { number: '6', label: t('stats.labels.hostCountries') }
-  ];
 
   const keyThemes = t('themes', { returnObjects: true });
 
@@ -87,29 +80,6 @@ const BlueCareerExpo = () => {
                 <img src="/wista ghana.jpg" alt="WISTA Ghana" className="w-full h-full object-contain p-4" />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Event Stats */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-black text-center mb-12" style={{ color: '#132552', fontWeight: 900 }}>
-            {t('stats.heading')}
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-            {eventStats.map((stat, idx) => (
-              <div key={idx} className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#F5F7FA', border: '2px solid #132552' }}>
-                  <span className="text-4xl font-black" style={{ color: '#132552', fontWeight: 900 }}>
-                    {stat.number}
-                  </span>
-                </div>
-                <p className="text-sm font-bold uppercase tracking-wide" style={{ color: '#4B5563' }}>
-                  {stat.label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

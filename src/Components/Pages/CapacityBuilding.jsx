@@ -21,12 +21,6 @@ const PROGRAMS = [
   { key: 'blueMentorship', status: 'Completed', link: '/blue-mentorship' }
 ];
 
-const IMPACT = [
-  { key: 'trainingPrograms', value: '5+' },
-  { key: 'professionalsTrained', value: '100+' },
-  { key: 'partnerOrganizations', value: '15+' }
-];
-
 const ALUMNI = [
   { name: 'Thomas Lartey', roleKey: 'thomasLartey', linkedin: 'https://www.linkedin.com/in/thomas-lartey-739a85223' },
   { name: 'Clement Kwara', roleKey: 'clementKwara', linkedin: 'https://www.linkedin.com/in/clement-k-aa859211b' }
@@ -93,26 +87,6 @@ const CapacityBuilding = () => {
         </Button>
       </PageHero>
       
-      {/* IMPACT FIGURES */}
-      <section className="border-b border-line bg-paper" aria-labelledby="cb-impact">
-        <Container>
-          <div className="grid gap-6 py-10 md:grid-cols-12 md:items-center md:gap-10">
-            <h2 id="cb-impact" className="text-[1.125rem] font-bold text-ink md:col-span-3">
-              {t('impact.heading')}
-              <span className="mt-1 block text-sm font-normal text-muted">{t('impact.since')}</span>
-            </h2>
-            <dl className="grid divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:col-span-9">
-              {IMPACT.map((item) => (
-                <div key={item.key} className="flex flex-col py-4 sm:px-8 sm:py-0">
-                  <dt className="mt-2 text-[0.9375rem] text-muted">{t(`impact.metrics.${item.key}`)}</dt>
-                  <dd className="order-first text-[2.5rem] font-bold leading-none tracking-[-0.02em] tabular-nums text-ink">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </Container>
-      </section>
-
       {/* FLAGSHIP COURSES: poster beside the course facts */}
       <section className="bg-white py-20 md:py-28" aria-labelledby="cb-flagship">
         <Container>

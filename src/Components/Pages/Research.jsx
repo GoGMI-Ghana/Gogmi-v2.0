@@ -18,17 +18,8 @@ const THEMES = [
   }
 ];
 
-// Figures shown under the header, in the order of `dashboard.stats`.
-const FIGURES = [3, 2000, 12];
-
 const Research = () => {
-  const { t, i18n } = useTranslation('research');
-  const number = new Intl.NumberFormat(i18n.language);
-
-  const figures = t('dashboard.stats', { returnObjects: true }).map((label, idx) => ({
-    label,
-    value: number.format(FIGURES[idx])
-  }));
+  const { t } = useTranslation('research');
 
   const themes = t('themes.items', { returnObjects: true }).map((item, idx) => ({ ...item, ...THEMES[idx] }));
 
@@ -43,20 +34,6 @@ const Research = () => {
       >
         <Button to="https://www.gulfspectrumjournal.com/" variant="onDark">{t('hero.cta')}</Button>
       </PageHero>
-
-      {/* KEY FIGURES */}
-      <section className="border-b border-line bg-paper" aria-label={t('dashboard.title')}>
-        <Container>
-          <dl className="grid divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {figures.map((figure) => (
-              <div key={figure.label} className="flex flex-col py-8 sm:px-8 sm:first:pl-0">
-                <dt className="mt-2 text-[0.9375rem] text-muted">{figure.label}</dt>
-                <dd className="order-first text-[2.75rem] font-bold leading-none tracking-[-0.02em] tabular-nums text-ink">{figure.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </Container>
-      </section>
 
       {/* RESEARCH THEMES: two features side by side */}
       <section id="themes" className="scroll-mt-20 bg-white py-20 md:py-28" aria-labelledby="research-themes">

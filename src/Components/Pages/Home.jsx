@@ -351,17 +351,6 @@ const Home = () => {
               <p className="prose-lead">{t('region.para1')}</p>
               <p className="mt-5 leading-relaxed text-muted">{t('region.para2')}</p>
 
-              <dl className="mt-10 grid grid-cols-2 gap-8">
-                <div className="flex flex-col border-t-2 border-ink pt-4">
-                  <dt className="text-sm text-muted">{t('region.statCountries')}</dt>
-                  <dd className="order-first font-display text-[2.75rem] font-semibold leading-none text-ink">19</dd>
-                </div>
-                <div className="flex flex-col border-t-2 border-ink pt-4">
-                  <dt className="text-sm text-muted">{t('region.statPeople')}</dt>
-                  <dd className="order-first font-display text-[2.75rem] font-semibold leading-none text-ink">400M+</dd>
-                </div>
-              </dl>
-
               <h3 className="mt-10 text-base font-semibold text-ink">{t('region.countriesHeading').replace(/:\s*$/, '')}</h3>
               <ul className="mt-3 columns-2 gap-8 text-[0.9375rem] leading-7 text-muted">
                 {COUNTRIES.map((country) => (

@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 const FONT = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
-const originStatValues = ['30', '200+', '2022', '3'];
 const elementNumbers = ['01', '02', '03'];
 
 const BlueMentorship = () => {
@@ -13,7 +12,6 @@ const BlueMentorship = () => {
   const impacts = t('impacts.items', { returnObjects: true });
   const elements = t('elements.items', { returnObjects: true }).map((el, i) => ({ ...el, number: elementNumbers[i] }));
   const incubatorThemes = t('incubator.themes', { returnObjects: true });
-  const originStats = t('origin.stats', { returnObjects: true }).map((s, i) => ({ ...s, value: originStatValues[i] }));
   return (
     <div className="w-full min-h-screen" style={{ fontFamily: FONT, backgroundColor: '#F9FAFB' }}>
 
@@ -70,7 +68,7 @@ const BlueMentorship = () => {
       {/* ═══ ORIGIN ═══ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-3xl">
             <div>
               <span className="text-xs uppercase tracking-widest font-bold block mb-4" style={{ color: '#8E3400' }}>
                 {t('origin.eyebrow')}
@@ -89,15 +87,6 @@ const BlueMentorship = () => {
                   {t('origin.para3')}
                 </p>
               </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-5">
-              {originStats.map((stat, i) => (
-                <div key={i} className="rounded-2xl p-8 text-center" style={{ backgroundColor: i % 2 === 0 ? '#132552' : '#F9FAFB', border: i % 2 !== 0 ? '2px solid #E5E7EB' : 'none' }}>
-                  <div className="text-4xl font-black mb-2" style={{ color: i % 2 === 0 ? 'white' : '#132552' }}>{stat.value}</div>
-                  <div className="text-sm font-medium" style={{ color: i % 2 === 0 ? 'rgba(255,255,255,0.7)' : '#6B7280' }}>{stat.label}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
