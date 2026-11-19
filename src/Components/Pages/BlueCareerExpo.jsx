@@ -1,262 +1,181 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
+import { Container, PageHero, SectionHeader } from '../ui/Editorial';
+
+/*
+  Blue Career & Business Expo 2021 in the editorial style: photo hero with
+  the report download, a hosts strip, the vision as a statement on dark,
+  the story beside photographs, themes as a ruled two-column list, impact as
+  prose with ruled points, and the speakers as a plain ruled list.
+*/
+
+const REPORT_URL = '/resources/pdfs/BCBE.pdf';
+
+const SPEAKERS = [
+  'Her Excellency Kati Csaba',
+  'Rear Admiral Issah Yakubu',
+  'Hon. Kathleen Quartey Ayensu',
+  'Dr. Kofi Mbiah',
+];
+
+const downloadClass = 'focus-ring inline-flex items-center gap-2 rounded-[2px] border px-5 py-3 font-body text-[0.9375rem] font-semibold transition-colors duration-150';
 
 const BlueCareerExpo = () => {
   const { t } = useTranslation('blueCareerExpo');
-  const [isVisible, setIsVisible] = useState(false);
+  const list = (key) => t(key, { returnObjects: true });
 
-  React.useEffect(() => {
-    setIsVisible(true);
-    window.scrollTo(0, 0);
-  }, []);
-
-
-  const keyThemes = t('themes', { returnObjects: true });
-
-  const vvips = [
-    { name: 'Her Excellency Kati Csaba ', title: t('speakers.titles.1') },
-    { name: 'Rear Admiral Issah Yakubu ', title: t('speakers.titles.2') },
-    { name: 'Hon. Kathleen Quartey Ayensu ', title: t('speakers.titles.3') },
-    { name: 'Dr. Kofi Mbiah', title: t('speakers.titles.4') },
-
-  ];
-
-  const handleDownloadReport = async () => {
-    try {
-      const response = await fetch('/resources/pdfs/BCBE.pdf');
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'BCBE_Report.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-    } catch {
-      window.open('/resources/pdfs/BCBE.pdf', '_blank');
-    }
-  };
+  const reportLink = (variant) => (
+    <a
+      href={REPORT_URL}
+      download="BCBE_2021_Report.pdf"
+      className={`${downloadClass} ${variant === 'onDark'
+        ? 'border-white bg-white text-ink hover:border-sand hover:bg-sand'
+        : 'border-ink bg-ink text-white hover:border-rust hover:bg-rust'}`}
+    >
+      <Download className="h-4 w-4" aria-hidden="true" />
+      {t('highlights.downloadReport')}{' '}
+      <span className="font-normal opacity-80">({t('highlights.reportFormat')})</span>
+    </a>
+  );
 
   return (
-    <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
-      
-      {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden" style={{ backgroundColor: '#132552' }}>
-        <div className="absolute inset-0">
-          <img 
-            src="/bcbe5.jpg"
-            alt={t('hero.imageAlt')}
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
+    <div className="w-full bg-white font-body text-text">
+      <PageHero
+        image="/bcbe5.jpg"
+        alt={t('hero.imageAlt')}
+        position="50% 40%"
+        eyebrow="BCBE 2021"
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      >
+        {reportLink('onDark')}
+      </PageHero>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-              {t('hero.title')}
-            </h1>
-            <p className="text-2xl text-white/90 mb-8 font-semibold max-w-3xl mx-auto">
-              {t('hero.subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Program Logo Section */}
-      <section className="py-12 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-            <div className="text-center">
-              <p className="text-sm font-semibold mb-4" style={{ color: '#4B5563' }}>{t('logos.hostedBy')}</p>
-              <div className="w-32 h-32 bg-gray-50 rounded-xl shadow-md border border-gray-200 flex items-center justify-center">
-                <img src="/GoGMI_PNG.png" alt="BCBE Logo" className="w-full h-full object-contain p-4" />
-              </div>
-            </div>
-            <div className="text-center">
-              <p className="text-sm font-semibold mb-4" style={{ color: '#4B5563' }}>{t('logos.inCollaboration')}</p>
-              <div className="w-32 h-32 bg-gray-50 rounded-xl shadow-md border border-gray-200 flex items-center justify-center">
-                <img src="/wista ghana.jpg" alt="WISTA Ghana" className="w-full h-full object-contain p-4" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision Statement */}
-      <section className="py-20" style={{ backgroundColor: '#132552' }}>
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            {t('vision.heading')}
-          </h2>
-          <p className="text-lg text-white/90 leading-relaxed">
-            {t('vision.body')}
-          </p>
-        </div>
-      </section>
-
-      {/* About the Event with Images */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                {t('about.heading')}
-              </h2>
-              <div className="space-y-4 text-base leading-relaxed" style={{ color: '#4B5563' }}>
-                <p>
-                  {t('about.para1')}
-                </p>
-                <p>
-                  {t('about.para2')}
-                </p>
-              </div>
-            </div>
-            <div className="relative h-96 rounded-xl overflow-hidden shadow-xl border border-gray-200">
-              <img src="/bcbe1.jpg" alt={t('images.event')} className="w-full h-full object-cover" />
-            </div>
-          </div>
-
-          {/* Additional Event Images Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="relative h-80 rounded-xl overflow-hidden shadow-xl border border-gray-200">
-              <img src="/bcbe3.jpg" alt={t('images.moment1')} className="w-full h-full object-cover" />
-            </div>
-            <div className="relative h-80 rounded-xl overflow-hidden shadow-xl border border-gray-200">
-              <img src="/bcbe2.jpg" alt={t('images.moment2')} className="w-full h-full object-cover" />
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative h-96 rounded-xl overflow-hidden shadow-xl border border-gray-200">
-              <img src="/bcbe4.jpg" alt={t('images.highlights')} className="w-full h-full object-cover" />
-            </div>
-            <div>
-              <h3 className="text-3xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
-                {t('highlights.heading')}
-              </h3>
-              <p className="text-base leading-relaxed mb-6" style={{ color: '#4B5563' }}>
-                {t('highlights.body')}
-              </p>
-              <button
-                onClick={handleDownloadReport}
-                className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold transition-all hover:scale-105 shadow-md"
-                style={{ backgroundColor: '#132552', color: 'white', fontWeight: 700 }}
-              >
-                <Download className="w-5 h-5" />
-                <span>{t('highlights.downloadReport')}</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Themes */}
-      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              {t('themesSection.heading')}
-            </h2>
-</div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {keyThemes.map((theme, idx) => (
-              <div 
-                key={idx} 
-                className="p-6 rounded-xl shadow-md bg-white border-l-4 hover:shadow-lg transition-all"
-                style={{ borderColor: '#8E3400' }}
-              >
-                <p className="text-base font-semibold leading-relaxed" style={{ color: '#132552' }}>
-                  {theme}
-                </p>
+      {/* Hosts */}
+      <div className="border-b border-line">
+        <Container>
+          <dl className="flex flex-col divide-y divide-line sm:flex-row sm:divide-x sm:divide-y-0">
+            {[
+              ['hostedBy', '/GoGMI_PNG.png', 'Gulf of Guinea Maritime Institute (GoGMI)'],
+              ['inCollaboration', '/wista ghana.jpg', 'WISTA Ghana'],
+            ].map(([key, logo, name]) => (
+              <div key={key} className="flex items-center gap-5 py-6 sm:px-8 sm:first:pl-0">
+                <img src={logo} alt="" className="h-14 w-14 flex-shrink-0 object-contain" />
+                <div>
+                  <dt className="text-sm text-muted">{t(`logos.${key}`)}</dt>
+                  <dd className="mt-0.5 font-display font-bold text-ink">{name}</dd>
+                </div>
               </div>
             ))}
+          </dl>
+        </Container>
+      </div>
+
+      {/* About */}
+      <section aria-labelledby="bcbe-about" className="py-16 md:py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-6">
+              <h2 id="bcbe-about" className="heading-display text-[2rem] md:text-[2.5rem]">{t('about.heading')}</h2>
+              <p className="prose-lead mt-6">{t('about.para1')}</p>
+              <p className="mt-4 text-lg leading-relaxed text-muted">{t('about.para2')}</p>
+            </div>
+            <figure className="lg:col-span-6">
+              <img src="/bcbe1.jpg" alt={t('images.event')} loading="lazy" className="aspect-[3/2] w-full object-cover" />
+            </figure>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Event Impact - Professional Version */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              {t('impact.heading')}
-            </h2>
-</div>
-
-          <div className="space-y-8 max-w-5xl mx-auto">
-            <div className="bg-gray-50 p-8 rounded-xl border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552' }}>
-                {t('impact.diverseHeading')}
-              </h3>
-              <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>
-                {t('impact.diverseBody')}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {t('impact.cards', { returnObjects: true }).map((card, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-xl border-2 border-gray-200 hover:border-[#8E3400] transition-all">
-                  <p className="text-base leading-relaxed font-semibold" style={{ color: '#4B5563' }}>
-                    {card}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-xl border border-gray-200">
-              <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>
-                {t('impact.midParagraph')}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {t('impact.numbered', { returnObjects: true }).map((item, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-xl border-2 border-gray-200">
-                  <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center" style={{ backgroundColor: '#132552' }}>
-                    <span className="text-2xl text-white font-bold">{String(idx + 1).padStart(2, '0')}</span>
-                  </div>
-                  <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
+      {/* Vision */}
+      <section aria-labelledby="bcbe-vision" className="bg-ink-deep py-16 text-white md:py-24">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-12">
+            <h2 id="bcbe-vision" className="heading-display !text-white text-[2rem] md:text-[2.5rem] lg:col-span-5">{t('vision.heading')}</h2>
+            <p className="text-[1.25rem] leading-relaxed text-white/90 md:text-[1.375rem] lg:col-span-7">{t('vision.body')}</p>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Distinguished Speakers */}
-      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              {t('speakers.heading')}
-            </h2>
-</div>
+      {/* Photographs */}
+      <section aria-labelledby="bcbe-highlights" className="py-16 md:py-24">
+        <Container>
+          <div className="grid gap-4 md:grid-cols-12 md:gap-6">
+            <img src="/bcbe3.jpg" alt={t('images.moment1')} loading="lazy" className="aspect-[3/2] w-full object-cover md:col-span-7" />
+            <img src="/bcbe2.jpg" alt={t('images.moment2')} loading="lazy" className="aspect-[3/2] w-full object-cover object-[40%_30%] md:col-span-5 md:aspect-auto md:h-full" />
+          </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {vvips.map((vip, idx) => (
-              <div key={idx} className="text-center">
-                <div className="relative w-48 h-48 mx-auto mb-4 rounded-xl overflow-hidden shadow-lg bg-gray-200 border-2 border-gray-300 flex items-center justify-center">
-                  <span className="text-5xl font-black" style={{ color: '#132552' }}>
-                    {vip.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <h3 className="text-base font-bold mb-2" style={{ color: '#132552' }}>
-                  {vip.name}
-                </h3>
-                <p className="text-sm" style={{ color: '#4B5563' }}>
-                  {vip.title}
-                </p>
-              </div>
+          <div className="mt-14 grid gap-10 md:mt-20 lg:grid-cols-12 lg:items-center lg:gap-14">
+            <img src="/bcbe4.jpg" alt={t('images.highlights')} loading="lazy" className="aspect-[4/3] w-full object-cover lg:col-span-6" />
+            <div className="lg:col-span-6">
+              <h2 id="bcbe-highlights" className="heading-display text-[2rem] md:text-[2.5rem]">{t('highlights.heading')}</h2>
+              <p className="mt-5 text-lg leading-relaxed text-muted">{t('highlights.body')}</p>
+              <div className="mt-8">{reportLink('light')}</div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Themes */}
+      <section aria-labelledby="bcbe-themes" className="bg-paper py-16 md:py-24">
+        <Container>
+          <SectionHeader id="bcbe-themes" title={t('themesSection.heading')} />
+          <ul className="mt-10 grid border-t border-line md:grid-cols-2 md:gap-x-10">
+            {list('themes').map((theme) => (
+              <li key={theme} className="flex gap-4 border-b border-line py-5 text-lg font-semibold text-ink">
+                <span className="mt-[0.7rem] h-2 w-2 flex-shrink-0 bg-rust" aria-hidden="true"></span>
+                {theme}
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </Container>
       </section>
 
+      {/* Impact */}
+      <section aria-labelledby="bcbe-impact" className="py-16 md:py-24">
+        <Container>
+          <SectionHeader id="bcbe-impact" title={t('impact.heading')} />
+          <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-7">
+              <h3 className="font-display text-[1.375rem] font-bold text-ink">{t('impact.diverseHeading')}</h3>
+              <p className="prose-lead mt-4">{t('impact.diverseBody')}</p>
+              <p className="mt-5 text-lg leading-relaxed text-muted">{t('impact.midParagraph')}</p>
+            </div>
+            <ul className="space-y-6 lg:col-span-5">
+              {list('impact.cards').map((card) => (
+                <li key={card} className="border-l-2 border-rust pl-5 text-lg leading-relaxed">{card}</li>
+              ))}
+            </ul>
+          </div>
+
+          <ol className="mt-14 grid gap-8 md:mt-20 md:grid-cols-3 md:gap-10">
+            {list('impact.numbered').map((item, i) => (
+              <li key={item} className="border-t-2 border-ink pt-5">
+                <span className="font-display text-[2rem] font-bold leading-none text-rust" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="mt-4 text-lg leading-relaxed">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      {/* Speakers */}
+      <section aria-labelledby="bcbe-speakers" className="bg-paper py-16 md:py-24">
+        <Container>
+          <SectionHeader id="bcbe-speakers" title={t('speakers.heading')} />
+          <ul className="mt-10 border-t border-line">
+            {SPEAKERS.map((name, i) => (
+              <li key={name} className="grid gap-1 border-b border-line py-5 md:grid-cols-12 md:gap-10">
+                <span className="font-display text-[1.25rem] font-bold text-ink md:col-span-5">{name}</span>
+                <span className="text-lg text-muted md:col-span-7">{t(`speakers.titles.${i + 1}`)}</span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
     </div>
   );
 };

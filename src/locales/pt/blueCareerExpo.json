@@ -2,27 +2,17 @@
   "hero": {
     "title": "Blue Career & Business Expo 2021",
     "subtitle": "Construindo uma economia azul robusta, sem deixar ninguém para trás",
-    "imageAlt": "Blue Career Expo"
+    "imageAlt": "Delegadas reunidas na Blue Career and Business Expo 2021"
   },
   "images": {
-    "event": "Evento",
-    "moment1": "Momento do evento 1",
-    "moment2": "Momento do evento 2",
-    "highlights": "Destaques do evento"
+    "event": "Oficiais e cadetes navais diante do painel de patrocinadores da expo",
+    "moment1": "Convidados na mesa de honra durante a sessão de abertura",
+    "moment2": "O contra-almirante Issah Yakubu a discursar no púlpito",
+    "highlights": "Dois expositores a trabalhar em portáteis num stand"
   },
   "logos": {
     "hostedBy": "Organizado por",
     "inCollaboration": "Em colaboração com"
-  },
-  "stats": {
-    "heading": "Resumo do evento",
-    "labels": {
-      "workshops": "Workshops",
-      "days": "Dias",
-      "sessions": "Sessões",
-      "participants": "Participantes",
-      "hostCountries": "Países anfitriões"
-    }
   },
   "vision": {
     "heading": "Construindo uma economia azul robusta, sem deixar ninguém para trás",
@@ -36,7 +26,8 @@
   "highlights": {
     "heading": "Destaques do Evento",
     "body": "Reviva a energia e as ideias do Blue Career and Business Expo 2021. Jovens profissionais e estudantes africanos dialogaram com líderes da indústria marítima para explorar oportunidades na economia azul.",
-    "downloadReport": "Descarregar Relatório"
+    "downloadReport": "Descarregar Relatório",
+    "reportFormat": "PDF"
   },
   "themesSection": {
     "heading": "Temas Principais"
