@@ -30,12 +30,6 @@ const apiCall = async (endpoint, options = {}) => {
 };
 
 export const authAPI = {
-  register: (userData) => 
-    apiCall('/auth/register.php', {
-      method: 'POST',
-      body: JSON.stringify(userData)
-    }),
-
   login: (credentials) => 
     apiCall('/auth/login.php', {
       method: 'POST',
