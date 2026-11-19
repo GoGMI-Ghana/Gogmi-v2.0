@@ -65,7 +65,7 @@ export const ErrorSummary = ({ title, items }) => {
       aria-labelledby="error-summary-title"
       className="border-[5px] border-error p-5 focus:outline focus:outline-[3px] focus:outline-sand"
     >
-      <h2 id="error-summary-title" className="text-[1.25rem] font-bold text-text">{title}</h2>
+      <h2 id="error-summary-title" className="font-display text-[1.25rem] font-bold text-text">{title}</h2>
       <ul className="mt-3 space-y-1.5">
         {items.map((item) => (
           <li key={item.id}>
