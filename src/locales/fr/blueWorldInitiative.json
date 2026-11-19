@@ -1,11 +1,14 @@
 {
-  "hero": { "imageAlt": "Blue World Initiative" },
+  "hero": {
+    "imageAlt": "Des élèves du secondaire à l'Ocean Career Fair",
+    "subtitle": "Sensibilisation à l'océan et orientation vers les métiers bleus pour les jeunes du golfe de Guinée, menée par le GoGMI avec DOTCAN."
+  },
   "about": {
     "badge": "Culture Océanique & Développement de Carrière",
     "heading": "La Blue World Initiative",
     "para1": "La Blue World Initiative est un programme transformateur du GoGMI, en partenariat avec DOTCAN (Development of Ocean Technical Capacity for African Nations), dédié à inspirer la prochaine génération de leaders océaniques et de champions de l'économie bleue dans le golfe de Guinée.",
     "para2": "Grâce à des salons de carrières interactifs, des ressources pédagogiques et des expériences pratiques, nous donnons aux jeunes Africains les moyens d'explorer des carrières maritimes passionnantes tout en comprenant leur rôle essentiel dans la protection de notre océan et la construction d'une économie bleue durable.",
-    "imageAlt": "Activités de la Blue World Initiative"
+    "imageAlt": "Des élèves suivant une présentation « Our Ocean Planet » en classe"
   },
   "dotcan": {
     "heading": "Partenariat avec DOTCAN",
@@ -28,33 +31,83 @@
     ],
     "partnersHeading": "Organisations Partenaires",
     "images": {
-      "img1": "Élèves au salon des carrières",
-      "img2": "Session d'apprentissage interactive",
-      "img3": "Activités du salon des carrières"
+      "img1": "Des élèves remplissant une fiche sur l'océan",
+      "img2": "Une élève recevant un prix lors du salon",
+      "img3": "Invités et élèves dans le public du salon"
     }
   },
   "concepts": {
     "heading": "Concepts Océaniques Clés",
     "subtitle": "Comprendre ces concepts fondamentaux est essentiel pour quiconque s'intéresse aux carrières océaniques et à l'économie bleue.",
     "items": [
-      { "title": "Océan", "description": "La vaste étendue d'eau salée qui recouvre plus de 70 % de la surface de la Terre." },
-      { "title": "Économie Océanique", "description": "L'ensemble des activités économiques se déroulant dans et autour de l'océan, notamment la pêche, le transport maritime, le tourisme et la production d'énergie." },
-      { "title": "Économie Bleue", "description": "L'utilisation durable des ressources océaniques pour la croissance économique, la création d'emplois et la préservation de l'environnement." },
-      { "title": "Durabilité", "description": "La pratique consistant à utiliser les ressources sans les épuiser ni les endommager pour les générations futures." },
-      { "title": "Conservation Marine", "description": "La protection et la préservation des écosystèmes océaniques et de la biodiversité." },
-      { "title": "Énergie Renouvelable", "description": "Énergie produite à partir de sources qui se renouvellent naturellement, comme le vent, le soleil et les vagues." },
-      { "title": "Aquaculture", "description": "L'élevage d'organismes aquatiques tels que les poissons, les crustacés et les algues." }
+      {
+        "title": "Océan",
+        "description": "La vaste étendue d'eau salée qui recouvre plus de 70 % de la surface de la Terre."
+      },
+      {
+        "title": "Économie Océanique",
+        "description": "L'ensemble des activités économiques se déroulant dans et autour de l'océan, notamment la pêche, le transport maritime, le tourisme et la production d'énergie."
+      },
+      {
+        "title": "Économie Bleue",
+        "description": "L'utilisation durable des ressources océaniques pour la croissance économique, la création d'emplois et la préservation de l'environnement."
+      },
+      {
+        "title": "Durabilité",
+        "description": "La pratique consistant à utiliser les ressources sans les épuiser ni les endommager pour les générations futures."
+      },
+      {
+        "title": "Conservation Marine",
+        "description": "La protection et la préservation des écosystèmes océaniques et de la biodiversité."
+      },
+      {
+        "title": "Énergie Renouvelable",
+        "description": "Énergie produite à partir de sources qui se renouvellent naturellement, comme le vent, le soleil et les vagues."
+      },
+      {
+        "title": "Aquaculture",
+        "description": "L'élevage d'organismes aquatiques tels que les poissons, les crustacés et les algues."
+      }
     ]
   },
   "careers": {
     "heading": "Parcours de Carrière liés à l'Océan",
     "subtitle": "Découvrez des opportunités de carrière passionnantes dans l'économie bleue et le secteur maritime.",
-    "imageAlt": "Professionnels du secteur maritime",
+    "imageAlt": "Officiers et élèves officiers de marine en uniforme",
     "categories": {
-      "scienceResearch": { "heading": "Sciences & Recherche", "items": ["Biologiste marin", "Océanographe", "Scientifique de l'environnement", "Analyste des politiques marines"] },
-      "maritimeOperations": { "heading": "Opérations Maritimes", "items": ["Officier de marine", "Ingénieur naval", "Aménageur du littoral", "Gestionnaire des pêches"] },
-      "blueEconomy": { "heading": "Économie Bleue", "items": ["Aquaculteur", "Ingénieur en énergies renouvelables", "Défenseur de l'océan"] },
-      "educationPolicy": { "heading": "Éducation & Politique", "items": ["Éducateur marin", "Juriste international"] }
+      "scienceResearch": {
+        "heading": "Sciences & Recherche",
+        "items": [
+          "Biologiste marin",
+          "Océanographe",
+          "Scientifique de l'environnement",
+          "Analyste des politiques marines"
+        ]
+      },
+      "maritimeOperations": {
+        "heading": "Opérations Maritimes",
+        "items": [
+          "Officier de marine",
+          "Ingénieur naval",
+          "Aménageur du littoral",
+          "Gestionnaire des pêches"
+        ]
+      },
+      "blueEconomy": {
+        "heading": "Économie Bleue",
+        "items": [
+          "Aquaculteur",
+          "Ingénieur en énergies renouvelables",
+          "Défenseur de l'océan"
+        ]
+      },
+      "educationPolicy": {
+        "heading": "Éducation & Politique",
+        "items": [
+          "Éducateur marin",
+          "Juriste international"
+        ]
+      }
     },
     "funFact": {
       "heading": "Anecdote sur les Carrières Bleues",
@@ -76,8 +129,7 @@
   },
   "gallery": {
     "heading": "L'Initiative en Action",
-    "img1Alt": "Engagement des élèves",
-    "img2Alt": "Activités d'apprentissage"
+    "img2Alt": "Des élèves officiers de marine au Blue Career and Business Expo 2021"
   },
   "resourcesSection": {
     "heading": "Télécharger les Ressources",
@@ -85,7 +137,8 @@
     "handbook": {
       "heading": "Guide du Salon des Carrières Bleues",
       "desc": "Guide complet avec définitions océaniques, parcours de carrière et perspectives sectorielles.",
-      "download": "Télécharger le Guide"
+      "download": "Télécharger le Guide",
+      "format": "PDF"
     },
     "getInvolved": {
       "heading": "S'impliquer",

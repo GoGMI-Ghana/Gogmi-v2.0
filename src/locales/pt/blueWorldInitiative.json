@@ -1,11 +1,14 @@
 {
-  "hero": { "imageAlt": "Blue World Initiative" },
+  "hero": {
+    "imageAlt": "Alunos do ensino secundário na Ocean Career Fair",
+    "subtitle": "Literacia oceânica e orientação para carreiras azuis para jovens do golfo da Guiné, conduzidas pelo GoGMI com a DOTCAN."
+  },
   "about": {
     "badge": "Literacia Oceânica e Desenvolvimento de Carreira",
     "heading": "A Blue World Initiative",
     "para1": "A Blue World Initiative é um programa transformador do GoGMI em parceria com a DOTCAN (Development of Ocean Technical Capacity for African Nations), dedicado a inspirar a próxima geração de líderes oceânicos e defensores da economia azul em todo o Golfo da Guiné.",
     "para2": "Através de feiras de carreiras interativas, recursos educativos e experiências práticas, capacitamos os jovens africanos a explorar carreiras marítimas empolgantes, ao mesmo tempo que compreendem o seu papel crucial na proteção do nosso oceano e na construção de uma economia azul sustentável.",
-    "imageAlt": "Atividades da Blue World Initiative"
+    "imageAlt": "Alunos a assistir a uma apresentação «Our Ocean Planet» numa sala de aula"
   },
   "dotcan": {
     "heading": "Parceria com a DOTCAN",
@@ -28,33 +31,83 @@
     ],
     "partnersHeading": "Organizações Parceiras",
     "images": {
-      "img1": "Estudantes na feira de carreiras",
-      "img2": "Sessão de aprendizagem interativa",
-      "img3": "Atividades da feira de carreiras"
+      "img1": "Alunos a preencher uma ficha sobre o oceano",
+      "img2": "Uma aluna recebe um prémio na feira",
+      "img3": "Convidados e alunos na plateia da feira"
     }
   },
   "concepts": {
     "heading": "Conceitos Oceânicos Fundamentais",
     "subtitle": "Compreender estes conceitos fundamentais é essencial para quem se interessa por carreiras relacionadas com o oceano e a economia azul.",
     "items": [
-      { "title": "Oceano", "description": "A vasta massa de água salgada que cobre mais de 70% da superfície da Terra." },
-      { "title": "Economia Oceânica", "description": "O conjunto das atividades económicas que ocorrem no oceano e à sua volta, incluindo pesca, transporte marítimo, turismo e produção de energia." },
-      { "title": "Economia Azul", "description": "O uso sustentável dos recursos oceânicos para o crescimento económico, a criação de emprego e a preservação ambiental." },
-      { "title": "Sustentabilidade", "description": "A prática de utilizar recursos de forma a não os esgotar nem danificar para as gerações futuras." },
-      { "title": "Conservação Marinha", "description": "A proteção e preservação dos ecossistemas oceânicos e da biodiversidade." },
-      { "title": "Energia Renovável", "description": "Energia gerada a partir de fontes que se renovam naturalmente, como o vento, o sol e as ondas." },
-      { "title": "Aquacultura", "description": "A criação de organismos aquáticos como peixes, mariscos e algas." }
+      {
+        "title": "Oceano",
+        "description": "A vasta massa de água salgada que cobre mais de 70% da superfície da Terra."
+      },
+      {
+        "title": "Economia Oceânica",
+        "description": "O conjunto das atividades económicas que ocorrem no oceano e à sua volta, incluindo pesca, transporte marítimo, turismo e produção de energia."
+      },
+      {
+        "title": "Economia Azul",
+        "description": "O uso sustentável dos recursos oceânicos para o crescimento económico, a criação de emprego e a preservação ambiental."
+      },
+      {
+        "title": "Sustentabilidade",
+        "description": "A prática de utilizar recursos de forma a não os esgotar nem danificar para as gerações futuras."
+      },
+      {
+        "title": "Conservação Marinha",
+        "description": "A proteção e preservação dos ecossistemas oceânicos e da biodiversidade."
+      },
+      {
+        "title": "Energia Renovável",
+        "description": "Energia gerada a partir de fontes que se renovam naturalmente, como o vento, o sol e as ondas."
+      },
+      {
+        "title": "Aquacultura",
+        "description": "A criação de organismos aquáticos como peixes, mariscos e algas."
+      }
     ]
   },
   "careers": {
     "heading": "Percursos de Carreira Relacionados com o Oceano",
     "subtitle": "Descubra oportunidades de carreira empolgantes na economia azul e no setor marítimo.",
-    "imageAlt": "Profissionais marítimos",
+    "imageAlt": "Oficiais e cadetes navais fardados",
     "categories": {
-      "scienceResearch": { "heading": "Ciência e Investigação", "items": ["Biólogo marinho", "Oceanógrafo", "Cientista ambiental", "Analista de políticas marinhas"] },
-      "maritimeOperations": { "heading": "Operações Marítimas", "items": ["Oficial da marinha", "Engenheiro naval", "Planeador costeiro", "Gestor de pescas"] },
-      "blueEconomy": { "heading": "Economia Azul", "items": ["Aquacultor", "Engenheiro de energias renováveis", "Defensor do oceano"] },
-      "educationPolicy": { "heading": "Educação e Políticas", "items": ["Educador marinho", "Jurista internacional"] }
+      "scienceResearch": {
+        "heading": "Ciência e Investigação",
+        "items": [
+          "Biólogo marinho",
+          "Oceanógrafo",
+          "Cientista ambiental",
+          "Analista de políticas marinhas"
+        ]
+      },
+      "maritimeOperations": {
+        "heading": "Operações Marítimas",
+        "items": [
+          "Oficial da marinha",
+          "Engenheiro naval",
+          "Planeador costeiro",
+          "Gestor de pescas"
+        ]
+      },
+      "blueEconomy": {
+        "heading": "Economia Azul",
+        "items": [
+          "Aquacultor",
+          "Engenheiro de energias renováveis",
+          "Defensor do oceano"
+        ]
+      },
+      "educationPolicy": {
+        "heading": "Educação e Políticas",
+        "items": [
+          "Educador marinho",
+          "Jurista internacional"
+        ]
+      }
     },
     "funFact": {
       "heading": "Curiosidade sobre Carreiras Azuis",
@@ -76,8 +129,7 @@
   },
   "gallery": {
     "heading": "A Iniciativa em Ação",
-    "img1Alt": "Envolvimento dos estudantes",
-    "img2Alt": "Atividades de aprendizagem"
+    "img2Alt": "Cadetes navais na Blue Career and Business Expo 2021"
   },
   "resourcesSection": {
     "heading": "Descarregar Recursos",
@@ -85,7 +137,8 @@
     "handbook": {
       "heading": "Manual da Feira de Carreiras Azuis",
       "desc": "Guia completo com definições oceânicas, percursos de carreira e perspetivas do setor.",
-      "download": "Descarregar Manual"
+      "download": "Descarregar Manual",
+      "format": "PDF"
     },
     "getInvolved": {
       "heading": "Participe",

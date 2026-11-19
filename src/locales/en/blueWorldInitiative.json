@@ -1,11 +1,14 @@
 {
-  "hero": { "imageAlt": "Blue World Initiative" },
+  "hero": {
+    "imageAlt": "Secondary school students at the Ocean Career Fair",
+    "subtitle": "Ocean literacy and blue career guidance for young people in the Gulf of Guinea, run by GoGMI with DOTCAN."
+  },
   "about": {
     "badge": "Ocean Literacy & Career Development",
     "heading": "The Blue World Initiative",
     "para1": "The Blue World Initiative is a transformative program by GoGMI in partnership with DOTCAN (Development of Ocean Technical Capacity for African Nations), dedicated to inspiring the next generation of ocean leaders and blue economy champions across the Gulf of Guinea.",
     "para2": "Through interactive career fairs, educational resources, and hands-on experiences, we empower young Africans to explore exciting maritime careers while understanding their crucial role in protecting our ocean and building a sustainable blue economy.",
-    "imageAlt": "Blue World Initiative Activities"
+    "imageAlt": "Students watching an \"Our Ocean Planet\" presentation in a classroom"
   },
   "dotcan": {
     "heading": "Partnership with DOTCAN",
@@ -28,33 +31,83 @@
     ],
     "partnersHeading": "Partner Organizations",
     "images": {
-      "img1": "Students at Career Fair",
-      "img2": "Interactive Learning Session",
-      "img3": "Career Fair Activities"
+      "img1": "Students filling in an ocean worksheet",
+      "img2": "A student receiving a prize at the career fair",
+      "img3": "Guests and students in the audience at the career fair"
     }
   },
   "concepts": {
     "heading": "Key Ocean Concepts",
     "subtitle": "Understanding these fundamental concepts is essential for anyone interested in ocean-related careers and the blue economy.",
     "items": [
-      { "title": "Ocean", "description": "The vast body of saltwater that covers over 70% of the Earth's surface." },
-      { "title": "Ocean Economy", "description": "The sum total of economic activities that take place in and around the ocean, including fishing, shipping, tourism, and energy production." },
-      { "title": "Blue Economy", "description": "The sustainable use of ocean resources for economic growth, job creation, and environmental preservation." },
-      { "title": "Sustainability", "description": "The practice of using resources in a way that does not deplete or damage them for future generations." },
-      { "title": "Marine Conservation", "description": "The protection and preservation of ocean ecosystems and biodiversity." },
-      { "title": "Renewable Energy", "description": "Energy that is generated from sources that are replenished naturally, such as wind, solar, and wave power." },
-      { "title": "Aquaculture", "description": "The farming of aquatic organisms such as fish, shellfish, and seaweed." }
+      {
+        "title": "Ocean",
+        "description": "The vast body of saltwater that covers over 70% of the Earth's surface."
+      },
+      {
+        "title": "Ocean Economy",
+        "description": "The sum total of economic activities that take place in and around the ocean, including fishing, shipping, tourism, and energy production."
+      },
+      {
+        "title": "Blue Economy",
+        "description": "The sustainable use of ocean resources for economic growth, job creation, and environmental preservation."
+      },
+      {
+        "title": "Sustainability",
+        "description": "The practice of using resources in a way that does not deplete or damage them for future generations."
+      },
+      {
+        "title": "Marine Conservation",
+        "description": "The protection and preservation of ocean ecosystems and biodiversity."
+      },
+      {
+        "title": "Renewable Energy",
+        "description": "Energy that is generated from sources that are replenished naturally, such as wind, solar, and wave power."
+      },
+      {
+        "title": "Aquaculture",
+        "description": "The farming of aquatic organisms such as fish, shellfish, and seaweed."
+      }
     ]
   },
   "careers": {
     "heading": "Ocean-Related Career Pathways",
     "subtitle": "Discover exciting career opportunities in the blue economy and maritime sector.",
-    "imageAlt": "Maritime Professionals",
+    "imageAlt": "Naval officers and cadets in uniform",
     "categories": {
-      "scienceResearch": { "heading": "Science & Research", "items": ["Marine Biologist", "Oceanographer", "Environmental Scientist", "Marine Policy Analyst"] },
-      "maritimeOperations": { "heading": "Maritime Operations", "items": ["Naval Officer", "Marine Engineer", "Coastal Planner", "Fisheries Manager"] },
-      "blueEconomy": { "heading": "Blue Economy", "items": ["Aquaculture Farmer", "Renewable Energy Engineer", "Ocean Advocate"] },
-      "educationPolicy": { "heading": "Education & Policy", "items": ["Marine Educator", "International Lawyer"] }
+      "scienceResearch": {
+        "heading": "Science & Research",
+        "items": [
+          "Marine Biologist",
+          "Oceanographer",
+          "Environmental Scientist",
+          "Marine Policy Analyst"
+        ]
+      },
+      "maritimeOperations": {
+        "heading": "Maritime Operations",
+        "items": [
+          "Naval Officer",
+          "Marine Engineer",
+          "Coastal Planner",
+          "Fisheries Manager"
+        ]
+      },
+      "blueEconomy": {
+        "heading": "Blue Economy",
+        "items": [
+          "Aquaculture Farmer",
+          "Renewable Energy Engineer",
+          "Ocean Advocate"
+        ]
+      },
+      "educationPolicy": {
+        "heading": "Education & Policy",
+        "items": [
+          "Marine Educator",
+          "International Lawyer"
+        ]
+      }
     },
     "funFact": {
       "heading": "Fun Fact About Blue Careers",
@@ -76,8 +129,7 @@
   },
   "gallery": {
     "heading": "Initiative in Action",
-    "img1Alt": "Student Engagement",
-    "img2Alt": "Learning Activities"
+    "img2Alt": "Naval cadets at the 2021 Blue Career and Business Expo"
   },
   "resourcesSection": {
     "heading": "Download Resources",
@@ -85,7 +137,8 @@
     "handbook": {
       "heading": "Blue Career Fair Handbook",
       "desc": "Complete guide with ocean definitions, career pathways, and industry insights.",
-      "download": "Download Handbook"
+      "download": "Download Handbook",
+      "format": "PDF"
     },
     "getInvolved": {
       "heading": "Get Involved",
