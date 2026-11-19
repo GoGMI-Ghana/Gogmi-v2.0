@@ -1,437 +1,232 @@
-import React, { useState } from 'react';
-import {
-  ArrowLeft,
-  Calendar,
-  Clock,
-  Users,
-  Globe,
-  Shield,
-  Anchor,
-  Target,
-  MessageSquare,
-  FileText,
-  AlertTriangle,
-  CheckCircle,
-  BookOpen,
-  BarChart3
-} from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { ChevronLeft, ChevronDown } from 'lucide-react';
+import { Container, PageHero, SectionHeader, Button } from '../ui/Editorial';
 
-const topicIcons = [
-  { icon: <AlertTriangle className="w-6 h-6" />, color: "#0891b2" },
-  { icon: <Shield className="w-6 h-6" />, color: "#132552" },
-  { icon: <Target className="w-6 h-6" />, color: "#0891b2" },
-  { icon: <Globe className="w-6 h-6" />, color: "#132552" }
-];
+/*
+  IMSWG quarterly forum page in the editorial style: photo hero, a ruled
+  key-facts row, summary beside the flyer, background as long-form text,
+  large numbered objectives, topics as expandable panels, the agenda as a
+  timetable beside the participant list, outcomes, the conclusion as a
+  statement on dark and a closing band with contact details.
+*/
 
-const highlightIcons = [
-  <Shield className="w-5 h-5" />,
-  <Users className="w-5 h-5" />,
-  <Globe className="w-5 h-5" />,
-  <Anchor className="w-5 h-5" />
-];
-
-const outcomeIcons = [
-  <MessageSquare className="w-5 h-5" />,
-  <BarChart3 className="w-5 h-5" />,
-  <Target className="w-5 h-5" />,
-  <BookOpen className="w-5 h-5" />,
-  <FileText className="w-5 h-5" />,
-  <CheckCircle className="w-5 h-5" />
-];
+const REPORTS_URL = '/resources?subcategory=IMSWG+Reports#internal-reports';
+const PHONE = '+233504953400';
+const EMAIL = 'info@gogmi.org.gh';
 
 const IMSWGEvents = () => {
   const { t } = useTranslation('imswgEvents');
-  const navigate = useNavigate();
-  const [activeTheme, setActiveTheme] = useState(null);
+  const list = (key) => t(key, { returnObjects: true });
 
-  const topicsForDiscussion = t('topics.items', { returnObjects: true }).map((item, idx) => ({
-    number: idx + 1,
-    title: item.title,
-    description: item.description,
-    icon: topicIcons[idx].icon,
-    color: topicIcons[idx].color
-  }));
-
-  const highlights = t('executiveSummary.highlights', { returnObjects: true }).map((item, idx) => ({
-    title: item.title,
-    description: item.description,
-    icon: highlightIcons[idx]
-  }));
-
-  const objectives = t('objectives.items', { returnObjects: true });
-
-  const agenda = t('format.agenda', { returnObjects: true });
-
-  const stakeholders = t('stakeholders.items', { returnObjects: true });
-
-  const expectedOutcomes = t('outcomes.items', { returnObjects: true }).map((text, idx) => ({
-    icon: outcomeIcons[idx],
-    text
-  }));
+  const facts = [
+    ['date', t('hero.date')],
+    ['time', t('hero.time')],
+    ['format', t('hero.format')],
+    ['status', t('facts.concluded')],
+  ];
 
   return (
-    <div className="w-full bg-white" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div className="w-full bg-white font-body text-text">
+      <PageHero
+        image="/imswg4.jpg"
+        alt={t('hero.imageAlt')}
+        position="62% 35%"
+        eyebrow={t('hero.quarterBadge')}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      >
+        <Button to={REPORTS_URL} variant="onDark">{t('facts.readReports')}</Button>
+        <Button to="/imswg" variant="outlineOnDark">
+          <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+          {t('hero.backButton')}
+        </Button>
+      </PageHero>
 
-      {/* HERO SECTION */}
-      <section className="relative text-white py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/imswg4.jpg"
-            alt={t('hero.imageAlt')}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-cyan-900/95"></div>
-        </div>
-
-        <div className="container mx-auto max-w-6xl px-6 relative z-10">
-          <div className="max-w-4xl">
-            <button
-              onClick={() => navigate('/imswg')}
-              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-semibold">{t('hero.backButton')}</span>
-            </button>
-
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-cyan-400/20 backdrop-blur-md border border-cyan-400/30">
-              <Calendar className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm font-bold uppercase tracking-wide text-cyan-400">{t('hero.quarterBadge')}</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl leading-tight mb-6"
-                style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-              {t('hero.title')}
-            </h1>
-
-            <p className="text-xl md:text-2xl leading-relaxed mb-8 text-white/90">
-              {t('hero.subtitle')}
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
-                <Calendar className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">{t('hero.date')}</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
-                <Clock className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">{t('hero.time')}</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
-                <Globe className="w-5 h-5 text-cyan-400" />
-                <span className="font-semibold">{t('hero.format')}</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <span className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold shadow-2xl bg-white/10 text-white/70 border border-white/20 cursor-not-allowed">
-                <span>{t('hero.registrationClosed')}</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* EXECUTIVE SUMMARY */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-                {t('executiveSummary.eyebrow')}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-                {t('executiveSummary.heading')}
-              </h2>
-              <p className="text-lg leading-relaxed mb-6" style={{ color: '#4B5563' }}>
-                {t('executiveSummary.para1')}
-              </p>
-              <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                {t('executiveSummary.para2')}
-              </p>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 bg-cyan-500/10 blur-3xl rounded-full"></div>
-              <img
-                src="/IMSWG-BBNJ-newdate.jpeg"
-                alt={t('executiveSummary.flyerAlt')}
-                className="relative rounded-2xl shadow-2xl w-full hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border-2" style={{ borderColor: '#0891b2' }}>
-                <div className="text-2xl font-black mb-1" style={{ color: '#0891b2' }}>IMSWG</div>
-                <p className="text-sm font-semibold" style={{ color: '#132552' }}>{t('executiveSummary.badgeLine')}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Forum Highlights */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {highlights.map((highlight, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                     style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)', color: '#0891b2' }}>
-                  {highlight.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: '#132552' }}>
-                  {highlight.title}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
-                  {highlight.description}
-                </p>
+      {/* Key facts */}
+      <div className="border-b border-line">
+        <Container>
+          {/* Two columns on phones, four in a row from md; hairline dividers between cells. */}
+          <dl className="grid grid-cols-2 md:grid-cols-4">
+            {facts.map(([key, value]) => (
+              <div
+                key={key}
+                className="border-line px-5 py-5 max-md:odd:pl-0 max-md:even:border-l max-md:[&:nth-child(n+3)]:border-t md:border-l md:px-6 md:py-6 md:first:border-l-0 md:first:pl-0"
+              >
+                <dt className="text-sm text-muted">{t(`facts.${key}`)}</dt>
+                <dd className={`mt-1 font-display text-[1.125rem] font-bold ${key === 'status' ? 'text-rust' : 'text-ink'}`}>{value}</dd>
               </div>
             ))}
+          </dl>
+        </Container>
+      </div>
+
+      {/* Summary */}
+      <section aria-labelledby="ev-summary" className="py-16 md:py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-7">
+              <p className="text-sm font-semibold text-rust">{t('executiveSummary.eyebrow')}</p>
+              <h2 id="ev-summary" className="heading-display mt-2 text-[2rem] md:text-[2.5rem]">{t('executiveSummary.heading')}</h2>
+              <p className="prose-lead mt-6">{t('executiveSummary.para1')}</p>
+              <p className="mt-4 text-lg leading-relaxed text-muted">{t('executiveSummary.para2')}</p>
+            </div>
+            <figure className="lg:col-span-5">
+              <img src="/IMSWG-BBNJ-newdate.jpeg" alt={t('executiveSummary.flyerAlt')} loading="lazy" className="aspect-square w-full border border-line object-cover" />
+            </figure>
           </div>
-        </div>
+
+          <ul className="mt-14 grid gap-8 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
+            {list('executiveSummary.highlights').map((h) => (
+              <li key={h.title} className="border-t-2 border-ink pt-5">
+                <h3 className="font-display text-[1.125rem] font-bold text-ink">{h.title}</h3>
+                <p className="mt-2 leading-relaxed text-muted">{h.description}</p>
+              </li>
+            ))}
+          </ul>
+        </Container>
       </section>
 
-      {/* BACKGROUND */}
-      <section className="py-20 bg-gradient-to-br from-cyan-50 to-white">
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                   style={{ backgroundColor: '#0891b2' }}>
-                <AlertTriangle className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h2 className="text-3xl font-black mb-4" style={{ color: '#132552' }}>
-                  {t('background.heading')}
-                </h2>
-                <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>
-                  {t('background.para1')}
-                </p>
-                <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                  {t('background.para2')}
-                </p>
-              </div>
+      {/* Background */}
+      <section aria-labelledby="ev-background" className="bg-paper py-16 md:py-24">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-12">
+            <h2 id="ev-background" className="heading-display text-[2rem] md:text-[2.5rem] lg:col-span-4">{t('background.heading')}</h2>
+            <div className="max-w-3xl space-y-5 lg:col-span-8">
+              <p className="prose-lead">{t('background.para1')}</p>
+              <p className="text-lg leading-relaxed text-muted">{t('background.para2')}</p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* OBJECTIVES */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-              {t('objectives.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              {t('objectives.heading')}
-            </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              {t('objectives.subtitle')}
-            </p>
-          </div>
+      {/* Objectives */}
+      <section aria-labelledby="ev-objectives" className="py-16 md:py-24">
+        <Container>
+          <SectionHeader id="ev-objectives" title={t('objectives.heading')} intro={t('objectives.subtitle')} />
+          <ol className="mt-10 border-t border-line">
+            {list('objectives.items').map((item, i) => (
+              <li key={i} className="grid gap-4 border-b border-line py-7 md:grid-cols-[6rem_1fr] md:gap-8">
+                <span className="font-display text-[2.5rem] font-bold leading-none text-rust" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="max-w-3xl text-lg leading-relaxed">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
 
-          <div className="max-w-4xl mx-auto space-y-4">
-            {objectives.map((objective, idx) => (
-              <div key={idx} className="bg-gradient-to-r from-cyan-50 to-white rounded-2xl p-6 border-l-4"
-                   style={{ borderColor: '#0891b2' }}>
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                       style={{ backgroundColor: '#0891b2', color: 'white' }}>
-                    <span className="text-lg font-bold">{idx + 1}</span>
-                  </div>
-                  <p className="text-lg font-semibold pt-1" style={{ color: '#132552' }}>
-                    {objective}
-                  </p>
-                </div>
-              </div>
+      {/* Topics */}
+      <section aria-labelledby="ev-topics" className="bg-paper py-16 md:py-24">
+        <Container>
+          <SectionHeader id="ev-topics" title={t('topics.heading')} intro={t('topics.subtitle')} />
+          <div className="mt-10 border-t border-line">
+            {list('topics.items').map((topic, i) => (
+              <details key={topic.title} className="group border-b border-line">
+                <summary className="focus-ring flex cursor-pointer list-none items-start gap-4 py-6 [&::-webkit-details-marker]:hidden">
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-rust">{t('topics.topicLabel')} {i + 1}</span>
+                    <span className="mt-1 block font-display text-[1.25rem] font-bold text-ink md:text-[1.375rem]">{topic.title}</span>
+                  </span>
+                  <ChevronDown className="mt-6 h-5 w-5 flex-shrink-0 text-ink transition-transform group-open:rotate-180" aria-hidden="true" />
+                </summary>
+                <p className="max-w-3xl pb-7 text-lg leading-relaxed text-muted">{topic.description}</p>
+              </details>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* TOPICS FOR DISCUSSION */}
-      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-              {t('topics.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              {t('topics.heading')}
-            </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B7280' }}>
-              {t('topics.subtitle')}
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {topicsForDiscussion.map((issue, idx) => (
-              <div key={idx} className="bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
-                <button
-                  onClick={() => setActiveTheme(activeTheme === idx ? null : idx)}
-                  className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-all"
-                >
-                  <div className="flex items-center gap-4 flex-1">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                         style={{ backgroundColor: `${issue.color}15`, color: issue.color }}>
-                      {issue.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm font-bold px-3 py-1 rounded-full"
-                              style={{ backgroundColor: `${issue.color}15`, color: issue.color }}>
-                          {t('topics.topicLabel')} {issue.number}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold" style={{ color: '#132552' }}>
-                        {issue.title}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className={`transform transition-transform ${activeTheme === idx ? 'rotate-180' : ''}`}>
-                    <svg className="w-6 h-6" style={{ color: '#6B7280' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </button>
-
-                {activeTheme === idx && (
-                  <div className="px-6 pb-6 border-t border-gray-100">
-                    <div className="pt-6">
-                      <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>
-                        {issue.description}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FORMAT / AGENDA + STAKEHOLDERS */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-                {t('format.eyebrow')}
-              </span>
-              <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-                {t('format.heading')}
-              </h2>
-
-              <div className="space-y-3">
-                {agenda.map((slot, idx) => (
-                  <div key={idx} className="flex items-start gap-4 bg-gray-50 rounded-xl p-4">
-                    <div className="flex-shrink-0 text-sm font-bold px-3 py-1.5 rounded-lg whitespace-nowrap"
-                         style={{ backgroundColor: 'rgba(8, 145, 178, 0.1)', color: '#0891b2' }}>
-                      {slot.time}
-                    </div>
-                    <p className="text-sm pt-1" style={{ color: '#4B5563' }}>
-                      {slot.activity}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-                {t('stakeholders.heading')}
-              </h2>
-
-              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">{t('stakeholders.cardHeading')}</h3>
-                <ul className="space-y-2 text-sm">
-                  {stakeholders.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-cyan-400" />
-                      <span>{item}</span>
-                    </li>
+      {/* Agenda and participants */}
+      <section aria-labelledby="ev-agenda" className="py-16 md:py-24">
+        <Container>
+          <div className="grid gap-14 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <p className="text-sm font-semibold text-rust">{t('format.eyebrow')}</p>
+              <h2 id="ev-agenda" className="heading-display mt-2 text-[2rem] md:text-[2.5rem]">{t('format.heading')}</h2>
+              <table className="mt-8 w-full text-left">
+                <caption className="sr-only">{t('format.heading')}</caption>
+                <thead className="sr-only">
+                  <tr>
+                    <th scope="col">{t('facts.time')}</th>
+                    <th scope="col">{t('facts.session')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {list('format.agenda').map((slot) => (
+                    <tr key={slot.time} className="border-t border-line last:border-b">
+                      <th scope="row" className="w-32 whitespace-nowrap py-4 pr-6 align-top font-display font-bold tabular-nums text-ink md:w-36">
+                        {slot.time}
+                      </th>
+                      <td className="py-4 align-top leading-relaxed">{slot.activity}</td>
+                    </tr>
                   ))}
-                </ul>
-              </div>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="lg:col-span-5">
+              <h2 className="heading-display text-[1.75rem] md:text-[2rem]">{t('stakeholders.heading')}</h2>
+              <p className="mt-2 text-muted">{t('stakeholders.cardHeading')}</p>
+              <ul className="mt-6 border-t border-line">
+                {list('stakeholders.items').map((item) => (
+                  <li key={item} className="border-b border-line py-3 leading-relaxed">{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* EXPECTED OUTCOMES */}
-      <section className="py-20" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="text-center mb-12">
-            <span className="text-sm uppercase tracking-wider font-bold mb-4 block" style={{ color: '#0891b2' }}>
-              {t('outcomes.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', letterSpacing: '-0.01em' }}>
-              {t('outcomes.heading')}
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-            {expectedOutcomes.map((outcome, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-5 border-l-4" style={{ borderColor: '#0891b2' }}>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                       style={{ backgroundColor: '#0891b2', color: 'white' }}>
-                    {outcome.icon}
-                  </div>
-                  <p className="text-base font-semibold pt-1" style={{ color: '#132552' }}>
-                    {outcome.text}
-                  </p>
-                </div>
-              </div>
+      {/* Outcomes */}
+      <section aria-labelledby="ev-outcomes" className="bg-paper py-16 md:py-24">
+        <Container>
+          <SectionHeader id="ev-outcomes" title={t('outcomes.heading')} />
+          <ul className="mt-10 grid gap-x-10 gap-y-6 md:grid-cols-2">
+            {list('outcomes.items').map((item) => (
+              <li key={item} className="border-l-2 border-rust pl-5 text-lg leading-relaxed">{item}</li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </Container>
       </section>
 
-      {/* CONCLUSION */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-black mb-6" style={{ color: '#132552' }}>
-            {t('conclusion.heading')}
-          </h2>
-          <p className="text-lg leading-relaxed mb-4" style={{ color: '#4B5563' }}>
-            {t('conclusion.para1')}
-          </p>
-          <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-            {t('conclusion.para2')}
-          </p>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="py-20" style={{ backgroundColor: '#132552' }}>
-        <div className="container mx-auto max-w-5xl px-6 text-center">
-          <div className="mb-8">
-            <Calendar className="w-12 h-12 mx-auto mb-4 text-cyan-400" />
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-              {t('ctaSection.heading')}
-            </h2>
-            <p className="text-xl text-white/90 mb-2">
-              {t('ctaSection.dateLine')}
-            </p>
-            <p className="text-lg text-white/80">
-              {t('ctaSection.formatLine')}
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <span className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold shadow-2xl bg-white/10 text-white/70 border border-white/20 cursor-not-allowed">
-              <span>{t('ctaSection.registrationClosed')}</span>
-            </span>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-white/80 mb-4">{t('ctaSection.sponsorship')}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-white">
-              <span>📧 info@gogmi.org.gh</span>
-              <span className="hidden sm:block">|</span>
-              <span>📱 +233504953400</span>
+      {/* Conclusion */}
+      <section aria-labelledby="ev-conclusion" className="bg-ink-deep py-16 text-white md:py-24">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-12">
+            <h2 id="ev-conclusion" className="heading-display !text-white text-[2rem] md:text-[2.5rem] lg:col-span-4">{t('conclusion.heading')}</h2>
+            <div className="space-y-5 lg:col-span-8">
+              <p className="text-[1.25rem] leading-relaxed text-white/90 md:text-[1.375rem]">{t('conclusion.para1')}</p>
+              <p className="text-lg leading-relaxed text-on-dark">{t('conclusion.para2')}</p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
+      {/* Closing band */}
+      <section className="bg-ink py-16 text-white md:py-20">
+        <Container>
+          <div className="grid gap-10 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-7">
+              <h2 className="heading-display !text-white text-[2rem] md:text-[2.75rem]">{t('ctaSection.heading')}</h2>
+              <p className="mt-4 text-lg text-on-dark">{t('ctaSection.dateLine')}</p>
+              <p className="mt-1 text-lg font-semibold text-sand">{t('ctaSection.formatLine')}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button to={REPORTS_URL} variant="onDark">{t('facts.readReports')}</Button>
+                <Button to="/imswg-signup" variant="outlineOnDark">{t('facts.expressInterest')}</Button>
+              </div>
+            </div>
+            <div className="md:col-span-5 md:border-l md:border-white/25 md:pl-10">
+              <p className="text-on-dark">{t('ctaSection.sponsorship')}</p>
+              <ul className="mt-3 space-y-1.5 text-lg">
+                <li><a href={`mailto:${EMAIL}`} className="focus-ring font-semibold text-white underline underline-offset-4 hover:text-sand">{EMAIL}</a></li>
+                <li><a href={`tel:${PHONE}`} className="focus-ring font-semibold text-white underline underline-offset-4 hover:text-sand">+233 50 495 3400</a></li>
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 };

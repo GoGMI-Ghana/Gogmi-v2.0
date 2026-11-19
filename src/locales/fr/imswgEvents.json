@@ -80,12 +80,30 @@
     "eyebrow": "Réunion de 2 Heures",
     "heading": "Format et Programme",
     "agenda": [
-      { "time": "13h00 – 13h05", "activity": "Mot de bienvenue, objectifs, principes de fonctionnement" },
-      { "time": "13h05 – 13h20", "activity": "Allocution d'ouverture" },
-      { "time": "13h20 – 13h45", "activity": "Segment 1 : L'Accord BBNJ — dispositions et implications pour la gouvernance des océans dans le golfe de Guinée" },
-      { "time": "13h45 – 14h10", "activity": "Segment 2 : Renforcement des capacités, transfert de technologie et positionnement régional avant la première Conférence des Parties" },
-      { "time": "14h10 – 14h45", "activity": "Session interactive" },
-      { "time": "14h45 – 15h00", "activity": "Résumé de clôture et confirmation du processus de rapport" }
+      {
+        "time": "13h00 – 13h05",
+        "activity": "Mot de bienvenue, objectifs, principes de fonctionnement"
+      },
+      {
+        "time": "13h05 – 13h20",
+        "activity": "Allocution d'ouverture"
+      },
+      {
+        "time": "13h20 – 13h45",
+        "activity": "Segment 1 : L'Accord BBNJ — dispositions et implications pour la gouvernance des océans dans le golfe de Guinée"
+      },
+      {
+        "time": "13h45 – 14h10",
+        "activity": "Segment 2 : Renforcement des capacités, transfert de technologie et positionnement régional avant la première Conférence des Parties"
+      },
+      {
+        "time": "14h10 – 14h45",
+        "activity": "Session interactive"
+      },
+      {
+        "time": "14h45 – 15h00",
+        "activity": "Résumé de clôture et confirmation du processus de rapport"
+      }
     ]
   },
   "stakeholders": {
@@ -127,5 +145,15 @@
     "formatLine": "Réunion Virtuelle — Ce forum s'est achevé",
     "registrationClosed": "Inscriptions Closes",
     "sponsorship": "Pour le parrainage et les demandes de renseignements :"
+  },
+  "facts": {
+    "date": "Date",
+    "time": "Heure",
+    "format": "Format",
+    "status": "Statut",
+    "session": "Séance",
+    "concluded": "Terminé",
+    "readReports": "Lire les rapports de l’IMSWG",
+    "expressInterest": "Manifester votre intérêt"
   }
 }

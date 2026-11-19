@@ -80,12 +80,30 @@
     "eyebrow": "2-Hour Meeting",
     "heading": "Format & Agenda",
     "agenda": [
-      { "time": "1300 – 1305", "activity": "Welcome, objectives, operating principles" },
-      { "time": "1305 – 1320", "activity": "Opening address" },
-      { "time": "1320 – 1345", "activity": "Segment 1: The BBNJ Agreement — provisions and implications for ocean governance in the Gulf of Guinea" },
-      { "time": "1345 – 1410", "activity": "Segment 2: Capacity building, technology transfer, and regional positioning ahead of the first Conference of the Parties" },
-      { "time": "1410 – 1445", "activity": "Interactive session" },
-      { "time": "1445 – 1500", "activity": "Closing summary and confirmation of report process" }
+      {
+        "time": "1300 – 1305",
+        "activity": "Welcome, objectives, operating principles"
+      },
+      {
+        "time": "1305 – 1320",
+        "activity": "Opening address"
+      },
+      {
+        "time": "1320 – 1345",
+        "activity": "Segment 1: The BBNJ Agreement — provisions and implications for ocean governance in the Gulf of Guinea"
+      },
+      {
+        "time": "1345 – 1410",
+        "activity": "Segment 2: Capacity building, technology transfer, and regional positioning ahead of the first Conference of the Parties"
+      },
+      {
+        "time": "1410 – 1445",
+        "activity": "Interactive session"
+      },
+      {
+        "time": "1445 – 1500",
+        "activity": "Closing summary and confirmation of report process"
+      }
     ]
   },
   "stakeholders": {
@@ -127,5 +145,15 @@
     "formatLine": "Virtual Meeting — This forum has concluded",
     "registrationClosed": "Registration Closed",
     "sponsorship": "For sponsorship & inquiries:"
+  },
+  "facts": {
+    "date": "Date",
+    "time": "Time",
+    "format": "Format",
+    "status": "Status",
+    "session": "Session",
+    "concluded": "Concluded",
+    "readReports": "Read IMSWG reports",
+    "expressInterest": "Express your interest"
   }
 }

@@ -80,12 +80,30 @@
     "eyebrow": "Reunião de 2 Horas",
     "heading": "Formato e Agenda",
     "agenda": [
-      { "time": "13h00 – 13h05", "activity": "Boas-vindas, objetivos, princípios de funcionamento" },
-      { "time": "13h05 – 13h20", "activity": "Discurso de abertura" },
-      { "time": "13h20 – 13h45", "activity": "Segmento 1: O Acordo BBNJ — disposições e implicações para a governação oceânica no Golfo da Guiné" },
-      { "time": "13h45 – 14h10", "activity": "Segmento 2: Capacitação, transferência de tecnologia e posicionamento regional antes da primeira Conferência das Partes" },
-      { "time": "14h10 – 14h45", "activity": "Sessão interativa" },
-      { "time": "14h45 – 15h00", "activity": "Resumo de encerramento e confirmação do processo de elaboração do relatório" }
+      {
+        "time": "13h00 – 13h05",
+        "activity": "Boas-vindas, objetivos, princípios de funcionamento"
+      },
+      {
+        "time": "13h05 – 13h20",
+        "activity": "Discurso de abertura"
+      },
+      {
+        "time": "13h20 – 13h45",
+        "activity": "Segmento 1: O Acordo BBNJ — disposições e implicações para a governação oceânica no Golfo da Guiné"
+      },
+      {
+        "time": "13h45 – 14h10",
+        "activity": "Segmento 2: Capacitação, transferência de tecnologia e posicionamento regional antes da primeira Conferência das Partes"
+      },
+      {
+        "time": "14h10 – 14h45",
+        "activity": "Sessão interativa"
+      },
+      {
+        "time": "14h45 – 15h00",
+        "activity": "Resumo de encerramento e confirmação do processo de elaboração do relatório"
+      }
     ]
   },
   "stakeholders": {
@@ -127,5 +145,15 @@
     "formatLine": "Reunião Virtual — Este fórum já terminou",
     "registrationClosed": "Inscrições Encerradas",
     "sponsorship": "Para patrocínios e questões:"
+  },
+  "facts": {
+    "date": "Data",
+    "time": "Hora",
+    "format": "Formato",
+    "status": "Estado",
+    "session": "Sessão",
+    "concluded": "Concluído",
+    "readReports": "Ler os relatórios do IMSWG",
+    "expressInterest": "Manifestar o seu interesse"
   }
 }
