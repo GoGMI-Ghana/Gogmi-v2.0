@@ -13,15 +13,15 @@
   },
   "intro": "Cuéntenos sobre usted y cómo le gustaría participar en el IMSWG. Ya sea que desee ser mentor, ponente, colaborador o simplemente unirse a nuestra red, nos encantaría saber de usted.",
   "errors": {
-    "fullNameRequired": "El nombre completo es obligatorio",
-    "emailRequired": "El correo electrónico es obligatorio",
-    "emailInvalid": "El correo electrónico no es válido",
-    "countryRequired": "El país de residencia es obligatorio",
-    "positionRequired": "El puesto o cargo es obligatorio",
-    "bioRequired": "Se requiere una breve biografía",
-    "areasOfInterestRequired": "Seleccione al menos un área de interés",
+    "fullNameRequired": "Introduzca su nombre completo",
+    "emailRequired": "Introduzca su correo electrónico",
+    "emailInvalid": "Introduzca un correo electrónico con el formato correcto, como nombre@ejemplo.com",
+    "countryRequired": "Introduzca su país de residencia",
+    "positionRequired": "Introduzca su puesto o cargo actual",
+    "bioRequired": "Introduzca una breve biografía",
+    "areasOfInterestRequired": "Seleccione al menos una forma en que le gustaría participar",
     "submissionFailed": "Error al enviar la solicitud",
-    "submitFailedFallback": "No se pudo enviar la solicitud. Inténtelo de nuevo o contáctenos en info@gogmi.org.gh",
+    "submitFailedFallback": "No se pudieron enviar sus datos. Inténtelo de nuevo o escríbanos a info@gogmi.org.gh",
     "invalidImageType": "Suba una imagen en formato JPG, PNG o WEBP",
     "imageTooLarge": "La imagen debe pesar menos de 5 MB"
   },
@@ -31,23 +31,29 @@
     "fullNamePlaceholder": "John Doe",
     "emailLabel": "Correo electrónico",
     "emailPlaceholder": "john@example.com",
-    "whatsappLabel": "Código de país y número de WhatsApp",
+    "whatsappLabel": "Número de WhatsApp",
     "whatsappPlaceholder": "+233 XX XXX XXXX",
     "countryLabel": "País de residencia",
-    "countryPlaceholder": "ej.: Ghana"
+    "countryPlaceholder": "ej.: Ghana",
+    "emailHint": "Lo usaremos para contactarle sobre el IMSWG",
+    "whatsappHint": "Incluya el código de país, por ejemplo +233 20 123 4567"
   },
   "professionalInfo": {
     "heading": "Información profesional",
-    "positionLabel": "Puesto o cargo profesional actual",
+    "positionLabel": "Puesto o cargo actual",
     "positionPlaceholder": "ej.: Analista de seguridad marítima",
     "institutionLabel": "Institución / Organización",
-    "institutionPlaceholder": "ej.: Autoridad marítima, empresa de seguridad, etc."
+    "institutionPlaceholder": "ej.: Autoridad marítima, empresa de seguridad, etc.",
+    "positionHint": "Por ejemplo, analista de seguridad marítima"
   },
   "aboutYou": {
     "heading": "Sobre usted",
     "bioLabel": "Breve biografía",
     "bioHelper": "Cuéntenos brevemente sobre su trayectoria, su experiencia y lo que puede aportar al ámbito de la seguridad marítima. (Máximo 500 caracteres)",
-    "bioPlaceholder": "ej.: Soy un profesional de la seguridad marítima con más de 10 años de experiencia..."
+    "bioPlaceholder": "ej.: Soy un profesional de la seguridad marítima con más de 10 años de experiencia...",
+    "bioHint": "Cuéntenos sobre su trayectoria, su experiencia y lo que aporta a la seguridad marítima.",
+    "charsRemaining_one": "Le queda {{count}} carácter",
+    "charsRemaining_other": "Le quedan {{count}} caracteres"
   },
   "interests": {
     "heading": "Áreas de interés",
@@ -72,10 +78,13 @@
     "removeTitle": "Eliminar foto",
     "previewAlt": "Vista previa de la foto de perfil"
   },
-  "optional": "(Opcional)",
+  "optional": "(opcional)",
   "submit": {
     "button": "Enviar mi solicitud",
     "submitting": "Enviando...",
     "consent": "Al enviar este formulario, usted acepta ser contactado sobre las actividades y oportunidades del IMSWG."
-  }
+  },
+  "errorSummary": "Hay un problema",
+  "errorPrefix": "Error:",
+  "whatNext": "Qué ocurre ahora"
 }

@@ -1,360 +1,261 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, CheckCircle, AlertCircle, Upload, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
+import { Container } from '../ui/Editorial';
+import { Field, ErrorSummary, inputClass, describedBy } from '../ui/Form';
+
+/*
+  IMSWG expression-of-interest form, using GOV.UK patterns: back link,
+  one-column form, error summary, character count on the bio, checkboxes
+  for areas of interest and a confirmation panel.
+*/
+
+const ENDPOINT = 'https://api.gogmi.org.gh/api/imswg-signup.php';
+const BIO_MAX = 500;
+const INTEREST_IDS = [
+  'become_mentor', 'join_panel', 'speak_events', 'contribute_projects',
+  'support_fundraising', 'join_membership', 'partner_with_us',
+];
+const FIELD_ORDER = ['fullName', 'email', 'country', 'position', 'bio', 'areasOfInterest'];
+const EMPTY = { fullName: '', email: '', whatsappNumber: '', country: '', position: '', institution: '', bio: '', areasOfInterest: [] };
 
 const IMSWGsignup = () => {
   const { t } = useTranslation('imswgSignup');
-  const navigate = useNavigate();
-  const fileInputRef = useRef(null);
-
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    whatsappNumber: '',
-    country: '',
-    position: '',
-    institution: '',
-    bio: '',
-    areasOfInterest: [],
-    profilePicture: null
-  });
-
-  const [profilePreview, setProfilePreview] = useState(null);
+  const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const panelRef = useRef(null);
 
-  const interestOptions = t('interests.options', { returnObjects: true });
-  const AREAS_OF_INTEREST = [
-    { id: 'become_mentor', label: interestOptions.become_mentor },
-    { id: 'join_panel', label: interestOptions.join_panel },
-    { id: 'speak_events', label: interestOptions.speak_events },
-    { id: 'contribute_projects', label: interestOptions.contribute_projects },
-    { id: 'support_fundraising', label: interestOptions.support_fundraising },
-    { id: 'join_membership', label: interestOptions.join_membership },
-    { id: 'partner_with_us', label: interestOptions.partner_with_us }
-  ];
+  useEffect(() => {
+    if (submitted) panelRef.current?.focus();
+  }, [submitted]);
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.fullName.trim()) newErrors.fullName = t('errors.fullNameRequired');
-    if (!formData.email.trim()) {
-      newErrors.email = t('errors.emailRequired');
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = t('errors.emailInvalid');
-    }
-    if (!formData.country.trim()) newErrors.country = t('errors.countryRequired');
-    if (!formData.position.trim()) newErrors.position = t('errors.positionRequired');
-    if (!formData.bio.trim()) newErrors.bio = t('errors.bioRequired');
-    if (formData.areasOfInterest.length === 0) newErrors.areasOfInterest = t('errors.areasOfInterestRequired');
-    return newErrors;
+  const options = t('interests.options', { returnObjects: true });
+  const id = (name) => `signup-${name}`;
+  const errPrefix = t('errorPrefix');
+
+  const validate = () => {
+    const e = {};
+    if (!form.fullName.trim()) e.fullName = t('errors.fullNameRequired');
+    if (!form.email.trim()) e.email = t('errors.emailRequired');
+    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) e.email = t('errors.emailInvalid');
+    if (!form.country.trim()) e.country = t('errors.countryRequired');
+    if (!form.position.trim()) e.position = t('errors.positionRequired');
+    if (!form.bio.trim()) e.bio = t('errors.bioRequired');
+    if (form.areasOfInterest.length === 0) e.areasOfInterest = t('errors.areasOfInterestRequired');
+    return e;
   };
 
-  const handleChange = (e) => {
+  const onChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleInterestToggle = (id) => {
-    setFormData(prev => {
-      const current = prev.areasOfInterest;
-      const updated = current.includes(id) ? current.filter(i => i !== id) : [...current, id];
-      return { ...prev, areasOfInterest: updated };
-    });
-    if (errors.areasOfInterest) {
-      setErrors(prev => ({ ...prev, areasOfInterest: '' }));
-    }
+  const toggleInterest = (interest) => {
+    setForm((prev) => ({
+      ...prev,
+      areasOfInterest: prev.areasOfInterest.includes(interest)
+        ? prev.areasOfInterest.filter((i) => i !== interest)
+        : [...prev.areasOfInterest, interest],
+    }));
   };
 
-  const handleProfilePicture = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
-    if (!validTypes.includes(file.type)) {
-      setErrors(prev => ({ ...prev, profilePicture: t('errors.invalidImageType') }));
-      return;
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      setErrors(prev => ({ ...prev, profilePicture: t('errors.imageTooLarge') }));
-      return;
-    }
-    setFormData(prev => ({ ...prev, profilePicture: file }));
-    setErrors(prev => ({ ...prev, profilePicture: '' }));
-    const reader = new FileReader();
-    reader.onloadend = () => setProfilePreview(reader.result);
-    reader.readAsDataURL(file);
-  };
-
-  const removeProfilePicture = () => {
-    setFormData(prev => ({ ...prev, profilePicture: null }));
-    setProfilePreview(null);
-    if (fileInputRef.current) fileInputRef.current.value = '';
-  };
-
-  const handleSubmit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const formErrors = validateForm();
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-      const firstError = document.querySelector('[data-error="true"]');
-      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
+    const found = validate();
+    setErrors(found);
+    setSubmitError('');
+    if (Object.keys(found).length) return;
 
-    setIsSubmitting(true);
-    setErrors({});
-
+    setSubmitting(true);
     try {
-      const interestLabels = formData.areasOfInterest.map(id => {
-        const found = AREAS_OF_INTEREST.find(a => a.id === id);
-        return found ? found.label : id;
-      });
-
+      // Keep the order of the checkbox list, and send the labels as before.
+      const labels = INTEREST_IDS.filter((i) => form.areasOfInterest.includes(i)).map((i) => options[i]);
       const payload = {
-        fullName: formData.fullName,
-        email: formData.email,
-        whatsappNumber: formData.whatsappNumber,
-        country: formData.country,
-        position: formData.position,
-        institution: formData.institution,
-        bio: formData.bio,
-        areaOfInterest: interestLabels.join(', '),
-        areaOfExpertise: formData.position
+        fullName: form.fullName,
+        email: form.email,
+        whatsappNumber: form.whatsappNumber,
+        country: form.country,
+        position: form.position,
+        institution: form.institution,
+        bio: form.bio,
+        areaOfInterest: labels.join(', '),
+        areaOfExpertise: form.position,
       };
-
-      const response = await fetch('https://api.gogmi.org.gh/api/imswg-signup.php', {
+      const response = await fetch(ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
-
       const data = await response.json();
-
-      if (!data.success) {
-        throw new Error(data.message || t('errors.submissionFailed'));
-      }
-
+      if (!data.success) throw new Error(data.message || t('errors.submissionFailed'));
       setSubmitted(true);
-      setFormData({
-        fullName: '', email: '', whatsappNumber: '', country: '',
-        position: '', institution: '', bio: '', areasOfInterest: [], profilePicture: null
-      });
-      setProfilePreview(null);
-
-      // ✅ FIXED: No auto-redirect. User stays on success screen until
-      // they click "Back to IMSWG" themselves.
-
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setErrors({
-        submit: error.message || t('errors.submitFailedFallback')
-      });
+      setForm(EMPTY);
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setSubmitError(t('errors.submitFailedFallback'));
     } finally {
-      setIsSubmitting(false);
+      setSubmitting(false);
     }
   };
 
-  // ── Success Screen ─────────────────────────────────────────────────────────
+  // The checkbox group's error links to the first checkbox.
+  const summaryItems = [
+    ...FIELD_ORDER.filter((f) => errors[f]).map((f) => ({
+      id: f === 'areasOfInterest' ? id(`interest-${INTEREST_IDS[0]}`) : id(f),
+      message: errors[f],
+    })),
+    ...(submitError ? [{ id: id('submit'), message: submitError }] : []),
+  ];
+
+  const remaining = BIO_MAX - form.bio.length;
+  const textField = (name, { label, hint, optional, type = 'text', autoComplete, narrow }) => (
+    <Field id={id(name)} label={label} hint={hint} optionalText={optional ? t('optional') : undefined} error={errors[name]} errorPrefix={errPrefix}>
+      <input
+        id={id(name)} name={name} type={type} autoComplete={autoComplete}
+        spellCheck={type === 'email' || name === 'fullName' ? false : undefined}
+        value={form[name]} onChange={onChange}
+        aria-describedby={describedBy(id(name), { hint, error: errors[name] })}
+        aria-invalid={!!errors[name] || undefined}
+        className={inputClass(!!errors[name], narrow ? 'max-w-sm' : '')}
+      />
+    </Field>
+  );
+
+  const legend = 'font-display text-[1.5rem] font-bold text-ink';
+
+  let body;
   if (submitted) {
-    return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
-        <div className="max-w-lg w-full bg-white rounded-2xl shadow-xl p-10 text-center">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-12 h-12 text-green-600" />
-          </div>
-          <h2 className="text-3xl font-bold mb-4" style={{ color: '#1e293b' }}>
-            {t('success.heading')}
-          </h2>
-          <p className="text-lg mb-4" style={{ color: '#64748b' }}>
-            {t('success.body1')}
-          </p>
-          <p className="text-base mb-8" style={{ color: '#64748b' }}>
-            {t('success.body2')}
-            <br /><br />
-            — {t('success.signature')}
-          </p>
-          <button
-            onClick={() => navigate('/imswg')}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>{t('success.backButton')}</span>
-          </button>
+    body = (
+      <div ref={panelRef} tabIndex={-1} className="focus:outline focus:outline-[3px] focus:outline-sand">
+        <div className="bg-success px-6 py-8 text-center text-white">
+          <h1 className="font-display text-[2rem] font-bold leading-tight md:text-[2.5rem]">{t('success.heading')}</h1>
+          <p className="mt-3 text-[1.1875rem]">{t('header.subtitle')}</p>
         </div>
+        <h2 className="mt-8 font-display text-[1.5rem] font-bold text-ink">{t('whatNext')}</h2>
+        <p className="mt-3 text-[1.1875rem] leading-relaxed">{t('success.body2')}</p>
+        <p className="mt-3 text-[1.1875rem] leading-relaxed">{t('success.body1')}</p>
+        <p className="mt-6">
+          <Link to="/imswg" className="link-editorial focus-ring">{t('success.backButton')}</Link>
+        </p>
       </div>
+    );
+  } else {
+    body = (
+      <>
+        {summaryItems.length > 0 && (
+          <div className="mb-8">
+            <ErrorSummary title={t('errorSummary')} items={summaryItems} />
+          </div>
+        )}
+
+        <p className="text-[1.1875rem] text-muted">{t('header.subtitle')}</p>
+        <h1 className="heading-display mt-2 text-[2.25rem] md:text-[2.75rem]">{t('header.title')}</h1>
+        <p className="mt-4 text-[1.1875rem] leading-relaxed">{t('intro')}</p>
+
+        <form onSubmit={onSubmit} noValidate className="mt-10">
+          <fieldset>
+            <legend className={legend}>{t('personalInfo.heading')}</legend>
+            <div className="mt-6 space-y-7">
+              {textField('fullName', { label: t('personalInfo.fullNameLabel'), autoComplete: 'name' })}
+              {textField('email', { label: t('personalInfo.emailLabel'), hint: t('personalInfo.emailHint'), type: 'email', autoComplete: 'email' })}
+              {textField('whatsappNumber', { label: t('personalInfo.whatsappLabel'), hint: t('personalInfo.whatsappHint'), optional: true, type: 'tel', autoComplete: 'tel', narrow: true })}
+              {textField('country', { label: t('personalInfo.countryLabel'), autoComplete: 'country-name', narrow: true })}
+            </div>
+          </fieldset>
+
+          <fieldset className="mt-12">
+            <legend className={legend}>{t('professionalInfo.heading')}</legend>
+            <div className="mt-6 space-y-7">
+              {textField('position', { label: t('professionalInfo.positionLabel'), hint: t('professionalInfo.positionHint'), autoComplete: 'organization-title' })}
+              {textField('institution', { label: t('professionalInfo.institutionLabel'), optional: true, autoComplete: 'organization' })}
+            </div>
+          </fieldset>
+
+          <div className="mt-12">
+            <h2 className={legend}>{t('aboutYou.heading')}</h2>
+            <div className="mt-6">
+              <Field id={id('bio')} label={t('aboutYou.bioLabel')} hint={t('aboutYou.bioHint')} error={errors.bio} errorPrefix={errPrefix}>
+                <textarea
+                  id={id('bio')} name="bio" rows={6} maxLength={BIO_MAX}
+                  value={form.bio} onChange={onChange}
+                  aria-describedby={`${describedBy(id('bio'), { hint: true, error: errors.bio })} ${id('bio-count')}`}
+                  aria-invalid={!!errors.bio || undefined}
+                  className={inputClass(!!errors.bio, 'resize-y')}
+                />
+                <p id={id('bio-count')} aria-live="polite" className={`mt-1.5 text-[0.9375rem] ${remaining <= 20 ? 'font-bold text-error' : 'text-muted'}`}>
+                  {t('aboutYou.charsRemaining', { count: remaining })}
+                </p>
+              </Field>
+            </div>
+          </div>
+
+          <fieldset
+            className={`mt-12 ${errors.areasOfInterest ? 'border-l-[5px] border-error pl-4' : ''}`}
+            aria-describedby={`${id('interests-hint')}${errors.areasOfInterest ? ` ${id('interests-error')}` : ''}`}
+          >
+            <legend className={legend}>{t('interests.heading')}</legend>
+            <p id={id('interests-hint')} className="mt-2 text-[0.9375rem] text-muted">{t('interests.helper')}</p>
+            {errors.areasOfInterest && (
+              <p id={id('interests-error')} className="mt-1 text-[1.0625rem] font-bold text-error">
+                <span className="sr-only">{errPrefix} </span>{errors.areasOfInterest}
+              </p>
+            )}
+            <div className="mt-4 space-y-3">
+              {INTEREST_IDS.map((interest) => (
+                <div key={interest} className="flex items-center gap-3">
+                  <input
+                    id={id(`interest-${interest}`)}
+                    type="checkbox"
+                    checked={form.areasOfInterest.includes(interest)}
+                    onChange={() => toggleInterest(interest)}
+                    className="h-7 w-7 flex-shrink-0 cursor-pointer accent-ink focus:outline focus:outline-[3px] focus:outline-offset-2 focus:outline-sand"
+                  />
+                  <label htmlFor={id(`interest-${interest}`)} className="cursor-pointer text-[1.0625rem]">
+                    {options[interest]}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <p className="mt-12 text-[1.0625rem] text-muted">{t('submit.consent')}</p>
+
+          {submitError && (
+            <p id={id('submit')} tabIndex={-1} className="mt-6 border-l-[5px] border-error pl-4 font-bold text-error">
+              <span className="sr-only">{errPrefix} </span>{submitError}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="focus-ring mt-6 inline-flex items-center justify-center rounded-[2px] border-b-2 border-ink-deep bg-ink px-6 py-3 text-[1.0625rem] font-semibold text-white transition-colors hover:bg-rust disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {submitting ? t('submit.submitting') : t('submit.button')}
+          </button>
+        </form>
+      </>
     );
   }
 
-  // ── Form ───────────────────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-4xl mx-auto px-6 py-6 pt-24">
-          <button
-            onClick={() => navigate('/imswg')}
-            className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors mb-4"
+    <div className="w-full bg-paper font-body text-text">
+      <Container className="pb-20 pt-[120px] md:pb-28 md:pt-[150px]">
+        <div className="max-w-2xl">
+          <Link
+            to="/imswg"
+            className="focus-ring inline-flex items-center gap-1 text-[0.9375rem] text-text underline underline-offset-2 hover:decoration-2"
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-semibold">{t('header.backButton')}</span>
-          </button>
-          <h1 className="text-4xl font-bold mb-2" style={{ color: '#1e293b' }}>
-            {t('header.title')}
-          </h1>
-          <p className="text-lg" style={{ color: '#64748b' }}>
-            {t('header.subtitle')}
-          </p>
+            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+            {t('header.backButton')}
+          </Link>
+          <div className="mt-6 border border-line bg-white px-6 py-8 md:px-10 md:py-10">{body}</div>
         </div>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
-          <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
-            <p className="text-base leading-relaxed font-medium" style={{ color: '#475569' }}>
-              {t('intro')}
-            </p>
-          </div>
-
-          {errors.submit && (
-            <div className="mb-6 p-4 bg-red-50 border-2 border-red-200 rounded-xl flex items-start gap-3">
-              <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-              <p className="text-red-800 font-semibold">{errors.submit}</p>
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-10">
-            <div>
-              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('personalInfo.heading')}</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="md:col-span-2" data-error={!!errors.fullName}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.fullNameLabel')} <span className="text-red-500">*</span></label>
-                  <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.fullName ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('personalInfo.fullNamePlaceholder')} />
-                  {errors.fullName && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.fullName}</p>}
-                </div>
-
-                <div className="md:col-span-2" data-error={!!errors.email}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.emailLabel')} <span className="text-red-500">*</span></label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.email ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('personalInfo.emailPlaceholder')} />
-                  {errors.email && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.email}</p>}
-                </div>
-
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.whatsappLabel')}</label>
-                  <input type="tel" name="whatsappNumber" value={formData.whatsappNumber} onChange={handleChange} className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent" placeholder={t('personalInfo.whatsappPlaceholder')} />
-                </div>
-
-                <div className="md:col-span-2" data-error={!!errors.country}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('personalInfo.countryLabel')} <span className="text-red-500">*</span></label>
-                  <input type="text" name="country" value={formData.country} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.country ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('personalInfo.countryPlaceholder')} />
-                  {errors.country && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.country}</p>}
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('professionalInfo.heading')}</h3>
-              <div className="space-y-6">
-                <div data-error={!!errors.position}>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('professionalInfo.positionLabel')} <span className="text-red-500">*</span></label>
-                  <input type="text" name="position" value={formData.position} onChange={handleChange} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent ${errors.position ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('professionalInfo.positionPlaceholder')} />
-                  {errors.position && <p className="text-red-600 text-sm mt-1 font-semibold">{errors.position}</p>}
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('professionalInfo.institutionLabel')} <span className="text-slate-400 text-xs font-normal">{t('optional')}</span></label>
-                  <input type="text" name="institution" value={formData.institution} onChange={handleChange} className="w-full px-4 py-3 bg-white border-2 border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent" placeholder={t('professionalInfo.institutionPlaceholder')} />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('aboutYou.heading')}</h3>
-              <div data-error={!!errors.bio}>
-                <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>{t('aboutYou.bioLabel')} <span className="text-red-500">*</span></label>
-                <p className="text-xs mb-3" style={{ color: '#94a3b8' }}>{t('aboutYou.bioHelper')}</p>
-                <textarea name="bio" value={formData.bio} onChange={handleChange} maxLength={500} rows={5} className={`w-full px-4 py-3 bg-white border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent resize-none ${errors.bio ? 'border-red-300' : 'border-slate-200'}`} placeholder={t('aboutYou.bioPlaceholder')} />
-                <div className="flex justify-between items-center mt-1">
-                  {errors.bio ? <p className="text-red-600 text-sm font-semibold">{errors.bio}</p> : <span />}
-                  <p className="text-xs ml-auto" style={{ color: formData.bio.length >= 480 ? '#ef4444' : '#94a3b8' }}>{formData.bio.length}/500</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-2 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('interests.heading')}</h3>
-              <p className="text-sm mb-6" style={{ color: '#64748b' }}>{t('interests.helper')} <span className="text-red-500">*</span></p>
-              <div className={`rounded-xl border-2 p-2 ${errors.areasOfInterest ? 'border-red-300 bg-red-50' : 'border-slate-100 bg-slate-50'}`} data-error={!!errors.areasOfInterest}>
-                <div className="grid sm:grid-cols-2 gap-2">
-                  {AREAS_OF_INTEREST.map(({ id, label }) => {
-                    const isChecked = formData.areasOfInterest.includes(id);
-                    return (
-                      <button key={id} type="button" onClick={() => handleInterestToggle(id)} className={`flex items-center gap-3 px-4 py-3 rounded-lg border-2 text-left transition-all font-semibold text-sm ${isChecked ? 'border-slate-900 bg-slate-900 text-white' : 'border-slate-200 bg-white text-slate-700 hover:border-slate-400'}`}>
-                        <span className={`w-5 h-5 rounded flex-shrink-0 flex items-center justify-center border-2 transition-all ${isChecked ? 'border-white bg-white' : 'border-slate-300 bg-white'}`}>
-                          {isChecked && (<svg className="w-3 h-3 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>)}
-                        </span>
-                        {label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-              {errors.areasOfInterest && <p className="text-red-600 text-sm mt-2 font-semibold">{errors.areasOfInterest}</p>}
-              {formData.areasOfInterest.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {formData.areasOfInterest.map(id => {
-                    const interest = AREAS_OF_INTEREST.find(a => a.id === id);
-                    return (
-                      <span key={id} className="inline-flex items-center gap-1 px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-semibold">
-                        <CheckCircle className="w-3 h-3 text-green-600" />
-                        {interest?.label}
-                      </span>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-2 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>{t('profilePicture.heading')} <span className="text-slate-400 text-sm font-normal">{t('profilePicture.optional')}</span></h3>
-              <p className="text-sm mb-6" style={{ color: '#64748b' }}>{t('profilePicture.helper')}</p>
-              {!profilePreview ? (
-                <div>
-                  <input type="file" ref={fileInputRef} accept="image/jpeg,image/png,image/webp" onChange={handleProfilePicture} className="hidden" id="profilePictureInput" />
-                  <label htmlFor="profilePictureInput" className="flex flex-col items-center justify-center w-full py-10 border-2 border-dashed rounded-xl cursor-pointer transition-all hover:border-slate-400 hover:bg-slate-50" style={{ borderColor: errors.profilePicture ? '#fca5a5' : '#cbd5e1' }}>
-                    <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-3"><Upload className="w-7 h-7 text-slate-400" /></div>
-                    <p className="text-sm font-semibold" style={{ color: '#475569' }}>{t('profilePicture.uploadPrompt')}</p>
-                    <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>{t('profilePicture.uploadHint')}</p>
-                  </label>
-                  {errors.profilePicture && <p className="text-red-600 text-sm mt-2 font-semibold">{errors.profilePicture}</p>}
-                </div>
-              ) : (
-                <div className="flex items-center gap-6 p-5 bg-slate-50 rounded-xl border-2 border-slate-200">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-md flex-shrink-0">
-                    <img src={profilePreview} alt={t('profilePicture.previewAlt')} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-bold text-slate-800 mb-1">{formData.profilePicture?.name}</p>
-                    <p className="text-xs text-slate-500">{formData.profilePicture ? (formData.profilePicture.size / 1024).toFixed(0) + ' KB' : ''}</p>
-                    <p className="text-xs text-green-600 font-semibold mt-1 flex items-center gap-1"><CheckCircle className="w-3 h-3" /> {t('profilePicture.imageReady')}</p>
-                  </div>
-                  <button type="button" onClick={removeProfilePicture} className="p-2 rounded-full hover:bg-red-100 transition-colors text-slate-400 hover:text-red-500" title={t('profilePicture.removeTitle')}><X className="w-5 h-5" /></button>
-                </div>
-              )}
-            </div>
-
-            <div className="pt-6 border-t border-slate-200">
-              <button type="submit" disabled={isSubmitting} className="w-full py-4 bg-slate-900 text-white rounded-xl font-bold text-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl">
-                {isSubmitting ? t('submit.submitting') : t('submit.button')}
-              </button>
-              <p className="text-sm text-center mt-4 italic" style={{ color: '#64748b' }}>
-                {t('submit.consent')}
-              </p>
-            </div>
-          </form>
-        </div>
-      </div>
+      </Container>
     </div>
   );
 };
