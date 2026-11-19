@@ -2,7 +2,8 @@
   "closed": {
     "heading": "Inscrições Encerradas",
     "body": "O Fórum IMSWG 2026 do 3.º Trimestre terminou e as inscrições estão agora encerradas. Obrigado a todos os que participaram. Fique atento aos detalhes dos próximos eventos do IMSWG.",
-    "backButton": "Voltar ao IMSWG"
+    "backButton": "Voltar ao IMSWG",
+    "enquiryPrefix": "Para questões, contacte-nos através de"
   },
   "success": {
     "heading": "Candidatura Submetida",
@@ -12,13 +13,13 @@
     "backButton": "Voltar ao IMSWG"
   },
   "errors": {
-    "fullNameRequired": "O nome completo é obrigatório",
-    "emailRequired": "O e-mail é obrigatório",
-    "emailInvalid": "O e-mail é inválido",
-    "countryRequired": "O país de residência é obrigatório",
-    "positionRequired": "O cargo/título é obrigatório",
+    "fullNameRequired": "Introduza o seu nome completo",
+    "emailRequired": "Introduza o seu endereço de e-mail",
+    "emailInvalid": "Introduza um e-mail no formato correto, como nome@exemplo.com",
+    "countryRequired": "Introduza o seu país de residência",
+    "positionRequired": "Introduza o seu cargo ou título atual",
     "submitFailed": "Falha ao submeter a candidatura",
-    "submitFailedFallback": "Falha ao submeter a candidatura. Tente novamente ou contacte-nos através de info@gogmi.org.gh"
+    "submitFailedFallback": "Não foi possível enviar a sua inscrição. Tente novamente ou escreva-nos para info@gogmi.org.gh"
   },
   "form": {
     "backButton": "Voltar ao IMSWG",
@@ -31,21 +32,27 @@
       "fullNamePlaceholder": "João Silva",
       "emailLabel": "Endereço de E-mail",
       "emailPlaceholder": "joao@exemplo.com",
-      "whatsappLabel": "Indicativo do País e Número de WhatsApp",
+      "whatsappLabel": "Número de WhatsApp",
       "whatsappPlaceholder": "+233 XX XXX XXXX",
       "countryLabel": "País de Residência",
-      "countryPlaceholder": "ex.: Gana"
+      "countryPlaceholder": "ex.: Gana",
+      "emailHint": "Enviaremos o link do evento para este endereço",
+      "whatsappHint": "Inclua o indicativo do país, por exemplo +233 20 123 4567"
     },
     "professionalInfo": {
       "heading": "Informações Profissionais",
-      "positionLabel": "Cargo ou Título Profissional Atual",
+      "positionLabel": "Cargo ou título atual",
       "positionPlaceholder": "ex.: Analista de Segurança Marítima",
       "institutionLabel": "Instituição/Organização",
-      "institutionPlaceholder": "ex.: Autoridade Marítima, Empresa de Segurança, etc."
+      "institutionPlaceholder": "ex.: Autoridade Marítima, Empresa de Segurança, etc.",
+      "positionHint": "Por exemplo, analista de segurança marítima"
     },
-    "optional": "(Opcional)",
+    "optional": "(opcional)",
     "submitButton": "Submeter Candidatura",
     "submitting": "A Submeter Candidatura...",
-    "consent": "Ao submeter este formulário, concorda em ser contactado sobre as atividades do IMSWG"
+    "consent": "Ao submeter este formulário, concorda em ser contactado sobre as atividades do IMSWG",
+    "errorSummary": "Existe um problema",
+    "errorPrefix": "Erro:",
+    "whatNext": "O que acontece a seguir"
   }
 }

@@ -2,7 +2,8 @@
   "closed": {
     "heading": "Inscriptions closes",
     "body": "Le Forum IMSWG 2026 – Troisième trimestre s'est achevé et les inscriptions sont désormais closes. Merci à toutes les personnes qui y ont participé. Restez à l'écoute pour les informations sur les prochains événements de l'IMSWG.",
-    "backButton": "Retour à l'IMSWG"
+    "backButton": "Retour à l'IMSWG",
+    "enquiryPrefix": "Pour toute question, veuillez nous contacter à"
   },
   "success": {
     "heading": "Candidature soumise",
@@ -12,13 +13,13 @@
     "backButton": "Retour à l'IMSWG"
   },
   "errors": {
-    "fullNameRequired": "Le nom complet est requis",
-    "emailRequired": "L'adresse e-mail est requise",
-    "emailInvalid": "L'adresse e-mail n'est pas valide",
-    "countryRequired": "Le pays de résidence est requis",
-    "positionRequired": "Le poste/titre est requis",
+    "fullNameRequired": "Saisissez votre nom complet",
+    "emailRequired": "Saisissez votre adresse e-mail",
+    "emailInvalid": "Saisissez une adresse e-mail au bon format, par exemple nom@exemple.com",
+    "countryRequired": "Saisissez votre pays de résidence",
+    "positionRequired": "Saisissez votre poste ou titre actuel",
     "submitFailed": "Échec de l'envoi de la candidature",
-    "submitFailedFallback": "Échec de l'envoi de la candidature. Veuillez réessayer ou nous contacter à info@gogmi.org.gh"
+    "submitFailedFallback": "Votre inscription n’a pas pu être envoyée. Veuillez réessayer ou nous écrire à info@gogmi.org.gh"
   },
   "form": {
     "backButton": "Retour à l'IMSWG",
@@ -31,21 +32,27 @@
       "fullNamePlaceholder": "John Doe",
       "emailLabel": "Adresse e-mail",
       "emailPlaceholder": "john@example.com",
-      "whatsappLabel": "Indicatif du pays et numéro WhatsApp",
+      "whatsappLabel": "Numéro WhatsApp",
       "whatsappPlaceholder": "+233 XX XXX XXXX",
       "countryLabel": "Pays de résidence",
-      "countryPlaceholder": "ex. : Ghana"
+      "countryPlaceholder": "ex. : Ghana",
+      "emailHint": "Nous enverrons le lien de l’événement à cette adresse",
+      "whatsappHint": "Indiquez l’indicatif du pays, par exemple +233 20 123 4567"
     },
     "professionalInfo": {
       "heading": "Informations professionnelles",
-      "positionLabel": "Poste ou titre professionnel actuel",
+      "positionLabel": "Poste ou titre actuel",
       "positionPlaceholder": "ex. : Analyste en sûreté maritime",
       "institutionLabel": "Institution/Organisation",
-      "institutionPlaceholder": "ex. : Autorité maritime, société de sécurité, etc."
+      "institutionPlaceholder": "ex. : Autorité maritime, société de sécurité, etc.",
+      "positionHint": "Par exemple, analyste en sûreté maritime"
     },
-    "optional": "(Facultatif)",
+    "optional": "(facultatif)",
     "submitButton": "Soumettre la candidature",
     "submitting": "Envoi de la candidature en cours...",
-    "consent": "En soumettant ce formulaire, vous acceptez d'être contacté(e) au sujet des activités de l'IMSWG"
+    "consent": "En soumettant ce formulaire, vous acceptez d'être contacté(e) au sujet des activités de l'IMSWG",
+    "errorSummary": "Il y a un problème",
+    "errorPrefix": "Erreur :",
+    "whatNext": "Et ensuite ?"
   }
 }

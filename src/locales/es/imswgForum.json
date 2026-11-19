@@ -13,13 +13,13 @@
     "backButton": "Volver al IMSWG"
   },
   "errors": {
-    "fullNameRequired": "El nombre completo es obligatorio",
-    "emailRequired": "El correo electrónico es obligatorio",
-    "emailInvalid": "El correo electrónico no es válido",
-    "countryRequired": "El país de residencia es obligatorio",
-    "positionRequired": "El puesto/cargo es obligatorio",
+    "fullNameRequired": "Introduzca su nombre completo",
+    "emailRequired": "Introduzca su correo electrónico",
+    "emailInvalid": "Introduzca un correo electrónico con el formato correcto, como nombre@ejemplo.com",
+    "countryRequired": "Introduzca su país de residencia",
+    "positionRequired": "Introduzca su puesto o cargo actual",
     "submitFailed": "No se pudo enviar la solicitud",
-    "submitFailedFallback": "No se pudo enviar la solicitud. Inténtelo de nuevo o contáctenos en info@gogmi.org.gh"
+    "submitFailedFallback": "No se pudo enviar su inscripción. Inténtelo de nuevo o escríbanos a info@gogmi.org.gh"
   },
   "form": {
     "backButton": "Volver al IMSWG",
@@ -32,21 +32,27 @@
       "fullNamePlaceholder": "John Doe",
       "emailLabel": "Correo electrónico",
       "emailPlaceholder": "john@example.com",
-      "whatsappLabel": "Código de país y número de WhatsApp",
+      "whatsappLabel": "Número de WhatsApp",
       "whatsappPlaceholder": "+233 XX XXX XXXX",
       "countryLabel": "País de residencia",
-      "countryPlaceholder": "p. ej., Ghana"
+      "countryPlaceholder": "p. ej., Ghana",
+      "emailHint": "Enviaremos el enlace del evento a esta dirección",
+      "whatsappHint": "Incluya el código de país, por ejemplo +233 20 123 4567"
     },
     "professionalInfo": {
       "heading": "Información profesional",
-      "positionLabel": "Puesto o cargo profesional actual",
+      "positionLabel": "Puesto o cargo actual",
       "positionPlaceholder": "p. ej., Analista de seguridad marítima",
       "institutionLabel": "Institución/Organización",
-      "institutionPlaceholder": "p. ej., Autoridad marítima, empresa de seguridad, etc."
+      "institutionPlaceholder": "p. ej., Autoridad marítima, empresa de seguridad, etc.",
+      "positionHint": "Por ejemplo, analista de seguridad marítima"
     },
-    "optional": "(Opcional)",
+    "optional": "(opcional)",
     "submitButton": "Enviar solicitud",
     "submitting": "Enviando solicitud...",
-    "consent": "Al enviar este formulario, usted acepta ser contactado/a en relación con las actividades del IMSWG"
+    "consent": "Al enviar este formulario, usted acepta ser contactado/a en relación con las actividades del IMSWG",
+    "errorSummary": "Hay un problema",
+    "errorPrefix": "Error:",
+    "whatNext": "Qué ocurre ahora"
   }
 }
