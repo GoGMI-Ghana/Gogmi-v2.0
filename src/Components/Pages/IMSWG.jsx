@@ -1,332 +1,152 @@
 import React from 'react';
-import { Download, Users, Globe, FileText, Calendar, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Download } from 'lucide-react';
+import { Container, PageHero, SectionHeader, Button, TextLink } from '../ui/Editorial';
+
+/*
+  IMSWG overview in the editorial style: photo hero, an about section with
+  three ruled key points, the forum composition as a statement on dark with
+  the Chatham House Rule set apart, numbered activities above a captioned
+  photograph, three "get involved" tiles and a closing band.
+*/
+
+const REPORTS_URL = '/resources?subcategory=IMSWG+Reports#internal-reports';
 
 const IMSWG = () => {
   const { t } = useTranslation('imswg');
-  const navigate = useNavigate();
 
-  const goToReports = () => {
-    navigate('/resources?subcategory=IMSWG+Reports#internal-reports');
-  };
+  const keyPoints = ['expertNetwork', 'regionalFocus', 'policyInnovation'];
+  const activities = ['discussionTopics', 'reports'];
+  const involve = [
+    { key: 'signUp', to: '/imswg-signup' },
+    { key: 'report', to: REPORTS_URL },
+    { key: 'event', to: '/imswg-events' },
+  ];
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, sans-serif' }}>
-      
-      {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/imswg4.jpg"
-            alt={t('hero.imageAlt')}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/75 via-slate-800/70 to-slate-900/75"></div>
-        </div>
+    <div className="w-full bg-white font-body text-text">
+      <PageHero
+        image="/imswg4.jpg"
+        alt={t('hero.imageAlt')}
+        position="62% 35%"
+        eyebrow="IMSWG"
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+      >
+        <Button to={REPORTS_URL} variant="onDark">
+          <Download className="h-4 w-4" aria-hidden="true" />
+          {t('hero.downloadReports')}
+        </Button>
+        <Button to="/imswg-signup" variant="outlineOnDark">
+          {t('reportsEvents.signUp.button')}
+        </Button>
+      </PageHero>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white mb-6 leading-tight"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}>
-            {t('hero.heading1')}<br/>{t('hero.heading2')}
-          </h1>
-
-          <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-8"
-             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            {t('hero.subtitle')}
-          </p>
-
-          <button
-            onClick={goToReports}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 rounded-lg text-base font-semibold transition-all hover:scale-105 shadow-xl cursor-pointer"
-            style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-          >
-            <Download className="w-5 h-5" />
-            <span>{t('hero.downloadReports')}</span>
-          </button>
-        </div>
-      </section>
-
-      {/* About IMSWG */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-start mb-16">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
-                    style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                {t('about.eyebrow')}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-black mb-6"
-                  style={{ color: '#132552', fontFamily: 'Inter, sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                {t('about.heading')}
-              </h2>
-<p className="text-base leading-relaxed mb-6"
-                 style={{ color: '#475569', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('about.para1')}
-              </p>
-
-              <p className="text-base leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('about.para2')}
-              </p>
+      {/* About */}
+      <section aria-labelledby="imswg-about" className="py-16 md:py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-6">
+              <p className="text-sm font-semibold text-rust">{t('about.eyebrow')}</p>
+              <h2 id="imswg-about" className="heading-display mt-2 text-[2rem] md:text-[2.5rem]">{t('about.heading')}</h2>
+              <p className="prose-lead mt-6">{t('about.para1')}</p>
+              <p className="mt-4 text-lg leading-relaxed text-muted">{t('about.para2')}</p>
             </div>
-
-            <div className="relative">
-              <img
-                src="/imswg2.jpg"
-                alt={t('about.imageAlt')}
-                className="rounded-xl shadow-2xl w-full"
-              />
-            </div>
+            <figure className="lg:col-span-6">
+              {/* Cropped from the top so the phone-camera watermark at the bottom left stays out of view. */}
+              <img src="/imswg2.jpg" alt={t('about.imageAlt')} loading="lazy" className="aspect-[3/2] w-full object-cover object-top" />
+            </figure>
           </div>
 
-          {/* Key Information Cards */}
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-5">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('about.cards.expertNetwork.heading')}</h3>
-              <p className="text-sm leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('about.cards.expertNetwork.desc')}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-5">
-                <Globe className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('about.cards.regionalFocus.heading')}</h3>
-              <p className="text-sm leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('about.cards.regionalFocus.desc')}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
-              <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center mb-5">
-                <FileText className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('about.cards.policyInnovation.heading')}</h3>
-              <p className="text-sm leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('about.cards.policyInnovation.desc')}
-              </p>
-            </div>
-          </div>
-        </div>
+          <ul className="mt-14 grid gap-8 md:mt-20 md:grid-cols-3 md:gap-10">
+            {keyPoints.map((key) => (
+              <li key={key} className="border-t-2 border-ink pt-5">
+                <h3 className="font-display text-[1.25rem] font-bold text-ink">{t(`about.cards.${key}.heading`)}</h3>
+                <p className="mt-2 leading-relaxed text-muted">{t(`about.cards.${key}.desc`)}</p>
+              </li>
+            ))}
+          </ul>
+        </Container>
       </section>
 
-      {/* Forum Composition */}
-      <section className="py-20 md:py-28 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
-                  style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              {t('composition.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black mb-6"
-                style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
-              {t('composition.heading')}
-            </h2>
-</div>
+      {/* Composition */}
+      <section aria-labelledby="imswg-composition" className="bg-ink-deep py-16 text-white md:py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="text-sm font-semibold text-sand">{t('composition.eyebrow')}</p>
+              <h2 id="imswg-composition" className="heading-display mt-2 !text-white text-[2rem] md:text-[2.5rem]">{t('composition.heading')}</h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="text-[1.25rem] leading-relaxed text-white/90 md:text-[1.375rem]">{t('composition.para1')}</p>
+              <aside className="mt-10 border-l-4 border-sand pl-6">
+                <h3 className="font-display text-[1.25rem] font-bold text-white">{t('composition.chathamHouse.heading')}</h3>
+                <p className="mt-2 leading-relaxed text-on-dark">{t('composition.chathamHouse.desc')}</p>
+              </aside>
+            </div>
+          </div>
+        </Container>
+      </section>
 
-          <div className="bg-white rounded-2xl p-10 md:p-12 shadow-lg mb-10">
-            <p className="text-base leading-relaxed mb-8 text-center"
-               style={{ color: '#475569', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-              {t('composition.para1')}
-            </p>
-
-            <div className="bg-slate-50 rounded-xl p-8 border-l-4 border-slate-900">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-slate-200 rounded-lg flex items-center justify-center">
-                  <span className="text-xl">🔒</span>
-                </div>
+      {/* Activities */}
+      <section aria-labelledby="imswg-activities" className="py-16 md:py-24">
+        <Container>
+          <SectionHeader id="imswg-activities" title={t('activities.heading')} />
+          <ol className="mt-10 grid gap-10 md:grid-cols-2 md:gap-14">
+            {activities.map((key, i) => (
+              <li key={key} className="grid grid-cols-[auto_1fr] gap-5">
+                <span className="font-display text-[2.5rem] font-bold leading-none text-rust" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <div>
-                  <h4 className="font-bold text-base mb-2"
-                      style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('composition.chathamHouse.heading')}</h4>
-                  <p className="text-sm leading-relaxed italic"
-                     style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                    {t('composition.chathamHouse.desc')}
-                  </p>
+                  <h3 className="font-display text-[1.375rem] font-bold text-ink">{t(`activities.${key}.heading`)}</h3>
+                  <p className="mt-2 text-lg leading-relaxed text-muted">{t(`activities.${key}.desc`)}</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              </li>
+            ))}
+          </ol>
+
+          <figure className="mt-14 md:mt-20">
+            <img src="/imswg3.jpg" alt={t('activities.imageAlt')} loading="lazy" className="aspect-[16/9] w-full object-cover md:aspect-[21/9]" />
+            <figcaption className="mt-4 grid gap-1 border-l-2 border-rust pl-4 md:max-w-3xl">
+              <span className="font-semibold text-ink">{t('activities.overlayTitle')}</span>
+              <span className="text-muted">{t('activities.overlaySubtitle')}</span>
+            </figcaption>
+          </figure>
+        </Container>
       </section>
 
-      {/* Forum Activities */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
-                  style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              {t('activities.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black mb-6"
-                style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
-              {t('activities.heading')}
-            </h2>
-</div>
-
-          <div className="grid md:grid-cols-2 gap-10 mb-16">
-            <div>
-              <h3 className="text-2xl font-bold mb-4"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('activities.discussionTopics.heading')}</h3>
-              <p className="text-base leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('activities.discussionTopics.desc')}
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-2xl font-bold mb-4"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('activities.reports.heading')}</h3>
-              <p className="text-base leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('activities.reports.desc')}
-              </p>
-            </div>
-          </div>
-
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img
-              src="/imswg3.jpg"
-              alt={t('activities.imageAlt')}
-              className="w-full h-96 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end">
-              <div className="p-10 text-white">
-                <p className="text-2xl font-semibold mb-2"
-                   style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-                  {t('activities.overlayTitle')}
-                </p>
-                <p className="text-slate-300"
-                   style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                  {t('activities.overlaySubtitle')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Get involved */}
+      <section aria-labelledby="imswg-involved" className="bg-paper py-16 md:py-24">
+        <Container>
+          <SectionHeader id="imswg-involved" title={t('reportsEvents.heading')} />
+          <ul className="mt-10 grid gap-6 md:grid-cols-3">
+            {involve.map(({ key, to }) => (
+              <li key={key} className="flex flex-col border border-line bg-white p-6 md:p-7">
+                <h3 className="font-display text-[1.375rem] font-bold text-ink">{t(`reportsEvents.${key}.heading`)}</h3>
+                <p className="mt-2 flex-1 leading-relaxed text-muted">{t(`reportsEvents.${key}.desc`)}</p>
+                <TextLink to={to} className="mt-6">{t(`reportsEvents.${key}.button`)}</TextLink>
+              </li>
+            ))}
+          </ul>
+        </Container>
       </section>
 
-      {/* Reports & Events */}
-      <section className="py-20 md:py-28 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest mb-4 block"
-                  style={{ color: '#8E3400', letterSpacing: '0.15em', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-              {t('reportsEvents.eyebrow')}
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black mb-6"
-                style={{ color: '#132552', letterSpacing: '-0.02em', fontFamily: 'Inter, sans-serif', fontWeight: 900 }}>
-              {t('reportsEvents.heading')}
-            </h2>
-</div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Sign Up */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center mb-6">
-                <Users className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('reportsEvents.signUp.heading')}</h3>
-              <p className="text-sm mb-6 leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('reportsEvents.signUp.desc')}
-              </p>
-              <button
-                onClick={() => navigate('/imswg-signup')}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 bg-slate-900 hover:bg-slate-800 text-white cursor-pointer"
-                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-              >
-                <span>{t('reportsEvents.signUp.button')}</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
+      {/* Closing band */}
+      <section className="bg-ink py-16 text-white md:py-20">
+        <Container>
+          <div className="grid gap-8 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-7">
+              <h2 className="heading-display !text-white text-[2rem] md:text-[2.75rem]">{t('cta.heading')}</h2>
+              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-on-dark">{t('cta.subtitle')}</p>
             </div>
-
-            {/* 2020-2026 Report */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center mb-6">
-                <FileText className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('reportsEvents.report.heading')}</h3>
-              <p className="text-sm mb-6 leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('reportsEvents.report.desc')}
-              </p>
-              <button
-                onClick={goToReports}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 border-2 border-slate-900 text-slate-900 hover:bg-slate-50 cursor-pointer"
-                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-              >
-                <span>{t('reportsEvents.report.button')}</span>
-                <Download className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* 2026 Event */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-14 h-14 bg-slate-900 rounded-xl flex items-center justify-center mb-6">
-                <Calendar className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3"
-                  style={{ color: '#1e293b', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t('reportsEvents.event.heading')}</h3>
-              <p className="text-sm mb-6 leading-relaxed"
-                 style={{ color: '#64748b', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-                {t('reportsEvents.event.desc')}
-              </p>
-              <button
-                onClick={() => navigate('/imswg-events')}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 border-2 border-slate-900 text-slate-900 hover:bg-slate-50 cursor-pointer"
-                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-              >
-                <span>{t('reportsEvents.event.button')}</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
+            <div className="flex flex-wrap gap-3 md:col-span-5 md:justify-end">
+              <Button to="/imswg-forum-q3" variant="onDark">{t('cta.register')}</Button>
+              <Button to={REPORTS_URL} variant="outlineOnDark">{t('cta.download')}</Button>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-20 md:py-24 bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, letterSpacing: '-0.02em' }}>
-            {t('cta.heading')}
-          </h2>
-          <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
-             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            {t('cta.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => navigate('/imswg-forum-q3')}
-              className="px-10 py-4 rounded-xl font-semibold transition-all hover:scale-105 bg-white text-slate-900 shadow-xl cursor-pointer"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-            >
-              {t('cta.register')}
-            </button>
-            <button
-              onClick={goToReports}
-              className="px-10 py-4 rounded-xl font-semibold transition-all hover:scale-105 border-2 border-white/30 text-white hover:bg-white/10 cursor-pointer"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-            >
-              {t('cta.download')}
-            </button>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
