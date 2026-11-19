@@ -1,5 +1,12 @@
 {
-  "hero": { "imageAlt": "GoG-MCF SHADE Banner" },
+  "hero": {
+    "eyebrow": "GoG-MCF / SHADE",
+    "title": "Gulf of Guinea Maritime Collaboration Forum",
+    "subtitle": "Shared Awareness and Deconfliction (SHADE): a working forum where regional and international navies, the shipping industry and regional frameworks coordinate their response to piracy and armed robbery at sea.",
+    "download": "Download the article",
+    "imageAlt": "Flyer for the inaugural GoG-MCF/SHADE virtual meeting on 14 July 2021",
+    "logoAlt": "GoG MCF/SHADE Forum logo"
+  },
   "modusOperandi": {
     "heading": "Modus Operandi",
     "para1": "The GoG-MCF/SHADE functions primarily through plenary sessions, each intended to generate dialogue and result in tangible action steps necessary to foster operational coordination between regional navies and stakeholders within the Gulf of Guinea's maritime industry.",
@@ -50,11 +57,31 @@
     }
   },
   "plenaries": [
-    { "number": "1st", "date": "14th July 2021", "location": "Virtual" },
-    { "number": "2nd", "date": "14th September 2021", "location": "Virtual" },
-    { "number": "3rd", "date": "16th November 2021", "location": "Virtual" },
-    { "number": "4th", "date": "19th January 2022", "location": "Virtual" },
-    { "number": "5th", "date": "10th and 11th May 2022", "location": "Abuja, Nigeria" }
+    {
+      "number": "1st",
+      "date": "14th July 2021",
+      "location": "Virtual"
+    },
+    {
+      "number": "2nd",
+      "date": "14th September 2021",
+      "location": "Virtual"
+    },
+    {
+      "number": "3rd",
+      "date": "16th November 2021",
+      "location": "Virtual"
+    },
+    {
+      "number": "4th",
+      "date": "19th January 2022",
+      "location": "Virtual"
+    },
+    {
+      "number": "5th",
+      "date": "10th and 11th May 2022",
+      "location": "Abuja, Nigeria"
+    }
   ],
   "fifthPlenary": {
     "heading": "The Fifth Plenary: A Closer Look",
@@ -105,19 +132,16 @@
     "Catalysation of active external stakeholder initiation of effective maritime regulation and enforcement operations, intended to complement other efforts across the region",
     "Establishment of operable best practices and mechanisms for reporting incidents across regional navies, such as a replication of the Mercury communication platform used within the Indian Ocean through SOLARTA"
   ],
-  "gallery": {
-    "heading": "Event Gallery",
-    "imageAlt": "SHADE Event"
-  },
   "inaugural": {
-    "eventImageAlt": "GoG-MCF SHADE Event",
-    "title": "GOG - MCF / SHADE",
-    "virtualEvent": "VIRTUAL EVENT",
-    "overviewLabel": "EVENT OVERVIEW",
-    "date": "14 JULY 2021",
-    "session1": "FIRST SESSION: 1000HRS - 1203HRS GMT",
-    "session2": "SECOND SESSION: 1300HRS - 1530HRS GMT",
-    "invitationOnly": "STRICTLY BY INVITATION!",
+    "heading": "The inaugural meeting",
+    "dateLabel": "Date",
+    "date": "Wednesday 14 July 2021",
+    "firstLabel": "First session",
+    "first": "10:00–12:03 GMT",
+    "secondLabel": "Second session",
+    "second": "13:00–15:30 GMT",
+    "formatLabel": "Format",
+    "format": "Virtual, by invitation only",
     "body": "On 26th April 2021, the ICC Yaoundé and Nigeria announced the formation of an International Framework to provide shared awareness and deconfliction for activities in the Gulf of Guinea. This event is the inaugural meeting of this framework referred to as the Gulf of Guinea Maritime Collaboration Forum – SHADE (GOG MCF/SHADE). This online meeting hosted by the Gulf of Guinea Maritime Institute (GoGMI) is by invitation of the SHADE Co-Chairs from the ICC and the Nigerian Navy."
   },
   "guestSpeakersSection": {
@@ -133,13 +157,13 @@
   "eventFeatures": {
     "heading": "Event Features",
     "session1": {
-      "heading": "SESSION I",
+      "heading": "Session I",
       "plenarySession": "Plenary Session",
       "remarks": "Remarks",
       "vision": "Vision"
     },
     "session2": {
-      "heading": "SESSION II",
+      "heading": "Session II",
       "plan": "Plan",
       "presentations": "Presentations"
     },
@@ -162,13 +186,14 @@
     "para1": "In the past decade, the world has witnessed an evolution of the Gulf of Guinea's maritime security threat trajectory – an evolution that rendered the region the most dangerous for seafarers. In 2020, all fifty-seven (57) incidents of kidnapping-for-ransom worldwide occurred in the Gulf; and in the first quarter of 2021, the region accounted for nearly half of all reported piracy incidents worldwide, leaving it as the world's piracy hotspot,",
     "para1Link": "according to the International Maritime Bureau (IMB).",
     "downloadButton": "To Read More Download Here",
-    "contactHeading": "CONTACT",
+    "contactHeading": "Contact",
     "contactBody": "For more information, contact us via",
     "logos": {
       "iccName": "CENTRE INTERREGIONAL DE COORDINATION (CIC)",
       "iccNameEn": "INTER REGIONAL COORDINATION CENTRE (ICC)",
       "iccAlt": "ICC Logo",
       "nimasaAlt": "NIMASA Logo"
-    }
+    },
+    "coverAlt": "Cover of the article Strengthening Counter-Piracy Responses"
   }
 }

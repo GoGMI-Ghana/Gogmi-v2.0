@@ -1,5 +1,12 @@
 {
-  "hero": { "imageAlt": "Bannière GoG-MCF SHADE" },
+  "hero": {
+    "eyebrow": "GoG-MCF / SHADE",
+    "title": "Forum de collaboration maritime du golfe de Guinée",
+    "subtitle": "Connaissance partagée et déconfliction (SHADE) : un forum de travail où les marines régionales et internationales, l'industrie du transport maritime et les cadres régionaux coordonnent leur réponse à la piraterie et aux vols à main armée en mer.",
+    "download": "Télécharger l'article",
+    "imageAlt": "Affiche de la réunion virtuelle inaugurale du GoG-MCF/SHADE du 14 juillet 2021",
+    "logoAlt": "Logo du Forum GoG MCF/SHADE"
+  },
   "modusOperandi": {
     "heading": "Mode de fonctionnement",
     "para1": "Le GoG-MCF/SHADE fonctionne principalement au moyen de sessions plénières, chacune destinée à générer un dialogue et à déboucher sur des mesures concrètes nécessaires pour favoriser la coordination opérationnelle entre les marines régionales et les parties prenantes de l'industrie maritime du Golfe de Guinée.",
@@ -50,11 +57,31 @@
     }
   },
   "plenaries": [
-    { "number": "1re", "date": "14 juillet 2021", "location": "Virtuel" },
-    { "number": "2e", "date": "14 septembre 2021", "location": "Virtuel" },
-    { "number": "3e", "date": "16 novembre 2021", "location": "Virtuel" },
-    { "number": "4e", "date": "19 janvier 2022", "location": "Virtuel" },
-    { "number": "5e", "date": "10 et 11 mai 2022", "location": "Abuja, Nigeria" }
+    {
+      "number": "1re",
+      "date": "14 juillet 2021",
+      "location": "Virtuel"
+    },
+    {
+      "number": "2e",
+      "date": "14 septembre 2021",
+      "location": "Virtuel"
+    },
+    {
+      "number": "3e",
+      "date": "16 novembre 2021",
+      "location": "Virtuel"
+    },
+    {
+      "number": "4e",
+      "date": "19 janvier 2022",
+      "location": "Virtuel"
+    },
+    {
+      "number": "5e",
+      "date": "10 et 11 mai 2022",
+      "location": "Abuja, Nigeria"
+    }
   ],
   "fifthPlenary": {
     "heading": "La cinquième plénière : un regard approfondi",
@@ -105,19 +132,16 @@
     "Impulsion donnée aux parties prenantes externes actives pour initier des opérations efficaces de réglementation et de répression maritimes, destinées à compléter les autres efforts déployés dans la région",
     "Mise en place de bonnes pratiques opérationnelles et de mécanismes de signalement des incidents entre marines régionales, à l'image de la réplication de la plateforme de communication Mercury utilisée dans l'océan Indien via SOLARTA"
   ],
-  "gallery": {
-    "heading": "Galerie de l'événement",
-    "imageAlt": "Événement SHADE"
-  },
   "inaugural": {
-    "eventImageAlt": "Événement GoG-MCF SHADE",
-    "title": "GOG - MCF / SHADE",
-    "virtualEvent": "ÉVÉNEMENT VIRTUEL",
-    "overviewLabel": "APERÇU DE L'ÉVÉNEMENT",
-    "date": "14 JUILLET 2021",
-    "session1": "PREMIÈRE SESSION : 10H00 - 12H03 GMT",
-    "session2": "DEUXIÈME SESSION : 13H00 - 15H30 GMT",
-    "invitationOnly": "STRICTEMENT SUR INVITATION !",
+    "heading": "La réunion inaugurale",
+    "dateLabel": "Date",
+    "date": "Mercredi 14 juillet 2021",
+    "firstLabel": "Première session",
+    "first": "10 h 00 – 12 h 03 GMT",
+    "secondLabel": "Deuxième session",
+    "second": "13 h 00 – 15 h 30 GMT",
+    "formatLabel": "Format",
+    "format": "Virtuel, sur invitation uniquement",
     "body": "Le 26 avril 2021, l'ICC Yaoundé et le Nigeria ont annoncé la création d'un cadre international destiné à assurer une connaissance partagée de la situation et la déconfliction des activités dans le Golfe de Guinée. Cet événement constitue la réunion inaugurale de ce cadre, appelé Forum de collaboration maritime du Golfe de Guinée – SHADE (GOG MCF/SHADE). Cette réunion en ligne, organisée par l'Institut Maritime du Golfe de Guinée (GoGMI), se tient sur invitation des coprésidents du SHADE, issus de l'ICC et de la Marine nigériane."
   },
   "guestSpeakersSection": {
@@ -133,13 +157,13 @@
   "eventFeatures": {
     "heading": "Points forts de l'événement",
     "session1": {
-      "heading": "SESSION I",
+      "heading": "Session I",
       "plenarySession": "Session plénière",
       "remarks": "Allocutions",
       "vision": "Vision"
     },
     "session2": {
-      "heading": "SESSION II",
+      "heading": "Session II",
       "plan": "Plan",
       "presentations": "Présentations"
     },
@@ -162,13 +186,14 @@
     "para1": "Au cours de la dernière décennie, le monde a été témoin d'une évolution de la trajectoire des menaces à la sécurité maritime dans le Golfe de Guinée – une évolution qui a fait de la région la plus dangereuse au monde pour les gens de mer. En 2020, la totalité des cinquante-sept (57) incidents d'enlèvement contre rançon recensés dans le monde ont eu lieu dans le Golfe ; et au premier trimestre 2021, la région a représenté près de la moitié de tous les incidents de piraterie signalés dans le monde, en faisant le point chaud mondial de la piraterie,",
     "para1Link": "selon le Bureau maritime international (BMI).",
     "downloadButton": "Pour en savoir plus, téléchargez ici",
-    "contactHeading": "CONTACT",
+    "contactHeading": "Contact",
     "contactBody": "Pour plus d'informations, contactez-nous via",
     "logos": {
       "iccName": "CENTRE INTERREGIONAL DE COORDINATION (CIC)",
       "iccNameEn": "INTER REGIONAL COORDINATION CENTRE (ICC)",
       "iccAlt": "Logo de l'ICC",
       "nimasaAlt": "Logo de la NIMASA"
-    }
+    },
+    "coverAlt": "Couverture de l'article Strengthening Counter-Piracy Responses"
   }
 }
