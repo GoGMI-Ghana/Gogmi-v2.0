@@ -15,13 +15,29 @@
     "with": "with",
     "watchNow": "Watch Now",
     "items": [
-      { "title": "Future of Maritime Excellence I", "description": "A deep dive into the strategies, partnerships, and innovations shaping Ghana maritime sector and blue economy." },
-      { "title": "Future of Maritime Excellence II", "description": "Continuing the conversation on balancing global ambitions with domestic and regional challenges." },
-      { "title": "Renewing the Gulf of Guinea Region IUU Fishing Agenda", "description": "Reflecting on the progress made in the Gulf of Guinea fisheries landscape over the past years." }
-    ]
+      {
+        "title": "Future of Maritime Excellence I",
+        "description": "A deep dive into the strategies, partnerships, and innovations shaping Ghana maritime sector and blue economy."
+      },
+      {
+        "title": "Future of Maritime Excellence II",
+        "description": "Continuing the conversation on balancing global ambitions with domestic and regional challenges."
+      },
+      {
+        "title": "Renewing the Gulf of Guinea Region IUU Fishing Agenda",
+        "description": "Reflecting on the progress made in the Gulf of Guinea fisheries landscape over the past years."
+      }
+    ],
+    "listen": "Listen to the latest episodes",
+    "play": "Play episode",
+    "episode": "Episode {{number}}",
+    "watchOnYoutube": "Watch on YouTube",
+    "allEpisodes": "All episodes",
+    "nowPlaying": "Now playing"
   },
   "subscribe": {
     "heading": "Subscribe and Stay Updated",
-    "subtitle": "Join the conversation on the future of maritime excellence"
+    "subtitle": "Join the conversation on the future of maritime excellence",
+    "cta": "Subscribe on YouTube"
   }
 }

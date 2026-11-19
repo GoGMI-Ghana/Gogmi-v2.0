@@ -15,13 +15,29 @@
     "with": "com",
     "watchNow": "Ver Agora",
     "items": [
-      { "title": "Future of Maritime Excellence I", "description": "Uma análise aprofundada das estratégias, parcerias e inovações que moldam o setor marítimo e a economia azul do Gana." },
-      { "title": "Future of Maritime Excellence II", "description": "A continuação da conversa sobre o equilíbrio entre ambições globais e desafios domésticos e regionais." },
-      { "title": "Renewing the Gulf of Guinea Region IUU Fishing Agenda", "description": "Uma reflexão sobre os progressos alcançados no panorama das pescas no Golfo da Guiné nos últimos anos." }
-    ]
+      {
+        "title": "Future of Maritime Excellence I",
+        "description": "Uma análise aprofundada das estratégias, parcerias e inovações que moldam o setor marítimo e a economia azul do Gana."
+      },
+      {
+        "title": "Future of Maritime Excellence II",
+        "description": "A continuação da conversa sobre o equilíbrio entre ambições globais e desafios domésticos e regionais."
+      },
+      {
+        "title": "Renewing the Gulf of Guinea Region IUU Fishing Agenda",
+        "description": "Uma reflexão sobre os progressos alcançados no panorama das pescas no Golfo da Guiné nos últimos anos."
+      }
+    ],
+    "listen": "Ouvir os episódios mais recentes",
+    "play": "Reproduzir episódio",
+    "episode": "Episódio {{number}}",
+    "watchOnYoutube": "Ver no YouTube",
+    "allEpisodes": "Todos os episódios",
+    "nowPlaying": "A reproduzir"
   },
   "subscribe": {
     "heading": "Subscreva e Mantenha-se Atualizado",
-    "subtitle": "Junte-se à conversa sobre o futuro da excelência marítima"
+    "subtitle": "Junte-se à conversa sobre o futuro da excelência marítima",
+    "cta": "Subscrever no YouTube"
   }
 }

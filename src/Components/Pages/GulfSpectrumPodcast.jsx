@@ -1,171 +1,208 @@
 import React, { useState } from 'react';
-import { Play, Youtube, Mic } from 'lucide-react';
+import { Play, ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Container } from '../ui/Editorial';
+
+/*
+  Gulf Spectrum Podcast, laid out with Material patterns: a header with the
+  show's logo, then a player with a selectable episode list beside it
+  (the YouTube player only loads once someone presses play), the "about"
+  section and a closing subscribe band.
+*/
+
+const CHANNEL_URL = 'https://www.youtube.com/@gulfofguineamaritimeinstitute';
+
+const EPISODES_META = [
+  { guest: 'Vice Admiral Issah Adam Yakubu', image: '/pod1.jpg', youtubeLink: 'https://www.youtube.com/watch?v=5KMyV26r8nc' },
+  { guest: 'Vice Admiral Issah Adam Yakubu', image: '/pod2.jpg', youtubeLink: 'https://www.youtube.com/watch?v=2BEzgqw-M1U' },
+  { guest: 'Dr. Ian Ralby', image: '/pod3.jpg', youtubeLink: 'https://www.youtube.com/watch?v=fpwxCQGAAdM' },
+];
+
+const videoId = (url) => new URL(url).searchParams.get('v');
 
 const GulfSpectrumPodcast = () => {
   const { t } = useTranslation('gulfSpectrumPodcast');
-  const [isVisible, setIsVisible] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [playing, setPlaying] = useState(false);
 
-  React.useEffect(() => {
-    setIsVisible(true);
-    window.scrollTo(0, 0);
-  }, []);
+  const items = t('episodes.items', { returnObjects: true });
+  const episodes = EPISODES_META.map((meta, i) => ({ ...meta, ...(items[i] || {}), number: i + 1 }));
+  const episode = episodes[current];
 
-  const episodesMeta = [
-    {
-      guest: 'Vice Admiral Issah Adam Yakubu',
-      image: '/pod1.jpg',
-      youtubeLink: 'https://www.youtube.com/watch?v=5KMyV26r8nc'
-    },
-    {
-      guest: 'Vice Admiral Issah Adam Yakubu',
-      image: '/pod2.jpg',
-      youtubeLink: 'https://www.youtube.com/watch?v=2BEzgqw-M1U'
-    },
-    {
-      guest: 'Dr. Ian Ralby',
-      image: '/pod3.jpg',
-      youtubeLink: 'https://www.youtube.com/watch?v=fpwxCQGAAdM'
-    }
-  ];
-
-  const featuredEpisodes = t('episodes.items', { returnObjects: true }).map((episode, idx) => ({
-    ...episode,
-    ...episodesMeta[idx]
-  }));
+  const select = (i) => {
+    setCurrent(i);
+    setPlaying(true);
+    document.getElementById('podcast-player')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <div className="w-full" style={{ fontFamily: 'Inter, sans-serif' }}>
-      
-      <section className="relative py-32 overflow-hidden" style={{ backgroundColor: '#132552' }}>
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ 
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
+    <div className="w-full bg-white font-body text-text">
+      {/* Header */}
+      <header className="bg-ink-deep text-white">
+        <Container className="pb-14 pt-[120px] md:pb-20 md:pt-[150px]">
+          <div className="grid items-center gap-10 md:grid-cols-12">
+            <div className="md:col-span-8">
+              <p className="text-sm font-semibold text-sand">{t('hero.badge')}</p>
+              <h1 className="heading-display mt-3 !text-white text-[2.75rem] md:text-[4rem]">Gulf Spectrum Podcast</h1>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">{t('hero.subtitle')}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#podcast-player"
+                  className="focus-ring inline-flex items-center gap-2 rounded-[2px] border border-white bg-white px-5 py-3 text-[0.9375rem] font-semibold text-ink transition-colors duration-150 hover:border-sand hover:bg-sand"
+                >
+                  <Play className="h-4 w-4" fill="currentColor" aria-hidden="true" />
+                  {t('episodes.listen')}
+                </a>
+                <a
+                  href={CHANNEL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring inline-flex items-center gap-2 rounded-[2px] border border-white/70 px-5 py-3 text-[0.9375rem] font-semibold text-white transition-colors duration-150 hover:border-white hover:bg-white hover:text-ink"
+                >
+                  {t('episodes.watchOnYoutube')}
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+            <div className="md:col-span-4">
+              <div className="mx-auto w-48 bg-white p-5 md:ml-auto md:mr-0 md:w-60">
+                <img src="/gsp.png" alt="Gulf Spectrum Podcast logo" className="h-auto w-full" />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </header>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            
-            {/* Podcast Logo with white background */}
-            <div className="mb-8 flex justify-center">
-              <div className="bg-white rounded-2xl p-6 shadow-2xl">
-                <img src="/gsp.png" alt="Gulf Spectrum Podcast" className="h-24 w-auto" />
+      {/* Player and episode list */}
+      <section id="podcast-player" aria-labelledby="episodes-heading" className="scroll-mt-20 bg-paper py-14 md:py-20">
+        <Container>
+          <h2 id="episodes-heading" className="heading-display text-[2rem] md:text-[2.5rem]">{t('episodes.heading')}</h2>
+
+          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
+            {/* Player */}
+            <div>
+              <div className="relative aspect-video w-full overflow-hidden bg-ink-deep">
+                {playing ? (
+                  <iframe
+                    key={episode.youtubeLink}
+                    src={`https://www.youtube-nocookie.com/embed/${videoId(episode.youtubeLink)}?autoplay=1&rel=0`}
+                    title={episode.title}
+                    className="absolute inset-0 h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setPlaying(true)}
+                    className="focus-ring group absolute inset-0 h-full w-full"
+                    aria-label={`${t('episodes.play')}: ${episode.title}`}
+                  >
+                    <img src={episode.image} alt="" className="h-full w-full object-cover" />
+                    <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                      <span className="flex h-16 w-16 items-center justify-center rounded-full bg-rust text-white transition-colors group-hover:bg-rust-deep md:h-20 md:w-20">
+                        <Play className="ml-1 h-7 w-7 md:h-8 md:w-8" fill="currentColor" />
+                      </span>
+                    </span>
+                  </button>
+                )}
+              </div>
+
+              <div className="mt-6" aria-live="polite">
+                <p className="text-sm font-semibold text-rust">
+                  {t('episodes.episode', { number: episode.number })}
+                </p>
+                <h3 className="mt-1 font-display text-[1.5rem] font-bold leading-tight text-ink md:text-[1.75rem]">{episode.title}</h3>
+                <p className="mt-1 font-medium text-text">{t('episodes.with')} {episode.guest}</p>
+                <p className="mt-3 max-w-2xl leading-relaxed text-muted">{episode.description}</p>
+                <a
+                  href={episode.youtubeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-editorial focus-ring mt-4 inline-flex items-center gap-1.5"
+                >
+                  {t('episodes.watchOnYoutube')}
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
               </div>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
-              <Mic className="w-5 h-5 text-white" />
-              <span className="text-white font-semibold">{t('hero.badge')}</span>
+            {/* Episode list */}
+            <div>
+              <h3 className="font-display text-lg font-bold text-ink">{t('episodes.allEpisodes')}</h3>
+              <ol className="mt-3 border-t border-line">
+                {episodes.map((ep, i) => {
+                  const active = i === current;
+                  return (
+                    <li key={ep.youtubeLink} className="border-b border-line">
+                      <button
+                        type="button"
+                        onClick={() => select(i)}
+                        aria-current={active ? 'true' : undefined}
+                        className={`focus-ring grid w-full grid-cols-[7.5rem_1fr] items-start gap-4 border-l-4 py-4 pl-3 pr-2 text-left transition-colors ${
+                          active ? 'border-l-rust bg-white' : 'border-l-transparent hover:bg-white'
+                        }`}
+                      >
+                        <img src={ep.image} alt="" loading="lazy" className="aspect-video w-full object-cover" />
+                        <span className="min-w-0">
+                          <span className="block text-xs font-semibold text-muted">
+                            {active && playing ? t('episodes.nowPlaying') : t('episodes.episode', { number: ep.number })}
+                          </span>
+                          <span className={`mt-0.5 block font-display font-bold leading-snug ${active ? 'text-rust' : 'text-ink'}`}>
+                            {ep.title}
+                          </span>
+                          <span className="mt-0.5 block text-sm text-muted">{ep.guest}</span>
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
             </div>
+          </div>
+        </Container>
+      </section>
 
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-              Gulf Spectrum Podcast
-            </h1>
+      {/* About */}
+      <section aria-labelledby="about-heading" className="py-16 md:py-24">
+        <Container>
+          <div className="grid items-center gap-10 md:grid-cols-12 md:gap-14">
+            <div className="md:col-span-7">
+              <p className="text-sm font-semibold text-rust">{t('about.eyebrow')}</p>
+              <h2 id="about-heading" className="heading-display mt-2 text-[2rem] md:text-[2.5rem]">{t('about.heading')}</h2>
+              <div className="prose-lead mt-6 space-y-4">
+                <p>{t('about.para1')}</p>
+                <p>{t('about.para2')}</p>
+              </div>
+            </div>
+            <div className="md:col-span-5">
+              <img src="/podcastimage.png" alt="" loading="lazy" className="aspect-[4/5] w-full object-cover" />
+            </div>
+          </div>
+        </Container>
+      </section>
 
-            <p className="text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              {t('hero.subtitle')}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://www.youtube.com/@gulfofguineamaritimeinstitute" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-xl" style={{ backgroundColor: '#8E3400', color: 'white' }}>
-                <Youtube className="w-6 h-6" />
-                <span>{t('hero.cta')}</span>
+      {/* Subscribe */}
+      <section className="bg-ink py-16 text-white md:py-20">
+        <Container>
+          <div className="grid gap-8 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-8">
+              <h2 className="heading-display !text-white text-[2rem] md:text-[2.75rem]">{t('subscribe.heading')}</h2>
+              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-on-dark">{t('subscribe.subtitle')}</p>
+            </div>
+            <div className="md:col-span-4 md:text-right">
+              <a
+                href={`${CHANNEL_URL}?sub_confirmation=1`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-ring inline-flex items-center gap-2 rounded-[2px] border border-white bg-white px-5 py-3 text-[0.9375rem] font-semibold text-ink transition-colors duration-150 hover:border-sand hover:bg-sand"
+              >
+                {t('subscribe.cta')}
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-sm uppercase tracking-wider font-semibold mb-4 block" style={{ color: '#8E3400' }}>
-                {t('about.eyebrow')}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-black mb-6" style={{ color: '#132552', fontWeight: 900, letterSpacing: '-0.02em' }}>
-                {t('about.heading')}
-              </h2>
-<div className="space-y-4 text-lg leading-relaxed" style={{ color: '#4B5563' }}>
-                <p>
-                  {t('about.para1')}
-                </p>
-                <p>
-                  {t('about.para2')}
-                </p>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <img src="/podcastimage.png" alt="Gulf Spectrum Podcast" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Episodes - Grid Layout (3 per row) */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#132552', fontWeight: 900 }}>
-              {t('episodes.heading')}
-            </h2>
-</div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {featuredEpisodes.map((episode, idx) => (
-              <div key={idx} className="group bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-gray-100 hover:border-[#8E3400] transition-all duration-500">
-                {/* Episode Image */}
-                <div className="relative h-64">
-                  <img src={episode.image} alt={episode.guest} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                  
-                  {/* Play Button Overlay */}
-                  <a href={episode.youtubeLink} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center group-hover:bg-black/30 transition-all">
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all group-hover:scale-110" style={{ backgroundColor: '#8E3400' }}>
-                      <Play className="w-6 h-6 text-white ml-1" fill="white" />
-                    </div>
-                  </a>
-                </div>
-
-                {/* Episode Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-black mb-2 group-hover:text-[#8E3400] transition-colors line-clamp-2" style={{ color: '#132552', fontWeight: 900 }}>
-                    {episode.title}
-                  </h3>
-
-                  <p className="text-sm font-bold mb-3" style={{ color: '#8E3400' }}>
-                    {t('episodes.with')} {episode.guest}
-                  </p>
-
-                  <p className="text-sm leading-relaxed mb-4 line-clamp-3" style={{ color: '#4B5563' }}>
-                    {episode.description}
-                  </p>
-
-                  <a href={episode.youtubeLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all hover:scale-105 text-sm" style={{ backgroundColor: '#132552', color: 'white' }}>
-                    <Youtube className="w-4 h-4" />
-                    <span>{t('episodes.watchNow')}</span>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20" style={{ backgroundColor: '#132552' }}>
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontWeight: 900 }}>
-            {t('subscribe.heading')}
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            {t('subscribe.subtitle')}
-          </p>
-        </div>
+        </Container>
       </section>
     </div>
   );

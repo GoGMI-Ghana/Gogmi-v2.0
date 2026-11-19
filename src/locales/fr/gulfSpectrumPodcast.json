@@ -15,13 +15,29 @@
     "with": "avec",
     "watchNow": "Regarder maintenant",
     "items": [
-      { "title": "L'avenir de l'excellence maritime I", "description": "Une analyse approfondie des stratégies, partenariats et innovations qui façonnent le secteur maritime et l'économie bleue du Ghana." },
-      { "title": "L'avenir de l'excellence maritime II", "description": "La suite de la conversation sur l'équilibre entre ambitions mondiales et défis nationaux et régionaux." },
-      { "title": "Relancer l'agenda de lutte contre la pêche INN dans la région du Golfe de Guinée", "description": "Un regard sur les progrès accomplis dans le secteur de la pêche du Golfe de Guinée au cours des dernières années." }
-    ]
+      {
+        "title": "L'avenir de l'excellence maritime I",
+        "description": "Une analyse approfondie des stratégies, partenariats et innovations qui façonnent le secteur maritime et l'économie bleue du Ghana."
+      },
+      {
+        "title": "L'avenir de l'excellence maritime II",
+        "description": "La suite de la conversation sur l'équilibre entre ambitions mondiales et défis nationaux et régionaux."
+      },
+      {
+        "title": "Relancer l'agenda de lutte contre la pêche INN dans la région du Golfe de Guinée",
+        "description": "Un regard sur les progrès accomplis dans le secteur de la pêche du Golfe de Guinée au cours des dernières années."
+      }
+    ],
+    "listen": "Écouter les derniers épisodes",
+    "play": "Lire l’épisode",
+    "episode": "Épisode {{number}}",
+    "watchOnYoutube": "Regarder sur YouTube",
+    "allEpisodes": "Tous les épisodes",
+    "nowPlaying": "En cours de lecture"
   },
   "subscribe": {
     "heading": "Abonnez-vous et restez informés",
-    "subtitle": "Rejoignez la conversation sur l'avenir de l'excellence maritime"
+    "subtitle": "Rejoignez la conversation sur l'avenir de l'excellence maritime",
+    "cta": "S’abonner sur YouTube"
   }
 }

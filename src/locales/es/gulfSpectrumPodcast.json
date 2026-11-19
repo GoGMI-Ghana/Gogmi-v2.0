@@ -15,13 +15,29 @@
     "with": "con",
     "watchNow": "Ver ahora",
     "items": [
-      { "title": "El futuro de la excelencia marítima I", "description": "Un análisis en profundidad de las estrategias, alianzas e innovaciones que dan forma al sector marítimo y la economía azul de Ghana." },
-      { "title": "El futuro de la excelencia marítima II", "description": "Continuando la conversación sobre cómo equilibrar las ambiciones globales con los desafíos nacionales y regionales." },
-      { "title": "Renovando la agenda contra la pesca INDNR en la región del Golfo de Guinea", "description": "Una reflexión sobre los avances logrados en el sector pesquero del Golfo de Guinea en los últimos años." }
-    ]
+      {
+        "title": "El futuro de la excelencia marítima I",
+        "description": "Un análisis en profundidad de las estrategias, alianzas e innovaciones que dan forma al sector marítimo y la economía azul de Ghana."
+      },
+      {
+        "title": "El futuro de la excelencia marítima II",
+        "description": "Continuando la conversación sobre cómo equilibrar las ambiciones globales con los desafíos nacionales y regionales."
+      },
+      {
+        "title": "Renovando la agenda contra la pesca INDNR en la región del Golfo de Guinea",
+        "description": "Una reflexión sobre los avances logrados en el sector pesquero del Golfo de Guinea en los últimos años."
+      }
+    ],
+    "listen": "Escuchar los últimos episodios",
+    "play": "Reproducir episodio",
+    "episode": "Episodio {{number}}",
+    "watchOnYoutube": "Ver en YouTube",
+    "allEpisodes": "Todos los episodios",
+    "nowPlaying": "Reproduciendo"
   },
   "subscribe": {
     "heading": "Suscríbete y mantente informado",
-    "subtitle": "Únete a la conversación sobre el futuro de la excelencia marítima"
+    "subtitle": "Únete a la conversación sobre el futuro de la excelencia marítima",
+    "cta": "Suscribirse en YouTube"
   }
 }
